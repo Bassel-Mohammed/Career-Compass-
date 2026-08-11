@@ -1,8 +1,38 @@
+# Virtual environments
 /venv
+venv/
 .venv
-.env
-__pycache__/
-*.pyc
+env/
 
-# Ignore Data files
-data/*
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Personal academic records. Real transcripts carry a student's name, ID
+# and full grade history and must never reach the shared repository.
+# Course syllabi are not personal and stay tracked: the parser tests use
+# them as fixtures.
+*_plan_*_EN.pdf
+src/data/extracted/*.json
+
+# Scratch output
+src/data/temp/
+
+# Planning notes
+SKILL_EXTRACTION_PLAN.md
