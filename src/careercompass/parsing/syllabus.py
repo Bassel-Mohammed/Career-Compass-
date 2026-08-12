@@ -468,5 +468,3 @@ def save_syllabus(result: dict, output_path: str) -> None:
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
     print(f"✅ Saved syllabus to: {output_path}")
-
-print(parse_syllabus("/home/almadhoun/Desktop/career_compass/Robotics Syl.pdf"))

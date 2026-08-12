@@ -1,20 +1,12 @@
 """
-CareerCompass LinkedIn Scraper — Configuration
+CareerCompass — LinkedIn Scraper Settings
+
+Scraper behaviour only. Database credentials and data paths live in
+careercompass.config, because the skills pipeline needs them too and
+should not have to import them from inside the scraper.
 """
 
-import os
-from dotenv import load_dotenv
-
-load_dotenv()  # loads .env from project root
-
-# ── PostgreSQL Connection ──────────────────────────────────────
-DB_CONFIG = {
-    "host": os.getenv("CC_DB_HOST"),
-    "port": int(os.getenv("CC_DB_PORT", "5432")),
-    "dbname": os.getenv("CC_DB_NAME"),
-    "user": os.getenv("CC_DB_USER"),
-    "password": os.getenv("CC_DB_PASSWORD")
-}
+from careercompass.config import CLEAN_DATA_DIR, RAW_DATA_DIR  # noqa: F401  (re-exported)
 
 # ── Career Path → Search Queries ───────────────────────────────
 # Each career path maps to multiple LinkedIn search keywords
@@ -101,9 +93,6 @@ USER_AGENTS = [
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 14.5; rv:126.0) Gecko/20100101 Firefox/126.0",
 ]
 
-# ── Output Paths ───────────────────────────────────────────────
-RAW_DATA_DIR = os.path.join("src", "data", "raw")
-CLEAN_DATA_DIR = os.path.join("src", "data", "clean")
 
 # ── Noise Filter Patterns ──────────────────────────────────────
 # Job titles matching these patterns are blog posts, not real jobs.

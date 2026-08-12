@@ -11,7 +11,7 @@ Features:
     - Structured JSON output export
 
 Usage:
-    from src.modules.transcript_parser import parse_academic_plan
+    from careercompass.parsing.transcript import parse_academic_plan
     result = parse_academic_plan("CS_AI_plan_mohammed_EN.pdf")
 """
 
@@ -20,7 +20,7 @@ import json
 import pdfplumber
 from pathlib import Path
 
-from src.modules.grade_utils import (
+from careercompass.parsing.grades import (
     normalize_grade,
     grade_to_points,
     classify_grade,

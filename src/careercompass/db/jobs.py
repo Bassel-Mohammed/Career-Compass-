@@ -1,59 +1,27 @@
 """
-CareerCompass LinkedIn Scraper — PostgreSQL Database Layer
+CareerCompass — Job Storage (PostgreSQL)
 
-Handles:
-  - Connection management
-  - Table creation (runs migration SQL)
-  - Inserting scraped jobs (with ON CONFLICT deduplication)
-  - Querying existing URLs (for resume capability)
+Reads and writes the scraped LinkedIn postings.
+
+Schema lives in careercompass/db/migrations/001_linkedin_jobs.sql.
+Connection handling is in careercompass.db.connection.
+
+Usage:
+    from careercompass.db.jobs import init_job_tables, insert_jobs
 """
 
 import logging
-import os
 
 import psycopg2
-import psycopg2.extras
 
-from src.scraper.config import DB_CONFIG
+from careercompass.db.connection import get_connection, run_migration
 
-logger = logging.getLogger("careercompass.scraper")
-
-
-def get_connection():
-    """Create and return a new PostgreSQL connection."""
-    try:
-        conn = psycopg2.connect(**DB_CONFIG)
-        conn.autocommit = False
-        return conn
-    except psycopg2.Error as e:
-        logger.error("Failed to connect to PostgreSQL: %s", e)
-        raise
+logger = logging.getLogger("careercompass.jobs")
 
 
-def init_db():
-    """
-    Run the migration SQL to create tables if they don't exist.
-    Safe to call multiple times (uses IF NOT EXISTS).
-    """
-    migration_path = os.path.join(
-        os.path.dirname(__file__), "migrations", "001_linkedin_jobs.sql"
-    )
-
-    with open(migration_path, "r") as f:
-        sql = f.read()
-
-    conn = get_connection()
-    try:
-        with conn.cursor() as cur:
-            cur.execute(sql)
-        conn.commit()
-        logger.info("Database tables initialized successfully.")
-    except psycopg2.Error as e:
-        conn.rollback()
-        logger.error("Failed to initialize database: %s", e)
-        raise
-    finally:
-        conn.close()
+def init_job_tables() -> None:
+    """Create the job tables if they do not exist."""
+    run_migration("001_linkedin_jobs.sql")
 
 
 def get_existing_urls(conn) -> set:

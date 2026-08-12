@@ -29,10 +29,22 @@ Thumbs.db
 # Course syllabi are not personal and stay tracked: the parser tests use
 # them as fixtures.
 *_plan_*_EN.pdf
-src/data/extracted/*.json
+data/extracted/*.json
+
+# Generated taxonomy artifacts. custom_skills.json is a source file and
+# stays tracked; these three are rebuilt by run_taxonomy_build, and the
+# ESCO crawl cache runs to tens of megabytes.
+data/taxonomy/cache/
+data/taxonomy/taxonomy.jsonl
+data/taxonomy/vector_index.npz
 
 # Scratch output
-src/data/temp/
+data/temp/
 
 # Planning notes
 SKILL_EXTRACTION_PLAN.md
+
+# Packaging
+*.egg-info/
+build/
+dist/

@@ -2,7 +2,7 @@
 CareerCompass — Academic Plan Extraction CLI
 
 Usage:
-    python -m src.modules.run_extraction CS_AI_plan_mohammed_EN.pdf [--output <output_path>]
+    python -m careercompass.cli.parse_transcript CS_AI_plan_mohammed_EN.pdf [--output <output_path>]
 """
 
 import sys
@@ -10,7 +10,8 @@ import json
 import argparse
 from pathlib import Path
 
-from src.modules.transcript_parser import parse_academic_plan, save_extraction
+from careercompass.config import EXTRACTED_DIR
+from careercompass.parsing.transcript import parse_academic_plan, save_extraction
 
 
 def main():
@@ -92,7 +93,7 @@ def main():
     if args.output:
         output_path = args.output
     else:
-        output_dir = Path("src/data/extracted")
+        output_dir = EXTRACTED_DIR
         output_path = str(output_dir / f"{pdf_path.stem}.json")
 
     save_extraction(result, output_path)

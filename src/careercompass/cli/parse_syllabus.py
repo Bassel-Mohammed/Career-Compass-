@@ -2,14 +2,15 @@
 CareerCompass — Course Syllabus Extraction CLI
 
 Usage:
-    python -m src.modules.run_syllabus_extraction "Robotics Syl.pdf" [--output <output_path>]
+    python -m careercompass.cli.parse_syllabus "Robotics Syl.pdf" [--output <output_path>]
 """
 
 import sys
 import argparse
 from pathlib import Path
 
-from src.modules.syllabus_parser import parse_syllabus, save_syllabus
+from careercompass.config import SYLLABI_DIR
+from careercompass.parsing.syllabus import parse_syllabus, save_syllabus
 
 
 def main():
@@ -89,7 +90,7 @@ def main():
         output_path = args.output
     else:
         stem = result["course_code"] or pdf_path.stem
-        output_path = str(Path("src/data/extracted/syllabi") / f"{stem}.json")
+        output_path = str(SYLLABI_DIR / f"{stem}.json")
 
     save_syllabus(result, output_path)
 

@@ -1,3 +1,0 @@
-"""
-CareerCompass — AI Modules Package
-"""

@@ -15,7 +15,7 @@ import time
 
 import requests
 
-from src.scraper.config import (
+from careercompass.jobs.config import (
     MAX_RETRIES,
     MIN_DELAY,
     MAX_DELAY,

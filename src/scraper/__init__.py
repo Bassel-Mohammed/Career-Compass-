@@ -1,1 +1,0 @@
-# LinkedIn Job Scraper Package

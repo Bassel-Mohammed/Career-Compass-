@@ -16,7 +16,8 @@ from fastapi import FastAPI, File, UploadFile, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from src.modules.transcript_parser import parse_academic_plan, save_extraction
+from careercompass.config import EXTRACTED_DIR, TEMP_DIR
+from careercompass.parsing.transcript import parse_academic_plan, save_extraction
 
 app = FastAPI(
     title="CareerCompass API",
@@ -63,7 +64,7 @@ async def upload_transcript(
         )
 
     # Save uploaded file to a temporary file for pdfplumber processing
-    temp_dir = Path("src/data/temp")
+    temp_dir = TEMP_DIR
     temp_dir.mkdir(parents=True, exist_ok=True)
     temp_file_path = temp_dir / f"upload_{os.urandom(8).hex()}_{file.filename}"
 
@@ -76,7 +77,7 @@ async def upload_transcript(
 
         # Save extraction to src/data/extracted if requested
         if save_output:
-            extracted_dir = Path("src/data/extracted")
+            extracted_dir = EXTRACTED_DIR
             extracted_dir.mkdir(parents=True, exist_ok=True)
             output_filename = f"{Path(file.filename).stem}.json"
             save_extraction(parsed_result, str(extracted_dir / output_filename))
@@ -112,4 +113,4 @@ async def upload_transcript(
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("src.app:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("careercompass.api.app:app", host="0.0.0.0", port=8000, reload=True)

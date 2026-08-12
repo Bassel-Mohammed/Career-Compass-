@@ -13,10 +13,11 @@ Usage:
 import sys
 from pathlib import Path
 
-from src.modules.syllabus_parser import parse_syllabus
+from careercompass.parsing.syllabus import parse_syllabus
 
-ROBOTICS_PDF = "Robotics Syl.pdf"
-PROBABILITY_PDF = "probability_and_statistics.pdf"
+FIXTURES = Path(__file__).resolve().parent / "fixtures"
+ROBOTICS_PDF = str(FIXTURES / "Robotics Syl.pdf")
+PROBABILITY_PDF = str(FIXTURES / "probability_and_statistics.pdf")
 
 RETURNED_KEYS = {
     "source_file", "course_code", "course_title", "credit_hours",

@@ -27,15 +27,16 @@ from datetime import datetime, timezone
 
 from bs4 import BeautifulSoup
 
-from src.scraper.config import (
+from careercompass.jobs.config import (
     CAREER_PATH_QUERIES,
     CLEAN_DATA_DIR,
     PAGES_PER_QUERY,
     RAW_DATA_DIR,
     TARGET_LOCATIONS,
 )
-from src.scraper.db import get_connection, get_existing_urls, init_db, insert_jobs
-from src.scraper.utils import (
+from careercompass.db.connection import get_connection
+from careercompass.db.jobs import get_existing_urls, init_job_tables, insert_jobs
+from careercompass.jobs.utils import (
     clean_text,
     is_noise,
     make_request,
@@ -224,7 +225,7 @@ def run_scraper(
 
     if not dry_run:
         try:
-            init_db()
+            init_job_tables()
             conn = get_connection()
             seen_urls = get_existing_urls(conn)
             logger.info(
