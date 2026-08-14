@@ -27,7 +27,8 @@ dependencies = [
 # bge-reranker-v2-m3). Without these the matcher runs on lexical
 # scoring; see docs/SYLLABUS_SKILL_EXTRACTION.md.
 semantic = ["sentence-transformers>=3.0"]
-# Constrained LLM selection for ambiguous taxonomy candidates.
+# Optional hosted Anthropic provider. Local Ollama uses the standard library
+# and does not need a Python dependency.
 llm = ["anthropic>=0.40"]
 dev = ["black"]
 

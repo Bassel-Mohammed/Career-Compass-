@@ -5,18 +5,22 @@ Checks the deterministic skill mining over both reference syllabi: that
 levels follow the JNQF descriptor, that weights follow the source zone,
 and that the known text defects of these PDFs stay filtered out.
 
+
 Usage:
     python -m tests.test_skill_extractor
+    python -m tests.test_skill_extractor "path/to/syllabus.pdf"
+
 """
 
 import sys
 from pathlib import Path
+from textwrap import shorten
 
 from careercompass.parsing.syllabus import parse_syllabus
-from careercompass.skills.extractor import extract_skills
+from careercompass.skills.extractor import _phrases, extract_skills
 
 FIXTURES = Path(__file__).resolve().parent / "fixtures"
-ROBOTICS_PDF = str(FIXTURES / "Robotics Syl.pdf")
+ROBOTICS_PDF = str(FIXTURES / "robotics_programming.pdf")
 PROBABILITY_PDF = str(FIXTURES / "probability_and_statistics.pdf")
 
 _failures = []
@@ -34,6 +38,89 @@ def check(label: str, actual, expected):
 def terms(skills: list) -> dict:
     """Index skills by lowercased term."""
     return {s["term"].lower(): s for s in skills}
+
+
+
+def extract_and_display(pdf_path: str | Path) -> dict:
+    """Extract a PDF's skills, print a readable report, and return all data.
+
+    The returned dictionary remains suitable for assertions, JSON output, or
+    further processing.  The ``why`` column is derived from each skill's first
+    evidence record; the complete evidence list is preserved in ``skills``.
+
+    Args:
+        pdf_path: Path to a text-based course syllabus PDF.
+
+    Returns:
+        A dictionary containing the PDF path, parsed syllabus, skill count,
+        and extracted skill dictionaries.
+    """
+    path = Path(pdf_path).expanduser()
+    syllabus = parse_syllabus(str(path))
+    skills = extract_skills(syllabus)
+    result = {
+        "pdf_path": str(path.resolve()),
+        "syllabus": syllabus,
+        "total_skills": len(skills),
+        "skills": skills,
+    }
+
+    title = syllabus.get("course_title") or "Unknown course"
+    code = syllabus.get("course_code") or "no course code"
+    print(f"\n{title} ({code})")
+    print(f"Source: {path}")
+    print(f"Extracted skills: {len(skills)}")
+
+    warnings = syllabus.get("warnings", [])
+    if warnings:
+        print("Warnings:")
+        for warning in warnings:
+            print(f"  - {warning}")
+
+    columns = (
+        ("#", 3),
+        ("Skill", 32),
+        ("Level", 12),
+        ("Weight", 6),
+        ("Sources", 20),
+        ("Why extracted", 52),
+    )
+    header = " | ".join(name.ljust(width) for name, width in columns)
+    print(f"\n{header}")
+    print("-" * len(header))
+
+    for number, skill in enumerate(skills, start=1):
+        evidence = skill.get("evidence", [])
+        first_evidence = evidence[0] if evidence else {}
+        source = first_evidence.get("source", "unknown")
+        location = (
+            f"CLO {first_evidence['clo']}"
+            if "clo" in first_evidence
+            else f"week {first_evidence['week']}"
+            if "week" in first_evidence
+            else source
+        )
+        evidence_text = first_evidence.get("text", "")
+        why = shorten(
+            f"{location}: {evidence_text}",
+            width=columns[-1][1],
+            placeholder="...",
+        )
+        values = (
+            str(number),
+            shorten(skill["term"], width=columns[1][1], placeholder="..."),
+            skill["level"],
+            f"{skill['weight']:.2f}",
+            shorten(
+                ", ".join(skill["sources"]),
+                width=columns[4][1],
+                placeholder="...",
+            ),
+            why,
+        )
+        print(" | ".join(value.ljust(width) for value, (_, width) in zip(values, columns)))
+
+    return result
 
 
 def test_robotics():
@@ -111,6 +198,67 @@ def test_empty_syllabus():
     check("empty.no_skills", extract_skills({}), [])
 
 
+def test_text_cleanup():
+    """PDF list artifacts are removed without damaging technology names."""
+    for marker in ("\uf0b7", "•", "·", "●", "○", "■", "-", "–", "—"):
+        check(f"cleanup.marker.{ord(marker):x}",
+              _phrases(f"{marker} Environment setup"), ["Environment setup"])
+    check("cleanup.no_space_en_dash",
+          _phrases("–Client/Server"), ["Client/Server"])
+    check("cleanup.no_space_em_dash",
+          _phrases("—Client/Server"), ["Client/Server"])
+    check("cleanup.asterisk_marker",
+          _phrases("* Pointer dereferencing"), ["Pointer dereferencing"])
+    check("cleanup.star_args",
+          _phrases("*args and **kwargs"), ["*args", "**kwargs"])
+    check("cleanup.double_star_kwargs",
+          _phrases("**kwargs handling"), ["**kwargs handling"])
+
+    check("cleanup.client_server", _phrases("- Client/Server"), ["Client/Server"])
+    check("cleanup.files_io",
+          _phrases("Files I/O & Multithreading"), ["Files I/O", "Multithreading"])
+    check("cleanup.raster_vector",
+          _phrases("image types (raster/vector)"), ["image types", "raster/vector"])
+    check("cleanup.c_cpp", _phrases("C/C++"), ["C/C++"])
+
+    check("cleanup.unmatched_open",
+          _phrases("Environment setup (OpenCV,"), ["Environment setup OpenCV"])
+    check("cleanup.unmatched_close",
+          _phrases("NumPy, Matplotlib)"), ["NumPy", "Matplotlib"])
+
+    for heading in ("(Chapter 8)", "Chapter 9", "Chapter 11 & 12",
+                    "Chapter 11/12", "(Chapter 11/12)"):
+        check(f"cleanup.chapter.{heading}", _phrases(heading), [])
+    check("cleanup.chapter_keeps_skill",
+          _phrases("or Swing (Chapter 12)"), ["Swing"])
+    check("cleanup.chapter_prefix",
+          _phrases("Chapter 11 - Interfaces"), ["Interfaces"])
+
+    for heading in ("Mid Exam", "Mid-Term", "Midterm Exam", "Final",
+                    "Final Exam", "Final-Exam", "Mid-Semester Exam",
+                    "Midterm/Final Exam", "Final Exam / Project",
+                    "Comprehensive Review & Final"):
+        check(f"cleanup.exam.{heading}", _phrases(heading), [])
+    check("cleanup.exam_with_content",
+          _phrases("Final Exam: recursion"), ["recursion"])
+    check("cleanup.exam_prefix",
+          _phrases("Mid Exam - Interfaces"), ["Interfaces"])
+    check("cleanup.mid_semester_prefix",
+          _phrases("Mid-Semester Exam - Interfaces"), ["Interfaces"])
+    check("cleanup.final_exam_prefix",
+          _phrases("Final-Exam - Interfaces"), ["Interfaces"])
+    for compound in ("Mid-level representation", "Mid-point circle algorithm",
+                     "Final-value theorem", "Final-state machine design"):
+        check(f"cleanup.exam_prefix_negative.{compound}",
+              _phrases(compound), [compound])
+
+    for compound in ("Peer-to-Peer architecture", "Event-Driven Architecture",
+                     "human-robot interaction"):
+        check(f"cleanup.hyphen.{compound}", _phrases(compound), [compound])
+    check("cleanup.balanced_parentheses",
+          _phrases("Architecture (SOA)"), ["Architecture", "SOA"])
+
+
 def main():
     for pdf in (ROBOTICS_PDF, PROBABILITY_PDF):
         if not Path(pdf).exists():
@@ -120,6 +268,7 @@ def main():
     test_robotics()
     test_probability()
     test_empty_syllabus()
+    test_text_cleanup()
 
     print(f"Ran {_checks} checks")
     if _failures:
@@ -131,4 +280,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) > 1:
+        extract_and_display(sys.argv[1])
+    else:
+        main()

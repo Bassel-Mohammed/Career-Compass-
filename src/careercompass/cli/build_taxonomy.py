@@ -57,6 +57,9 @@ def main():
                         help="Embedding backend: lexical, bge, or auto (default: auto)")
     parser.add_argument("--output", default=str(MERGED_PATH),
                         help=f"Where to write the merged taxonomy (default: {MERGED_PATH})")
+    parser.add_argument("--db", action="store_true",
+                        help="Also upsert the taxonomy into PostgreSQL, so course_skills "
+                             "can reference the skills the matcher resolves to")
 
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(message)s")
@@ -123,8 +126,23 @@ def main():
     index = load_or_build_index(taxonomy, backend=args.backend, rebuild=args.rebuild_index)
     print(f"   {len(index)} vectors via {index.backend}  →  {INDEX_PATH}")
 
+    if args.db:
+        # course_skills carries a foreign key onto taxonomy_skills, so a
+        # taxonomy rebuilt on disk but not in the database makes every
+        # match to a new skill fail the constraint at write time.
+        from careercompass.db.skills import init_skill_tables, store_taxonomy
+
+        print("\nSyncing to PostgreSQL...")
+        try:
+            init_skill_tables()
+            stored = store_taxonomy(taxonomy)
+            print(f"   upserted {stored} skills into taxonomy_skills")
+        except Exception as exc:  # noqa: BLE001
+            print(f"⚠️  Database sync failed: {exc}")
+            print("   The taxonomy file and index are still valid.")
+
     print("\n✅ Done. Match a course with:")
-    print('   python -m careercompass.cli.match_skills "Robotics Syl.pdf"')
+    print('   python -m careercompass.cli.match_skills "robotics_programming.pdf"')
 
 
 if __name__ == "__main__":

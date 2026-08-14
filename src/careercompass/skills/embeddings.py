@@ -49,8 +49,18 @@ INDEX_PATH = VECTOR_INDEX_PATH
 
 DEFAULT_DIM = 4096
 DEFAULT_BGE_MODEL = "BAAI/bge-m3"
+DEFAULT_BGE_BATCH_SIZE = 8
 
 WORD_RE = re.compile(r"\w+", re.UNICODE)
+
+
+def _parse_batch_size(value) -> int:
+    """Return a safe positive BGE mini-batch size."""
+    try:
+        size = int(value)
+    except (TypeError, ValueError):
+        return DEFAULT_BGE_BATCH_SIZE
+    return size if size > 0 else DEFAULT_BGE_BATCH_SIZE
 
 
 # ── Lexical Backend ────────────────────────────────────────────
@@ -169,8 +179,16 @@ class SentenceTransformerEmbedder:
 
         self.model_name = model_name
         self.name = f"st:{model_name}"
+        self.batch_size = _parse_batch_size(
+            os.getenv("CC_EMBEDDING_BATCH_SIZE", DEFAULT_BGE_BATCH_SIZE)
+        )
         self._model = SentenceTransformer(model_name)
-        self.dim = int(self._model.get_sentence_embedding_dimension())
+        # sentence-transformers 5.x renamed this; keep the old name as a
+        # fallback so the matcher still builds on older installs.
+        dimension = getattr(self._model, "get_embedding_dimension", None)
+        if dimension is None:
+            dimension = self._model.get_sentence_embedding_dimension
+        self.dim = int(dimension())
 
     def fit(self, corpus: list) -> "SentenceTransformerEmbedder":
         """No-op; the model is already trained."""
@@ -179,6 +197,7 @@ class SentenceTransformerEmbedder:
     def encode(self, texts: list) -> np.ndarray:
         vectors = self._model.encode(
             list(texts),
+            batch_size=self.batch_size,
             normalize_embeddings=True,
             show_progress_bar=False,
         )

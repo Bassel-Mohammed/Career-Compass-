@@ -37,6 +37,8 @@ CHECKBOX_GLYPHS = ""
 # ── Section Titles ─────────────────────────────────────────────
 SECTION_DETAILS = "Course Details"
 SECTION_DESCRIPTION = "Course Description"
+SECTION_INSTRUCTOR = "Course Instructor Information"
+SECTION_OUTCOMES = "Course Learning Outcomes"
 
 # Labels are matched by prefix so template wording drift
 # ("Course Level (according to JNQF )" vs "...JNQF)") still resolves.
@@ -160,6 +162,23 @@ def _is_section(table: list, title: str) -> bool:
     return False
 
 
+def _is_details_table(table: list) -> bool:
+    """Recognize Course Details by its field labels when its title is outside.
+
+    Some Word exports position ``Course Details`` above the table instead of
+    putting it in a table row.  Requiring the section title therefore loses an
+    otherwise well-structured table.  The combination of identity and hours
+    labels is specific enough to recognize it without relying on coordinates.
+    """
+    labels = {
+        _match_label(_flat(cell), DETAIL_LABELS)
+        for row in table
+        for cell in row
+        if _flat(cell)
+    }
+    return "course_title" in labels and "credit_hours" in labels
+
+
 def _is_clo_table(table: list) -> bool:
     """
     Check whether a table is the Course Learning Outcomes table.
@@ -215,6 +234,36 @@ def _extract_course(rows: list) -> dict:
     }
 
 
+def _section_text(text: str, start: str, end: str) -> str:
+    """Return normalized page text between two section headings."""
+    match = re.search(
+        rf"{re.escape(start)}\s+(.*?)\s+{re.escape(end)}",
+        text,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    return _flat(match.group(1)) if match else ""
+
+
+def _fill_course_from_text(course: dict, text: str) -> dict:
+    """Fill table fields that a PDF text layer placed outside table cells."""
+    details = _section_text(text, SECTION_DETAILS, SECTION_INSTRUCTOR)
+    if not details:
+        return course
+
+    # Course numbers are commonly rendered visually inside the table but
+    # returned only by extract_text(), leaving an empty extract_tables() cell.
+    if not course["course_code"]:
+        code = re.search(
+            rf"Course\s+No\.\s*({COURSE_CODE_RE.pattern})",
+            details,
+            flags=re.IGNORECASE,
+        )
+        if code:
+            course["course_code"] = code.group(1)
+
+    return course
+
+
 def _extract_description(table: list) -> str:
     """Extract the course description paragraph."""
     for row in table[1:]:
@@ -223,6 +272,11 @@ def _extract_description(table: list) -> str:
             if text and not text.startswith(SECTION_DESCRIPTION):
                 return text
     return ""
+
+
+def _extract_description_from_text(text: str) -> str:
+    """Extract a description paragraph when it is not enclosed by a table."""
+    return _section_text(text, SECTION_DESCRIPTION, SECTION_OUTCOMES)
 
 
 def _extract_clos(table: list) -> list:
@@ -414,15 +468,20 @@ def parse_syllabus(pdf_path: str) -> dict:
         raise FileNotFoundError(f"PDF file not found: {pdf_path}")
 
     tables = []
+    page_texts = []
     with pdfplumber.open(str(pdf_path)) as pdf:
-        text_length = sum(len(page.extract_text() or "") for page in pdf.pages)
+        for page in pdf.pages:
+            page_texts.append(page.extract_text() or "")
+            tables.extend(page.extract_tables())
+
+        text_length = sum(len(text) for text in page_texts)
         if text_length < 200:
             raise ValueError(
                 f"No text layer found in {pdf_path.name}; the file is likely "
                 "a scan and needs OCR before it can be parsed."
             )
-        for page in pdf.pages:
-            tables.extend(page.extract_tables())
+
+    document_text = "\n".join(page_texts)
 
     course = {}
     description = ""
@@ -433,7 +492,7 @@ def parse_syllabus(pdf_path: str) -> dict:
     # headerless table objects that cannot be identified on their own.
     remaining = []
     for table in tables:
-        if _is_section(table, SECTION_DETAILS):
+        if _is_section(table, SECTION_DETAILS) or _is_details_table(table):
             course = _extract_course(table)
         elif _is_section(table, SECTION_DESCRIPTION):
             description = _extract_description(table)
@@ -444,6 +503,9 @@ def parse_syllabus(pdf_path: str) -> dict:
 
     if not course:
         course = _extract_course([])
+    course = _fill_course_from_text(course, document_text)
+    if not description:
+        description = _extract_description_from_text(document_text)
 
     sessions = _extract_sessions(remaining)
     weeks = _group_weeks(sessions)

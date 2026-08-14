@@ -2,8 +2,8 @@
 CareerCompass — Course Syllabus Skill Extraction CLI
 
 Usage:
-    python -m careercompass.cli.extract_skills "Robotics Syl.pdf" [--min-weight 0.7]
-    python -m careercompass.cli.extract_skills "Robotics Syl.pdf" --match
+    python -m careercompass.cli.extract_skills "robotics_programming.pdf" [--min-weight 0.7]
+    python -m careercompass.cli.extract_skills "robotics_programming.pdf" --match
 
 `--match` runs the RAG taxonomy stage inline. For the full matching
 report, the review queue and the database write, use
@@ -36,7 +36,7 @@ def main():
     parser.add_argument(
         "--output", "-o",
         default=None,
-        help="Output JSON path (default: src/data/extracted/skills/<code>.json)",
+        help="Output JSON path (default: data/extracted/skills/<code>.json)",
     )
     parser.add_argument(
         "--match", "-m",
@@ -45,8 +45,9 @@ def main():
     )
     parser.add_argument(
         "--llm",
-        action="store_true",
-        help="With --match, let Claude resolve ambiguous candidates",
+        action=argparse.BooleanOptionalAction,
+        default=None,
+        help="With --match, enable or disable the configured LLM (default: CC_MATCH_LLM)",
     )
 
     args = parser.parse_args()

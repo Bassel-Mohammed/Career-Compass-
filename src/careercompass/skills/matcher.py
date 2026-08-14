@@ -34,8 +34,9 @@ Usage:
 """
 
 import logging
+import re
 
-from careercompass.skills.taxonomy import TAXONOMY_VERSION, load_taxonomy
+from careercompass.skills.taxonomy import TAXONOMY_VERSION, load_taxonomy, normalize
 from careercompass.skills.embeddings import load_or_build_index
 from careercompass.skills.reranker import get_reranker
 from careercompass.skills.llm import LLMDecider, NO_MATCH
@@ -83,6 +84,54 @@ EVIDENCE_LINES = 3
 ACCEPTED = "accepted"
 NEEDS_REVIEW = "needs_review"
 UNMATCHED = "no_match"
+
+
+def _is_distinctive_one_word_alias(term: str, details: dict) -> bool:
+    """Whether a one-word alias carries enough identity to be exact-safe."""
+    if len(normalize(term).split()) != 1:
+        return False
+    surface = details["matched_surface"]
+    if any(character.isdigit() or character in "._+#" for character in surface):
+        return True
+    letters = "".join(character for character in surface if character.isalpha())
+    if 3 <= len(letters) <= 8 and letters.isupper():
+        return True
+    # Product spellings such as GazeboSim are much less ambiguous than
+    # ordinary title-cased words such as Node, Access, Spring, or Sketch.
+    if re.search(r"[a-z][A-Z]", surface):
+        return True
+
+    # Some public taxonomies lowercase acronym aliases (for example "uml").
+    # Recover those from the preferred label without trusting an all-caps PDF
+    # heading such as "FILTERS" to declare itself an acronym.
+    label_words = normalize(details["skill"]["label"]).split()
+    initials = "".join(word[0] for word in label_words if word)
+    return 3 <= len(initials) <= 8 and normalize(surface) == initials
+
+
+def _shortlist_with_required(ranked: list, required_skills: list, limit: int) -> list:
+    """Keep exact collision claimants visible to the LLM and reviewer."""
+    selected = list(ranked[:limit])
+    if not required_skills or limit <= 0:
+        return selected
+
+    ranked_by_id = {skill["id"]: (skill, score) for skill, score in ranked}
+    required_ids = {skill["id"] for skill in required_skills}
+    for skill in required_skills:
+        pair = ranked_by_id.get(skill["id"])
+        if pair is None or any(item[0]["id"] == skill["id"] for item in selected):
+            continue
+        if len(selected) < limit:
+            selected.append(pair)
+            continue
+        replacement = next(
+            (index for index in range(len(selected) - 1, -1, -1)
+             if selected[index][0]["id"] not in required_ids),
+            None,
+        )
+        if replacement is not None:
+            selected[replacement] = pair
+    return selected
 
 
 def evidence_text(skill: dict, limit: int = EVIDENCE_LINES) -> str:
@@ -144,7 +193,7 @@ class SkillMatcher:
         self.review_floor = review_floor
 
     @classmethod
-    def build(cls, backend: str = "", reranker: str = "", use_llm: bool = False,
+    def build(cls, backend: str = "", reranker: str = "", use_llm=None,
               rebuild: bool = False, **options) -> "SkillMatcher":
         """
         Assemble a matcher from the configured backends.
@@ -156,8 +205,10 @@ class SkillMatcher:
         taxonomy = load_taxonomy()
         index = load_or_build_index(taxonomy, backend=backend, rebuild=rebuild)
         scorer = get_reranker(reranker)
-        decider = LLMDecider(enabled=True) if use_llm else LLMDecider(enabled=False)
-        if use_llm and not decider.available:
+        # None lets CC_MATCH_LLM decide. True/False are explicit CLI or API
+        # overrides, so --llm and --no-llm remain predictable.
+        decider = LLMDecider(enabled=use_llm)
+        if decider.enabled and not decider.available:
             logger.warning("LLM stage requested but unavailable: %s",
                            decider.reason_unavailable)
 
@@ -166,8 +217,32 @@ class SkillMatcher:
         thresholds.update(options)  # an explicit threshold always wins
         return cls(taxonomy, index, scorer, decider, **thresholds)
 
+    def _exact_decision(self, term: str):
+        """Classify an alias-index hit as safe exact or context-dependent."""
+        details = self.taxonomy.index.lookup_details(term)
+        if details is None:
+            return None
+
+        # A literal primary label is authoritative even if another record
+        # happens to reuse it as an alias.
+        if details["matched_kind"] == "label" and details["surface_exact"]:
+            details["strong"] = True
+            return details
+
+        # Collisions are never safe shortcuts.  A unique preferred label
+        # reached through plural/compact key folding remains authoritative.
+        if not details["unique"]:
+            details["strong"] = False
+        elif details["matched_kind"] in ("label", "translated_label"):
+            details["strong"] = True
+        elif len(normalize(term).split()) > 1:
+            details["strong"] = True
+        else:
+            details["strong"] = _is_distinctive_one_word_alias(term, details)
+        return details
+
     # ── Single term ────────────────────────────────────────────
-    def match(self, term: str, evidence: str = "") -> dict:
+    def match(self, term: str, evidence: str = "", _vector=None) -> dict:
         """
         Resolve one phrase to a canonical skill.
 
@@ -180,17 +255,29 @@ class SkillMatcher:
         if not term:
             return _record(term)
 
-        # 1. Exact alias — the taxonomy already knows this wording.
-        exact = self.taxonomy.index.lookup(term)
-        if exact is not None:
-            return _record(term, exact, "exact_alias", 1.0, ACCEPTED,
+        # 1. Exact wording.  Preferred labels, distinctive technology
+        #    spellings and multi-word aliases are safe shortcuts.  A plain
+        #    one-word alias needs syllabus context because words such as
+        #    "communication", "Filters" and "Node" are highly ambiguous.
+        exact = self._exact_decision(term)
+        if exact is not None and exact["strong"]:
+            return _record(term, exact["skill"], "exact_alias", 1.0, ACCEPTED,
                            reason="term matches a taxonomy label or alias")
+        contextual_exact = exact["skill"] if exact is not None else None
+        contextual_skills = exact["matched_skills"] if exact is not None else []
+        if contextual_exact is not None and not evidence.strip():
+            return _record(
+                term, contextual_exact, "exact_alias", 1.0, NEEDS_REVIEW,
+                [(skill, 1.0) for skill in contextual_skills],
+                reason="generic one-word alias requires syllabus context",
+            )
 
         # 2. Retrieve. The evidence is weighted behind the term itself by
         #    repeating the term, so a long syllabus line cannot drown out
         #    the phrase actually being matched.
         query = f"{term} . {term} . {evidence}" if evidence else term
-        vector = self.index.embedder.encode([query])[0]
+        vector = (_vector if _vector is not None
+                  else self.index.embedder.encode([query])[0])
         hits = self.index.search(vector, top_k=self.top_k)
 
         candidates = []
@@ -198,32 +285,52 @@ class SkillMatcher:
             skill = self.taxonomy.index.get(skill_id)
             if skill is not None:
                 candidates.append((skill, score))
+        if contextual_skills:
+            # Retrieval can miss short ambiguous words and collision
+            # claimants.  Keep every exact candidate in the contextual
+            # shortlist, but do not let lexical exactness auto-accept one.
+            existing_ids = {skill["id"] for skill, _ in candidates}
+            for exact_skill in contextual_skills:
+                if exact_skill["id"] not in existing_ids:
+                    candidates.append((exact_skill, 1.0))
+                    existing_ids.add(exact_skill["id"])
         if not candidates:
             return _record(term, reason="no taxonomy candidates retrieved")
 
         # 3. Rerank.
         ranked = self.reranker.rerank(term, evidence, candidates)
+        llm_ranked = _shortlist_with_required(ranked, contextual_skills, self.top_k)
+        review_ranked = _shortlist_with_required(
+            ranked, contextual_skills, KEEP_CANDIDATES,
+        )
         top_skill, top_score = ranked[0]
         runner_up = ranked[1][1] if len(ranked) > 1 else 0.0
         margin = top_score - runner_up
 
         # 4. Confident and unambiguous.
-        if top_score >= self.accept_score and margin >= self.accept_margin:
+        if (contextual_exact is None and top_score >= self.accept_score
+                and margin >= self.accept_margin):
             return _record(term, top_skill, "embedding_reranker", top_score, ACCEPTED,
                            ranked, reason=f"leads the runner-up by {margin:.2f}")
 
         # 5. Too weak to be worth a model call.
-        if top_score < self.review_floor:
+        if contextual_exact is None and top_score < self.review_floor:
             return _record(term, None, "embedding_reranker", top_score, UNMATCHED,
                            ranked, reason="best candidate below the review floor")
 
         # 6. Ambiguous: let the LLM choose from the shortlist, or review.
         if self.decider.available:
-            choice = self.decider.decide(term, evidence, ranked[:self.top_k])
+            choice = self.decider.decide(term, evidence, llm_ranked)
             if choice is not None:
                 if choice["canonical_id"] == NO_MATCH:
-                    return _record(term, None, "llm", choice["confidence"], UNMATCHED,
-                                   ranked, reason=choice["reason"])
+                    status = (UNMATCHED
+                              if choice["confidence"] >= LLM_ACCEPT_CONFIDENCE
+                              else NEEDS_REVIEW)
+                    reason = choice["reason"]
+                    if status == NEEDS_REVIEW:
+                        reason = f"low-confidence no_match: {reason}"
+                    return _record(term, None, "llm", choice["confidence"], status,
+                                   review_ranked, reason=reason)
                 chosen = self.taxonomy.index.get(choice["canonical_id"])
                 if chosen is None:
                     # Unreachable unless the taxonomy shifted mid-run; an
@@ -231,22 +338,52 @@ class SkillMatcher:
                     logger.warning("LLM chose %s, which is not in the taxonomy",
                                    choice["canonical_id"])
                     return _record(term, None, "llm", choice["confidence"], NEEDS_REVIEW,
-                                   ranked, reason="selected id is not in the taxonomy")
+                                   review_ranked,
+                                   reason="selected id is not in the taxonomy")
                 status = (ACCEPTED if choice["confidence"] >= LLM_ACCEPT_CONFIDENCE
                           else NEEDS_REVIEW)
                 return _record(term, chosen, "llm", choice["confidence"], status,
-                               ranked, reason=choice["reason"])
+                               review_ranked, reason=choice["reason"])
 
+        if contextual_exact is not None:
+            reason = "generic one-word alias requires contextual confirmation"
+        else:
+            reason = ("ambiguous: score below accept threshold"
+                      if top_score < self.accept_score
+                      else f"ambiguous: runner-up within {margin:.2f}")
         return _record(term, top_skill, "embedding_reranker", top_score, NEEDS_REVIEW,
-                       ranked,
-                       reason=("ambiguous: score below accept threshold"
-                               if top_score < self.accept_score
-                               else f"ambiguous: runner-up within {margin:.2f}"))
+                       review_ranked, reason=reason)
 
     # ── Whole course ───────────────────────────────────────────
     def match_skills(self, skills: list) -> list:
-        """Resolve every extracted skill of a course, in order."""
-        return [self.match(skill["term"], evidence_text(skill)) for skill in skills]
+        """Resolve a course in order, embedding unresolved terms in one batch."""
+        results = [None] * len(skills)
+        pending = []
+        queries = []
+
+        for position, skill in enumerate(skills):
+            term = (skill.get("term") or "").strip()
+            evidence = evidence_text(skill)
+
+            # Empty, safe-exact, and context-free generic aliases do not
+            # need retrieval.  A generic alias with evidence must join the
+            # retrieval batch so context can be evaluated.
+            exact = self._exact_decision(term) if term else None
+            if (not term or (exact is not None and exact["strong"])
+                    or (exact is not None and not evidence.strip())):
+                results[position] = self.match(term, evidence)
+                continue
+
+            query = f"{term} . {term} . {evidence}" if evidence else term
+            pending.append((position, term, evidence))
+            queries.append(query)
+
+        if queries:
+            vectors = self.index.embedder.encode(queries)
+            for (position, term, evidence), vector in zip(pending, vectors):
+                results[position] = self.match(term, evidence, _vector=vector)
+
+        return results
 
     @staticmethod
     def attach(skills: list, matches: list) -> list:

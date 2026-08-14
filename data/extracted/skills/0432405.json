@@ -2,28 +2,24 @@
   "course_code": "0432405",
   "total_skills": 84,
   "taxonomy_version": "1.0",
-  "match_backend": {
-    "retrieval": "lexical-ngram-v1",
-    "reranker": "lexical",
-    "llm": null
-  },
   "match_summary": {
     "by_status": {
-      "accepted": 44,
-      "no_match": 12,
-      "needs_review": 28
+      "accepted": 66,
+      "no_match": 7,
+      "needs_review": 11
     },
     "by_method": {
-      "exact_alias": 36,
-      "embedding_reranker": 48
+      "exact_alias": 31,
+      "llm": 32,
+      "embedding_reranker": 21
     }
   },
   "skills": [
     {
       "term": "sensors",
       "canonical": {
-        "id": "esco:7a950986-27fe-4b6c-adf3-88f211e77019",
-        "label": "robotic components",
+        "id": "esco:70a7b3b3-31ef-4b29-a30f-bb7299dff39b",
+        "label": "sensors",
         "taxonomy": "esco"
       },
       "level": "advanced",
@@ -62,8 +58,8 @@
       ],
       "match": {
         "original_term": "sensors",
-        "canonical_id": "esco:7a950986-27fe-4b6c-adf3-88f211e77019",
-        "canonical_label": "robotic components",
+        "canonical_id": "esco:70a7b3b3-31ef-4b29-a30f-bb7299dff39b",
+        "canonical_label": "sensors",
         "taxonomy": "esco",
         "taxonomy_version": "1.0",
         "match_method": "exact_alias",
@@ -105,11 +101,27 @@
         "canonical_label": "robot kinematics",
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
-        "match_method": "exact_alias",
+        "match_method": "llm",
         "match_score": 1.0,
         "review_status": "accepted",
-        "reason": "term matches a taxonomy label or alias",
-        "candidates": []
+        "reason": "The phrase 'Kinematics' directly matches the label 'robot kinematics' and is listed as an alias in the also called field.",
+        "candidates": [
+          {
+            "id": "custom:robot-kinematics",
+            "label": "robot kinematics",
+            "score": 0.95
+          },
+          {
+            "id": "esco:7a950986-27fe-4b6c-adf3-88f211e77019",
+            "label": "robotic components",
+            "score": 0.355
+          },
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.317
+          }
+        ]
       }
     },
     {
@@ -173,24 +185,24 @@
         "taxonomy": null,
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
-        "match_score": 0.177,
+        "match_score": 0.305,
         "review_status": "no_match",
         "reason": "best candidate below the review floor",
         "candidates": [
           {
-            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
-            "label": "data mining",
-            "score": 0.177
-          },
-          {
             "id": "custom:human-robot-interaction",
             "label": "human-robot interaction",
-            "score": 0.173
+            "score": 0.305
           },
           {
-            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
-            "label": "airport planning",
-            "score": 0.15
+            "id": "custom:actuators",
+            "label": "actuators",
+            "score": 0.285
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.276
           }
         ]
       }
@@ -217,25 +229,25 @@
         "canonical_label": null,
         "taxonomy": null,
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.27,
-        "review_status": "no_match",
-        "reason": "best candidate below the review floor",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'applications involving sensing' does not directly match any of the provided taxonomy entries, which focus on specific aspects like sensors, perception, or robotics in general.",
         "candidates": [
           {
-            "id": "esco:8bc3c77c-30c3-45e6-bd61-069ba433ecfe",
-            "label": "e-learning software infrastructure",
-            "score": 0.27
+            "id": "esco:e87ec79a-c9ff-46f5-84fa-7a0f394cdf40",
+            "label": "robotics",
+            "score": 0.441
           },
           {
             "id": "custom:human-robot-interaction",
             "label": "human-robot interaction",
-            "score": 0.165
+            "score": 0.306
           },
           {
-            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
-            "label": "data mining",
-            "score": 0.149
+            "id": "custom:robot-sensors",
+            "label": "robot sensors",
+            "score": 0.265
           }
         ]
       }
@@ -267,24 +279,24 @@
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
-        "match_score": 0.701,
+        "match_score": 0.808,
         "review_status": "accepted",
-        "reason": "leads the runner-up by 0.17",
+        "reason": "leads the runner-up by 0.19",
         "candidates": [
           {
             "id": "custom:artificial-intelligence",
             "label": "artificial intelligence",
-            "score": 0.701
+            "score": 0.808
           },
           {
             "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
             "label": "principles of artificial intelligence",
-            "score": 0.528
+            "score": 0.622
           },
           {
-            "id": "esco:20b1d521-3d18-4b59-aee5-aaf296170c1b",
-            "label": "electronic signals intelligence",
-            "score": 0.356
+            "id": "custom:human-robot-interaction",
+            "label": "human-robot interaction",
+            "score": 0.472
           }
         ]
       }
@@ -373,36 +385,40 @@
       ],
       "match": {
         "original_term": "learning",
-        "canonical_id": "custom:reinforcement-learning",
-        "canonical_label": "reinforcement learning",
-        "taxonomy": "custom",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
-        "match_score": 0.567,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_score": 0.288,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
         "candidates": [
           {
-            "id": "custom:reinforcement-learning",
-            "label": "reinforcement learning",
-            "score": 0.567
+            "id": "custom:human-robot-interaction",
+            "label": "human-robot interaction",
+            "score": 0.288
           },
           {
-            "id": "custom:machine-learning",
-            "label": "machine learning",
-            "score": 0.549
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.263
           },
           {
-            "id": "esco:0189f448-179e-47cc-9716-c5c3ac4b1aec",
-            "label": "Absorb (learning management systems)",
-            "score": 0.388
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.263
           }
         ]
       }
     },
     {
       "term": "performing robotic",
-      "canonical": null,
+      "canonical": {
+        "id": "custom:robot-programming",
+        "label": "robot programming",
+        "taxonomy": "custom"
+      },
       "level": "intermediate",
       "weight": 1.0,
       "evidence_count": 1,
@@ -422,32 +438,36 @@
         "canonical_label": "robot programming",
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.501,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'performing robotic' aligns with 'robot programming' as it refers to the software that makes a robot perform tasks, matching the description and also called entries.",
         "candidates": [
           {
             "id": "custom:robot-programming",
             "label": "robot programming",
-            "score": 0.501
-          },
-          {
-            "id": "esco:e87ec79a-c9ff-46f5-84fa-7a0f394cdf40",
-            "label": "robotics",
-            "score": 0.422
+            "score": 0.577
           },
           {
             "id": "custom:robot-perception",
             "label": "robot perception",
-            "score": 0.41
+            "score": 0.544
+          },
+          {
+            "id": "esco:7a950986-27fe-4b6c-adf3-88f211e77019",
+            "label": "robotic components",
+            "score": 0.513
           }
         ]
       }
     },
     {
       "term": "planning",
-      "canonical": null,
+      "canonical": {
+        "id": "custom:motion-planning",
+        "label": "motion planning",
+        "taxonomy": "custom"
+      },
       "level": "beginner",
       "weight": 1.0,
       "evidence_count": 1,
@@ -468,24 +488,24 @@
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
-        "match_score": 0.588,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_score": 0.702,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.42",
         "candidates": [
           {
             "id": "custom:motion-planning",
             "label": "motion planning",
-            "score": 0.588
+            "score": 0.702
           },
           {
-            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
-            "label": "airport planning",
-            "score": 0.555
+            "id": "custom:human-robot-interaction",
+            "label": "human-robot interaction",
+            "score": 0.284
           },
           {
-            "id": "custom:project-management",
-            "label": "project management",
-            "score": 0.542
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.26
           }
         ]
       }
@@ -525,11 +545,7 @@
     },
     {
       "term": "robotic system",
-      "canonical": {
-        "id": "custom:robot-troubleshooting",
-        "label": "robot system troubleshooting",
-        "taxonomy": "custom"
-      },
+      "canonical": null,
       "level": "advanced",
       "weight": 1.0,
       "evidence_count": 1,
@@ -545,29 +561,29 @@
       ],
       "match": {
         "original_term": "robotic system",
-        "canonical_id": "custom:robot-troubleshooting",
-        "canonical_label": "robot system troubleshooting",
-        "taxonomy": "custom",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.66,
-        "review_status": "accepted",
-        "reason": "leads the runner-up by 0.06",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'robotic system' refers to the overall system, while none of the taxonomy entries specifically match this term. The closest entries are about troubleshooting, programming, or components, but none directly name 'robotic system'.",
         "candidates": [
           {
             "id": "custom:robot-troubleshooting",
             "label": "robot system troubleshooting",
-            "score": 0.66
+            "score": 0.756
           },
           {
             "id": "custom:robot-programming",
             "label": "robot programming",
-            "score": 0.601
+            "score": 0.721
           },
           {
             "id": "custom:robotics-system-architecture",
             "label": "robotics system architecture",
-            "score": 0.545
+            "score": 0.675
           }
         ]
       }
@@ -649,7 +665,11 @@
     },
     {
       "term": "Robots Simulator",
-      "canonical": null,
+      "canonical": {
+        "id": "custom:robot-simulation",
+        "label": "robot simulation",
+        "taxonomy": "custom"
+      },
       "level": "intermediate",
       "weight": 0.8,
       "evidence_count": 2,
@@ -674,25 +694,25 @@
         "canonical_label": "robot simulation",
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.48,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Robots Simulator' directly matches the label 'robot simulation' and is also covered in the 'also called' list as 'simulation of robots', making it the most specific and accurate match.",
         "candidates": [
           {
             "id": "custom:robot-simulation",
             "label": "robot simulation",
-            "score": 0.48
+            "score": 0.57
           },
           {
             "id": "custom:gazebo",
             "label": "Gazebo simulator",
-            "score": 0.427
+            "score": 0.519
           },
           {
             "id": "custom:robot-manipulators",
             "label": "robot manipulators",
-            "score": 0.384
+            "score": 0.497
           }
         ]
       }
@@ -719,25 +739,25 @@
         "canonical_label": null,
         "taxonomy": null,
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.377,
-        "review_status": "no_match",
-        "reason": "best candidate below the review floor",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Action Servers' or related concepts. The closest entry is 'custom:ros-parameter-server', which refers to a parameter server, not an action server.",
         "candidates": [
           {
-            "id": "esco:553e1d2d-abf1-4b37-8ac4-c5c78a8edbc0",
-            "label": "proxy servers",
-            "score": 0.377
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.445
           },
           {
-            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
-            "label": "SQL Server",
-            "score": 0.352
+            "id": "custom:aws",
+            "label": "Amazon Web Services",
+            "score": 0.277
           },
           {
-            "id": "esco:6f7512ab-d46d-402a-8c30-a8878d7c1f88",
-            "label": "SQL Server Integration Services",
-            "score": 0.346
+            "id": "esco:d1e954cd-d290-4d80-97c0-7969960d2928",
+            "label": "distributed directory information services",
+            "score": 0.276
           }
         ]
       }
@@ -760,36 +780,40 @@
       ],
       "match": {
         "original_term": "Core Architecture",
-        "canonical_id": "custom:robotics-system-architecture",
-        "canonical_label": "robotics system architecture",
-        "taxonomy": "custom",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.476,
+        "match_method": "llm",
+        "match_score": 0.0,
         "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "reason": "low-confidence no_match: The phrase 'Core Architecture' does not match any of the provided taxonomy entries, which are focused on specific technologies or broader software design concepts, not a general 'Core Architecture' skill.",
         "candidates": [
           {
-            "id": "custom:robotics-system-architecture",
-            "label": "robotics system architecture",
-            "score": 0.476
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.506
           },
           {
-            "id": "custom:cloud-computing",
-            "label": "cloud computing",
-            "score": 0.422
+            "id": "custom:java",
+            "label": "Java",
+            "score": 0.433
           },
           {
-            "id": "custom:microservices",
-            "label": "microservices architecture",
-            "score": 0.416
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.295
           }
         ]
       }
     },
     {
       "term": "Custom ROS 2 Messages",
-      "canonical": null,
+      "canonical": {
+        "id": "custom:ros2-launch-files",
+        "label": "ROS 2 launch files",
+        "taxonomy": "custom"
+      },
       "level": "advanced",
       "weight": 0.8,
       "evidence_count": 1,
@@ -805,29 +829,29 @@
       ],
       "match": {
         "original_term": "Custom ROS 2 Messages",
-        "canonical_id": "custom:ros2",
-        "canonical_label": "ROS 2",
+        "canonical_id": "custom:ros2-launch-files",
+        "canonical_label": "ROS 2 launch files",
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.466,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Custom ROS 2 Messages' is part of a lab that also mentions 'Launch System (Files and RQT Tool)', which aligns with the 'ROS 2 launch files' taxonomy entry, as both involve creating and working with launch files in ROS 2.",
         "candidates": [
           {
             "id": "custom:ros2",
             "label": "ROS 2",
-            "score": 0.466
+            "score": 0.6
           },
           {
             "id": "custom:ros2-launch-files",
             "label": "ROS 2 launch files",
-            "score": 0.398
+            "score": 0.508
           },
           {
             "id": "custom:ros2-node-development",
             "label": "ROS 2 node development",
-            "score": 0.365
+            "score": 0.486
           }
         ]
       }
@@ -933,7 +957,11 @@
     },
     {
       "term": "Launch System",
-      "canonical": null,
+      "canonical": {
+        "id": "custom:ros2-launch-files",
+        "label": "ROS 2 launch files",
+        "taxonomy": "custom"
+      },
       "level": "advanced",
       "weight": 0.8,
       "evidence_count": 1,
@@ -953,25 +981,25 @@
         "canonical_label": "ROS 2 launch files",
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.456,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Launch System' is directly mentioned in the syllabus alongside 'ROS 2 launch files', and the description matches the concept of composing multi-node systems with launch descriptions.",
         "candidates": [
           {
             "id": "custom:ros2-launch-files",
             "label": "ROS 2 launch files",
-            "score": 0.456
-          },
-          {
-            "id": "esco:8203b07a-8097-4383-aff6-603b7df7f0f4",
-            "label": "ATM systems",
-            "score": 0.352
+            "score": 0.553
           },
           {
             "id": "custom:ros2",
             "label": "ROS 2",
-            "score": 0.306
+            "score": 0.445
+          },
+          {
+            "id": "custom:rqt",
+            "label": "RQT",
+            "score": 0.272
           }
         ]
       }
@@ -1126,36 +1154,40 @@
       ],
       "match": {
         "original_term": "Service",
-        "canonical_id": "esco:83218cac-3599-417e-93d2-26013cdccd98",
-        "canonical_label": "service-oriented modelling",
-        "taxonomy": "esco",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.523,
+        "match_method": "llm",
+        "match_score": 0.0,
         "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "reason": "low-confidence no_match: The phrase 'Service' does not match any of the provided taxonomy entries, which are focused on specific technologies or systems like REST APIs, AWS, message queues, etc., rather than the general concept of 'Service'.",
         "candidates": [
           {
-            "id": "esco:83218cac-3599-417e-93d2-26013cdccd98",
-            "label": "service-oriented modelling",
-            "score": 0.523
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.614
           },
           {
             "id": "esco:d1e954cd-d290-4d80-97c0-7969960d2928",
             "label": "distributed directory information services",
-            "score": 0.516
+            "score": 0.609
           },
           {
-            "id": "esco:57869946-cec2-4121-981c-84c9846c58d0",
-            "label": "electric current",
-            "score": 0.511
+            "id": "custom:aws",
+            "label": "Amazon Web Services",
+            "score": 0.522
           }
         ]
       }
     },
     {
       "term": "Simulation",
-      "canonical": null,
+      "canonical": {
+        "id": "custom:robot-simulation",
+        "label": "robot simulation",
+        "taxonomy": "custom"
+      },
       "level": "intermediate",
       "weight": 0.8,
       "evidence_count": 1,
@@ -1175,32 +1207,36 @@
         "canonical_label": "robot simulation",
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.598,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Simulation' in the context of 'Lab 8: Visualization and Simulation' directly aligns with 'robot simulation' as it refers to modeling robots and their environment in a physics engine, which matches the description of the custom:robot-simulation entry.",
         "candidates": [
           {
             "id": "custom:robot-simulation",
             "label": "robot simulation",
-            "score": 0.598
+            "score": 0.667
           },
           {
             "id": "esco:cb304338-3a44-4b6f-802b-dfc6c64de109",
             "label": "scientific modelling",
-            "score": 0.523
+            "score": 0.621
           },
           {
             "id": "esco:f6424ebb-8401-446b-9f7e-10d7c854da02",
             "label": "ICT network simulation",
-            "score": 0.442
+            "score": 0.552
           }
         ]
       }
     },
     {
       "term": "Visualization",
-      "canonical": null,
+      "canonical": {
+        "id": "custom:data-visualization",
+        "label": "data visualization",
+        "taxonomy": "custom"
+      },
       "level": "intermediate",
       "weight": 0.8,
       "evidence_count": 1,
@@ -1221,31 +1257,35 @@
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
-        "match_score": 0.58,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_score": 0.671,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.39",
         "candidates": [
           {
             "id": "custom:data-visualization",
             "label": "data visualization",
-            "score": 0.58
+            "score": 0.671
           },
           {
-            "id": "custom:robot-localization",
-            "label": "robot localization",
-            "score": 0.216
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.278
           },
           {
-            "id": "custom:database-design",
-            "label": "database design",
-            "score": 0.179
+            "id": "custom:gazebo",
+            "label": "Gazebo simulator",
+            "score": 0.254
           }
         ]
       }
     },
     {
       "term": "Visualizing robot states",
-      "canonical": null,
+      "canonical": {
+        "id": "custom:rviz",
+        "label": "RViz 2",
+        "taxonomy": "custom"
+      },
       "level": "intermediate",
       "weight": 0.8,
       "evidence_count": 1,
@@ -1261,36 +1301,40 @@
       ],
       "match": {
         "original_term": "Visualizing robot states",
-        "canonical_id": null,
-        "canonical_label": null,
-        "taxonomy": null,
+        "canonical_id": "custom:rviz",
+        "canonical_label": "RViz 2",
+        "taxonomy": "custom",
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.296,
-        "review_status": "no_match",
-        "reason": "best candidate below the review floor",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Visualizing robot states' directly refers to the use of RViz 2, which is explicitly mentioned in the syllabus as Lab9.",
         "candidates": [
           {
             "id": "custom:robot-simulation",
             "label": "robot simulation",
-            "score": 0.296
+            "score": 0.42
           },
           {
-            "id": "custom:ros2",
-            "label": "ROS 2",
-            "score": 0.293
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.413
           },
           {
             "id": "custom:urdf",
             "label": "URDF robot modelling",
-            "score": 0.286
+            "score": 0.406
           }
         ]
       }
     },
     {
       "term": "Adaptive control of manipulators",
-      "canonical": null,
+      "canonical": {
+        "id": "custom:robot-control",
+        "label": "robot control",
+        "taxonomy": "custom"
+      },
       "level": "intermediate",
       "weight": 0.7,
       "evidence_count": 1,
@@ -1306,29 +1350,29 @@
       ],
       "match": {
         "original_term": "Adaptive control of manipulators",
-        "canonical_id": "custom:robot-manipulators",
-        "canonical_label": "robot manipulators",
+        "canonical_id": "custom:robot-control",
+        "canonical_label": "robot control",
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.466,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Adaptive control of manipulators' directly relates to the design and implementation of control systems for robotic manipulators, which aligns with the definition of 'robot control' in the taxonomy.",
         "candidates": [
           {
             "id": "custom:robot-manipulators",
             "label": "robot manipulators",
-            "score": 0.466
+            "score": 0.56
           },
           {
             "id": "custom:robot-dynamics",
             "label": "robot dynamics",
-            "score": 0.359
+            "score": 0.482
           },
           {
             "id": "custom:robot-kinematics",
             "label": "robot kinematics",
-            "score": 0.339
+            "score": 0.471
           }
         ]
       }
@@ -1356,24 +1400,24 @@
         "taxonomy": null,
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
-        "match_score": 0.165,
+        "match_score": 0.276,
         "review_status": "no_match",
         "reason": "best candidate below the review floor",
         "candidates": [
           {
             "id": "esco:e87ec79a-c9ff-46f5-84fa-7a0f394cdf40",
             "label": "robotics",
-            "score": 0.165
+            "score": 0.276
           },
           {
             "id": "custom:robot-simulation",
             "label": "robot simulation",
-            "score": 0.148
+            "score": 0.269
           },
           {
-            "id": "custom:robot-programming",
-            "label": "robot programming",
-            "score": 0.135
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.237
           }
         ]
       }
@@ -1414,8 +1458,8 @@
     {
       "term": "Control systems",
       "canonical": {
-        "id": "esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694",
-        "label": "automation technology",
+        "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+        "label": "control systems",
         "taxonomy": "esco"
       },
       "level": "advanced",
@@ -1433,8 +1477,8 @@
       ],
       "match": {
         "original_term": "Control systems",
-        "canonical_id": "esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694",
-        "canonical_label": "automation technology",
+        "canonical_id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+        "canonical_label": "control systems",
         "taxonomy": "esco",
         "taxonomy_version": "1.0",
         "match_method": "exact_alias",
@@ -1470,16 +1514,36 @@
         "canonical_label": "unmanned air systems",
         "taxonomy": "esco",
         "taxonomy_version": "1.0",
-        "match_method": "exact_alias",
-        "match_score": 1.0,
+        "match_method": "llm",
+        "match_score": 0.95,
         "review_status": "accepted",
-        "reason": "term matches a taxonomy label or alias",
-        "candidates": []
+        "reason": "The phrase 'Drones' is explicitly listed as an alternative name for 'unmanned air systems' in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:a521903b-aa32-4954-9790-961b0df1261f",
+            "label": "unmanned air systems",
+            "score": 0.894
+          },
+          {
+            "id": "esco:e87ec79a-c9ff-46f5-84fa-7a0f394cdf40",
+            "label": "robotics",
+            "score": 0.249
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.214
+          }
+        ]
       }
     },
     {
       "term": "Dynamic Analysis",
-      "canonical": null,
+      "canonical": {
+        "id": "custom:robot-dynamics",
+        "label": "robot dynamics",
+        "taxonomy": "custom"
+      },
       "level": "intermediate",
       "weight": 0.7,
       "evidence_count": 1,
@@ -1499,25 +1563,25 @@
         "canonical_label": "robot dynamics",
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.507,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Dynamic Analysis' directly aligns with 'robot dynamics' as both focus on the relationship between forces, torques, and robot motion, which is explicitly described in the taxonomy entry.",
         "candidates": [
           {
             "id": "custom:robot-dynamics",
             "label": "robot dynamics",
-            "score": 0.507
+            "score": 0.587
           },
           {
             "id": "custom:robot-kinematics",
             "label": "robot kinematics",
-            "score": 0.421
+            "score": 0.557
           },
           {
             "id": "esco:77592603-505b-4096-97dd-d0def6bd7601",
             "label": "computational fluid dynamics",
-            "score": 0.37
+            "score": 0.489
           }
         ]
       }
@@ -1549,24 +1613,24 @@
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
-        "match_score": 0.776,
+        "match_score": 0.816,
         "review_status": "accepted",
-        "reason": "leads the runner-up by 0.25",
+        "reason": "leads the runner-up by 0.16",
         "candidates": [
           {
             "id": "custom:robot-sensors",
             "label": "robot sensors",
-            "score": 0.776
+            "score": 0.816
           },
           {
             "id": "esco:70a7b3b3-31ef-4b29-a30f-bb7299dff39b",
             "label": "sensors",
-            "score": 0.527
+            "score": 0.66
           },
           {
-            "id": "esco:7a950986-27fe-4b6c-adf3-88f211e77019",
-            "label": "robotic components",
-            "score": 0.505
+            "id": "esco:e763b5c3-cfb3-48d2-9b83-fff97553ad95",
+            "label": "microsensors",
+            "score": 0.551
           }
         ]
       }
@@ -1593,32 +1657,36 @@
         "canonical_label": null,
         "taxonomy": null,
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.157,
-        "review_status": "no_match",
-        "reason": "best candidate below the review floor",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Finders' does not clearly match any of the provided taxonomy entries, which focus on software packages, design patterns, or specific tools, but none directly refer to 'Finders' as a skill.",
         "candidates": [
           {
-            "id": "esco:09637f9c-ad8c-42ff-94d8-6a5a81d1dfd1",
-            "label": "types of sanders",
-            "score": 0.157
+            "id": "custom:lidar",
+            "label": "LiDAR",
+            "score": 0.446
           },
           {
             "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
             "label": "software components libraries",
-            "score": 0.11
+            "score": 0.225
           },
           {
-            "id": "esco:ccdbd9bb-4faf-403c-a968-e8bf487f8a53",
-            "label": "business ICT systems",
-            "score": 0.103
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.205
           }
         ]
       }
     },
     {
       "term": "Forces",
-      "canonical": null,
+      "canonical": {
+        "id": "custom:robot-dynamics",
+        "label": "robot dynamics",
+        "taxonomy": "custom"
+      },
       "level": "intermediate",
       "weight": 0.7,
       "evidence_count": 1,
@@ -1634,29 +1702,29 @@
       ],
       "match": {
         "original_term": "Forces",
-        "canonical_id": "custom:robot-control",
-        "canonical_label": "robot control",
+        "canonical_id": "custom:robot-dynamics",
+        "canonical_label": "robot dynamics",
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.431,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Forces' directly relates to the concept of forces in robot dynamics, which is explicitly covered in the description of 'robot dynamics' and is also mentioned in the syllabus text.",
         "candidates": [
           {
             "id": "custom:robot-control",
             "label": "robot control",
-            "score": 0.431
+            "score": 0.561
           },
           {
-            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
-            "label": "hybrid control systems",
-            "score": 0.127
+            "id": "custom:robot-kinematics",
+            "label": "robot kinematics",
+            "score": 0.231
           },
           {
-            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
-            "label": "control systems",
-            "score": 0.124
+            "id": "custom:robot-dynamics",
+            "label": "robot dynamics",
+            "score": 0.224
           }
         ]
       }
@@ -1684,24 +1752,24 @@
         "taxonomy": null,
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
-        "match_score": 0.113,
+        "match_score": 0.22,
         "review_status": "no_match",
         "reason": "best candidate below the review floor",
         "candidates": [
           {
             "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
             "label": "software components libraries",
-            "score": 0.113
+            "score": 0.22
           },
           {
-            "id": "esco:ccdbd9bb-4faf-403c-a968-e8bf487f8a53",
-            "label": "business ICT systems",
-            "score": 0.107
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.191
           },
           {
-            "id": "esco:bb99af26-71ff-4dca-bde7-1eb1f6194426",
-            "label": "SAP R3",
-            "score": 0.098
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.188
           }
         ]
       }
@@ -1798,11 +1866,27 @@
         "canonical_label": "robot manipulators",
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
-        "match_method": "exact_alias",
-        "match_score": 1.0,
+        "match_method": "llm",
+        "match_score": 0.95,
         "review_status": "accepted",
-        "reason": "term matches a taxonomy label or alias",
-        "candidates": []
+        "reason": "The phrase 'manipulators' directly matches the label 'robot manipulators' and is listed as an alias in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:robot-manipulators",
+            "label": "robot manipulators",
+            "score": 0.92
+          },
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.371
+          },
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.319
+          }
+        ]
       }
     },
     {
@@ -1873,7 +1957,11 @@
     },
     {
       "term": "Motion Control",
-      "canonical": null,
+      "canonical": {
+        "id": "custom:robot-control",
+        "label": "robot control",
+        "taxonomy": "custom"
+      },
       "level": "intermediate",
       "weight": 0.7,
       "evidence_count": 1,
@@ -1893,25 +1981,25 @@
         "canonical_label": "robot control",
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.442,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Motion Control' directly aligns with the skill 'robot control' which involves designing and tuning control loops for robots, matching the syllabus context of 'Beyond Basic Kinematics, Motion Control'.",
         "candidates": [
           {
             "id": "custom:robot-control",
             "label": "robot control",
-            "score": 0.442
-          },
-          {
-            "id": "custom:git",
-            "label": "Git",
-            "score": 0.439
+            "score": 0.56
           },
           {
             "id": "custom:robot-kinematics",
             "label": "robot kinematics",
-            "score": 0.434
+            "score": 0.534
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.508
           }
         ]
       }
@@ -1934,29 +2022,29 @@
       ],
       "match": {
         "original_term": "Motion neurons sensors",
-        "canonical_id": "esco:fa7d581b-da0e-47cf-bae8-4d07f267a225",
-        "canonical_label": "infrared sensors",
-        "taxonomy": "esco",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.456,
+        "match_method": "llm",
+        "match_score": 0.1,
         "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "reason": "low-confidence no_match: The phrase 'Motion neurons sensors' does not clearly match any of the provided taxonomy entries, which focus on types of sensors or sensor-related concepts, not on 'motion neurons' as a specific skill.",
         "candidates": [
           {
             "id": "esco:fa7d581b-da0e-47cf-bae8-4d07f267a225",
             "label": "infrared sensors",
-            "score": 0.456
+            "score": 0.577
           },
           {
             "id": "custom:robot-sensors",
             "label": "robot sensors",
-            "score": 0.442
+            "score": 0.552
           },
           {
             "id": "esco:70a7b3b3-31ef-4b29-a30f-bb7299dff39b",
             "label": "sensors",
-            "score": 0.417
+            "score": 0.536
           }
         ]
       }
@@ -1988,24 +2076,24 @@
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
-        "match_score": 0.69,
+        "match_score": 0.801,
         "review_status": "accepted",
-        "reason": "leads the runner-up by 0.19",
+        "reason": "leads the runner-up by 0.30",
         "candidates": [
           {
             "id": "custom:robot-perception",
             "label": "robot perception",
-            "score": 0.69
-          },
-          {
-            "id": "esco:2e55bf22-45f2-43f6-8aa0-28894263313d",
-            "label": "electric motors",
-            "score": 0.495
+            "score": 0.801
           },
           {
             "id": "custom:actuators",
             "label": "actuators",
-            "score": 0.379
+            "score": 0.5
+          },
+          {
+            "id": "esco:7566f0b4-7f6e-455c-abb5-ec58e57f7e17",
+            "label": "mechanics of motor vehicles",
+            "score": 0.394
           }
         ]
       }
@@ -2069,11 +2157,27 @@
         "canonical_label": "robot perception",
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
-        "match_method": "exact_alias",
-        "match_score": 1.0,
+        "match_method": "llm",
+        "match_score": 0.95,
         "review_status": "accepted",
-        "reason": "term matches a taxonomy label or alias",
-        "candidates": []
+        "reason": "The phrase 'Perception' directly matches the label 'robot perception' and is also listed as an alias in the 'also called' field.",
+        "candidates": [
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.94
+          },
+          {
+            "id": "custom:robot-sensors",
+            "label": "robot sensors",
+            "score": 0.374
+          },
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.323
+          }
+        ]
       }
     },
     {
@@ -2103,24 +2207,24 @@
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
-        "match_score": 0.725,
+        "match_score": 0.836,
         "review_status": "accepted",
-        "reason": "leads the runner-up by 0.23",
+        "reason": "leads the runner-up by 0.26",
         "candidates": [
           {
             "id": "custom:robot-control",
             "label": "robot control",
-            "score": 0.725
+            "score": 0.836
           },
           {
             "id": "custom:robot-manipulators",
             "label": "robot manipulators",
-            "score": 0.49
+            "score": 0.574
           },
           {
-            "id": "custom:git",
-            "label": "Git",
-            "score": 0.317
+            "id": "custom:robot-dynamics",
+            "label": "robot dynamics",
+            "score": 0.439
           }
         ]
       }
@@ -2160,7 +2264,11 @@
     },
     {
       "term": "Robotics Applications",
-      "canonical": null,
+      "canonical": {
+        "id": "esco:e87ec79a-c9ff-46f5-84fa-7a0f394cdf40",
+        "label": "robotics",
+        "taxonomy": "esco"
+      },
       "level": "advanced",
       "weight": 0.7,
       "evidence_count": 1,
@@ -2181,31 +2289,35 @@
         "taxonomy": "esco",
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
-        "match_score": 0.533,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_score": 0.635,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.14",
         "candidates": [
           {
             "id": "esco:e87ec79a-c9ff-46f5-84fa-7a0f394cdf40",
             "label": "robotics",
-            "score": 0.533
+            "score": 0.635
           },
           {
             "id": "custom:robot-simulation",
             "label": "robot simulation",
-            "score": 0.371
+            "score": 0.496
           },
           {
-            "id": "custom:robot-programming",
-            "label": "robot programming",
-            "score": 0.36
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.481
           }
         ]
       }
     },
     {
       "term": "Software packages",
-      "canonical": null,
+      "canonical": {
+        "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+        "label": "software components libraries",
+        "taxonomy": "esco"
+      },
       "level": "intermediate",
       "weight": 0.7,
       "evidence_count": 1,
@@ -2221,29 +2333,29 @@
       ],
       "match": {
         "original_term": "Software packages",
-        "canonical_id": null,
-        "canonical_label": null,
-        "taxonomy": null,
+        "canonical_id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+        "canonical_label": "software components libraries",
+        "taxonomy": "esco",
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.366,
-        "review_status": "no_match",
-        "reason": "best candidate below the review floor",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Software packages' directly matches the label 'software components libraries' which explicitly refers to software packages, modules, and related resources.",
         "candidates": [
           {
-            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
-            "label": "packaging processes",
-            "score": 0.366
+            "id": "esco:cf310cff-0d28-4dbc-9dbb-cc500a3196c2",
+            "label": "office software",
+            "score": 0.483
           },
           {
-            "id": "custom:software-engineering",
-            "label": "software engineering",
-            "score": 0.366
+            "id": "esco:0764b28d-04ee-4e80-bf58-b737f02a63e0",
+            "label": "captioning software",
+            "score": 0.474
           },
           {
-            "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
-            "label": "software components libraries",
-            "score": 0.33
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.432
           }
         ]
       }
@@ -2266,29 +2378,29 @@
       ],
       "match": {
         "original_term": "Tactile",
-        "canonical_id": "esco:5fb469fc-65e4-4bc5-a512-e55281e3500a",
-        "canonical_label": "time-display methods",
-        "taxonomy": "esco",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
-        "match_score": 0.483,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_score": 0.213,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
         "candidates": [
-          {
-            "id": "esco:5fb469fc-65e4-4bc5-a512-e55281e3500a",
-            "label": "time-display methods",
-            "score": 0.483
-          },
-          {
-            "id": "esco:8a169eb9-2cf1-4653-aa5c-af575c9836f9",
-            "label": "types of tile adhesive",
-            "score": 0.125
-          },
           {
             "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
             "label": "software components libraries",
-            "score": 0.105
+            "score": 0.213
+          },
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.197
+          },
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.193
           }
         ]
       }
@@ -2320,24 +2432,24 @@
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
-        "match_score": 0.686,
+        "match_score": 0.727,
         "review_status": "accepted",
-        "reason": "leads the runner-up by 0.42",
+        "reason": "leads the runner-up by 0.37",
         "candidates": [
           {
             "id": "custom:motion-planning",
             "label": "motion planning",
-            "score": 0.686
-          },
-          {
-            "id": "custom:project-management",
-            "label": "project management",
-            "score": 0.265
+            "score": 0.727
           },
           {
             "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
             "label": "airport planning",
-            "score": 0.243
+            "score": 0.362
+          },
+          {
+            "id": "esco:0da6cab1-0ee9-4391-a299-f71fbf21db56",
+            "label": "ICT network routing",
+            "score": 0.231
           }
         ]
       }
@@ -2377,7 +2489,11 @@
     },
     {
       "term": "Wheeled robot’s locomotion",
-      "canonical": null,
+      "canonical": {
+        "id": "custom:mobile-robots",
+        "label": "mobile robots",
+        "taxonomy": "custom"
+      },
       "level": "intermediate",
       "weight": 0.7,
       "evidence_count": 1,
@@ -2398,31 +2514,35 @@
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
-        "match_score": 0.59,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_score": 0.69,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.27",
         "candidates": [
           {
             "id": "custom:mobile-robots",
             "label": "mobile robots",
-            "score": 0.59
+            "score": 0.69
           },
           {
             "id": "custom:robot-localization",
             "label": "robot localization",
-            "score": 0.298
+            "score": 0.419
           },
           {
             "id": "custom:robot-simulation",
             "label": "robot simulation",
-            "score": 0.281
+            "score": 0.417
           }
         ]
       }
     },
     {
       "term": "AI in robotics",
-      "canonical": null,
+      "canonical": {
+        "id": "esco:e87ec79a-c9ff-46f5-84fa-7a0f394cdf40",
+        "label": "robotics",
+        "taxonomy": "esco"
+      },
       "level": "beginner",
       "weight": 0.6,
       "evidence_count": 1,
@@ -2442,24 +2562,24 @@
         "taxonomy": "esco",
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
-        "match_score": 0.546,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_score": 0.654,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.08",
         "candidates": [
           {
             "id": "esco:e87ec79a-c9ff-46f5-84fa-7a0f394cdf40",
             "label": "robotics",
-            "score": 0.546
+            "score": 0.654
+          },
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.57
           },
           {
             "id": "custom:robot-programming",
             "label": "robot programming",
-            "score": 0.367
-          },
-          {
-            "id": "custom:robotics-system-architecture",
-            "label": "robotics system architecture",
-            "score": 0.356
+            "score": 0.488
           }
         ]
       }
@@ -2490,31 +2610,35 @@
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
-        "match_score": 0.679,
+        "match_score": 0.747,
         "review_status": "accepted",
-        "reason": "leads the runner-up by 0.16",
+        "reason": "leads the runner-up by 0.15",
         "candidates": [
           {
             "id": "custom:artificial-intelligence",
             "label": "artificial intelligence",
-            "score": 0.679
+            "score": 0.747
           },
           {
             "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
             "label": "principles of artificial intelligence",
-            "score": 0.516
+            "score": 0.594
           },
           {
             "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
             "label": "algorithms",
-            "score": 0.416
+            "score": 0.541
           }
         ]
       }
     },
     {
       "term": "automation",
-      "canonical": null,
+      "canonical": {
+        "id": "esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694",
+        "label": "automation technology",
+        "taxonomy": "esco"
+      },
       "level": "beginner",
       "weight": 0.6,
       "evidence_count": 1,
@@ -2529,29 +2653,29 @@
       ],
       "match": {
         "original_term": "automation",
-        "canonical_id": "custom:test-automation",
-        "canonical_label": "test automation",
-        "taxonomy": "custom",
+        "canonical_id": "esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694",
+        "canonical_label": "automation technology",
+        "taxonomy": "esco",
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.618,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'automation' directly matches the label 'automation technology' and its also called entries, which define it as the set of technologies that make a process operate automatically through control systems.",
         "candidates": [
           {
             "id": "custom:test-automation",
             "label": "test automation",
-            "score": 0.618
-          },
-          {
-            "id": "esco:6709e92c-7546-46a4-aa57-5e951bd4cb0f",
-            "label": "building automation",
-            "score": 0.558
+            "score": 0.673
           },
           {
             "id": "esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694",
             "label": "automation technology",
-            "score": 0.55
+            "score": 0.648
+          },
+          {
+            "id": "esco:6709e92c-7546-46a4-aa57-5e951bd4cb0f",
+            "label": "building automation",
+            "score": 0.642
           }
         ]
       }
@@ -2577,25 +2701,25 @@
         "canonical_label": null,
         "taxonomy": null,
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.362,
-        "review_status": "no_match",
-        "reason": "best candidate below the review floor",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'autonomous systems'. The closest entries are related to automation, control systems, or embedded systems, but none specifically refer to autonomous systems as a skill.",
         "candidates": [
           {
             "id": "esco:8203b07a-8097-4383-aff6-603b7df7f0f4",
             "label": "ATM systems",
-            "score": 0.362
-          },
-          {
-            "id": "esco:2180bd8c-86de-4889-8165-adac902eee9d",
-            "label": "embedded systems",
-            "score": 0.358
+            "score": 0.477
           },
           {
             "id": "esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694",
             "label": "automation technology",
-            "score": 0.354
+            "score": 0.471
+          },
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.466
           }
         ]
       }
@@ -2685,25 +2809,25 @@
         "canonical_label": null,
         "taxonomy": null,
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.39,
-        "review_status": "no_match",
-        "reason": "best candidate below the review floor",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'differential motions' does not match any of the provided taxonomy entries in meaning or terminology.",
         "candidates": [
           {
             "id": "custom:calculus",
             "label": "calculus",
-            "score": 0.39
+            "score": 0.503
           },
           {
             "id": "esco:0f2cb38a-6e97-4f49-80f7-1da9e5835ed0",
             "label": "buffing motions",
-            "score": 0.341
+            "score": 0.455
           },
           {
-            "id": "custom:inferential-statistics",
-            "label": "inferential statistics",
-            "score": 0.159
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.426
           }
         ]
       }
@@ -2733,11 +2857,27 @@
         "canonical_label": "robot dynamics",
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
-        "match_method": "exact_alias",
-        "match_score": 1.0,
+        "match_method": "llm",
+        "match_score": 0.95,
         "review_status": "accepted",
-        "reason": "term matches a taxonomy label or alias",
-        "candidates": []
+        "reason": "The phrase 'dynamics' matches the label 'robot dynamics' and is also listed as an alias for this entry.",
+        "candidates": [
+          {
+            "id": "custom:robot-dynamics",
+            "label": "robot dynamics",
+            "score": 0.887
+          },
+          {
+            "id": "esco:0b2de99d-e762-4b15-ac4c-0e0063329b23",
+            "label": "locomotive brake applications",
+            "score": 0.549
+          },
+          {
+            "id": "esco:80466be3-825a-456a-94ec-9c83c0007f0c",
+            "label": "aerodynamics",
+            "score": 0.375
+          }
+        ]
       }
     },
     {
@@ -2762,24 +2902,24 @@
         "taxonomy": null,
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
-        "match_score": 0.121,
+        "match_score": 0.239,
         "review_status": "no_match",
         "reason": "best candidate below the review floor",
         "candidates": [
           {
             "id": "custom:penetration-testing",
             "label": "penetration testing",
-            "score": 0.121
+            "score": 0.239
           },
           {
-            "id": "custom:robot-dynamics",
-            "label": "robot dynamics",
-            "score": 0.097
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.182
           },
           {
-            "id": "esco:e87ec79a-c9ff-46f5-84fa-7a0f394cdf40",
-            "label": "robotics",
-            "score": 0.091
+            "id": "esco:ff8bd17c-77e9-4d4e-929a-a0cf86f3ed34",
+            "label": "surveillance methods",
+            "score": 0.169
           }
         ]
       }
@@ -2929,36 +3069,40 @@
       ],
       "match": {
         "original_term": "mental framework",
-        "canonical_id": "custom:spring-boot",
-        "canonical_label": "Spring Boot",
-        "taxonomy": "custom",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.424,
+        "match_method": "llm",
+        "match_score": 0.0,
         "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "reason": "low-confidence no_match: The phrase 'mental framework' does not match any of the provided taxonomy entries, which are all specific technical skills or tools, while 'mental framework' is a conceptual or cognitive skill not represented in the shortlist.",
         "candidates": [
           {
             "id": "custom:spring-boot",
             "label": "Spring Boot",
-            "score": 0.424
+            "score": 0.478
           },
           {
             "id": "custom:django",
             "label": "Django",
-            "score": 0.381
+            "score": 0.424
           },
           {
-            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
-            "label": "ICT architectural frameworks",
-            "score": 0.316
+            "id": "custom:teamwork",
+            "label": "teamwork",
+            "score": 0.215
           }
         ]
       }
     },
     {
       "term": "mobile mechanisms",
-      "canonical": null,
+      "canonical": {
+        "id": "esco:69bece91-c806-42ad-bde4-db28c7f8fc4b",
+        "label": "mechanical systems",
+        "taxonomy": "esco"
+      },
       "level": "beginner",
       "weight": 0.6,
       "evidence_count": 1,
@@ -2978,31 +3122,35 @@
         "taxonomy": "esco",
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
-        "match_score": 0.541,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_score": 0.657,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.15",
         "candidates": [
           {
             "id": "esco:69bece91-c806-42ad-bde4-db28c7f8fc4b",
             "label": "mechanical systems",
-            "score": 0.541
+            "score": 0.657
           },
           {
-            "id": "esco:9c071f1d-eac3-449d-b004-c14775b5a3b9",
-            "label": "mechanical engineering",
-            "score": 0.428
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.504
           },
           {
-            "id": "esco:b27411a8-c401-4241-841b-c742ae32a8d3",
-            "label": "micromechanics",
-            "score": 0.415
+            "id": "esco:87b1c959-236d-4761-b3be-b1c729497f75",
+            "label": "fluid mechanics",
+            "score": 0.498
           }
         ]
       }
     },
     {
       "term": "path control",
-      "canonical": null,
+      "canonical": {
+        "id": "custom:robot-control",
+        "label": "robot control",
+        "taxonomy": "custom"
+      },
       "level": "beginner",
       "weight": 0.6,
       "evidence_count": 1,
@@ -3021,32 +3169,36 @@
         "canonical_label": "robot control",
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.415,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'path control' is a specific type of robot control, and the taxonomy entry 'robot control' explicitly includes 'path control' in its also called list.",
         "candidates": [
-          {
-            "id": "custom:robot-control",
-            "label": "robot control",
-            "score": 0.415
-          },
           {
             "id": "custom:pid-control",
             "label": "PID control",
-            "score": 0.408
+            "score": 0.515
           },
           {
             "id": "custom:git",
             "label": "Git",
-            "score": 0.404
+            "score": 0.498
+          },
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.495
           }
         ]
       }
     },
     {
       "term": "programming",
-      "canonical": null,
+      "canonical": {
+        "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+        "label": "computer programming",
+        "taxonomy": "esco"
+      },
       "level": "beginner",
       "weight": 0.6,
       "evidence_count": 1,
@@ -3061,29 +3213,29 @@
       ],
       "match": {
         "original_term": "programming",
-        "canonical_id": "custom:c-language",
-        "canonical_label": "C",
-        "taxonomy": "custom",
+        "canonical_id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+        "canonical_label": "computer programming",
+        "taxonomy": "esco",
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.645,
-        "review_status": "needs_review",
-        "reason": "ambiguous: runner-up within 0.02",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'programming' is a general term that matches the broader skill 'computer programming' which encompasses the techniques and principles of software development.",
         "candidates": [
           {
             "id": "custom:c-language",
             "label": "C",
-            "score": 0.645
+            "score": 0.7
           },
           {
             "id": "custom:robot-programming",
             "label": "robot programming",
-            "score": 0.622
+            "score": 0.681
           },
           {
-            "id": "custom:python",
-            "label": "Python",
-            "score": 0.604
+            "id": "esco:69bbd53f-fbb0-4476-b4b2-ef7844464e28",
+            "label": "web programming",
+            "score": 0.681
           }
         ]
       }
@@ -3110,31 +3262,35 @@
         "taxonomy": null,
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
-        "match_score": 0.285,
+        "match_score": 0.275,
         "review_status": "no_match",
         "reason": "best candidate below the review floor",
         "candidates": [
           {
-            "id": "esco:a0427808-b57d-41fe-b71c-ee0b620579f6",
-            "label": "adhesives",
-            "score": 0.285
-          },
-          {
-            "id": "esco:1e3e0736-6d4a-4a65-8787-1fa16bff5660",
-            "label": "explosives",
-            "score": 0.263
-          },
-          {
             "id": "custom:react",
             "label": "React",
-            "score": 0.174
+            "score": 0.275
+          },
+          {
+            "id": "esco:dd0e44b9-b285-4563-8ffc-1d4d96bf548c",
+            "label": "reed sensors",
+            "score": 0.208
+          },
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.197
           }
         ]
       }
     },
     {
       "term": "robot coordinate systems",
-      "canonical": null,
+      "canonical": {
+        "id": "custom:tf-transforms",
+        "label": "coordinate frame transforms",
+        "taxonomy": "custom"
+      },
       "level": "beginner",
       "weight": 0.6,
       "evidence_count": 1,
@@ -3149,29 +3305,29 @@
       ],
       "match": {
         "original_term": "robot coordinate systems",
-        "canonical_id": "custom:robot-control",
-        "canonical_label": "robot control",
+        "canonical_id": "custom:tf-transforms",
+        "canonical_label": "coordinate frame transforms",
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.479,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'robot coordinate systems' directly relates to 'coordinate frame transforms' as both involve relating positions and orientations between robot coordinate frames.",
         "candidates": [
           {
             "id": "custom:robot-control",
             "label": "robot control",
-            "score": 0.479
+            "score": 0.584
           },
           {
             "id": "custom:robotics-system-architecture",
             "label": "robotics system architecture",
-            "score": 0.431
+            "score": 0.548
           },
           {
-            "id": "custom:ros2",
-            "label": "ROS 2",
-            "score": 0.427
+            "id": "custom:robot-troubleshooting",
+            "label": "robot system troubleshooting",
+            "score": 0.535
           }
         ]
       }
@@ -3202,24 +3358,24 @@
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
-        "match_score": 0.666,
+        "match_score": 0.739,
         "review_status": "accepted",
-        "reason": "leads the runner-up by 0.24",
+        "reason": "leads the runner-up by 0.27",
         "candidates": [
           {
             "id": "custom:robot-programming",
             "label": "robot programming",
-            "score": 0.666
+            "score": 0.739
           },
           {
             "id": "custom:c-language",
             "label": "C",
-            "score": 0.427
+            "score": 0.471
           },
           {
             "id": "custom:python",
             "label": "Python",
-            "score": 0.37
+            "score": 0.444
           }
         ]
       }
@@ -3258,7 +3414,11 @@
     },
     {
       "term": "robot systems",
-      "canonical": null,
+      "canonical": {
+        "id": "custom:robotics-system-architecture",
+        "label": "robotics system architecture",
+        "taxonomy": "custom"
+      },
       "level": "beginner",
       "weight": 0.6,
       "evidence_count": 1,
@@ -3273,29 +3433,29 @@
       ],
       "match": {
         "original_term": "robot systems",
-        "canonical_id": "custom:robot-control",
-        "canonical_label": "robot control",
+        "canonical_id": "custom:robotics-system-architecture",
+        "canonical_label": "robotics system architecture",
         "taxonomy": "custom",
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.56,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'robot systems' directly matches the label 'robotics system architecture' and is also explicitly mentioned in its 'also called' list as 'robot system architecture'.",
         "candidates": [
           {
             "id": "custom:robot-control",
             "label": "robot control",
-            "score": 0.56
+            "score": 0.658
           },
           {
             "id": "custom:robotics-system-architecture",
             "label": "robotics system architecture",
-            "score": 0.556
+            "score": 0.642
           },
           {
             "id": "custom:robot-troubleshooting",
             "label": "robot system troubleshooting",
-            "score": 0.537
+            "score": 0.634
           }
         ]
       }
@@ -3317,29 +3477,29 @@
       ],
       "match": {
         "original_term": "robotics fundamentals",
-        "canonical_id": "esco:e87ec79a-c9ff-46f5-84fa-7a0f394cdf40",
-        "canonical_label": "robotics",
-        "taxonomy": "esco",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
         "taxonomy_version": "1.0",
-        "match_method": "embedding_reranker",
-        "match_score": 0.499,
+        "match_method": "llm",
+        "match_score": 0.0,
         "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "reason": "low-confidence no_match: The phrase 'robotics fundamentals' is a general term that encompasses a broad range of topics in robotics, while none of the provided taxonomy entries specifically match this exact skill. The closest entries are more specialized (e.g., robot programming, robotic components, etc.), but none are expli",
         "candidates": [
-          {
-            "id": "esco:e87ec79a-c9ff-46f5-84fa-7a0f394cdf40",
-            "label": "robotics",
-            "score": 0.499
-          },
-          {
-            "id": "esco:68e66ed6-a171-4350-8ec1-2cfc4cae50e4",
-            "label": "hydraulics",
-            "score": 0.384
-          },
           {
             "id": "custom:robot-programming",
             "label": "robot programming",
-            "score": 0.351
+            "score": 0.482
+          },
+          {
+            "id": "esco:7a950986-27fe-4b6c-adf3-88f211e77019",
+            "label": "robotic components",
+            "score": 0.467
+          },
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.461
           }
         ]
       }
@@ -3378,7 +3538,11 @@
     },
     {
       "term": "sensing",
-      "canonical": null,
+      "canonical": {
+        "id": "esco:70a7b3b3-31ef-4b29-a30f-bb7299dff39b",
+        "label": "sensors",
+        "taxonomy": "esco"
+      },
       "level": "beginner",
       "weight": 0.6,
       "evidence_count": 1,
@@ -3398,24 +3562,24 @@
         "taxonomy": "esco",
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
-        "match_score": 0.528,
-        "review_status": "needs_review",
-        "reason": "ambiguous: score below accept threshold",
+        "match_score": 0.644,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.36",
         "candidates": [
           {
             "id": "esco:70a7b3b3-31ef-4b29-a30f-bb7299dff39b",
             "label": "sensors",
-            "score": 0.528
-          },
-          {
-            "id": "esco:c199731b-1c17-47be-8f5d-296b9892a1b4",
-            "label": "smoke sensors",
-            "score": 0.398
+            "score": 0.644
           },
           {
             "id": "custom:robot-sensors",
             "label": "robot sensors",
-            "score": 0.162
+            "score": 0.283
+          },
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.252
           }
         ]
       }

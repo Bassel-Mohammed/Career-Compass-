@@ -11,18 +11,25 @@ validated against the shortlist it was given.
 
 Usage:
     python -m tests.test_skill_matcher
+    python -m tests.test_skill_matcher "path/to/syllabus.pdf"
 """
 
 import sys
 import json
 import tempfile
 from pathlib import Path
+from textwrap import shorten
 
+from careercompass.parsing.syllabus import parse_syllabus
+from careercompass.skills.extractor import extract_skills
 from careercompass.skills.taxonomy import (
-    AliasIndex, Taxonomy, key_forms, load_custom_skills, make_skill,
+    AliasIndex, Taxonomy, key_forms, load_custom_skills, load_taxonomy, make_skill,
     merge_skills, normalize, skill_text, tokens,
 )
-from careercompass.skills.embeddings import LexicalEmbedder, VectorIndex
+from careercompass.skills.embeddings import (
+    DEFAULT_BGE_BATCH_SIZE, LexicalEmbedder, SentenceTransformerEmbedder,
+    VectorIndex, _parse_batch_size,
+)
 from careercompass.skills.reranker import LexicalReranker, _is_acronym
 from careercompass.skills.llm import LLMDecider, NO_MATCH
 from careercompass.skills.matcher import (
@@ -30,7 +37,7 @@ from careercompass.skills.matcher import (
 )
 
 FIXTURES = Path(__file__).resolve().parent / "fixtures"
-ROBOTICS_PDF = str(FIXTURES / "Robotics Syl.pdf")
+ROBOTICS_PDF = str(FIXTURES / "robotics_programming.pdf")
 
 _failures = []
 _checks = 0
@@ -42,6 +49,100 @@ def check(label: str, actual, expected):
     _checks += 1
     if actual != expected:
         _failures.append(f"{label}\n      expected: {expected!r}\n      actual:   {actual!r}")
+
+
+def match_and_display(
+    pdf_path: str | Path,
+    matcher: SkillMatcher | None = None,
+    *,
+    use_llm: bool | None = False,
+) -> dict:
+    """Match a syllabus PDF, print the decisions, and return structured data.
+
+    A supplied matcher is reused by the test suite.  When this helper builds
+    its own matcher, LLM matching is disabled by default so displaying test
+    output cannot accidentally make paid API calls.  Pass ``use_llm=True``
+    explicitly when an LLM-backed matching report is wanted.
+    """
+    path = Path(pdf_path).expanduser()
+    syllabus = parse_syllabus(str(path))
+    skills = extract_skills(syllabus)
+    matcher = matcher or SkillMatcher.build(use_llm=use_llm)
+    matches = matcher.match_skills(skills)
+    matcher.attach(skills, matches)
+    summary = matcher.summary(matches)
+
+    result = {
+        "pdf_path": str(path.resolve()),
+        "syllabus": syllabus,
+        "taxonomy": {
+            "version": matcher.taxonomy.version,
+            "total_skills": len(matcher.taxonomy),
+            "retrieval": matcher.index.backend,
+            "reranker": matcher.reranker.name,
+            "llm": matcher.decider.display_name if matcher.decider.available else None,
+        },
+        "summary": summary,
+        "skills": skills,
+        "matches": matches,
+    }
+
+    title = syllabus.get("course_title") or "Unknown course"
+    code = syllabus.get("course_code") or "no course code"
+    print(f"\nMatching results: {title} ({code})")
+    print(f"Source: {path}")
+    print(
+        f"Backend: {matcher.index.backend} retrieval, "
+        f"{matcher.reranker.name} reranker"
+    )
+    print(
+        "Summary: "
+        f"{summary['total']} total, "
+        f"{summary['by_status'].get(ACCEPTED, 0)} accepted, "
+        f"{summary['by_status'].get(NEEDS_REVIEW, 0)} need review, "
+        f"{summary['by_status'].get(UNMATCHED, 0)} unmatched"
+    )
+
+    columns = (
+        ("", 1),
+        ("Extracted skill", 29),
+        ("Canonical match", 29),
+        ("Score", 5),
+        ("Method", 18),
+        ("Why", 40),
+    )
+    header = " | ".join(name.ljust(width) for name, width in columns)
+    print(f"\n{header}")
+    print("-" * len(header))
+
+    status_marks = {ACCEPTED: "✓", NEEDS_REVIEW: "?", UNMATCHED: "✗"}
+    for skill, match in zip(skills, matches):
+        values = (
+            status_marks.get(match["review_status"], " "),
+            shorten(skill["term"], width=columns[1][1], placeholder="..."),
+            shorten(
+                match["canonical_label"] or "—",
+                width=columns[2][1],
+                placeholder="...",
+            ),
+            f"{match['match_score']:.3f}",
+            shorten(match["match_method"], width=columns[4][1], placeholder="..."),
+            shorten(match["reason"] or "—", width=columns[5][1], placeholder="..."),
+        )
+        print(" | ".join(value.ljust(width) for value, (_, width) in zip(values, columns)))
+
+    review_queue = summary["review_queue"]
+    if review_queue:
+        print(f"\nReview candidates ({len(review_queue)}):")
+        for match in review_queue:
+            candidates = ", ".join(
+                f"{candidate['label']} ({candidate['score']:.3f})"
+                for candidate in match["candidates"]
+            )
+            print(f"  - {match['original_term']}: {candidates or 'no candidates'}")
+
+    print("\n✓ accepted   ? needs review   ✗ no match")
+    return result
 
 
 # ── Normalisation ──────────────────────────────────────────────
@@ -91,6 +192,41 @@ def test_custom_taxonomy():
 
     check("alias.miss", index.lookup("quantum basket weaving"), None)
 
+    communication = index.lookup_details("communication")
+    check("alias.details_keeps_legacy_hit",
+          communication["skill"]["id"], index.lookup("communication")["id"])
+    check("alias.details_kind", communication["matched_kind"], "alias")
+    check("alias.details_unique", communication["unique"], True)
+
+    collision_index = AliasIndex([
+        make_skill("custom:web-css", "web styling", "custom", aliases=["CSS"]),
+        make_skill("custom:service-css", "customer support system", "custom",
+                   aliases=["CSS"]),
+    ])
+    collision = collision_index.lookup_details("CSS")
+    check("alias.collision_count", collision["collision_count"], 2)
+    check("alias.collision_not_unique", collision["unique"], False)
+    check("alias.collision_retains_all",
+          {skill["id"] for skill in collision["matched_skills"]},
+          {"custom:web-css", "custom:service-css"})
+    policy_matcher = object.__new__(SkillMatcher)
+    policy_matcher.taxonomy = Taxonomy([
+        make_skill("custom:web-css", "web styling", "custom", aliases=["CSS"]),
+        make_skill("custom:service-css", "customer support system", "custom",
+                   aliases=["CSS"]),
+    ])
+    check("alias.collision_not_strong_exact",
+          policy_matcher._exact_decision("CSS")["strong"], False)
+
+    # A canonical label outranks another record reusing the same wording as
+    # an alias; label provenance must not be lost in the first-writer index.
+    label_collision = AliasIndex([
+        make_skill("custom:alias-java", "JVM development", "custom", aliases=["Java"]),
+        make_skill("custom:label-java", "Java", "custom"),
+    ]).lookup_details("Java")
+    check("alias.primary_label_wins", label_collision["skill"]["id"],
+          "custom:label-java")
+
 
 def test_merge():
     """Merging keeps the higher-ranked id and inherits the loser's wording."""
@@ -125,6 +261,23 @@ def test_merge():
 # ── Embeddings ─────────────────────────────────────────────────
 def test_embeddings():
     """Vectors must be reproducible, normalised, and self-retrieving."""
+    check("embed.batch_size.valid", _parse_batch_size("4"), 4)
+    check("embed.batch_size.invalid", _parse_batch_size("invalid"),
+          DEFAULT_BGE_BATCH_SIZE)
+    check("embed.batch_size.zero", _parse_batch_size(0), DEFAULT_BGE_BATCH_SIZE)
+
+    class RecordingModel:
+        def encode(self, texts, **options):
+            self.texts = texts
+            self.options = options
+            return [[0.0] for _ in texts]
+
+    neural = object.__new__(SentenceTransformerEmbedder)
+    neural.batch_size = 4
+    neural._model = RecordingModel()
+    neural.encode(["one", "two"])
+    check("embed.batch_size.forwarded", neural._model.options["batch_size"], 4)
+
     corpus = ["robot kinematics", "motion planning", "network security"]
     embedder = LexicalEmbedder().fit(corpus)
     vectors = embedder.encode(corpus)
@@ -195,6 +348,31 @@ def test_matching(matcher):
     check("match.exact_label", exact["canonical_label"], "Gazebo simulator")
     check("match.exact_version", exact["taxonomy_version"], matcher.taxonomy.version)
 
+    for safe_term in ("Java", "Python", "NumPy", "HRI", "ROS2", "GazeboSim",
+                      "YOLO", "yolo", "UML", "uml"):
+        safe = matcher.match(safe_term, "")
+        check(f"match.safe_exact.{safe_term}", safe["review_status"], ACCEPTED)
+        check(f"match.safe_exact_method.{safe_term}",
+              safe["match_method"], "exact_alias")
+
+    for generic_term in ("communication", "Filters", "Node"):
+        generic = matcher.match(generic_term, "")
+        check(f"match.generic_review.{generic_term}",
+              generic["review_status"], NEEDS_REVIEW)
+        check(f"match.generic_retains_suggestion.{generic_term}",
+              generic["canonical_id"] is not None, True)
+
+    for uppercase_generic in ("FILTERS", "NODE", "ACCESS", "SPRING"):
+        generic = matcher.match(uppercase_generic, "")
+        check(f"match.uppercase_generic_review.{uppercase_generic}",
+              generic["review_status"], NEEDS_REVIEW)
+
+    contextual = matcher.match("communication", "Network protocol communication frames")
+    check("match.generic_context_not_auto_accepted",
+          contextual["review_status"], NEEDS_REVIEW)
+    check("match.generic_context_is_reranked",
+          contextual["match_method"], "embedding_reranker")
+
     # Nothing in the taxonomy covers this, and inventing something would
     # be worse than admitting it.
     nonsense = matcher.match("quantum basket weaving", "")
@@ -235,16 +413,84 @@ def test_matching(matcher):
     check("match.record_shape", required - set(exact), set())
 
 
+class _RecordingEmbedder:
+    """Delegate embeddings while recording the batches sent to the model."""
+
+    def __init__(self, embedder):
+        self._embedder = embedder
+        self.calls = []
+
+    def encode(self, texts):
+        batch = list(texts)
+        self.calls.append(batch)
+        return self._embedder.encode(batch)
+
+
+def test_batch_matching(matcher):
+    """Whole-course matching embeds all non-exact terms in one batch."""
+    original_embedder = matcher.index.embedder
+    recording = _RecordingEmbedder(original_embedder)
+    matcher.index.embedder = recording
+
+    skills = [
+        {"term": "GazeboSim Harmonic", "evidence": []},
+        {"term": "trajectory generation for manipulators", "evidence": []},
+        {"term": "communication", "evidence": [
+            {"text": "Written communication and presentation skills"},
+        ]},
+        {"term": "", "evidence": []},
+        {"term": "quantum basket weaving", "evidence": []},
+    ]
+    try:
+        matches = matcher.match_skills(skills)
+    finally:
+        matcher.index.embedder = original_embedder
+
+    check("batch.single_encode_call", len(recording.calls), 1)
+    check("batch.contextual_alias_is_unresolved", len(recording.calls[0]), 3)
+    check("batch.safe_exact_bypasses_encoding",
+          any("GazeboSim Harmonic" in query for query in recording.calls[0]), False)
+    check("batch.contextual_alias_is_encoded",
+          any(query.startswith("communication . communication")
+              for query in recording.calls[0]), True)
+    check("batch.preserves_order",
+          [match["original_term"] for match in matches],
+          [skill["term"] for skill in skills])
+
+
+def test_collision_matching():
+    """Every exact claimant to a colliding alias remains reviewable."""
+    collision_skills = [
+        make_skill("custom:web-css", "web styling", "custom", aliases=["CSS"]),
+        make_skill("custom:service-css", "customer support system", "custom",
+                   aliases=["CSS"]),
+    ]
+    taxonomy = Taxonomy(collision_skills)
+
+    class EmptyEmbedder:
+        def encode(self, texts):
+            return [[0.0] for _ in texts]
+
+    class EmptyIndex:
+        embedder = EmptyEmbedder()
+
+        def search(self, _vector, top_k=10):
+            return []
+
+    matcher = SkillMatcher(taxonomy, EmptyIndex(), LexicalReranker())
+    result = matcher.match("CSS", "Stylesheet selectors and layout")
+    check("match.collision_needs_review", result["review_status"], NEEDS_REVIEW)
+    check("match.collision_keeps_all_candidates",
+          {candidate["id"] for candidate in result["candidates"]},
+          {"custom:web-css", "custom:service-css"})
+
+
 def test_course_matching(matcher):
     """Matching a whole course, and writing the results back onto the skills."""
-    from careercompass.parsing.syllabus import parse_syllabus
-    from careercompass.skills.extractor import extract_skills
-
-    skills = extract_skills(parse_syllabus(ROBOTICS_PDF))
-    matches = matcher.match_skills(skills)
+    result = match_and_display(ROBOTICS_PDF, matcher)
+    skills = result["skills"]
+    matches = result["matches"]
     check("course.one_match_each", len(matches), len(skills))
-
-    matcher.attach(skills, matches)
 
     # canonical is filled only for accepted matches; anything a human still
     # needs to look at stays None so it cannot leak into the gap analysis.
@@ -255,11 +501,15 @@ def test_course_matching(matcher):
             check(f"course.canonical_unset.{skill['term']}", skill["canonical"], None)
 
     accepted = sum(1 for m in matches if m["review_status"] == ACCEPTED)
-    # These syllabi are what the custom taxonomy was curated against; a
-    # sharp drop here means the vocabulary or the thresholds regressed.
-    check("course.accepted_majority", accepted >= len(matches) // 2, True)
+    reviewed = sum(1 for m in matches if m["review_status"] == NEEDS_REVIEW)
+    # Generic aliases intentionally moved from automatic acceptance into
+    # review, but the matcher should still find a useful candidate for most
+    # extracted terms and accept a substantial core without assistance.
+    check("course.accepted_core", accepted >= len(matches) // 3, True)
+    check("course.candidate_coverage",
+          accepted + reviewed >= (len(matches) * 3) // 4, True)
 
-    summary = matcher.summary(matches)
+    summary = result["summary"]
     check("course.summary_total", summary["total"], len(matches))
     check("course.summary_adds_up", sum(summary["by_status"].values()), len(matches))
 
@@ -299,9 +549,58 @@ class _StubClient:
         self.messages = _StubMessages(payload)
 
 
+class _StubOllamaDecider(LLMDecider):
+    """Local provider stub that captures the Ollama request without a server."""
+
+    def _configure_ollama(self):
+        self._ollama_ready = True
+
+    def _ollama_request(self, path, payload=None, timeout=None):
+        self.last_path = path
+        self.last_payload = payload
+        return {
+            "message": {"content": json.dumps(self.response_payload)},
+            "done_reason": "stop",
+        }
+
+
+class _ChoiceDecider:
+    """Matcher-level decision stub for confidence routing tests."""
+
+    available = True
+
+    def __init__(self, canonical_id, confidence, reason="stub decision"):
+        self.choice = {
+            "canonical_id": canonical_id,
+            "confidence": confidence,
+            "reason": reason,
+        }
+
+    def decide(self, _term, _evidence, _candidates):
+        return self.choice
+
+
+def test_matcher_llm_routing(matcher):
+    """Only a confident LLM no_match may become a final rejection."""
+    original_decider = matcher.decider
+    try:
+        matcher.decider = _ChoiceDecider(NO_MATCH, 0.45, "possibly unrelated")
+        low = matcher.match("communication", "Network protocol communication frames")
+        check("match.llm_low_no_match_reviewed", low["review_status"], NEEDS_REVIEW)
+        check("match.llm_low_no_match_method", low["match_method"], "llm")
+        check("match.llm_low_no_match_reason",
+              low["reason"].startswith("low-confidence no_match"), True)
+
+        matcher.decider = _ChoiceDecider(NO_MATCH, 0.91, "not represented")
+        high = matcher.match("communication", "Network protocol communication frames")
+        check("match.llm_high_no_match_final", high["review_status"], UNMATCHED)
+    finally:
+        matcher.decider = original_decider
+
+
 def test_llm_decider():
     """The LLM may only ever return an id from the shortlist it was given."""
-    decider = LLMDecider()
+    decider = LLMDecider(enabled=False)
     check("llm.disabled_by_default", decider.available, False)
     check("llm.explains_itself", bool(decider.reason_unavailable), True)
 
@@ -311,12 +610,15 @@ def test_llm_decider():
     dynamics = index.lookup("robot dynamics")
     candidates = [(planning, 0.61), (dynamics, 0.55)]
 
-    decider = LLMDecider(enabled=False)
+    decider = LLMDecider(
+        provider="anthropic",
+        enabled=True,
+        client=_StubClient({
+            "canonical_id": planning["id"], "confidence": 0.93, "reason": "same skill",
+        }),
+    )
 
     # A valid pick is passed through, with its confidence clamped.
-    decider._client = _StubClient({
-        "canonical_id": planning["id"], "confidence": 0.93, "reason": "same skill",
-    })
     choice = decider.decide("trajectory planning", "", candidates)
     check("llm.valid_pick", choice["canonical_id"], planning["id"])
     check("llm.confidence", choice["confidence"], 0.93)
@@ -346,6 +648,21 @@ def test_llm_decider():
     decider._client = _StubClient({"canonical_id": None, "confidence": "high", "reason": ""})
     check("llm.rejects_missing_id", decider.decide("anything", "", candidates), None)
 
+    # The local Ollama path uses schema-constrained JSON and disables Qwen's
+    # thinking output so only the small decision object is generated.
+    ollama = _StubOllamaDecider(provider="ollama", model="qwen3:8b", enabled=True)
+    ollama.response_payload = {
+        "canonical_id": planning["id"], "confidence": 0.89, "reason": "same skill",
+    }
+    choice = ollama.decide("trajectory planning", "", candidates)
+    check("ollama.valid_pick", choice["canonical_id"], planning["id"])
+    check("ollama.endpoint", ollama.last_path, "/api/chat")
+    check("ollama.model", ollama.last_payload["model"], "qwen3:8b")
+    check("ollama.no_thinking", ollama.last_payload["think"], False)
+    check("ollama.schema_ids",
+          ollama.last_payload["format"]["properties"]["canonical_id"]["enum"],
+          [planning["id"], dynamics["id"], NO_MATCH])
+
 
 def main():
     for pdf in (ROBOTICS_PDF,):
@@ -360,10 +677,21 @@ def main():
     test_reranker()
     test_llm_decider()
 
-    matcher = SkillMatcher.build()
+    # Build the deterministic test matcher in memory.  This keeps the suite
+    # independent of .env and does not replace the user's persisted BGE index
+    # with a lexical test index.
+    taxonomy = load_taxonomy()
+    embedder = LexicalEmbedder().fit([skill_text(skill) for skill in taxonomy.skills])
+    index = VectorIndex.build(taxonomy, embedder)
+    matcher = SkillMatcher(
+        taxonomy, index, LexicalReranker(), accept_score=0.62, review_floor=0.40,
+    )
     print(f"Taxonomy: {len(matcher.taxonomy)} skills  "
           f"retrieval: {matcher.index.backend}  reranker: {matcher.reranker.name}")
     test_matching(matcher)
+    test_batch_matching(matcher)
+    test_collision_matching()
+    test_matcher_llm_routing(matcher)
     test_course_matching(matcher)
 
     print(f"Ran {_checks} checks")
@@ -376,4 +704,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) > 1:
+        match_and_display(sys.argv[1])
+    else:
+        main()

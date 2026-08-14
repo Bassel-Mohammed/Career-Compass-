@@ -1,31 +1,95 @@
 """
 CareerCompass — FastAPI Backend Service
 
-Exposes API endpoints to upload student academic plan PDFs and return
-structured academic transcript & plan data.
+HTTP interface over the syllabus skill pipeline, specified in
+docs/SKILL_EXTRACTION_API.md.
 
-Endpoints:
-    - POST /api/transcript/upload : Receives PDF upload, parses & returns structured JSON
-    - GET  /api/health            : Service health check
+The route layout follows one measurement: parsing and extraction take
+about a second, but matching a syllabus takes about ninety. So the fast
+deterministic stages are exposed synchronously as a preview, and the slow
+semantic stages run as a queued job the client polls. A single endpoint
+that blocked for ninety seconds would be timed out by the browser, the
+proxy and the load balancer at three different points.
+
+Run:
+    uvicorn careercompass.api.app:app --host 0.0.0.0 --port 8000
 """
 
+import asyncio
+import hashlib
+import logging
 import os
+import re
 import shutil
+import uuid
+from contextlib import asynccontextmanager
 from pathlib import Path
-from fastapi import FastAPI, File, UploadFile, HTTPException, status
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
 
-from careercompass.config import EXTRACTED_DIR, TEMP_DIR
+from fastapi import FastAPI, File, Form, HTTPException, Query, Response, UploadFile, status
+from fastapi.exceptions import RequestValidationError
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse, RedirectResponse
+
+from careercompass.api import schemas
+from careercompass.api.errors import (
+    Problem,
+    problem_handler,
+    unhandled_handler,
+    validation_handler,
+)
+from careercompass.api.jobs import (
+    ExtractionJob,
+    ExtractionQueue,
+    JobStore,
+    cache_key_for,
+    new_job_id,
+    queue_size,
+)
+from careercompass.api.runtime import required_ok, runtime, warmup_enabled
+from careercompass.config import EXTRACTED_DIR, SKILLS_DIR, TEMP_DIR
+from careercompass.parsing.syllabus import parse_syllabus
 from careercompass.parsing.transcript import parse_academic_plan, save_extraction
+from careercompass.skills.extractor import extract_skills
+
+logger = logging.getLogger("careercompass.api")
+
+COURSE_CODE_RE = re.compile(r"^[A-Za-z0-9_-]{1,64}$")
+
+job_store = JobStore()
+extraction_queue = ExtractionQueue(job_store, maxsize=queue_size())
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """
+    Start the worker, and warm the matcher off the critical path.
+
+    Warm-up runs on a background thread rather than blocking start-up: a
+    cold vector index build takes around 237 seconds, and an instance that
+    does not accept connections for four minutes looks dead to every
+    health probe pointed at it.
+    """
+    extraction_queue.start()
+    if warmup_enabled():
+        runtime.warm_in_background()
+    else:
+        logger.info("CC_API_WARMUP=0, deferring matcher build until first use")
+    try:
+        yield
+    finally:
+        await extraction_queue.stop()
+
 
 app = FastAPI(
     title="CareerCompass API",
-    description="API service for parsing student academic plans, skill gap analysis, and course/job recommendations.",
+    description=(
+        "Parses course syllabi into candidate skills and resolves them onto "
+        "the canonical taxonomy. See docs/SKILL_EXTRACTION_API.md."
+    ),
     version="1.0.0",
+    lifespan=lifespan,
 )
 
-# Enable CORS for web frontend integration
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -34,53 +98,525 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.add_exception_handler(Problem, problem_handler)
+app.add_exception_handler(RequestValidationError, validation_handler)
+app.add_exception_handler(Exception, unhandled_handler)
 
-@app.get("/api/health")
-def health_check():
-    """Service health check endpoint."""
+
+# ── Upload helpers ─────────────────────────────────────────────
+def _max_upload_bytes() -> int:
+    try:
+        return max(1, int(os.getenv("CC_API_MAX_UPLOAD_MB", "20"))) * 1024 * 1024
+    except ValueError:
+        return 20 * 1024 * 1024
+
+
+async def _read_pdf(file: UploadFile) -> bytes:
+    """Read an upload into memory, refusing non-PDFs and oversized files."""
+    filename = file.filename or "upload"
+    if not filename.lower().endswith(".pdf"):
+        raise Problem.invalid_file_type(filename)
+
+    limit = _max_upload_bytes()
+    chunks: list[bytes] = []
+    total = 0
+    while True:
+        chunk = await file.read(1024 * 1024)
+        if not chunk:
+            break
+        total += len(chunk)
+        if total > limit:
+            raise Problem.payload_too_large(
+                f"{filename!r} exceeds the {limit // (1024 * 1024)} MB upload limit."
+            )
+        chunks.append(chunk)
+
+    if not total:
+        raise Problem.unparseable_syllabus(f"{filename!r} is empty.")
+    return b"".join(chunks)
+
+
+def _parse_pdf_bytes(data: bytes, filename: str) -> dict:
+    """
+    Parse uploaded bytes by way of a temp file, because pdfplumber needs a path.
+
+    Blocking: always call through asyncio.to_thread.
+    """
+    TEMP_DIR.mkdir(parents=True, exist_ok=True)
+    temp_path = TEMP_DIR / f"upload_{uuid.uuid4().hex}.pdf"
+    temp_path.write_bytes(data)
+    try:
+        syllabus = parse_syllabus(str(temp_path))
+    except ValueError as exc:
+        raise Problem.unparseable_syllabus(str(exc)) from exc
+    finally:
+        try:
+            temp_path.unlink()
+        except OSError:
+            pass
+
+    # The parser records the temp filename it was handed; the caller cares
+    # about the name the user uploaded.
+    syllabus["source_file"] = filename
+    return syllabus
+
+
+@app.get("/", include_in_schema=False)
+def root():
+    """
+    Send the bare host to the documentation.
+
+    Without this, opening the service in a browser answers 404, which
+    reads as a broken deployment rather than an API with no root resource.
+    """
+    return RedirectResponse(url="/docs")
+
+
+# ── Health ─────────────────────────────────────────────────────
+@app.get("/api/v1/health/live", tags=["health"])
+def health_live():
+    """Liveness: the process is up. Touches no model, index or database."""
     return {"status": "ok", "service": "CareerCompass API"}
 
 
-@app.post("/api/transcript/upload")
-async def upload_transcript(
-    file: UploadFile = File(...),
-    save_output: bool = True
+@app.get("/api/v1/health/ready", response_model=schemas.ReadyResponse, tags=["health"])
+def health_ready(response: Response):
+    """
+    Readiness: this instance can actually serve matches.
+
+    Separate from liveness on purpose. A cold index build takes minutes,
+    and an orchestrator that probes liveness during it restarts the
+    container forever.
+    """
+    checks = runtime.health()
+    ready = required_ok(checks)
+    if not ready:
+        response.status_code = status.HTTP_503_SERVICE_UNAVAILABLE
+        response.headers["Retry-After"] = "30"
+    return {"ready": ready, "checks": checks}
+
+
+# ── Transcript ─────────────────────────────────────────────────
+def _parse_transcript_bytes(data: bytes, filename: str) -> dict:
+    """Parse uploaded bytes via a temp file. Blocking; call in a thread."""
+    TEMP_DIR.mkdir(parents=True, exist_ok=True)
+    temp_path = TEMP_DIR / f"transcript_{uuid.uuid4().hex}.pdf"
+    temp_path.write_bytes(data)
+    try:
+        return parse_academic_plan(str(temp_path))
+    except ValueError as exc:
+        raise Problem.unparseable_transcript(str(exc)) from exc
+    finally:
+        try:
+            temp_path.unlink()
+        except OSError:
+            pass
+
+
+@app.post("/api/v1/transcripts/parse", response_model=schemas.TranscriptResponse,
+          tags=["transcript"])
+async def parse_transcript(
+    file: UploadFile = File(..., description="MEU academic plan PDF"),
+    save: bool = Form(False, description="Persist the extraction to data/extracted"),
 ):
     """
-    Receive a student academic plan PDF file and extract structured JSON data.
+    Extract student information and course history from an academic plan PDF.
 
-    Args:
-        file: Multipart PDF file upload.
-        save_output: Whether to save the JSON output file in src/data/extracted/
+    Synchronous, unlike syllabus extraction: this parser is regex over
+    pdfplumber text with no model in the path, so a full 74-course plan
+    resolves in about a quarter of a second.
 
-    Returns:
-        JSON response with student profile, requirement categories, course lists, and summary stats.
+    `save` defaults to **false**. A transcript carries a student's name, id
+    and complete grade history, so writing it to disk is an explicit
+    request rather than a side effect of reading it.
     """
-    # Validate file extension
-    if not file.filename.lower().endswith(".pdf"):
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Invalid file format. Only PDF files (.pdf) are supported."
+    data = await _read_pdf(file)
+    filename = file.filename or "transcript.pdf"
+    parsed = await asyncio.to_thread(_parse_transcript_bytes, data, filename)
+
+    student = parsed.get("student") or {}
+    if not student.get("student_id") and not parsed.get("all_courses"):
+        raise Problem.unparseable_transcript(
+            f"{filename!r} yielded neither a student id nor any courses; it "
+            "does not look like an MEU academic plan."
         )
 
-    # Save uploaded file to a temporary file for pdfplumber processing
-    temp_dir = TEMP_DIR
-    temp_dir.mkdir(parents=True, exist_ok=True)
-    temp_file_path = temp_dir / f"upload_{os.urandom(8).hex()}_{file.filename}"
+    saved_to = None
+    if save:
+        EXTRACTED_DIR.mkdir(parents=True, exist_ok=True)
+        output_path = EXTRACTED_DIR / f"{Path(filename).stem}.json"
+        await asyncio.to_thread(save_extraction, parsed, str(output_path))
+        saved_to = str(output_path)
+
+    return {
+        "content_sha256": hashlib.sha256(data).hexdigest(),
+        "source_file": filename,
+        "student": student,
+        "summary": parsed.get("summary") or {},
+        "categories": parsed.get("categories") or [],
+        "all_courses": parsed.get("all_courses") or [],
+        "saved_to": saved_to,
+    }
+
+
+# ── Extraction ─────────────────────────────────────────────────
+@app.post("/api/v1/syllabi/preview", response_model=schemas.PreviewResponse,
+          tags=["extraction"])
+async def preview_syllabus(
+    file: UploadFile = File(..., description="Course syllabus PDF"),
+    min_weight: float = Form(0.0, ge=0.0, le=1.0),
+):
+    """
+    Parse a syllabus and return candidate terms without taxonomy matching.
+
+    Fast (about a second) because it runs no model, and persists nothing.
+    The upload screen calls this so the user can confirm the right
+    document before committing ninety seconds of compute.
+    """
+    data = await _read_pdf(file)
+    filename = file.filename or "upload.pdf"
+    syllabus = await asyncio.to_thread(_parse_pdf_bytes, data, filename)
+    skills = await asyncio.to_thread(extract_skills, syllabus)
+
+    terms = [
+        {
+            "term": skill["term"],
+            "level": skill["level"],
+            "weight": skill["weight"],
+            "evidence_count": skill["evidence_count"],
+            "sources": skill["sources"],
+        }
+        for skill in skills
+        if skill["weight"] >= min_weight
+    ]
+    return {
+        "course_code": syllabus.get("course_code"),
+        "course_title": syllabus.get("course_title"),
+        "content_sha256": hashlib.sha256(data).hexdigest(),
+        "total_terms": len(terms),
+        "terms": terms,
+        "warnings": syllabus.get("warnings") or [],
+    }
+
+
+@app.post("/api/v1/extractions", response_model=schemas.ExtractionResponse,
+          status_code=status.HTTP_202_ACCEPTED, tags=["extraction"])
+async def create_extraction(
+    response: Response,
+    file: UploadFile = File(..., description="Course syllabus PDF"),
+    use_llm: bool = Form(None, description="Overrides CC_MATCH_LLM for this job"),
+    force: bool = Form(False, description="Bypass the idempotency cache"),
+    store: bool = Form(True, description="Also write results to PostgreSQL"),
+):
+    """
+    Queue a full extraction: extract, match and store.
+
+    The PDF is parsed synchronously first — it costs about a second, and
+    it is the only way a malformed document can be reported as a 4xx.
+    Once the job is accepted, every later failure is a job status, not an
+    HTTP status.
+    """
+    data = await _read_pdf(file)
+    filename = file.filename or "upload.pdf"
+    content_sha256 = hashlib.sha256(data).hexdigest()
+
+    # Fails with 503 while the index is still warming, before any parsing.
+    runtime.require()
+
+    cache_key = cache_key_for(content_sha256)
+    if not force:
+        cached = job_store.find_succeeded(cache_key)
+        if cached is not None:
+            response.status_code = status.HTTP_200_OK
+            return cached.to_dict()
+
+    syllabus = await asyncio.to_thread(_parse_pdf_bytes, data, filename)
+    if not syllabus.get("course_code"):
+        raise Problem.missing_course_code(filename, syllabus.get("warnings") or [])
+
+    job = ExtractionJob(
+        extraction_id=new_job_id(),
+        content_sha256=content_sha256,
+        cache_key=cache_key,
+        filename=filename,
+        syllabus=syllabus,
+        use_llm=use_llm,
+        store=store,
+        warnings=list(syllabus.get("warnings") or []),
+    )
+    extraction_queue.submit(job)
+
+    response.headers["Location"] = f"/api/v1/extractions/{job.extraction_id}"
+    return job.to_dict()
+
+
+@app.get("/api/v1/extractions", tags=["extraction"])
+def list_extractions(limit: int = Query(20, ge=1, le=200)):
+    """
+    Recently tracked extraction jobs, newest first.
+
+    Exists so a lost `extraction_id` can be recovered. The store is in
+    memory, so this lists only jobs submitted since the last restart.
+    """
+    jobs = job_store.list(limit)
+    return {
+        "total": len(jobs),
+        "items": [
+            {
+                "extraction_id": job.extraction_id,
+                "status": job.status,
+                "course_code": job.course_code,
+                "filename": job.filename,
+                "created_at": job.created_at,
+                "finished_at": job.finished_at,
+            }
+            for job in jobs
+        ],
+    }
+
+
+@app.get("/api/v1/extractions/{extraction_id}", response_model=schemas.ExtractionResponse,
+         tags=["extraction"])
+def get_extraction(extraction_id: str):
+    """Poll an extraction. Progress advances during the matching stage."""
+    job = job_store.get(extraction_id)
+    if job is None:
+        raise Problem.extraction_not_found(extraction_id)
+    return job.to_dict()
+
+
+@app.delete("/api/v1/extractions/{extraction_id}", response_model=schemas.ExtractionResponse,
+            tags=["extraction"])
+def cancel_extraction(extraction_id: str):
+    """
+    Cancel a queued or running extraction.
+
+    Partial results are discarded: a half-matched course is worse than no
+    course, because nothing downstream can tell the two apart.
+    """
+    job = job_store.get(extraction_id)
+    if job is None:
+        raise Problem.extraction_not_found(extraction_id)
+    if job.finished:
+        raise Problem.extraction_not_cancellable(extraction_id, job.status)
+    job.cancel_requested = True
+    return job.to_dict()
+
+
+# ── Results ────────────────────────────────────────────────────
+def _course_path(course_code: str) -> Path:
+    if not COURSE_CODE_RE.match(course_code):
+        raise Problem.course_not_found(course_code)
+    return SKILLS_DIR / f"{course_code}.json"
+
+
+def _read_course(course_code: str) -> dict:
+    import json
+
+    path = _course_path(course_code)
+    if not path.exists():
+        raise Problem.course_not_found(course_code)
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+@app.get("/api/v1/courses", response_model=schemas.CourseListResponse, tags=["results"])
+def list_courses():
+    """Every course that has been extracted, with its counts by review status."""
+    import json
+
+    courses = []
+    if SKILLS_DIR.exists():
+        for path in sorted(SKILLS_DIR.glob("*.json")):
+            try:
+                document = json.loads(path.read_text(encoding="utf-8"))
+            except (OSError, ValueError):
+                logger.warning("Skipping unreadable skills file: %s", path)
+                continue
+            courses.append({
+                "course_code": document.get("course_code") or path.stem,
+                "total_skills": document.get("total_skills", 0),
+                "taxonomy_version": document.get("taxonomy_version"),
+                "by_status": (document.get("match_summary") or {}).get("by_status", {}),
+            })
+    return {"total": len(courses), "courses": courses}
+
+
+@app.get("/api/v1/courses/{course_code}/skills", tags=["results"])
+def get_course_skills_endpoint(
+    course_code: str,
+    status_filter: str = Query("accepted", alias="status",
+                               pattern="^(accepted|needs_review|no_match|all)$"),
+    min_weight: float = Query(0.0, ge=0.0, le=1.0),
+    include: str = Query("", description="Comma-separated: evidence, candidates"),
+):
+    """
+    A course's matched skills — the endpoint the Skill Vector builder consumes.
+
+    Defaults to accepted matches only, because that is the only status
+    downstream scoring should ever see: a needs_review row still carries
+    the skill_id the matcher proposed, so an unfiltered join would treat
+    an unconfirmed guess as fact.
+
+    The audit fields (evidence, candidates) are large and omitted unless
+    asked for by name.
+    """
+    document = _read_course(course_code)
+    wanted = {part.strip() for part in include.split(",") if part.strip()}
+
+    skills = []
+    for skill in document.get("skills", []):
+        review_status = (skill.get("match") or {}).get("review_status", "no_match")
+        if status_filter != "all" and review_status != status_filter:
+            continue
+        if skill.get("weight", 0.0) < min_weight:
+            continue
+
+        trimmed = dict(skill)
+        if "evidence" not in wanted:
+            trimmed.pop("evidence", None)
+        match = dict(trimmed.get("match") or {})
+        if match and "candidates" not in wanted:
+            match.pop("candidates", None)
+        if match:
+            trimmed["match"] = match
+        skills.append(trimmed)
+
+    return {
+        "course_code": document.get("course_code", course_code),
+        "taxonomy_version": document.get("taxonomy_version"),
+        "match_summary": document.get("match_summary", {}),
+        "total_skills": len(skills),
+        "skills": skills,
+    }
+
+
+# ── Ad-hoc matching ────────────────────────────────────────────
+@app.post("/api/v1/skills/match", response_model=schemas.MatchResponse, tags=["matching"])
+async def match_terms(request: schemas.MatchRequest):
+    """
+    Match up to 25 free-text terms with no PDF involved.
+
+    The cap is hard rather than advisory: Ollama serialises inference, so
+    an unbounded batch here is an accidental denial of service against the
+    one worker every extraction also depends on.
+    """
+    if len(request.terms) > schemas.MAX_MATCH_TERMS:
+        raise Problem.payload_too_large(
+            f"{len(request.terms)} terms requested; this endpoint accepts at "
+            f"most {schemas.MAX_MATCH_TERMS}. Submit a syllabus through "
+            "/api/v1/extractions for bulk work."
+        )
+
+    matcher = runtime.matcher_for(request.use_llm)
+
+    def _match_all():
+        return [matcher.match(item.term, item.evidence) for item in request.terms]
+
+    matches = await asyncio.to_thread(_match_all)
+    decider = matcher.decider
+    return {
+        "total": len(matches),
+        # Same rule as the job worker: degraded means the LLM was wanted
+        # and unreachable, not that it is switched off by configuration.
+        "degraded": decider.enabled and not decider.available,
+        "matches": matches,
+    }
+
+
+# ── Human review ───────────────────────────────────────────────
+@app.get("/api/v1/review-queue", response_model=schemas.ReviewQueueResponse,
+         tags=["review"])
+async def review_queue(
+    limit: int = Query(100, ge=1, le=500),
+    course_code: str = Query("", description="Optional course filter"),
+):
+    """
+    Terms the matcher would not decide, worst score first.
+
+    Not a peripheral endpoint: on the benchmark run 50 of 93 ambiguous
+    terms landed here, which makes review throughput the real bottleneck
+    of the whole subsystem.
+    """
+    from careercompass.db.skills import get_review_queue
+
+    try:
+        items = await asyncio.to_thread(get_review_queue, limit)
+    except Exception as exc:  # noqa: BLE001
+        raise Problem.database_unavailable(str(exc).strip().splitlines()[0][:200]) from exc
+
+    if course_code:
+        items = [item for item in items if item["course_code"] == course_code]
+    return {"total": len(items), "items": items}
+
+
+@app.post("/api/v1/review-queue/decisions", response_model=schemas.ReviewDecisionsResponse,
+          tags=["review"])
+async def record_decisions(request: schemas.ReviewDecisionsRequest):
+    """
+    Record reviewer decisions in a batch, because reviewing happens in sittings.
+
+    Decisions are stored against the normalised term rather than the
+    course, so one correction applies everywhere the term appears and
+    survives the next matcher run.
+    """
+    from careercompass.db.skills import record_review
+
+    def _record_all():
+        recorded = 0
+        errors = []
+        for decision in request.decisions:
+            try:
+                record_review(
+                    decision.term, decision.skill_id, decision.decision,
+                    reviewer=request.reviewer, note=decision.note,
+                )
+                recorded += 1
+            except ValueError as exc:
+                errors.append({"term": decision.term, "error": str(exc)})
+        return recorded, errors
+
+    try:
+        recorded, errors = await asyncio.to_thread(_record_all)
+    except Exception as exc:  # noqa: BLE001
+        raise Problem.database_unavailable(str(exc).strip().splitlines()[0][:200]) from exc
+
+    return {"recorded": recorded, "errors": errors}
+
+
+# ── Transcript (pre-existing, unversioned) ─────────────────────
+@app.get("/api/health", tags=["legacy"])
+def health_check():
+    """Deprecated: use /api/v1/health/live."""
+    return {"status": "ok", "service": "CareerCompass API"}
+
+
+@app.post("/api/transcript/upload", tags=["legacy"])
+async def upload_transcript(file: UploadFile = File(...), save_output: bool = True):
+    """
+    Receive a student academic plan PDF and extract structured JSON data.
+
+    Kept on its original path so the existing frontend keeps working. New
+    clients should expect this to move under /api/v1 alongside the rest.
+    """
+    if not (file.filename or "").lower().endswith(".pdf"):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Invalid file format. Only PDF files (.pdf) are supported.",
+        )
+
+    TEMP_DIR.mkdir(parents=True, exist_ok=True)
+    temp_file_path = TEMP_DIR / f"upload_{os.urandom(8).hex()}_{file.filename}"
 
     try:
         with open(temp_file_path, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
 
-        # Parse the academic plan PDF using our parser module
         parsed_result = parse_academic_plan(str(temp_file_path))
 
-        # Save extraction to src/data/extracted if requested
         if save_output:
-            extracted_dir = EXTRACTED_DIR
-            extracted_dir.mkdir(parents=True, exist_ok=True)
+            EXTRACTED_DIR.mkdir(parents=True, exist_ok=True)
             output_filename = f"{Path(file.filename).stem}.json"
-            save_extraction(parsed_result, str(extracted_dir / output_filename))
+            save_extraction(parsed_result, str(EXTRACTED_DIR / output_filename))
 
         return JSONResponse(
             status_code=status.HTTP_200_OK,
@@ -89,21 +625,16 @@ async def upload_transcript(
                 "message": "Academic plan parsed successfully.",
                 "filename": file.filename,
                 "data": parsed_result,
-            }
+            },
         )
-
-    except FileNotFoundError as e:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=str(e)
-        )
-    except Exception as e:
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc))
+    except Exception as exc:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Failed to parse PDF academic plan: {str(e)}"
+            detail=f"Failed to parse PDF academic plan: {exc}",
         )
     finally:
-        # Clean up temporary uploaded file
         if temp_file_path.exists():
             try:
                 os.remove(temp_file_path)
@@ -113,4 +644,5 @@ async def upload_transcript(
 
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run("careercompass.api.app:app", host="0.0.0.0", port=8000, reload=True)

@@ -1,10 +1,10 @@
 """
 CareerCompass — Course Syllabus Parser Tests
 
-Golden tests over the two reference syllabi. They differ enough to catch
-template assumptions: different faculty, check glyphs vs JNQF descriptor
-codes, L/P vs On-campus lecture types, labs vs no labs, and a source
-document with genuine numbering defects.
+Golden tests over the reference syllabi. They differ enough to catch template
+assumptions: headings inside vs. outside tables, different faculty, check
+glyphs vs JNQF descriptor codes, labs vs no labs, and source documents with
+genuine numbering defects.
 
 Usage:
     python -m tests.test_syllabus_parser
@@ -16,8 +16,21 @@ from pathlib import Path
 from careercompass.parsing.syllabus import parse_syllabus
 
 FIXTURES = Path(__file__).resolve().parent / "fixtures"
-ROBOTICS_PDF = str(FIXTURES / "Robotics Syl.pdf")
+ROBOTICS_PDF = str(FIXTURES / "robotics_programming.pdf")
 PROBABILITY_PDF = str(FIXTURES / "probability_and_statistics.pdf")
+SYSTEM_ANALYSIS_PDF = str(FIXTURES / "system_analysis_and_design.pdf")
+SOFTWARE_ARCHITECTURE_PDF = str(FIXTURES / "software_architecture.pdf")
+JAVA_PDF = str(FIXTURES / "object_oriented_programming_in_java.pdf")
+COMPUTER_VISION_PDF = str(FIXTURES / "computer_vision.pdf")
+
+ALL_FIXTURES = (
+    ROBOTICS_PDF,
+    PROBABILITY_PDF,
+    SYSTEM_ANALYSIS_PDF,
+    SOFTWARE_ARCHITECTURE_PDF,
+    JAVA_PDF,
+    COMPUTER_VISION_PDF,
+)
 
 RETURNED_KEYS = {
     "source_file", "course_code", "course_title", "credit_hours",
@@ -52,7 +65,7 @@ def test_robotics():
     """Robotics Programming: check glyphs, labs, fragmented schedule tables."""
     result = parse_syllabus(ROBOTICS_PDF)
 
-    check("robotics.source_file", result["source_file"], "Robotics Syl.pdf")
+    check("robotics.source_file", result["source_file"], "robotics_programming.pdf")
     check("robotics.course_code", result["course_code"], "0432405")
     check("robotics.course_title", result["course_title"], "Robotics Programming")
     check("robotics.credit_hours", result["credit_hours"], 3)
@@ -130,6 +143,76 @@ def test_probability():
           "Week numbering jumps 9 -> 11" in warnings[1], True)
 
 
+def test_details_heading_outside_table():
+    """Word exports with floating section headings retain course metadata."""
+    cases = (
+        (
+            SYSTEM_ANALYSIS_PDF,
+            "0412401",
+            "System Analysis and Design",
+            (3, 3, 0, 7),
+            ["0411203"],
+            "This course provides students with an in-depth understanding",
+        ),
+        (
+            SOFTWARE_ARCHITECTURE_PDF,
+            "0443501",
+            "Software Architecture",
+            (3, 3, 0, 7),
+            ["0442502"],
+            "This course offers a comprehensive understanding",
+        ),
+        (
+            JAVA_PDF,
+            "0412201",
+            "Object-Oriented Programming in Java",
+            (3, 3, 0, 6),
+            ["0411203"],
+            "This course introduces basic Object oriented concepts",
+        ),
+        (
+            COMPUTER_VISION_PDF,
+            "0434402",
+            "Computer vision",
+            (3, 2, 1, 7),
+            ["0433401", "0433402"],
+            "This course provides a foundational understanding of computer vision",
+        ),
+    )
+
+    for pdf, code, title, hours, prerequisites, description_start in cases:
+        result = parse_syllabus(pdf)
+        stem = Path(pdf).stem
+        check(f"variant.{stem}.course_code", result["course_code"], code)
+        check(f"variant.{stem}.course_title", result["course_title"], title)
+        check(
+            f"variant.{stem}.hours_and_level",
+            (
+                result["credit_hours"],
+                result["theoretical_hours"],
+                result["practical_hours"],
+                result["jnqf_level"],
+            ),
+            hours,
+        )
+        check(f"variant.{stem}.prerequisites", result["prerequisites"], prerequisites)
+        check(
+            f"variant.{stem}.description",
+            result["description"].startswith(description_start),
+            True,
+        )
+        metadata_warnings = (
+            "Course code not found",
+            "Course title not found",
+            "Course description is empty",
+        )
+        check(
+            f"variant.{stem}.metadata_warnings",
+            any(warning.startswith(metadata_warnings) for warning in result["warnings"]),
+            False,
+        )
+
+
 def test_missing_file():
     """A missing PDF raises rather than returning an empty parse."""
     try:
@@ -141,7 +224,7 @@ def test_missing_file():
 
 
 def main():
-    for pdf in (ROBOTICS_PDF, PROBABILITY_PDF):
+    for pdf in ALL_FIXTURES:
         if not Path(pdf).exists():
             print(f"❌ Reference PDF not found: {pdf}")
             sys.exit(1)
@@ -149,6 +232,7 @@ def main():
     test_returned_shape()
     test_robotics()
     test_probability()
+    test_details_heading_outside_table()
     test_missing_file()
 
     print(f"Ran {_checks} checks")

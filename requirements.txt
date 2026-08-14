@@ -19,7 +19,9 @@ numpy>=2.0
 # Install them to switch on the multilingual semantic backends:
 #
 #   pip install sentence-transformers   # BAAI/bge-m3 + bge-reranker-v2-m3
-#   pip install anthropic               # constrained LLM selection
+#   pip install anthropic               # optional hosted Anthropic provider
+#
+# Local Qwen3 uses Ollama over HTTP and needs no Python package.
 #
 # Then set CC_EMBEDDING_BACKEND=bge, CC_RERANKER=cross, CC_MATCH_LLM=1.
 

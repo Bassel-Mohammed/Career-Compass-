@@ -23,7 +23,7 @@ Usage:
     from careercompass.parsing.syllabus import parse_syllabus
     from careercompass.skills.extractor import extract_skills
 
-    skills = extract_skills(parse_syllabus("Robotics Syl.pdf"))
+    skills = extract_skills(parse_syllabus("robotics_programming.pdf"))
 """
 
 import re
@@ -69,11 +69,15 @@ SOURCE_WEIGHTS = {"clo": 1.0, "lab": 0.8, "topic": 0.7, "description": 0.6}
 
 LAB_PREFIX_RE = re.compile(r"^Lab\s*\d*\s*[:.\-]\s*", re.IGNORECASE)
 PAREN_RE = re.compile(r"\(([^)]*)\)")
+LEADING_LIST_MARKER_RE = re.compile(
+    r"^\s*(?:(?:[-*]\s+)|(?:[–—]\s*)|"
+    r"(?:[\u00b7\u2022\u2023\u2043\u2219\u25a0\u25aa\u25ab\u25cb\u25cf\u25e6\uf0b7]\s*))+"
+)
 
 # Fragment separators. Splitting on these turns "sensing, acting, planning,
 # and learning" into four candidates.
 SPLIT_RE = re.compile(
-    r"\s*(?:[,;:/&]|\.\s|\.$|\band\b|\bor\b|\bfor\b|\bincluding\b|\bsuch as\b)\s*",
+    r"\s*(?:[,;:&]|\.\s|\.$|\band\b|\bor\b|\bfor\b|\bincluding\b|\bsuch as\b)\s*",
     re.IGNORECASE,
 )
 
@@ -98,10 +102,36 @@ TRAIL_WORD_RE = re.compile(
 # ("Calculate statistical measures. CLO Coverage: 40%").
 BOOKKEEPING_RE = re.compile(r"\bCLO\s+Coverage\b.*$", re.IGNORECASE)
 
-# Whole rows that are administrative, not teaching content.
-ADMIN_RE = re.compile(
-    r"mid-?\s?term|final\s+exam|midterm\s+exam|project\s+presentation|"
-    r"course\s+syllabus|presentation\s+and\s+discussion",
+# Whole rows that are administrative, not teaching content.  These are
+# anchored so "Final Exam: recursion" can still contribute "recursion".
+EXAM_HEADING_RE = re.compile(
+    r"^(?:(?:mid(?:[-\s]?(?:term|semester))?|final)"
+    r"(?:[-\s]+exam(?:ination)?)?(?:\s*/\s*project)?|"
+    r"mid(?:[-\s]?term)?\s*/\s*final(?:[-\s]+exam(?:ination)?)?|"
+    r"(?:comprehensive\s+)?review\s*(?:&|and)\s*final"
+    r"(?:\s+exam(?:ination)?)?)$",
+    re.IGNORECASE,
+)
+ADMIN_HEADING_RE = re.compile(
+    r"^(?:course\s+syllabus(?:\s+discussion)?|"
+    r"project\s+presentation(?:\s*(?:&|and)\s*discussion)?|"
+    r"presentation\s*(?:&|and)\s*discussion)$",
+    re.IGNORECASE,
+)
+CHAPTER_LABEL_RE = re.compile(
+    r"^(?:chapters?|ch\.?)\s+[0-9ivxlcdm]+"
+    r"(?:\s*(?:[-–—,&/]|and)\s*[0-9ivxlcdm]+)*$",
+    re.IGNORECASE,
+)
+CHAPTER_PREFIX_RE = re.compile(
+    r"^(?:chapters?|ch\.?)\s+[0-9ivxlcdm]+"
+    r"(?:\s*(?:[-–—,&/]|and)\s*[0-9ivxlcdm]+)*\s*[:–—-]\s*",
+    re.IGNORECASE,
+)
+EXAM_PREFIX_RE = re.compile(
+    r"^(?:(?:mid|final)[-\s]+exam(?:ination)?|"
+    r"mid[-\s]?(?:term|semester)(?:[-\s]+exam(?:ination)?)?)"
+    r"\s*[:–—-]\s*",
     re.IGNORECASE,
 )
 
@@ -143,6 +173,25 @@ def _strip_parentheticals(text: str) -> tuple:
     return PAREN_RE.sub(" ", text), inner
 
 
+def _strip_unmatched_parentheses(text: str) -> str:
+    """Remove only unpaired parentheses while preserving their contents."""
+    openings = []
+    unmatched = set()
+    for index, character in enumerate(text):
+        if character == "(":
+            openings.append(index)
+        elif character == ")":
+            if openings:
+                openings.pop()
+            else:
+                unmatched.add(index)
+    unmatched.update(openings)
+    if not unmatched:
+        return text
+    return "".join(" " if index in unmatched else character
+                   for index, character in enumerate(text))
+
+
 def _clean_fragment(fragment: str) -> str:
     """
     Trim a split fragment down to the skill it names.
@@ -151,6 +200,7 @@ def _clean_fragment(fragment: str) -> str:
     a leading Bloom verb: "and Define human-robot interaction" splits out
     of a learning outcome still carrying its verb.
     """
+    fragment = LEADING_LIST_MARKER_RE.sub("", fragment)
     term = TRAIL_RE.sub("", fragment.strip())
     previous = None
     while term and term != previous:
@@ -182,6 +232,11 @@ def _join_wrapped(lines: list) -> list:
 
 def _is_usable(term: str) -> bool:
     """Reject residue, filler and phrases too long to be a single skill."""
+    term = term.strip()
+    if (EXAM_HEADING_RE.fullmatch(term)
+            or ADMIN_HEADING_RE.fullmatch(term)
+            or CHAPTER_LABEL_RE.fullmatch(term)):
+        return False
     if len(term) < MIN_TERM_LENGTH:
         return False
     if term.lower() in NOISE_TERMS:
@@ -193,16 +248,27 @@ def _is_usable(term: str) -> bool:
     # ("Robot's" / "Sensors" split across two schedule rows).
     if len(words) == 1 and re.search(r"['’]s$", term):
         return False
-    # Must contain at least one letter; drops stray numbers and symbols.
-    return bool(re.search(r"[A-Za-z]{2}", term))
+    # Must contain at least two letters; drops stray numbers and symbols but
+    # retains technology compounds whose letters are separated ("C/C++").
+    return len(re.findall(r"[A-Za-z]", term)) >= 2
 
 
 def _phrases(text: str) -> list:
     """Split a line of syllabus text into candidate skill phrases."""
-    if not text or ADMIN_RE.search(text):
+    if not text:
+        return []
+    text = LEADING_LIST_MARKER_RE.sub("", text)
+    text = LAB_PREFIX_RE.sub("", text)
+    heading = text.strip()
+    if EXAM_HEADING_RE.fullmatch(heading) or ADMIN_HEADING_RE.fullmatch(heading):
+        return []
+    text = CHAPTER_PREFIX_RE.sub("", text)
+    text = EXAM_PREFIX_RE.sub("", text)
+    heading = text.strip()
+    if EXAM_HEADING_RE.fullmatch(heading) or ADMIN_HEADING_RE.fullmatch(heading):
         return []
 
-    body, inner = _strip_parentheticals(text)
+    body, inner = _strip_parentheticals(_strip_unmatched_parentheses(text))
     terms = []
     for chunk in [body] + inner:
         for fragment in SPLIT_RE.split(chunk):

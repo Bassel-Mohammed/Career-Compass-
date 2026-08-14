@@ -7,13 +7,13 @@ covers.
 
 Usage:
     # Parse, extract and match in one go
-    python -m careercompass.cli.match_skills "Robotics Syl.pdf"
+    python -m careercompass.cli.match_skills "robotics_programming.pdf"
 
     # Match skills already extracted
-    python -m careercompass.cli.match_skills --skills src/data/extracted/skills/0432405.json
+    python -m careercompass.cli.match_skills --skills data/extracted/skills/0432405.json
 
-    # Let Claude resolve the ambiguous cases, and store the results
-    python -m careercompass.cli.match_skills "Robotics Syl.pdf" --llm --db
+    # Let the configured LLM resolve ambiguous cases, and store the results
+    python -m careercompass.cli.match_skills "robotics_programming.pdf" --llm --db
 """
 
 import sys
@@ -50,8 +50,12 @@ def main():
                         help="Course syllabus PDF (parsed and extracted first)")
     parser.add_argument("--skills", default=None,
                         help="Skills JSON to match instead of parsing a PDF")
-    parser.add_argument("--llm", action="store_true",
-                        help="Use Claude to resolve ambiguous candidates")
+    parser.add_argument(
+        "--llm",
+        action=argparse.BooleanOptionalAction,
+        default=None,
+        help="Enable or disable the configured LLM (default: CC_MATCH_LLM)",
+    )
     parser.add_argument("--backend", default="",
                         help="Embedding backend: lexical, bge, or auto")
     parser.add_argument("--reranker", default="",
@@ -115,8 +119,13 @@ def main():
     print(f"   {len(matcher.taxonomy)} skills  "
           f"({', '.join(f'{k} {v}' for k, v in sorted(matcher.taxonomy.counts().items()))})")
     print(f"   retrieval: {matcher.index.backend}   reranker: {matcher.reranker.name}")
-    if args.llm:
-        print(f"   llm:       {matcher.decider.model if matcher.decider.available else 'unavailable — ' + matcher.decider.reason_unavailable}")
+    if matcher.decider.enabled:
+        llm_status = (
+            matcher.decider.display_name
+            if matcher.decider.available
+            else "unavailable — " + matcher.decider.reason_unavailable
+        )
+        print(f"   llm:       {llm_status}")
 
     matches = matcher.match_skills(skills)
     matcher.attach(skills, matches)
@@ -169,6 +178,8 @@ def main():
         "match_backend": {
             "retrieval": matcher.index.backend,
             "reranker": matcher.reranker.name,
+            "llm_provider": (matcher.decider.provider
+                             if matcher.decider.available else None),
             "llm": matcher.decider.model if matcher.decider.available else None,
         },
         "match_summary": {
@@ -178,12 +189,14 @@ def main():
     })
 
     if args.db:
-        from src.modules import skills_db
+        from careercompass.db.skills import store_course_skills
         try:
-            stored = skills_db.store_course_skills(course_code, skills)
+            stored = store_course_skills(course_code, skills)
             print(f"✅ Stored {stored} course skills in PostgreSQL")
         except Exception as exc:
             print(f"⚠️  Could not store results: {exc}")
+            print("   If this is a foreign-key error, the database taxonomy is "
+                  "stale: rerun build_taxonomy with --db.")
 
     print(f"\n✅ Done. {summary['by_status'].get(ACCEPTED, 0)}/{summary['total']} terms canonicalized.")
 

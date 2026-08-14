@@ -259,22 +259,37 @@ class AliasIndex:
     """
     Exact-match lookup over every label and alias in the taxonomy.
 
-    This is the first stage of matching and the cheapest: a term that is
-    already written the way the taxonomy writes it needs no model at all.
+    This is the first stage of matching and the cheapest.  It also records
+    provenance and collisions so the matcher can distinguish an authoritative
+    preferred label from an ambiguous generic alias.
     """
 
     def __init__(self, skills: list):
         self._by_key = {}
+        self._entries_by_key = {}
         self._by_id = {}
+        order = 0
         for skill in skills:
             self._by_id[skill["id"]] = skill
-            labels = [skill["label"], *skill["aliases"]]
-            labels.extend(skill.get("labels", {}).values())
-            for label in labels:
-                for key in key_forms(label):
+            surfaces = [("label", skill["label"])]
+            surfaces.extend(("alias", alias) for alias in skill.get("aliases", []))
+            surfaces.extend(
+                ("translated_label", label)
+                for label in skill.get("labels", {}).values()
+            )
+            for kind, surface in surfaces:
+                entry = {
+                    "skill": skill,
+                    "surface": surface,
+                    "kind": kind,
+                    "order": order,
+                }
+                order += 1
+                for key in key_forms(surface):
                     # First writer wins: sources are merged in rank order,
                     # so an ESCO alias is not displaced by a custom one.
                     self._by_key.setdefault(key, skill)
+                    self._entries_by_key.setdefault(key, []).append(entry)
 
     def __len__(self) -> int:
         return len(self._by_id)
@@ -286,6 +301,55 @@ class AliasIndex:
             if skill is not None:
                 return skill
         return None
+
+    def lookup_details(self, term: str):
+        """Return exact-match provenance and collisions for policy decisions.
+
+        ``lookup`` remains the small backwards-compatible API.  The matcher
+        needs more information: a preferred label is safer than a generic
+        alias, and an alias claimed by several skills must not be accepted
+        just because its first index entry won.
+        """
+        matches = []
+        seen = set()
+        for key in key_forms(term):
+            for entry in self._entries_by_key.get(key, []):
+                identity = (
+                    entry["skill"]["id"], entry["kind"], normalize(entry["surface"]),
+                )
+                if identity not in seen:
+                    seen.add(identity)
+                    matches.append(entry)
+        if not matches:
+            return None
+
+        term_norm = normalize(term)
+        kind_rank = {"label": 0, "translated_label": 1, "alias": 2}
+
+        def priority(entry):
+            # An exact preferred label outranks an alias collision.  Exact
+            # surface spellings then outrank matches found only through a
+            # compact, singular, or stopword-dropped key form.
+            surface_exact = normalize(entry["surface"]) == term_norm
+            return (
+                0 if surface_exact else 1,
+                kind_rank[entry["kind"]],
+                entry["order"],
+            )
+
+        chosen = min(matches, key=priority)
+        matched_skills = {}
+        for entry in sorted(matches, key=lambda item: item["order"]):
+            matched_skills.setdefault(entry["skill"]["id"], entry["skill"])
+        return {
+            "skill": chosen["skill"],
+            "matched_skills": list(matched_skills.values()),
+            "matched_surface": chosen["surface"],
+            "matched_kind": chosen["kind"],
+            "surface_exact": normalize(chosen["surface"]) == term_norm,
+            "unique": len(matched_skills) == 1,
+            "collision_count": len(matched_skills),
+        }
 
     def get(self, skill_id: str):
         """Return a skill by canonical id, or None."""

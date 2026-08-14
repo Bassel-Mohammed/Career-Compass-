@@ -11,17 +11,23 @@ canonical skill vocabulary, and compares them.
 ## Install
 
 ```bash
-python -m venv .venv && source .venv/bin/activate
-pip install -e .
+uv venv .venv && source .venv/bin/activate
+uv pip install -e .
 
 cp .env.example .env      # then fill in the PostgreSQL credentials
 ```
 
-Optional extras, both off by default:
+Optional semantic models and the hosted Anthropic alternative:
 
 ```bash
-pip install -e ".[semantic]"   # BAAI/bge-m3 multilingual retrieval and reranking
-pip install -e ".[llm]"        # Claude, for ambiguous taxonomy candidates
+uv pip install -e ".[semantic]"  # BAAI/bge-m3 retrieval and reranking
+uv pip install -e ".[llm]"       # only for the optional Anthropic provider
+```
+
+The recommended local LLM needs no Python SDK:
+
+```bash
+ollama pull qwen3:8b
 ```
 
 ## Use
@@ -32,8 +38,8 @@ cc-build-taxonomy                          # curated technology skills
 cc-build-taxonomy --esco --esco-limit 3000 # plus ESCO (cached, resumable)
 
 # Syllabus → skills → canonical ids
-cc-extract-skills "tests/fixtures/Robotics Syl.pdf" --match
-cc-match-skills   "tests/fixtures/Robotics Syl.pdf"         # full match report
+cc-extract-skills "tests/fixtures/robotics_programming.pdf" --match
+cc-match-skills   "tests/fixtures/robotics_programming.pdf" # full match report
 
 # Academic plan / transcript
 cc-parse-transcript plan.pdf
@@ -70,4 +76,4 @@ python -m tests.test_skill_matcher
 
 ## Documentation
 
-- [Syllabus skill extraction and RAG taxonomy matching](docs/SYLLABUS_SKILL_EXTRACTION.md)
+- [CareerCompass skill extraction and matching guide](docs/SYLLABUS_SKILL_EXTRACTION.md)

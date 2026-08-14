@@ -2,7 +2,7 @@
 CareerCompass — Course Syllabus Extraction CLI
 
 Usage:
-    python -m careercompass.cli.parse_syllabus "Robotics Syl.pdf" [--output <output_path>]
+    python -m careercompass.cli.parse_syllabus "robotics_programming.pdf" [--output <output_path>]
 """
 
 import sys
