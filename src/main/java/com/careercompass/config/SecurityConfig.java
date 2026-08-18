@@ -1,9 +1,15 @@
 package com.careercompass.config;
 
+import com.careercompass.dto.response.ApiErrorResponse;
 import com.careercompass.security.jwt.JwtAuthFilter;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,12 +17,17 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -48,11 +59,22 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http,
+                                           AuthenticationEntryPoint restAuthenticationEntryPoint,
+                                           AccessDeniedHandler restAccessDeniedHandler) throws Exception {
         http
                 .csrf(csrf -> csrf.disable()) // stateless JWT API, not cookie/session based
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                // Without this block Spring Security falls back to its default entry point,
+                // which answers an unauthenticated request with 403 FORBIDDEN. For a token-based
+                // API that is the wrong signal: "you are not authenticated" (401, re-authenticate)
+                // and "you are authenticated but not allowed here" (403, do not bother retrying)
+                // are different outcomes, and the frontend needs to tell them apart to know
+                // whether to redirect to the login screen (NFR-SEC-03/04, NFR-USE-03).
+                .exceptionHandling(ex -> ex
+                        .authenticationEntryPoint(restAuthenticationEntryPoint)
+                        .accessDeniedHandler(restAccessDeniedHandler))
                 .authorizeHttpRequests(auth -> auth
                         // Public: registration/login for every actor
                         .requestMatchers("/api/auth/**").permitAll()
@@ -74,6 +96,57 @@ public class SecurityConfig {
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
+    }
+
+    /**
+     * Answers an UNAUTHENTICATED request (no token, expired token, or a malformed one that
+     * JwtAuthFilter refused to trust) with 401 and the same {@link ApiErrorResponse} body
+     * every other error in the API uses, so the frontend has one error shape to parse
+     * (NFR-USE-03) rather than a Spring-generated HTML page or an empty body.
+     */
+    @Bean
+    public AuthenticationEntryPoint restAuthenticationEntryPoint(ObjectMapper objectMapper) {
+        return (request, response, authException) -> writeError(objectMapper, request, response,
+                HttpStatus.UNAUTHORIZED, "UNAUTHENTICATED",
+                "You must sign in to access this resource.");
+    }
+
+    /**
+     * Answers an AUTHENTICATED request that is not allowed here — a valid token for the wrong
+     * role (NFR-SEC-04) — with 403. Deliberately a different status and error code from the
+     * entry point above: retrying with fresh credentials would fix a 401, but never a 403.
+     */
+    @Bean
+    public AccessDeniedHandler restAccessDeniedHandler(ObjectMapper objectMapper) {
+        return (request, response, accessDeniedException) -> writeError(objectMapper, request, response,
+                HttpStatus.FORBIDDEN, "FORBIDDEN",
+                "You do not have permission to perform this action.");
+    }
+
+    /**
+     * Both handlers above run inside the filter chain, before any controller is reached, so
+     * GlobalExceptionHandler (a {@code @RestControllerAdvice}) never sees these failures and
+     * cannot format them — hence writing the response body directly here.
+     */
+    private void writeError(ObjectMapper objectMapper,
+                            HttpServletRequest request,
+                            HttpServletResponse response,
+                            HttpStatus status,
+                            String errorCode,
+                            String message) throws IOException {
+
+        ApiErrorResponse body = ApiErrorResponse.builder()
+                .timestamp(LocalDateTime.now())
+                .status(status.value())
+                .error(errorCode)
+                .message(message)
+                .path(request.getRequestURI())
+                .build();
+
+        response.setStatus(status.value());
+        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+        response.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        objectMapper.writeValue(response.getWriter(), body);
     }
 
     private CorsConfigurationSource corsConfigurationSource() {

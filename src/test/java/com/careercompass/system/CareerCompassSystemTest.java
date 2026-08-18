@@ -6,6 +6,7 @@ import com.careercompass.integration.dto.*;
 import com.careercompass.repository.*;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -74,6 +75,7 @@ class CareerCompassSystemTest {
     @Autowired private CareerPathRepository careerPathRepository;
     @Autowired private AcademicRecordRepository academicRecordRepository;
     @Autowired private JobseekerSkillRepository jobseekerSkillRepository;
+    @Autowired private SkillRepository skillRepository;
     @Autowired private QuizRepository quizRepository;
     @Autowired private JobSeekerRepository jobSeekerRepository;
     @Autowired private PasswordEncoder passwordEncoder;
@@ -111,6 +113,106 @@ class CareerCompassSystemTest {
     private static Integer quizQuestion2Id;
 
     private static Integer appointmentId;
+
+    // =====================================================================================
+    // SHARED AI STUBS - the Data Analyses Layer's canonical responses for this journey
+    // =====================================================================================
+
+    /**
+     * Re-applies every DataAnalysisClient stub before EVERY test method.
+     *
+     * This is required, not merely tidy: Spring Boot resets {@code @MockBean} mocks after each
+     * test method ({@code MockReset.AFTER} is the default), so a stub declared inside one
+     * @Test is already gone by the time the next @Test in the @Order sequence runs. Because
+     * this journey deliberately shares state across methods, several later steps re-enter the
+     * same AI-backed code paths as earlier ones - a dashboard re-fetch, a quiz submission
+     * (which recomputes the dashboard), an expert viewing that dashboard, an employer scoring
+     * candidates - and would otherwise receive `null` from an un-stubbed mock and fail with a
+     * NullPointerException / HTTP 500 that says nothing about the feature under test.
+     *
+     * Keeping the stubs here rather than duplicating them per method also means the mocked
+     * Data Analyses Layer has exactly one definition: "Data Structures 90 (Strong),
+     * Operating Systems 55 (Weak), 72% ready" is the single scenario the whole journey is
+     * written against, and each test's assertions are read against these values.
+     */
+    @BeforeEach
+    void stubDataAnalysisLayer() {
+        // Module 1 (Section 5.3.3): transcript extraction - 2 courses, 1 flagged low-confidence.
+        when(dataAnalysisClient.extractTranscript(any(TranscriptExtractionRequest.class)))
+                .thenReturn(TranscriptExtractionResponse.builder()
+                        .courses(List.of(
+                                TranscriptExtractionResponse.ExtractedCourseDto.builder()
+                                        .courseCode("CS201").courseName("Data Structures")
+                                        .grade("A").lowConfidence(false).build(),
+                                TranscriptExtractionResponse.ExtractedCourseDto.builder()
+                                        .courseCode("CS310").courseName("Operating Systems")
+                                        .grade("C").lowConfidence(true).build()
+                        ))
+                        .build());
+
+        // Module 2: grade-based skill vector. Operating Systems = 55 here is what the quiz
+        // write-back in Phase 6 later replaces with the quiz-derived 50 (FR-JS-20).
+        when(dataAnalysisClient.buildSkillVector(any(BuildSkillVectorRequest.class)))
+                .thenReturn(SkillVectorResponse.builder()
+                        .skills(List.of(
+                                SkillScoreDto.builder().skillName("Data Structures").score(BigDecimal.valueOf(90)).build(),
+                                SkillScoreDto.builder().skillName("Operating Systems").score(BigDecimal.valueOf(55)).build()
+                        ))
+                        .build());
+
+        // Module 3: skill-gap analysis. "Operating Systems" is the one Weak skill, which is
+        // what Phase 5's course recommendations are generated against.
+        when(dataAnalysisClient.analyzeSkillGap(any(SkillGapAnalysisRequest.class)))
+                .thenReturn(SkillGapAnalysisResponse.builder()
+                        .overallReadinessPercent(72)
+                        .skillGaps(List.of(
+                                SkillGapAnalysisResponse.SkillGapItemDto.builder()
+                                        .skillName("Data Structures").currentScore(BigDecimal.valueOf(90))
+                                        .targetScore(BigDecimal.valueOf(75)).classification("Strong")
+                                        .explanation("Well above target.").build(),
+                                SkillGapAnalysisResponse.SkillGapItemDto.builder()
+                                        .skillName("Operating Systems").currentScore(BigDecimal.valueOf(55))
+                                        .targetScore(BigDecimal.valueOf(75)).classification("Weak")
+                                        .explanation("Below target level.").build()
+                        ))
+                        .build());
+
+        // Module 4: one course recommendation, targeting the Weak skill above.
+        when(dataAnalysisClient.recommendCourses(any(CourseRecommendationRequest.class)))
+                .thenReturn(List.of(RecommendedCourseDto.builder()
+                        .courseName("Operating Systems Fundamentals")
+                        .sourceLink("https://example.com/os-fundamentals")
+                        .targetedSkillName("Operating Systems")
+                        .explanation("Directly targets your weakest skill.")
+                        .build()));
+
+        // Module 5: a 2-question quiz whose correct answers are A and B - Phase 6 answers
+        // A and A, so exactly one is correct and the score must come out as 50%.
+        when(dataAnalysisClient.generateQuiz(any(QuizGenerationRequest.class)))
+                .thenReturn(QuizGenerationResponse.builder()
+                        .questions(List.of(
+                                QuizGenerationResponse.GeneratedQuizQuestionDto.builder()
+                                        .questionText("What does a process control block store?")
+                                        .optionA("Process state").optionB("Only the PID")
+                                        .optionC("Nothing").optionD("Source code")
+                                        .correctOption("A").build(),
+                                QuizGenerationResponse.GeneratedQuizQuestionDto.builder()
+                                        .questionText("What is a deadlock?")
+                                        .optionA("A fast lock").optionB("Circular resource wait")
+                                        .optionC("A crashed process").optionD("A file lock")
+                                        .correctOption("B").build()
+                        ))
+                        .build());
+
+        // Module 6: job matching, used from BOTH directions in Phase 8 (job seeker's matches
+        // and the employer's candidate list). The .0 keeps this a decimal in the serialized
+        // JSON, matching the is(82.0) assertion rather than an integer 82.
+        when(dataAnalysisClient.scoreJobMatch(any(JobMatchRequest.class)))
+                .thenReturn(JobMatchResponse.builder()
+                        .matchScore(BigDecimal.valueOf(82.0))
+                        .explanation("Strong overlap in required skills.")
+                        .build());
+    }
 
     // =====================================================================================
     // PHASE 0 - Reference data & Administrator provisioning
@@ -334,7 +436,7 @@ class CareerCompassSystemTest {
     void phase2_employerCanPostAJob() throws Exception {
         String body = String.format(
                 "{\"title\":\"Backend Engineer\",\"description\":\"Build and maintain our core APIs.\"," +
-                "\"requiredSkills\":\"Java, SQL, Data Structures\",\"studyFieldId\":%d}", studyFieldId);
+                        "\"requiredSkills\":\"Java, SQL, Data Structures\",\"studyFieldId\":%d}", studyFieldId);
 
         MvcResult result = mockMvc.perform(post("/api/employers/me/jobs")
                         .header("Authorization", "Bearer " + employerToken)
@@ -415,7 +517,7 @@ class CareerCompassSystemTest {
     void phase3_adminCreatesContentManager() throws Exception {
         String body = String.format(
                 "{\"firstName\":\"Nour\",\"lastName\":\"Khaled\",\"email\":\"nour@meu.edu.jo\"," +
-                "\"initialPassword\":\"cmPassword123\",\"universityId\":%d,\"studyFieldId\":%d}",
+                        "\"initialPassword\":\"cmPassword123\",\"universityId\":%d,\"studyFieldId\":%d}",
                 universityId, studyFieldId);
 
         MvcResult result = mockMvc.perform(post("/api/admin/content-managers")
@@ -451,7 +553,7 @@ class CareerCompassSystemTest {
     void phase3_adminCreatesExpert() throws Exception {
         String body = String.format(
                 "{\"firstName\":\"David\",\"lastName\":\"Okafor\",\"email\":\"david@example.com\"," +
-                "\"initialPassword\":\"expertPass123\",\"studyFieldId\":%d,\"fieldStartingYear\":2010}",
+                        "\"initialPassword\":\"expertPass123\",\"studyFieldId\":%d,\"fieldStartingYear\":2010}",
                 studyFieldId);
 
         MvcResult result = mockMvc.perform(post("/api/admin/experts")
@@ -557,17 +659,7 @@ class CareerCompassSystemTest {
     @Test
     @Order(40)
     void phase4_jobSeekerCanUploadTranscript_receivingRowsWithoutPersistingYet() throws Exception {
-        when(dataAnalysisClient.extractTranscript(any(TranscriptExtractionRequest.class)))
-                .thenReturn(TranscriptExtractionResponse.builder()
-                        .courses(List.of(
-                                TranscriptExtractionResponse.ExtractedCourseDto.builder()
-                                        .courseCode("CS201").courseName("Data Structures")
-                                        .grade("A").lowConfidence(false).build(),
-                                TranscriptExtractionResponse.ExtractedCourseDto.builder()
-                                        .courseCode("CS310").courseName("Operating Systems")
-                                        .grade("C").lowConfidence(true).build()
-                        ))
-                        .build());
+        // Mocked Module 1 response: 2 courses, 1 low-confidence - see stubDataAnalysisLayer().
 
         MockMultipartFile file = new MockMultipartFile(
                 "file", "transcript.pdf", "application/pdf", "fake transcript bytes".getBytes());
@@ -588,28 +680,8 @@ class CareerCompassSystemTest {
     @Test
     @Order(41)
     void phase4_jobSeekerCanConfirmTranscript_persistingDataAndComputingDashboard() throws Exception {
-        when(dataAnalysisClient.buildSkillVector(any(BuildSkillVectorRequest.class)))
-                .thenReturn(SkillVectorResponse.builder()
-                        .skills(List.of(
-                                SkillScoreDto.builder().skillName("Data Structures").score(BigDecimal.valueOf(90)).build(),
-                                SkillScoreDto.builder().skillName("Operating Systems").score(BigDecimal.valueOf(55)).build()
-                        ))
-                        .build());
-
-        when(dataAnalysisClient.analyzeSkillGap(any(SkillGapAnalysisRequest.class)))
-                .thenReturn(SkillGapAnalysisResponse.builder()
-                        .overallReadinessPercent(72)
-                        .skillGaps(List.of(
-                                SkillGapAnalysisResponse.SkillGapItemDto.builder()
-                                        .skillName("Data Structures").currentScore(BigDecimal.valueOf(90))
-                                        .targetScore(BigDecimal.valueOf(75)).classification("Strong")
-                                        .explanation("Well above target.").build(),
-                                SkillGapAnalysisResponse.SkillGapItemDto.builder()
-                                        .skillName("Operating Systems").currentScore(BigDecimal.valueOf(55))
-                                        .targetScore(BigDecimal.valueOf(75)).classification("Weak")
-                                        .explanation("Below target level.").build()
-                        ))
-                        .build());
+        // Mocked Module 2 + Module 3 responses: Data Structures 90 (Strong), Operating
+        // Systems 55 (Weak), 72% overall readiness - see stubDataAnalysisLayer().
 
         String body = "{\"courses\":[" +
                 "{\"courseName\":\"Data Structures\",\"grade\":\"A\"}," +
@@ -648,13 +720,8 @@ class CareerCompassSystemTest {
     @Test
     @Order(50)
     void phase5_jobSeekerCanGenerateCourseRecommendationsForWeakSkills() throws Exception {
-        when(dataAnalysisClient.recommendCourses(any(CourseRecommendationRequest.class)))
-                .thenReturn(List.of(RecommendedCourseDto.builder()
-                        .courseName("Operating Systems Fundamentals")
-                        .sourceLink("https://example.com/os-fundamentals")
-                        .targetedSkillName("Operating Systems")
-                        .explanation("Directly targets your weakest skill.")
-                        .build()));
+        // Mocked Module 4 response: one course targeting "Operating Systems", the only skill
+        // the Module 3 stub classifies as Weak - see stubDataAnalysisLayer().
 
         mockMvc.perform(post("/api/job-seekers/me/course-recommendations/generate")
                         .header("Authorization", "Bearer " + jobSeekerToken))
@@ -686,21 +753,9 @@ class CareerCompassSystemTest {
     @Test
     @Order(60)
     void phase6_jobSeekerCanGenerateQuiz_correctAnswersAreNeverSentToTheClient() throws Exception {
-        when(dataAnalysisClient.generateQuiz(any(QuizGenerationRequest.class)))
-                .thenReturn(QuizGenerationResponse.builder()
-                        .questions(List.of(
-                                QuizGenerationResponse.GeneratedQuizQuestionDto.builder()
-                                        .questionText("What does a process control block store?")
-                                        .optionA("Process state").optionB("Only the PID")
-                                        .optionC("Nothing").optionD("Source code")
-                                        .correctOption("A").build(),
-                                QuizGenerationResponse.GeneratedQuizQuestionDto.builder()
-                                        .questionText("What is a deadlock?")
-                                        .optionA("A fast lock").optionB("Circular resource wait")
-                                        .optionC("A crashed process").optionD("A file lock")
-                                        .correctOption("B").build()
-                        ))
-                        .build());
+        // Mocked Module 5 response: 2 questions whose correct answers are A and B - see
+        // stubDataAnalysisLayer(). The correct answers exist in the mock precisely so the
+        // assertion below can prove they never reach the client.
 
         String body = "{\"courseName\":\"Operating Systems\",\"questionCount\":2}";
 
@@ -730,9 +785,9 @@ class CareerCompassSystemTest {
     void phase6_jobSeekerCanSubmitQuiz_scoreIsCorrectAndSkillProfileIsRefined() throws Exception {
         String body = String.format(
                 "{\"answers\":[" +
-                "{\"questionId\":%d,\"selectedOption\":\"A\"}," +
-                "{\"questionId\":%d,\"selectedOption\":\"A\"}" +
-                "]}", quizQuestion1Id, quizQuestion2Id); // Q1 correct (A), Q2 wrong (correct is B)
+                        "{\"questionId\":%d,\"selectedOption\":\"A\"}," +
+                        "{\"questionId\":%d,\"selectedOption\":\"A\"}" +
+                        "]}", quizQuestion1Id, quizQuestion2Id); // Q1 correct (A), Q2 wrong (correct is B)
 
         mockMvc.perform(post("/api/job-seekers/me/quizzes/" + quizId + "/submit")
                         .header("Authorization", "Bearer " + jobSeekerToken)
@@ -743,9 +798,19 @@ class CareerCompassSystemTest {
                 .andExpect(jsonPath("$.score", is(50.0)))
                 .andExpect(jsonPath("$.updatedDashboard.basedOnQuizResults", is(true)));
 
-        JobseekerSkill refined = jobseekerSkillRepository.findByJobSeeker_JobseekerId(jobSeekerId).stream()
-                .filter(js -> "Operating Systems".equals(js.getSkill().getSkillName()))
-                .findFirst().orElseThrow();
+        // Read the persisted row back by its composite primary key rather than by streaming
+        // the job seeker's skills and navigating js.getSkill().getSkillName(): JobseekerSkill
+        // maps `skill` as a LAZY @ManyToOne, and entities returned to this test thread are
+        // already detached (nothing here runs inside a transaction), so touching that
+        // association would raise LazyInitializationException before the assertion below ever
+        // ran. Resolving the skill id first keeps the check on the field we actually care
+        // about - the score - without depending on Hibernate session state.
+        Skill operatingSystems = skillRepository.findBySkillName("Operating Systems").orElseThrow();
+
+        JobseekerSkill refined = jobseekerSkillRepository
+                .findById(new JobseekerSkillId(jobSeekerId, operatingSystems.getSkillId()))
+                .orElseThrow();
+
         assertThat(refined.getScore()).isEqualByComparingTo(BigDecimal.valueOf(50.00)); // was 55 from grades
     }
 
@@ -880,11 +945,7 @@ class CareerCompassSystemTest {
     @Test
     @Order(80)
     void phase8_jobSeekerCanViewJobMatches() throws Exception {
-        when(dataAnalysisClient.scoreJobMatch(any(JobMatchRequest.class)))
-                .thenReturn(JobMatchResponse.builder()
-                        .matchScore(BigDecimal.valueOf(82.0)) // .0 ensures decimal JSON serialization, matching is(82.0) below
-                        .explanation("Strong overlap in required skills.")
-                        .build());
+        // Mocked Module 6 response: a match score of 82.0 - see stubDataAnalysisLayer().
 
         mockMvc.perform(get("/api/job-seekers/me/job-matches")
                         .header("Authorization", "Bearer " + jobSeekerToken))
