@@ -1,0 +1,3156 @@
+{
+  "course_code": "A0434402",
+  "course_codes": [
+    "A0434402"
+  ],
+  "course_title": "Digital Incident Handling and Response",
+  "credit_hours": 3,
+  "plans": [
+    "CYBER"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "no_match": 22,
+      "accepted": 34,
+      "needs_review": 10
+    },
+    "by_method": {
+      "embedding_reranker": 33,
+      "llm": 29,
+      "exact_alias": 4
+    }
+  },
+  "total_skills": 66,
+  "skills": [
+    {
+      "term": "MITRE ATT",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 4,
+      "sources": [
+        "clo",
+        "lab",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain MITRE ATT&CK framework application for threat detection"
+        },
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "MITRE ATT&CK Lab: Threat Simulation and Detection"
+        },
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "MITRE ATT&CK Framework and Threat Detection"
+        },
+        {
+          "source": "description",
+          "text": "MITRE ATT"
+        }
+      ],
+      "match": {
+        "original_term": "MITRE ATT",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.206,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.206
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.201
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.196
+          }
+        ]
+      }
+    },
+    {
+      "term": "Azure",
+      "canonical": {
+        "id": "custom:azure",
+        "label": "Microsoft Azure",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement cloud incident response strategies for AWS and Azure"
+        },
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Cloud Incident Response in AWS and Azure"
+        },
+        {
+          "source": "description",
+          "text": "Azure"
+        }
+      ],
+      "match": {
+        "original_term": "Azure",
+        "canonical_id": "custom:azure",
+        "canonical_label": "Microsoft Azure",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The extracted phrase 'Azure' directly matches the label 'Microsoft Azure' and its also called entry, confirming it is the same skill.",
+        "candidates": [
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.912
+          },
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.231
+          },
+          {
+            "id": "custom:aws",
+            "label": "Amazon Web Services",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "ELK stack",
+      "canonical": {
+        "id": "custom:monitoring-observability",
+        "label": "monitoring and observability",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply log analysis techniques with Splunk and ELK stack"
+        },
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Log Analysis with Splunk and ELK Stack"
+        },
+        {
+          "source": "description",
+          "text": "ELK stack"
+        }
+      ],
+      "match": {
+        "original_term": "ELK stack",
+        "canonical_id": "custom:monitoring-observability",
+        "canonical_label": "monitoring and observability",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "threat detection",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain MITRE ATT&CK framework application for threat detection"
+        },
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "MITRE ATT&CK Framework and Threat Detection"
+        },
+        {
+          "source": "description",
+          "text": "threat detection"
+        }
+      ],
+      "match": {
+        "original_term": "threat detection",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "AWS",
+      "canonical": {
+        "id": "custom:aws",
+        "label": "Amazon Web Services",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement cloud incident response strategies for AWS and Azure"
+        }
+      ],
+      "match": {
+        "original_term": "AWS",
+        "canonical_id": "custom:aws",
+        "canonical_label": "Amazon Web Services",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "CK framework application",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain MITRE ATT&CK framework application for threat detection"
+        }
+      ],
+      "match": {
+        "original_term": "CK framework application",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.355,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+            "label": "ICT architectural frameworks",
+            "score": 0.355
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.235
+          },
+          {
+            "id": "esco:2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80",
+            "label": "ICT network security risks",
+            "score": 0.209
+          }
+        ]
+      }
+    },
+    {
+      "term": "cloud incident response strategies",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement cloud incident response strategies for AWS and Azure"
+        }
+      ],
+      "match": {
+        "original_term": "cloud incident response strategies",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.624,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.25",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.624
+          },
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.372
+          },
+          {
+            "id": "esco:bd14968e-e409-45af-b362-3495ed7b10e0",
+            "label": "cloud technologies",
+            "score": 0.367
+          }
+        ]
+      }
+    },
+    {
+      "term": "digital forensics processes using EnCase",
+      "canonical": {
+        "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "label": "computer forensics",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe digital forensics processes using EnCase and FTK tools"
+        }
+      ],
+      "match": {
+        "original_term": "digital forensics processes using EnCase",
+        "canonical_id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "canonical_label": "computer forensics",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'digital forensics processes using EnCase' directly relates to the skill 'computer forensics', which involves examining and recovering digital data for legal evidence, matching the syllabus description.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.573
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.387
+          },
+          {
+            "id": "esco:cfa2be0d-96d5-4017-a866-962efb9c5070",
+            "label": "signal processing",
+            "score": 0.372
+          }
+        ]
+      }
+    },
+    {
+      "term": "FTK tools",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe digital forensics processes using EnCase and FTK tools"
+        }
+      ],
+      "match": {
+        "original_term": "FTK tools",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'FTK tools' or digital forensics tools. The closest match is 'computer forensics' (esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea), but it refers to the process, not the specific tools like FTK.",
+        "candidates": [
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.439
+          },
+          {
+            "id": "esco:6014921e-1d25-4039-adc2-04852d61880e",
+            "label": "ICT debugging tools",
+            "score": 0.395
+          },
+          {
+            "id": "esco:3ce1fe19-7f9e-4070-941d-651673a5693b",
+            "label": "decision support systems",
+            "score": 0.389
+          }
+        ]
+      }
+    },
+    {
+      "term": "log analysis techniques with Splunk",
+      "canonical": {
+        "id": "custom:monitoring-observability",
+        "label": "monitoring and observability",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply log analysis techniques with Splunk and ELK stack"
+        }
+      ],
+      "match": {
+        "original_term": "log analysis techniques with Splunk",
+        "canonical_id": "custom:monitoring-observability",
+        "canonical_label": "monitoring and observability",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'log analysis techniques with Splunk' directly relates to log analysis, which is a core component of monitoring and observability, as indicated by the mention of ELK stack in the syllabus evidence.",
+        "candidates": [
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.508
+          },
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.272
+          },
+          {
+            "id": "esco:2bde42ae-e776-41c1-9ded-b07b30bfe985",
+            "label": "Prolog (computer programming)",
+            "score": 0.183
+          }
+        ]
+      }
+    },
+    {
+      "term": "Anomaly Detection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Bloom Filter Algorithms for Anomaly Detection"
+        },
+        {
+          "source": "description",
+          "text": "anomaly detection"
+        }
+      ],
+      "match": {
+        "original_term": "Anomaly Detection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Anomaly Detection'. The closest is 'software anomalies' (esco:438ff259-d086-4004-acda-1ec3e1631bc6), but it refers specifically to software system performance issues, not the general concept of anomaly detection.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.491
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.242
+          },
+          {
+            "id": "esco:c199731b-1c17-47be-8f5d-296b9892a1b4",
+            "label": "smoke sensors",
+            "score": 0.235
+          }
+        ]
+      }
+    },
+    {
+      "term": "Automated Response with SOAR Platforms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Automated Response with SOAR Platforms"
+        },
+        {
+          "source": "description",
+          "text": "automated response with SOAR platforms"
+        }
+      ],
+      "match": {
+        "original_term": "Automated Response with SOAR Platforms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.362,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.362
+          },
+          {
+            "id": "esco:778ca7ad-6c5d-4868-9b96-a7777dca799c",
+            "label": "ICT help platforms",
+            "score": 0.357
+          },
+          {
+            "id": "esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694",
+            "label": "automation technology",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "CK Framework",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "MITRE ATT&CK Framework and Threat Detection"
+        },
+        {
+          "source": "description",
+          "text": "CK framework"
+        }
+      ],
+      "match": {
+        "original_term": "CK Framework",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'CK Framework' is likely referring to the MITRE ATT&CK Framework, which is explicitly mentioned alongside 'Threat Detection' in the syllabus. The taxonomy entry for 'security incident response' includes 'threat detection' as an alias, making it the most specific match.",
+        "candidates": [
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.435
+          },
+          {
+            "id": "esco:2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80",
+            "label": "ICT network security risks",
+            "score": 0.228
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.219
+          }
+        ]
+      }
+    },
+    {
+      "term": "DLP",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Data Loss Prevention (DLP) Strategies"
+        },
+        {
+          "source": "description",
+          "text": "DLP"
+        }
+      ],
+      "match": {
+        "original_term": "DLP",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.246,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.246
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.216
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.207
+          }
+        ]
+      }
+    },
+    {
+      "term": "Incident Response Playbooks",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Incident Response Playbooks and ISO/IEC 27035 Compliance"
+        },
+        {
+          "source": "description",
+          "text": "incident response playbooks"
+        }
+      ],
+      "match": {
+        "original_term": "Incident Response Playbooks",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.702,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.45",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.702
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.252
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.223
+          }
+        ]
+      }
+    },
+    {
+      "term": "ISO/IEC 27032",
+      "canonical": {
+        "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "label": "ICT security standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "ISO/IEC 27032 for IoT Security and Final Review"
+        },
+        {
+          "source": "description",
+          "text": "ISO/IEC 27032"
+        }
+      ],
+      "match": {
+        "original_term": "ISO/IEC 27032",
+        "canonical_id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "canonical_label": "ICT security standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ISO/IEC 27032' directly refers to an ICT security standard, which matches the label 'ICT security standards' in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.456
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.212
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.205
+          }
+        ]
+      }
+    },
+    {
+      "term": "ISO/IEC 27035 Compliance",
+      "canonical": {
+        "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "label": "ICT security standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Incident Response Playbooks and ISO/IEC 27035 Compliance"
+        },
+        {
+          "source": "description",
+          "text": "ISO/IEC 27035 compliance"
+        }
+      ],
+      "match": {
+        "original_term": "ISO/IEC 27035 Compliance",
+        "canonical_id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "canonical_label": "ICT security standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ISO/IEC 27035 Compliance' directly matches the label 'ICT security standards' and is explicitly mentioned in the description as part of the standards required for compliance.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.517
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.371
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.233
+          }
+        ]
+      }
+    },
+    {
+      "term": "Log Analysis with Splunk",
+      "canonical": {
+        "id": "custom:monitoring-observability",
+        "label": "monitoring and observability",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Log Analysis with Splunk and ELK Stack"
+        },
+        {
+          "source": "description",
+          "text": "log analysis with Splunk"
+        }
+      ],
+      "match": {
+        "original_term": "Log Analysis with Splunk",
+        "canonical_id": "custom:monitoring-observability",
+        "canonical_label": "monitoring and observability",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Log Analysis with Splunk' is directly related to monitoring and observability, as Splunk is a tool used for log analysis and monitoring, and the ELK Stack is also mentioned, which aligns with the broader concept of monitoring and observability.",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.41
+          },
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.319
+          },
+          {
+            "id": "esco:2bde42ae-e776-41c1-9ded-b07b30bfe985",
+            "label": "Prolog (computer programming)",
+            "score": 0.177
+          }
+        ]
+      }
+    },
+    {
+      "term": "Response",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Digital Incident Handling and Response"
+        },
+        {
+          "source": "description",
+          "text": "response"
+        }
+      ],
+      "match": {
+        "original_term": "Response",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.705,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.49",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.705
+          },
+          {
+            "id": "esco:debef2fc-7af4-4bff-ac92-4d0317915a84",
+            "label": "electronic communication",
+            "score": 0.219
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "Analyzing Network Traffic",
+      "canonical": {
+        "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "label": "Wireshark",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Wireshark Lab: Capturing and Analyzing Network Traffic"
+        }
+      ],
+      "match": {
+        "original_term": "Analyzing Network Traffic",
+        "canonical_id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "canonical_label": "Wireshark",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Analyzing Network Traffic' directly relates to the description of Wireshark as a tool for analyzing network protocols, which matches the specific skill.",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.434
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.41
+          },
+          {
+            "id": "esco:0da6cab1-0ee9-4391-a299-f71fbf21db56",
+            "label": "ICT network routing",
+            "score": 0.396
+          }
+        ]
+      }
+    },
+    {
+      "term": "Automating Incident Response Workflows",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "SOAR Lab: Automating Incident Response Workflows"
+        }
+      ],
+      "match": {
+        "original_term": "Automating Incident Response Workflows",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.635,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.39",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.635
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.244
+          },
+          {
+            "id": "esco:e13b734a-218c-434a-a7cc-febac6d24ef3",
+            "label": "call-centre technologies",
+            "score": 0.224
+          }
+        ]
+      }
+    },
+    {
+      "term": "AWS CloudTrail Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Cloud Incident Response Lab: AWS CloudTrail Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "AWS CloudTrail Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'AWS CloudTrail Analysis' as a skill. The closest is 'Amazon Web Services' (custom:aws), but it is too broad and does not capture the specific analytical task of CloudTrail analysis.",
+        "candidates": [
+          {
+            "id": "custom:aws",
+            "label": "Amazon Web Services",
+            "score": 0.508
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.395
+          },
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.243
+          }
+        ]
+      }
+    },
+    {
+      "term": "Capturing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Wireshark Lab: Capturing and Analyzing Network Traffic"
+        }
+      ],
+      "match": {
+        "original_term": "Capturing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.244,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.244
+          },
+          {
+            "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+            "label": "Wireshark",
+            "score": 0.237
+          },
+          {
+            "id": "custom:web-scraping",
+            "label": "web scraping",
+            "score": 0.231
+          }
+        ]
+      }
+    },
+    {
+      "term": "CK Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "MITRE ATT&CK Lab: Threat Simulation and Detection"
+        }
+      ],
+      "match": {
+        "original_term": "CK Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.237,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.237
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.216
+          },
+          {
+            "id": "esco:f6424ebb-8401-446b-9f7e-10d7c854da02",
+            "label": "ICT network simulation",
+            "score": 0.19
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cloud Incident Response Lab",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Cloud Incident Response Lab: AWS CloudTrail Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Cloud Incident Response Lab",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.637,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.28",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.637
+          },
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.356
+          },
+          {
+            "id": "custom:gcp",
+            "label": "Google Cloud Platform",
+            "score": 0.351
+          }
+        ]
+      }
+    },
+    {
+      "term": "Detection",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "MITRE ATT&CK Lab: Threat Simulation and Detection"
+        }
+      ],
+      "match": {
+        "original_term": "Detection",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.659,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.41",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.659
+          },
+          {
+            "id": "esco:c199731b-1c17-47be-8f5d-296b9892a1b4",
+            "label": "smoke sensors",
+            "score": 0.252
+          },
+          {
+            "id": "esco:f6424ebb-8401-446b-9f7e-10d7c854da02",
+            "label": "ICT network simulation",
+            "score": 0.228
+          }
+        ]
+      }
+    },
+    {
+      "term": "Digital Forensics Lab",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Digital Forensics Lab: EnCase and FTK Usage"
+        }
+      ],
+      "match": {
+        "original_term": "Digital Forensics Lab",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.716,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.28",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.716
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.44
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.188
+          }
+        ]
+      }
+    },
+    {
+      "term": "DLP Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "DLP Lab: Symantec and McAfee Configuration"
+        }
+      ],
+      "match": {
+        "original_term": "DLP Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.225,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:c3a03c5a-c260-4c26-9b9a-873abb396f4d",
+            "label": "MATLAB",
+            "score": 0.225
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.202
+          },
+          {
+            "id": "esco:6417a4cc-6f61-4459-a114-761a7fa0279d",
+            "label": "Puppet (tools for software configuration management)",
+            "score": 0.19
+          }
+        ]
+      }
+    },
+    {
+      "term": "EnCase",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Digital Forensics Lab: EnCase and FTK Usage"
+        }
+      ],
+      "match": {
+        "original_term": "EnCase",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.224,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.224
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.222
+          },
+          {
+            "id": "custom:vector-databases",
+            "label": "vector databases",
+            "score": 0.205
+          }
+        ]
+      }
+    },
+    {
+      "term": "FTK Usage",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Digital Forensics Lab: EnCase and FTK Usage"
+        }
+      ],
+      "match": {
+        "original_term": "FTK Usage",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.239,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.239
+          },
+          {
+            "id": "esco:5088c536-13fb-4b6b-85e7-4053578e1451",
+            "label": "electrical systems used in transportation",
+            "score": 0.173
+          },
+          {
+            "id": "esco:778ca7ad-6c5d-4868-9b96-a7777dca799c",
+            "label": "ICT help platforms",
+            "score": 0.172
+          }
+        ]
+      }
+    },
+    {
+      "term": "Log Aggregation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Splunk Lab: Log Aggregation and Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Log Aggregation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.26,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.26
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.246
+          },
+          {
+            "id": "esco:2bde42ae-e776-41c1-9ded-b07b30bfe985",
+            "label": "Prolog (computer programming)",
+            "score": 0.231
+          }
+        ]
+      }
+    },
+    {
+      "term": "Malware Static Analysis Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Malware Static Analysis Lab: YARA Rule Application"
+        }
+      ],
+      "match": {
+        "original_term": "Malware Static Analysis Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.362,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.362
+          },
+          {
+            "id": "esco:69f0167e-75d9-46cf-847f-72a592880ebb",
+            "label": "STAF",
+            "score": 0.217
+          },
+          {
+            "id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+            "label": "levels of software testing",
+            "score": 0.209
+          }
+        ]
+      }
+    },
+    {
+      "term": "McAfee Configuration",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "DLP Lab: Symantec and McAfee Configuration"
+        }
+      ],
+      "match": {
+        "original_term": "McAfee Configuration",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'McAfee Configuration' as it is specific to security software configuration, and no entry in the shortlist addresses this exact skill.",
+        "candidates": [
+          {
+            "id": "esco:b3a186be-5f1b-45d3-a468-41183e9780f3",
+            "label": "configuration of the tote room hardware",
+            "score": 0.403
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.228
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "NIST IR Framework Application",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Post-Incident Lab: NIST IR Framework Application"
+        }
+      ],
+      "match": {
+        "original_term": "NIST IR Framework Application",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.193,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.193
+          },
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.178
+          },
+          {
+            "id": "custom:pytorch",
+            "label": "PyTorch",
+            "score": 0.167
+          }
+        ]
+      }
+    },
+    {
+      "term": "Post-Incident Lab",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Post-Incident Lab: NIST IR Framework Application"
+        }
+      ],
+      "match": {
+        "original_term": "Post-Incident Lab",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Post-Incident Lab' is directly related to applying the NIST IR Framework, which aligns with the skill of security incident response.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.416
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.218
+          },
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.192
+          }
+        ]
+      }
+    },
+    {
+      "term": "SOAR Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "SOAR Lab: Automating Incident Response Workflows"
+        }
+      ],
+      "match": {
+        "original_term": "SOAR Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.256,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.256
+          },
+          {
+            "id": "custom:ci-cd",
+            "label": "CI/CD pipelines",
+            "score": 0.219
+          },
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "Splunk Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Splunk Lab: Log Aggregation and Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Splunk Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.211,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.211
+          },
+          {
+            "id": "custom:apache-spark",
+            "label": "Apache Spark",
+            "score": 0.209
+          },
+          {
+            "id": "esco:2bde42ae-e776-41c1-9ded-b07b30bfe985",
+            "label": "Prolog (computer programming)",
+            "score": 0.209
+          }
+        ]
+      }
+    },
+    {
+      "term": "Symantec",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "DLP Lab: Symantec and McAfee Configuration"
+        }
+      ],
+      "match": {
+        "original_term": "Symantec",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.17,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.17
+          },
+          {
+            "id": "esco:bb99af26-71ff-4dca-bde7-1eb1f6194426",
+            "label": "SAP R3",
+            "score": 0.166
+          },
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.165
+          }
+        ]
+      }
+    },
+    {
+      "term": "Threat Simulation",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "MITRE ATT&CK Lab: Threat Simulation and Detection"
+        }
+      ],
+      "match": {
+        "original_term": "Threat Simulation",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Threat Simulation' is part of the MITRE ATT&CK Lab context, which aligns with 'security incident response' as it involves detecting and responding to threats.",
+        "candidates": [
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.513
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.502
+          },
+          {
+            "id": "esco:f6424ebb-8401-446b-9f7e-10d7c854da02",
+            "label": "ICT network simulation",
+            "score": 0.435
+          }
+        ]
+      }
+    },
+    {
+      "term": "Wireshark Lab",
+      "canonical": {
+        "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "label": "Wireshark",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Wireshark Lab: Capturing and Analyzing Network Traffic"
+        }
+      ],
+      "match": {
+        "original_term": "Wireshark Lab",
+        "canonical_id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "canonical_label": "Wireshark",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.724,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.49",
+        "candidates": [
+          {
+            "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+            "label": "Wireshark",
+            "score": 0.724
+          },
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.231
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "YARA Rule Application",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Malware Static Analysis Lab: YARA Rule Application"
+        }
+      ],
+      "match": {
+        "original_term": "YARA Rule Application",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.24,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.24
+          },
+          {
+            "id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+            "label": "levels of software testing",
+            "score": 0.189
+          },
+          {
+            "id": "esco:61d6ef20-6cc7-40f8-919e-3360db6cf2b3",
+            "label": "hardware materials",
+            "score": 0.189
+          }
+        ]
+      }
+    },
+    {
+      "term": "Bloom Filter Algorithms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Bloom Filter Algorithms for Anomaly Detection"
+        }
+      ],
+      "match": {
+        "original_term": "Bloom Filter Algorithms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.377,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b2b970ad-0276-4069-ba31-899a53191b95",
+            "label": "biofilter systems",
+            "score": 0.377
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.246
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cloud Incident Response in AWS",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Cloud Incident Response in AWS and Azure"
+        }
+      ],
+      "match": {
+        "original_term": "Cloud Incident Response in AWS",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.636,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.21",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.636
+          },
+          {
+            "id": "custom:aws",
+            "label": "Amazon Web Services",
+            "score": 0.426
+          },
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.354
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Loss Prevention Strategies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Data Loss Prevention (DLP) Strategies"
+        }
+      ],
+      "match": {
+        "original_term": "Data Loss Prevention Strategies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Data Loss Prevention Strategies' or its equivalent. The closest entries are related to data protection, data storage, and risk assessment, but none directly match the phrase.",
+        "candidates": [
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.402
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.387
+          },
+          {
+            "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+            "label": "data storage",
+            "score": 0.365
+          }
+        ]
+      }
+    },
+    {
+      "term": "Digital Forensics Fundamentals",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Digital Forensics Fundamentals and Tools"
+        }
+      ],
+      "match": {
+        "original_term": "Digital Forensics Fundamentals",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.705,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.22",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.705
+          },
+          {
+            "id": "esco:06f33d6a-f7a7-4a2b-baa5-8c3c53bd1a9c",
+            "label": "keywords in digital content",
+            "score": 0.484
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.452
+          }
+        ]
+      }
+    },
+    {
+      "term": "Digital Incident Handling",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Digital Incident Handling and Response"
+        }
+      ],
+      "match": {
+        "original_term": "Digital Incident Handling",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Digital Incident Handling' aligns closely with 'security incident response' as both involve detecting, containing, and recovering from security incidents.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.494
+          },
+          {
+            "id": "esco:e3b4b533-cc4d-4c70-adb6-128120f40c88",
+            "label": "handling of dangerous goods",
+            "score": 0.392
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.349
+          }
+        ]
+      }
+    },
+    {
+      "term": "Incident Classification",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Incident Classification and ISO/IEC 27035 Standards"
+        }
+      ],
+      "match": {
+        "original_term": "Incident Classification",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Incident Classification' is directly related to the process of categorizing security incidents, which is a core part of 'security incident response' as described in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.455
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.234
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.232
+          }
+        ]
+      }
+    },
+    {
+      "term": "Incident Response",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "NIST Cybersecurity Framework for Incident Response"
+        }
+      ],
+      "match": {
+        "original_term": "Incident Response",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "IoT Security",
+      "canonical": {
+        "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "label": "ICT security standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "ISO/IEC 27032 for IoT Security and Final Review"
+        }
+      ],
+      "match": {
+        "original_term": "IoT Security",
+        "canonical_id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "canonical_label": "ICT security standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'IoT Security' directly references the use of ISO/IEC 27032, which is explicitly mentioned in the taxonomy entry for 'ICT security standards'.",
+        "candidates": [
+          {
+            "id": "esco:f049d050-12da-4e40-813a-2b5eb6df6b51",
+            "label": "Internet of Things",
+            "score": 0.573
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.528
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.487
+          }
+        ]
+      }
+    },
+    {
+      "term": "ISO/IEC 27035 Standards",
+      "canonical": {
+        "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "label": "ICT security standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Incident Classification and ISO/IEC 27035 Standards"
+        }
+      ],
+      "match": {
+        "original_term": "ISO/IEC 27035 Standards",
+        "canonical_id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "canonical_label": "ICT security standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ISO/IEC 27035 Standards' directly relates to ICT security standards, as explicitly mentioned in the description of candidate 3.",
+        "candidates": [
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.405
+          },
+          {
+            "id": "esco:8696aff0-18c0-4ba6-a4d0-9a21861b3e5e",
+            "label": "World Wide Web Consortium standards",
+            "score": 0.389
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.369
+          }
+        ]
+      }
+    },
+    {
+      "term": "Malware Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Malware Analysis and Static Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Malware Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Malware Analysis'. The closest related entries are about risk assessment, software anomalies, and performance analysis, but none specifically refer to malware analysis.",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.502
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.48
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.474
+          }
+        ]
+      }
+    },
+    {
+      "term": "Network Traffic Analysis with Wireshark",
+      "canonical": {
+        "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "label": "Wireshark",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Network Traffic Analysis with Wireshark"
+        }
+      ],
+      "match": {
+        "original_term": "Network Traffic Analysis with Wireshark",
+        "canonical_id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "canonical_label": "Wireshark",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Network Traffic Analysis with Wireshark' directly refers to the use of Wireshark for analyzing network traffic, which matches the description of the 'Wireshark' entry in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+            "label": "Wireshark",
+            "score": 0.493
+          },
+          {
+            "id": "esco:709ef32a-7435-48e2-8fa2-16e389ecab8a",
+            "label": "Cisco",
+            "score": 0.362
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.359
+          }
+        ]
+      }
+    },
+    {
+      "term": "NIST Cybersecurity Framework",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "NIST Cybersecurity Framework for Incident Response"
+        }
+      ],
+      "match": {
+        "original_term": "NIST Cybersecurity Framework",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'NIST Cybersecurity Framework for Incident Response' directly relates to incident response, which is explicitly covered by the 'security incident response' label.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.568
+          },
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.396
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.348
+          }
+        ]
+      }
+    },
+    {
+      "term": "Post-Incident Analysis using NIST IR Framework",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Post-Incident Analysis using NIST IR Framework"
+        }
+      ],
+      "match": {
+        "original_term": "Post-Incident Analysis using NIST IR Framework",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.303,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.303
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.303
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.281
+          }
+        ]
+      }
+    },
+    {
+      "term": "Static Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Malware Analysis and Static Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Static Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Static Techniques' from the syllabus. The closest entries are related to performance analysis, risk assessment, or specific tools, but none specifically refer to static analysis techniques in the context of malware analysis.",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.487
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.476
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.378
+          }
+        ]
+      }
+    },
+    {
+      "term": "data loss prevention strategies with Symantec",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "data loss prevention strategies with Symantec"
+        }
+      ],
+      "match": {
+        "original_term": "data loss prevention strategies with Symantec",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.357,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.357
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.315
+          },
+          {
+            "id": "esco:e5a6e1e0-1b07-4432-83ba-77d593b2cb47",
+            "label": "SAS Data Management",
+            "score": 0.302
+          }
+        ]
+      }
+    },
+    {
+      "term": "digital forensics with tools like EnCase",
+      "canonical": {
+        "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "label": "computer forensics",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "digital forensics with tools like EnCase"
+        }
+      ],
+      "match": {
+        "original_term": "digital forensics with tools like EnCase",
+        "canonical_id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "canonical_label": "computer forensics",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'digital forensics with tools like EnCase' directly relates to the process of examining and recovering digital data for legal evidence, which matches the description of 'computer forensics' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.57
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.379
+          },
+          {
+            "id": "esco:06f33d6a-f7a7-4a2b-baa5-8c3c53bd1a9c",
+            "label": "keywords in digital content",
+            "score": 0.322
+          }
+        ]
+      }
+    },
+    {
+      "term": "FTK",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "FTK"
+        }
+      ],
+      "match": {
+        "original_term": "FTK",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.165,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:pytorch",
+            "label": "PyTorch",
+            "score": 0.165
+          },
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.157
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.155
+          }
+        ]
+      }
+    },
+    {
+      "term": "incident classification using ISO/IEC 27035",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "incident classification using ISO/IEC 27035"
+        }
+      ],
+      "match": {
+        "original_term": "incident classification using ISO/IEC 27035",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.318,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.318
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.296
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.192
+          }
+        ]
+      }
+    },
+    {
+      "term": "incident response planning",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "incident response planning"
+        }
+      ],
+      "match": {
+        "original_term": "incident response planning",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.727,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.30",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.727
+          },
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.424
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.415
+          }
+        ]
+      }
+    },
+    {
+      "term": "IoT security are included",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "IoT security are included"
+        }
+      ],
+      "match": {
+        "original_term": "IoT security are included",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'IoT security are included' refers specifically to security aspects of Internet of Things (IoT) systems, which is not directly captured by any of the provided taxonomy entries. None of the candidates explicitly address IoT security as a distinct skill.",
+        "candidates": [
+          {
+            "id": "esco:f049d050-12da-4e40-813a-2b5eb6df6b51",
+            "label": "Internet of Things",
+            "score": 0.5
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.454
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.427
+          }
+        ]
+      }
+    },
+    {
+      "term": "McAfee",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "McAfee"
+        }
+      ],
+      "match": {
+        "original_term": "McAfee",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.171,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:message-queues",
+            "label": "message queues",
+            "score": 0.171
+          },
+          {
+            "id": "custom:tableau",
+            "label": "Tableau",
+            "score": 0.165
+          },
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.164
+          }
+        ]
+      }
+    },
+    {
+      "term": "network traffic analysis using Wireshark",
+      "canonical": {
+        "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "label": "Wireshark",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "network traffic analysis using Wireshark"
+        }
+      ],
+      "match": {
+        "original_term": "network traffic analysis using Wireshark",
+        "canonical_id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "canonical_label": "Wireshark",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'network traffic analysis using Wireshark' directly refers to the use of Wireshark for analyzing network traffic, which matches the description of the 'Wireshark' entry as a tool for evaluating security weaknesses and analyzing network protocols.",
+        "candidates": [
+          {
+            "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+            "label": "Wireshark",
+            "score": 0.462
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.347
+          },
+          {
+            "id": "esco:709ef32a-7435-48e2-8fa2-16e389ecab8a",
+            "label": "Cisco",
+            "score": 0.346
+          }
+        ]
+      }
+    },
+    {
+      "term": "Specific algorithms like the Bloom filter",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Specific algorithms like the Bloom filter"
+        }
+      ],
+      "match": {
+        "original_term": "Specific algorithms like the Bloom filter",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Specific algorithms like the Bloom filter' directly refers to algorithms, which is explicitly covered by the 'algorithms' entry in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.444
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.352
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.347
+          }
+        ]
+      }
+    },
+    {
+      "term": "standards",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "standards"
+        }
+      ],
+      "match": {
+        "original_term": "standards",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'standards' is too generic and does not match any specific skill in the provided taxonomy candidates.",
+        "candidates": [
+          {
+            "id": "esco:8696aff0-18c0-4ba6-a4d0-9a21861b3e5e",
+            "label": "World Wide Web Consortium standards",
+            "score": 0.656
+          },
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.656
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.544
+          }
+        ]
+      }
+    },
+    {
+      "term": "static analysis techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "static analysis techniques"
+        }
+      ],
+      "match": {
+        "original_term": "static analysis techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries exactly match the skill 'static analysis techniques'. The closest entry, 'ICT performance analysis methods', refers to performance analysis rather than static analysis.",
+        "candidates": [
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.574
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.42
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.42
+          }
+        ]
+      }
+    }
+  ]
+}

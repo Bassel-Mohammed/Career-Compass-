@@ -36,7 +36,7 @@ from careercompass.skills.matcher import (
     ACCEPTED, NEEDS_REVIEW, UNMATCHED, SkillMatcher, evidence_text,
 )
 
-FIXTURES = Path(__file__).resolve().parent / "fixtures"
+FIXTURES = Path(__file__).resolve().parents[1] / "data" / "syllabi"
 ROBOTICS_PDF = str(FIXTURES / "robotics_programming.pdf")
 
 _failures = []

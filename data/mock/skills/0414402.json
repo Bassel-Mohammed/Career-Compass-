@@ -1,0 +1,2963 @@
+{
+  "course_code": "0414402",
+  "course_codes": [
+    "0414402"
+  ],
+  "course_title": "Advanced Databases",
+  "credit_hours": 3,
+  "plans": [
+    "CS",
+    "SE"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "accepted": 29,
+      "needs_review": 11,
+      "no_match": 21
+    },
+    "by_method": {
+      "embedding_reranker": 36,
+      "llm": 24,
+      "exact_alias": 1
+    }
+  },
+  "total_skills": 61,
+  "skills": [
+    {
+      "term": "access control",
+      "canonical": {
+        "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+        "label": "information confidentiality",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design and implement a secure and scalable database system using encryption, access control, and benchmarking standards."
+        },
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Database Security: Encryption and Access Control"
+        },
+        {
+          "source": "description",
+          "text": "access control"
+        }
+      ],
+      "match": {
+        "original_term": "access control",
+        "canonical_id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+        "canonical_label": "information confidentiality",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.801,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.53",
+        "candidates": [
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.801
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.27
+          },
+          {
+            "id": "esco:11eebd42-44ab-401d-8a2c-bdb9fc9beb50",
+            "label": "information security strategy",
+            "score": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "term": "benchmarking standards",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design and implement a secure and scalable database system using encryption, access control, and benchmarking standards."
+        },
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Performance Tuning and Benchmarking Standards (TPC-C, TPC-H)"
+        },
+        {
+          "source": "description",
+          "text": "benchmarking standards"
+        }
+      ],
+      "match": {
+        "original_term": "benchmarking standards",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'benchmarking standards' as described in the syllabus. The closest entries are related to database quality standards or ICT security standards, but they do not specifically match the concept of benchmarking standards as used in performance tuni",
+        "candidates": [
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.495
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.475
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.468
+          }
+        ]
+      }
+    },
+    {
+      "term": "advanced indexing techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply advanced indexing techniques and query optimization strategies to improve database performance."
+        },
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Advanced Indexing Techniques: B-trees, Hash, and Spatial Indexes"
+        }
+      ],
+      "match": {
+        "original_term": "advanced indexing techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.381,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.381
+          },
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.216
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "NoSQL databases",
+      "canonical": {
+        "id": "esco:76ef6ed3-1658-4a1a-9593-204d799c6d0c",
+        "label": "NoSQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the query processing and optimization techniques used in modern relational and NoSQL databases."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "NoSQL Databases: MongoDB and Cassandra"
+        }
+      ],
+      "match": {
+        "original_term": "NoSQL databases",
+        "canonical_id": "esco:76ef6ed3-1658-4a1a-9593-204d799c6d0c",
+        "canonical_label": "NoSQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'NoSQL databases' directly matches the label 'NoSQL' in the taxonomy, which specifically refers to non-relational databases used for managing unstructured data.",
+        "candidates": [
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.667
+          },
+          {
+            "id": "esco:76ef6ed3-1658-4a1a-9593-204d799c6d0c",
+            "label": "NoSQL",
+            "score": 0.662
+          },
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.654
+          }
+        ]
+      }
+    },
+    {
+      "term": "transaction management",
+      "canonical": {
+        "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+        "label": "database management systems",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of concurrency control, transaction management, and recovery in database systems."
+        },
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Transaction Management and Concurrency Control"
+        }
+      ],
+      "match": {
+        "original_term": "transaction management",
+        "canonical_id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+        "canonical_label": "database management systems",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'transaction management' is directly related to the topic of database management systems, as described in the syllabus. The taxonomy entry for 'database management systems' includes transaction management as a key component.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.522
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.453
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.268
+          }
+        ]
+      }
+    },
+    {
+      "term": "architecture",
+      "canonical": {
+        "id": "esco:1bba98a7-92b9-450b-9235-e0c905f8f3c4",
+        "label": "information architecture",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the architecture and components of distributed database systems, including replication, partitioning, and fault tolerance."
+        }
+      ],
+      "match": {
+        "original_term": "architecture",
+        "canonical_id": "esco:1bba98a7-92b9-450b-9235-e0c905f8f3c4",
+        "canonical_label": "information architecture",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.696,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.08",
+        "candidates": [
+          {
+            "id": "esco:1bba98a7-92b9-450b-9235-e0c905f8f3c4",
+            "label": "information architecture",
+            "score": 0.696
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.618
+          },
+          {
+            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+            "label": "ICT architectural frameworks",
+            "score": 0.33
+          }
+        ]
+      }
+    },
+    {
+      "term": "components of distributed database systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the architecture and components of distributed database systems, including replication, partitioning, and fault tolerance."
+        }
+      ],
+      "match": {
+        "original_term": "components of distributed database systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to the components of distributed database systems, which includes replication, partitioning, and fault tolerance. The closest entry is 'distributed computing', but it is too broad and does not capture the specific components of distributed dat",
+        "candidates": [
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.555
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.51
+          },
+          {
+            "id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+            "label": "distributed computing",
+            "score": 0.445
+          }
+        ]
+      }
+    },
+    {
+      "term": "fault tolerance",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the architecture and components of distributed database systems, including replication, partitioning, and fault tolerance."
+        }
+      ],
+      "match": {
+        "original_term": "fault tolerance",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.244,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+            "label": "distributed computing",
+            "score": 0.244
+          },
+          {
+            "id": "esco:0ab03c6c-281b-48f4-83e0-10eeb27a1bae",
+            "label": "network management system tools",
+            "score": 0.24
+          },
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.232
+          }
+        ]
+      }
+    },
+    {
+      "term": "optimization techniques used in modern relational",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the query processing and optimization techniques used in modern relational and NoSQL databases."
+        }
+      ],
+      "match": {
+        "original_term": "optimization techniques used in modern relational",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.221,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.221
+          },
+          {
+            "id": "esco:696e3b5b-8b61-45af-ae4c-3ab700f197ec",
+            "label": "information extraction",
+            "score": 0.219
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "partitioning",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the architecture and components of distributed database systems, including replication, partitioning, and fault tolerance."
+        }
+      ],
+      "match": {
+        "original_term": "partitioning",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.284,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+            "label": "distributed computing",
+            "score": 0.284
+          },
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.277
+          },
+          {
+            "id": "esco:d1e954cd-d290-4d80-97c0-7969960d2928",
+            "label": "distributed directory information services",
+            "score": 0.256
+          }
+        ]
+      }
+    },
+    {
+      "term": "principles of concurrency control",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of concurrency control, transaction management, and recovery in database systems."
+        }
+      ],
+      "match": {
+        "original_term": "principles of concurrency control",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'principles of concurrency control' or related concepts. The closest entry is 'operating systems', which is broader and does not directly match the skill described.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.583
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.456
+          },
+          {
+            "id": "esco:557d1221-0235-4a48-ada5-8fca73443627",
+            "label": "electronics principles",
+            "score": 0.45
+          }
+        ]
+      }
+    },
+    {
+      "term": "query processing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the query processing and optimization techniques used in modern relational and NoSQL databases."
+        }
+      ],
+      "match": {
+        "original_term": "query processing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'query processing' as a skill. The closest entries are related to query languages or data mining, but they do not specifically match the concept of query processing.",
+        "candidates": [
+          {
+            "id": "esco:9cf681c7-89ec-470c-b651-7fe03786f586",
+            "label": "query languages",
+            "score": 0.462
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.314
+          },
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.247
+          }
+        ]
+      }
+    },
+    {
+      "term": "recovery in database systems",
+      "canonical": {
+        "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+        "label": "database management systems",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of concurrency control, transaction management, and recovery in database systems."
+        }
+      ],
+      "match": {
+        "original_term": "recovery in database systems",
+        "canonical_id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+        "canonical_label": "database management systems",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.725,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.20",
+        "candidates": [
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.725
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.528
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.443
+          }
+        ]
+      }
+    },
+    {
+      "term": "replication",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the architecture and components of distributed database systems, including replication, partitioning, and fault tolerance."
+        }
+      ],
+      "match": {
+        "original_term": "replication",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.294,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.294
+          },
+          {
+            "id": "esco:1d86f05e-e9cc-40ce-99d8-2b21cc71b16b",
+            "label": "solution deployment",
+            "score": 0.28
+          },
+          {
+            "id": "esco:1bba98a7-92b9-450b-9235-e0c905f8f3c4",
+            "label": "information architecture",
+            "score": 0.278
+          }
+        ]
+      }
+    },
+    {
+      "term": "scalable database system using encryption",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design and implement a secure and scalable database system using encryption, access control, and benchmarking standards."
+        }
+      ],
+      "match": {
+        "original_term": "scalable database system using encryption",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'scalable database system using encryption' involves both database management and security aspects, but none of the provided taxonomy entries specifically capture the combination of scalability, encryption, and secure database implementation.",
+        "candidates": [
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.545
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.473
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.391
+          }
+        ]
+      }
+    },
+    {
+      "term": "secure",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design and implement a secure and scalable database system using encryption, access control, and benchmarking standards."
+        }
+      ],
+      "match": {
+        "original_term": "secure",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.337,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.337
+          },
+          {
+            "id": "esco:11eebd42-44ab-401d-8a2c-bdb9fc9beb50",
+            "label": "information security strategy",
+            "score": 0.308
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.308
+          }
+        ]
+      }
+    },
+    {
+      "term": "B-trees",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Advanced Indexing Techniques: B-trees, Hash, and Spatial Indexes"
+        },
+        {
+          "source": "description",
+          "text": "B-trees"
+        }
+      ],
+      "match": {
+        "original_term": "B-trees",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.209,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.209
+          },
+          {
+            "id": "custom:vector-databases",
+            "label": "vector databases",
+            "score": 0.203
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cassandra",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "NoSQL Databases: MongoDB and Cassandra"
+        },
+        {
+          "source": "description",
+          "text": "Cassandra"
+        }
+      ],
+      "match": {
+        "original_term": "Cassandra",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.302,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.302
+          },
+          {
+            "id": "esco:76ef6ed3-1658-4a1a-9593-204d799c6d0c",
+            "label": "NoSQL",
+            "score": 0.252
+          },
+          {
+            "id": "esco:e819cc1e-09d9-47f2-b418-93972852daef",
+            "label": "MarkLogic",
+            "score": 0.243
+          }
+        ]
+      }
+    },
+    {
+      "term": "Concurrency Control",
+      "canonical": {
+        "id": "custom:operating-systems",
+        "label": "operating systems",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Transaction Management and Concurrency Control"
+        },
+        {
+          "source": "description",
+          "text": "concurrency control"
+        }
+      ],
+      "match": {
+        "original_term": "Concurrency Control",
+        "canonical_id": "custom:operating-systems",
+        "canonical_label": "operating systems",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.743,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.25",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.743
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.491
+          },
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.486
+          }
+        ]
+      }
+    },
+    {
+      "term": "Encryption",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Database Security: Encryption and Access Control"
+        },
+        {
+          "source": "description",
+          "text": "encryption"
+        }
+      ],
+      "match": {
+        "original_term": "Encryption",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Encryption' is explicitly listed as an alias for 'cryptography' in the taxonomy entry, indicating it directly matches the skill.",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.908
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.316
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.292
+          }
+        ]
+      }
+    },
+    {
+      "term": "ETL Processes",
+      "canonical": {
+        "id": "custom:etl",
+        "label": "ETL pipelines",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "ETL Processes and Data Integration Techniques"
+        },
+        {
+          "source": "description",
+          "text": "ETL processes"
+        }
+      ],
+      "match": {
+        "original_term": "ETL Processes",
+        "canonical_id": "custom:etl",
+        "canonical_label": "ETL pipelines",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ETL Processes' directly matches the label 'ETL pipelines' and is closely related to the description of extracting, transforming, and loading data between systems.",
+        "candidates": [
+          {
+            "id": "esco:9d0d89be-bffa-4393-b6f6-8d05bea49051",
+            "label": "data extraction, transformation and loading tools",
+            "score": 0.673
+          },
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.66
+          },
+          {
+            "id": "esco:c01b4549-3bc2-4640-8ecb-ef335fc4445c",
+            "label": "types of metal manufacturing processes",
+            "score": 0.51
+          }
+        ]
+      }
+    },
+    {
+      "term": "MongoDB",
+      "canonical": {
+        "id": "custom:mongodb",
+        "label": "MongoDB",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "NoSQL Databases: MongoDB and Cassandra"
+        },
+        {
+          "source": "description",
+          "text": "MongoDB"
+        }
+      ],
+      "match": {
+        "original_term": "MongoDB",
+        "canonical_id": "custom:mongodb",
+        "canonical_label": "MongoDB",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "OLAP Operations",
+      "canonical": {
+        "id": "esco:b0a3bb25-a02f-43ed-ab1f-994fa66a424a",
+        "label": "online analytical processing",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Data Warehousing Concepts and OLAP Operations"
+        },
+        {
+          "source": "description",
+          "text": "OLAP operations"
+        }
+      ],
+      "match": {
+        "original_term": "OLAP Operations",
+        "canonical_id": "esco:b0a3bb25-a02f-43ed-ab1f-994fa66a424a",
+        "canonical_label": "online analytical processing",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.654,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.22",
+        "candidates": [
+          {
+            "id": "esco:b0a3bb25-a02f-43ed-ab1f-994fa66a424a",
+            "label": "online analytical processing",
+            "score": 0.654
+          },
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.437
+          },
+          {
+            "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+            "label": "data storage",
+            "score": 0.273
+          }
+        ]
+      }
+    },
+    {
+      "term": "Query Optimization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Query Optimization and Execution Plans"
+        },
+        {
+          "source": "description",
+          "text": "query optimization"
+        }
+      ],
+      "match": {
+        "original_term": "Query Optimization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Query Optimization'. The closest entry, 'query languages', is related but not the same skill.",
+        "candidates": [
+          {
+            "id": "esco:9cf681c7-89ec-470c-b651-7fe03786f586",
+            "label": "query languages",
+            "score": 0.432
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.265
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.246
+          }
+        ]
+      }
+    },
+    {
+      "term": "Recovery Mechanisms",
+      "canonical": {
+        "id": "esco:69bece91-c806-42ad-bde4-db28c7f8fc4b",
+        "label": "mechanical systems",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Recovery Mechanisms and Log Management"
+        },
+        {
+          "source": "description",
+          "text": "recovery mechanisms"
+        }
+      ],
+      "match": {
+        "original_term": "Recovery Mechanisms",
+        "canonical_id": "esco:69bece91-c806-42ad-bde4-db28c7f8fc4b",
+        "canonical_label": "mechanical systems",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.647,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.15",
+        "candidates": [
+          {
+            "id": "esco:69bece91-c806-42ad-bde4-db28c7f8fc4b",
+            "label": "mechanical systems",
+            "score": 0.647
+          },
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.5
+          },
+          {
+            "id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+            "label": "ICT recovery techniques",
+            "score": 0.433
+          }
+        ]
+      }
+    },
+    {
+      "term": "Spatial Indexes",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Advanced Indexing Techniques: B-trees, Hash, and Spatial Indexes"
+        },
+        {
+          "source": "description",
+          "text": "spatial indexes"
+        }
+      ],
+      "match": {
+        "original_term": "Spatial Indexes",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.204,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.204
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.195
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.193
+          }
+        ]
+      }
+    },
+    {
+      "term": "TPC-C",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Performance Tuning and Benchmarking Standards (TPC-C, TPC-H)"
+        },
+        {
+          "source": "description",
+          "text": "TPC-C"
+        }
+      ],
+      "match": {
+        "original_term": "TPC-C",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'TPC-C' refers to a specific benchmarking standard, but none of the taxonomy entries directly or indirectly refer to TPC-C or benchmarking standards.",
+        "candidates": [
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.56
+          },
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.411
+          },
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.229
+          }
+        ]
+      }
+    },
+    {
+      "term": "TPC-H",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Performance Tuning and Benchmarking Standards (TPC-C, TPC-H)"
+        },
+        {
+          "source": "description",
+          "text": "TPC-H"
+        }
+      ],
+      "match": {
+        "original_term": "TPC-H",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.225,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.225
+          },
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.224
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "Advanced Data Modeling",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Advanced Data Modeling and Normalization Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Advanced Data Modeling",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.781,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.26",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.781
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.522
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.441
+          }
+        ]
+      }
+    },
+    {
+      "term": "Advanced Databases",
+      "canonical": {
+        "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+        "label": "database",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Advanced Databases"
+        }
+      ],
+      "match": {
+        "original_term": "Advanced Databases",
+        "canonical_id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+        "canonical_label": "database",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.626,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.13",
+        "candidates": [
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.626
+          },
+          {
+            "id": "esco:b0a3bb25-a02f-43ed-ab1f-994fa66a424a",
+            "label": "online analytical processing",
+            "score": 0.497
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.47
+          }
+        ]
+      }
+    },
+    {
+      "term": "Advanced SQL Queries",
+      "canonical": {
+        "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "label": "SQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Advanced SQL Queries"
+        }
+      ],
+      "match": {
+        "original_term": "Advanced SQL Queries",
+        "canonical_id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "canonical_label": "SQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.692,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.21",
+        "candidates": [
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.692
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.482
+          },
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.377
+          }
+        ]
+      }
+    },
+    {
+      "term": "Association Rule Mining",
+      "canonical": {
+        "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+        "label": "data mining methods",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Data Mining Techniques: Association Rule Mining and Clustering"
+        }
+      ],
+      "match": {
+        "original_term": "Association Rule Mining",
+        "canonical_id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+        "canonical_label": "data mining methods",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Association Rule Mining' is a specific data mining method, and the taxonomy entry 'data mining methods' explicitly includes association rule mining as a technique.",
+        "candidates": [
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.461
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.457
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.441
+          }
+        ]
+      }
+    },
+    {
+      "term": "Clustering",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Data Mining Techniques: Association Rule Mining and Clustering"
+        }
+      ],
+      "match": {
+        "original_term": "Clustering",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.282,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.282
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.274
+          },
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.271
+          }
+        ]
+      }
+    },
+    {
+      "term": "CTEs",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Window Functions and CTEs"
+        }
+      ],
+      "match": {
+        "original_term": "CTEs",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.232,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.232
+          },
+          {
+            "id": "esco:82313e12-9d39-47d1-b7c9-78bbd6bb50e2",
+            "label": "CAE software",
+            "score": 0.185
+          },
+          {
+            "id": "custom:opencv",
+            "label": "OpenCV",
+            "score": 0.18
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Integration Techniques",
+      "canonical": {
+        "id": "custom:etl",
+        "label": "ETL pipelines",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "ETL Processes and Data Integration Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Data Integration Techniques",
+        "canonical_id": "custom:etl",
+        "canonical_label": "ETL pipelines",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Data Integration Techniques' is directly supported by the syllabus evidence 'ETL Processes and Data Integration Techniques', and the candidate 'custom:etl' includes ETL as an alias, matching the skill precisely.",
+        "candidates": [
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.531
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.422
+          },
+          {
+            "id": "esco:9d0d89be-bffa-4393-b6f6-8d05bea49051",
+            "label": "data extraction, transformation and loading tools",
+            "score": 0.422
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Mining Techniques",
+      "canonical": {
+        "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+        "label": "data mining",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Data Mining Techniques: Association Rule Mining and Clustering"
+        }
+      ],
+      "match": {
+        "original_term": "Data Mining Techniques",
+        "canonical_id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+        "canonical_label": "data mining",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.714,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.12",
+        "candidates": [
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.714
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.592
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.424
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Warehousing",
+      "canonical": {
+        "id": "esco:3ec2e4d6-7000-4905-bf1a-c5b1679416de",
+        "label": "data warehouse",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Data Warehousing Concepts and OLAP Operations"
+        }
+      ],
+      "match": {
+        "original_term": "Data Warehousing",
+        "canonical_id": "esco:3ec2e4d6-7000-4905-bf1a-c5b1679416de",
+        "canonical_label": "data warehouse",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Data Warehousing' directly matches the label 'data warehouse' in the taxonomy, which specifically refers to the data storage system used for analysis and reporting.",
+        "candidates": [
+          {
+            "id": "esco:3ec2e4d6-7000-4905-bf1a-c5b1679416de",
+            "label": "data warehouse",
+            "score": 0.574
+          },
+          {
+            "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+            "label": "data storage",
+            "score": 0.494
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.453
+          }
+        ]
+      }
+    },
+    {
+      "term": "Database Security",
+      "canonical": {
+        "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+        "label": "database",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Database Security: Encryption and Access Control"
+        }
+      ],
+      "match": {
+        "original_term": "Database Security",
+        "canonical_id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+        "canonical_label": "database",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.647,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.10",
+        "candidates": [
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.647
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.551
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.509
+          }
+        ]
+      }
+    },
+    {
+      "term": "Designing Scalable Database Systems",
+      "canonical": {
+        "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+        "label": "database management systems",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Designing Scalable Database Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Designing Scalable Database Systems",
+        "canonical_id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+        "canonical_label": "database management systems",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.653,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.16",
+        "candidates": [
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.653
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.498
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.465
+          }
+        ]
+      }
+    },
+    {
+      "term": "Distributed Database Architecture",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Distributed Database Architecture"
+        }
+      ],
+      "match": {
+        "original_term": "Distributed Database Architecture",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Distributed Database Architecture' as a skill. The closest entries are related to databases in general, but none capture the specific concept of distributed database architecture.",
+        "candidates": [
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.543
+          },
+          {
+            "id": "esco:1bba98a7-92b9-450b-9235-e0c905f8f3c4",
+            "label": "information architecture",
+            "score": 0.444
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.435
+          }
+        ]
+      }
+    },
+    {
+      "term": "Execution Plans",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Query Optimization and Execution Plans"
+        }
+      ],
+      "match": {
+        "original_term": "Execution Plans",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.281,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.281
+          },
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.234
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.232
+          }
+        ]
+      }
+    },
+    {
+      "term": "Hash",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Advanced Indexing Techniques: B-trees, Hash, and Spatial Indexes"
+        }
+      ],
+      "match": {
+        "original_term": "Hash",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.179,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:vector-databases",
+            "label": "vector databases",
+            "score": 0.179
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.175
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.168
+          }
+        ]
+      }
+    },
+    {
+      "term": "Integrating Advanced Database",
+      "canonical": {
+        "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+        "label": "ICT system integration",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Capstone Project: Integrating Advanced Database Concepts"
+        }
+      ],
+      "match": {
+        "original_term": "Integrating Advanced Database",
+        "canonical_id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+        "canonical_label": "ICT system integration",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Integrating Advanced Database' aligns with the skill 'ICT system integration' as both involve integrating components to create a functional system, with the database being a key component.",
+        "candidates": [
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.532
+          },
+          {
+            "id": "esco:d9eaf831-9348-4330-a83e-b7c099cdc8f6",
+            "label": "Teradata Database",
+            "score": 0.431
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.415
+          }
+        ]
+      }
+    },
+    {
+      "term": "Log Management",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Recovery Mechanisms and Log Management"
+        }
+      ],
+      "match": {
+        "original_term": "Log Management",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Log Management' from the syllabus. The closest related entries are about system backup, risk assessment, and processes in manufacturing, which are not equivalent to log management.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.51
+          },
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.268
+          },
+          {
+            "id": "esco:f3c3e51d-f4dc-49a8-8725-2a2d3160446e",
+            "label": "processes of foods and beverages manufacturing",
+            "score": 0.258
+          }
+        ]
+      }
+    },
+    {
+      "term": "Normalization Techniques",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Advanced Data Modeling and Normalization Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Normalization Techniques",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.74,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.27",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.74
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.472
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.311
+          }
+        ]
+      }
+    },
+    {
+      "term": "Performance Tuning",
+      "canonical": {
+        "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+        "label": "ICT performance analysis methods",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Performance Tuning and Benchmarking Standards (TPC-C, TPC-H)"
+        }
+      ],
+      "match": {
+        "original_term": "Performance Tuning",
+        "canonical_id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+        "canonical_label": "ICT performance analysis methods",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Performance Tuning' aligns with 'ICT performance analysis methods' as both involve analyzing system performance and identifying root causes of issues, which is directly related to performance tuning and benchmarking standards like TPC-C and TPC-H.",
+        "candidates": [
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.535
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.464
+          },
+          {
+            "id": "esco:69fe6624-bc7f-412e-ad6d-35c7b0df842e",
+            "label": "instrument performance elements",
+            "score": 0.435
+          }
+        ]
+      }
+    },
+    {
+      "term": "Schema Design in NoSQL Systems",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Schema Design in NoSQL Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Schema Design in NoSQL Systems",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.64,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.64
+          },
+          {
+            "id": "esco:76ef6ed3-1658-4a1a-9593-204d799c6d0c",
+            "label": "NoSQL",
+            "score": 0.465
+          },
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.459
+          }
+        ]
+      }
+    },
+    {
+      "term": "Window Functions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Window Functions and CTEs"
+        }
+      ],
+      "match": {
+        "original_term": "Window Functions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.206,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:f88002a8-6355-4d33-9496-285c166ff375",
+            "label": "ICT power consumption",
+            "score": 0.206
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.204
+          },
+          {
+            "id": "esco:21c27eba-bd1f-42f5-a1d5-c250227030f7",
+            "label": "electricity consumption",
+            "score": 0.204
+          }
+        ]
+      }
+    },
+    {
+      "term": "advanced SQL queries with window functions",
+      "canonical": {
+        "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "label": "SQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "advanced SQL queries with window functions"
+        }
+      ],
+      "match": {
+        "original_term": "advanced SQL queries with window functions",
+        "canonical_id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "canonical_label": "SQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'advanced SQL queries with window functions' directly relates to SQL, which is explicitly covered in the 'SQL' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.533
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.379
+          },
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.314
+          }
+        ]
+      }
+    },
+    {
+      "term": "clustering algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "clustering algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "clustering algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.628,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.12",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.628
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.509
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.206
+          }
+        ]
+      }
+    },
+    {
+      "term": "course also covers database security",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "course also covers database security"
+        }
+      ],
+      "match": {
+        "original_term": "course also covers database security",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'database security' as a skill. The closest entries are related to broader topics like cybersecurity or database management systems, but none directly match the extracted phrase.",
+        "candidates": [
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.441
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.377
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.363
+          }
+        ]
+      }
+    },
+    {
+      "term": "course also includes data warehousing",
+      "canonical": {
+        "id": "esco:3ec2e4d6-7000-4905-bf1a-c5b1679416de",
+        "label": "data warehouse",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "course also includes data warehousing"
+        }
+      ],
+      "match": {
+        "original_term": "course also includes data warehousing",
+        "canonical_id": "esco:3ec2e4d6-7000-4905-bf1a-c5b1679416de",
+        "canonical_label": "data warehouse",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'data warehousing' directly matches the label 'data warehouse' in the taxonomy, which refers to the data storage system for analysis and reporting.",
+        "candidates": [
+          {
+            "id": "esco:3ec2e4d6-7000-4905-bf1a-c5b1679416de",
+            "label": "data warehouse",
+            "score": 0.4
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.322
+          },
+          {
+            "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+            "label": "data storage",
+            "score": 0.315
+          }
+        ]
+      }
+    },
+    {
+      "term": "distributed databases",
+      "canonical": {
+        "id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+        "label": "distributed computing",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "distributed databases"
+        }
+      ],
+      "match": {
+        "original_term": "distributed databases",
+        "canonical_id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+        "canonical_label": "distributed computing",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'distributed databases' directly relates to the concept of distributed computing, which involves components interacting over a network, matching the description of the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.609
+          },
+          {
+            "id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+            "label": "distributed computing",
+            "score": 0.502
+          },
+          {
+            "id": "custom:vector-databases",
+            "label": "vector databases",
+            "score": 0.479
+          }
+        ]
+      }
+    },
+    {
+      "term": "Finally",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Finally"
+        }
+      ],
+      "match": {
+        "original_term": "Finally",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.162,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.162
+          },
+          {
+            "id": "custom:teamwork",
+            "label": "teamwork",
+            "score": 0.154
+          },
+          {
+            "id": "custom:go-language",
+            "label": "Go",
+            "score": 0.149
+          }
+        ]
+      }
+    },
+    {
+      "term": "hash indexes",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "hash indexes"
+        }
+      ],
+      "match": {
+        "original_term": "hash indexes",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.226,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.226
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.195
+          },
+          {
+            "id": "custom:vector-databases",
+            "label": "vector databases",
+            "score": 0.19
+          }
+        ]
+      }
+    },
+    {
+      "term": "it discusses database performance tuning",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "it discusses database performance tuning"
+        }
+      ],
+      "match": {
+        "original_term": "it discusses database performance tuning",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'database performance tuning', which is a distinct skill focused on optimizing database efficiency and speed.",
+        "candidates": [
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.436
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.359
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.354
+          }
+        ]
+      }
+    },
+    {
+      "term": "It explores transaction management",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "It explores transaction management"
+        }
+      ],
+      "match": {
+        "original_term": "It explores transaction management",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.392,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.392
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.211
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.21
+          }
+        ]
+      }
+    },
+    {
+      "term": "NoSQL technologies",
+      "canonical": {
+        "id": "esco:76ef6ed3-1658-4a1a-9593-204d799c6d0c",
+        "label": "NoSQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "NoSQL technologies"
+        }
+      ],
+      "match": {
+        "original_term": "NoSQL technologies",
+        "canonical_id": "esco:76ef6ed3-1658-4a1a-9593-204d799c6d0c",
+        "canonical_label": "NoSQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'NoSQL technologies' directly matches the label 'NoSQL' in the taxonomy entry, which specifically refers to non-relational databases used for managing unstructured data.",
+        "candidates": [
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.615
+          },
+          {
+            "id": "esco:76ef6ed3-1658-4a1a-9593-204d799c6d0c",
+            "label": "NoSQL",
+            "score": 0.606
+          },
+          {
+            "id": "esco:bd14968e-e409-45af-b362-3495ed7b10e0",
+            "label": "cloud technologies",
+            "score": 0.52
+          }
+        ]
+      }
+    },
+    {
+      "term": "role-based permissions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "role-based permissions"
+        }
+      ],
+      "match": {
+        "original_term": "role-based permissions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.175,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.175
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.175
+          },
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.174
+          }
+        ]
+      }
+    },
+    {
+      "term": "Students will study advanced indexing techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Students will study advanced indexing techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Students will study advanced indexing techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.319,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:de134835-030e-4f79-9873-e87c34c1a0db",
+            "label": "laboratory-based sciences",
+            "score": 0.319
+          },
+          {
+            "id": "esco:e66cd71d-371c-4f82-8bce-b220b8c2d6ea",
+            "label": "optoelectronics",
+            "score": 0.296
+          },
+          {
+            "id": "esco:7b5cce4d-c7fe-4119-b48f-70aa05391787",
+            "label": "computer science",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "table expressions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "table expressions"
+        }
+      ],
+      "match": {
+        "original_term": "table expressions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.257,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:tableau",
+            "label": "Tableau",
+            "score": 0.257
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.183
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.181
+          }
+        ]
+      }
+    }
+  ]
+}

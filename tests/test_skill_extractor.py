@@ -19,7 +19,7 @@ from textwrap import shorten
 from careercompass.parsing.syllabus import parse_syllabus
 from careercompass.skills.extractor import _phrases, extract_skills
 
-FIXTURES = Path(__file__).resolve().parent / "fixtures"
+FIXTURES = Path(__file__).resolve().parents[1] / "data" / "syllabi"
 ROBOTICS_PDF = str(FIXTURES / "robotics_programming.pdf")
 PROBABILITY_PDF = str(FIXTURES / "probability_and_statistics.pdf")
 

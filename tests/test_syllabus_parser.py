@@ -15,7 +15,7 @@ from pathlib import Path
 
 from careercompass.parsing.syllabus import parse_syllabus
 
-FIXTURES = Path(__file__).resolve().parent / "fixtures"
+FIXTURES = Path(__file__).resolve().parents[1] / "data" / "syllabi"
 ROBOTICS_PDF = str(FIXTURES / "robotics_programming.pdf")
 PROBABILITY_PDF = str(FIXTURES / "probability_and_statistics.pdf")
 SYSTEM_ANALYSIS_PDF = str(FIXTURES / "system_analysis_and_design.pdf")

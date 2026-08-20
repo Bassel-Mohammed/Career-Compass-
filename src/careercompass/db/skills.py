@@ -294,3 +294,223 @@ def load_reviewed_matches(conn=None) -> dict:
     finally:
         if owned:
             conn.close()
+
+
+# ── Job skills ─────────────────────────────────────────────────
+JOB_MIGRATION = "003_job_skills.sql"
+
+
+def init_job_skill_tables(conn=None) -> None:
+    """Create the job-skill and ontology tables if they do not exist."""
+    run_migration(JOB_MIGRATION, conn=conn)
+
+
+def store_job_skills(job_id: int, skills: list, conn=None) -> int:
+    """
+    Upsert one posting's matched skills.
+
+    Terms that did not resolve are stored with a NULL skill_id, exactly as
+    store_course_skills does — the two sides of the join should record
+    their gaps the same way.
+
+    Args:
+        job_id: The linkedin_jobs row these skills came from.
+        skills: Extracted skills carrying a "match" record.
+
+    Returns:
+        Number of rows written.
+    """
+    if not job_id:
+        raise ValueError("job_id is required to store job skills")
+
+    owned = conn is None
+    conn = conn or get_connection()
+
+    rows = []
+    for skill in skills:
+        match = skill.get("match") or {}
+        rows.append((
+            job_id,
+            skill["term"],
+            "+".join(skill.get("sources", [])),
+            skill["level"],
+            skill["weight"],
+            match.get("canonical_id"),
+            match.get("match_method"),
+            match.get("match_score"),
+            match.get("review_status", "no_match"),
+            match.get("taxonomy_version", TAXONOMY_VERSION),
+        ))
+
+    try:
+        with conn.cursor() as cur:
+            psycopg2.extras.execute_batch(cur, """
+                INSERT INTO job_skills (
+                    job_id, term, sources, level, weight,
+                    skill_id, match_method, match_score, review_status,
+                    taxonomy_version
+                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                ON CONFLICT (job_id, term) DO UPDATE SET
+                    sources = EXCLUDED.sources,
+                    level = EXCLUDED.level,
+                    weight = EXCLUDED.weight,
+                    skill_id = EXCLUDED.skill_id,
+                    match_method = EXCLUDED.match_method,
+                    match_score = EXCLUDED.match_score,
+                    review_status = EXCLUDED.review_status,
+                    taxonomy_version = EXCLUDED.taxonomy_version
+            """, rows, page_size=500)
+        conn.commit()
+        return len(rows)
+    except psycopg2.Error:
+        conn.rollback()
+        raise
+    finally:
+        if owned:
+            conn.close()
+
+
+def store_career_path_skills(rows: list, totals: dict, conn=None) -> int:
+    """
+    Replace the derived ontology for every path the rows cover.
+
+    Deletes a path's existing rows before inserting, rather than
+    upserting: a re-derivation that no longer finds a skill must remove
+    it, and an upsert would leave the stale requirement in place forever.
+
+    Args:
+        rows: Output of ontology.build_ontology.
+        totals: Postings per career path, for the sample_size column.
+
+    Returns:
+        Number of rows written.
+    """
+    if not rows:
+        return 0
+
+    owned = conn is None
+    conn = conn or get_connection()
+
+    paths = sorted({row["career_path"] for row in rows})
+    values = [
+        (
+            row["career_path"], row["skill_id"], row["posting_count"],
+            totals.get(row["career_path"], 0), row["coverage"],
+            row["required_score"], row["required_level"], TAXONOMY_VERSION,
+        )
+        for row in rows
+    ]
+
+    try:
+        with conn.cursor() as cur:
+            cur.execute(
+                "DELETE FROM career_path_skills WHERE career_path = ANY(%s)",
+                (paths,),
+            )
+            psycopg2.extras.execute_batch(cur, """
+                INSERT INTO career_path_skills (
+                    career_path, skill_id, posting_count, sample_size,
+                    coverage, required_score, required_level, taxonomy_version
+                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+            """, values, page_size=500)
+        conn.commit()
+        logger.info("stored %d ontology rows across %d career paths",
+                    len(values), len(paths))
+        return len(values)
+    except psycopg2.Error:
+        conn.rollback()
+        raise
+    finally:
+        if owned:
+            conn.close()
+
+
+def get_career_path_skills(career_path: str, conn=None) -> list:
+    """
+    Read one path's required skills, strongest requirement first.
+
+    This is the query the skill-gap module runs: the right-hand side of
+    every comparison a student's skill vector is measured against.
+    """
+    owned = conn is None
+    conn = conn or get_connection()
+    try:
+        with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+            cur.execute("""
+                SELECT c.skill_id, t.label AS skill_label, c.posting_count,
+                       c.sample_size, c.coverage, c.required_score,
+                       c.required_level, c.taxonomy_version
+                FROM career_path_skills c
+                JOIN taxonomy_skills t ON t.skill_id = c.skill_id
+                WHERE c.career_path = %s
+                ORDER BY c.required_score DESC
+            """, (career_path,))
+            return [dict(row) for row in cur.fetchall()]
+    finally:
+        if owned:
+            conn.close()
+
+
+# ── Taxonomy maintenance ───────────────────────────────────────
+def remap_retired_skills(taxonomy, conn=None) -> dict:
+    """
+    Repoint stored matches at the ids a taxonomy rebuild kept.
+
+    Merging two records for one skill retires the loser's id, but rows
+    already written still carry it. Left alone the two sides of the join
+    drift apart silently: a course matched to `custom:java` and a posting
+    matched to `esco:19a8293b…` describe the same skill and compare as
+    different ones, so the gap analysis reports a student lacks something
+    they were taught.
+
+    The successor is found by resolving the retired label through the
+    current alias index — the merge keeps the loser's label as an alias
+    precisely so this lookup works. A retired skill whose label no longer
+    resolves is left in place rather than guessed at, and reported.
+
+    Returns:
+        `{"remapped": {old_id: new_id}, "deleted": [ids], "orphaned": [ids]}`
+    """
+    owned = conn is None
+    conn = conn or get_connection()
+    current = {skill["id"] for skill in taxonomy.skills}
+
+    try:
+        with conn.cursor() as cur:
+            cur.execute("SELECT skill_id, label FROM taxonomy_skills")
+            retired = [(sid, label) for sid, label in cur.fetchall()
+                       if sid not in current]
+
+            remapped = {}
+            orphaned = []
+            for skill_id, label in retired:
+                details = taxonomy.index.lookup_details(label)
+                successor = details["skill"]["id"] if details else None
+                if successor and successor != skill_id:
+                    remapped[skill_id] = successor
+                else:
+                    orphaned.append(skill_id)
+
+            for table in ("course_skills", "job_skills"):
+                for old_id, new_id in remapped.items():
+                    cur.execute(
+                        f"UPDATE {table} SET skill_id = %s WHERE skill_id = %s",
+                        (new_id, old_id),
+                    )
+
+            deletable = list(remapped)
+            if deletable:
+                cur.execute(
+                    "DELETE FROM taxonomy_skills WHERE skill_id = ANY(%s)",
+                    (deletable,),
+                )
+        conn.commit()
+        logger.info("remapped %d retired skills, %d could not be resolved",
+                    len(remapped), len(orphaned))
+        return {"remapped": remapped, "deleted": deletable, "orphaned": orphaned}
+    except psycopg2.Error:
+        conn.rollback()
+        raise
+    finally:
+        if owned:
+            conn.close()

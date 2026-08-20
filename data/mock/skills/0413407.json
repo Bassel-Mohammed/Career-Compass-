@@ -1,0 +1,3650 @@
+{
+  "course_code": "0413407",
+  "course_codes": [
+    "0413407"
+  ],
+  "course_title": "Multimedia Systems",
+  "credit_hours": 3,
+  "plans": [
+    "CS"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "accepted": 29,
+      "no_match": 26,
+      "needs_review": 23
+    },
+    "by_method": {
+      "exact_alias": 6,
+      "embedding_reranker": 32,
+      "llm": 40
+    }
+  },
+  "total_skills": 78,
+  "skills": [
+    {
+      "term": "CSS3",
+      "canonical": {
+        "id": "custom:html-css",
+        "label": "HTML and CSS",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply multimedia technologies in the development of interactive systems using HTML5, CSS3, and JavaScript to create dynamic and responsive multimedia applications."
+        },
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "HTML5 and CSS3 for Multimedia Applications"
+        },
+        {
+          "source": "description",
+          "text": "CSS3"
+        }
+      ],
+      "match": {
+        "original_term": "CSS3",
+        "canonical_id": "custom:html-css",
+        "canonical_label": "HTML and CSS",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "JPEG",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the principles of multimedia compression techniques, including Huffman coding, LZW, and wavelet transforms, and their applications in MPEG, JPEG, and H.264 standards."
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "JPEG and MPEG Standards"
+        },
+        {
+          "source": "description",
+          "text": "JPEG"
+        }
+      ],
+      "match": {
+        "original_term": "JPEG",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.17,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:tf-transforms",
+            "label": "coordinate frame transforms",
+            "score": 0.17
+          },
+          {
+            "id": "esco:1ca140f8-d8aa-4e02-8ddc-31cbf75dd7ae",
+            "label": "microwave principles",
+            "score": 0.168
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.166
+          }
+        ]
+      }
+    },
+    {
+      "term": "RTCP protocols",
+      "canonical": {
+        "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+        "label": "ICT communications protocols",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain multimedia synchronization mechanisms, such as RTP and RTCP protocols, and their role in ensuring real-time delivery of multimedia content."
+        },
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "RTP and RTCP Protocols"
+        },
+        {
+          "source": "description",
+          "text": "RTCP protocols"
+        }
+      ],
+      "match": {
+        "original_term": "RTCP protocols",
+        "canonical_id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+        "canonical_label": "ICT communications protocols",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'RTCP protocols' directly relates to 'ICT communications protocols', which is the system of rules for exchanging information between devices via networks, matching the specific skill described.",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.508
+          },
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.448
+          },
+          {
+            "id": "esco:0764b28d-04ee-4e80-bf58-b737f02a63e0",
+            "label": "captioning software",
+            "score": 0.207
+          }
+        ]
+      }
+    },
+    {
+      "term": "DASH protocols",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement multimedia streaming solutions using HLS and DASH protocols, and evaluate the performance of multimedia systems based on QoS metrics."
+        },
+        {
+          "source": "description",
+          "text": "DASH protocols"
+        }
+      ],
+      "match": {
+        "original_term": "DASH protocols",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'DASH protocols' or closely related concepts. The closest match, 'ICT communications protocols', is too broad and does not specifically address DASH protocols.",
+        "candidates": [
+          {
+            "id": "esco:4cdbc76c-75d8-4e12-8653-4820c2d5446f",
+            "label": "microsystem test procedures",
+            "score": 0.444
+          },
+          {
+            "id": "esco:0e9e3a56-3b26-4fa5-91df-6d9bfbea4259",
+            "label": "electronic test procedures",
+            "score": 0.432
+          },
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.423
+          }
+        ]
+      }
+    },
+    {
+      "term": "H.264 standards",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the principles of multimedia compression techniques, including Huffman coding, LZW, and wavelet transforms, and their applications in MPEG, JPEG, and H.264 standards."
+        },
+        {
+          "source": "description",
+          "text": "H.264 standards"
+        }
+      ],
+      "match": {
+        "original_term": "H.264 standards",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill described by 'H.264 standards', which relates to multimedia compression standards. The closest entries are about ICT security, accessibility, and transmission technology, which are unrelated.",
+        "candidates": [
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.42
+          },
+          {
+            "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+            "label": "ICT accessibility standards",
+            "score": 0.414
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.412
+          }
+        ]
+      }
+    },
+    {
+      "term": "Huffman coding",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the principles of multimedia compression techniques, including Huffman coding, LZW, and wavelet transforms, and their applications in MPEG, JPEG, and H.264 standards."
+        },
+        {
+          "source": "description",
+          "text": "Huffman coding"
+        }
+      ],
+      "match": {
+        "original_term": "Huffman coding",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.214,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.214
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.205
+          },
+          {
+            "id": "custom:tf-transforms",
+            "label": "coordinate frame transforms",
+            "score": 0.196
+          }
+        ]
+      }
+    },
+    {
+      "term": "image processing",
+      "canonical": {
+        "id": "custom:image-processing",
+        "label": "image processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the key components of multimedia systems, including audio, video, and image processing, and their respective data formats and standards."
+        },
+        {
+          "source": "description",
+          "text": "image processing"
+        }
+      ],
+      "match": {
+        "original_term": "image processing",
+        "canonical_id": "custom:image-processing",
+        "canonical_label": "image processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "LZW",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the principles of multimedia compression techniques, including Huffman coding, LZW, and wavelet transforms, and their applications in MPEG, JPEG, and H.264 standards."
+        },
+        {
+          "source": "description",
+          "text": "LZW"
+        }
+      ],
+      "match": {
+        "original_term": "LZW",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.171,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:1ca140f8-d8aa-4e02-8ddc-31cbf75dd7ae",
+            "label": "microwave principles",
+            "score": 0.171
+          },
+          {
+            "id": "custom:tf-transforms",
+            "label": "coordinate frame transforms",
+            "score": 0.167
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.162
+          }
+        ]
+      }
+    },
+    {
+      "term": "RTP",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain multimedia synchronization mechanisms, such as RTP and RTCP protocols, and their role in ensuring real-time delivery of multimedia content."
+        },
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "RTP and RTCP Protocols"
+        }
+      ],
+      "match": {
+        "original_term": "RTP",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.197,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.197
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.195
+          },
+          {
+            "id": "esco:bf6c5ed4-84af-440f-abcc-7fa5ba19c738",
+            "label": "real-time computing",
+            "score": 0.185
+          }
+        ]
+      }
+    },
+    {
+      "term": "video",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the key components of multimedia systems, including audio, video, and image processing, and their respective data formats and standards."
+        },
+        {
+          "source": "description",
+          "text": "video"
+        }
+      ],
+      "match": {
+        "original_term": "video",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.25,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.25
+          },
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.232
+          },
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.221
+          }
+        ]
+      }
+    },
+    {
+      "term": "wavelet transforms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the principles of multimedia compression techniques, including Huffman coding, LZW, and wavelet transforms, and their applications in MPEG, JPEG, and H.264 standards."
+        },
+        {
+          "source": "description",
+          "text": "wavelet transforms"
+        }
+      ],
+      "match": {
+        "original_term": "wavelet transforms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'wavelet transforms' or related concepts. The closest match would be 'image processing' (custom:image-processing), but wavelet transforms are a specific mathematical technique used in compression and signal processing, not the same as general i",
+        "candidates": [
+          {
+            "id": "custom:tf-transforms",
+            "label": "coordinate frame transforms",
+            "score": 0.508
+          },
+          {
+            "id": "esco:cf9a4613-ff8a-40a7-931f-c6fba2cc3d50",
+            "label": "heat transfer processes",
+            "score": 0.235
+          },
+          {
+            "id": "esco:71f81e1a-e2ca-48d6-b7b8-7a34c56c51f8",
+            "label": "transmission technology",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "applications in MPEG",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the principles of multimedia compression techniques, including Huffman coding, LZW, and wavelet transforms, and their applications in MPEG, JPEG, and H.264 standards."
+        }
+      ],
+      "match": {
+        "original_term": "applications in MPEG",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.229,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.229
+          },
+          {
+            "id": "custom:tf-transforms",
+            "label": "coordinate frame transforms",
+            "score": 0.216
+          },
+          {
+            "id": "esco:71f81e1a-e2ca-48d6-b7b8-7a34c56c51f8",
+            "label": "transmission technology",
+            "score": 0.205
+          }
+        ]
+      }
+    },
+    {
+      "term": "audio",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the key components of multimedia systems, including audio, video, and image processing, and their respective data formats and standards."
+        }
+      ],
+      "match": {
+        "original_term": "audio",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'audio' refers to a general concept within multimedia systems, but none of the taxonomy entries specifically match this skill. The closest entries are related to audio editing software or consumer electronics, which are more specific and not equivalent to the general concept of ",
+        "candidates": [
+          {
+            "id": "esco:cae4c053-05d1-413d-8499-f37793aad56e",
+            "label": "audio editing software",
+            "score": 0.54
+          },
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.224
+          },
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "components of multimedia systems",
+      "canonical": {
+        "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+        "label": "hardware components",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the key components of multimedia systems, including audio, video, and image processing, and their respective data formats and standards."
+        }
+      ],
+      "match": {
+        "original_term": "components of multimedia systems",
+        "canonical_id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+        "canonical_label": "hardware components",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.624,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.08",
+        "candidates": [
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.624
+          },
+          {
+            "id": "esco:b112ead8-6245-49bb-879f-07b1388a1c9b",
+            "label": "components of air conditioning systems",
+            "score": 0.548
+          },
+          {
+            "id": "esco:575f79e8-8500-4ddf-91ec-5e6de73d35a3",
+            "label": "mechanical components of vehicles",
+            "score": 0.483
+          }
+        ]
+      }
+    },
+    {
+      "term": "JavaScript to create dynamic",
+      "canonical": {
+        "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+        "label": "JavaScript",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply multimedia technologies in the development of interactive systems using HTML5, CSS3, and JavaScript to create dynamic and responsive multimedia applications."
+        }
+      ],
+      "match": {
+        "original_term": "JavaScript to create dynamic",
+        "canonical_id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+        "canonical_label": "JavaScript",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'JavaScript to create dynamic' directly refers to the use of JavaScript for dynamic application development, which matches the label 'JavaScript' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+            "label": "JavaScript",
+            "score": 0.582
+          },
+          {
+            "id": "esco:9b9de2a4-d8af-4a7b-933a-a8334ae60067",
+            "label": "JavaScript Framework",
+            "score": 0.473
+          },
+          {
+            "id": "esco:b4dc6e4f-dc7d-445f-8ce2-d7b9d225e282",
+            "label": "AJAX",
+            "score": 0.405
+          }
+        ]
+      }
+    },
+    {
+      "term": "multimedia streaming solutions using HLS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement multimedia streaming solutions using HLS and DASH protocols, and evaluate the performance of multimedia systems based on QoS metrics."
+        }
+      ],
+      "match": {
+        "original_term": "multimedia streaming solutions using HLS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.215,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:0e8d16c9-e2db-4862-ac06-1567f01ef806",
+            "label": "building systems monitoring technology",
+            "score": 0.215
+          },
+          {
+            "id": "esco:dc298fac-7ab4-4feb-9b43-33d947d7703e",
+            "label": "standards for web-based e-learning",
+            "score": 0.206
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.199
+          }
+        ]
+      }
+    },
+    {
+      "term": "multimedia synchronization mechanisms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain multimedia synchronization mechanisms, such as RTP and RTCP protocols, and their role in ensuring real-time delivery of multimedia content."
+        }
+      ],
+      "match": {
+        "original_term": "multimedia synchronization mechanisms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.246,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:306ca6bc-bacd-434e-91d9-249a518ec71e",
+            "label": "metal joining technologies",
+            "score": 0.246
+          },
+          {
+            "id": "esco:71f81e1a-e2ca-48d6-b7b8-7a34c56c51f8",
+            "label": "transmission technology",
+            "score": 0.213
+          },
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "principles of multimedia compression techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the principles of multimedia compression techniques, including Huffman coding, LZW, and wavelet transforms, and their applications in MPEG, JPEG, and H.264 standards."
+        }
+      ],
+      "match": {
+        "original_term": "principles of multimedia compression techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.363,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:1ca140f8-d8aa-4e02-8ddc-31cbf75dd7ae",
+            "label": "microwave principles",
+            "score": 0.363
+          },
+          {
+            "id": "esco:657c5a25-903c-4669-9efc-46c85c176fbf",
+            "label": "gas chromatography",
+            "score": 0.34
+          },
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.328
+          }
+        ]
+      }
+    },
+    {
+      "term": "respective data formats",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the key components of multimedia systems, including audio, video, and image processing, and their respective data formats and standards."
+        }
+      ],
+      "match": {
+        "original_term": "respective data formats",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.391,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.391
+          },
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.249
+          },
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.245
+          }
+        ]
+      }
+    },
+    {
+      "term": "responsive multimedia applications",
+      "canonical": {
+        "id": "custom:responsive-design",
+        "label": "responsive web design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply multimedia technologies in the development of interactive systems using HTML5, CSS3, and JavaScript to create dynamic and responsive multimedia applications."
+        }
+      ],
+      "match": {
+        "original_term": "responsive multimedia applications",
+        "canonical_id": "custom:responsive-design",
+        "canonical_label": "responsive web design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'responsive multimedia applications' directly relates to 'responsive web design', which is explicitly defined as building interfaces that adapt to screen size and device, matching the syllabus description.",
+        "candidates": [
+          {
+            "id": "custom:responsive-design",
+            "label": "responsive web design",
+            "score": 0.46
+          },
+          {
+            "id": "esco:96eb286a-58b7-45ff-a916-5578d0b79b8c",
+            "label": "Rapid application development",
+            "score": 0.414
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.406
+          }
+        ]
+      }
+    },
+    {
+      "term": "standards",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the key components of multimedia systems, including audio, video, and image processing, and their respective data formats and standards."
+        }
+      ],
+      "match": {
+        "original_term": "standards",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'standards' in the context of multimedia systems' data formats and standards does not clearly match any of the provided taxonomy entries, which focus on specific areas like database quality, electronic equipment, or hardware components.",
+        "candidates": [
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.557
+          },
+          {
+            "id": "esco:19ec88aa-c0b1-4515-ba10-56b6cf27369e",
+            "label": "electronic equipment standards",
+            "score": 0.545
+          },
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.242
+          }
+        ]
+      }
+    },
+    {
+      "term": "Avid Media Composer",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Adobe Premiere Pro and Avid Media Composer"
+        },
+        {
+          "source": "description",
+          "text": "Avid Media Composer"
+        }
+      ],
+      "match": {
+        "original_term": "Avid Media Composer",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.244,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:cae4c053-05d1-413d-8499-f37793aad56e",
+            "label": "audio editing software",
+            "score": 0.244
+          },
+          {
+            "id": "esco:a71577b2-7550-4222-88ee-dcbd2d881516",
+            "label": "graphics editor software",
+            "score": 0.211
+          },
+          {
+            "id": "esco:14ced458-5f4b-495f-bd3d-9c240614bda0",
+            "label": "Adobe Photoshop",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "Multimedia Applications",
+      "canonical": {
+        "id": "custom:html-css",
+        "label": "HTML and CSS",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "HTML5 and CSS3 for Multimedia Applications"
+        },
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "User Interaction and Interface Design for Multimedia Applications"
+        }
+      ],
+      "match": {
+        "original_term": "Multimedia Applications",
+        "canonical_id": "custom:html-css",
+        "canonical_label": "HTML and CSS",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Multimedia Applications' is directly supported by the syllabus text mentioning 'HTML5 and CSS3 for Multimedia Applications', which aligns with the 'HTML and CSS' skill in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.44
+          },
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.283
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.255
+          }
+        ]
+      }
+    },
+    {
+      "term": "NoSQL Technologies",
+      "canonical": {
+        "id": "esco:76ef6ed3-1658-4a1a-9593-204d799c6d0c",
+        "label": "NoSQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "SQL and NoSQL Technologies for Multimedia Storage"
+        },
+        {
+          "source": "description",
+          "text": "NoSQL technologies"
+        }
+      ],
+      "match": {
+        "original_term": "NoSQL Technologies",
+        "canonical_id": "esco:76ef6ed3-1658-4a1a-9593-204d799c6d0c",
+        "canonical_label": "NoSQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'NoSQL Technologies' directly matches the label 'NoSQL' in the taxonomy, which specifically refers to non-relational databases used for managing unstructured data, aligning precisely with the syllabus phrase.",
+        "candidates": [
+          {
+            "id": "esco:76ef6ed3-1658-4a1a-9593-204d799c6d0c",
+            "label": "NoSQL",
+            "score": 0.645
+          },
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.605
+          },
+          {
+            "id": "esco:bd14968e-e409-45af-b362-3495ed7b10e0",
+            "label": "cloud technologies",
+            "score": 0.52
+          }
+        ]
+      }
+    },
+    {
+      "term": "QoS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Quality of Service (QoS) Metrics"
+        },
+        {
+          "source": "description",
+          "text": "QoS"
+        }
+      ],
+      "match": {
+        "original_term": "QoS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.308,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.308
+          },
+          {
+            "id": "esco:fafe0b9d-dbd9-46bd-b770-26299539ce66",
+            "label": "ICT process quality models",
+            "score": 0.233
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "Quality of Service Metrics",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Quality of Service (QoS) Metrics"
+        },
+        {
+          "source": "description",
+          "text": "quality of service metrics"
+        }
+      ],
+      "match": {
+        "original_term": "Quality of Service Metrics",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Quality of Service Metrics'. The closest entries are related to software metrics, quality control systems, and database quality standards, but none specifically refer to Quality of Service Metrics.",
+        "candidates": [
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.437
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.434
+          },
+          {
+            "id": "esco:d56358e4-3bcc-4b5d-981d-ea15b2743e9e",
+            "label": "quality control systems",
+            "score": 0.41
+          }
+        ]
+      }
+    },
+    {
+      "term": "Video Conferencing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Video Conferencing and Live Streaming Applications"
+        },
+        {
+          "source": "description",
+          "text": "video conferencing"
+        }
+      ],
+      "match": {
+        "original_term": "Video Conferencing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.241,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:0764b28d-04ee-4e80-bf58-b737f02a63e0",
+            "label": "captioning software",
+            "score": 0.241
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.239
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.229
+          }
+        ]
+      }
+    },
+    {
+      "term": "Adobe Premiere Pro",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Adobe Premiere Pro and Avid Media Composer"
+        }
+      ],
+      "match": {
+        "original_term": "Adobe Premiere Pro",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Adobe Premiere Pro'.",
+        "candidates": [
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.402
+          },
+          {
+            "id": "esco:14ced458-5f4b-495f-bd3d-9c240614bda0",
+            "label": "Adobe Photoshop",
+            "score": 0.396
+          },
+          {
+            "id": "esco:d4ae4774-a81d-4255-8491-cade3580685a",
+            "label": "Adobe Photoshop Lightroom",
+            "score": 0.342
+          }
+        ]
+      }
+    },
+    {
+      "term": "DASH Implementation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "HLS and DASH Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "DASH Implementation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.23,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:1d86f05e-e9cc-40ce-99d8-2b21cc71b16b",
+            "label": "solution deployment",
+            "score": 0.23
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.228
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "Digital Content",
+      "canonical": {
+        "id": "esco:06f33d6a-f7a7-4a2b-baa5-8c3c53bd1a9c",
+        "label": "keywords in digital content",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Encryption Techniques for Digital Content"
+        }
+      ],
+      "match": {
+        "original_term": "Digital Content",
+        "canonical_id": "esco:06f33d6a-f7a7-4a2b-baa5-8c3c53bd1a9c",
+        "canonical_label": "keywords in digital content",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.72,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.31",
+        "candidates": [
+          {
+            "id": "esco:06f33d6a-f7a7-4a2b-baa5-8c3c53bd1a9c",
+            "label": "keywords in digital content",
+            "score": 0.72
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.414
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.292
+          }
+        ]
+      }
+    },
+    {
+      "term": "Digital Representation of Multimedia Data",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Digital Representation of Multimedia Data"
+        }
+      ],
+      "match": {
+        "original_term": "Digital Representation of Multimedia Data",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.382,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.382
+          },
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.36
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.355
+          }
+        ]
+      }
+    },
+    {
+      "term": "Distributed Storage",
+      "canonical": {
+        "id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+        "label": "distributed computing",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Distributed Storage and Processing of Multimedia Data"
+        }
+      ],
+      "match": {
+        "original_term": "Distributed Storage",
+        "canonical_id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+        "canonical_label": "distributed computing",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Distributed Storage' aligns with the concept of 'distributed computing' as it involves storage and processing across a network, which matches the description of distributed computing in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+            "label": "data storage",
+            "score": 0.532
+          },
+          {
+            "id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+            "label": "distributed computing",
+            "score": 0.508
+          },
+          {
+            "id": "esco:d1e954cd-d290-4d80-97c0-7969960d2928",
+            "label": "distributed directory information services",
+            "score": 0.456
+          }
+        ]
+      }
+    },
+    {
+      "term": "Encryption Techniques",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Encryption Techniques for Digital Content"
+        }
+      ],
+      "match": {
+        "original_term": "Encryption Techniques",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.667,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.16",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.667
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.508
+          },
+          {
+            "id": "esco:06f33d6a-f7a7-4a2b-baa5-8c3c53bd1a9c",
+            "label": "keywords in digital content",
+            "score": 0.301
+          }
+        ]
+      }
+    },
+    {
+      "term": "Fundamentals of Audio",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Fundamentals of Audio and Video Signals"
+        }
+      ],
+      "match": {
+        "original_term": "Fundamentals of Audio",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Fundamentals of Audio' as described in the syllabus. The closest entries are related to audio editing software or consumer electronics, but they do not specifically capture the fundamentals of audio as a skill.",
+        "candidates": [
+          {
+            "id": "esco:54804209-6aac-4ca4-bf3c-aef4fbe18f8c",
+            "label": "principles of mechanical engineering",
+            "score": 0.441
+          },
+          {
+            "id": "esco:cae4c053-05d1-413d-8499-f37793aad56e",
+            "label": "audio editing software",
+            "score": 0.388
+          },
+          {
+            "id": "esco:6c153605-d62c-4970-81a9-49646ab32032",
+            "label": "consumer electronics",
+            "score": 0.251
+          }
+        ]
+      }
+    },
+    {
+      "term": "HEVC Compression Algorithms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "H.264 and HEVC Compression Algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "HEVC Compression Algorithms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.234,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.234
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.215
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "HLS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "HLS and DASH Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "HLS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.151,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:1d86f05e-e9cc-40ce-99d8-2b21cc71b16b",
+            "label": "solution deployment",
+            "score": 0.151
+          },
+          {
+            "id": "esco:54971fec-1c2f-49c0-9396-2f0c9fa5c8c0",
+            "label": "LAMS",
+            "score": 0.151
+          },
+          {
+            "id": "esco:117373c8-f04b-4fff-8683-aebe36edac81",
+            "label": "hardware platforms",
+            "score": 0.151
+          }
+        ]
+      }
+    },
+    {
+      "term": "HTML5",
+      "canonical": {
+        "id": "custom:html-css",
+        "label": "HTML and CSS",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "HTML5 and CSS3 for Multimedia Applications"
+        }
+      ],
+      "match": {
+        "original_term": "HTML5",
+        "canonical_id": "custom:html-css",
+        "canonical_label": "HTML and CSS",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Image",
+      "canonical": {
+        "id": "custom:computer-vision",
+        "label": "computer vision",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Image and Video Recognition Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Image",
+        "canonical_id": "custom:computer-vision",
+        "canonical_label": "computer vision",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Image and Video Recognition Techniques' directly relates to the skill 'computer vision', which involves extracting information from images and video, matching the syllabus content.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.69
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.644
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.614
+          }
+        ]
+      }
+    },
+    {
+      "term": "Interactive Multimedia Systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Interactive Multimedia Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Interactive Multimedia Systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Interactive Multimedia Systems'.",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.42
+          },
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.377
+          },
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.368
+          }
+        ]
+      }
+    },
+    {
+      "term": "Interface Design",
+      "canonical": {
+        "id": "custom:ui-design",
+        "label": "user interface design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "User Interaction and Interface Design for Multimedia Applications"
+        }
+      ],
+      "match": {
+        "original_term": "Interface Design",
+        "canonical_id": "custom:ui-design",
+        "canonical_label": "user interface design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Live Streaming Applications",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Video Conferencing and Live Streaming Applications"
+        }
+      ],
+      "match": {
+        "original_term": "Live Streaming Applications",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Live Streaming Applications' does not match any of the provided taxonomy entries, as none specifically refer to live streaming applications.",
+        "candidates": [
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.423
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.403
+          },
+          {
+            "id": "esco:0764b28d-04ee-4e80-bf58-b737f02a63e0",
+            "label": "captioning software",
+            "score": 0.219
+          }
+        ]
+      }
+    },
+    {
+      "term": "Lossless",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Lossless and Lossy Compression Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Lossless",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.208,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:6055f185-3214-491e-975a-cfcc1756fe1d",
+            "label": "metal forming technologies",
+            "score": 0.208
+          },
+          {
+            "id": "esco:530cb489-d900-46ab-9350-4d50ccd49eea",
+            "label": "welding techniques",
+            "score": 0.2
+          },
+          {
+            "id": "esco:46786464-6c5b-4970-9a63-2f2fb29b4c12",
+            "label": "ferrous metal processing",
+            "score": 0.199
+          }
+        ]
+      }
+    },
+    {
+      "term": "Lossy Compression Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Lossless and Lossy Compression Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Lossy Compression Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries relate to 'Lossy Compression Techniques' or any form of data compression.",
+        "candidates": [
+          {
+            "id": "esco:530cb489-d900-46ab-9350-4d50ccd49eea",
+            "label": "welding techniques",
+            "score": 0.434
+          },
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.395
+          },
+          {
+            "id": "esco:05caf274-8edf-42d9-8de3-c350f6e3c703",
+            "label": "extrusion processes",
+            "score": 0.232
+          }
+        ]
+      }
+    },
+    {
+      "term": "MPEG Standards",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "JPEG and MPEG Standards"
+        }
+      ],
+      "match": {
+        "original_term": "MPEG Standards",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'MPEG Standards' refers to video compression standards, which is not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.487
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.402
+          },
+          {
+            "id": "esco:19ec88aa-c0b1-4515-ba10-56b6cf27369e",
+            "label": "electronic equipment standards",
+            "score": 0.389
+          }
+        ]
+      }
+    },
+    {
+      "term": "Multimedia",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Network Performance Evaluation for Multimedia"
+        }
+      ],
+      "match": {
+        "original_term": "Multimedia",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.246,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.246
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.243
+          },
+          {
+            "id": "esco:1605025e-a179-421f-8f35-5b07d182a6b2",
+            "label": "web analytics",
+            "score": 0.243
+          }
+        ]
+      }
+    },
+    {
+      "term": "Multimedia Authoring Tools",
+      "canonical": {
+        "id": "esco:d4789070-2ff7-4bbb-94ca-8bb1739826a9",
+        "label": "authoring software",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Multimedia Authoring Tools"
+        }
+      ],
+      "match": {
+        "original_term": "Multimedia Authoring Tools",
+        "canonical_id": "esco:d4789070-2ff7-4bbb-94ca-8bb1739826a9",
+        "canonical_label": "authoring software",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Multimedia Authoring Tools' directly refers to software used for creating interactive multimedia applications, which matches the description of 'authoring software' in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:d4789070-2ff7-4bbb-94ca-8bb1739826a9",
+            "label": "authoring software",
+            "score": 0.445
+          },
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.414
+          },
+          {
+            "id": "esco:cae4c053-05d1-413d-8499-f37793aad56e",
+            "label": "audio editing software",
+            "score": 0.228
+          }
+        ]
+      }
+    },
+    {
+      "term": "Multimedia Cloud Computing",
+      "canonical": {
+        "id": "custom:cloud-computing",
+        "label": "cloud computing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Multimedia Cloud Computing"
+        }
+      ],
+      "match": {
+        "original_term": "Multimedia Cloud Computing",
+        "canonical_id": "custom:cloud-computing",
+        "canonical_label": "cloud computing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Multimedia Cloud Computing' directly refers to cloud computing, which is explicitly named in the 'custom:cloud-computing' entry.",
+        "candidates": [
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.709
+          },
+          {
+            "id": "esco:bd14968e-e409-45af-b362-3495ed7b10e0",
+            "label": "cloud technologies",
+            "score": 0.7
+          },
+          {
+            "id": "custom:gcp",
+            "label": "Google Cloud Platform",
+            "score": 0.424
+          }
+        ]
+      }
+    },
+    {
+      "term": "Multimedia Content Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Multimedia Content Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Multimedia Content Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Multimedia Content Analysis'. The closest is 'keywords in digital content', but that focuses on keyword research and metadata, not content analysis of multimedia.",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.439
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.422
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.406
+          }
+        ]
+      }
+    },
+    {
+      "term": "Multimedia Data Compression Principles",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Multimedia Data Compression Principles"
+        }
+      ],
+      "match": {
+        "original_term": "Multimedia Data Compression Principles",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Multimedia Data Compression Principles'.",
+        "candidates": [
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.506
+          },
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.357
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.352
+          }
+        ]
+      }
+    },
+    {
+      "term": "Multimedia Databases",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Multimedia Databases"
+        }
+      ],
+      "match": {
+        "original_term": "Multimedia Databases",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Multimedia Databases' does not match any of the provided taxonomy entries, which focus on general databases, specific types like vector databases, or tools like MongoDB and Power BI. None of the entries capture the specific concept of 'Multimedia Databases' as a distinct skill.",
+        "candidates": [
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.607
+          },
+          {
+            "id": "custom:vector-databases",
+            "label": "vector databases",
+            "score": 0.483
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.453
+          }
+        ]
+      }
+    },
+    {
+      "term": "Multimedia Security",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Multimedia Security and Privacy"
+        }
+      ],
+      "match": {
+        "original_term": "Multimedia Security",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.15,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Multimedia Security' refers to securing multimedia content, which is not explicitly covered by any of the provided taxonomy entries. None of the entries specifically address multimedia security, though 'cybersecurity' is related but broader.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.513
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.486
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.459
+          }
+        ]
+      }
+    },
+    {
+      "term": "Multimedia Storage",
+      "canonical": {
+        "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+        "label": "data storage",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "SQL and NoSQL Technologies for Multimedia Storage"
+        }
+      ],
+      "match": {
+        "original_term": "Multimedia Storage",
+        "canonical_id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+        "canonical_label": "data storage",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Multimedia Storage' refers to the storage of multimedia data, which falls under the broader category of 'data storage' as described in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+            "label": "data storage",
+            "score": 0.494
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.421
+          },
+          {
+            "id": "esco:76ef6ed3-1658-4a1a-9593-204d799c6d0c",
+            "label": "NoSQL",
+            "score": 0.261
+          }
+        ]
+      }
+    },
+    {
+      "term": "Multimedia Streaming Protocols",
+      "canonical": {
+        "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+        "label": "ICT communications protocols",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Multimedia Streaming Protocols"
+        }
+      ],
+      "match": {
+        "original_term": "Multimedia Streaming Protocols",
+        "canonical_id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+        "canonical_label": "ICT communications protocols",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Multimedia Streaming Protocols' directly relates to 'ICT communications protocols', which specifically refers to the system of rules for exchanging information between devices via computer networks, matching the context of the extracted phrase.",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.426
+          },
+          {
+            "id": "custom:message-queues",
+            "label": "message queues",
+            "score": 0.419
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.403
+          }
+        ]
+      }
+    },
+    {
+      "term": "Multimedia Synchronization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Multimedia Synchronization Concepts"
+        }
+      ],
+      "match": {
+        "original_term": "Multimedia Synchronization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.241,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.241
+          },
+          {
+            "id": "esco:debef2fc-7af4-4bff-ac92-4d0317915a84",
+            "label": "electronic communication",
+            "score": 0.231
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.22
+          }
+        ]
+      }
+    },
+    {
+      "term": "Multimedia Systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Multimedia Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Multimedia Systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Multimedia Systems' or its related phrase 'Introduction to Multimedia Systems'. The closest entries are related to computer vision, electronics, or hardware components, but none specifically refer to multimedia systems.",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.479
+          },
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.462
+          },
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.428
+          }
+        ]
+      }
+    },
+    {
+      "term": "Multimedia User Experience Design",
+      "canonical": {
+        "id": "custom:ux-design",
+        "label": "user experience design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Multimedia User Experience Design"
+        }
+      ],
+      "match": {
+        "original_term": "Multimedia User Experience Design",
+        "canonical_id": "custom:ux-design",
+        "canonical_label": "user experience design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.777,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.24",
+        "candidates": [
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.777
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.538
+          },
+          {
+            "id": "custom:responsive-design",
+            "label": "responsive web design",
+            "score": 0.38
+          }
+        ]
+      }
+    },
+    {
+      "term": "Network Performance Evaluation",
+      "canonical": {
+        "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+        "label": "ICT performance analysis methods",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Network Performance Evaluation for Multimedia"
+        }
+      ],
+      "match": {
+        "original_term": "Network Performance Evaluation",
+        "canonical_id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+        "canonical_label": "ICT performance analysis methods",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Network Performance Evaluation' aligns with 'ICT performance analysis methods' as both involve analyzing network performance and identifying root causes of issues.",
+        "candidates": [
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.436
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.407
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.404
+          }
+        ]
+      }
+    },
+    {
+      "term": "Privacy",
+      "canonical": {
+        "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+        "label": "data protection",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Multimedia Security and Privacy"
+        }
+      ],
+      "match": {
+        "original_term": "Privacy",
+        "canonical_id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+        "canonical_label": "data protection",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.667,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.12",
+        "candidates": [
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.667
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.542
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.247
+          }
+        ]
+      }
+    },
+    {
+      "term": "Processing of Multimedia Data",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Distributed Storage and Processing of Multimedia Data"
+        }
+      ],
+      "match": {
+        "original_term": "Processing of Multimedia Data",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Processing of Multimedia Data' does not clearly match any of the provided taxonomy entries, which cover topics like image processing, data storage, packaging processes, and distributed directory information services. None of these entries specifically address the processing of multimedia",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.454
+          },
+          {
+            "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+            "label": "data storage",
+            "score": 0.434
+          },
+          {
+            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
+            "label": "packaging processes",
+            "score": 0.432
+          }
+        ]
+      }
+    },
+    {
+      "term": "Real-Time Multimedia Systems",
+      "canonical": {
+        "id": "esco:bf6c5ed4-84af-440f-abcc-7fa5ba19c738",
+        "label": "real-time computing",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Real-Time Multimedia Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Real-Time Multimedia Systems",
+        "canonical_id": "esco:bf6c5ed4-84af-440f-abcc-7fa5ba19c738",
+        "canonical_label": "real-time computing",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Real-Time Multimedia Systems' aligns with 'real-time computing' as both involve systems that must respond to input within tight time constraints, which is a core aspect of real-time multimedia processing.",
+        "candidates": [
+          {
+            "id": "esco:bf6c5ed4-84af-440f-abcc-7fa5ba19c738",
+            "label": "real-time computing",
+            "score": 0.479
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.387
+          },
+          {
+            "id": "esco:8203b07a-8097-4383-aff6-603b7df7f0f4",
+            "label": "ATM systems",
+            "score": 0.382
+          }
+        ]
+      }
+    },
+    {
+      "term": "SQL",
+      "canonical": {
+        "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "label": "SQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "SQL and NoSQL Technologies for Multimedia Storage"
+        }
+      ],
+      "match": {
+        "original_term": "SQL",
+        "canonical_id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "canonical_label": "SQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "User Interaction",
+      "canonical": {
+        "id": "custom:ux-design",
+        "label": "user experience design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "User Interaction and Interface Design for Multimedia Applications"
+        }
+      ],
+      "match": {
+        "original_term": "User Interaction",
+        "canonical_id": "custom:ux-design",
+        "canonical_label": "user experience design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'User Interaction' aligns closely with 'user experience design' as both focus on designing interactions between users and products, satisfying user needs and preferences.",
+        "candidates": [
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.61
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.585
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.557
+          }
+        ]
+      }
+    },
+    {
+      "term": "Video Recognition Techniques",
+      "canonical": {
+        "id": "custom:computer-vision",
+        "label": "computer vision",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Image and Video Recognition Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Video Recognition Techniques",
+        "canonical_id": "custom:computer-vision",
+        "canonical_label": "computer vision",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Video Recognition Techniques' aligns with 'computer vision' as both involve extracting information from images and video, which is the core description of the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.564
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.426
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.356
+          }
+        ]
+      }
+    },
+    {
+      "term": "Video Signals",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Fundamentals of Audio and Video Signals"
+        }
+      ],
+      "match": {
+        "original_term": "Video Signals",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'Video Signals' or its related concepts from the syllabus. The closest match, 'consumer electronics', is too broad and does not specifically address video signals.",
+        "candidates": [
+          {
+            "id": "esco:23370aae-b3fa-4724-9b3f-6437747b5df8",
+            "label": "signal boxes",
+            "score": 0.457
+          },
+          {
+            "id": "esco:61c81161-b732-4c47-aba5-9e554d9a853f",
+            "label": "integrated circuit types",
+            "score": 0.358
+          },
+          {
+            "id": "esco:6c153605-d62c-4970-81a9-49646ab32032",
+            "label": "consumer electronics",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "compression algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "compression algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "compression algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.62,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.15",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.62
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.467
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "digital broadcasting",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "digital broadcasting"
+        }
+      ],
+      "match": {
+        "original_term": "digital broadcasting",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'digital broadcasting'. The closest entries are related to communication or signal processing but do not specifically refer to digital broadcasting.",
+        "candidates": [
+          {
+            "id": "esco:cfa2be0d-96d5-4017-a866-962efb9c5070",
+            "label": "signal processing",
+            "score": 0.429
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.426
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "focusing on audio",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "focusing on audio"
+        }
+      ],
+      "match": {
+        "original_term": "focusing on audio",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'focusing on audio' does not match any of the provided taxonomy entries, which are related to audio editing software, image processing, monitoring, sensor fusion, reinforcement learning, computer vision, communication skills, object detection, Poisson distribution, or TensorFlow.",
+        "candidates": [
+          {
+            "id": "esco:cae4c053-05d1-413d-8499-f37793aad56e",
+            "label": "audio editing software",
+            "score": 0.404
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.198
+          },
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.195
+          }
+        ]
+      }
+    },
+    {
+      "term": "interactive multimedia systems based on HTML5",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "interactive multimedia systems based on HTML5"
+        }
+      ],
+      "match": {
+        "original_term": "interactive multimedia systems based on HTML5",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.398,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:html-css",
+            "label": "HTML and CSS",
+            "score": 0.398
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.33
+          },
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.309
+          }
+        ]
+      }
+    },
+    {
+      "term": "JavaScript",
+      "canonical": {
+        "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+        "label": "JavaScript",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "JavaScript"
+        }
+      ],
+      "match": {
+        "original_term": "JavaScript",
+        "canonical_id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+        "canonical_label": "JavaScript",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "MPEG",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "MPEG"
+        }
+      ],
+      "match": {
+        "original_term": "MPEG",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.172,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.172
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.155
+          },
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.155
+          }
+        ]
+      }
+    },
+    {
+      "term": "multimedia databases using SQL",
+      "canonical": {
+        "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+        "label": "database",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "multimedia databases using SQL"
+        }
+      ],
+      "match": {
+        "original_term": "multimedia databases using SQL",
+        "canonical_id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+        "canonical_label": "database",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'multimedia databases using SQL' refers to the use of SQL in the context of databases, which aligns with the broader concept of 'database' as a taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.487
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.465
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.464
+          }
+        ]
+      }
+    },
+    {
+      "term": "multimedia networks",
+      "canonical": {
+        "id": "custom:computer-networks",
+        "label": "computer networks",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "multimedia networks"
+        }
+      ],
+      "match": {
+        "original_term": "multimedia networks",
+        "canonical_id": "custom:computer-networks",
+        "canonical_label": "computer networks",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'multimedia networks' directly relates to 'computer networks', as it refers to the transmission of multimedia data across networks.",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.463
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.462
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.437
+          }
+        ]
+      }
+    },
+    {
+      "term": "multimedia streaming using HLS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "multimedia streaming using HLS"
+        }
+      ],
+      "match": {
+        "original_term": "multimedia streaming using HLS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.372,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:message-queues",
+            "label": "message queues",
+            "score": 0.372
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.194
+          },
+          {
+            "id": "custom:html-css",
+            "label": "HTML and CSS",
+            "score": 0.168
+          }
+        ]
+      }
+    },
+    {
+      "term": "multimedia synchronization techniques using RTP",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "multimedia synchronization techniques using RTP"
+        }
+      ],
+      "match": {
+        "original_term": "multimedia synchronization techniques using RTP",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.343,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.343
+          },
+          {
+            "id": "esco:ebd90bfe-ab0f-4155-a77c-3de9267b27a1",
+            "label": "metal smoothing technologies",
+            "score": 0.331
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.312
+          }
+        ]
+      }
+    },
+    {
+      "term": "online media platforms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "online media platforms"
+        }
+      ],
+      "match": {
+        "original_term": "online media platforms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the extracted phrase 'online media platforms' in meaning or wording.",
+        "candidates": [
+          {
+            "id": "esco:778ca7ad-6c5d-4868-9b96-a7777dca799c",
+            "label": "ICT help platforms",
+            "score": 0.422
+          },
+          {
+            "id": "custom:gcp",
+            "label": "Google Cloud Platform",
+            "score": 0.384
+          },
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.379
+          }
+        ]
+      }
+    },
+    {
+      "term": "technologies of multimedia systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "technologies of multimedia systems"
+        }
+      ],
+      "match": {
+        "original_term": "technologies of multimedia systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill phrase 'technologies of multimedia systems'. The closest entries are related to automation, control systems, or specific hardware, but none specifically refer to multimedia systems technology.",
+        "candidates": [
+          {
+            "id": "esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694",
+            "label": "automation technology",
+            "score": 0.463
+          },
+          {
+            "id": "esco:0e8d16c9-e2db-4862-ac06-1567f01ef806",
+            "label": "building systems monitoring technology",
+            "score": 0.446
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.41
+          }
+        ]
+      }
+    },
+    {
+      "term": "This course introduces the principles",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "This course introduces the principles"
+        }
+      ],
+      "match": {
+        "original_term": "This course introduces the principles",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.388,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:c8ac1986-38fa-43b2-89dc-50a4beeb420e",
+            "label": "electricity",
+            "score": 0.388
+          },
+          {
+            "id": "esco:557d1221-0235-4a48-ada5-8fca73443627",
+            "label": "electronics principles",
+            "score": 0.383
+          },
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.374
+          }
+        ]
+      }
+    },
+    {
+      "term": "Topics include",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Topics include"
+        }
+      ],
+      "match": {
+        "original_term": "Topics include",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.205,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.205
+          },
+          {
+            "id": "esco:f049d050-12da-4e40-813a-2b5eb6df6b51",
+            "label": "Internet of Things",
+            "score": 0.198
+          },
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.198
+          }
+        ]
+      }
+    }
+  ]
+}

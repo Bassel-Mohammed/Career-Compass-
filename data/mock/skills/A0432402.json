@@ -1,0 +1,3333 @@
+{
+  "course_code": "A0432402",
+  "course_codes": [
+    "A0432402"
+  ],
+  "course_title": "Risk Management and Information Systems Control",
+  "credit_hours": 3,
+  "plans": [
+    "CYBER"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "no_match": 14,
+      "needs_review": 10,
+      "accepted": 44
+    },
+    "by_method": {
+      "embedding_reranker": 24,
+      "llm": 44
+    }
+  },
+  "total_skills": 68,
+  "skills": [
+    {
+      "term": "COSO ERM",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 4,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define risk management frameworks such as ISO 27005, COBIT, and COSO ERM and their specific applications in information systems."
+        },
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Risk Management Frameworks: ISO 27005, COBIT, COSO ERM"
+        },
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Control Frameworks: COBIT and COSO ERM"
+        },
+        {
+          "source": "description",
+          "text": "COSO ERM"
+        }
+      ],
+      "match": {
+        "original_term": "COSO ERM",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.262,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.262
+          },
+          {
+            "id": "esco:def007fa-5fed-4a5f-91a2-b0d7e3db1be1",
+            "label": "COBOL",
+            "score": 0.227
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "COBIT",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define risk management frameworks such as ISO 27005, COBIT, and COSO ERM and their specific applications in information systems."
+        },
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Risk Management Frameworks: ISO 27005, COBIT, COSO ERM"
+        },
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Control Frameworks: COBIT and COSO ERM"
+        }
+      ],
+      "match": {
+        "original_term": "COBIT",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.283,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:def007fa-5fed-4a5f-91a2-b0d7e3db1be1",
+            "label": "COBOL",
+            "score": 0.283
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.264
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.231
+          }
+        ]
+      }
+    },
+    {
+      "term": "cloud environments",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply Monte Carlo simulations to quantify risks in IT infrastructure and cloud environments."
+        },
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "ISO/IEC 27017 for Cloud Environments"
+        }
+      ],
+      "match": {
+        "original_term": "cloud environments",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'cloud environments' as described in the syllabus. The closest entries are related to ICT infrastructure or security standards, but none specifically match the term 'cloud environments'.",
+        "candidates": [
+          {
+            "id": "esco:e7f7ceb9-6b2e-4a9f-9bc3-34613fd984c7",
+            "label": "airport operating environment",
+            "score": 0.429
+          },
+          {
+            "id": "esco:23dc8bb2-1091-461e-9095-a048b7ffa009",
+            "label": "airport environmental regulations",
+            "score": 0.425
+          },
+          {
+            "id": "esco:ee02393d-27dd-438a-8879-b8088ce45e79",
+            "label": "ICT environmental policies",
+            "score": 0.276
+          }
+        ]
+      }
+    },
+    {
+      "term": "ISO 27005",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define risk management frameworks such as ISO 27005, COBIT, and COSO ERM and their specific applications in information systems."
+        },
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Risk Management Frameworks: ISO 27005, COBIT, COSO ERM"
+        }
+      ],
+      "match": {
+        "original_term": "ISO 27005",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ISO 27005' is directly mentioned in the taxonomy entry for 'security risk management', which aligns with the syllabus content about risk management frameworks.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.589
+          },
+          {
+            "id": "esco:dc298fac-7ab4-4feb-9b43-33d947d7703e",
+            "label": "standards for web-based e-learning",
+            "score": 0.199
+          },
+          {
+            "id": "esco:11eebd42-44ab-401d-8a2c-bdb9fc9beb50",
+            "label": "information security strategy",
+            "score": 0.198
+          }
+        ]
+      }
+    },
+    {
+      "term": "NIST SP 800-30 risk assessment process",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the NIST SP 800-30 risk assessment process and its integration with ISO 27001 controls."
+        },
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "NIST SP 800-30 Risk Assessment Process"
+        }
+      ],
+      "match": {
+        "original_term": "NIST SP 800-30 risk assessment process",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'NIST SP 800-30 risk assessment process' directly aligns with the 'security risk management' entry, which explicitly includes risk assessment and references to ISO 27001.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.6
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.418
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.32
+          }
+        ]
+      }
+    },
+    {
+      "term": "risk management frameworks",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define risk management frameworks such as ISO 27005, COBIT, and COSO ERM and their specific applications in information systems."
+        },
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Risk Management Frameworks: ISO 27005, COBIT, COSO ERM"
+        }
+      ],
+      "match": {
+        "original_term": "risk management frameworks",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'risk management frameworks' directly references specific frameworks like ISO 27005, COBIT, and COSO ERM, which align with the 'security risk management' entry that includes these frameworks and their applications.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.614
+          },
+          {
+            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+            "label": "ICT architectural frameworks",
+            "score": 0.401
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.383
+          }
+        ]
+      }
+    },
+    {
+      "term": "access control",
+      "canonical": {
+        "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+        "label": "information confidentiality",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement control mechanisms like RBAC, access logging, and SHA-256 hashing to ensure data integrity and access control."
+        }
+      ],
+      "match": {
+        "original_term": "access control",
+        "canonical_id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+        "canonical_label": "information confidentiality",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.77,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.23",
+        "candidates": [
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.77
+          },
+          {
+            "id": "esco:70b0bc44-6751-4530-ac5c-a893d4241aeb",
+            "label": "building's electronic access equipment",
+            "score": 0.542
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "access logging",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement control mechanisms like RBAC, access logging, and SHA-256 hashing to ensure data integrity and access control."
+        }
+      ],
+      "match": {
+        "original_term": "access logging",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.15,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'access logging' refers to the practice of recording access events, which is not directly captured by any of the provided taxonomy entries. None of the entries specifically mention access logging as a skill.",
+        "candidates": [
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.456
+          },
+          {
+            "id": "esco:70b0bc44-6751-4530-ac5c-a893d4241aeb",
+            "label": "building's electronic access equipment",
+            "score": 0.388
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.242
+          }
+        ]
+      }
+    },
+    {
+      "term": "control mechanisms like RBAC",
+      "canonical": {
+        "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+        "label": "information confidentiality",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement control mechanisms like RBAC, access logging, and SHA-256 hashing to ensure data integrity and access control."
+        }
+      ],
+      "match": {
+        "original_term": "control mechanisms like RBAC",
+        "canonical_id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+        "canonical_label": "information confidentiality",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'control mechanisms like RBAC' directly relates to access control and data confidentiality, which is explicitly covered by the 'information confidentiality' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.406
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.39
+          },
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.362
+          }
+        ]
+      }
+    },
+    {
+      "term": "FAIR risk assessment framework",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the FAIR risk assessment framework and its components including threat probability, impact, and risk metrics."
+        }
+      ],
+      "match": {
+        "original_term": "FAIR risk assessment framework",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.651,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.12",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.651
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.536
+          },
+          {
+            "id": "esco:2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80",
+            "label": "ICT network security risks",
+            "score": 0.369
+          }
+        ]
+      }
+    },
+    {
+      "term": "impact",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the FAIR risk assessment framework and its components including threat probability, impact, and risk metrics."
+        }
+      ],
+      "match": {
+        "original_term": "impact",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.246,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80",
+            "label": "ICT network security risks",
+            "score": 0.246
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.225
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.206
+          }
+        ]
+      }
+    },
+    {
+      "term": "integration with ISO 27001 controls",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the NIST SP 800-30 risk assessment process and its integration with ISO 27001 controls."
+        }
+      ],
+      "match": {
+        "original_term": "integration with ISO 27001 controls",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.635,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.26",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.635
+          },
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.377
+          },
+          {
+            "id": "esco:0f9958d2-f700-4f62-b90b-a5873cb5ae4c",
+            "label": "systems thinking",
+            "score": 0.367
+          }
+        ]
+      }
+    },
+    {
+      "term": "risk metrics",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the FAIR risk assessment framework and its components including threat probability, impact, and risk metrics."
+        }
+      ],
+      "match": {
+        "original_term": "risk metrics",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'risk metrics' is directly related to the components of the FAIR risk assessment framework, which is part of the 'security risk management' skill as defined in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.477
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.464
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.419
+          }
+        ]
+      }
+    },
+    {
+      "term": "SHA-256 hashing to ensure data integrity",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement control mechanisms like RBAC, access logging, and SHA-256 hashing to ensure data integrity and access control."
+        }
+      ],
+      "match": {
+        "original_term": "SHA-256 hashing to ensure data integrity",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'SHA-256 hashing to ensure data integrity' directly relates to cryptographic techniques for securing data, which is explicitly covered under the 'cryptography' entry.",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.435
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.363
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.307
+          }
+        ]
+      }
+    },
+    {
+      "term": "specific applications in information systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define risk management frameworks such as ISO 27005, COBIT, and COSO ERM and their specific applications in information systems."
+        }
+      ],
+      "match": {
+        "original_term": "specific applications in information systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'specific applications in information systems' refers to the use of frameworks like ISO 27005, COBIT, and COSO ERM in information systems, which is not directly captured by any of the provided taxonomy entries. None of the candidates specifically address the application of risk management",
+        "candidates": [
+          {
+            "id": "esco:9ce670ec-318c-4a91-9179-03437db728dc",
+            "label": "ICT software specifications",
+            "score": 0.434
+          },
+          {
+            "id": "esco:ccdbd9bb-4faf-403c-a968-e8bf487f8a53",
+            "label": "business ICT systems",
+            "score": 0.381
+          },
+          {
+            "id": "esco:3ce1fe19-7f9e-4070-941d-651673a5693b",
+            "label": "decision support systems",
+            "score": 0.362
+          }
+        ]
+      }
+    },
+    {
+      "term": "threat probability",
+      "canonical": {
+        "id": "custom:probability-theory",
+        "label": "probability theory",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the FAIR risk assessment framework and its components including threat probability, impact, and risk metrics."
+        }
+      ],
+      "match": {
+        "original_term": "threat probability",
+        "canonical_id": "custom:probability-theory",
+        "canonical_label": "probability theory",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.649,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.17",
+        "candidates": [
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.649
+          },
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.477
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.423
+          }
+        ]
+      }
+    },
+    {
+      "term": "ABAC",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Access Control Models: RBAC and ABAC"
+        },
+        {
+          "source": "description",
+          "text": "ABAC"
+        }
+      ],
+      "match": {
+        "original_term": "ABAC",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.238,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:70b0bc44-6751-4530-ac5c-a893d4241aeb",
+            "label": "building's electronic access equipment",
+            "score": 0.238
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.227
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.207
+          }
+        ]
+      }
+    },
+    {
+      "term": "Audit Trails",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Audit Trails and Logging Mechanisms"
+        },
+        {
+          "source": "description",
+          "text": "audit trails"
+        }
+      ],
+      "match": {
+        "original_term": "Audit Trails",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.24,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ff8bd17c-77e9-4d4e-929a-a0cf86f3ed34",
+            "label": "surveillance methods",
+            "score": 0.24
+          },
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.23
+          },
+          {
+            "id": "custom:rqt",
+            "label": "RQT",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "Control Objectives",
+      "canonical": {
+        "id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+        "label": "computer technology",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Control Objectives for IT Infrastructure"
+        },
+        {
+          "source": "description",
+          "text": "control objectives"
+        }
+      ],
+      "match": {
+        "original_term": "Control Objectives",
+        "canonical_id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+        "canonical_label": "computer technology",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Control Objectives' is related to managing and controlling IT infrastructure, which aligns with the broader concept of 'ICT infrastructure' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.491
+          },
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.481
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.268
+          }
+        ]
+      }
+    },
+    {
+      "term": "EMV",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Expected Monetary Value (EMV) Analysis"
+        },
+        {
+          "source": "description",
+          "text": "EMV"
+        }
+      ],
+      "match": {
+        "original_term": "EMV",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.195,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.195
+          },
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.19
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.189
+          }
+        ]
+      }
+    },
+    {
+      "term": "IT Infrastructure",
+      "canonical": {
+        "id": "esco:d0c6d77e-cb25-4770-bf77-2073fc5f7523",
+        "label": "ICT infrastructure",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Control Objectives for IT Infrastructure"
+        },
+        {
+          "source": "description",
+          "text": "IT infrastructure"
+        }
+      ],
+      "match": {
+        "original_term": "IT Infrastructure",
+        "canonical_id": "esco:d0c6d77e-cb25-4770-bf77-2073fc5f7523",
+        "canonical_label": "ICT infrastructure",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.641,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.08",
+        "candidates": [
+          {
+            "id": "esco:d0c6d77e-cb25-4770-bf77-2073fc5f7523",
+            "label": "ICT infrastructure",
+            "score": 0.641
+          },
+          {
+            "id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+            "label": "computer technology",
+            "score": 0.56
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.43
+          }
+        ]
+      }
+    },
+    {
+      "term": "Risk Matrix",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Risk Matrix and EMV Analysis"
+        },
+        {
+          "source": "description",
+          "text": "Risk Matrix"
+        }
+      ],
+      "match": {
+        "original_term": "Risk Matrix",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Risk Matrix' directly aligns with the skill 'security risk management' which includes risk assessment and rating, matching the syllabus evidence.",
+        "candidates": [
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.474
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.441
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.373
+          }
+        ]
+      }
+    },
+    {
+      "term": "Access Control Models",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Access Control Models: RBAC and ABAC"
+        }
+      ],
+      "match": {
+        "original_term": "Access Control Models",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Access Control Models' as described in the syllabus. The closest entry, 'information confidentiality', is broader and does not specifically refer to access control models like RBAC and ABAC.",
+        "candidates": [
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.58
+          },
+          {
+            "id": "esco:70b0bc44-6751-4530-ac5c-a893d4241aeb",
+            "label": "building's electronic access equipment",
+            "score": 0.455
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.425
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cloud Risk Management",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Cloud Risk Management"
+        }
+      ],
+      "match": {
+        "original_term": "Cloud Risk Management",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Cloud Risk Management' directly aligns with the skill 'security risk management' which includes risk assessment, compliance, and governance, matching the syllabus evidence.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.588
+          },
+          {
+            "id": "custom:gcp",
+            "label": "Google Cloud Platform",
+            "score": 0.42
+          },
+          {
+            "id": "esco:bd14968e-e409-45af-b362-3495ed7b10e0",
+            "label": "cloud technologies",
+            "score": 0.396
+          }
+        ]
+      }
+    },
+    {
+      "term": "Control Design",
+      "canonical": {
+        "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+        "label": "control systems",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Control Design for Data Integrity"
+        }
+      ],
+      "match": {
+        "original_term": "Control Design",
+        "canonical_id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+        "canonical_label": "control systems",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Control Design' aligns with 'control systems' as both refer to the design and management of systems that regulate behavior through control mechanisms.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.525
+          },
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.516
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.513
+          }
+        ]
+      }
+    },
+    {
+      "term": "Control Frameworks",
+      "canonical": {
+        "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+        "label": "control systems",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Control Frameworks: COBIT and COSO ERM"
+        }
+      ],
+      "match": {
+        "original_term": "Control Frameworks",
+        "canonical_id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+        "canonical_label": "control systems",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Control Frameworks' includes references to COBIT and COSO ERM, which are frameworks for control and enterprise risk management. The taxonomy entry 'control systems' aligns with this, as it encompasses systems that manage and command other equipment, which is consistent with the concept o",
+        "candidates": [
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.473
+          },
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.458
+          },
+          {
+            "id": "custom:control-systems",
+            "label": "control systems engineering",
+            "score": 0.457
+          }
+        ]
+      }
+    },
+    {
+      "term": "Control Implementation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Control Implementation: ISO 27002"
+        }
+      ],
+      "match": {
+        "original_term": "Control Implementation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'Control Implementation' is not directly matched by any of the taxonomy entries. While 'control systems' and 'control engineering' are related, they do not specifically capture the concept of 'Control Implementation' as described in the syllabus.",
+        "candidates": [
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.468
+          },
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.45
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.449
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Integrity",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Control Design for Data Integrity"
+        }
+      ],
+      "match": {
+        "original_term": "Data Integrity",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries directly match 'Data Integrity' as a specific skill. The closest entries are related to data privacy, data protection, or database design, but none precisely capture the concept of data integrity as described in the syllabus.",
+        "candidates": [
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.576
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.502
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.502
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Integrity Controls with SHA-256",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Data Integrity Controls with SHA-256"
+        }
+      ],
+      "match": {
+        "original_term": "Data Integrity Controls with SHA-256",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Data Integrity Controls with SHA-256' directly relates to cryptographic techniques, specifically hashing, which is explicitly mentioned in the 'cryptography' label.",
+        "candidates": [
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.445
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.349
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.321
+          }
+        ]
+      }
+    },
+    {
+      "term": "DREAD",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Threat Modeling with STRIDE and DREAD"
+        }
+      ],
+      "match": {
+        "original_term": "DREAD",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.213,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.213
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.204
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.184
+          }
+        ]
+      }
+    },
+    {
+      "term": "EMV Analysis",
+      "canonical": {
+        "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "label": "assessment of risks and threats",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Risk Matrix and EMV Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "EMV Analysis",
+        "canonical_id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "canonical_label": "assessment of risks and threats",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'EMV Analysis' is related to risk assessment, and the taxonomy entry 'assessment of risks and threats' includes methods for risk assessment, which aligns with the syllabus mention of 'Risk Matrix and EMV Analysis'.",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.493
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.489
+          },
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.474
+          }
+        ]
+      }
+    },
+    {
+      "term": "Expected Monetary Value Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Expected Monetary Value (EMV) Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Expected Monetary Value Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Expected Monetary Value Analysis'.",
+        "candidates": [
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.545
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.388
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.381
+          }
+        ]
+      }
+    },
+    {
+      "term": "Final Review of Risk Management Processes",
+      "canonical": {
+        "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "label": "assessment of risks and threats",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Final Review of Risk Management Processes"
+        }
+      ],
+      "match": {
+        "original_term": "Final Review of Risk Management Processes",
+        "canonical_id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "canonical_label": "assessment of risks and threats",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Final Review of Risk Management Processes' directly relates to the assessment of risks and threats, which is explicitly covered by the entry 'assessment of risks and threats' in the ESco taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.477
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.399
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.356
+          }
+        ]
+      }
+    },
+    {
+      "term": "Incident Response Planning",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Incident Response Planning"
+        }
+      ],
+      "match": {
+        "original_term": "Incident Response Planning",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.725,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.29",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.725
+          },
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.435
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.428
+          }
+        ]
+      }
+    },
+    {
+      "term": "Information Systems Control",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Risk Management and Information Systems Control"
+        }
+      ],
+      "match": {
+        "original_term": "Information Systems Control",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Information Systems Control' does not clearly match any of the provided taxonomy entries, which focus on control systems, cybersecurity, or risk assessment, but not specifically on information systems control as a distinct skill.",
+        "candidates": [
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.654
+          },
+          {
+            "id": "custom:control-systems",
+            "label": "control systems engineering",
+            "score": 0.639
+          },
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.579
+          }
+        ]
+      }
+    },
+    {
+      "term": "ISO 27001 Risk Treatment Options",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "ISO 27001 Risk Treatment Options"
+        }
+      ],
+      "match": {
+        "original_term": "ISO 27001 Risk Treatment Options",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ISO 27001 Risk Treatment Options' directly aligns with the 'security risk management' entry, which explicitly mentions ISO 27001 and involves identifying, rating, and treating security risk against a framework.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.583
+          },
+          {
+            "id": "esco:750c0a9d-248e-49f1-a270-1bfdcf980bbd",
+            "label": "thermal treatment",
+            "score": 0.35
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.332
+          }
+        ]
+      }
+    },
+    {
+      "term": "ISO 27002",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Control Implementation: ISO 27002"
+        }
+      ],
+      "match": {
+        "original_term": "ISO 27002",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ISO 27002' is explicitly mentioned in the syllabus under 'Control Implementation', and the taxonomy entry 'security risk management' explicitly lists 'ISO 27001' as an alternative name, indicating a direct match.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.538
+          },
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.227
+          },
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.223
+          }
+        ]
+      }
+    },
+    {
+      "term": "ISO/IEC 27017",
+      "canonical": {
+        "id": "esco:778ca7ad-6c5d-4868-9b96-a7777dca799c",
+        "label": "ICT help platforms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "ISO/IEC 27017 for Cloud Environments"
+        }
+      ],
+      "match": {
+        "original_term": "ISO/IEC 27017",
+        "canonical_id": "esco:778ca7ad-6c5d-4868-9b96-a7777dca799c",
+        "canonical_label": "ICT help platforms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'ISO/IEC 27017 for Cloud Environments' directly relates to ICT security standards, as ISO/IEC 27017 is a standard for information security in cloud environments.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.407
+          },
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.223
+          },
+          {
+            "id": "custom:gcp",
+            "label": "Google Cloud Platform",
+            "score": 0.221
+          }
+        ]
+      }
+    },
+    {
+      "term": "Logging Mechanisms",
+      "canonical": {
+        "id": "custom:monitoring-observability",
+        "label": "monitoring and observability",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Audit Trails and Logging Mechanisms"
+        }
+      ],
+      "match": {
+        "original_term": "Logging Mechanisms",
+        "canonical_id": "custom:monitoring-observability",
+        "canonical_label": "monitoring and observability",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Logging Mechanisms' is directly related to 'monitoring and observability' as logging is a core component of system monitoring and observability, as indicated by the also called list including 'logging'.",
+        "candidates": [
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.612
+          },
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.539
+          },
+          {
+            "id": "esco:ff8bd17c-77e9-4d4e-929a-a0cf86f3ed34",
+            "label": "surveillance methods",
+            "score": 0.419
+          }
+        ]
+      }
+    },
+    {
+      "term": "Monte Carlo Simulations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Monte Carlo Simulations for Risk Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Monte Carlo Simulations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Monte Carlo Simulations' is specifically about simulation techniques using random sampling, while none of the taxonomy entries directly match this skill. The closest is 'assessment of risks and threats' (ESCO), but that is about risk analysis, not simulation.",
+        "candidates": [
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.435
+          },
+          {
+            "id": "esco:f6424ebb-8401-446b-9f7e-10d7c854da02",
+            "label": "ICT network simulation",
+            "score": 0.386
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.289
+          }
+        ]
+      }
+    },
+    {
+      "term": "NIST SP 800-61 Incident Response Framework",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "NIST SP 800-61 Incident Response Framework"
+        }
+      ],
+      "match": {
+        "original_term": "NIST SP 800-61 Incident Response Framework",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'NIST SP 800-61 Incident Response Framework' directly refers to incident response, which is explicitly named in the 'security incident response' label.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.504
+          },
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.319
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.312
+          }
+        ]
+      }
+    },
+    {
+      "term": "Prioritization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Risk Evaluation and Prioritization"
+        }
+      ],
+      "match": {
+        "original_term": "Prioritization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.307,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.307
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.282
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.266
+          }
+        ]
+      }
+    },
+    {
+      "term": "Quantitative Risk Assessment with FAIR Framework",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Quantitative Risk Assessment with FAIR Framework"
+        }
+      ],
+      "match": {
+        "original_term": "Quantitative Risk Assessment with FAIR Framework",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Quantitative Risk Assessment with FAIR Framework' directly aligns with the skill 'security risk management' which includes risk assessment techniques and frameworks like FAIR.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.549
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.442
+          },
+          {
+            "id": "esco:2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80",
+            "label": "ICT network security risks",
+            "score": 0.283
+          }
+        ]
+      }
+    },
+    {
+      "term": "RBAC",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Access Control Models: RBAC and ABAC"
+        }
+      ],
+      "match": {
+        "original_term": "RBAC",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.232,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:70b0bc44-6751-4530-ac5c-a893d4241aeb",
+            "label": "building's electronic access equipment",
+            "score": 0.232
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.224
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "Risk Analysis",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Monte Carlo Simulations for Risk Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Risk Analysis",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Risk Analysis' directly aligns with the label 'security risk management' and its also called entry 'risk assessment', which is a core component of risk analysis.",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.494
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.492
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.483
+          }
+        ]
+      }
+    },
+    {
+      "term": "Risk Assessment Fundamentals",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Risk Assessment Fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "Risk Assessment Fundamentals",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.721,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.15",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.721
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.572
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.421
+          }
+        ]
+      }
+    },
+    {
+      "term": "Risk Evaluation",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Risk Evaluation and Prioritization"
+        }
+      ],
+      "match": {
+        "original_term": "Risk Evaluation",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Risk Evaluation' aligns with the skill 'security risk management' which includes risk assessment, and the syllabus mentions 'Risk Evaluation and Prioritization', directly matching the concept.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.442
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.396
+          },
+          {
+            "id": "esco:2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80",
+            "label": "ICT network security risks",
+            "score": 0.35
+          }
+        ]
+      }
+    },
+    {
+      "term": "Risk Evaluation Techniques",
+      "canonical": {
+        "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "label": "assessment of risks and threats",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Risk Evaluation Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Risk Evaluation Techniques",
+        "canonical_id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "canonical_label": "assessment of risks and threats",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Risk Evaluation Techniques' directly matches the label 'assessment of risks and threats' and is explicitly listed in the 'also called' section as 'techniques for assessment of risks and threats'.",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.512
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.381
+          },
+          {
+            "id": "esco:2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80",
+            "label": "ICT network security risks",
+            "score": 0.32
+          }
+        ]
+      }
+    },
+    {
+      "term": "Risk Identification Techniques",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Risk Identification Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Risk Identification Techniques",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Risk Identification Techniques' aligns with the concept of identifying security risks, which is a core part of 'security risk management' as described in the custom taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.505
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.416
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.39
+          }
+        ]
+      }
+    },
+    {
+      "term": "Risk Management",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Risk Management and Information Systems Control"
+        }
+      ],
+      "match": {
+        "original_term": "Risk Management",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.735,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.20",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.735
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.533
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.444
+          }
+        ]
+      }
+    },
+    {
+      "term": "Risk Mitigation Strategies",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Risk Mitigation Strategies"
+        }
+      ],
+      "match": {
+        "original_term": "Risk Mitigation Strategies",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Risk Mitigation Strategies' directly aligns with the label 'security risk management' and its also called entries, which include 'risk assessment' and 'risk treatment'—all of which are core components of risk mitigation strategies.",
+        "candidates": [
+          {
+            "id": "esco:4600e453-d1cf-4567-96ff-5e9b4b26c030",
+            "label": "mining sector policies",
+            "score": 0.403
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.388
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.364
+          }
+        ]
+      }
+    },
+    {
+      "term": "Risk Quantification Methods",
+      "canonical": {
+        "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "label": "assessment of risks and threats",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Risk Quantification Methods"
+        }
+      ],
+      "match": {
+        "original_term": "Risk Quantification Methods",
+        "canonical_id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "canonical_label": "assessment of risks and threats",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Risk Quantification Methods' directly matches the label 'assessment of risks and threats' and aligns with the also-called entries that include 'methods for assessment of risks and threats'.",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.475
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.414
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.365
+          }
+        ]
+      }
+    },
+    {
+      "term": "Risk Response Planning",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Risk Response Planning"
+        }
+      ],
+      "match": {
+        "original_term": "Risk Response Planning",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Risk Response Planning' aligns with the concept of responding to risks, which is closely related to 'security incident response' as both involve planning and managing risks or incidents.",
+        "candidates": [
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.435
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.431
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.423
+          }
+        ]
+      }
+    },
+    {
+      "term": "Security Controls Implementation in Practice",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Security Controls Implementation in Practice"
+        }
+      ],
+      "match": {
+        "original_term": "Security Controls Implementation in Practice",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.389,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.389
+          },
+          {
+            "id": "esco:bf1f763e-c505-46e7-8af3-e48f13ec5f44",
+            "label": "control engineering",
+            "score": 0.376
+          },
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.374
+          }
+        ]
+      }
+    },
+    {
+      "term": "Threat Modeling with STRIDE",
+      "canonical": {
+        "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "label": "assessment of risks and threats",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Threat Modeling with STRIDE and DREAD"
+        }
+      ],
+      "match": {
+        "original_term": "Threat Modeling with STRIDE",
+        "canonical_id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "canonical_label": "assessment of risks and threats",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Threat Modeling with STRIDE' directly relates to assessing risks and threats, which matches the label 'assessment of risks and threats' in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.408
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.338
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.21
+          }
+        ]
+      }
+    },
+    {
+      "term": "access control mechanisms",
+      "canonical": {
+        "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+        "label": "information confidentiality",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "access control mechanisms"
+        }
+      ],
+      "match": {
+        "original_term": "access control mechanisms",
+        "canonical_id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+        "canonical_label": "information confidentiality",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'access control mechanisms' directly aligns with the label 'information confidentiality' and its also called entry 'data access control', which explicitly refers to mechanisms for selective access control.",
+        "candidates": [
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.585
+          },
+          {
+            "id": "esco:70b0bc44-6751-4530-ac5c-a893d4241aeb",
+            "label": "building's electronic access equipment",
+            "score": 0.456
+          },
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.45
+          }
+        ]
+      }
+    },
+    {
+      "term": "access control models like RBAC",
+      "canonical": {
+        "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+        "label": "information confidentiality",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "access control models like RBAC"
+        }
+      ],
+      "match": {
+        "original_term": "access control models like RBAC",
+        "canonical_id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+        "canonical_label": "information confidentiality",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'access control models like RBAC' directly relates to information confidentiality, which includes access control mechanisms.",
+        "candidates": [
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.477
+          },
+          {
+            "id": "esco:70b0bc44-6751-4530-ac5c-a893d4241aeb",
+            "label": "building's electronic access equipment",
+            "score": 0.397
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.348
+          }
+        ]
+      }
+    },
+    {
+      "term": "control implementation using ISO 27002",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "control implementation using ISO 27002"
+        }
+      ],
+      "match": {
+        "original_term": "control implementation using ISO 27002",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.348,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:bf1f763e-c505-46e7-8af3-e48f13ec5f44",
+            "label": "control engineering",
+            "score": 0.348
+          },
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.343
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.341
+          }
+        ]
+      }
+    },
+    {
+      "term": "data integrity using SHA-256 hashing",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "data integrity using SHA-256 hashing"
+        }
+      ],
+      "match": {
+        "original_term": "data integrity using SHA-256 hashing",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'data integrity using SHA-256 hashing' directly relates to cryptographic techniques for ensuring data integrity, which is explicitly covered under the 'cryptography' label, including hashing methods.",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.411
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.299
+          },
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.293
+          }
+        ]
+      }
+    },
+    {
+      "term": "Expected Monetary Value",
+      "canonical": {
+        "id": "custom:descriptive-statistics",
+        "label": "descriptive statistics",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Expected Monetary Value"
+        }
+      ],
+      "match": {
+        "original_term": "Expected Monetary Value",
+        "canonical_id": "custom:descriptive-statistics",
+        "canonical_label": "descriptive statistics",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.622,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.43",
+        "candidates": [
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.622
+          },
+          {
+            "id": "esco:abe9565e-3afd-4ec0-bdc8-75b9df414d9a",
+            "label": "minerals prices",
+            "score": 0.19
+          },
+          {
+            "id": "esco:0f850624-ae28-47c2-ab80-484290a96aea",
+            "label": "metal and metal ore products",
+            "score": 0.184
+          }
+        ]
+      }
+    },
+    {
+      "term": "incident response using NIST SP 800-61",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "incident response using NIST SP 800-61"
+        }
+      ],
+      "match": {
+        "original_term": "incident response using NIST SP 800-61",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'incident response using NIST SP 800-61' directly aligns with the skill 'security incident response' which includes detecting, containing, and recovering from security incidents, matching the specific focus of the phrase.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.512
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.172
+          },
+          {
+            "id": "esco:fcdd9205-2939-4dd2-a2a4-b72fa393fdbf",
+            "label": "types of heat sealing",
+            "score": 0.169
+          }
+        ]
+      }
+    },
+    {
+      "term": "information systems control frameworks like COBIT",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "information systems control frameworks like COBIT"
+        }
+      ],
+      "match": {
+        "original_term": "information systems control frameworks like COBIT",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries accurately represent the skill described by 'information systems control frameworks like COBIT'. The closest match is 'COBOL' (ESCO ID 8), but that refers specifically to the programming language and not the control framework concept.",
+        "candidates": [
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.474
+          },
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.444
+          },
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.353
+          }
+        ]
+      }
+    },
+    {
+      "term": "It also includes control design",
+      "canonical": {
+        "id": "esco:bf1f763e-c505-46e7-8af3-e48f13ec5f44",
+        "label": "control engineering",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "It also includes control design"
+        }
+      ],
+      "match": {
+        "original_term": "It also includes control design",
+        "canonical_id": "esco:bf1f763e-c505-46e7-8af3-e48f13ec5f44",
+        "canonical_label": "control engineering",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'control design' aligns with the definition of 'control engineering' which focuses on controlling the behaviour of systems through sensors and actuators, matching the specific skill described.",
+        "candidates": [
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.401
+          },
+          {
+            "id": "esco:bf1f763e-c505-46e7-8af3-e48f13ec5f44",
+            "label": "control engineering",
+            "score": 0.382
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.371
+          }
+        ]
+      }
+    },
+    {
+      "term": "risk assessment with FAIR framework",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "risk assessment with FAIR framework"
+        }
+      ],
+      "match": {
+        "original_term": "risk assessment with FAIR framework",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.623,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.13",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.623
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.488
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.365
+          }
+        ]
+      }
+    },
+    {
+      "term": "risk evaluation using quantitative models",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "risk evaluation using quantitative models"
+        }
+      ],
+      "match": {
+        "original_term": "risk evaluation using quantitative models",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.316,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.316
+          },
+          {
+            "id": "esco:2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80",
+            "label": "ICT network security risks",
+            "score": 0.279
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "risk mitigation with NIST SP 800-30",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "risk mitigation with NIST SP 800-30"
+        }
+      ],
+      "match": {
+        "original_term": "risk mitigation with NIST SP 800-30",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.282,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.282
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.249
+          },
+          {
+            "id": "esco:2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80",
+            "label": "ICT network security risks",
+            "score": 0.238
+          }
+        ]
+      }
+    },
+    {
+      "term": "risk quantification using Monte Carlo simulations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "risk quantification using Monte Carlo simulations"
+        }
+      ],
+      "match": {
+        "original_term": "risk quantification using Monte Carlo simulations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.335,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.335
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.295
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.288
+          }
+        ]
+      }
+    },
+    {
+      "term": "risk response planning with ISO 27001",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "risk response planning with ISO 27001"
+        }
+      ],
+      "match": {
+        "original_term": "risk response planning with ISO 27001",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'risk response planning with ISO 27001' directly aligns with the 'security risk management' label, which includes ISO 27001 and covers risk assessment and treatment.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.586
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.346
+          },
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.342
+          }
+        ]
+      }
+    }
+  ]
+}

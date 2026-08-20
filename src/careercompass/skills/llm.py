@@ -38,9 +38,28 @@ DEFAULT_OLLAMA_TIMEOUT = 300.0
 VALID_PROVIDERS = ("ollama", "anthropic")
 NO_MATCH = "no_match"
 
-SYSTEM_PROMPT = """You resolve course-syllabus skill phrases onto a fixed skill taxonomy for CareerCompass, a system that compares what a university course teaches against what job postings ask for.
+# The two documents the pipeline reads. The rules for resolving a phrase
+# are identical; only what the phrase was drawn from differs, and saying
+# so plainly is worth more than it costs — "Java" in a syllabus week and
+# "Java" in a requirements bullet want the same taxonomy entry, but the
+# surrounding evidence reads very differently, and the model does better
+# when it knows which it is looking at.
+DOMAINS = {
+    "syllabus": {
+        "corpus": "course-syllabus skill phrases",
+        "source": "one phrase extracted from a syllabus, the syllabus text it came from",
+    },
+    "job_posting": {
+        "corpus": "job-posting skill phrases",
+        "source": ("one phrase extracted from job postings, the posting lines it was "
+                   "drawn from"),
+    },
+}
+DEFAULT_DOMAIN = "syllabus"
 
-You are given one phrase extracted from a syllabus, the syllabus text it came from, and a shortlist of taxonomy entries retrieved for it. Select the entry that names the same skill.
+SYSTEM_PROMPT = """You resolve {corpus} onto a fixed skill taxonomy for CareerCompass, a system that compares what a university course teaches against what job postings ask for.
+
+You are given {source}, and a shortlist of taxonomy entries retrieved for it. Select the entry that names the same skill.
 
 Rules:
 - Choose an entry only when it means the same skill as the phrase, not merely a related or broader topic. "Kinematics" is not "Dynamics"; "ROS 2 node development" is not "software engineering".
@@ -49,6 +68,11 @@ Rules:
 - Return no_match when nothing on the shortlist fits. An honest no_match is more useful than a wrong id: unmatched terms go to human review, wrong ids do not.
 - confidence is your probability that the selected entry is correct, from 0.0 to 1.0. Report it honestly; a low confidence routes the term to review.
 - reason is one sentence naming the evidence you used."""
+
+
+def system_prompt(domain: str = DEFAULT_DOMAIN) -> str:
+    """The system prompt phrased for the document the term came from."""
+    return SYSTEM_PROMPT.format(**DOMAINS.get(domain, DOMAINS[DEFAULT_DOMAIN]))
 
 
 def _enabled(value) -> bool:
@@ -84,7 +108,7 @@ class LLMDecider:
     """Selects one retrieved taxonomy ID through Ollama or Anthropic."""
 
     def __init__(self, model: str = "", provider: str = "", enabled=None,
-                 ollama_url: str = "", client=None):
+                 ollama_url: str = "", client=None, domain: str = DEFAULT_DOMAIN):
         self.provider = (
             provider or os.getenv("CC_MATCH_LLM_PROVIDER", DEFAULT_PROVIDER)
         ).strip().lower()
@@ -100,6 +124,8 @@ class LLMDecider:
         self.ollama_timeout = _timeout(
             os.getenv("CC_OLLAMA_TIMEOUT", DEFAULT_OLLAMA_TIMEOUT)
         )
+        self.domain = domain if domain in DOMAINS else DEFAULT_DOMAIN
+        self.system_prompt = system_prompt(self.domain)
         self.enabled = _enabled(os.getenv("CC_MATCH_LLM")) if enabled is None else bool(enabled)
         self.reason_unavailable = ""
         self._client = client
@@ -205,7 +231,7 @@ class LLMDecider:
                 "think": False,
                 "format": schema,
                 "messages": [
-                    {"role": "system", "content": SYSTEM_PROMPT},
+                    {"role": "system", "content": self.system_prompt},
                     {"role": "user", "content": prompt},
                 ],
                 "options": {"temperature": 0},
@@ -225,7 +251,7 @@ class LLMDecider:
             response = self._client.messages.create(
                 model=self.model,
                 max_tokens=4096,
-                system=SYSTEM_PROMPT,
+                system=self.system_prompt,
                 output_config={
                     "effort": "low",
                     "format": {"type": "json_schema", "schema": schema},

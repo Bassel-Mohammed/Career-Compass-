@@ -1,0 +1,2646 @@
+{
+  "course_code": "A0433406",
+  "course_codes": [
+    "A0433406"
+  ],
+  "course_title": "Reverse Engineering and Malware Analysis",
+  "credit_hours": 3,
+  "plans": [
+    "CYBER"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "needs_review": 17,
+      "no_match": 32,
+      "accepted": 8
+    },
+    "by_method": {
+      "llm": 20,
+      "embedding_reranker": 36,
+      "exact_alias": 1
+    }
+  },
+  "total_skills": 57,
+  "skills": [
+    {
+      "term": "memory forensics with Volatility",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply malware analysis techniques, including memory forensics with Volatility and dynamic instrumentation with Cuckoo Sandbox, to detect and analyze malicious behavior."
+        },
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Memory Forensics with Volatility"
+        },
+        {
+          "source": "description",
+          "text": "memory forensics with Volatility"
+        }
+      ],
+      "match": {
+        "original_term": "memory forensics with Volatility",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically match the skill 'memory forensics with Volatility'. The closest entries are related to broader areas like computer forensics or security incident response, but none directly refer to memory forensics using Volatility.",
+        "candidates": [
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.408
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.397
+          },
+          {
+            "id": "esco:77592603-505b-4096-97dd-d0def6bd7601",
+            "label": "computational fluid dynamics",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "ELF file formats",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the structure and characteristics of PE and ELF file formats, including headers, sections, and relocation tables."
+        },
+        {
+          "source": "description",
+          "text": "ELF file formats"
+        }
+      ],
+      "match": {
+        "original_term": "ELF file formats",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.225,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:c8cfa83b-bc13-4f8c-97b7-5269119fa4d6",
+            "label": "filing machine parts",
+            "score": 0.225
+          },
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.223
+          },
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.198
+          }
+        ]
+      }
+    },
+    {
+      "term": "Ghidra",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the fundamental concepts of reverse engineering and malware analysis, including static and dynamic analysis techniques and key tools such as IDA Pro and Ghidra."
+        },
+        {
+          "source": "description",
+          "text": "Ghidra"
+        }
+      ],
+      "match": {
+        "original_term": "Ghidra",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.255,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:51586df8-1c46-4b47-8583-773cb63bf00b",
+            "label": "R",
+            "score": 0.255
+          },
+          {
+            "id": "esco:f2c26cd0-f823-4549-a418-f84d23131308",
+            "label": "THC Hydra",
+            "score": 0.255
+          },
+          {
+            "id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+            "label": "ICT recovery techniques",
+            "score": 0.201
+          }
+        ]
+      }
+    },
+    {
+      "term": "malware analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the fundamental concepts of reverse engineering and malware analysis, including static and dynamic analysis techniques and key tools such as IDA Pro and Ghidra."
+        },
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Reverse Engineering and Malware Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "malware analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.356,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:2d7bf28a-2487-4443-9115-47478080b1a4",
+            "label": "hazard analysis and critical control points",
+            "score": 0.356
+          },
+          {
+            "id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+            "label": "reverse engineering",
+            "score": 0.28
+          },
+          {
+            "id": "esco:51586df8-1c46-4b47-8583-773cb63bf00b",
+            "label": "R",
+            "score": 0.258
+          }
+        ]
+      }
+    },
+    {
+      "term": "ARM binaries using advanced techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the process of disassembling and decompiling x86/x64 and ARM binaries using advanced techniques such as control flow graph reconstruction."
+        }
+      ],
+      "match": {
+        "original_term": "ARM binaries using advanced techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.304,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:657c5a25-903c-4669-9efc-46c85c176fbf",
+            "label": "gas chromatography",
+            "score": 0.304
+          },
+          {
+            "id": "esco:6055f185-3214-491e-975a-cfcc1756fe1d",
+            "label": "metal forming technologies",
+            "score": 0.23
+          },
+          {
+            "id": "esco:8c454cb2-09b2-4b1c-b556-f57c9d90952c",
+            "label": "deburring processes",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "characteristics of PE",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the structure and characteristics of PE and ELF file formats, including headers, sections, and relocation tables."
+        }
+      ],
+      "match": {
+        "original_term": "characteristics of PE",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'characteristics of PE' refers to the characteristics of a file format (PE being Portable Executable), which is not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "esco:13bf8e76-044a-43c3-9924-ee6d99b50a9f",
+            "label": "wine characteristics",
+            "score": 0.524
+          },
+          {
+            "id": "esco:deab5e2f-d45c-439b-a4c7-f2ea3b8dad86",
+            "label": "coffee characteristics",
+            "score": 0.519
+          },
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.46
+          }
+        ]
+      }
+    },
+    {
+      "term": "control flow graph reconstruction",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the process of disassembling and decompiling x86/x64 and ARM binaries using advanced techniques such as control flow graph reconstruction."
+        }
+      ],
+      "match": {
+        "original_term": "control flow graph reconstruction",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.374,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:bf1f763e-c505-46e7-8af3-e48f13ec5f44",
+            "label": "control engineering",
+            "score": 0.374
+          },
+          {
+            "id": "custom:control-systems",
+            "label": "control systems engineering",
+            "score": 0.364
+          },
+          {
+            "id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+            "label": "reverse engineering",
+            "score": 0.35
+          }
+        ]
+      }
+    },
+    {
+      "term": "decompiling x86/x64",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the process of disassembling and decompiling x86/x64 and ARM binaries using advanced techniques such as control flow graph reconstruction."
+        }
+      ],
+      "match": {
+        "original_term": "decompiling x86/x64",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.234,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:47b9bbcf-356c-4782-83a4-7f5a1b2b51a3",
+            "label": "Assembly (computer programming)",
+            "score": 0.234
+          },
+          {
+            "id": "esco:8c454cb2-09b2-4b1c-b556-f57c9d90952c",
+            "label": "deburring processes",
+            "score": 0.224
+          },
+          {
+            "id": "esco:0ccdfe98-f845-4598-84a1-3dca66e9d9a3",
+            "label": "Ruby (computer programming)",
+            "score": 0.223
+          }
+        ]
+      }
+    },
+    {
+      "term": "detect",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply malware analysis techniques, including memory forensics with Volatility and dynamic instrumentation with Cuckoo Sandbox, to detect and analyze malicious behavior."
+        }
+      ],
+      "match": {
+        "original_term": "detect",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.353,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.353
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.336
+          },
+          {
+            "id": "esco:024037ca-96a9-4cb8-ba86-2cd5a209c90a",
+            "label": "Maltego",
+            "score": 0.204
+          }
+        ]
+      }
+    },
+    {
+      "term": "dynamic analysis techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the fundamental concepts of reverse engineering and malware analysis, including static and dynamic analysis techniques and key tools such as IDA Pro and Ghidra."
+        }
+      ],
+      "match": {
+        "original_term": "dynamic analysis techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'dynamic analysis techniques' as described in the syllabus. The closest entry, 'ICT performance analysis methods', is broader and not equivalent to dynamic analysis techniques.",
+        "candidates": [
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.583
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.421
+          },
+          {
+            "id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+            "label": "ICT recovery techniques",
+            "score": 0.407
+          }
+        ]
+      }
+    },
+    {
+      "term": "dynamic instrumentation with Cuckoo Sandbox",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply malware analysis techniques, including memory forensics with Volatility and dynamic instrumentation with Cuckoo Sandbox, to detect and analyze malicious behavior."
+        }
+      ],
+      "match": {
+        "original_term": "dynamic instrumentation with Cuckoo Sandbox",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.39,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:16c8eade-5c2b-4c9c-a60d-6799dbc758a3",
+            "label": "instrumentation equipment",
+            "score": 0.39
+          },
+          {
+            "id": "esco:77592603-505b-4096-97dd-d0def6bd7601",
+            "label": "computational fluid dynamics",
+            "score": 0.349
+          },
+          {
+            "id": "esco:58783f72-5098-4807-b1d1-954ec2ae94c4",
+            "label": "Backbox (penetration testing tool)",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "fundamental concepts of reverse engineering",
+      "canonical": {
+        "id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+        "label": "reverse engineering",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the fundamental concepts of reverse engineering and malware analysis, including static and dynamic analysis techniques and key tools such as IDA Pro and Ghidra."
+        }
+      ],
+      "match": {
+        "original_term": "fundamental concepts of reverse engineering",
+        "canonical_id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+        "canonical_label": "reverse engineering",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.649,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.11",
+        "candidates": [
+          {
+            "id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+            "label": "reverse engineering",
+            "score": 0.649
+          },
+          {
+            "id": "esco:54804209-6aac-4ca4-bf3c-aef4fbe18f8c",
+            "label": "principles of mechanical engineering",
+            "score": 0.536
+          },
+          {
+            "id": "esco:209a5498-3449-4689-8ed9-bd08cab4fd78",
+            "label": "engineering principles",
+            "score": 0.397
+          }
+        ]
+      }
+    },
+    {
+      "term": "headers",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the structure and characteristics of PE and ELF file formats, including headers, sections, and relocation tables."
+        }
+      ],
+      "match": {
+        "original_term": "headers",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.193,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.193
+          },
+          {
+            "id": "esco:c8cfa83b-bc13-4f8c-97b7-5269119fa4d6",
+            "label": "filing machine parts",
+            "score": 0.192
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.192
+          }
+        ]
+      }
+    },
+    {
+      "term": "IDA Pro",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the fundamental concepts of reverse engineering and malware analysis, including static and dynamic analysis techniques and key tools such as IDA Pro and Ghidra."
+        }
+      ],
+      "match": {
+        "original_term": "IDA Pro",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.258,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:51586df8-1c46-4b47-8583-773cb63bf00b",
+            "label": "R",
+            "score": 0.258
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.237
+          },
+          {
+            "id": "esco:2bde42ae-e776-41c1-9ded-b07b30bfe985",
+            "label": "Prolog (computer programming)",
+            "score": 0.231
+          }
+        ]
+      }
+    },
+    {
+      "term": "known",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a malware detection system using YARA rules and static analysis methods to classify and identify known and unknown malware families."
+        }
+      ],
+      "match": {
+        "original_term": "known",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.19,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.19
+          },
+          {
+            "id": "esco:625b57ee-29d4-425b-bf99-9fd54dd021fe",
+            "label": "Kali Linux",
+            "score": 0.189
+          },
+          {
+            "id": "esco:024037ca-96a9-4cb8-ba86-2cd5a209c90a",
+            "label": "Maltego",
+            "score": 0.186
+          }
+        ]
+      }
+    },
+    {
+      "term": "malicious behavior",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply malware analysis techniques, including memory forensics with Volatility and dynamic instrumentation with Cuckoo Sandbox, to detect and analyze malicious behavior."
+        }
+      ],
+      "match": {
+        "original_term": "malicious behavior",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.269,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:77592603-505b-4096-97dd-d0def6bd7601",
+            "label": "computational fluid dynamics",
+            "score": 0.269
+          },
+          {
+            "id": "esco:024037ca-96a9-4cb8-ba86-2cd5a209c90a",
+            "label": "Maltego",
+            "score": 0.23
+          },
+          {
+            "id": "esco:438ff259-d086-4004-acda-1ec3e1631bc6",
+            "label": "software anomalies",
+            "score": 0.198
+          }
+        ]
+      }
+    },
+    {
+      "term": "malware analysis techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply malware analysis techniques, including memory forensics with Volatility and dynamic instrumentation with Cuckoo Sandbox, to detect and analyze malicious behavior."
+        }
+      ],
+      "match": {
+        "original_term": "malware analysis techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'malware analysis techniques'. The closest entries are related to penetration testing, computer forensics, and security tools, but none specifically refer to the analysis of malware behavior.",
+        "candidates": [
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.588
+          },
+          {
+            "id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+            "label": "ICT recovery techniques",
+            "score": 0.389
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.354
+          }
+        ]
+      }
+    },
+    {
+      "term": "malware detection system using YARA rules",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a malware detection system using YARA rules and static analysis methods to classify and identify known and unknown malware families."
+        }
+      ],
+      "match": {
+        "original_term": "malware detection system using YARA rules",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.345,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.345
+          },
+          {
+            "id": "esco:286d0e0d-48e9-4210-b110-b1fbf04c35f1",
+            "label": "radars",
+            "score": 0.327
+          },
+          {
+            "id": "esco:cdd8b6b2-2fd9-453c-8d62-8a1dc6efcd49",
+            "label": "systems theory",
+            "score": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "term": "process of disassembling",
+      "canonical": {
+        "id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+        "label": "reverse engineering",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the process of disassembling and decompiling x86/x64 and ARM binaries using advanced techniques such as control flow graph reconstruction."
+        }
+      ],
+      "match": {
+        "original_term": "process of disassembling",
+        "canonical_id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+        "canonical_label": "reverse engineering",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'process of disassembling' is directly related to the description of reverse engineering, which explicitly mentions disassembling as part of the process.",
+        "candidates": [
+          {
+            "id": "esco:ff9b7465-c37a-4d5d-83de-f2ef00bcb099",
+            "label": "anodising process",
+            "score": 0.474
+          },
+          {
+            "id": "esco:edb029e7-43a8-45a9-b37c-00ff730a1092",
+            "label": "vehicle manufacturing process",
+            "score": 0.455
+          },
+          {
+            "id": "esco:8c454cb2-09b2-4b1c-b556-f57c9d90952c",
+            "label": "deburring processes",
+            "score": 0.296
+          }
+        ]
+      }
+    },
+    {
+      "term": "relocation tables",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the structure and characteristics of PE and ELF file formats, including headers, sections, and relocation tables."
+        }
+      ],
+      "match": {
+        "original_term": "relocation tables",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.233,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.233
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.212
+          },
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "sections",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the structure and characteristics of PE and ELF file formats, including headers, sections, and relocation tables."
+        }
+      ],
+      "match": {
+        "original_term": "sections",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.26,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.26
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.235
+          },
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.219
+          }
+        ]
+      }
+    },
+    {
+      "term": "static",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the fundamental concepts of reverse engineering and malware analysis, including static and dynamic analysis techniques and key tools such as IDA Pro and Ghidra."
+        }
+      ],
+      "match": {
+        "original_term": "static",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.286,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:69f0167e-75d9-46cf-847f-72a592880ebb",
+            "label": "STAF",
+            "score": 0.286
+          },
+          {
+            "id": "esco:7b5cce4d-c7fe-4119-b48f-70aa05391787",
+            "label": "computer science",
+            "score": 0.241
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.207
+          }
+        ]
+      }
+    },
+    {
+      "term": "static analysis methods to classify",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a malware detection system using YARA rules and static analysis methods to classify and identify known and unknown malware families."
+        }
+      ],
+      "match": {
+        "original_term": "static analysis methods to classify",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill described in the extracted phrase 'static analysis methods to classify'. The closest candidate, 'object detection', refers to locating and classifying objects in images or video, which is not the same as static analysis methods for malwa",
+        "candidates": [
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.477
+          },
+          {
+            "id": "esco:ff8bd17c-77e9-4d4e-929a-a0cf86f3ed34",
+            "label": "surveillance methods",
+            "score": 0.353
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.316
+          }
+        ]
+      }
+    },
+    {
+      "term": "structure",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the structure and characteristics of PE and ELF file formats, including headers, sections, and relocation tables."
+        }
+      ],
+      "match": {
+        "original_term": "structure",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries accurately capture the specific skill of 'structure' as described in the syllabus, which refers to the structure of file formats like PE and ELF.",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.667
+          },
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.638
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.239
+          }
+        ]
+      }
+    },
+    {
+      "term": "unknown malware families",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a malware detection system using YARA rules and static analysis methods to classify and identify known and unknown malware families."
+        }
+      ],
+      "match": {
+        "original_term": "unknown malware families",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.252,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:438ff259-d086-4004-acda-1ec3e1631bc6",
+            "label": "software anomalies",
+            "score": 0.252
+          },
+          {
+            "id": "esco:024037ca-96a9-4cb8-ba86-2cd5a209c90a",
+            "label": "Maltego",
+            "score": 0.205
+          },
+          {
+            "id": "esco:286d0e0d-48e9-4210-b110-b1fbf04c35f1",
+            "label": "radars",
+            "score": 0.198
+          }
+        ]
+      }
+    },
+    {
+      "term": "APT Malware",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "APT Malware and Advanced Threats"
+        },
+        {
+          "source": "description",
+          "text": "APT malware"
+        }
+      ],
+      "match": {
+        "original_term": "APT Malware",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.238,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.238
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.205
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.187
+          }
+        ]
+      }
+    },
+    {
+      "term": "Evasion Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Malware Persistence and Evasion Techniques"
+        },
+        {
+          "source": "description",
+          "text": "evasion techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Evasion Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'Evasion Techniques' as defined in the syllabus. The closest entries are related to cybersecurity or risk assessment, but none specifically match the concept of evasion techniques in the context of malware or security.",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.479
+          },
+          {
+            "id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+            "label": "ICT recovery techniques",
+            "score": 0.44
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.385
+          }
+        ]
+      }
+    },
+    {
+      "term": "Malware Family Classification",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Malware Family Classification"
+        },
+        {
+          "source": "description",
+          "text": "malware family classification"
+        }
+      ],
+      "match": {
+        "original_term": "Malware Family Classification",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.216,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.216
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.213
+          },
+          {
+            "id": "esco:4f7fa632-15a6-4739-930b-abbac8055a80",
+            "label": "firmware",
+            "score": 0.205
+          }
+        ]
+      }
+    },
+    {
+      "term": "Reverse Engineering",
+      "canonical": {
+        "id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+        "label": "reverse engineering",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Reverse Engineering and Malware Analysis"
+        },
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "ARM Architecture and Reverse Engineering"
+        }
+      ],
+      "match": {
+        "original_term": "Reverse Engineering",
+        "canonical_id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+        "canonical_label": "reverse engineering",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Advanced Malware Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Advanced Malware Analysis: Ransomware"
+        }
+      ],
+      "match": {
+        "original_term": "Advanced Malware Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Advanced Malware Analysis' in meaning, wording, or scope.",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.425
+          },
+          {
+            "id": "esco:2d7bf28a-2487-4443-9115-47478080b1a4",
+            "label": "hazard analysis and critical control points",
+            "score": 0.319
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.198
+          }
+        ]
+      }
+    },
+    {
+      "term": "Advanced Threats",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "APT Malware and Advanced Threats"
+        }
+      ],
+      "match": {
+        "original_term": "Advanced Threats",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.387,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.387
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.364
+          },
+          {
+            "id": "esco:f049d050-12da-4e40-813a-2b5eb6df6b51",
+            "label": "Internet of Things",
+            "score": 0.183
+          }
+        ]
+      }
+    },
+    {
+      "term": "ARM Architecture",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "ARM Architecture and Reverse Engineering"
+        }
+      ],
+      "match": {
+        "original_term": "ARM Architecture",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'ARM Architecture' refers specifically to the architecture of ARM processors, which is not covered by any of the provided taxonomy entries. None of the candidates match the specific skill described in the phrase.",
+        "candidates": [
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.535
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.524
+          },
+          {
+            "id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+            "label": "reverse engineering",
+            "score": 0.365
+          }
+        ]
+      }
+    },
+    {
+      "term": "Binary File Formats",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Binary File Formats: PE and ELF"
+        }
+      ],
+      "match": {
+        "original_term": "Binary File Formats",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.348,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ros2-launch-files",
+            "label": "ROS 2 launch files",
+            "score": 0.348
+          },
+          {
+            "id": "esco:064018ab-0192-441b-92a5-43c2328e9be2",
+            "label": "electrical mine machinery manuals",
+            "score": 0.172
+          },
+          {
+            "id": "esco:4f7fa632-15a6-4739-930b-abbac8055a80",
+            "label": "firmware",
+            "score": 0.172
+          }
+        ]
+      }
+    },
+    {
+      "term": "Deconstruction Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Disassembly and Deconstruction Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Deconstruction Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill described by 'Deconstruction Techniques' from the syllabus.",
+        "candidates": [
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.439
+          },
+          {
+            "id": "esco:ab04dd50-0bdd-4d51-8c06-9405a81612f3",
+            "label": "hydrocarbon cracking techniques",
+            "score": 0.43
+          },
+          {
+            "id": "esco:ebd90bfe-ab0f-4155-a77c-3de9267b27a1",
+            "label": "metal smoothing technologies",
+            "score": 0.428
+          }
+        ]
+      }
+    },
+    {
+      "term": "Disassembly",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Disassembly and Deconstruction Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Disassembly",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.248,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ab04dd50-0bdd-4d51-8c06-9405a81612f3",
+            "label": "hydrocarbon cracking techniques",
+            "score": 0.248
+          },
+          {
+            "id": "esco:f26fa635-1f5e-469c-a1fc-3dea4ab39fc1",
+            "label": "metal eroding technology",
+            "score": 0.247
+          },
+          {
+            "id": "esco:2d63745d-3c4c-4da1-ad77-985f68768be9",
+            "label": "manufacturing of metal structures",
+            "score": 0.242
+          }
+        ]
+      }
+    },
+    {
+      "term": "Dynamic Analysis",
+      "canonical": {
+        "id": "custom:robot-dynamics",
+        "label": "robot dynamics",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Dynamic Analysis and Sandboxing"
+        }
+      ],
+      "match": {
+        "original_term": "Dynamic Analysis",
+        "canonical_id": "custom:robot-dynamics",
+        "canonical_label": "robot dynamics",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Dynamic Analysis' directly matches the taxonomy entry 'robot dynamics', which is also called 'Dynamics' and refers to the relationship between forces, torques, and robot motion, aligning with the syllabus phrase.",
+        "candidates": [
+          {
+            "id": "custom:robot-dynamics",
+            "label": "robot dynamics",
+            "score": 0.539
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.481
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.183
+          }
+        ]
+      }
+    },
+    {
+      "term": "ELF",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Binary File Formats: PE and ELF"
+        }
+      ],
+      "match": {
+        "original_term": "ELF",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.233,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.233
+          },
+          {
+            "id": "esco:4350c38d-0fe9-4ca7-bab9-40ed7f72b04f",
+            "label": "PHP",
+            "score": 0.193
+          },
+          {
+            "id": "custom:ros2-launch-files",
+            "label": "ROS 2 launch files",
+            "score": 0.174
+          }
+        ]
+      }
+    },
+    {
+      "term": "Fundamentals of Static Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Fundamentals of Static Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Fundamentals of Static Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Fundamentals of Static Analysis'.",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.421
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.41
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.408
+          }
+        ]
+      }
+    },
+    {
+      "term": "Malware Detection with YARA",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Malware Detection with YARA"
+        }
+      ],
+      "match": {
+        "original_term": "Malware Detection with YARA",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Malware Detection with YARA'.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.423
+          },
+          {
+            "id": "esco:286d0e0d-48e9-4210-b110-b1fbf04c35f1",
+            "label": "radars",
+            "score": 0.216
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "Malware Persistence",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Malware Persistence and Evasion Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Malware Persistence",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.284,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.284
+          },
+          {
+            "id": "esco:1e3e0736-6d4a-4a65-8787-1fa16bff5660",
+            "label": "explosives",
+            "score": 0.251
+          },
+          {
+            "id": "esco:f26fa635-1f5e-469c-a1fc-3dea4ab39fc1",
+            "label": "metal eroding technology",
+            "score": 0.247
+          }
+        ]
+      }
+    },
+    {
+      "term": "Ransomware",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Advanced Malware Analysis: Ransomware"
+        }
+      ],
+      "match": {
+        "original_term": "Ransomware",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.21,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.21
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.208
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.205
+          }
+        ]
+      }
+    },
+    {
+      "term": "Reverse Engineering Tools",
+      "canonical": {
+        "id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+        "label": "reverse engineering",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Reverse Engineering Tools and Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Reverse Engineering Tools",
+        "canonical_id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+        "canonical_label": "reverse engineering",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.746,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.33",
+        "candidates": [
+          {
+            "id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+            "label": "reverse engineering",
+            "score": 0.746
+          },
+          {
+            "id": "esco:f5084a43-42c9-4bbb-b47c-b3029cf8381d",
+            "label": "machine tools",
+            "score": 0.417
+          },
+          {
+            "id": "esco:a125a4c2-3b0a-4996-9a63-57043d4d9159",
+            "label": "industrial tools",
+            "score": 0.399
+          }
+        ]
+      }
+    },
+    {
+      "term": "Reverse Engineering x86/x64 Binaries",
+      "canonical": {
+        "id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+        "label": "reverse engineering",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Reverse Engineering x86/x64 Binaries"
+        }
+      ],
+      "match": {
+        "original_term": "Reverse Engineering x86/x64 Binaries",
+        "canonical_id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+        "canonical_label": "reverse engineering",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'Reverse Engineering x86/x64 Binaries' directly aligns with the skill 'reverse engineering' as defined in the taxonomy, which involves extracting design information from man-made systems.",
+        "candidates": [
+          {
+            "id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+            "label": "reverse engineering",
+            "score": 0.594
+          },
+          {
+            "id": "esco:89f6560b-2194-45c9-9ece-d33049a73eef",
+            "label": "computer engineering",
+            "score": 0.354
+          },
+          {
+            "id": "esco:4107d971-baf4-4118-a217-4025810d6256",
+            "label": "micromechatronic engineering",
+            "score": 0.342
+          }
+        ]
+      }
+    },
+    {
+      "term": "Sandboxing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Dynamic Analysis and Sandboxing"
+        }
+      ],
+      "match": {
+        "original_term": "Sandboxing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.261,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-dynamics",
+            "label": "robot dynamics",
+            "score": 0.261
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.233
+          },
+          {
+            "id": "esco:117373c8-f04b-4fff-8683-aebe36edac81",
+            "label": "hardware platforms",
+            "score": 0.229
+          }
+        ]
+      }
+    },
+    {
+      "term": "Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Reverse Engineering Tools and Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'Techniques' is too generic and does not match any specific skill in the provided taxonomy candidates.",
+        "candidates": [
+          {
+            "id": "esco:530cb489-d900-46ab-9350-4d50ccd49eea",
+            "label": "welding techniques",
+            "score": 0.646
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.634
+          },
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.562
+          }
+        ]
+      }
+    },
+    {
+      "term": "advanced analysis of ransomware",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "advanced analysis of ransomware"
+        }
+      ],
+      "match": {
+        "original_term": "advanced analysis of ransomware",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.39,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.39
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.388
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.38
+          }
+        ]
+      }
+    },
+    {
+      "term": "API hooking",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "API hooking"
+        }
+      ],
+      "match": {
+        "original_term": "API hooking",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries match the skill 'API hooking'.",
+        "candidates": [
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.483
+          },
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.458
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.456
+          }
+        ]
+      }
+    },
+    {
+      "term": "ARM binaries with disassembly techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "ARM binaries with disassembly techniques"
+        }
+      ],
+      "match": {
+        "original_term": "ARM binaries with disassembly techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.373,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:5eeac647-dc4b-496d-b109-c90b58006021",
+            "label": "mining engineering",
+            "score": 0.373
+          },
+          {
+            "id": "esco:530cb489-d900-46ab-9350-4d50ccd49eea",
+            "label": "welding techniques",
+            "score": 0.372
+          },
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.345
+          }
+        ]
+      }
+    },
+    {
+      "term": "dynamic instrumentation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "dynamic instrumentation"
+        }
+      ],
+      "match": {
+        "original_term": "dynamic instrumentation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill phrase 'dynamic instrumentation'. The closest entries are related to instrumentation engineering or equipment, but none specifically refer to 'dynamic instrumentation' as a skill.",
+        "candidates": [
+          {
+            "id": "custom:robot-dynamics",
+            "label": "robot dynamics",
+            "score": 0.517
+          },
+          {
+            "id": "esco:16c8eade-5c2b-4c9c-a60d-6799dbc758a3",
+            "label": "instrumentation equipment",
+            "score": 0.516
+          },
+          {
+            "id": "esco:b7b381f5-7de2-4f91-9a8f-524041cb47d9",
+            "label": "instrumentation engineering",
+            "score": 0.496
+          }
+        ]
+      }
+    },
+    {
+      "term": "Ghidra's decompiler",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Ghidra's decompiler"
+        }
+      ],
+      "match": {
+        "original_term": "Ghidra's decompiler",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.21,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.21
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.18
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.174
+          }
+        ]
+      }
+    },
+    {
+      "term": "malware behavior analysis using sandboxing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "malware behavior analysis using sandboxing"
+        }
+      ],
+      "match": {
+        "original_term": "malware behavior analysis using sandboxing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.328,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.328
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.304
+          },
+          {
+            "id": "esco:61d6ef20-6cc7-40f8-919e-3360db6cf2b3",
+            "label": "hardware materials",
+            "score": 0.191
+          }
+        ]
+      }
+    },
+    {
+      "term": "malware detection with YARA rules",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "malware detection with YARA rules"
+        }
+      ],
+      "match": {
+        "original_term": "malware detection with YARA rules",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.372,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.372
+          },
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.308
+          },
+          {
+            "id": "esco:286d0e0d-48e9-4210-b110-b1fbf04c35f1",
+            "label": "radars",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "malware persistence mechanisms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "malware persistence mechanisms"
+        }
+      ],
+      "match": {
+        "original_term": "malware persistence mechanisms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'malware persistence mechanisms'.",
+        "candidates": [
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.425
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.219
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "reverse engineering of PE",
+      "canonical": {
+        "id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+        "label": "reverse engineering",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "reverse engineering of PE"
+        }
+      ],
+      "match": {
+        "original_term": "reverse engineering of PE",
+        "canonical_id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+        "canonical_label": "reverse engineering",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.734,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.30",
+        "candidates": [
+          {
+            "id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+            "label": "reverse engineering",
+            "score": 0.734
+          },
+          {
+            "id": "esco:b589ce7c-588f-4045-be2d-9332c2d2278d",
+            "label": "surface engineering",
+            "score": 0.431
+          },
+          {
+            "id": "esco:dd6e5939-d19b-4e2f-a025-2014f0a2ec88",
+            "label": "power engineering",
+            "score": 0.427
+          }
+        ]
+      }
+    },
+    {
+      "term": "reverse engineering x86/x64",
+      "canonical": {
+        "id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+        "label": "reverse engineering",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "reverse engineering x86/x64"
+        }
+      ],
+      "match": {
+        "original_term": "reverse engineering x86/x64",
+        "canonical_id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+        "canonical_label": "reverse engineering",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.659,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.47",
+        "candidates": [
+          {
+            "id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+            "label": "reverse engineering",
+            "score": 0.659
+          },
+          {
+            "id": "custom:robot-troubleshooting",
+            "label": "robot system troubleshooting",
+            "score": 0.194
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.185
+          }
+        ]
+      }
+    },
+    {
+      "term": "static analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "static analysis"
+        }
+      ],
+      "match": {
+        "original_term": "static analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'static analysis'.",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.493
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.488
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.485
+          }
+        ]
+      }
+    },
+    {
+      "term": "This course covers static",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "This course covers static"
+        }
+      ],
+      "match": {
+        "original_term": "This course covers static",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.195,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:69f0167e-75d9-46cf-847f-72a592880ebb",
+            "label": "STAF",
+            "score": 0.195
+          },
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.185
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.184
+          }
+        ]
+      }
+    }
+  ]
+}

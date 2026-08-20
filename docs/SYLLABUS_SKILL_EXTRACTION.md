@@ -354,6 +354,6 @@ because the current design does not require the `pgvector` extension.
   analysis is possible.
 - ESCO caches, merged taxonomy files, and vector indexes are generated artifacts
   and are ignored by Git; rebuild them on a fresh clone.
-- The current `cc-match-skills --db` branch contains an old `src.modules`
-  import. It should use `careercompass.db.skills` before database persistence is
-  relied upon through that command.
+- Durable cross-cutting notes — the identity defects, silent-failure modes,
+  measured numbers and hardware constraints — are consolidated in
+  [ENGINEERING_NOTES.md](ENGINEERING_NOTES.md).

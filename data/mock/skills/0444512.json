@@ -1,0 +1,3262 @@
+{
+  "course_code": "0444512",
+  "course_codes": [
+    "0444512"
+  ],
+  "course_title": "Software Maintenance",
+  "credit_hours": 3,
+  "plans": [
+    "SE"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "accepted": 40,
+      "no_match": 19,
+      "needs_review": 10
+    },
+    "by_method": {
+      "exact_alias": 3,
+      "llm": 35,
+      "embedding_reranker": 31
+    }
+  },
+  "total_skills": 69,
+  "skills": [
+    {
+      "term": "GitHub",
+      "canonical": {
+        "id": "custom:git",
+        "label": "Git",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define version control concepts and demonstrate proficiency in using Git and GitHub for collaborative software maintenance."
+        },
+        {
+          "source": "description",
+          "text": "GitHub"
+        }
+      ],
+      "match": {
+        "original_term": "GitHub",
+        "canonical_id": "custom:git",
+        "canonical_label": "Git",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "maintenance metrics",
+      "canonical": {
+        "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+        "label": "software metrics",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Evaluate maintenance metrics and use tools like SonarQube to assess and improve software quality."
+        },
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Maintenance Metrics and Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "maintenance metrics",
+        "canonical_id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+        "canonical_label": "software metrics",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'maintenance metrics' directly aligns with the definition of 'software metrics' which specifically includes metrics used to evaluate and improve software quality, as seen in the syllabus reference to tools like SonarQube.",
+        "candidates": [
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.54
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.496
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.256
+          }
+        ]
+      }
+    },
+    {
+      "term": "collaborative software maintenance",
+      "canonical": {
+        "id": "custom:git",
+        "label": "Git",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define version control concepts and demonstrate proficiency in using Git and GitHub for collaborative software maintenance."
+        }
+      ],
+      "match": {
+        "original_term": "collaborative software maintenance",
+        "canonical_id": "custom:git",
+        "canonical_label": "Git",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'collaborative software maintenance' is directly tied to using Git and GitHub for version control, which aligns with the 'Git' skill entry.",
+        "candidates": [
+          {
+            "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+            "label": "tools for software configuration management",
+            "score": 0.422
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.412
+          },
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.411
+          }
+        ]
+      }
+    },
+    {
+      "term": "different types of software maintenance",
+      "canonical": {
+        "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+        "label": "maintenance and repair",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the different types of software maintenance and their respective challenges in real-world applications."
+        }
+      ],
+      "match": {
+        "original_term": "different types of software maintenance",
+        "canonical_id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+        "canonical_label": "maintenance and repair",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'different types of software maintenance' directly aligns with the label 'maintenance and repair' which includes the preservation and restoration of products and systems, matching the syllabus description.",
+        "candidates": [
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.427
+          },
+          {
+            "id": "esco:44297bbb-306a-46fa-ab1b-fa3fb327ebda",
+            "label": "mechanical tools",
+            "score": 0.4
+          },
+          {
+            "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+            "label": "maintenance and repair",
+            "score": 0.398
+          }
+        ]
+      }
+    },
+    {
+      "term": "improve software quality",
+      "canonical": {
+        "id": "esco:d56358e4-3bcc-4b5d-981d-ea15b2743e9e",
+        "label": "quality control systems",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Evaluate maintenance metrics and use tools like SonarQube to assess and improve software quality."
+        }
+      ],
+      "match": {
+        "original_term": "improve software quality",
+        "canonical_id": "esco:d56358e4-3bcc-4b5d-981d-ea15b2743e9e",
+        "canonical_label": "quality control systems",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'improve software quality' aligns with the concept of 'quality control systems' as it involves assessing and improving software quality using tools like SonarQube, which is part of quality assurance systems.",
+        "candidates": [
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.478
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.474
+          },
+          {
+            "id": "esco:41ec47dd-08b3-464a-9c45-c706f3e74467",
+            "label": "industrial software",
+            "score": 0.465
+          }
+        ]
+      }
+    },
+    {
+      "term": "maintainability",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Implement refactoring techniques with automated testing frameworks to improve code quality and maintainability."
+        }
+      ],
+      "match": {
+        "original_term": "maintainability",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.285,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.285
+          },
+          {
+            "id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+            "label": "usability engineering",
+            "score": 0.282
+          },
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.274
+          }
+        ]
+      }
+    },
+    {
+      "term": "principles of software configuration management",
+      "canonical": {
+        "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+        "label": "tools for software configuration management",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of software configuration management and apply them to manage software versions effectively."
+        }
+      ],
+      "match": {
+        "original_term": "principles of software configuration management",
+        "canonical_id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+        "canonical_label": "tools for software configuration management",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.671,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.27",
+        "candidates": [
+          {
+            "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+            "label": "tools for software configuration management",
+            "score": 0.671
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.401
+          },
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.394
+          }
+        ]
+      }
+    },
+    {
+      "term": "proficiency in using Git",
+      "canonical": {
+        "id": "custom:git",
+        "label": "Git",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define version control concepts and demonstrate proficiency in using Git and GitHub for collaborative software maintenance."
+        }
+      ],
+      "match": {
+        "original_term": "proficiency in using Git",
+        "canonical_id": "custom:git",
+        "canonical_label": "Git",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'proficiency in using Git' directly matches the skill 'Git', which is also explicitly called out as including GitHub and version control.",
+        "candidates": [
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.558
+          },
+          {
+            "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+            "label": "tools for software configuration management",
+            "score": 0.235
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.233
+          }
+        ]
+      }
+    },
+    {
+      "term": "respective challenges in real-world applications",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the different types of software maintenance and their respective challenges in real-world applications."
+        }
+      ],
+      "match": {
+        "original_term": "respective challenges in real-world applications",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.383,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:9ce670ec-318c-4a91-9179-03437db728dc",
+            "label": "ICT software specifications",
+            "score": 0.383
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.373
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.258
+          }
+        ]
+      }
+    },
+    {
+      "term": "them to manage software versions effectively",
+      "canonical": {
+        "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+        "label": "tools for software configuration management",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of software configuration management and apply them to manage software versions effectively."
+        }
+      ],
+      "match": {
+        "original_term": "them to manage software versions effectively",
+        "canonical_id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+        "canonical_label": "tools for software configuration management",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'manage software versions effectively' directly relates to software configuration management, which is explicitly covered by the 'tools for software configuration management' entry.",
+        "candidates": [
+          {
+            "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+            "label": "tools for software configuration management",
+            "score": 0.502
+          },
+          {
+            "id": "esco:cf310cff-0d28-4dbc-9dbb-cc500a3196c2",
+            "label": "office software",
+            "score": 0.363
+          },
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.357
+          }
+        ]
+      }
+    },
+    {
+      "term": "tools like SonarQube to assess",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Evaluate maintenance metrics and use tools like SonarQube to assess and improve software quality."
+        }
+      ],
+      "match": {
+        "original_term": "tools like SonarQube to assess",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.369,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.369
+          },
+          {
+            "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+            "label": "tools for software configuration management",
+            "score": 0.359
+          },
+          {
+            "id": "esco:41ec47dd-08b3-464a-9c45-c706f3e74467",
+            "label": "industrial software",
+            "score": 0.342
+          }
+        ]
+      }
+    },
+    {
+      "term": "version control",
+      "canonical": {
+        "id": "custom:git",
+        "label": "Git",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define version control concepts and demonstrate proficiency in using Git and GitHub for collaborative software maintenance."
+        }
+      ],
+      "match": {
+        "original_term": "version control",
+        "canonical_id": "custom:git",
+        "canonical_label": "Git",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Maintenance",
+      "canonical": {
+        "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+        "label": "maintenance and repair",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Git Workflow for Maintenance"
+        },
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Jira Setup for Maintenance Tasks"
+        }
+      ],
+      "match": {
+        "original_term": "Maintenance",
+        "canonical_id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+        "canonical_label": "maintenance and repair",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.629,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.39",
+        "candidates": [
+          {
+            "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+            "label": "maintenance and repair",
+            "score": 0.629
+          },
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.242
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "Maintenance Documentation Standards",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Maintenance Documentation Standards"
+        },
+        {
+          "source": "description",
+          "text": "maintenance documentation standards"
+        }
+      ],
+      "match": {
+        "original_term": "Maintenance Documentation Standards",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Maintenance Documentation Standards' directly relates to writing technical documentation for maintenance purposes, which matches the definition of 'technical documentation' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.578
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.451
+          },
+          {
+            "id": "esco:76526bf6-bada-4ca1-8e79-6b9d4228b607",
+            "label": "electrical safety regulations",
+            "score": 0.405
+          }
+        ]
+      }
+    },
+    {
+      "term": "Maintenance Models",
+      "canonical": {
+        "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+        "label": "maintenance and repair",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Software Evolution and Maintenance Models"
+        },
+        {
+          "source": "description",
+          "text": "maintenance models"
+        }
+      ],
+      "match": {
+        "original_term": "Maintenance Models",
+        "canonical_id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+        "canonical_label": "maintenance and repair",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Maintenance Models' directly relates to 'maintenance and repair' as it involves the preservation and restoration of systems, which aligns with the description of the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.504
+          },
+          {
+            "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+            "label": "maintenance and repair",
+            "score": 0.502
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.474
+          }
+        ]
+      }
+    },
+    {
+      "term": "Software Reuse",
+      "canonical": {
+        "id": "custom:design-patterns",
+        "label": "software design patterns",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Software Reuse and Maintenance Patterns"
+        },
+        {
+          "source": "description",
+          "text": "software reuse"
+        }
+      ],
+      "match": {
+        "original_term": "Software Reuse",
+        "canonical_id": "custom:design-patterns",
+        "canonical_label": "software design patterns",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Software Reuse' aligns with 'software design patterns' as both refer to reusable solutions in software development, even though the exact terminology differs.",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.536
+          },
+          {
+            "id": "esco:cf310cff-0d28-4dbc-9dbb-cc500a3196c2",
+            "label": "office software",
+            "score": 0.506
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.498
+          }
+        ]
+      }
+    },
+    {
+      "term": "Automated Test Script Development",
+      "canonical": {
+        "id": "custom:test-automation",
+        "label": "test automation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Automated Test Script Development"
+        }
+      ],
+      "match": {
+        "original_term": "Automated Test Script Development",
+        "canonical_id": "custom:test-automation",
+        "canonical_label": "test automation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Automated Test Script Development' directly matches the label 'test automation' and is also called 'automated testing', which aligns with the description of building and maintaining automated test suites.",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.543
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.44
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.407
+          }
+        ]
+      }
+    },
+    {
+      "term": "CI/CD Pipeline Setup with Jenkins",
+      "canonical": {
+        "id": "custom:ci-cd",
+        "label": "CI/CD pipelines",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "CI/CD Pipeline Setup with Jenkins"
+        }
+      ],
+      "match": {
+        "original_term": "CI/CD Pipeline Setup with Jenkins",
+        "canonical_id": "custom:ci-cd",
+        "canonical_label": "CI/CD pipelines",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.682,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.12",
+        "candidates": [
+          {
+            "id": "custom:ci-cd",
+            "label": "CI/CD pipelines",
+            "score": 0.682
+          },
+          {
+            "id": "esco:f47a1998-0beb-43be-9f46-380aa4d183da",
+            "label": "Jenkins (tools for software configuration management)",
+            "score": 0.564
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.164
+          }
+        ]
+      }
+    },
+    {
+      "term": "Code Refactoring Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Code Refactoring Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Code Refactoring Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.228,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.228
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.22
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cyclomatic Complexity Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Cyclomatic Complexity Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Cyclomatic Complexity Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match 'Cyclomatic Complexity Analysis'. The closest is 'algorithm analysis' (ESCO), but it is not specific enough to capture the exact skill described.",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.434
+          },
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.432
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.421
+          }
+        ]
+      }
+    },
+    {
+      "term": "Documentation Best Practices",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Documentation Best Practices"
+        }
+      ],
+      "match": {
+        "original_term": "Documentation Best Practices",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Documentation Best Practices' directly aligns with the skill 'technical documentation' which includes writing reference material for system use and maintenance.",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.578
+          },
+          {
+            "id": "esco:1618ee1c-6753-456e-a171-3d7e5f75404a",
+            "label": "good laboratory practice",
+            "score": 0.535
+          },
+          {
+            "id": "esco:47ca0da1-cae5-4395-ae6b-fd97b9ff48d3",
+            "label": "system backup best practice",
+            "score": 0.491
+          }
+        ]
+      }
+    },
+    {
+      "term": "Git Workflow",
+      "canonical": {
+        "id": "custom:git",
+        "label": "Git",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Git Workflow for Maintenance"
+        }
+      ],
+      "match": {
+        "original_term": "Git Workflow",
+        "canonical_id": "custom:git",
+        "canonical_label": "Git",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Git Workflow' directly relates to Git, which is a distributed version control system, and the taxonomy entry 'Git' includes related terms like GitHub and GitLab.",
+        "candidates": [
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.598
+          },
+          {
+            "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+            "label": "maintenance and repair",
+            "score": 0.275
+          },
+          {
+            "id": "esco:72a74f69-5cf1-43c5-99b9-62a444578919",
+            "label": "engineering processes",
+            "score": 0.274
+          }
+        ]
+      }
+    },
+    {
+      "term": "Jira Setup",
+      "canonical": {
+        "id": "custom:project-management",
+        "label": "project management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Jira Setup for Maintenance Tasks"
+        }
+      ],
+      "match": {
+        "original_term": "Jira Setup",
+        "canonical_id": "custom:project-management",
+        "canonical_label": "project management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.67,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.44",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.67
+          },
+          {
+            "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+            "label": "maintenance and repair",
+            "score": 0.226
+          },
+          {
+            "id": "esco:72a74f69-5cf1-43c5-99b9-62a444578919",
+            "label": "engineering processes",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "Real-World Maintenance Scenario Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Real-World Maintenance Scenario Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Real-World Maintenance Scenario Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.382,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+            "label": "maintenance and repair",
+            "score": 0.382
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.37
+          },
+          {
+            "id": "esco:2d7bf28a-2487-4443-9115-47478080b1a4",
+            "label": "hazard analysis and critical control points",
+            "score": 0.303
+          }
+        ]
+      }
+    },
+    {
+      "term": "Software Maintenance Strategy Implementation",
+      "canonical": {
+        "id": "custom:software-engineering",
+        "label": "software engineering",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 15,
+          "text": "Software Maintenance Strategy Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "Software Maintenance Strategy Implementation",
+        "canonical_id": "custom:software-engineering",
+        "canonical_label": "software engineering",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Software Maintenance Strategy Implementation' is a specific aspect of software engineering, which encompasses the disciplined approach to specifying, building, and maintaining software.",
+        "candidates": [
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.405
+          },
+          {
+            "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+            "label": "maintenance and repair",
+            "score": 0.386
+          },
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.37
+          }
+        ]
+      }
+    },
+    {
+      "term": "SonarQube Code Quality Assessment",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "SonarQube Code Quality Assessment"
+        }
+      ],
+      "match": {
+        "original_term": "SonarQube Code Quality Assessment",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.385,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.385
+          },
+          {
+            "id": "esco:d56358e4-3bcc-4b5d-981d-ea15b2743e9e",
+            "label": "quality control systems",
+            "score": 0.366
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.339
+          }
+        ]
+      }
+    },
+    {
+      "term": "Version Control Best Practices",
+      "canonical": {
+        "id": "custom:git",
+        "label": "Git",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Version Control Best Practices"
+        }
+      ],
+      "match": {
+        "original_term": "Version Control Best Practices",
+        "canonical_id": "custom:git",
+        "canonical_label": "Git",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.652,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.17",
+        "candidates": [
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.652
+          },
+          {
+            "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+            "label": "tools for software configuration management",
+            "score": 0.48
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.38
+          }
+        ]
+      }
+    },
+    {
+      "term": "Automated Testing in Maintenance",
+      "canonical": {
+        "id": "custom:test-automation",
+        "label": "test automation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Automated Testing in Maintenance"
+        }
+      ],
+      "match": {
+        "original_term": "Automated Testing in Maintenance",
+        "canonical_id": "custom:test-automation",
+        "canonical_label": "test automation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.706,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.706
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.522
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.443
+          }
+        ]
+      }
+    },
+    {
+      "term": "Bug Tracking Systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Bug Tracking Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Bug Tracking Systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Bug Tracking Systems'. The closest entries are related to monitoring, troubleshooting, or version control, but none specifically refer to bug tracking systems.",
+        "candidates": [
+          {
+            "id": "esco:0e8d16c9-e2db-4862-ac06-1567f01ef806",
+            "label": "building systems monitoring technology",
+            "score": 0.448
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.447
+          },
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.419
+          }
+        ]
+      }
+    },
+    {
+      "term": "Case Studies in Software Maintenance",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Case Studies in Software Maintenance"
+        }
+      ],
+      "match": {
+        "original_term": "Case Studies in Software Maintenance",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.393,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.393
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.392
+          },
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.386
+          }
+        ]
+      }
+    },
+    {
+      "term": "Challenges",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Maintenance Types and Challenges"
+        }
+      ],
+      "match": {
+        "original_term": "Challenges",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.299,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.299
+          },
+          {
+            "id": "esco:44297bbb-306a-46fa-ab1b-fa3fb327ebda",
+            "label": "mechanical tools",
+            "score": 0.264
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.26
+          }
+        ]
+      }
+    },
+    {
+      "term": "Code Quality",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Refactoring Techniques and Code Quality"
+        }
+      ],
+      "match": {
+        "original_term": "Code Quality",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Code Quality' as described in the syllabus. The closest entries relate to software testing, quality control systems, or specific programming languages, but none specifically address code quality practices.",
+        "candidates": [
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.494
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.488
+          },
+          {
+            "id": "esco:d56358e4-3bcc-4b5d-981d-ea15b2743e9e",
+            "label": "quality control systems",
+            "score": 0.485
+          }
+        ]
+      }
+    },
+    {
+      "term": "DevOps Tools",
+      "canonical": {
+        "id": "esco:f0de4973-0a70-4644-8fd4-3a97080476f4",
+        "label": "DevOps",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Release Management and DevOps Tools"
+        }
+      ],
+      "match": {
+        "original_term": "DevOps Tools",
+        "canonical_id": "esco:f0de4973-0a70-4644-8fd4-3a97080476f4",
+        "canonical_label": "DevOps",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'DevOps Tools' directly matches the label 'DevOps' in the taxonomy, which is described as the DevOps development approach focusing on collaboration and automation between software programmers and ICT professionals.",
+        "candidates": [
+          {
+            "id": "custom:devops",
+            "label": "DevOps practices",
+            "score": 0.66
+          },
+          {
+            "id": "esco:f0de4973-0a70-4644-8fd4-3a97080476f4",
+            "label": "DevOps",
+            "score": 0.658
+          },
+          {
+            "id": "custom:rqt",
+            "label": "RQT",
+            "score": 0.44
+          }
+        ]
+      }
+    },
+    {
+      "term": "Git",
+      "canonical": {
+        "id": "custom:git",
+        "label": "Git",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Git and GitHub Usage"
+        }
+      ],
+      "match": {
+        "original_term": "Git",
+        "canonical_id": "custom:git",
+        "canonical_label": "Git",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "GitHub Usage",
+      "canonical": {
+        "id": "custom:git",
+        "label": "Git",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Git and GitHub Usage"
+        }
+      ],
+      "match": {
+        "original_term": "GitHub Usage",
+        "canonical_id": "custom:git",
+        "canonical_label": "Git",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.768,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.32",
+        "candidates": [
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.768
+          },
+          {
+            "id": "custom:ci-cd",
+            "label": "CI/CD pipelines",
+            "score": 0.451
+          },
+          {
+            "id": "esco:778ca7ad-6c5d-4868-9b96-a7777dca799c",
+            "label": "ICT help platforms",
+            "score": 0.183
+          }
+        ]
+      }
+    },
+    {
+      "term": "IEEE 12207 Compliance",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "IEEE 12207 Compliance"
+        }
+      ],
+      "match": {
+        "original_term": "IEEE 12207 Compliance",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.378,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.378
+          },
+          {
+            "id": "esco:9983816d-cc78-4d3f-9e3c-c7baa9ebc77a",
+            "label": "computer equipment",
+            "score": 0.201
+          },
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.191
+          }
+        ]
+      }
+    },
+    {
+      "term": "Jira",
+      "canonical": {
+        "id": "custom:project-management",
+        "label": "project management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Jira for Maintenance Management"
+        }
+      ],
+      "match": {
+        "original_term": "Jira",
+        "canonical_id": "custom:project-management",
+        "canonical_label": "project management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Jira for Maintenance Management' directly references Jira, which is explicitly listed as an alias for 'project management' in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.888
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.282
+          },
+          {
+            "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+            "label": "maintenance and repair",
+            "score": 0.238
+          }
+        ]
+      }
+    },
+    {
+      "term": "JUnit",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "JUnit and Selenium Integration"
+        }
+      ],
+      "match": {
+        "original_term": "JUnit",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "JUnit is explicitly listed as an alternative name for unit testing in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.869
+          },
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.223
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "Maintenance Management",
+      "canonical": {
+        "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+        "label": "maintenance and repair",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Jira for Maintenance Management"
+        }
+      ],
+      "match": {
+        "original_term": "Maintenance Management",
+        "canonical_id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+        "canonical_label": "maintenance and repair",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Maintenance Management' directly aligns with the label 'maintenance and repair' and its also called entries, which include 'maintenance management'.",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.618
+          },
+          {
+            "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+            "label": "maintenance and repair",
+            "score": 0.503
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.498
+          }
+        ]
+      }
+    },
+    {
+      "term": "Maintenance Patterns",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Software Reuse and Maintenance Patterns"
+        }
+      ],
+      "match": {
+        "original_term": "Maintenance Patterns",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Maintenance Patterns' refers to specific patterns used in software maintenance, while none of the taxonomy entries directly match this concept. The closest entry, 'maintenance and repair', is much broader and not specific to software patterns.",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.571
+          },
+          {
+            "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+            "label": "maintenance and repair",
+            "score": 0.5
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.496
+          }
+        ]
+      }
+    },
+    {
+      "term": "Maintenance Planning",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Maintenance Planning and Risk Management"
+        }
+      ],
+      "match": {
+        "original_term": "Maintenance Planning",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Maintenance Planning' does not match any of the provided taxonomy entries, which focus on specific areas like ammunition maintenance, machine tools, or mechanical systems, rather than the broader concept of maintenance planning.",
+        "candidates": [
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.565
+          },
+          {
+            "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+            "label": "maintenance and repair",
+            "score": 0.525
+          },
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.488
+          }
+        ]
+      }
+    },
+    {
+      "term": "Maintenance Strategy Design",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Final Project and Maintenance Strategy Design"
+        }
+      ],
+      "match": {
+        "original_term": "Maintenance Strategy Design",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Maintenance Strategy Design' does not match any of the provided taxonomy entries, as none specifically refer to the design of maintenance strategies.",
+        "candidates": [
+          {
+            "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+            "label": "maintenance and repair",
+            "score": 0.439
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.434
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.404
+          }
+        ]
+      }
+    },
+    {
+      "term": "Maintenance Types",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Maintenance Types and Challenges"
+        }
+      ],
+      "match": {
+        "original_term": "Maintenance Types",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Maintenance Types' as a skill. The closest entries are about types of lifts, aircraft, sanders, etc., which are not directly related to maintenance types as a skill.",
+        "candidates": [
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.516
+          },
+          {
+            "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+            "label": "maintenance and repair",
+            "score": 0.51
+          },
+          {
+            "id": "esco:59bfa2b4-c5e0-44d6-afe2-991d173516ba",
+            "label": "types of lifts",
+            "score": 0.481
+          }
+        ]
+      }
+    },
+    {
+      "term": "Refactoring Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Refactoring Techniques and Code Quality"
+        }
+      ],
+      "match": {
+        "original_term": "Refactoring Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.25,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.25
+          },
+          {
+            "id": "esco:51586df8-1c46-4b47-8583-773cb63bf00b",
+            "label": "R",
+            "score": 0.242
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.223
+          }
+        ]
+      }
+    },
+    {
+      "term": "Release Management",
+      "canonical": {
+        "id": "custom:devops",
+        "label": "DevOps practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Release Management and DevOps Tools"
+        }
+      ],
+      "match": {
+        "original_term": "Release Management",
+        "canonical_id": "custom:devops",
+        "canonical_label": "DevOps practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Release Management' is directly related to 'DevOps practices' as both are part of the DevOps methodology, which integrates software development and operations.",
+        "candidates": [
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.509
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.501
+          },
+          {
+            "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+            "label": "tools for software configuration management",
+            "score": 0.436
+          }
+        ]
+      }
+    },
+    {
+      "term": "Risk Management",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Maintenance Planning and Risk Management"
+        }
+      ],
+      "match": {
+        "original_term": "Risk Management",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.737,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.17",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.737
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.562
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.415
+          }
+        ]
+      }
+    },
+    {
+      "term": "Selenium Integration",
+      "canonical": {
+        "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+        "label": "tools for ICT test automation",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "JUnit and Selenium Integration"
+        }
+      ],
+      "match": {
+        "original_term": "Selenium Integration",
+        "canonical_id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+        "canonical_label": "tools for ICT test automation",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Selenium Integration' directly refers to the use of Selenium for test automation, which matches the label 'tools for ICT test automation' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.646
+          },
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.615
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.612
+          }
+        ]
+      }
+    },
+    {
+      "term": "Software Configuration Management",
+      "canonical": {
+        "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+        "label": "tools for software configuration management",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Software Configuration Management"
+        }
+      ],
+      "match": {
+        "original_term": "Software Configuration Management",
+        "canonical_id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+        "canonical_label": "tools for software configuration management",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.77,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.07",
+        "candidates": [
+          {
+            "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+            "label": "tools for software configuration management",
+            "score": 0.77
+          },
+          {
+            "id": "esco:c7451027-8249-405a-bb1b-342ff0f3fb3b",
+            "label": "Salt (tools for software configuration management)",
+            "score": 0.703
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.439
+          }
+        ]
+      }
+    },
+    {
+      "term": "Software Evolution",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Software Evolution and Maintenance Models"
+        }
+      ],
+      "match": {
+        "original_term": "Software Evolution",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Software Evolution' refers to the process of evolving and maintaining software over time, which is not directly captured by any of the provided taxonomy entries. None of the entries specifically address software evolution or maintenance models.",
+        "candidates": [
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.488
+          },
+          {
+            "id": "esco:24c200e5-be20-4370-a137-ab53797f3a17",
+            "label": "software frameworks",
+            "score": 0.475
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.474
+          }
+        ]
+      }
+    },
+    {
+      "term": "Software Maintenance",
+      "canonical": {
+        "id": "custom:software-engineering",
+        "label": "software engineering",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Software Maintenance"
+        }
+      ],
+      "match": {
+        "original_term": "Software Maintenance",
+        "canonical_id": "custom:software-engineering",
+        "canonical_label": "software engineering",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Software Maintenance' is a subset of 'software engineering' as defined by the taxonomy entry, which includes 'maintaining software' as part of its disciplined approach.",
+        "candidates": [
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.5
+          },
+          {
+            "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+            "label": "maintenance and repair",
+            "score": 0.493
+          },
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.478
+          }
+        ]
+      }
+    },
+    {
+      "term": "Software Quality Tools",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Software Quality Tools and Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Software Quality Tools",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Software Quality Tools' as defined in the syllabus. The closest entries are related to testing, configuration management, or metrics, but none directly match the phrase.",
+        "candidates": [
+          {
+            "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+            "label": "tools for software configuration management",
+            "score": 0.627
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.58
+          },
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.557
+          }
+        ]
+      }
+    },
+    {
+      "term": "SonarQube Usage",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "SonarQube Usage"
+        }
+      ],
+      "match": {
+        "original_term": "SonarQube Usage",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.171,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.171
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.169
+          },
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.166
+          }
+        ]
+      }
+    },
+    {
+      "term": "Version Control Fundamentals",
+      "canonical": {
+        "id": "custom:git",
+        "label": "Git",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Version Control Fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "Version Control Fundamentals",
+        "canonical_id": "custom:git",
+        "canonical_label": "Git",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.719,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.20",
+        "candidates": [
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.719
+          },
+          {
+            "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+            "label": "tools for software configuration management",
+            "score": 0.514
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.41
+          }
+        ]
+      }
+    },
+    {
+      "term": "bug tracking with Jira",
+      "canonical": {
+        "id": "custom:project-management",
+        "label": "project management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "bug tracking with Jira"
+        }
+      ],
+      "match": {
+        "original_term": "bug tracking with Jira",
+        "canonical_id": "custom:project-management",
+        "canonical_label": "project management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'bug tracking with Jira' is a specific example of project management, as Jira is a tool used for task and bug tracking in project management.",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.461
+          },
+          {
+            "id": "esco:ce7c9e97-40e4-497b-a85d-72573a8b9991",
+            "label": "hunting truck detector",
+            "score": 0.188
+          },
+          {
+            "id": "custom:robot-troubleshooting",
+            "label": "robot system troubleshooting",
+            "score": 0.186
+          }
+        ]
+      }
+    },
+    {
+      "term": "code quality analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "code quality analysis"
+        }
+      ],
+      "match": {
+        "original_term": "code quality analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'code quality analysis'. The closest entries are 'software testing' and 'ICT performance analysis methods', but neither precisely captures the concept of analyzing code quality.",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.436
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.429
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.425
+          }
+        ]
+      }
+    },
+    {
+      "term": "corrective",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "corrective"
+        }
+      ],
+      "match": {
+        "original_term": "corrective",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.234,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.234
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.201
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.186
+          }
+        ]
+      }
+    },
+    {
+      "term": "course also addresses software configuration management",
+      "canonical": {
+        "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+        "label": "tools for software configuration management",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "course also addresses software configuration management"
+        }
+      ],
+      "match": {
+        "original_term": "course also addresses software configuration management",
+        "canonical_id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+        "canonical_label": "tools for software configuration management",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'software configuration management' directly matches the label 'tools for software configuration management' and is explicitly covered in its description.",
+        "candidates": [
+          {
+            "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+            "label": "tools for software configuration management",
+            "score": 0.568
+          },
+          {
+            "id": "esco:c7451027-8249-405a-bb1b-342ff0f3fb3b",
+            "label": "Salt (tools for software configuration management)",
+            "score": 0.534
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.354
+          }
+        ]
+      }
+    },
+    {
+      "term": "Evolutionary Software Engineering approach",
+      "canonical": {
+        "id": "custom:software-engineering",
+        "label": "software engineering",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Evolutionary Software Engineering approach"
+        }
+      ],
+      "match": {
+        "original_term": "Evolutionary Software Engineering approach",
+        "canonical_id": "custom:software-engineering",
+        "canonical_label": "software engineering",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.639,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.28",
+        "candidates": [
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.639
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.36
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.346
+          }
+        ]
+      }
+    },
+    {
+      "term": "Halstead metrics",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Halstead metrics"
+        }
+      ],
+      "match": {
+        "original_term": "Halstead metrics",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.214,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.214
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.213
+          },
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "IEEE 12207",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "IEEE 12207"
+        }
+      ],
+      "match": {
+        "original_term": "IEEE 12207",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.159,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:61c81161-b732-4c47-aba5-9e554d9a853f",
+            "label": "integrated circuit types",
+            "score": 0.159
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.158
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.155
+          }
+        ]
+      }
+    },
+    {
+      "term": "maintenance metrics like cyclomatic complexity",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "maintenance metrics like cyclomatic complexity"
+        }
+      ],
+      "match": {
+        "original_term": "maintenance metrics like cyclomatic complexity",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.362,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.362
+          },
+          {
+            "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+            "label": "maintenance and repair",
+            "score": 0.358
+          },
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.338
+          }
+        ]
+      }
+    },
+    {
+      "term": "maintenance tools like SonarQube",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "maintenance tools like SonarQube"
+        }
+      ],
+      "match": {
+        "original_term": "maintenance tools like SonarQube",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.381,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.381
+          },
+          {
+            "id": "esco:f5084a43-42c9-4bbb-b47c-b3029cf8381d",
+            "label": "machine tools",
+            "score": 0.357
+          },
+          {
+            "id": "esco:44297bbb-306a-46fa-ab1b-fa3fb327ebda",
+            "label": "mechanical tools",
+            "score": 0.338
+          }
+        ]
+      }
+    },
+    {
+      "term": "perfective",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "perfective"
+        }
+      ],
+      "match": {
+        "original_term": "perfective",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.188,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.188
+          },
+          {
+            "id": "custom:forward-kinematics",
+            "label": "forward kinematics",
+            "score": 0.158
+          },
+          {
+            "id": "custom:tableau",
+            "label": "Tableau",
+            "score": 0.156
+          }
+        ]
+      }
+    },
+    {
+      "term": "preventive maintenance",
+      "canonical": {
+        "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+        "label": "maintenance and repair",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "preventive maintenance"
+        }
+      ],
+      "match": {
+        "original_term": "preventive maintenance",
+        "canonical_id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+        "canonical_label": "maintenance and repair",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'preventive maintenance' directly matches the label 'maintenance and repair' and is a specific type of maintenance practice within that broader category.",
+        "candidates": [
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.474
+          },
+          {
+            "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+            "label": "maintenance and repair",
+            "score": 0.473
+          },
+          {
+            "id": "esco:75f312e1-622b-4751-8d93-815b32feaf8d",
+            "label": "pollution prevention",
+            "score": 0.244
+          }
+        ]
+      }
+    },
+    {
+      "term": "release management using DevOps tools",
+      "canonical": {
+        "id": "esco:f0de4973-0a70-4644-8fd4-3a97080476f4",
+        "label": "DevOps",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "release management using DevOps tools"
+        }
+      ],
+      "match": {
+        "original_term": "release management using DevOps tools",
+        "canonical_id": "esco:f0de4973-0a70-4644-8fd4-3a97080476f4",
+        "canonical_label": "DevOps",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'release management using DevOps tools' directly aligns with the label 'DevOps' as it refers to the methodology integrating software development and operations, which is the core of DevOps practices.",
+        "candidates": [
+          {
+            "id": "custom:devops",
+            "label": "DevOps practices",
+            "score": 0.44
+          },
+          {
+            "id": "esco:f0de4973-0a70-4644-8fd4-3a97080476f4",
+            "label": "DevOps",
+            "score": 0.44
+          },
+          {
+            "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+            "label": "tools for software configuration management",
+            "score": 0.425
+          }
+        ]
+      }
+    },
+    {
+      "term": "Selenium",
+      "canonical": {
+        "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+        "label": "tools for ICT test automation",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Selenium"
+        }
+      ],
+      "match": {
+        "original_term": "Selenium",
+        "canonical_id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+        "canonical_label": "tools for ICT test automation",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'Selenium' is explicitly listed in the also called section of the 'tools for ICT test automation' entry, confirming it matches the same skill.",
+        "candidates": [
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.879
+          },
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.87
+          },
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.176
+          }
+        ]
+      }
+    },
+    {
+      "term": "Students will study maintenance types",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Students will study maintenance types"
+        }
+      ],
+      "match": {
+        "original_term": "Students will study maintenance types",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.386,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.386
+          },
+          {
+            "id": "esco:44297bbb-306a-46fa-ab1b-fa3fb327ebda",
+            "label": "mechanical tools",
+            "score": 0.35
+          },
+          {
+            "id": "esco:59bfa2b4-c5e0-44d6-afe2-991d173516ba",
+            "label": "types of lifts",
+            "score": 0.345
+          }
+        ]
+      }
+    },
+    {
+      "term": "This course covers software maintenance techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "This course covers software maintenance techniques"
+        }
+      ],
+      "match": {
+        "original_term": "This course covers software maintenance techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.35,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+            "label": "maintenance and repair",
+            "score": 0.35
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.35
+          },
+          {
+            "id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+            "label": "ICT recovery techniques",
+            "score": 0.338
+          }
+        ]
+      }
+    },
+    {
+      "term": "version control with Git",
+      "canonical": {
+        "id": "custom:git",
+        "label": "Git",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "version control with Git"
+        }
+      ],
+      "match": {
+        "original_term": "version control with Git",
+        "canonical_id": "custom:git",
+        "canonical_label": "Git",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.774,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.25",
+        "candidates": [
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.774
+          },
+          {
+            "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+            "label": "tools for software configuration management",
+            "score": 0.52
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.416
+          }
+        ]
+      }
+    }
+  ]
+}

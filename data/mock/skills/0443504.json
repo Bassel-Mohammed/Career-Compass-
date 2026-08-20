@@ -1,0 +1,4088 @@
+{
+  "course_code": "0443504",
+  "course_codes": [
+    "0443504"
+  ],
+  "course_title": "Software Development and Documentation Lab",
+  "credit_hours": 1,
+  "plans": [
+    "SE"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "accepted": 59,
+      "no_match": 16,
+      "needs_review": 12
+    },
+    "by_method": {
+      "llm": 40,
+      "embedding_reranker": 40,
+      "exact_alias": 7
+    }
+  },
+  "total_skills": 87,
+  "skills": [
+    {
+      "term": "PyTest",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "lab",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply code testing techniques using JUnit and PyTest for unit and integration testing."
+        },
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "TDD Implementation with JUnit and PyTest"
+        },
+        {
+          "source": "description",
+          "text": "PyTest"
+        }
+      ],
+      "match": {
+        "original_term": "PyTest",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'PyTest' is explicitly listed in the also called field of the 'unit testing' entry, confirming it refers to the same skill.",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.945
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.269
+          },
+          {
+            "id": "esco:3e75d405-c3d1-4a66-9963-05a9397d68fb",
+            "label": "printed circuit boards testing methods",
+            "score": 0.268
+          }
+        ]
+      }
+    },
+    {
+      "term": "Sphinx",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement technical documentation standards using Markdown and Sphinx for API and software documentation."
+        },
+        {
+          "source": "description",
+          "text": "Sphinx"
+        }
+      ],
+      "match": {
+        "original_term": "Sphinx",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.245,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.245
+          },
+          {
+            "id": "esco:56a7f561-1d55-43c9-9cd7-36a0a9bc6c50",
+            "label": "ASP.NET",
+            "score": 0.193
+          },
+          {
+            "id": "esco:24c200e5-be20-4370-a137-ab53797f3a17",
+            "label": "software frameworks",
+            "score": 0.193
+          }
+        ]
+      }
+    },
+    {
+      "term": "API",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement technical documentation standards using Markdown and Sphinx for API and software documentation."
+        }
+      ],
+      "match": {
+        "original_term": "API",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'API' is explicitly mentioned in the context of technical documentation standards, and the 'technical documentation' entry includes API documentation as an also-called term.",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.621
+          },
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.614
+          },
+          {
+            "id": "esco:b8c01891-e3df-4a4b-948d-95b45e1788f5",
+            "label": "mobile device software frameworks",
+            "score": 0.199
+          }
+        ]
+      }
+    },
+    {
+      "term": "application in iterative software development",
+      "canonical": {
+        "id": "esco:33d49d4f-31ec-473f-9b8a-b555aa5116bb",
+        "label": "Iterative development",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the principles of Agile methodology and their application in iterative software development."
+        }
+      ],
+      "match": {
+        "original_term": "application in iterative software development",
+        "canonical_id": "esco:33d49d4f-31ec-473f-9b8a-b555aa5116bb",
+        "canonical_label": "Iterative development",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.664,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.08",
+        "candidates": [
+          {
+            "id": "esco:33d49d4f-31ec-473f-9b8a-b555aa5116bb",
+            "label": "Iterative development",
+            "score": 0.664
+          },
+          {
+            "id": "esco:96eb286a-58b7-45ff-a916-5578d0b79b8c",
+            "label": "Rapid application development",
+            "score": 0.586
+          },
+          {
+            "id": "esco:dba46f87-0831-49cd-a1c7-340a653c0221",
+            "label": "Agile development",
+            "score": 0.497
+          }
+        ]
+      }
+    },
+    {
+      "term": "code testing techniques using JUnit",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply code testing techniques using JUnit and PyTest for unit and integration testing."
+        }
+      ],
+      "match": {
+        "original_term": "code testing techniques using JUnit",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'code testing techniques using JUnit' directly references unit testing, and JUnit is explicitly listed as an alternative name for unit testing in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.549
+          },
+          {
+            "id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+            "label": "levels of software testing",
+            "score": 0.412
+          },
+          {
+            "id": "esco:53456d90-8c0d-4bd2-9f1b-312619b6e2a6",
+            "label": "hardware testing methods",
+            "score": 0.386
+          }
+        ]
+      }
+    },
+    {
+      "term": "corresponding documentation artifacts",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the software development lifecycle stages and their corresponding documentation artifacts."
+        }
+      ],
+      "match": {
+        "original_term": "corresponding documentation artifacts",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'corresponding documentation artifacts' directly relates to the creation and management of technical documentation, which is exactly what the 'technical documentation' entry describes.",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.566
+          },
+          {
+            "id": "esco:09f2f811-a3fb-4de3-a70f-6420a6935575",
+            "label": "systems development life-cycle",
+            "score": 0.286
+          },
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.273
+          }
+        ]
+      }
+    },
+    {
+      "term": "integration testing",
+      "canonical": {
+        "id": "custom:api-testing",
+        "label": "API testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply code testing techniques using JUnit and PyTest for unit and integration testing."
+        }
+      ],
+      "match": {
+        "original_term": "integration testing",
+        "canonical_id": "custom:api-testing",
+        "canonical_label": "API testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "principles of Agile methodology",
+      "canonical": {
+        "id": "custom:agile-methodology",
+        "label": "agile methodology",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the principles of Agile methodology and their application in iterative software development."
+        }
+      ],
+      "match": {
+        "original_term": "principles of Agile methodology",
+        "canonical_id": "custom:agile-methodology",
+        "canonical_label": "agile methodology",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.77,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.28",
+        "candidates": [
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.77
+          },
+          {
+            "id": "esco:dba46f87-0831-49cd-a1c7-340a653c0221",
+            "label": "Agile development",
+            "score": 0.487
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.315
+          }
+        ]
+      }
+    },
+    {
+      "term": "software development lifecycle stages",
+      "canonical": {
+        "id": "custom:software-engineering",
+        "label": "software engineering",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the software development lifecycle stages and their corresponding documentation artifacts."
+        }
+      ],
+      "match": {
+        "original_term": "software development lifecycle stages",
+        "canonical_id": "custom:software-engineering",
+        "canonical_label": "software engineering",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.808,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.34",
+        "candidates": [
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.808
+          },
+          {
+            "id": "esco:09f2f811-a3fb-4de3-a70f-6420a6935575",
+            "label": "systems development life-cycle",
+            "score": 0.467
+          },
+          {
+            "id": "esco:4840338b-ac6c-486a-be1d-9ddfe00b8bdf",
+            "label": "Spiral development",
+            "score": 0.428
+          }
+        ]
+      }
+    },
+    {
+      "term": "software documentation",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement technical documentation standards using Markdown and Sphinx for API and software documentation."
+        }
+      ],
+      "match": {
+        "original_term": "software documentation",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.724,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.25",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.724
+          },
+          {
+            "id": "esco:24c200e5-be20-4370-a137-ab53797f3a17",
+            "label": "software frameworks",
+            "score": 0.476
+          },
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.474
+          }
+        ]
+      }
+    },
+    {
+      "term": "structure",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the structure and syntax of UML and SysML diagrams for system modeling."
+        }
+      ],
+      "match": {
+        "original_term": "structure",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'structure' in the context of UML and SysML diagrams refers to the organization and syntax of diagrams, which is not directly captured by any of the provided taxonomy entries. None of the candidates specifically address diagram structure or modeling syntax.",
+        "candidates": [
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.618
+          },
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.262
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.261
+          }
+        ]
+      }
+    },
+    {
+      "term": "syntax of UML",
+      "canonical": {
+        "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "label": "unified modelling language",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the structure and syntax of UML and SysML diagrams for system modeling."
+        }
+      ],
+      "match": {
+        "original_term": "syntax of UML",
+        "canonical_id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "canonical_label": "unified modelling language",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'syntax of UML' directly relates to the 'unified modelling language' (UML), which is explicitly mentioned in the taxonomy entry as a general-purpose modelling language used in software development.",
+        "candidates": [
+          {
+            "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+            "label": "unified modelling language",
+            "score": 0.609
+          },
+          {
+            "id": "esco:a4d336a6-9ffd-402a-91cc-f359716ba4e0",
+            "label": "ML (computer programming)",
+            "score": 0.269
+          },
+          {
+            "id": "esco:02c71cde-f513-43da-8952-0974763c7568",
+            "label": "circuit diagrams",
+            "score": 0.225
+          }
+        ]
+      }
+    },
+    {
+      "term": "SysML diagrams",
+      "canonical": {
+        "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "label": "unified modelling language",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the structure and syntax of UML and SysML diagrams for system modeling."
+        }
+      ],
+      "match": {
+        "original_term": "SysML diagrams",
+        "canonical_id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "canonical_label": "unified modelling language",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'SysML diagrams' is directly related to 'unified modelling language' (UML), as SysML is a specialized subset of UML used for system modeling, and the syllabus explicitly mentions both UML and SysML diagrams.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.512
+          },
+          {
+            "id": "esco:ed291aa0-8b2f-4179-b2f7-540ea6f63bf3",
+            "label": "electrical wiring diagrams",
+            "score": 0.507
+          },
+          {
+            "id": "esco:02c71cde-f513-43da-8952-0974763c7568",
+            "label": "circuit diagrams",
+            "score": 0.506
+          }
+        ]
+      }
+    },
+    {
+      "term": "system modeling",
+      "canonical": {
+        "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "label": "unified modelling language",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the structure and syntax of UML and SysML diagrams for system modeling."
+        }
+      ],
+      "match": {
+        "original_term": "system modeling",
+        "canonical_id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "canonical_label": "unified modelling language",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'system modeling' is directly related to the use of UML for system design, which is explicitly described in the 'unified modelling language' entry.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.517
+          },
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.467
+          },
+          {
+            "id": "esco:cdd8b6b2-2fd9-453c-8d62-8a1dc6efcd49",
+            "label": "systems theory",
+            "score": 0.453
+          }
+        ]
+      }
+    },
+    {
+      "term": "technical documentation standards using Markdown",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement technical documentation standards using Markdown and Sphinx for API and software documentation."
+        }
+      ],
+      "match": {
+        "original_term": "technical documentation standards using Markdown",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.651,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.28",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.651
+          },
+          {
+            "id": "esco:8696aff0-18c0-4ba6-a4d0-9a21861b3e5e",
+            "label": "World Wide Web Consortium standards",
+            "score": 0.369
+          },
+          {
+            "id": "esco:69bbd53f-fbb0-4476-b4b2-ef7844464e28",
+            "label": "web programming",
+            "score": 0.232
+          }
+        ]
+      }
+    },
+    {
+      "term": "unit",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply code testing techniques using JUnit and PyTest for unit and integration testing."
+        }
+      ],
+      "match": {
+        "original_term": "unit",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.732,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.50",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.732
+          },
+          {
+            "id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+            "label": "levels of software testing",
+            "score": 0.232
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.219
+          }
+        ]
+      }
+    },
+    {
+      "term": "Code Review Best Practices",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Code Review Best Practices"
+        },
+        {
+          "source": "description",
+          "text": "code review best practices"
+        }
+      ],
+      "match": {
+        "original_term": "Code Review Best Practices",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.391,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.391
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.214
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.19
+          }
+        ]
+      }
+    },
+    {
+      "term": "Documentation Standards",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Documentation Standards and Compliance"
+        },
+        {
+          "source": "description",
+          "text": "documentation standards"
+        }
+      ],
+      "match": {
+        "original_term": "Documentation Standards",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.68,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.13",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.68
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.545
+          },
+          {
+            "id": "esco:8696aff0-18c0-4ba6-a4d0-9a21861b3e5e",
+            "label": "World Wide Web Consortium standards",
+            "score": 0.488
+          }
+        ]
+      }
+    },
+    {
+      "term": "Version Control with Git",
+      "canonical": {
+        "id": "custom:git",
+        "label": "Git",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Version Control with Git"
+        },
+        {
+          "source": "description",
+          "text": "version control with Git"
+        }
+      ],
+      "match": {
+        "original_term": "Version Control with Git",
+        "canonical_id": "custom:git",
+        "canonical_label": "Git",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.776,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.25",
+        "candidates": [
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.776
+          },
+          {
+            "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+            "label": "tools for software configuration management",
+            "score": 0.524
+          },
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.422
+          }
+        ]
+      }
+    },
+    {
+      "term": "CI/CD Pipeline",
+      "canonical": {
+        "id": "custom:ci-cd",
+        "label": "CI/CD pipelines",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "CI/CD Pipeline for Documentation Generation"
+        }
+      ],
+      "match": {
+        "original_term": "CI/CD Pipeline",
+        "canonical_id": "custom:ci-cd",
+        "canonical_label": "CI/CD pipelines",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Code Review Process Simulation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Code Review Process Simulation and Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Code Review Process Simulation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.15,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Code Review Process Simulation' does not match any of the provided taxonomy entries, as none specifically refer to simulating code review processes.",
+        "candidates": [
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.406
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.378
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.334
+          }
+        ]
+      }
+    },
+    {
+      "term": "Documentation Compliance Audit Using ISO/IEC 26514",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Documentation Compliance Audit Using ISO/IEC 26514"
+        }
+      ],
+      "match": {
+        "original_term": "Documentation Compliance Audit Using ISO/IEC 26514",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Documentation Compliance Audit Using ISO/IEC 26514' directly relates to compliance and standards, which aligns with the 'security risk management' entry that includes compliance and ISO standards.",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.404
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.386
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.301
+          }
+        ]
+      }
+    },
+    {
+      "term": "Documentation Generation",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "CI/CD Pipeline for Documentation Generation"
+        }
+      ],
+      "match": {
+        "original_term": "Documentation Generation",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.67,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.24",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.67
+          },
+          {
+            "id": "custom:retrieval-augmented-generation",
+            "label": "retrieval-augmented generation",
+            "score": 0.434
+          },
+          {
+            "id": "custom:ci-cd",
+            "label": "CI/CD pipelines",
+            "score": 0.35
+          }
+        ]
+      }
+    },
+    {
+      "term": "Final Project Documentation",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 15,
+          "text": "Final Project Documentation and Testing Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "Final Project Documentation",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Final Project Documentation' directly aligns with 'technical documentation' as it involves writing reference material for a system, which matches the description of technical documentation.",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.589
+          },
+          {
+            "id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+            "label": "levels of software testing",
+            "score": 0.247
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.242
+          }
+        ]
+      }
+    },
+    {
+      "term": "Git Repository Setup",
+      "canonical": {
+        "id": "custom:git",
+        "label": "Git",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 2,
+          "text": "Git Repository Setup and Workflow Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "Git Repository Setup",
+        "canonical_id": "custom:git",
+        "canonical_label": "Git",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Git Repository Setup' directly refers to Git, which is explicitly listed as 'Git' in the taxonomy entry with the label 'custom:git'.",
+        "candidates": [
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.5
+          },
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.22
+          },
+          {
+            "id": "custom:ci-cd",
+            "label": "CI/CD pipelines",
+            "score": 0.205
+          }
+        ]
+      }
+    },
+    {
+      "term": "Java",
+      "canonical": {
+        "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "label": "Java",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "JUnit Unit Test Implementation for Java"
+        }
+      ],
+      "match": {
+        "original_term": "Java",
+        "canonical_id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "canonical_label": "Java",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "JUnit Unit Test Implementation",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "JUnit Unit Test Implementation for Java"
+        }
+      ],
+      "match": {
+        "original_term": "JUnit Unit Test Implementation",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'JUnit Unit Test Implementation' directly refers to unit testing, which is explicitly listed in the 'unit testing' entry under the 'custom' taxonomy, and JUnit is also listed as an alternative name for unit testing.",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.604
+          },
+          {
+            "id": "esco:3e75d405-c3d1-4a66-9963-05a9397d68fb",
+            "label": "printed circuit boards testing methods",
+            "score": 0.35
+          },
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.339
+          }
+        ]
+      }
+    },
+    {
+      "term": "Markdown Documentation",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Markdown Documentation for Software Components"
+        }
+      ],
+      "match": {
+        "original_term": "Markdown Documentation",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.679,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.37",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.679
+          },
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.312
+          },
+          {
+            "id": "esco:e6b8f934-7f35-4dc6-9a64-f6c43acdc00b",
+            "label": "software components suppliers",
+            "score": 0.309
+          }
+        ]
+      }
+    },
+    {
+      "term": "OpenAPI Specification Creation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "OpenAPI Specification Creation and Swagger UI Deployment"
+        }
+      ],
+      "match": {
+        "original_term": "OpenAPI Specification Creation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.241,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.241
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.212
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.207
+          }
+        ]
+      }
+    },
+    {
+      "term": "PyTest Integration Test Suite Development",
+      "canonical": {
+        "id": "custom:test-automation",
+        "label": "test automation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "PyTest Integration Test Suite Development"
+        }
+      ],
+      "match": {
+        "original_term": "PyTest Integration Test Suite Development",
+        "canonical_id": "custom:test-automation",
+        "canonical_label": "test automation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'PyTest Integration Test Suite Development' directly relates to building and maintaining automated test suites, which matches the description of 'test automation' and includes PyTest as a tool.",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.554
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.398
+          },
+          {
+            "id": "esco:ed1d8bd4-cd2a-4c64-b665-56d70651026c",
+            "label": "Prototyping development",
+            "score": 0.371
+          }
+        ]
+      }
+    },
+    {
+      "term": "Software Components",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Markdown Documentation for Software Components"
+        }
+      ],
+      "match": {
+        "original_term": "Software Components",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'Software Components' as a skill. The closest entries are about software components libraries, suppliers, or documentation, which are not the same as the skill described in the phrase.",
+        "candidates": [
+          {
+            "id": "esco:e6b8f934-7f35-4dc6-9a64-f6c43acdc00b",
+            "label": "software components suppliers",
+            "score": 0.736
+          },
+          {
+            "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+            "label": "software components libraries",
+            "score": 0.736
+          },
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.553
+          }
+        ]
+      }
+    },
+    {
+      "term": "Sphinx-Based API Documentation Creation",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Sphinx-Based API Documentation Creation"
+        }
+      ],
+      "match": {
+        "original_term": "Sphinx-Based API Documentation Creation",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Sphinx-Based API Documentation Creation' directly relates to creating API documentation, which is explicitly covered under the 'technical documentation' entry.",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.609
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.337
+          },
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.321
+          }
+        ]
+      }
+    },
+    {
+      "term": "Swagger UI Deployment",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "OpenAPI Specification Creation and Swagger UI Deployment"
+        }
+      ],
+      "match": {
+        "original_term": "Swagger UI Deployment",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.387,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.387
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.325
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.241
+          }
+        ]
+      }
+    },
+    {
+      "term": "SysML Block Definition Diagram Implementation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "SysML Block Definition Diagram Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "SysML Block Definition Diagram Implementation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.347,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:02c71cde-f513-43da-8952-0974763c7568",
+            "label": "circuit diagrams",
+            "score": 0.347
+          },
+          {
+            "id": "esco:a4d336a6-9ffd-402a-91cc-f359716ba4e0",
+            "label": "ML (computer programming)",
+            "score": 0.239
+          },
+          {
+            "id": "esco:1d86f05e-e9cc-40ce-99d8-2b21cc71b16b",
+            "label": "solution deployment",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "TDD Implementation with JUnit",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "TDD Implementation with JUnit and PyTest"
+        }
+      ],
+      "match": {
+        "original_term": "TDD Implementation with JUnit",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.632,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.43",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.632
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.199
+          },
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "Testing Implementation",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 15,
+          "text": "Final Project Documentation and Testing Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "Testing Implementation",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Testing Implementation' directly aligns with 'software testing' as it refers to verifying software behaves as specified, which matches the description and also called terms of the entry.",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.601
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.497
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.467
+          }
+        ]
+      }
+    },
+    {
+      "term": "UML Use Case Diagram Creation",
+      "canonical": {
+        "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "label": "unified modelling language",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "UML Use Case Diagram Creation"
+        }
+      ],
+      "match": {
+        "original_term": "UML Use Case Diagram Creation",
+        "canonical_id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "canonical_label": "unified modelling language",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'UML Use Case Diagram Creation' directly relates to the use of UML, which is explicitly defined in the 'unified modelling language' entry.",
+        "candidates": [
+          {
+            "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+            "label": "unified modelling language",
+            "score": 0.414
+          },
+          {
+            "id": "esco:ed291aa0-8b2f-4179-b2f7-540ea6f63bf3",
+            "label": "electrical wiring diagrams",
+            "score": 0.348
+          },
+          {
+            "id": "esco:02c71cde-f513-43da-8952-0974763c7568",
+            "label": "circuit diagrams",
+            "score": 0.338
+          }
+        ]
+      }
+    },
+    {
+      "term": "Versioned Documentation Management System Design",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Versioned Documentation Management System Design"
+        }
+      ],
+      "match": {
+        "original_term": "Versioned Documentation Management System Design",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Versioned Documentation Management System Design' refers to a specific system design task involving versioned documentation, which is not directly captured by any of the provided taxonomy entries. None of the candidates match the exact skill described.",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.46
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.344
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.327
+          }
+        ]
+      }
+    },
+    {
+      "term": "Workflow Implementation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 2,
+          "text": "Git Repository Setup and Workflow Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "Workflow Implementation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.249,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.249
+          },
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.225
+          },
+          {
+            "id": "custom:ci-cd",
+            "label": "CI/CD pipelines",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "Agile Methodologies",
+      "canonical": {
+        "id": "custom:agile-methodology",
+        "label": "agile methodology",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Agile Methodologies and Scrum Framework"
+        }
+      ],
+      "match": {
+        "original_term": "Agile Methodologies",
+        "canonical_id": "custom:agile-methodology",
+        "canonical_label": "agile methodology",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.824,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.29",
+        "candidates": [
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.824
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.534
+          },
+          {
+            "id": "esco:dba46f87-0831-49cd-a1c7-340a653c0221",
+            "label": "Agile development",
+            "score": 0.465
+          }
+        ]
+      }
+    },
+    {
+      "term": "API Documentation Best Practices",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "API Documentation Best Practices"
+        }
+      ],
+      "match": {
+        "original_term": "API Documentation Best Practices",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.671,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.29",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.671
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.386
+          },
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.357
+          }
+        ]
+      }
+    },
+    {
+      "term": "Branching Strategies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Branching Strategies and Merging"
+        }
+      ],
+      "match": {
+        "original_term": "Branching Strategies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Branching Strategies' as it is not related to any of the listed skills such as sommelier activities, counting rules, data mining methods, etc.",
+        "candidates": [
+          {
+            "id": "esco:343dd8e6-225f-460b-99e4-2e24ecbfd7ed",
+            "label": "sommelier activities",
+            "score": 0.483
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.224
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "Case Modeling with UML",
+      "canonical": {
+        "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "label": "unified modelling language",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Use Case Modeling with UML"
+        }
+      ],
+      "match": {
+        "original_term": "Case Modeling with UML",
+        "canonical_id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "canonical_label": "unified modelling language",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Case Modeling with UML' directly refers to the use of Unified Modeling Language (UML), which is exactly what the 'unified modelling language' entry describes.",
+        "candidates": [
+          {
+            "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+            "label": "unified modelling language",
+            "score": 0.617
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.324
+          },
+          {
+            "id": "esco:a4d336a6-9ffd-402a-91cc-f359716ba4e0",
+            "label": "ML (computer programming)",
+            "score": 0.264
+          }
+        ]
+      }
+    },
+    {
+      "term": "CI/CD Integration",
+      "canonical": {
+        "id": "custom:ci-cd",
+        "label": "CI/CD pipelines",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "CI/CD Integration"
+        }
+      ],
+      "match": {
+        "original_term": "CI/CD Integration",
+        "canonical_id": "custom:ci-cd",
+        "canonical_label": "CI/CD pipelines",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.681,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.09",
+        "candidates": [
+          {
+            "id": "custom:ci-cd",
+            "label": "CI/CD pipelines",
+            "score": 0.681
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.592
+          },
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.464
+          }
+        ]
+      }
+    },
+    {
+      "term": "Compliance",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Documentation Standards and Compliance"
+        }
+      ],
+      "match": {
+        "original_term": "Compliance",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Compliance' is explicitly listed as an alias for 'risk management' in the taxonomy entry, indicating it refers to the same skill.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.885
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.612
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.249
+          }
+        ]
+      }
+    },
+    {
+      "term": "Document Structure",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Markdown Syntax and Document Structure"
+        }
+      ],
+      "match": {
+        "original_term": "Document Structure",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Document Structure' is directly related to 'technical documentation', which involves organizing and structuring information for clarity and usability.",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.513
+          },
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.477
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.281
+          }
+        ]
+      }
+    },
+    {
+      "term": "Documentation",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Documentation and Testing Best Practices"
+        }
+      ],
+      "match": {
+        "original_term": "Documentation",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Documentation' directly matches the label 'technical documentation' and is also listed as an alias for this entry.",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.892
+          },
+          {
+            "id": "esco:1618ee1c-6753-456e-a171-3d7e5f75404a",
+            "label": "good laboratory practice",
+            "score": 0.283
+          },
+          {
+            "id": "esco:d512d178-37a6-4eab-a660-412d2bb0824a",
+            "label": "test procedures",
+            "score": 0.257
+          }
+        ]
+      }
+    },
+    {
+      "term": "Documentation Automation Tools",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Documentation Automation Tools"
+        }
+      ],
+      "match": {
+        "original_term": "Documentation Automation Tools",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries directly match 'Documentation Automation Tools'. The closest is 'tools for ICT test automation', but that refers to test automation tools, not documentation automation tools.",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.58
+          },
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.58
+          },
+          {
+            "id": "esco:f5084a43-42c9-4bbb-b47c-b3029cf8381d",
+            "label": "machine tools",
+            "score": 0.392
+          }
+        ]
+      }
+    },
+    {
+      "term": "Documentation Maintenance Strategies",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Documentation Maintenance Strategies"
+        }
+      ],
+      "match": {
+        "original_term": "Documentation Maintenance Strategies",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Documentation Maintenance Strategies' directly relates to the creation and maintenance of technical documentation, which matches the label 'technical documentation' and its also called entries like 'documentation' and 'API documentation'.",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.56
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.451
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "Documents",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Version Control for Documents"
+        }
+      ],
+      "match": {
+        "original_term": "Documents",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.301,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.301
+          },
+          {
+            "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+            "label": "tools for software configuration management",
+            "score": 0.297
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "term": "Final Project Integration",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Final Project Integration"
+        }
+      ],
+      "match": {
+        "original_term": "Final Project Integration",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Final Project Integration' does not match any of the provided taxonomy entries, as none of the labels or aliases refer to project integration or similar concepts.",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.563
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.44
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "Integration Testing Strategies",
+      "canonical": {
+        "id": "custom:api-testing",
+        "label": "API testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Integration Testing Strategies"
+        }
+      ],
+      "match": {
+        "original_term": "Integration Testing Strategies",
+        "canonical_id": "custom:api-testing",
+        "canonical_label": "API testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.734,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.21",
+        "candidates": [
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.734
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.52
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.471
+          }
+        ]
+      }
+    },
+    {
+      "term": "ISO/IEC 26514 Requirements",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "ISO/IEC 26514 Requirements"
+        }
+      ],
+      "match": {
+        "original_term": "ISO/IEC 26514 Requirements",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.381,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:3497ebe1-d417-4105-a68f-f7bbcac7ee5f",
+            "label": "ICT hardware specifications",
+            "score": 0.381
+          },
+          {
+            "id": "esco:19ec88aa-c0b1-4515-ba10-56b6cf27369e",
+            "label": "electronic equipment standards",
+            "score": 0.196
+          },
+          {
+            "id": "esco:2aff3316-15b8-4ca1-8ae2-270bd5fd22e1",
+            "label": "electrical equipment regulations",
+            "score": 0.193
+          }
+        ]
+      }
+    },
+    {
+      "term": "JUnit Test Framework Overview",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "JUnit Test Framework Overview"
+        }
+      ],
+      "match": {
+        "original_term": "JUnit Test Framework Overview",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'JUnit Test Framework Overview' directly refers to unit testing, which is explicitly listed as 'unit testing' in the taxonomy with JUnit as an alternative name.",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.471
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.376
+          },
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.374
+          }
+        ]
+      }
+    },
+    {
+      "term": "Markdown Syntax",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Markdown Syntax and Document Structure"
+        }
+      ],
+      "match": {
+        "original_term": "Markdown Syntax",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.27,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:69bbd53f-fbb0-4476-b4b2-ef7844464e28",
+            "label": "web programming",
+            "score": 0.27
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.248
+          },
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.244
+          }
+        ]
+      }
+    },
+    {
+      "term": "Merging",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Branching Strategies and Merging"
+        }
+      ],
+      "match": {
+        "original_term": "Merging",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.227,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:343dd8e6-225f-460b-99e4-2e24ecbfd7ed",
+            "label": "sommelier activities",
+            "score": 0.227
+          },
+          {
+            "id": "esco:0bb4b474-da3a-45ce-9de3-0c964d84e73f",
+            "label": "soldering techniques",
+            "score": 0.224
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.22
+          }
+        ]
+      }
+    },
+    {
+      "term": "OpenAPI Specification",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "OpenAPI Specification for RESTful APIs"
+        }
+      ],
+      "match": {
+        "original_term": "OpenAPI Specification",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.294,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.294
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.249
+          },
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.231
+          }
+        ]
+      }
+    },
+    {
+      "term": "Pull Request Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Pull Request Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Pull Request Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Pull Request Analysis' does not match any of the provided taxonomy entries, which are focused on data analysis, regression, computer vision, or other technical fields, not software development or code review practices.",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.428
+          },
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.428
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.428
+          }
+        ]
+      }
+    },
+    {
+      "term": "PyTest Framework",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "PyTest Framework and Test Organization"
+        }
+      ],
+      "match": {
+        "original_term": "PyTest Framework",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.663,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.663
+          },
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.482
+          },
+          {
+            "id": "custom:hypothesis-testing",
+            "label": "hypothesis testing",
+            "score": 0.278
+          }
+        ]
+      }
+    },
+    {
+      "term": "Requirements Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Requirements Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Requirements Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.233,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:51586df8-1c46-4b47-8583-773cb63bf00b",
+            "label": "R",
+            "score": 0.233
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.219
+          },
+          {
+            "id": "esco:e6b8f934-7f35-4dc6-9a64-f6c43acdc00b",
+            "label": "software components suppliers",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "RESTful APIs",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "OpenAPI Specification for RESTful APIs"
+        }
+      ],
+      "match": {
+        "original_term": "RESTful APIs",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.652,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.41",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.652
+          },
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.241
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "Scrum Framework",
+      "canonical": {
+        "id": "custom:agile-methodology",
+        "label": "agile methodology",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Agile Methodologies and Scrum Framework"
+        }
+      ],
+      "match": {
+        "original_term": "Scrum Framework",
+        "canonical_id": "custom:agile-methodology",
+        "canonical_label": "agile methodology",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.698,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.698
+          },
+          {
+            "id": "esco:8c88d336-c249-4537-b26e-d679a85c4b9b",
+            "label": "Ajax Framework",
+            "score": 0.515
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.512
+          }
+        ]
+      }
+    },
+    {
+      "term": "Software Architecture Design",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Software Architecture Design"
+        }
+      ],
+      "match": {
+        "original_term": "Software Architecture Design",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries exactly match the skill 'Software Architecture Design'. The closest entries are related to software design patterns or methodologies, but they do not specifically refer to architecture design.",
+        "candidates": [
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.629
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.626
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.591
+          }
+        ]
+      }
+    },
+    {
+      "term": "Software Development Lifecycle Overview",
+      "canonical": {
+        "id": "custom:software-engineering",
+        "label": "software engineering",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Software Development Lifecycle Overview"
+        }
+      ],
+      "match": {
+        "original_term": "Software Development Lifecycle Overview",
+        "canonical_id": "custom:software-engineering",
+        "canonical_label": "software engineering",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.793,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.34",
+        "candidates": [
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.793
+          },
+          {
+            "id": "esco:09f2f811-a3fb-4de3-a70f-6420a6935575",
+            "label": "systems development life-cycle",
+            "score": 0.45
+          },
+          {
+            "id": "custom:backend-development",
+            "label": "back-end development",
+            "score": 0.421
+          }
+        ]
+      }
+    },
+    {
+      "term": "Sphinx Documentation Framework",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Sphinx Documentation Framework"
+        }
+      ],
+      "match": {
+        "original_term": "Sphinx Documentation Framework",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Sphinx Documentation Framework' directly relates to technical documentation, which is explicitly covered by the 'technical documentation' entry.",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.546
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.414
+          },
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.377
+          }
+        ]
+      }
+    },
+    {
+      "term": "Swagger UI Integration",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Swagger UI Integration"
+        }
+      ],
+      "match": {
+        "original_term": "Swagger UI Integration",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries match the skill 'Swagger UI Integration'.",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.563
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.439
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.383
+          }
+        ]
+      }
+    },
+    {
+      "term": "System Modeling with SysML",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "System Modeling with SysML"
+        }
+      ],
+      "match": {
+        "original_term": "System Modeling with SysML",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'System Modeling with SysML'.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.426
+          },
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.352
+          },
+          {
+            "id": "esco:a4d336a6-9ffd-402a-91cc-f359716ba4e0",
+            "label": "ML (computer programming)",
+            "score": 0.26
+          }
+        ]
+      }
+    },
+    {
+      "term": "TDD",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Test-Driven Development (TDD) Practices"
+        }
+      ],
+      "match": {
+        "original_term": "TDD",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Technical Writing Principles",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Technical Writing Principles"
+        }
+      ],
+      "match": {
+        "original_term": "Technical Writing Principles",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.735,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.27",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.735
+          },
+          {
+            "id": "esco:5eeac647-dc4b-496d-b109-c90b58006021",
+            "label": "mining engineering",
+            "score": 0.463
+          },
+          {
+            "id": "esco:209a5498-3449-4689-8ed9-bd08cab4fd78",
+            "label": "engineering principles",
+            "score": 0.456
+          }
+        ]
+      }
+    },
+    {
+      "term": "Test Coverage Analysis",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Test Coverage Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Test Coverage Analysis",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Test Coverage Analysis is a specific type of software testing focused on evaluating the completeness of test cases, which falls under the broader category of software testing.",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.438
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.4
+          },
+          {
+            "id": "custom:hypothesis-testing",
+            "label": "hypothesis testing",
+            "score": 0.392
+          }
+        ]
+      }
+    },
+    {
+      "term": "Test Organization",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "PyTest Framework and Test Organization"
+        }
+      ],
+      "match": {
+        "original_term": "Test Organization",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Test Organization' is directly linked to the PyTest Framework, which is explicitly mentioned as an example of unit testing in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.495
+          },
+          {
+            "id": "esco:d512d178-37a6-4eab-a660-412d2bb0824a",
+            "label": "test procedures",
+            "score": 0.424
+          },
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.261
+          }
+        ]
+      }
+    },
+    {
+      "term": "Test-Driven Development Practices",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Test-Driven Development (TDD) Practices"
+        }
+      ],
+      "match": {
+        "original_term": "Test-Driven Development Practices",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.882,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.46",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.882
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.426
+          },
+          {
+            "id": "esco:33d49d4f-31ec-473f-9b8a-b555aa5116bb",
+            "label": "Iterative development",
+            "score": 0.423
+          }
+        ]
+      }
+    },
+    {
+      "term": "Testing Best Practices",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Documentation and Testing Best Practices"
+        }
+      ],
+      "match": {
+        "original_term": "Testing Best Practices",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Testing Best Practices' directly aligns with 'software testing' as it refers to verifying software behavior, which is the core of the software testing skill.",
+        "candidates": [
+          {
+            "id": "esco:1618ee1c-6753-456e-a171-3d7e5f75404a",
+            "label": "good laboratory practice",
+            "score": 0.571
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.55
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.436
+          }
+        ]
+      }
+    },
+    {
+      "term": "Unit Testing Techniques",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Unit Testing Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Unit Testing Techniques",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.718,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.718
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.537
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.428
+          }
+        ]
+      }
+    },
+    {
+      "term": "Version Control",
+      "canonical": {
+        "id": "custom:git",
+        "label": "Git",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Version Control for Documents"
+        }
+      ],
+      "match": {
+        "original_term": "Version Control",
+        "canonical_id": "custom:git",
+        "canonical_label": "Git",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "API design with OpenAPI",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "API design with OpenAPI"
+        }
+      ],
+      "match": {
+        "original_term": "API design with OpenAPI",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.703,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.26",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.703
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.441
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.413
+          }
+        ]
+      }
+    },
+    {
+      "term": "APIs",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "APIs"
+        }
+      ],
+      "match": {
+        "original_term": "APIs",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.273,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.273
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.257
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.248
+          }
+        ]
+      }
+    },
+    {
+      "term": "code testing with JUnit",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "code testing with JUnit"
+        }
+      ],
+      "match": {
+        "original_term": "code testing with JUnit",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'code testing with JUnit' directly refers to unit testing, which is explicitly listed as 'unit testing' in the taxonomy and also includes JUnit as an example tool.",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.572
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.504
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.407
+          }
+        ]
+      }
+    },
+    {
+      "term": "documentation with Markdown",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "documentation with Markdown"
+        }
+      ],
+      "match": {
+        "original_term": "documentation with Markdown",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.642,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.42",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.642
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.217
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "GitHub",
+      "canonical": {
+        "id": "custom:git",
+        "label": "Git",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "GitHub"
+        }
+      ],
+      "match": {
+        "original_term": "GitHub",
+        "canonical_id": "custom:git",
+        "canonical_label": "Git",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "ISO/IEC 26514",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "ISO/IEC 26514"
+        }
+      ],
+      "match": {
+        "original_term": "ISO/IEC 26514",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.359,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.359
+          },
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.161
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.161
+          }
+        ]
+      }
+    },
+    {
+      "term": "requirements specification using UML",
+      "canonical": {
+        "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "label": "unified modelling language",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "requirements specification using UML"
+        }
+      ],
+      "match": {
+        "original_term": "requirements specification using UML",
+        "canonical_id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "canonical_label": "unified modelling language",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'requirements specification using UML' directly relates to the use of Unified Modelling Language (UML) for specifying requirements, which matches the label 'unified modelling language' and its also called entry 'uml'.",
+        "candidates": [
+          {
+            "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+            "label": "unified modelling language",
+            "score": 0.427
+          },
+          {
+            "id": "esco:3497ebe1-d417-4105-a68f-f7bbcac7ee5f",
+            "label": "ICT hardware specifications",
+            "score": 0.358
+          },
+          {
+            "id": "esco:9ce670ec-318c-4a91-9179-03437db728dc",
+            "label": "ICT software specifications",
+            "score": 0.355
+          }
+        ]
+      }
+    },
+    {
+      "term": "software systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "software systems"
+        }
+      ],
+      "match": {
+        "original_term": "software systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'software systems' does not match any of the provided taxonomy entries, which focus on specific aspects like embedded systems, testing, or design patterns, rather than the general concept of software systems.",
+        "candidates": [
+          {
+            "id": "esco:2180bd8c-86de-4889-8165-adac902eee9d",
+            "label": "embedded systems",
+            "score": 0.572
+          },
+          {
+            "id": "esco:cf310cff-0d28-4dbc-9dbb-cc500a3196c2",
+            "label": "office software",
+            "score": 0.515
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.493
+          }
+        ]
+      }
+    },
+    {
+      "term": "Students will implement test-driven development practices",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Students will implement test-driven development practices"
+        }
+      ],
+      "match": {
+        "original_term": "Students will implement test-driven development practices",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'test-driven development practices' is explicitly listed in the also called section of the 'unit testing' entry, confirming it is the same skill.",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.593
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.32
+          },
+          {
+            "id": "esco:ed1d8bd4-cd2a-4c64-b665-56d70651026c",
+            "label": "Prototyping development",
+            "score": 0.32
+          }
+        ]
+      }
+    },
+    {
+      "term": "Swagger",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Swagger"
+        }
+      ],
+      "match": {
+        "original_term": "Swagger",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.216,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:0be7c835-a562-416f-8c35-67abd0995b4d",
+            "label": "swaging processes",
+            "score": 0.216
+          },
+          {
+            "id": "esco:090b7d62-bd5b-48c8-a339-d33e7992a9ca",
+            "label": "swaging machine types",
+            "score": 0.201
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.183
+          }
+        ]
+      }
+    },
+    {
+      "term": "SysML",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "SysML"
+        }
+      ],
+      "match": {
+        "original_term": "SysML",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.274,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.274
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.179
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.172
+          }
+        ]
+      }
+    },
+    {
+      "term": "technical documentation",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "technical documentation"
+        }
+      ],
+      "match": {
+        "original_term": "technical documentation",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    }
+  ]
+}

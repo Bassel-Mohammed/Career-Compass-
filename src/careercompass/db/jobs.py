@@ -81,3 +81,36 @@ def get_total_count(conn) -> int:
     with conn.cursor() as cur:
         cur.execute("SELECT COUNT(*) FROM linkedin_jobs")
         return cur.fetchone()[0]
+
+
+def get_jobs(conn=None, limit: int = 0, career_path: str = "") -> list:
+    """
+    Read the stored postings, with their ids.
+
+    The scraper's JSON export carries no identifier, so anything that
+    writes back per posting — job_skills above all — has to read from
+    here rather than from data/clean/all_jobs.json.
+    """
+    import psycopg2.extras
+
+    owned = conn is None
+    conn = conn or get_connection()
+    try:
+        clauses = ["is_relevant = TRUE"]
+        params = []
+        if career_path:
+            clauses.append("career_path = %s")
+            params.append(career_path)
+        sql = (
+            "SELECT id, career_path, title, description, seniority_level "
+            "FROM linkedin_jobs WHERE " + " AND ".join(clauses) + " ORDER BY id"
+        )
+        if limit:
+            sql += " LIMIT %s"
+            params.append(limit)
+        with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+            cur.execute(sql, params)
+            return [dict(row) for row in cur.fetchall()]
+    finally:
+        if owned:
+            conn.close()

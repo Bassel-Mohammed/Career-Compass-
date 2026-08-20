@@ -92,6 +92,24 @@ def normalize(text: str) -> str:
     return SPACE_RE.sub(" ", text).strip()
 
 
+# A trailing qualifier ESCO appends to disambiguate a term inside its own
+# vocabulary — "Java (computer programming)", "Swift (computer
+# programming)". It is not part of the name anyone writes.
+QUALIFIER_RE = re.compile(r"\s*\([^)]*\)")
+
+
+def _merge_key(label: str) -> str:
+    """
+    The form two labels are compared on when merging sources.
+
+    Falls back to the full normalised label when stripping the qualifier
+    leaves nothing, so a record whose whole label is parenthesised is
+    still keyed on something.
+    """
+    stripped = normalize(QUALIFIER_RE.sub(" ", label))
+    return stripped or normalize(label)
+
+
 def _singularize(token: str) -> str:
     """Fold a trivial English plural ("sensors" -> "sensor")."""
     if len(token) > 3 and token.endswith("s") and not token.endswith(("ss", "us", "is")):
@@ -207,13 +225,20 @@ def merge_skills(*groups) -> list:
     become aliases so its wording still resolves. Distinct concepts that
     happen to share a label are rare enough in these sources that fold-by-
     label is the right trade for the alias recall it buys.
+
+    A label's parenthetical qualifier is stripped before comparison, so
+    ESCO's disambiguated wording folds into the plain technology name:
+    "Java (computer programming)" and "Java" are one skill, not two. Left
+    unfolded these split a skill's evidence across two identifiers, and
+    the split is invisible downstream — a gap analysis simply sees the
+    student's course matched to one and the job posting to the other.
     """
     merged = {}
     order = []
 
     for group in groups:
         for skill in group:
-            key = normalize(skill["label"])
+            key = _merge_key(skill["label"])
             if not key:
                 continue
 
@@ -228,6 +253,14 @@ def merge_skills(*groups) -> list:
                 keep, drop = skill, existing
                 merged[key] = dict(keep)
                 keep = merged[key]
+
+            # Display the name people actually write. The identifier comes
+            # from the ranked source, but "Java (computer programming)" is
+            # ESCO bookkeeping, and this label reaches a student's gap
+            # dashboard. Promoted before the aliases are collected, so the
+            # label does not also survive as an alias of itself.
+            if "(" in keep["label"] and "(" not in drop["label"]:
+                keep["label"], drop["label"] = drop["label"], keep["label"]
 
             known = {normalize(keep["label"])}
             known.update(normalize(a) for a in keep["aliases"])

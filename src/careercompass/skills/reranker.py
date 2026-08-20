@@ -231,7 +231,18 @@ def get_reranker(backend: str = ""):
             )
             logger.info("Using %s for reranking", reranker.name)
             return reranker
-        except ImportError:
-            logger.info("sentence-transformers unavailable; using lexical reranking")
+        except Exception as exc:  # noqa: BLE001
+            # Loud, and specific about why. This fallback silently moves
+            # the accept threshold from 0.72 to 0.62 — the whole scorer
+            # family changes — so a run that quietly degraded to lexical
+            # accepts matches a cross-encoder run would have sent to
+            # review. Reporting only "sentence-transformers unavailable"
+            # hid a 2GB model download behind a dependency message.
+            logger.warning(
+                "Cross-encoder reranking unavailable (%s: %s); falling back to "
+                "lexical, which accepts at %.2f instead of %.2f. Set "
+                "CC_RERANKER=lexical to silence this.",
+                type(exc).__name__, str(exc)[:200], 0.62, 0.72,
+            )
 
     return LexicalReranker()

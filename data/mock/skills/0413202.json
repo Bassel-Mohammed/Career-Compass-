@@ -1,0 +1,5054 @@
+{
+  "course_code": "0413202",
+  "course_codes": [
+    "0413202"
+  ],
+  "course_title": "Web Applications Lab",
+  "credit_hours": 1,
+  "plans": [
+    "CS",
+    "CS/AI",
+    "SE"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "needs_review": 11,
+      "accepted": 69,
+      "no_match": 29
+    },
+    "by_method": {
+      "llm": 49,
+      "exact_alias": 13,
+      "embedding_reranker": 47
+    }
+  },
+  "total_skills": 109,
+  "skills": [
+    {
+      "term": "load balancing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "lab",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Optimize a web application's performance using caching and load balancing"
+        },
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Caching and load balancing"
+        },
+        {
+          "source": "description",
+          "text": "load balancing"
+        }
+      ],
+      "match": {
+        "original_term": "load balancing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'load balancing' as described in the syllabus. The closest entry is 'performance testing', which is related but not the same skill.",
+        "candidates": [
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.502
+          },
+          {
+            "id": "esco:7b2ebf06-c789-434e-b274-7f159a1a4ea3",
+            "label": "machinery load capacity",
+            "score": 0.403
+          },
+          {
+            "id": "esco:1605025e-a179-421f-8f35-5b07d182a6b2",
+            "label": "web analytics",
+            "score": 0.235
+          }
+        ]
+      }
+    },
+    {
+      "term": "CSS3",
+      "canonical": {
+        "id": "custom:html-css",
+        "label": "HTML and CSS",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the structure and syntax of HTML5 and CSS3 for creating responsive and accessible web pages."
+        },
+        {
+          "source": "description",
+          "text": "CSS3"
+        }
+      ],
+      "match": {
+        "original_term": "CSS3",
+        "canonical_id": "custom:html-css",
+        "canonical_label": "HTML and CSS",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Express.js",
+      "canonical": {
+        "id": "custom:nodejs",
+        "label": "Node.js",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of RESTful API design and implement a CRUD API using Node.js and Express.js."
+        },
+        {
+          "source": "description",
+          "text": "Express.js"
+        }
+      ],
+      "match": {
+        "original_term": "Express.js",
+        "canonical_id": "custom:nodejs",
+        "canonical_label": "Node.js",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "props",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the components and lifecycle of a React component, including state management and props."
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "React component structure and props"
+        }
+      ],
+      "match": {
+        "original_term": "props",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.238,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:7a950986-27fe-4b6c-adf3-88f211e77019",
+            "label": "robotic components",
+            "score": 0.238
+          },
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.216
+          },
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.205
+          }
+        ]
+      }
+    },
+    {
+      "term": "structure",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the structure and syntax of HTML5 and CSS3 for creating responsive and accessible web pages."
+        },
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "HTML5 semantic elements and structure"
+        }
+      ],
+      "match": {
+        "original_term": "structure",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'structure' in the context of HTML5 and CSS3 refers to the organization of web content, which is not directly captured by any of the provided taxonomy entries. None of the candidates specifically address the concept of structure in web development.",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.671
+          },
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.647
+          },
+          {
+            "id": "custom:html-css",
+            "label": "HTML and CSS",
+            "score": 0.256
+          }
+        ]
+      }
+    },
+    {
+      "term": "XSS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Evaluate the security implications of common web vulnerabilities such as SQL injection and XSS and implement mitigation strategies using JWT and HTTPS."
+        },
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "XSS and CSRF protection"
+        }
+      ],
+      "match": {
+        "original_term": "XSS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.248,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:8785ccda-6f9f-4cf3-9033-fda10653d0be",
+            "label": "JSSS",
+            "score": 0.248
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.203
+          },
+          {
+            "id": "esco:2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80",
+            "label": "ICT network security risks",
+            "score": 0.196
+          }
+        ]
+      }
+    },
+    {
+      "term": "accessible web pages",
+      "canonical": {
+        "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "label": "ICT accessibility standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the structure and syntax of HTML5 and CSS3 for creating responsive and accessible web pages."
+        }
+      ],
+      "match": {
+        "original_term": "accessible web pages",
+        "canonical_id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "canonical_label": "ICT accessibility standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'accessible web pages' directly relates to 'ICT accessibility standards', which specifically covers making ICT content and applications accessible to people with disabilities, aligning with the syllabus focus on accessible web pages.",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.409
+          },
+          {
+            "id": "custom:responsive-design",
+            "label": "responsive web design",
+            "score": 0.39
+          },
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.281
+          }
+        ]
+      }
+    },
+    {
+      "term": "creating responsive",
+      "canonical": {
+        "id": "custom:responsive-design",
+        "label": "responsive web design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the structure and syntax of HTML5 and CSS3 for creating responsive and accessible web pages."
+        }
+      ],
+      "match": {
+        "original_term": "creating responsive",
+        "canonical_id": "custom:responsive-design",
+        "canonical_label": "responsive web design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'creating responsive' directly aligns with the skill 'responsive web design' as defined by the taxonomy entry, which specifically refers to building interfaces that adapt to screen size and device.",
+        "candidates": [
+          {
+            "id": "custom:responsive-design",
+            "label": "responsive web design",
+            "score": 0.549
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.251
+          },
+          {
+            "id": "custom:html-css",
+            "label": "HTML and CSS",
+            "score": 0.238
+          }
+        ]
+      }
+    },
+    {
+      "term": "CRUD API using Node.js",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of RESTful API design and implement a CRUD API using Node.js and Express.js."
+        }
+      ],
+      "match": {
+        "original_term": "CRUD API using Node.js",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'CRUD API using Node.js' directly relates to implementing a RESTful API, which is explicitly covered by the 'REST API development' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.52
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.414
+          },
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.346
+          }
+        ]
+      }
+    },
+    {
+      "term": "database normalization principles to design",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply database normalization principles to design and implement a relational database schema using MySQL."
+        }
+      ],
+      "match": {
+        "original_term": "database normalization principles to design",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.64,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.17",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.64
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.472
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.396
+          }
+        ]
+      }
+    },
+    {
+      "term": "HTTPS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Evaluate the security implications of common web vulnerabilities such as SQL injection and XSS and implement mitigation strategies using JWT and HTTPS."
+        }
+      ],
+      "match": {
+        "original_term": "HTTPS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.212,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.212
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.207
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.207
+          }
+        ]
+      }
+    },
+    {
+      "term": "lifecycle of a React component",
+      "canonical": {
+        "id": "esco:0b95eb5d-f3eb-4387-a0bb-094a394196c7",
+        "label": "refrigerants",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the components and lifecycle of a React component, including state management and props."
+        }
+      ],
+      "match": {
+        "original_term": "lifecycle of a React component",
+        "canonical_id": "esco:0b95eb5d-f3eb-4387-a0bb-094a394196c7",
+        "canonical_label": "refrigerants",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'lifecycle of a React component' refers to the stages a React component goes through, which is a specific aspect of systems development life-cycle. While the term 'systems development life-cycle' is broader, it is the closest match in the shortlist.",
+        "candidates": [
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.488
+          },
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.421
+          },
+          {
+            "id": "esco:f5db895c-533b-421b-8e7a-0ea39aadf3e5",
+            "label": "components of clocks",
+            "score": 0.42
+          }
+        ]
+      }
+    },
+    {
+      "term": "management",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the components and lifecycle of a React component, including state management and props."
+        }
+      ],
+      "match": {
+        "original_term": "management",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.237,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:f5fa2654-52cc-45d2-ac92-ac979dee5d12",
+            "label": "engine components",
+            "score": 0.237
+          },
+          {
+            "id": "esco:b112ead8-6245-49bb-879f-07b1388a1c9b",
+            "label": "components of air conditioning systems",
+            "score": 0.219
+          },
+          {
+            "id": "esco:09f2f811-a3fb-4de3-a70f-6420a6935575",
+            "label": "systems development life-cycle",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "mitigation strategies using JWT",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Evaluate the security implications of common web vulnerabilities such as SQL injection and XSS and implement mitigation strategies using JWT and HTTPS."
+        }
+      ],
+      "match": {
+        "original_term": "mitigation strategies using JWT",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.261,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:11eebd42-44ab-401d-8a2c-bdb9fc9beb50",
+            "label": "information security strategy",
+            "score": 0.261
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.244
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.235
+          }
+        ]
+      }
+    },
+    {
+      "term": "principles of RESTful API design",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of RESTful API design and implement a CRUD API using Node.js and Express.js."
+        }
+      ],
+      "match": {
+        "original_term": "principles of RESTful API design",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.649,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.27",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.649
+          },
+          {
+            "id": "custom:responsive-design",
+            "label": "responsive web design",
+            "score": 0.382
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.361
+          }
+        ]
+      }
+    },
+    {
+      "term": "relational database schema using MySQL",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply database normalization principles to design and implement a relational database schema using MySQL."
+        }
+      ],
+      "match": {
+        "original_term": "relational database schema using MySQL",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'relational database schema using MySQL' directly relates to the skill of database design, which includes schema design and normalization, as explicitly mentioned in the syllabus.",
+        "candidates": [
+          {
+            "id": "esco:de9f85ba-e77f-48fd-8c66-f5ebaf32d655",
+            "label": "Oracle Relational Database",
+            "score": 0.518
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.464
+          },
+          {
+            "id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+            "label": "MySQL",
+            "score": 0.457
+          }
+        ]
+      }
+    },
+    {
+      "term": "security implications of common web vulnerabilities",
+      "canonical": {
+        "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+        "label": "web application security threats",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Evaluate the security implications of common web vulnerabilities such as SQL injection and XSS and implement mitigation strategies using JWT and HTTPS."
+        }
+      ],
+      "match": {
+        "original_term": "security implications of common web vulnerabilities",
+        "canonical_id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+        "canonical_label": "web application security threats",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'security implications of common web vulnerabilities' directly relates to web application security threats, which is explicitly covered by the 'web application security threats' label and its description.",
+        "candidates": [
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.467
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.377
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.361
+          }
+        ]
+      }
+    },
+    {
+      "term": "SQL injection",
+      "canonical": {
+        "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+        "label": "web application security threats",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Evaluate the security implications of common web vulnerabilities such as SQL injection and XSS and implement mitigation strategies using JWT and HTTPS."
+        }
+      ],
+      "match": {
+        "original_term": "SQL injection",
+        "canonical_id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+        "canonical_label": "web application security threats",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'SQL injection' is a specific type of web application security threat, and the taxonomy entry 'web application security threats' directly covers such vulnerabilities.",
+        "candidates": [
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.45
+          },
+          {
+            "id": "esco:6f7512ab-d46d-402a-8c30-a8878d7c1f88",
+            "label": "SQL Server Integration Services",
+            "score": 0.395
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.258
+          }
+        ]
+      }
+    },
+    {
+      "term": "syntax of HTML5",
+      "canonical": {
+        "id": "custom:html-css",
+        "label": "HTML and CSS",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the structure and syntax of HTML5 and CSS3 for creating responsive and accessible web pages."
+        }
+      ],
+      "match": {
+        "original_term": "syntax of HTML5",
+        "canonical_id": "custom:html-css",
+        "canonical_label": "HTML and CSS",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.642,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.42",
+        "candidates": [
+          {
+            "id": "custom:html-css",
+            "label": "HTML and CSS",
+            "score": 0.642
+          },
+          {
+            "id": "esco:1110c92f-3059-445a-9436-0f4200d365f5",
+            "label": "Sass",
+            "score": 0.222
+          },
+          {
+            "id": "esco:4350c38d-0fe9-4ca7-bab9-40ed7f72b04f",
+            "label": "PHP",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "Event handling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Event handling and asynchronous programming"
+        },
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Create a React component for a to-do list with state and event handling"
+        }
+      ],
+      "match": {
+        "original_term": "Event handling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.218,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.218
+          },
+          {
+            "id": "esco:b4dc6e4f-dc7d-445f-8ce2-d7b9d225e282",
+            "label": "AJAX",
+            "score": 0.216
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "RESTful API",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Develop a RESTful API for a book database using Express.js"
+        },
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Design and implement a RESTful API for a task management system"
+        }
+      ],
+      "match": {
+        "original_term": "RESTful API",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Caching",
+      "canonical": {
+        "id": "custom:redis",
+        "label": "Redis",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Caching and load balancing"
+        },
+        {
+          "source": "description",
+          "text": "caching"
+        }
+      ],
+      "match": {
+        "original_term": "Caching",
+        "canonical_id": "custom:redis",
+        "canonical_label": "Redis",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.667,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.39",
+        "candidates": [
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.667
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.276
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.242
+          }
+        ]
+      }
+    },
+    {
+      "term": "MongoDB",
+      "canonical": {
+        "id": "custom:mongodb",
+        "label": "MongoDB",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "MongoDB and Mongoose schema design"
+        },
+        {
+          "source": "description",
+          "text": "MongoDB"
+        }
+      ],
+      "match": {
+        "original_term": "MongoDB",
+        "canonical_id": "custom:mongodb",
+        "canonical_label": "MongoDB",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Node.js",
+      "canonical": {
+        "id": "custom:nodejs",
+        "label": "Node.js",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Node.js and Express.js setup"
+        },
+        {
+          "source": "description",
+          "text": "Node.js"
+        }
+      ],
+      "match": {
+        "original_term": "Node.js",
+        "canonical_id": "custom:nodejs",
+        "canonical_label": "Node.js",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Security best practices",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Security best practices for web applications"
+        },
+        {
+          "source": "description",
+          "text": "security best practices"
+        }
+      ],
+      "match": {
+        "original_term": "Security best practices",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Security best practices' directly aligns with 'secure coding practices' as both focus on writing software that resists common classes of attack, which is a core aspect of secure coding.",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.542
+          },
+          {
+            "id": "esco:47ca0da1-cae5-4395-ae6b-fd97b9ff48d3",
+            "label": "system backup best practice",
+            "score": 0.514
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.476
+          }
+        ]
+      }
+    },
+    {
+      "term": "validation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Error handling and validation"
+        },
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "JWT token generation and validation"
+        }
+      ],
+      "match": {
+        "original_term": "validation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.252,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.252
+          },
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.238
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.233
+          }
+        ]
+      }
+    },
+    {
+      "term": "Audit",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Audit and improve the accessibility of a web application"
+        }
+      ],
+      "match": {
+        "original_term": "Audit",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.282,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+            "label": "ICT accessibility standards",
+            "score": 0.282
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.237
+          },
+          {
+            "id": "esco:1605025e-a179-421f-8f35-5b07d182a6b2",
+            "label": "web analytics",
+            "score": 0.237
+          }
+        ]
+      }
+    },
+    {
+      "term": "book database using Express.js",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Develop a RESTful API for a book database using Express.js"
+        }
+      ],
+      "match": {
+        "original_term": "book database using Express.js",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'book database using Express.js' is part of the syllabus task 'Develop a RESTful API for a book database using Express.js', which directly relates to REST API development.",
+        "candidates": [
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.505
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.466
+          },
+          {
+            "id": "esco:43ec6db6-33f7-449b-a566-5779a7e8997a",
+            "label": "OpenEdge Database",
+            "score": 0.372
+          }
+        ]
+      }
+    },
+    {
+      "term": "Containerize a Node.js application",
+      "canonical": {
+        "id": "custom:docker",
+        "label": "Docker",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Containerize a Node.js application and deploy it to Kubernetes"
+        }
+      ],
+      "match": {
+        "original_term": "Containerize a Node.js application",
+        "canonical_id": "custom:docker",
+        "canonical_label": "Docker",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Containerize a Node.js application' directly refers to the skill of containerization, which is explicitly named in the 'Docker' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.519
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.38
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.333
+          }
+        ]
+      }
+    },
+    {
+      "term": "CSRF in a React application",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Implement security measures against XSS and CSRF in a React application"
+        }
+      ],
+      "match": {
+        "original_term": "CSRF in a React application",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'CSRF in a React application' specifically refers to implementing security measures against CSRF, which is a type of security vulnerability. This falls under 'secure coding practices' as it involves writing code that resists common attacks.",
+        "candidates": [
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.494
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.439
+          },
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.381
+          }
+        ]
+      }
+    },
+    {
+      "term": "deploy it to Kubernetes",
+      "canonical": {
+        "id": "custom:kubernetes",
+        "label": "Kubernetes",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Containerize a Node.js application and deploy it to Kubernetes"
+        }
+      ],
+      "match": {
+        "original_term": "deploy it to Kubernetes",
+        "canonical_id": "custom:kubernetes",
+        "canonical_label": "Kubernetes",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'deploy it to Kubernetes' directly refers to the Kubernetes platform, which is explicitly named in the 'custom:kubernetes' entry.",
+        "candidates": [
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.573
+          },
+          {
+            "id": "esco:2f04bb71-d476-43b3-a60b-5df1d05f5681",
+            "label": "Octopus Deploy",
+            "score": 0.434
+          },
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.227
+          }
+        ]
+      }
+    },
+    {
+      "term": "e-commerce system using MySQL",
+      "canonical": {
+        "id": "esco:b1272de4-1f5f-408b-8b26-061f2550fc72",
+        "label": "e-commerce systems",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Create a relational database schema for an e-commerce system using MySQL"
+        }
+      ],
+      "match": {
+        "original_term": "e-commerce system using MySQL",
+        "canonical_id": "esco:b1272de4-1f5f-408b-8b26-061f2550fc72",
+        "canonical_label": "e-commerce systems",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.707,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.22",
+        "candidates": [
+          {
+            "id": "esco:b1272de4-1f5f-408b-8b26-061f2550fc72",
+            "label": "e-commerce systems",
+            "score": 0.707
+          },
+          {
+            "id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+            "label": "MySQL",
+            "score": 0.482
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.435
+          }
+        ]
+      }
+    },
+    {
+      "term": "JWT in a Node.js application",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Implement user authentication with OAuth2 and JWT in a Node.js application"
+        }
+      ],
+      "match": {
+        "original_term": "JWT in a Node.js application",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'JWT in a Node.js application' refers to the use of JSON Web Tokens for authentication in a specific programming environment, which is not captured by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.522
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.343
+          },
+          {
+            "id": "custom:vuejs",
+            "label": "Vue.js",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "MongoDB-based user authentication system using Mongoose",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Implement a MongoDB-based user authentication system using Mongoose"
+        }
+      ],
+      "match": {
+        "original_term": "MongoDB-based user authentication system using Mongoose",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'MongoDB-based user authentication system using Mongoose' refers to a specific implementation of user authentication using MongoDB and Mongoose, which is not captured by any of the provided taxonomy entries. None of the candidates directly relate to implementing authentication systems wit",
+        "candidates": [
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.417
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.296
+          },
+          {
+            "id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+            "label": "MySQL",
+            "score": 0.189
+          }
+        ]
+      }
+    },
+    {
+      "term": "Present",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 15,
+          "text": "Present and defend a final project demonstrating full-stack web application development"
+        }
+      ],
+      "match": {
+        "original_term": "Present",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.259,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:full-stack-development",
+            "label": "full-stack development",
+            "score": 0.259
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.248
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.241
+          }
+        ]
+      }
+    },
+    {
+      "term": "product catalog with filtering",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Build a Vue.js application for a product catalog with filtering and sorting"
+        }
+      ],
+      "match": {
+        "original_term": "product catalog with filtering",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.21,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:vuejs",
+            "label": "Vue.js",
+            "score": 0.21
+          },
+          {
+            "id": "esco:6d355a4e-d9b6-4a24-a79b-30176e15589e",
+            "label": "beverages filtration processes",
+            "score": 0.199
+          },
+          {
+            "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+            "label": "software components libraries",
+            "score": 0.189
+          }
+        ]
+      }
+    },
+    {
+      "term": "React component",
+      "canonical": {
+        "id": "custom:react",
+        "label": "React",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Create a React component for a to-do list with state and event handling"
+        }
+      ],
+      "match": {
+        "original_term": "React component",
+        "canonical_id": "custom:react",
+        "canonical_label": "React",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'React component' directly refers to a skill in React, which is explicitly named in the 'custom:react' entry.",
+        "candidates": [
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.607
+          },
+          {
+            "id": "esco:f5db895c-533b-421b-8e7a-0ea39aadf3e5",
+            "label": "components of clocks",
+            "score": 0.471
+          },
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.466
+          }
+        ]
+      }
+    },
+    {
+      "term": "relational database schema",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Create a relational database schema for an e-commerce system using MySQL"
+        }
+      ],
+      "match": {
+        "original_term": "relational database schema",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'relational database schema' directly relates to structuring tables, keys, and relationships for a data domain, which is exactly what 'database design' encompasses.",
+        "candidates": [
+          {
+            "id": "esco:de9f85ba-e77f-48fd-8c66-f5ebaf32d655",
+            "label": "Oracle Relational Database",
+            "score": 0.603
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.475
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.427
+          }
+        ]
+      }
+    },
+    {
+      "term": "security measures against XSS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Implement security measures against XSS and CSRF in a React application"
+        }
+      ],
+      "match": {
+        "original_term": "security measures against XSS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.397,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.397
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.37
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.342
+          }
+        ]
+      }
+    },
+    {
+      "term": "sorting",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Build a Vue.js application for a product catalog with filtering and sorting"
+        }
+      ],
+      "match": {
+        "original_term": "sorting",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.233,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.233
+          },
+          {
+            "id": "custom:vuejs",
+            "label": "Vue.js",
+            "score": 0.208
+          },
+          {
+            "id": "custom:ios-development",
+            "label": "iOS development",
+            "score": 0.185
+          }
+        ]
+      }
+    },
+    {
+      "term": "task management system",
+      "canonical": {
+        "id": "custom:project-management",
+        "label": "project management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Design and implement a RESTful API for a task management system"
+        }
+      ],
+      "match": {
+        "original_term": "task management system",
+        "canonical_id": "custom:project-management",
+        "canonical_label": "project management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.733,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.16",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.733
+          },
+          {
+            "id": "esco:0ab03c6c-281b-48f4-83e0-10eeb27a1bae",
+            "label": "network management system tools",
+            "score": 0.573
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.45
+          }
+        ]
+      }
+    },
+    {
+      "term": "to-do list with state",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Create a React component for a to-do list with state and event handling"
+        }
+      ],
+      "match": {
+        "original_term": "to-do list with state",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.188,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.188
+          },
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.182
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.169
+          }
+        ]
+      }
+    },
+    {
+      "term": "user authentication with OAuth2",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Implement user authentication with OAuth2 and JWT in a Node.js application"
+        }
+      ],
+      "match": {
+        "original_term": "user authentication with OAuth2",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.229,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.229
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.221
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "Vue.js application",
+      "canonical": {
+        "id": "custom:vuejs",
+        "label": "Vue.js",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Build a Vue.js application for a product catalog with filtering and sorting"
+        }
+      ],
+      "match": {
+        "original_term": "Vue.js application",
+        "canonical_id": "custom:vuejs",
+        "canonical_label": "Vue.js",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.621,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.14",
+        "candidates": [
+          {
+            "id": "custom:vuejs",
+            "label": "Vue.js",
+            "score": 0.621
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.482
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.429
+          }
+        ]
+      }
+    },
+    {
+      "term": "web application's performance using caching",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Optimize a web application's performance using caching and load balancing"
+        }
+      ],
+      "match": {
+        "original_term": "web application's performance using caching",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill described in the extracted phrase 'web application's performance using caching'. The closest entries are related to web analytics, ICT performance analysis, and Redis, but none specifically address optimizing web application performance ",
+        "candidates": [
+          {
+            "id": "esco:4e09e2d2-e317-47d2-bf5e-1d6c66be3efc",
+            "label": "energy performance of buildings",
+            "score": 0.426
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.374
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.348
+          }
+        ]
+      }
+    },
+    {
+      "term": "asynchronous programming",
+      "canonical": {
+        "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+        "label": "computer programming",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Event handling and asynchronous programming"
+        }
+      ],
+      "match": {
+        "original_term": "asynchronous programming",
+        "canonical_id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+        "canonical_label": "computer programming",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Asynchronous programming is a specific technique within computer programming, and the phrase directly relates to the broader category of programming paradigms covered in the 'computer programming' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.507
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.497
+          },
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.493
+          }
+        ]
+      }
+    },
+    {
+      "term": "AWS",
+      "canonical": {
+        "id": "custom:aws",
+        "label": "Amazon Web Services",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "AWS and Azure deployment strategies"
+        }
+      ],
+      "match": {
+        "original_term": "AWS",
+        "canonical_id": "custom:aws",
+        "canonical_label": "Amazon Web Services",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Azure deployment strategies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "AWS and Azure deployment strategies"
+        }
+      ],
+      "match": {
+        "original_term": "Azure deployment strategies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Azure deployment strategies' or its equivalent. The closest is 'Microsoft Azure' (custom:azure), but that refers to the cloud platform itself, not the deployment strategies.",
+        "candidates": [
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.531
+          },
+          {
+            "id": "esco:1d86f05e-e9cc-40ce-99d8-2b21cc71b16b",
+            "label": "solution deployment",
+            "score": 0.421
+          },
+          {
+            "id": "custom:aws",
+            "label": "Amazon Web Services",
+            "score": 0.285
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cloud computing basics",
+      "canonical": {
+        "id": "esco:bd14968e-e409-45af-b362-3495ed7b10e0",
+        "label": "cloud technologies",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Cloud computing basics"
+        }
+      ],
+      "match": {
+        "original_term": "Cloud computing basics",
+        "canonical_id": "esco:bd14968e-e409-45af-b362-3495ed7b10e0",
+        "canonical_label": "cloud technologies",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Cloud computing basics' directly matches the label 'cloud technologies' and is also explicitly called 'cloud computing' in the also called field, making it the most precise match.",
+        "candidates": [
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.742
+          },
+          {
+            "id": "esco:bd14968e-e409-45af-b362-3495ed7b10e0",
+            "label": "cloud technologies",
+            "score": 0.735
+          },
+          {
+            "id": "custom:gcp",
+            "label": "Google Cloud Platform",
+            "score": 0.436
+          }
+        ]
+      }
+    },
+    {
+      "term": "Code review",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Code review and documentation"
+        }
+      ],
+      "match": {
+        "original_term": "Code review",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.316,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.316
+          },
+          {
+            "id": "esco:def007fa-5fed-4a5f-91a2-b0d7e3db1be1",
+            "label": "COBOL",
+            "score": 0.215
+          },
+          {
+            "id": "esco:993b1e23-f2de-4bd8-b33f-f86dde1c8e9d",
+            "label": "CoffeeScript",
+            "score": 0.207
+          }
+        ]
+      }
+    },
+    {
+      "term": "component communication",
+      "canonical": {
+        "id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+        "label": "distributed computing",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Directives and component communication"
+        }
+      ],
+      "match": {
+        "original_term": "component communication",
+        "canonical_id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+        "canonical_label": "distributed computing",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'component communication' aligns with the description of 'distributed computing' which involves components interacting over a network and sending messages to communicate their actions.",
+        "candidates": [
+          {
+            "id": "esco:debef2fc-7af4-4bff-ac92-4d0317915a84",
+            "label": "electronic communication",
+            "score": 0.514
+          },
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.48
+          },
+          {
+            "id": "esco:e6b8f934-7f35-4dc6-9a64-f6c43acdc00b",
+            "label": "software components suppliers",
+            "score": 0.413
+          }
+        ]
+      }
+    },
+    {
+      "term": "CRUD operations with MongoDB",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "CRUD operations with MongoDB"
+        }
+      ],
+      "match": {
+        "original_term": "CRUD operations with MongoDB",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'CRUD operations with MongoDB'. The closest entry is 'MongoDB', but it does not explicitly mention CRUD operations.",
+        "candidates": [
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.531
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.182
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.182
+          }
+        ]
+      }
+    },
+    {
+      "term": "CSRF protection",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "XSS and CSRF protection"
+        }
+      ],
+      "match": {
+        "original_term": "CSRF protection",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'CSRF protection' is a specific security practice related to web application security, which falls under the broader category of 'secure coding practices' as described in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.495
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.211
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "CSS3 styling",
+      "canonical": {
+        "id": "custom:html-css",
+        "label": "HTML and CSS",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "CSS3 styling and responsive design"
+        }
+      ],
+      "match": {
+        "original_term": "CSS3 styling",
+        "canonical_id": "custom:html-css",
+        "canonical_label": "HTML and CSS",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.635,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.27",
+        "candidates": [
+          {
+            "id": "custom:html-css",
+            "label": "HTML and CSS",
+            "score": 0.635
+          },
+          {
+            "id": "esco:e5d1f825-60ed-4bdd-872a-e748c387f777",
+            "label": "CSS",
+            "score": 0.366
+          },
+          {
+            "id": "esco:c2999f0c-eb37-4cdf-b9b0-82107b628794",
+            "label": "style sheet languages",
+            "score": 0.36
+          }
+        ]
+      }
+    },
+    {
+      "term": "Database normalization",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Database normalization and relational design"
+        }
+      ],
+      "match": {
+        "original_term": "Database normalization",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.75,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.06",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.75
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.689
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.554
+          }
+        ]
+      }
+    },
+    {
+      "term": "deployment",
+      "canonical": {
+        "id": "esco:1d86f05e-e9cc-40ce-99d8-2b21cc71b16b",
+        "label": "solution deployment",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Docker containerization and deployment"
+        }
+      ],
+      "match": {
+        "original_term": "deployment",
+        "canonical_id": "esco:1d86f05e-e9cc-40ce-99d8-2b21cc71b16b",
+        "canonical_label": "solution deployment",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.636,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.29",
+        "candidates": [
+          {
+            "id": "esco:1d86f05e-e9cc-40ce-99d8-2b21cc71b16b",
+            "label": "solution deployment",
+            "score": 0.636
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.342
+          },
+          {
+            "id": "esco:2f04bb71-d476-43b3-a60b-5df1d05f5681",
+            "label": "Octopus Deploy",
+            "score": 0.258
+          }
+        ]
+      }
+    },
+    {
+      "term": "Directives",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Directives and component communication"
+        }
+      ],
+      "match": {
+        "original_term": "Directives",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.265,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.265
+          },
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.261
+          },
+          {
+            "id": "esco:debef2fc-7af4-4bff-ac92-4d0317915a84",
+            "label": "electronic communication",
+            "score": 0.258
+          }
+        ]
+      }
+    },
+    {
+      "term": "Docker containerization",
+      "canonical": {
+        "id": "custom:docker",
+        "label": "Docker",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Docker containerization and deployment"
+        }
+      ],
+      "match": {
+        "original_term": "Docker containerization",
+        "canonical_id": "custom:docker",
+        "canonical_label": "Docker",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.734,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.41",
+        "candidates": [
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.734
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.32
+          },
+          {
+            "id": "esco:f3f29c39-4124-4a8c-a63c-878bfc487586",
+            "label": "types of containers",
+            "score": 0.288
+          }
+        ]
+      }
+    },
+    {
+      "term": "documentation",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Code review and documentation"
+        }
+      ],
+      "match": {
+        "original_term": "documentation",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'documentation' directly matches the label 'technical documentation' and is listed as an alias in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.927
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.22
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "DOM manipulation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "JavaScript ES6+ syntax and DOM manipulation"
+        }
+      ],
+      "match": {
+        "original_term": "DOM manipulation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.283,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-manipulators",
+            "label": "robot manipulators",
+            "score": 0.283
+          },
+          {
+            "id": "custom:robot-dynamics",
+            "label": "robot dynamics",
+            "score": 0.257
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "Error handling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Error handling and validation"
+        }
+      ],
+      "match": {
+        "original_term": "Error handling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.365,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.365
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.234
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "Express.js setup",
+      "canonical": {
+        "id": "custom:nodejs",
+        "label": "Node.js",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Node.js and Express.js setup"
+        }
+      ],
+      "match": {
+        "original_term": "Express.js setup",
+        "canonical_id": "custom:nodejs",
+        "canonical_label": "Node.js",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.811,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.57",
+        "candidates": [
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.811
+          },
+          {
+            "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+            "label": "JavaScript",
+            "score": 0.244
+          },
+          {
+            "id": "custom:vuejs",
+            "label": "Vue.js",
+            "score": 0.219
+          }
+        ]
+      }
+    },
+    {
+      "term": "HTML5 semantic elements",
+      "canonical": {
+        "id": "custom:html-css",
+        "label": "HTML and CSS",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "HTML5 semantic elements and structure"
+        }
+      ],
+      "match": {
+        "original_term": "HTML5 semantic elements",
+        "canonical_id": "custom:html-css",
+        "canonical_label": "HTML and CSS",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'HTML5 semantic elements' is a specific application of HTML and CSS, which are markup and styling languages of the web, as described by the 'HTML and CSS' entry.",
+        "candidates": [
+          {
+            "id": "custom:html-css",
+            "label": "HTML and CSS",
+            "score": 0.518
+          },
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.422
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.282
+          }
+        ]
+      }
+    },
+    {
+      "term": "JavaScript ES6+ syntax",
+      "canonical": {
+        "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+        "label": "JavaScript",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "JavaScript ES6+ syntax and DOM manipulation"
+        }
+      ],
+      "match": {
+        "original_term": "JavaScript ES6+ syntax",
+        "canonical_id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+        "canonical_label": "JavaScript",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'JavaScript ES6+ syntax' directly relates to the skill 'JavaScript', which encompasses the techniques and principles of software development in JavaScript, including syntax.",
+        "candidates": [
+          {
+            "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+            "label": "JavaScript",
+            "score": 0.573
+          },
+          {
+            "id": "esco:9b9de2a4-d8af-4a7b-933a-a8334ae60067",
+            "label": "JavaScript Framework",
+            "score": 0.437
+          },
+          {
+            "id": "esco:8785ccda-6f9f-4cf3-9033-fda10653d0be",
+            "label": "JSSS",
+            "score": 0.383
+          }
+        ]
+      }
+    },
+    {
+      "term": "joins",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "SQL queries and joins"
+        }
+      ],
+      "match": {
+        "original_term": "joins",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.277,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.277
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.226
+          },
+          {
+            "id": "esco:6f7512ab-d46d-402a-8c30-a8878d7c1f88",
+            "label": "SQL Server Integration Services",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "JWT token generation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "JWT token generation and validation"
+        }
+      ],
+      "match": {
+        "original_term": "JWT token generation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.379,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:23759dba-1abd-4865-b0f9-608012348870",
+            "label": "geothermal power plant operations",
+            "score": 0.379
+          },
+          {
+            "id": "esco:a929f335-e5b9-4f8f-a052-0a8b166d595c",
+            "label": "geothermal power generation methods",
+            "score": 0.376
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "Kubernetes orchestration basics",
+      "canonical": {
+        "id": "custom:kubernetes",
+        "label": "Kubernetes",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Kubernetes orchestration basics"
+        }
+      ],
+      "match": {
+        "original_term": "Kubernetes orchestration basics",
+        "canonical_id": "custom:kubernetes",
+        "canonical_label": "Kubernetes",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Kubernetes orchestration basics' directly matches the label 'Kubernetes' and is explicitly mentioned in the syllabus. The also called entries include 'container orchestration,' which aligns with the concept of Kubernetes orchestration.",
+        "candidates": [
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.574
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.311
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "management with React hooks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "State management with React hooks"
+        }
+      ],
+      "match": {
+        "original_term": "management with React hooks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'management with React hooks' or closely related concepts. The closest entry is 'React', but it does not capture the specific skill of state management using React hooks.",
+        "candidates": [
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.496
+          },
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.368
+          },
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.211
+          }
+        ]
+      }
+    },
+    {
+      "term": "middleware implementation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Routing and middleware implementation"
+        }
+      ],
+      "match": {
+        "original_term": "middleware implementation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.295,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:0da6cab1-0ee9-4391-a299-f71fbf21db56",
+            "label": "ICT network routing",
+            "score": 0.295
+          },
+          {
+            "id": "esco:7f1a7abb-9208-48b7-8b84-2c1f283a50a0",
+            "label": "call routing",
+            "score": 0.292
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "Mongoose schema design",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "MongoDB and Mongoose schema design"
+        }
+      ],
+      "match": {
+        "original_term": "Mongoose schema design",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.696,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.25",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.696
+          },
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.442
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.393
+          }
+        ]
+      }
+    },
+    {
+      "term": "OAuth2 authentication flow",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "OAuth2 authentication flow"
+        }
+      ],
+      "match": {
+        "original_term": "OAuth2 authentication flow",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.367,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.367
+          },
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.217
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.198
+          }
+        ]
+      }
+    },
+    {
+      "term": "React component structure",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "React component structure and props"
+        }
+      ],
+      "match": {
+        "original_term": "React component structure",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'React component structure' or its related concepts. The closest entry is 'React' (custom:react), but it is too broad and does not capture the specific skill of component structure.",
+        "candidates": [
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.516
+          },
+          {
+            "id": "esco:748d926e-0662-4c0d-b61d-78949c513a64",
+            "label": "vessel electrical system",
+            "score": 0.51
+          },
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.423
+          }
+        ]
+      }
+    },
+    {
+      "term": "reactivity",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Vue.js template syntax and reactivity"
+        }
+      ],
+      "match": {
+        "original_term": "reactivity",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.337,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.337
+          },
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.243
+          },
+          {
+            "id": "esco:a0427808-b57d-41fe-b71c-ee0b620579f6",
+            "label": "adhesives",
+            "score": 0.239
+          }
+        ]
+      }
+    },
+    {
+      "term": "relational design",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Database normalization and relational design"
+        }
+      ],
+      "match": {
+        "original_term": "relational design",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'relational design' is explicitly mentioned in the syllabus alongside 'database normalization', which is also listed as an alternative term for 'database design'.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.618
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.503
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.471
+          }
+        ]
+      }
+    },
+    {
+      "term": "responsive design",
+      "canonical": {
+        "id": "custom:responsive-design",
+        "label": "responsive web design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "CSS3 styling and responsive design"
+        }
+      ],
+      "match": {
+        "original_term": "responsive design",
+        "canonical_id": "custom:responsive-design",
+        "canonical_label": "responsive web design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "RESTful API best practices",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "RESTful API best practices"
+        }
+      ],
+      "match": {
+        "original_term": "RESTful API best practices",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.675,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.28",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.675
+          },
+          {
+            "id": "custom:devops",
+            "label": "DevOps practices",
+            "score": 0.392
+          },
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.369
+          }
+        ]
+      }
+    },
+    {
+      "term": "Routing",
+      "canonical": {
+        "id": "esco:7f1a7abb-9208-48b7-8b84-2c1f283a50a0",
+        "label": "call routing",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Routing and middleware implementation"
+        }
+      ],
+      "match": {
+        "original_term": "Routing",
+        "canonical_id": "esco:7f1a7abb-9208-48b7-8b84-2c1f283a50a0",
+        "canonical_label": "call routing",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.663,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.11",
+        "candidates": [
+          {
+            "id": "esco:7f1a7abb-9208-48b7-8b84-2c1f283a50a0",
+            "label": "call routing",
+            "score": 0.663
+          },
+          {
+            "id": "esco:0da6cab1-0ee9-4391-a299-f71fbf21db56",
+            "label": "ICT network routing",
+            "score": 0.555
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.303
+          }
+        ]
+      }
+    },
+    {
+      "term": "SQL queries",
+      "canonical": {
+        "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "label": "SQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "SQL queries and joins"
+        }
+      ],
+      "match": {
+        "original_term": "SQL queries",
+        "canonical_id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "canonical_label": "SQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Vue.js template syntax",
+      "canonical": {
+        "id": "custom:vuejs",
+        "label": "Vue.js",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Vue.js template syntax and reactivity"
+        }
+      ],
+      "match": {
+        "original_term": "Vue.js template syntax",
+        "canonical_id": "custom:vuejs",
+        "canonical_label": "Vue.js",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Vue.js template syntax' directly refers to the syntax used in Vue.js, which is a JavaScript framework. The 'custom:vuejs' entry specifically matches this skill.",
+        "candidates": [
+          {
+            "id": "custom:vuejs",
+            "label": "Vue.js",
+            "score": 0.527
+          },
+          {
+            "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+            "label": "JavaScript",
+            "score": 0.233
+          },
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.204
+          }
+        ]
+      }
+    },
+    {
+      "term": "WCAG compliance",
+      "canonical": {
+        "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "label": "ICT accessibility standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "WCAG compliance"
+        }
+      ],
+      "match": {
+        "original_term": "WCAG compliance",
+        "canonical_id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "canonical_label": "ICT accessibility standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'WCAG compliance' directly matches the 'ICT accessibility standards' entry, which explicitly includes WCAG as one of its standards.",
+        "candidates": [
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.613
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.421
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.187
+          }
+        ]
+      }
+    },
+    {
+      "term": "Web accessibility standards",
+      "canonical": {
+        "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "label": "ICT accessibility standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Web accessibility standards"
+        }
+      ],
+      "match": {
+        "original_term": "Web accessibility standards",
+        "canonical_id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "canonical_label": "ICT accessibility standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.655,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.08",
+        "candidates": [
+          {
+            "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+            "label": "ICT accessibility standards",
+            "score": 0.655
+          },
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.571
+          },
+          {
+            "id": "esco:8696aff0-18c0-4ba6-a4d0-9a21861b3e5e",
+            "label": "World Wide Web Consortium standards",
+            "score": 0.484
+          }
+        ]
+      }
+    },
+    {
+      "term": "web applications",
+      "canonical": {
+        "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+        "label": "web application security threats",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Security best practices for web applications"
+        }
+      ],
+      "match": {
+        "original_term": "web applications",
+        "canonical_id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+        "canonical_label": "web application security threats",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'web applications' in the context of 'Security best practices for web applications' directly relates to web application security threats, which is explicitly covered by the entry 'web application security threats' with the OWASP reference.",
+        "candidates": [
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.634
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.6
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.454
+          }
+        ]
+      }
+    },
+    {
+      "term": "Web performance optimization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Web performance optimization"
+        }
+      ],
+      "match": {
+        "original_term": "Web performance optimization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.391,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:web-scraping",
+            "label": "web scraping",
+            "score": 0.391
+          },
+          {
+            "id": "esco:1605025e-a179-421f-8f35-5b07d182a6b2",
+            "label": "web analytics",
+            "score": 0.38
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.376
+          }
+        ]
+      }
+    },
+    {
+      "term": "authentication",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "authentication"
+        }
+      ],
+      "match": {
+        "original_term": "authentication",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.232,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.232
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.229
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.227
+          }
+        ]
+      }
+    },
+    {
+      "term": "authorization mechanisms using OAuth2",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "authorization mechanisms using OAuth2"
+        }
+      ],
+      "match": {
+        "original_term": "authorization mechanisms using OAuth2",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.372,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.372
+          },
+          {
+            "id": "esco:ff8bd17c-77e9-4d4e-929a-a0cf86f3ed34",
+            "label": "surveillance methods",
+            "score": 0.328
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.177
+          }
+        ]
+      }
+    },
+    {
+      "term": "Azure",
+      "canonical": {
+        "id": "custom:azure",
+        "label": "Microsoft Azure",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Azure"
+        }
+      ],
+      "match": {
+        "original_term": "Azure",
+        "canonical_id": "custom:azure",
+        "canonical_label": "Microsoft Azure",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The extracted phrase 'Azure' directly matches the label 'Microsoft Azure' and its also called entry, confirming it is the same skill.",
+        "candidates": [
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.947
+          },
+          {
+            "id": "custom:aws",
+            "label": "Amazon Web Services",
+            "score": 0.18
+          },
+          {
+            "id": "custom:tableau",
+            "label": "Tableau",
+            "score": 0.179
+          }
+        ]
+      }
+    },
+    {
+      "term": "backend technologies",
+      "canonical": {
+        "id": "custom:backend-development",
+        "label": "back-end development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "backend technologies"
+        }
+      ],
+      "match": {
+        "original_term": "backend technologies",
+        "canonical_id": "custom:backend-development",
+        "canonical_label": "back-end development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'backend technologies' directly aligns with the label 'back-end development' and its also called variants, which refer to building the server, data, and integration layers of an application.",
+        "candidates": [
+          {
+            "id": "custom:backend-development",
+            "label": "back-end development",
+            "score": 0.477
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.227
+          },
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "cloud platforms like AWS",
+      "canonical": {
+        "id": "custom:aws",
+        "label": "Amazon Web Services",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "cloud platforms like AWS"
+        }
+      ],
+      "match": {
+        "original_term": "cloud platforms like AWS",
+        "canonical_id": "custom:aws",
+        "canonical_label": "Amazon Web Services",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'cloud platforms like AWS' directly refers to Amazon Web Services, which is explicitly named in the 'custom:aws' entry.",
+        "candidates": [
+          {
+            "id": "custom:gcp",
+            "label": "Google Cloud Platform",
+            "score": 0.548
+          },
+          {
+            "id": "custom:aws",
+            "label": "Amazon Web Services",
+            "score": 0.48
+          },
+          {
+            "id": "esco:778ca7ad-6c5d-4868-9b96-a7777dca799c",
+            "label": "ICT help platforms",
+            "score": 0.389
+          }
+        ]
+      }
+    },
+    {
+      "term": "database integration with MySQL",
+      "canonical": {
+        "id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+        "label": "MySQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "database integration with MySQL"
+        }
+      ],
+      "match": {
+        "original_term": "database integration with MySQL",
+        "canonical_id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+        "canonical_label": "MySQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'database integration with MySQL' specifically refers to the use of MySQL for database integration, which matches the entry for 'MySQL' as it is a specific tool for managing databases.",
+        "candidates": [
+          {
+            "id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+            "label": "MySQL",
+            "score": 0.523
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.505
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.501
+          }
+        ]
+      }
+    },
+    {
+      "term": "deployment strategies with Docker",
+      "canonical": {
+        "id": "custom:docker",
+        "label": "Docker",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "deployment strategies with Docker"
+        }
+      ],
+      "match": {
+        "original_term": "deployment strategies with Docker",
+        "canonical_id": "custom:docker",
+        "canonical_label": "Docker",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'deployment strategies with Docker' directly refers to the use of Docker for deployment, which matches the 'Docker' entry in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.509
+          },
+          {
+            "id": "esco:1d86f05e-e9cc-40ce-99d8-2b21cc71b16b",
+            "label": "solution deployment",
+            "score": 0.397
+          },
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "Django",
+      "canonical": {
+        "id": "custom:django",
+        "label": "Django",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Django"
+        }
+      ],
+      "match": {
+        "original_term": "Django",
+        "canonical_id": "custom:django",
+        "canonical_label": "Django",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "dynamic client-side interactions",
+      "canonical": {
+        "id": "custom:frontend-development",
+        "label": "front-end development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "dynamic client-side interactions"
+        }
+      ],
+      "match": {
+        "original_term": "dynamic client-side interactions",
+        "canonical_id": "custom:frontend-development",
+        "canonical_label": "front-end development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'dynamic client-side interactions' directly relates to front-end development, which involves building the user-facing layer of a web application, including dynamic client-side interactions.",
+        "candidates": [
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.503
+          },
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.399
+          },
+          {
+            "id": "custom:backend-development",
+            "label": "back-end development",
+            "score": 0.334
+          }
+        ]
+      }
+    },
+    {
+      "term": "EJS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "EJS"
+        }
+      ],
+      "match": {
+        "original_term": "EJS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.334,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.334
+          },
+          {
+            "id": "custom:vuejs",
+            "label": "Vue.js",
+            "score": 0.333
+          },
+          {
+            "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+            "label": "JavaScript",
+            "score": 0.308
+          }
+        ]
+      }
+    },
+    {
+      "term": "frameworks like React",
+      "canonical": {
+        "id": "custom:react",
+        "label": "React",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "frameworks like React"
+        }
+      ],
+      "match": {
+        "original_term": "frameworks like React",
+        "canonical_id": "custom:react",
+        "canonical_label": "React",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'frameworks like React' directly refers to React, which is explicitly listed as a candidate with the label 'React' and also called 'ReactJS', 'React.js', and 'Next.js'.",
+        "candidates": [
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.539
+          },
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.418
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.416
+          }
+        ]
+      }
+    },
+    {
+      "term": "front-end development",
+      "canonical": {
+        "id": "custom:frontend-development",
+        "label": "front-end development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "front-end development"
+        }
+      ],
+      "match": {
+        "original_term": "front-end development",
+        "canonical_id": "custom:frontend-development",
+        "canonical_label": "front-end development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "implementation using JSON",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "implementation using JSON"
+        }
+      ],
+      "match": {
+        "original_term": "implementation using JSON",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.215,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.215
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.202
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.177
+          }
+        ]
+      }
+    },
+    {
+      "term": "JavaScript ES6+",
+      "canonical": {
+        "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+        "label": "JavaScript",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "JavaScript ES6+"
+        }
+      ],
+      "match": {
+        "original_term": "JavaScript ES6+",
+        "canonical_id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+        "canonical_label": "JavaScript",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.656,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.17",
+        "candidates": [
+          {
+            "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+            "label": "JavaScript",
+            "score": 0.656
+          },
+          {
+            "id": "esco:9b9de2a4-d8af-4a7b-933a-a8334ae60067",
+            "label": "JavaScript Framework",
+            "score": 0.482
+          },
+          {
+            "id": "esco:8785ccda-6f9f-4cf3-9033-fda10653d0be",
+            "label": "JSSS",
+            "score": 0.407
+          }
+        ]
+      }
+    },
+    {
+      "term": "JWT",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "JWT"
+        }
+      ],
+      "match": {
+        "original_term": "JWT",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.162,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.162
+          },
+          {
+            "id": "custom:jupyter",
+            "label": "Jupyter Notebook",
+            "score": 0.151
+          },
+          {
+            "id": "custom:message-queues",
+            "label": "message queues",
+            "score": 0.148
+          }
+        ]
+      }
+    },
+    {
+      "term": "Kubernetes",
+      "canonical": {
+        "id": "custom:kubernetes",
+        "label": "Kubernetes",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Kubernetes"
+        }
+      ],
+      "match": {
+        "original_term": "Kubernetes",
+        "canonical_id": "custom:kubernetes",
+        "canonical_label": "Kubernetes",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "methodologies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "methodologies"
+        }
+      ],
+      "match": {
+        "original_term": "methodologies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'methodologies' is too generic and does not match any specific skill in the provided taxonomy candidates.",
+        "candidates": [
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.56
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.255
+          },
+          {
+            "id": "esco:ff8bd17c-77e9-4d4e-929a-a0cf86f3ed34",
+            "label": "surveillance methods",
+            "score": 0.249
+          }
+        ]
+      }
+    },
+    {
+      "term": "performance optimization techniques",
+      "canonical": {
+        "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+        "label": "ICT performance analysis methods",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "performance optimization techniques"
+        }
+      ],
+      "match": {
+        "original_term": "performance optimization techniques",
+        "canonical_id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+        "canonical_label": "ICT performance analysis methods",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'performance optimization techniques' directly matches the label 'ICT performance analysis methods' and is also called 'performance analysis techniques', which aligns with the concept of analyzing performance to optimize it.",
+        "candidates": [
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.592
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.428
+          },
+          {
+            "id": "esco:4e09e2d2-e317-47d2-bf5e-1d6c66be3efc",
+            "label": "energy performance of buildings",
+            "score": 0.396
+          }
+        ]
+      }
+    },
+    {
+      "term": "PostgreSQL",
+      "canonical": {
+        "id": "esco:a8d07b5a-c1a1-42c6-9d53-db9c7a2ca996",
+        "label": "PostgreSQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "PostgreSQL"
+        }
+      ],
+      "match": {
+        "original_term": "PostgreSQL",
+        "canonical_id": "esco:a8d07b5a-c1a1-42c6-9d53-db9c7a2ca996",
+        "canonical_label": "PostgreSQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Python with Flask",
+      "canonical": {
+        "id": "custom:flask",
+        "label": "Flask",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Python with Flask"
+        }
+      ],
+      "match": {
+        "original_term": "Python with Flask",
+        "canonical_id": "custom:flask",
+        "canonical_label": "Flask",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Python with Flask' specifically refers to using Flask, a lightweight Python web framework, which matches the label 'Flask' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:flask",
+            "label": "Flask",
+            "score": 0.608
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.596
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.464
+          }
+        ]
+      }
+    },
+    {
+      "term": "RESTful API design",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "RESTful API design"
+        }
+      ],
+      "match": {
+        "original_term": "RESTful API design",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.781,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.32",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.781
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.465
+          },
+          {
+            "id": "custom:responsive-design",
+            "label": "responsive web design",
+            "score": 0.456
+          }
+        ]
+      }
+    },
+    {
+      "term": "server-side logic",
+      "canonical": {
+        "id": "custom:backend-development",
+        "label": "back-end development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "server-side logic"
+        }
+      ],
+      "match": {
+        "original_term": "server-side logic",
+        "canonical_id": "custom:backend-development",
+        "canonical_label": "back-end development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'server-side logic' directly aligns with the label 'back-end development' and its also called entries, which include 'server-side development'.",
+        "candidates": [
+          {
+            "id": "custom:backend-development",
+            "label": "back-end development",
+            "score": 0.557
+          },
+          {
+            "id": "custom:discrete-mathematics",
+            "label": "discrete mathematics",
+            "score": 0.512
+          },
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.346
+          }
+        ]
+      }
+    },
+    {
+      "term": "server-side templating with Jade",
+      "canonical": {
+        "id": "custom:backend-development",
+        "label": "back-end development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "server-side templating with Jade"
+        }
+      ],
+      "match": {
+        "original_term": "server-side templating with Jade",
+        "canonical_id": "custom:backend-development",
+        "canonical_label": "back-end development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'server-side templating with Jade' directly relates to server-side development, which is explicitly covered by the 'back-end development' entry.",
+        "candidates": [
+          {
+            "id": "custom:backend-development",
+            "label": "back-end development",
+            "score": 0.476
+          },
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.311
+          },
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.194
+          }
+        ]
+      }
+    },
+    {
+      "term": "Topics include HTML5",
+      "canonical": {
+        "id": "custom:html-css",
+        "label": "HTML and CSS",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Topics include HTML5"
+        }
+      ],
+      "match": {
+        "original_term": "Topics include HTML5",
+        "canonical_id": "custom:html-css",
+        "canonical_label": "HTML and CSS",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Topics include HTML5' directly matches the 'HTML and CSS' skill, which also explicitly includes HTML5 in its also-called list.",
+        "candidates": [
+          {
+            "id": "custom:html-css",
+            "label": "HTML and CSS",
+            "score": 0.529
+          },
+          {
+            "id": "esco:4350c38d-0fe9-4ca7-bab9-40ed7f72b04f",
+            "label": "PHP",
+            "score": 0.191
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.182
+          }
+        ]
+      }
+    },
+    {
+      "term": "Vue.js",
+      "canonical": {
+        "id": "custom:vuejs",
+        "label": "Vue.js",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Vue.js"
+        }
+      ],
+      "match": {
+        "original_term": "Vue.js",
+        "canonical_id": "custom:vuejs",
+        "canonical_label": "Vue.js",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "XML",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "XML"
+        }
+      ],
+      "match": {
+        "original_term": "XML",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to the skill 'XML'. The closest entry is 'AJAX', which includes XML as part of its technology but is not the same skill.",
+        "candidates": [
+          {
+            "id": "esco:b4dc6e4f-dc7d-445f-8ce2-d7b9d225e282",
+            "label": "AJAX",
+            "score": 0.45
+          },
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.173
+          },
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.171
+          }
+        ]
+      }
+    }
+  ]
+}

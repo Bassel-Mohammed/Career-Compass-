@@ -28,7 +28,11 @@ from careercompass.parsing.grades import (
 
 # ── Regex Patterns ─────────────────────────────────────────────
 
-COURSE_CODE_RE = re.compile(r"^0\d{6}$")
+# Newer plan editions prefix the course code with a letter: the Cyber Security
+# edition-2 plan uses A0161101 where the older plans use 0161101. Without the
+# optional prefix every row of such a plan fails _is_data_row and the parser
+# returns zero courses with no error at all.
+COURSE_CODE_RE = re.compile(r"^[A-Z]?0\d{6}$")
 SEMESTER_RE = re.compile(r"^20\d{3}$")
 SECTION_KEYWORDS = ["Requirement", "Orientation", "Supportive"]
 HEADER_KEYWORDS = ["Course Code", "Course\nCode"]
@@ -37,9 +41,18 @@ HEADER_KEYWORDS = ["Course Code", "Course\nCode"]
 # ── Row Classification ─────────────────────────────────────────
 
 def _is_section_header(row: list) -> bool:
-    """Check if a row is a requirement category header."""
+    """Check if a row is a requirement category header.
+
+    Some plans' PDF text layer carries no spaces at all, yielding
+    "UniversityRequirementCompulsory" rather than the spaced form, so the
+    keywords are matched against both.
+    """
     for cell in row:
-        if cell and any(kw in str(cell) for kw in SECTION_KEYWORDS):
+        if not cell:
+            continue
+        text = str(cell)
+        squashed = text.replace(" ", "")
+        if any(kw in text or kw in squashed for kw in SECTION_KEYWORDS):
             return True
     return False
 
@@ -70,12 +83,33 @@ def _is_data_row(row: list) -> bool:
 
 # ── Section Header Parsing ────────────────────────────────────
 
+CATEGORY_WORDS = ("University", "Faculty", "Major", "Supportive", "Orientation",
+                  "Requirement", "Compulsory", "Optional")
+
+
+def _normalise_category(name: str) -> str:
+    """Restore spacing in category names from plans whose text layer has none.
+
+    "UniversityRequirementCompulsory" and "University Requirement Compulsory"
+    are the same category. Callers filter on the name, so without this a plan
+    that extracts unspaced silently contributes no courses to that filter.
+    """
+    if " " in name or not name:
+        return name
+    spaced = name
+    for word in CATEGORY_WORDS:
+        spaced = spaced.replace(word, f" {word}")
+    return " ".join(spaced.split())
+
+
 def _extract_section_info(row: list) -> dict:
     """Extract category name and required/passed hours from a section header row."""
     left = str(row[0]) if row[0] else ""
     right = str(row[3]) if len(row) > 3 and row[3] else ""
 
-    category_name = left.split(":")[0].strip() if ":" in left else left.strip()
+    category_name = _normalise_category(
+        left.split(":")[0].strip() if ":" in left else left.strip()
+    )
     required_hours = 0
     passed_hours = 0
 

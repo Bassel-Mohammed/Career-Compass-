@@ -1,0 +1,4376 @@
+{
+  "course_code": "A0433402",
+  "course_codes": [
+    "A0433402"
+  ],
+  "course_title": "Digital Forensics and Analysis",
+  "credit_hours": 3,
+  "plans": [
+    "CYBER"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "no_match": 40,
+      "accepted": 25,
+      "needs_review": 29
+    },
+    "by_method": {
+      "embedding_reranker": 43,
+      "llm": 48,
+      "exact_alias": 3
+    }
+  },
+  "total_skills": 94,
+  "skills": [
+    {
+      "term": "Cellebrite",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement forensic analysis workflows for mobile and cloud environments, including the use of Cellebrite, Magnet, and AWS forensic tools, while adhering to legal and ethical standards."
+        },
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Cellebrite and Magnet Tools"
+        }
+      ],
+      "match": {
+        "original_term": "Cellebrite",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.221,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.221
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.205
+          },
+          {
+            "id": "esco:024037ca-96a9-4cb8-ba86-2cd5a209c90a",
+            "label": "Maltego",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "chain of custody procedures",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the key concepts, standards, and legal frameworks in digital forensics, including ISO/IEC 27037, Jordanian digital evidence laws, and the chain of custody procedures."
+        },
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Chain of Custody Procedures"
+        }
+      ],
+      "match": {
+        "original_term": "chain of custody procedures",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.386,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:0e9e3a56-3b26-4fa5-91df-6d9bfbea4259",
+            "label": "electronic test procedures",
+            "score": 0.386
+          },
+          {
+            "id": "esco:ff8bd17c-77e9-4d4e-929a-a0cf86f3ed34",
+            "label": "surveillance methods",
+            "score": 0.236
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.223
+          }
+        ]
+      }
+    },
+    {
+      "term": "EnCase",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the technical processes involved in digital evidence acquisition, including forensic imaging using FTK Imager, EnCase, and the use of write blockers."
+        },
+        {
+          "source": "description",
+          "text": "EnCase"
+        }
+      ],
+      "match": {
+        "original_term": "EnCase",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.223,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.223
+          },
+          {
+            "id": "esco:2eb2fd88-0fde-49cd-9d9f-8ae823f52b3d",
+            "label": "laser marking processes",
+            "score": 0.201
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.199
+          }
+        ]
+      }
+    },
+    {
+      "term": "FAT",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the methods and algorithms used in file system analysis, such as FAT, NTFS, HFS+ recovery, and the application of hash algorithms like SHA-256."
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "FAT and NTFS Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "FAT",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.23,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:e46291c7-52b9-4174-bd59-178884861038",
+            "label": "Hadoop",
+            "score": 0.23
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.221
+          },
+          {
+            "id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+            "label": "ICT recovery techniques",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "forensic analysis workflows",
+      "canonical": {
+        "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "label": "computer forensics",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement forensic analysis workflows for mobile and cloud environments, including the use of Cellebrite, Magnet, and AWS forensic tools, while adhering to legal and ethical standards."
+        },
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Forensic Analysis Workflows"
+        }
+      ],
+      "match": {
+        "original_term": "forensic analysis workflows",
+        "canonical_id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "canonical_label": "computer forensics",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'forensic analysis workflows' directly aligns with the definition of 'computer forensics' as it involves examining and recovering digital data for legal evidence, which matches the syllabus description.",
+        "candidates": [
+          {
+            "id": "esco:77592603-505b-4096-97dd-d0def6bd7601",
+            "label": "computational fluid dynamics",
+            "score": 0.441
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.43
+          },
+          {
+            "id": "esco:2d7bf28a-2487-4443-9115-47478080b1a4",
+            "label": "hazard analysis and critical control points",
+            "score": 0.316
+          }
+        ]
+      }
+    },
+    {
+      "term": "hash algorithms like SHA-256",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the methods and algorithms used in file system analysis, such as FAT, NTFS, HFS+ recovery, and the application of hash algorithms like SHA-256."
+        },
+        {
+          "source": "description",
+          "text": "hash algorithms like SHA-256"
+        }
+      ],
+      "match": {
+        "original_term": "hash algorithms like SHA-256",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.345,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.345
+          },
+          {
+            "id": "esco:e46291c7-52b9-4174-bd59-178884861038",
+            "label": "Hadoop",
+            "score": 0.233
+          },
+          {
+            "id": "esco:000f1d3d-220f-4789-9c0a-cc742521fb02",
+            "label": "Haskell",
+            "score": 0.228
+          }
+        ]
+      }
+    },
+    {
+      "term": "ISO/IEC 27037",
+      "canonical": {
+        "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "label": "ICT security standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the key concepts, standards, and legal frameworks in digital forensics, including ISO/IEC 27037, Jordanian digital evidence laws, and the chain of custody procedures."
+        },
+        {
+          "source": "description",
+          "text": "ISO/IEC 27037"
+        }
+      ],
+      "match": {
+        "original_term": "ISO/IEC 27037",
+        "canonical_id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "canonical_label": "ICT security standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ISO/IEC 27037' is a specific standard related to ICT security, and the candidate 'ICT security standards' explicitly mentions ISO standards as part of its description.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.418
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.209
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.186
+          }
+        ]
+      }
+    },
+    {
+      "term": "Jordanian digital evidence laws",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the key concepts, standards, and legal frameworks in digital forensics, including ISO/IEC 27037, Jordanian digital evidence laws, and the chain of custody procedures."
+        },
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Jordanian Digital Evidence Laws"
+        }
+      ],
+      "match": {
+        "original_term": "Jordanian digital evidence laws",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.352,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.352
+          },
+          {
+            "id": "esco:06f33d6a-f7a7-4a2b-baa5-8c3c53bd1a9c",
+            "label": "keywords in digital content",
+            "score": 0.334
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.194
+          }
+        ]
+      }
+    },
+    {
+      "term": "Magnet",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement forensic analysis workflows for mobile and cloud environments, including the use of Cellebrite, Magnet, and AWS forensic tools, while adhering to legal and ethical standards."
+        },
+        {
+          "source": "description",
+          "text": "Magnet"
+        }
+      ],
+      "match": {
+        "original_term": "Magnet",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.243,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:024037ca-96a9-4cb8-ba86-2cd5a209c90a",
+            "label": "Maltego",
+            "score": 0.243
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.201
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.188
+          }
+        ]
+      }
+    },
+    {
+      "term": "NTFS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the methods and algorithms used in file system analysis, such as FAT, NTFS, HFS+ recovery, and the application of hash algorithms like SHA-256."
+        },
+        {
+          "source": "description",
+          "text": "NTFS"
+        }
+      ],
+      "match": {
+        "original_term": "NTFS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.232,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:e46291c7-52b9-4174-bd59-178884861038",
+            "label": "Hadoop",
+            "score": 0.232
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.214
+          },
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.209
+          }
+        ]
+      }
+    },
+    {
+      "term": "algorithms used in file system analysis",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the methods and algorithms used in file system analysis, such as FAT, NTFS, HFS+ recovery, and the application of hash algorithms like SHA-256."
+        }
+      ],
+      "match": {
+        "original_term": "algorithms used in file system analysis",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'algorithms used in file system analysis' directly refers to algorithms, which is explicitly named in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.584
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.36
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.358
+          }
+        ]
+      }
+    },
+    {
+      "term": "AWS forensic tools",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement forensic analysis workflows for mobile and cloud environments, including the use of Cellebrite, Magnet, and AWS forensic tools, while adhering to legal and ethical standards."
+        }
+      ],
+      "match": {
+        "original_term": "AWS forensic tools",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'AWS forensic tools' as a skill. The closest is 'computer forensics' (esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea), but it is a broader category and does not specifically name AWS forensic tools.",
+        "candidates": [
+          {
+            "id": "custom:aws",
+            "label": "Amazon Web Services",
+            "score": 0.477
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.435
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.399
+          }
+        ]
+      }
+    },
+    {
+      "term": "cloud environments",
+      "canonical": {
+        "id": "custom:azure",
+        "label": "Microsoft Azure",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement forensic analysis workflows for mobile and cloud environments, including the use of Cellebrite, Magnet, and AWS forensic tools, while adhering to legal and ethical standards."
+        }
+      ],
+      "match": {
+        "original_term": "cloud environments",
+        "canonical_id": "custom:azure",
+        "canonical_label": "Microsoft Azure",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'cloud environments' directly relates to the 'Microsoft Azure' cloud computing platform, which is a specific instance of a cloud environment.",
+        "candidates": [
+          {
+            "id": "esco:e7f7ceb9-6b2e-4a9f-9bc3-34613fd984c7",
+            "label": "airport operating environment",
+            "score": 0.423
+          },
+          {
+            "id": "esco:e3f2c37f-e484-4b4c-ad82-f565a2b98f89",
+            "label": "environmental management monitors",
+            "score": 0.253
+          },
+          {
+            "id": "esco:024037ca-96a9-4cb8-ba86-2cd5a209c90a",
+            "label": "Maltego",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "ethical standards",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement forensic analysis workflows for mobile and cloud environments, including the use of Cellebrite, Magnet, and AWS forensic tools, while adhering to legal and ethical standards."
+        }
+      ],
+      "match": {
+        "original_term": "ethical standards",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'ethical standards' as described in the syllabus phrase. The closest entries relate to legal or forensic standards, but not ethical standards specifically.",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.453
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.406
+          },
+          {
+            "id": "esco:48c82c54-fc6d-48f3-91f5-c9adc2a70f4b",
+            "label": "mechanical requirements for vehicles in urban areas",
+            "score": 0.374
+          }
+        ]
+      }
+    },
+    {
+      "term": "forensic imaging using FTK Imager",
+      "canonical": {
+        "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "label": "computer forensics",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the technical processes involved in digital evidence acquisition, including forensic imaging using FTK Imager, EnCase, and the use of write blockers."
+        }
+      ],
+      "match": {
+        "original_term": "forensic imaging using FTK Imager",
+        "canonical_id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "canonical_label": "computer forensics",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'forensic imaging using FTK Imager' is a specific technical process within the broader field of computer forensics, which involves examining and recovering digital data for legal evidence.",
+        "candidates": [
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.405
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.247
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "HFS+ recovery",
+      "canonical": {
+        "id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+        "label": "ICT recovery techniques",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the methods and algorithms used in file system analysis, such as FAT, NTFS, HFS+ recovery, and the application of hash algorithms like SHA-256."
+        }
+      ],
+      "match": {
+        "original_term": "HFS+ recovery",
+        "canonical_id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+        "canonical_label": "ICT recovery techniques",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'HFS+ recovery' is a specific example of 'ICT recovery techniques', which includes methods for recovering data from file systems like HFS+.",
+        "candidates": [
+          {
+            "id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+            "label": "ICT recovery techniques",
+            "score": 0.454
+          },
+          {
+            "id": "esco:24603607-640c-41a9-93a1-d2420399d55c",
+            "label": "sulphur recovery processes",
+            "score": 0.431
+          },
+          {
+            "id": "esco:47ca0da1-cae5-4395-ae6b-fd97b9ff48d3",
+            "label": "system backup best practice",
+            "score": 0.385
+          }
+        ]
+      }
+    },
+    {
+      "term": "key",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the key concepts, standards, and legal frameworks in digital forensics, including ISO/IEC 27037, Jordanian digital evidence laws, and the chain of custody procedures."
+        }
+      ],
+      "match": {
+        "original_term": "key",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.265,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:06f33d6a-f7a7-4a2b-baa5-8c3c53bd1a9c",
+            "label": "keywords in digital content",
+            "score": 0.265
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.219
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.194
+          }
+        ]
+      }
+    },
+    {
+      "term": "legal frameworks in digital forensics",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the key concepts, standards, and legal frameworks in digital forensics, including ISO/IEC 27037, Jordanian digital evidence laws, and the chain of custody procedures."
+        }
+      ],
+      "match": {
+        "original_term": "legal frameworks in digital forensics",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically address 'legal frameworks in digital forensics'. The closest entry, 'computer forensics', focuses on the examination and recovery of digital data for legal evidence, but does not explicitly cover legal frameworks.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.619
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.404
+          },
+          {
+            "id": "esco:06f33d6a-f7a7-4a2b-baa5-8c3c53bd1a9c",
+            "label": "keywords in digital content",
+            "score": 0.365
+          }
+        ]
+      }
+    },
+    {
+      "term": "network connections from RAM",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply memory dump analysis techniques using Volatility to identify artifacts, processes, and network connections from RAM."
+        }
+      ],
+      "match": {
+        "original_term": "network connections from RAM",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.39,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.39
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.386
+          },
+          {
+            "id": "esco:696e3b5b-8b61-45af-ae4c-3ab700f197ec",
+            "label": "information extraction",
+            "score": 0.205
+          }
+        ]
+      }
+    },
+    {
+      "term": "processes",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply memory dump analysis techniques using Volatility to identify artifacts, processes, and network connections from RAM."
+        }
+      ],
+      "match": {
+        "original_term": "processes",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'processes' refers to software processes in the context of memory dump analysis, but none of the provided taxonomy entries specifically match this meaning.",
+        "candidates": [
+          {
+            "id": "esco:eff776a5-b65c-4a90-b144-5c459d6fa794",
+            "label": "processes performed by tumbling",
+            "score": 0.52
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.274
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.267
+          }
+        ]
+      }
+    },
+    {
+      "term": "standards",
+      "canonical": {
+        "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+        "label": "IPC standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the key concepts, standards, and legal frameworks in digital forensics, including ISO/IEC 27037, Jordanian digital evidence laws, and the chain of custody procedures."
+        }
+      ],
+      "match": {
+        "original_term": "standards",
+        "canonical_id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+        "canonical_label": "IPC standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.656,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.09",
+        "candidates": [
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.656
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.566
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.54
+          }
+        ]
+      }
+    },
+    {
+      "term": "while adhering to legal",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement forensic analysis workflows for mobile and cloud environments, including the use of Cellebrite, Magnet, and AWS forensic tools, while adhering to legal and ethical standards."
+        }
+      ],
+      "match": {
+        "original_term": "while adhering to legal",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.286,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:48c82c54-fc6d-48f3-91f5-c9adc2a70f4b",
+            "label": "mechanical requirements for vehicles in urban areas",
+            "score": 0.286
+          },
+          {
+            "id": "esco:024037ca-96a9-4cb8-ba86-2cd5a209c90a",
+            "label": "Maltego",
+            "score": 0.205
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.192
+          }
+        ]
+      }
+    },
+    {
+      "term": "write blockers",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the technical processes involved in digital evidence acquisition, including forensic imaging using FTK Imager, EnCase, and the use of write blockers."
+        }
+      ],
+      "match": {
+        "original_term": "write blockers",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.219,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.219
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.214
+          },
+          {
+            "id": "esco:ff6904ef-36e7-4890-8fb1-8353b299f047",
+            "label": "microchip scanners",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "Azure Forensic Tools",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "AWS and Azure Forensic Tools"
+        },
+        {
+          "source": "description",
+          "text": "Azure forensic tools"
+        }
+      ],
+      "match": {
+        "original_term": "Azure Forensic Tools",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries specifically refer to 'Azure Forensic Tools' or its related concepts. The closest is 'computer forensics', which is a broader field and does not specifically match the phrase.",
+        "candidates": [
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.536
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.415
+          },
+          {
+            "id": "esco:f5084a43-42c9-4bbb-b47c-b3029cf8381d",
+            "label": "machine tools",
+            "score": 0.384
+          }
+        ]
+      }
+    },
+    {
+      "term": "Forensic Imaging Standards",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Forensic Imaging Standards"
+        },
+        {
+          "source": "description",
+          "text": "forensic imaging standards"
+        }
+      ],
+      "match": {
+        "original_term": "Forensic Imaging Standards",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Forensic Imaging Standards' or its related concepts. The closest entries are 'computer forensics' and 'electronic equipment standards,' but neither captures the precise meaning of forensic imaging standards.",
+        "candidates": [
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.424
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.394
+          },
+          {
+            "id": "esco:19ec88aa-c0b1-4515-ba10-56b6cf27369e",
+            "label": "electronic equipment standards",
+            "score": 0.387
+          }
+        ]
+      }
+    },
+    {
+      "term": "Legal",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Legal and Ethical Frameworks"
+        },
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Legal and Ethical Considerations"
+        }
+      ],
+      "match": {
+        "original_term": "Legal",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.215,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.215
+          },
+          {
+            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+            "label": "ICT architectural frameworks",
+            "score": 0.21
+          },
+          {
+            "id": "esco:e2ba5755-d934-486e-b6cb-a938c2857b79",
+            "label": "flammable fluids",
+            "score": 0.168
+          }
+        ]
+      }
+    },
+    {
+      "term": "MD5",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "MD5 and Its Limitations"
+        },
+        {
+          "source": "description",
+          "text": "MD5"
+        }
+      ],
+      "match": {
+        "original_term": "MD5",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.262,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ff6904ef-36e7-4890-8fb1-8353b299f047",
+            "label": "microchip scanners",
+            "score": 0.262
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.162
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.161
+          }
+        ]
+      }
+    },
+    {
+      "term": "Advanced File Recovery Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Advanced File Recovery Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Advanced File Recovery Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.194,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.194
+          },
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.175
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.173
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cloud Forensics Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Cloud Forensics Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Cloud Forensics Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Cloud Forensics Lab' refers to a specific lab course focused on cloud forensics, which is not directly covered by any of the provided taxonomy entries. None of the candidates accurately capture the specific skill of cloud forensics.",
+        "candidates": [
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.439
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.429
+          },
+          {
+            "id": "custom:gcp",
+            "label": "Google Cloud Platform",
+            "score": 0.413
+          }
+        ]
+      }
+    },
+    {
+      "term": "Digital Evidence Acquisition Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 2,
+          "text": "Digital Evidence Acquisition Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Digital Evidence Acquisition Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.336,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.336
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.209
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.207
+          }
+        ]
+      }
+    },
+    {
+      "term": "File System Analysis Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "File System Analysis Lab"
+        }
+      ],
+      "match": {
+        "original_term": "File System Analysis Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'File System Analysis Lab' does not match any of the provided taxonomy entries, which are focused on areas like computer vision, numerical methods, Git, and other specific tools, none of which directly relate to file system analysis.",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.401
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.385
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.359
+          }
+        ]
+      }
+    },
+    {
+      "term": "Forensic Reporting Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Forensic Reporting Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Forensic Reporting Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Forensic Reporting Lab' does not match any of the provided taxonomy entries, which cover topics like computer forensics, incident response, robot simulation, and others. None of these entries specifically refer to forensic reporting or lab work in that context.",
+        "candidates": [
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.406
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.398
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "Hash Algorithm Lab",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Hash Algorithm Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Hash Algorithm Lab",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Hash Algorithm Lab' directly relates to hashing, which is explicitly listed under the 'cryptography' taxonomy entry as part of its also called names.",
+        "candidates": [
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.418
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.225
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.199
+          }
+        ]
+      }
+    },
+    {
+      "term": "Memory Dump Analysis Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Memory Dump Analysis Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Memory Dump Analysis Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.392,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.392
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.384
+          },
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.188
+          }
+        ]
+      }
+    },
+    {
+      "term": "Memory Forensics Lab",
+      "canonical": {
+        "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "label": "computer forensics",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Memory Forensics Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Memory Forensics Lab",
+        "canonical_id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "canonical_label": "computer forensics",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "Memory Forensics Lab is a specific application of computer forensics, which involves examining and recovering digital data for investigative purposes.",
+        "candidates": [
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.435
+          },
+          {
+            "id": "custom:inferential-statistics",
+            "label": "inferential statistics",
+            "score": 0.201
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.187
+          }
+        ]
+      }
+    },
+    {
+      "term": "Mobile Forensics Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Mobile Forensics Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Mobile Forensics Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Mobile Forensics Lab' does not match any of the provided taxonomy entries, as none specifically refer to mobile forensics or related lab work.",
+        "candidates": [
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.434
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.423
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.415
+          }
+        ]
+      }
+    },
+    {
+      "term": "Network Forensics Lab",
+      "canonical": {
+        "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "label": "computer forensics",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Network Forensics Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Network Forensics Lab",
+        "canonical_id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "canonical_label": "computer forensics",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Network Forensics Lab' directly relates to examining and recovering digital data for legal evidence, which aligns with the definition of 'computer forensics' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.43
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.42
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.416
+          }
+        ]
+      }
+    },
+    {
+      "term": "Network Traffic Analysis Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Network Traffic Analysis Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Network Traffic Analysis Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.382,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.382
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.38
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.373
+          }
+        ]
+      }
+    },
+    {
+      "term": "Advanced File System Recovery",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Advanced File System Recovery"
+        }
+      ],
+      "match": {
+        "original_term": "Advanced File System Recovery",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.364,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.364
+          },
+          {
+            "id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+            "label": "ICT recovery techniques",
+            "score": 0.35
+          },
+          {
+            "id": "esco:24603607-640c-41a9-93a1-d2420399d55c",
+            "label": "sulphur recovery processes",
+            "score": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "term": "AWS",
+      "canonical": {
+        "id": "custom:aws",
+        "label": "Amazon Web Services",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "AWS and Azure Forensic Tools"
+        }
+      ],
+      "match": {
+        "original_term": "AWS",
+        "canonical_id": "custom:aws",
+        "canonical_label": "Amazon Web Services",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Case Presentation Techniques",
+      "canonical": {
+        "id": "custom:communication-skills",
+        "label": "communication skills",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Case Presentation Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Case Presentation Techniques",
+        "canonical_id": "custom:communication-skills",
+        "canonical_label": "communication skills",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Case Presentation Techniques' directly relates to conveying information clearly to an audience, which aligns with the definition of 'communication skills' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.461
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.425
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.365
+          }
+        ]
+      }
+    },
+    {
+      "term": "Case Study on Digital Crime",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Case Study on Digital Crime"
+        }
+      ],
+      "match": {
+        "original_term": "Case Study on Digital Crime",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.35,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:06f33d6a-f7a7-4a2b-baa5-8c3c53bd1a9c",
+            "label": "keywords in digital content",
+            "score": 0.35
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.33
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.189
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cloud Forensics Overview",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Cloud Forensics Overview"
+        }
+      ],
+      "match": {
+        "original_term": "Cloud Forensics Overview",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Cloud Forensics Overview' does not match any of the provided taxonomy entries, which cover topics like computer forensics, incident response, cloud computing platforms, and other unrelated fields.",
+        "candidates": [
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.434
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.421
+          },
+          {
+            "id": "custom:gcp",
+            "label": "Google Cloud Platform",
+            "score": 0.387
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Carving Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Data Carving Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Data Carving Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Data Carving Techniques'.",
+        "candidates": [
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.423
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.41
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.397
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Extraction from Phones",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Data Extraction from Phones"
+        }
+      ],
+      "match": {
+        "original_term": "Data Extraction from Phones",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries exactly match the skill described by 'Data Extraction from Phones'. The closest entries are related to general data extraction or mobile operating systems, but none specifically refer to extracting data from phones.",
+        "candidates": [
+          {
+            "id": "esco:696e3b5b-8b61-45af-ae4c-3ab700f197ec",
+            "label": "information extraction",
+            "score": 0.432
+          },
+          {
+            "id": "custom:web-scraping",
+            "label": "web scraping",
+            "score": 0.412
+          },
+          {
+            "id": "esco:968ea96d-42d0-44fe-94b0-f11d84a8234d",
+            "label": "Windows Phone",
+            "score": 0.384
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Persistence in Cloud",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Data Persistence in Cloud"
+        }
+      ],
+      "match": {
+        "original_term": "Data Persistence in Cloud",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.6,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Data Persistence in Cloud' refers to storing data in cloud environments, which is more specific than the general term 'cloud computing' or 'cloud technologies'. None of the provided taxonomy entries precisely capture the concept of data persistence in a cloud context.",
+        "candidates": [
+          {
+            "id": "custom:gcp",
+            "label": "Google Cloud Platform",
+            "score": 0.4
+          },
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.387
+          },
+          {
+            "id": "esco:bd14968e-e409-45af-b362-3495ed7b10e0",
+            "label": "cloud technologies",
+            "score": 0.384
+          }
+        ]
+      }
+    },
+    {
+      "term": "Digital Evidence Acquisition",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Digital Evidence Acquisition"
+        }
+      ],
+      "match": {
+        "original_term": "Digital Evidence Acquisition",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.369,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.369
+          },
+          {
+            "id": "esco:06f33d6a-f7a7-4a2b-baa5-8c3c53bd1a9c",
+            "label": "keywords in digital content",
+            "score": 0.366
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.226
+          }
+        ]
+      }
+    },
+    {
+      "term": "Digital Forensics",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Digital Forensics"
+        }
+      ],
+      "match": {
+        "original_term": "Digital Forensics",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Digital Signatures",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Hash Algorithms and Digital Signatures"
+        }
+      ],
+      "match": {
+        "original_term": "Digital Signatures",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Digital Signatures' is directly related to cryptography, as it is a cryptographic technique used for authentication and integrity.",
+        "candidates": [
+          {
+            "id": "esco:06f33d6a-f7a7-4a2b-baa5-8c3c53bd1a9c",
+            "label": "keywords in digital content",
+            "score": 0.41
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.406
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.247
+          }
+        ]
+      }
+    },
+    {
+      "term": "Documentation",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Forensic Reporting and Documentation"
+        }
+      ],
+      "match": {
+        "original_term": "Documentation",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Documentation' directly matches the label 'technical documentation' and is also listed as an alias for this skill in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.891
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.244
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.239
+          }
+        ]
+      }
+    },
+    {
+      "term": "Ethical Considerations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Legal and Ethical Considerations"
+        }
+      ],
+      "match": {
+        "original_term": "Ethical Considerations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.293,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:676fdcdf-c4ae-4bdd-af92-444392b06a31",
+            "label": "dairy and edible oil products",
+            "score": 0.293
+          },
+          {
+            "id": "esco:8df3dcf5-8ede-4e03-a69c-c8cf01eff429",
+            "label": "meat and meat products",
+            "score": 0.281
+          },
+          {
+            "id": "esco:c10b2375-dd28-4801-92ab-d00d983bb388",
+            "label": "chemical aspects of sugar",
+            "score": 0.229
+          }
+        ]
+      }
+    },
+    {
+      "term": "Ethical Frameworks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Legal and Ethical Frameworks"
+        }
+      ],
+      "match": {
+        "original_term": "Ethical Frameworks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'Ethical Frameworks' or its related syllabus term 'Legal and Ethical Frameworks'. The closest match, 'data protection', is broader and does not specifically address ethical frameworks.",
+        "candidates": [
+          {
+            "id": "esco:24c200e5-be20-4370-a137-ab53797f3a17",
+            "label": "software frameworks",
+            "score": 0.475
+          },
+          {
+            "id": "esco:8c88d336-c249-4537-b26e-d679a85c4b9b",
+            "label": "Ajax Framework",
+            "score": 0.467
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.45
+          }
+        ]
+      }
+    },
+    {
+      "term": "Evidence Handling Procedures",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Evidence Handling Procedures"
+        }
+      ],
+      "match": {
+        "original_term": "Evidence Handling Procedures",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries exactly match the skill phrase 'Evidence Handling Procedures'. The closest entries are related to handling dangerous goods, test procedures, or computer forensics, but none specifically refer to evidence handling procedures as described.",
+        "candidates": [
+          {
+            "id": "esco:e3b4b533-cc4d-4c70-adb6-128120f40c88",
+            "label": "handling of dangerous goods",
+            "score": 0.526
+          },
+          {
+            "id": "esco:d512d178-37a6-4eab-a660-412d2bb0824a",
+            "label": "test procedures",
+            "score": 0.439
+          },
+          {
+            "id": "esco:0e9e3a56-3b26-4fa5-91df-6d9bfbea4259",
+            "label": "electronic test procedures",
+            "score": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "term": "File System Structures",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "File System Structures"
+        }
+      ],
+      "match": {
+        "original_term": "File System Structures",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'File System Structures' refers to the organization and management of files within a file system, which is a specific aspect of operating systems. None of the provided taxonomy entries precisely match this skill.",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.462
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.382
+          },
+          {
+            "id": "esco:cf310cff-0d28-4dbc-9dbb-cc500a3196c2",
+            "label": "office software",
+            "score": 0.356
+          }
+        ]
+      }
+    },
+    {
+      "term": "Forensic Reporting",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Forensic Reporting and Documentation"
+        }
+      ],
+      "match": {
+        "original_term": "Forensic Reporting",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Forensic Reporting' from the syllabus. The closest entries are related to computer forensics or security incident response, but they do not specifically refer to the act of reporting in a forensic context.",
+        "candidates": [
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.467
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.459
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.328
+          }
+        ]
+      }
+    },
+    {
+      "term": "Hash Algorithms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Hash Algorithms and Digital Signatures"
+        }
+      ],
+      "match": {
+        "original_term": "Hash Algorithms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.255,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.255
+          },
+          {
+            "id": "esco:06f33d6a-f7a7-4a2b-baa5-8c3c53bd1a9c",
+            "label": "keywords in digital content",
+            "score": 0.233
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "HFS+ File Recovery",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "HFS+ File Recovery"
+        }
+      ],
+      "match": {
+        "original_term": "HFS+ File Recovery",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.366,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+            "label": "ICT recovery techniques",
+            "score": 0.366
+          },
+          {
+            "id": "esco:24603607-640c-41a9-93a1-d2420399d55c",
+            "label": "sulphur recovery processes",
+            "score": 0.362
+          },
+          {
+            "id": "custom:ros2-launch-files",
+            "label": "ROS 2 launch files",
+            "score": 0.347
+          }
+        ]
+      }
+    },
+    {
+      "term": "Integration of Forensic Tools",
+      "canonical": {
+        "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "label": "computer forensics",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Integration of Forensic Tools"
+        }
+      ],
+      "match": {
+        "original_term": "Integration of Forensic Tools",
+        "canonical_id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "canonical_label": "computer forensics",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Integration of Forensic Tools' directly relates to the process of examining and recovering digital data for legal evidence, which is the definition of 'computer forensics' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.553
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.409
+          },
+          {
+            "id": "esco:f5084a43-42c9-4bbb-b47c-b3029cf8381d",
+            "label": "machine tools",
+            "score": 0.381
+          }
+        ]
+      }
+    },
+    {
+      "term": "Limitations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "MD5 and Its Limitations"
+        }
+      ],
+      "match": {
+        "original_term": "Limitations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Limitations' does not match any of the provided taxonomy entries, as none of the entries specifically refer to the concept of limitations in the context of the syllabus.",
+        "candidates": [
+          {
+            "id": "esco:ff6904ef-36e7-4890-8fb1-8353b299f047",
+            "label": "microchip scanners",
+            "score": 0.514
+          },
+          {
+            "id": "esco:d6e3395b-5ab6-4fba-969a-3df634e904c5",
+            "label": "ICT network cable limitations",
+            "score": 0.49
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.275
+          }
+        ]
+      }
+    },
+    {
+      "term": "Magnet Tools",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Cellebrite and Magnet Tools"
+        }
+      ],
+      "match": {
+        "original_term": "Magnet Tools",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the extracted phrase 'Magnet Tools' in meaning or specific terminology.",
+        "candidates": [
+          {
+            "id": "esco:f5084a43-42c9-4bbb-b47c-b3029cf8381d",
+            "label": "machine tools",
+            "score": 0.496
+          },
+          {
+            "id": "esco:c3cad273-2cd4-4e4c-9d0a-4d7ed638fc36",
+            "label": "electromagnets",
+            "score": 0.475
+          },
+          {
+            "id": "esco:44297bbb-306a-46fa-ab1b-fa3fb327ebda",
+            "label": "mechanical tools",
+            "score": 0.464
+          }
+        ]
+      }
+    },
+    {
+      "term": "Malware Communication Detection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Malware Communication Detection"
+        }
+      ],
+      "match": {
+        "original_term": "Malware Communication Detection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Malware Communication Detection' does not match any of the provided taxonomy entries, which are focused on communication skills, cybersecurity, or related fields, but none specifically address malware communication detection.",
+        "candidates": [
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.56
+          },
+          {
+            "id": "esco:debef2fc-7af4-4bff-ac92-4d0317915a84",
+            "label": "electronic communication",
+            "score": 0.448
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.42
+          }
+        ]
+      }
+    },
+    {
+      "term": "Memory Dump Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Memory Dump Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Memory Dump Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Memory Dump Analysis'.",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.432
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.413
+          },
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.185
+          }
+        ]
+      }
+    },
+    {
+      "term": "Memory Forensics Deep Dive",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Memory Forensics Deep Dive"
+        }
+      ],
+      "match": {
+        "original_term": "Memory Forensics Deep Dive",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.386,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.386
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.346
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.196
+          }
+        ]
+      }
+    },
+    {
+      "term": "Mobile Device Forensics",
+      "canonical": {
+        "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "label": "computer forensics",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Mobile Device Forensics"
+        }
+      ],
+      "match": {
+        "original_term": "Mobile Device Forensics",
+        "canonical_id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "canonical_label": "computer forensics",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Mobile Device Forensics' directly relates to the field of computer forensics, which involves examining and recovering digital data for legal evidence, matching the description of the 'computer forensics' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.439
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.436
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.431
+          }
+        ]
+      }
+    },
+    {
+      "term": "Network Forensics Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Network Forensics Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Network Forensics Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically match 'Network Forensics Techniques'. The closest is 'computer forensics', which is broader and does not specifically address network-related forensics.",
+        "candidates": [
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.426
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.421
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.408
+          }
+        ]
+      }
+    },
+    {
+      "term": "Network Traffic Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Network Traffic Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Network Traffic Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Network Traffic Analysis'. The closest entries are related to network security, computer networks, or web analytics, but none specifically refer to analyzing network traffic.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.433
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.426
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.423
+          }
+        ]
+      }
+    },
+    {
+      "term": "NTFS Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "FAT and NTFS Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "NTFS Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'NTFS Analysis' as it relates to file system analysis, which is not covered by any of the listed skills.",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.49
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.469
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.465
+          }
+        ]
+      }
+    },
+    {
+      "term": "Overview of Forensic Tools",
+      "canonical": {
+        "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "label": "computer forensics",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Overview of Forensic Tools"
+        }
+      ],
+      "match": {
+        "original_term": "Overview of Forensic Tools",
+        "canonical_id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "canonical_label": "computer forensics",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Overview of Forensic Tools' directly relates to the skill 'computer forensics', which involves examining and recovering digital data for legal evidence, matching the context of the syllabus.",
+        "candidates": [
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.4
+          },
+          {
+            "id": "esco:44297bbb-306a-46fa-ab1b-fa3fb327ebda",
+            "label": "mechanical tools",
+            "score": 0.394
+          },
+          {
+            "id": "esco:f5084a43-42c9-4bbb-b47c-b3029cf8381d",
+            "label": "machine tools",
+            "score": 0.385
+          }
+        ]
+      }
+    },
+    {
+      "term": "Packet Capture Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Packet Capture Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Packet Capture Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.218,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+            "label": "computer technology",
+            "score": 0.218
+          },
+          {
+            "id": "esco:71f81e1a-e2ca-48d6-b7b8-7a34c56c51f8",
+            "label": "transmission technology",
+            "score": 0.216
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.201
+          }
+        ]
+      }
+    },
+    {
+      "term": "Presentation of Case Studies",
+      "canonical": {
+        "id": "custom:communication-skills",
+        "label": "communication skills",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Presentation of Case Studies"
+        }
+      ],
+      "match": {
+        "original_term": "Presentation of Case Studies",
+        "canonical_id": "custom:communication-skills",
+        "canonical_label": "communication skills",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Presentation of Case Studies' directly relates to conveying information clearly to an audience, which aligns with the definition of 'communication skills' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.446
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.231
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.227
+          }
+        ]
+      }
+    },
+    {
+      "term": "Process",
+      "canonical": {
+        "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+        "label": "production processes",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Process and Registry Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Process",
+        "canonical_id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+        "canonical_label": "production processes",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.684,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.06",
+        "candidates": [
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.684
+          },
+          {
+            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
+            "label": "packaging processes",
+            "score": 0.62
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.615
+          }
+        ]
+      }
+    },
+    {
+      "term": "RAM Artifacts Identification",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "RAM Artifacts Identification"
+        }
+      ],
+      "match": {
+        "original_term": "RAM Artifacts Identification",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.215,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:aa9eb826-390c-4923-b379-ba56444e680e",
+            "label": "laser types",
+            "score": 0.215
+          },
+          {
+            "id": "esco:2eb2fd88-0fde-49cd-9d9f-8ae823f52b3d",
+            "label": "laser marking processes",
+            "score": 0.198
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "Registry Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Process and Registry Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Registry Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Registry Analysis' from the syllabus. The closest entries are related to data analysis, operating systems, or programming, but none specifically refer to registry analysis as a distinct skill.",
+        "candidates": [
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.577
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.492
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.306
+          }
+        ]
+      }
+    },
+    {
+      "term": "Report Writing Standards",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Report Writing Standards"
+        }
+      ],
+      "match": {
+        "original_term": "Report Writing Standards",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Report Writing Standards' directly relates to writing technical documentation, which aligns with the label 'technical documentation' and its associated descriptions.",
+        "candidates": [
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.435
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.413
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.393
+          }
+        ]
+      }
+    },
+    {
+      "term": "Scalpel",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Tools like foremost and Scalpel"
+        }
+      ],
+      "match": {
+        "original_term": "Scalpel",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.225,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:44297bbb-306a-46fa-ab1b-fa3fb327ebda",
+            "label": "mechanical tools",
+            "score": 0.225
+          },
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.219
+          },
+          {
+            "id": "esco:f266380e-9830-44db-8f93-60a6e8b9a1b6",
+            "label": "manufacturing of tools",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "SHA-256 Implementation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "SHA-256 Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "SHA-256 Implementation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.211,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.211
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.202
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.192
+          }
+        ]
+      }
+    },
+    {
+      "term": "tcpdump Usage",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Wireshark and tcpdump Usage"
+        }
+      ],
+      "match": {
+        "original_term": "tcpdump Usage",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.277,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+            "label": "Wireshark",
+            "score": 0.277
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.208
+          },
+          {
+            "id": "esco:f88002a8-6355-4d33-9496-285c166ff375",
+            "label": "ICT power consumption",
+            "score": 0.181
+          }
+        ]
+      }
+    },
+    {
+      "term": "Timeline Reconstruction",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Timeline Reconstruction"
+        }
+      ],
+      "match": {
+        "original_term": "Timeline Reconstruction",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.215,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.215
+          },
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.212
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "Tools like foremost",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Tools like foremost and Scalpel"
+        }
+      ],
+      "match": {
+        "original_term": "Tools like foremost",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.393,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.393
+          },
+          {
+            "id": "esco:44297bbb-306a-46fa-ab1b-fa3fb327ebda",
+            "label": "mechanical tools",
+            "score": 0.391
+          },
+          {
+            "id": "esco:f5084a43-42c9-4bbb-b47c-b3029cf8381d",
+            "label": "machine tools",
+            "score": 0.39
+          }
+        ]
+      }
+    },
+    {
+      "term": "Traffic Analysis with Zeek",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Traffic Analysis with Zeek"
+        }
+      ],
+      "match": {
+        "original_term": "Traffic Analysis with Zeek",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Traffic Analysis with Zeek' refers to analyzing network traffic using the Zeek tool, which is not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.404
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.404
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.397
+          }
+        ]
+      }
+    },
+    {
+      "term": "Volatility Framework",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Volatility Framework"
+        }
+      ],
+      "match": {
+        "original_term": "Volatility Framework",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Volatility Framework' does not match any of the provided taxonomy entries, which are related to programming frameworks, mathematics, or data analysis tools.",
+        "candidates": [
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.423
+          },
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.218
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.206
+          }
+        ]
+      }
+    },
+    {
+      "term": "Wireshark",
+      "canonical": {
+        "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "label": "Wireshark",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Wireshark and tcpdump Usage"
+        }
+      ],
+      "match": {
+        "original_term": "Wireshark",
+        "canonical_id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "canonical_label": "Wireshark",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Write Blocker Usage",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Write Blocker Usage"
+        }
+      ],
+      "match": {
+        "original_term": "Write Blocker Usage",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.23,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.23
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.197
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.176
+          }
+        ]
+      }
+    },
+    {
+      "term": "cloud forensics using AWS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "cloud forensics using AWS"
+        }
+      ],
+      "match": {
+        "original_term": "cloud forensics using AWS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries specifically match 'cloud forensics using AWS'. The closest entries are 'computer forensics' and 'cloud technologies', but neither captures the specific combination of 'cloud forensics' and 'AWS'.",
+        "candidates": [
+          {
+            "id": "custom:aws",
+            "label": "Amazon Web Services",
+            "score": 0.437
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.394
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.382
+          }
+        ]
+      }
+    },
+    {
+      "term": "covering topics",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "covering topics"
+        }
+      ],
+      "match": {
+        "original_term": "covering topics",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.21,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.21
+          },
+          {
+            "id": "esco:f049d050-12da-4e40-813a-2b5eb6df6b51",
+            "label": "Internet of Things",
+            "score": 0.203
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "data recovery techniques using dd",
+      "canonical": {
+        "id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+        "label": "ICT recovery techniques",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "data recovery techniques using dd"
+        }
+      ],
+      "match": {
+        "original_term": "data recovery techniques using dd",
+        "canonical_id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+        "canonical_label": "ICT recovery techniques",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'data recovery techniques using dd' directly relates to techniques for recovering data, which matches the description of 'ICT recovery techniques' in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+            "label": "ICT recovery techniques",
+            "score": 0.509
+          },
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.332
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.315
+          }
+        ]
+      }
+    },
+    {
+      "term": "digital evidence acquisition using FTK Imager",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "digital evidence acquisition using FTK Imager"
+        }
+      ],
+      "match": {
+        "original_term": "digital evidence acquisition using FTK Imager",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.345,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.345
+          },
+          {
+            "id": "esco:cfa2be0d-96d5-4017-a866-962efb9c5070",
+            "label": "signal processing",
+            "score": 0.303
+          },
+          {
+            "id": "esco:06f33d6a-f7a7-4a2b-baa5-8c3c53bd1a9c",
+            "label": "keywords in digital content",
+            "score": 0.288
+          }
+        ]
+      }
+    },
+    {
+      "term": "file system analysis with FAT",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "file system analysis with FAT"
+        }
+      ],
+      "match": {
+        "original_term": "file system analysis with FAT",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.387,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.387
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.368
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.339
+          }
+        ]
+      }
+    },
+    {
+      "term": "foremost",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "foremost"
+        }
+      ],
+      "match": {
+        "original_term": "foremost",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.198,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.198
+          },
+          {
+            "id": "custom:forward-kinematics",
+            "label": "forward kinematics",
+            "score": 0.176
+          },
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.149
+          }
+        ]
+      }
+    },
+    {
+      "term": "HFS+",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "HFS+"
+        }
+      ],
+      "match": {
+        "original_term": "HFS+",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.165,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.165
+          },
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.159
+          },
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.159
+          }
+        ]
+      }
+    },
+    {
+      "term": "memory dump analysis using Volatility",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "memory dump analysis using Volatility"
+        }
+      ],
+      "match": {
+        "original_term": "memory dump analysis using Volatility",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.35,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.35
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.344
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.333
+          }
+        ]
+      }
+    },
+    {
+      "term": "network traffic analysis with Wireshark",
+      "canonical": {
+        "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "label": "Wireshark",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "network traffic analysis with Wireshark"
+        }
+      ],
+      "match": {
+        "original_term": "network traffic analysis with Wireshark",
+        "canonical_id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "canonical_label": "Wireshark",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'network traffic analysis with Wireshark' directly refers to the use of Wireshark for analyzing network traffic, which matches the description of the 'Wireshark' entry in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+            "label": "Wireshark",
+            "score": 0.49
+          },
+          {
+            "id": "esco:709ef32a-7435-48e2-8fa2-16e389ecab8a",
+            "label": "Cisco",
+            "score": 0.361
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.36
+          }
+        ]
+      }
+    },
+    {
+      "term": "practices of digital forensics",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "practices of digital forensics"
+        }
+      ],
+      "match": {
+        "original_term": "practices of digital forensics",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.703,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.25",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.703
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.453
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.385
+          }
+        ]
+      }
+    },
+    {
+      "term": "tcpdump",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "tcpdump"
+        }
+      ],
+      "match": {
+        "original_term": "tcpdump",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.225,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.225
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.169
+          },
+          {
+            "id": "custom:apache-spark",
+            "label": "Apache Spark",
+            "score": 0.164
+          }
+        ]
+      }
+    }
+  ]
+}

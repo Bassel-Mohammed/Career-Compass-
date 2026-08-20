@@ -24,22 +24,59 @@ Thumbs.db
 # Logs
 *.log
 
-# Personal academic records. Real transcripts carry a student's name, ID
-# and full grade history and must never reach the shared repository.
-# Course syllabi are not personal and stay tracked: the parser tests use
-# them as fixtures.
-*_plan_*_EN.pdf
-data/extracted/*.json
+# ─────────────────────────────────────────────────────────────────────
+# Personal academic records — never commit
+#
+# Study plans and transcripts carry a student's name, ID, advisor, GPA and
+# full grade history. Both the source PDFs and anything parsed out of them
+# are personal data.
+#
+# These patterns are deliberately broad and path-independent: the previous
+# rule was `data/extracted/*.json`, which matched only files sitting directly
+# in that directory. A parsed plan written one level deeper would have been
+# committed.
+data/plans/*.pdf
+data/transcripts/
+*_plan_*.pdf
+*_plan_*.json
+*transcript*.pdf
+*transcript*.json
+!tests/**/*transcript*.json
 
-# Generated taxonomy artifacts. custom_skills.json is a source file and
-# stays tracked; these three are rebuilt by run_taxonomy_build, and the
-# ESCO crawl cache runs to tens of megabytes.
+# Course syllabi are NOT personal and stay tracked: data/syllabi/ holds the
+# source PDFs and the parser tests use them as fixtures. The collection
+# checklist derived from the plans (data/plans/required_syllabi.md) carries
+# only course codes and names, so it stays tracked too.
+
+# ─────────────────────────────────────────────────────────────────────
+# Generated artifacts — rebuilt from tracked inputs
+#
+# Extraction output for real syllabi. Regenerate in ~25 min from the tracked
+# PDFs with:  python -m careercompass.cli.extract_all_syllabi
+data/extracted/syllabi/
+data/extracted/skills/
+
+# Job-corpus artifacts, all rebuilt by extract_job_skills. The term pool runs
+# to tens of megabytes because it holds every term the corpus produced, not
+# only those above the cutoff; the ontology is small but equally derived, and
+# its consumers read it from PostgreSQL.
+data/extracted/jobs/
+
+# Taxonomy artifacts. custom_skills.json is a source file and stays tracked;
+# these are rebuilt by run_taxonomy_build, and the ESCO crawl cache runs to
+# tens of megabytes.
 data/taxonomy/cache/
 data/taxonomy/taxonomy.jsonl
 data/taxonomy/vector_index.npz
 
 # Scratch output
 data/temp/
+
+# data/mock/ is deliberately NOT ignored. It is generated, but regenerating it
+# costs ~3.5 hours of local GPU time and requires Ollama, and it is what lets
+# anyone else on the team build against M2/M3 before the real syllabi are
+# collected. Every record carries "mock": true and a WARNING field, and nothing
+# in the real pipeline reads it — see docs/ENGINEERING_NOTES.md §10.
 
 # Planning notes
 SKILL_EXTRACTION_PLAN.md

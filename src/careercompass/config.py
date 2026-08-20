@@ -39,6 +39,7 @@ CLEAN_DATA_DIR = DATA_DIR / "clean"
 EXTRACTED_DIR = DATA_DIR / "extracted"
 SYLLABI_DIR = EXTRACTED_DIR / "syllabi"
 SKILLS_DIR = EXTRACTED_DIR / "skills"
+JOBS_DIR = EXTRACTED_DIR / "jobs"
 TEMP_DIR = DATA_DIR / "temp"
 
 # Canonical vocabulary: one source file, three build artifacts

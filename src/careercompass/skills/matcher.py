@@ -39,7 +39,7 @@ import re
 from careercompass.skills.taxonomy import TAXONOMY_VERSION, load_taxonomy, normalize
 from careercompass.skills.embeddings import load_or_build_index
 from careercompass.skills.reranker import get_reranker
-from careercompass.skills.llm import LLMDecider, NO_MATCH
+from careercompass.skills.llm import DEFAULT_DOMAIN, LLMDecider, NO_MATCH
 
 logger = logging.getLogger("careercompass.matcher")
 
@@ -194,20 +194,25 @@ class SkillMatcher:
 
     @classmethod
     def build(cls, backend: str = "", reranker: str = "", use_llm=None,
-              rebuild: bool = False, **options) -> "SkillMatcher":
+              rebuild: bool = False, domain: str = DEFAULT_DOMAIN,
+              **options) -> "SkillMatcher":
         """
         Assemble a matcher from the configured backends.
 
         Each stage degrades on its own: without sentence-transformers the
         retrieval and reranking fall back to lexical scoring, and without
         an API key the LLM stage is skipped and its cases go to review.
+
+        `domain` tells the LLM stage which document the phrases came from
+        — "syllabus" or "job_posting". It changes only how the prompt
+        frames the evidence, never the rules or the schema.
         """
         taxonomy = load_taxonomy()
         index = load_or_build_index(taxonomy, backend=backend, rebuild=rebuild)
         scorer = get_reranker(reranker)
         # None lets CC_MATCH_LLM decide. True/False are explicit CLI or API
         # overrides, so --llm and --no-llm remain predictable.
-        decider = LLMDecider(enabled=use_llm)
+        decider = LLMDecider(enabled=use_llm, domain=domain)
         if decider.enabled and not decider.available:
             logger.warning("LLM stage requested but unavailable: %s",
                            decider.reason_unavailable)
@@ -216,6 +221,26 @@ class SkillMatcher:
         thresholds = dict(SCORER_THRESHOLDS[family])
         thresholds.update(options)  # an explicit threshold always wins
         return cls(taxonomy, index, scorer, decider, **thresholds)
+
+    def with_thresholds(self, **overrides) -> "SkillMatcher":
+        """
+        A matcher differing only in its decision thresholds.
+
+        Shares the taxonomy, vector index, reranker and LLM client rather
+        than rebuilding them. Calling build() a second time in one process
+        loads a second copy of the embedding model, which on a single GPU
+        means the two of them plus a local LLM do not fit — the recheck
+        pass exists precisely to run alongside an already-built matcher.
+        """
+        thresholds = {
+            "top_k": self.top_k,
+            "accept_score": self.accept_score,
+            "accept_margin": self.accept_margin,
+            "review_floor": self.review_floor,
+        }
+        thresholds.update(overrides)
+        return SkillMatcher(self.taxonomy, self.index, self.reranker,
+                            self.decider, **thresholds)
 
     def _exact_decision(self, term: str):
         """Classify an alias-index hit as safe exact or context-dependent."""

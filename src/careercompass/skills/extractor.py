@@ -19,6 +19,12 @@ audit it. Terms are left as they appear in the syllabus; mapping them onto
 a shared vocabulary is the job of the taxonomy pass, which fills in the
 "canonical" field this module leaves as None.
 
+The phrase-level work — splitting a line into candidates and trimming each
+one — lives in careercompass.skills.phrases, which the job-posting
+extractor shares. What stays here is what makes a syllabus a syllabus:
+learning outcomes, weekly schedules, and the JNQF and Bloom vocabulary
+that levels them.
+
 Usage:
     from careercompass.parsing.syllabus import parse_syllabus
     from careercompass.skills.extractor import extract_skills
@@ -30,6 +36,15 @@ import re
 import json
 from pathlib import Path
 
+from careercompass.skills.phrases import (
+    BLOOM_LEVELS, LEADING_LIST_MARKER_RE, LEAD_RE, LEVEL_RANK,
+    MAX_TERM_WORDS, MIN_TERM_LENGTH, NOISE_TERMS, PAREN_RE, SPLIT_RE,
+    SYLLABUS_NOISE_TERMS,
+    TRAIL_RE, TRAIL_WORD_RE, VERB_LEVELS, add_mention, clean_fragment,
+    finalize, is_usable, phrases, strip_leading_verb, strip_parentheticals,
+    strip_unmatched_parentheses,
+)
+
 # ── Levels ─────────────────────────────────────────────────────
 
 # The JNQF descriptor column states the depth of an outcome directly.
@@ -39,64 +54,12 @@ JNQF_LEVELS = {
     "competency": "advanced",
 }
 
-# Used when no descriptor is marked: the leading Bloom verb of the outcome
-# grades it instead.
-BLOOM_LEVELS = {
-    "beginner": (
-        "define", "describe", "list", "identify", "recognize", "state",
-        "explain", "discuss", "understand", "survey", "explore", "review",
-        "consider", "engage", "study", "cover",
-    ),
-    "intermediate": (
-        "analyze", "demonstrate", "select", "apply", "calculate", "compute",
-        "implement", "use", "perform", "compare", "examine", "solve",
-        "practice", "integrate", "build",
-    ),
-    "advanced": (
-        "design", "develop", "create", "evaluate", "troubleshoot", "resolve",
-        "assess", "critique", "optimize", "investigate",
-    ),
-}
-VERB_LEVELS = {
-    verb: level for level, verbs in BLOOM_LEVELS.items() for verb in verbs
-}
-LEVEL_RANK = {"beginner": 0, "intermediate": 1, "advanced": 2}
-
 # How much a mention is worth, by the zone it was found in.
 SOURCE_WEIGHTS = {"clo": 1.0, "lab": 0.8, "topic": 0.7, "description": 0.6}
 
-# ── Phrase Patterns ────────────────────────────────────────────
+# ── Syllabus Structure ─────────────────────────────────────────
 
 LAB_PREFIX_RE = re.compile(r"^Lab\s*\d*\s*[:.\-]\s*", re.IGNORECASE)
-PAREN_RE = re.compile(r"\(([^)]*)\)")
-LEADING_LIST_MARKER_RE = re.compile(
-    r"^\s*(?:(?:[-*]\s+)|(?:[–—]\s*)|"
-    r"(?:[\u00b7\u2022\u2023\u2043\u2219\u25a0\u25aa\u25ab\u25cb\u25cf\u25e6\uf0b7]\s*))+"
-)
-
-# Fragment separators. Splitting on these turns "sensing, acting, planning,
-# and learning" into four candidates.
-SPLIT_RE = re.compile(
-    r"\s*(?:[,;:&]|\.\s|\.$|\band\b|\bor\b|\bfor\b|\bincluding\b|\bsuch as\b)\s*",
-    re.IGNORECASE,
-)
-
-# Connectives and qualifiers that survive splitting and must be trimmed off
-# the front of a fragment before it can be a skill.
-LEAD_RE = re.compile(
-    r"^(?:the|a|an|to|of|for|in|on|with|by|from|its|their|various|basic|common|"
-    r"other|related to|involving|using|based|key|concepts? of|types? of|"
-    r"introduction to|steps? in|applications? of|problems? related to|beyond)\s+",
-    re.IGNORECASE,
-)
-TRAIL_RE = re.compile(r"[\s.,;:&\-–]+$")
-
-# Dangling words left at the end of a fragment once it has been split.
-TRAIL_WORD_RE = re.compile(
-    r"\s+(?:of|for|to|and|or|in|on|with|by|from|the|a|an|its|their|"
-    r"problems?|tasks?|concepts?|throughout)$",
-    re.IGNORECASE,
-)
 
 # Form bookkeeping some syllabi append to the outcome text itself
 # ("Calculate statistical measures. CLO Coverage: 40%").
@@ -135,81 +98,27 @@ EXAM_PREFIX_RE = re.compile(
     re.IGNORECASE,
 )
 
-# Fragments that are grammatical residue or academic filler rather than
-# anything a job posting would ever ask for.
-NOISE_TERMS = {
-    "course", "courses", "the course", "syllabus", "discussion", "introduction",
-    "review", "concepts", "concept", "examples", "example", "components",
-    "component", "applications", "application", "problems", "problem",
-    "tasks", "task", "systems", "system", "methods", "method", "topics",
-    "topic", "project", "projects", "exam", "exams", "quiz", "quizzes",
-    "lab", "labs", "lecture", "lectures", "week", "generation", "tracking",
-    "considerations", "practical considerations", "essentials", "workspace",
-    "getting started", "overview", "basics", "fundamentals", "principles",
-    "types", "rules", "steps", "approach", "study", "studies", "analysis",
-    "theory", "practice", "laws", "law", "tool", "tools", "files", "file",
-    "others", "etc", "and", "or",
-    # Bare modifiers, stranded when a shared head noun is elided
-    # ("Internal and External Sensors" leaves "Internal" behind).
-    "internal", "external", "legged", "wheeled", "mobile", "basic", "advanced",
-    "adaptive", "dynamic", "practical", "theoretical", "custom", "beyond",
-    "core", "general", "special", "modern", "several", "reactive",
-}
-
-MIN_TERM_LENGTH = 3
-MAX_TERM_WORDS = 6
+# A lab prefix goes first; the chapter and exam prefixes are stripped only
+# after the line has been tested as a heading, so "Final Exam" is dropped
+# whole while "Final Exam: recursion" keeps its topic.
+SYLLABUS_PREFIX_ROUNDS = (
+    (LAB_PREFIX_RE,),
+    (CHAPTER_PREFIX_RE, EXAM_PREFIX_RE),
+)
+SYLLABUS_REJECT_LINES = (EXAM_HEADING_RE, ADMIN_HEADING_RE)
+SYLLABUS_REJECT_TERMS = (EXAM_HEADING_RE, ADMIN_HEADING_RE, CHAPTER_LABEL_RE)
 
 
 # ── Phrase Helpers ─────────────────────────────────────────────
-def _strip_parentheticals(text: str) -> tuple:
-    """
-    Pull parenthesized content out of a phrase.
-
-    Parentheses in these syllabi hold acronyms and sub-lists — "human-robot
-    interaction (HRI)", "(Files and RQT Tool)" — which are skills in their
-    own right but wreck a naive split if left inline.
-    """
-    inner = [match.strip() for match in PAREN_RE.findall(text) if match.strip()]
-    return PAREN_RE.sub(" ", text), inner
-
-
-def _strip_unmatched_parentheses(text: str) -> str:
-    """Remove only unpaired parentheses while preserving their contents."""
-    openings = []
-    unmatched = set()
-    for index, character in enumerate(text):
-        if character == "(":
-            openings.append(index)
-        elif character == ")":
-            if openings:
-                openings.pop()
-            else:
-                unmatched.add(index)
-    unmatched.update(openings)
-    if not unmatched:
-        return text
-    return "".join(" " if index in unmatched else character
-                   for index, character in enumerate(text))
-
-
-def _clean_fragment(fragment: str) -> str:
-    """
-    Trim a split fragment down to the skill it names.
-
-    Strips punctuation, articles and connectives from both ends, and drops
-    a leading Bloom verb: "and Define human-robot interaction" splits out
-    of a learning outcome still carrying its verb.
-    """
-    fragment = LEADING_LIST_MARKER_RE.sub("", fragment)
-    term = TRAIL_RE.sub("", fragment.strip())
-    previous = None
-    while term and term != previous:
-        previous = term
-        term = _strip_leading_verb(term)
-        term = LEAD_RE.sub("", term).strip()
-        term = TRAIL_WORD_RE.sub("", term)
-        term = TRAIL_RE.sub("", term)
-    return re.sub(r"\s+", " ", term)
+def _phrases(text: str) -> list:
+    """Split a line of syllabus text into candidate skill phrases."""
+    return phrases(
+        text,
+        prefix_rounds=SYLLABUS_PREFIX_ROUNDS,
+        reject_lines=SYLLABUS_REJECT_LINES,
+        reject_terms=SYLLABUS_REJECT_TERMS,
+        noise_terms=SYLLABUS_NOISE_TERMS,
+    )
 
 
 def _join_wrapped(lines: list) -> list:
@@ -228,75 +137,6 @@ def _join_wrapped(lines: list) -> list:
         else:
             joined.append(line)
     return joined
-
-
-def _is_usable(term: str) -> bool:
-    """Reject residue, filler and phrases too long to be a single skill."""
-    term = term.strip()
-    if (EXAM_HEADING_RE.fullmatch(term)
-            or ADMIN_HEADING_RE.fullmatch(term)
-            or CHAPTER_LABEL_RE.fullmatch(term)):
-        return False
-    if len(term) < MIN_TERM_LENGTH:
-        return False
-    if term.lower() in NOISE_TERMS:
-        return False
-    words = term.split()
-    if len(words) > MAX_TERM_WORDS:
-        return False
-    # A lone possessive is the head of a phrase whose noun wrapped away
-    # ("Robot's" / "Sensors" split across two schedule rows).
-    if len(words) == 1 and re.search(r"['’]s$", term):
-        return False
-    # Must contain at least two letters; drops stray numbers and symbols but
-    # retains technology compounds whose letters are separated ("C/C++").
-    return len(re.findall(r"[A-Za-z]", term)) >= 2
-
-
-def _phrases(text: str) -> list:
-    """Split a line of syllabus text into candidate skill phrases."""
-    if not text:
-        return []
-    text = LEADING_LIST_MARKER_RE.sub("", text)
-    text = LAB_PREFIX_RE.sub("", text)
-    heading = text.strip()
-    if EXAM_HEADING_RE.fullmatch(heading) or ADMIN_HEADING_RE.fullmatch(heading):
-        return []
-    text = CHAPTER_PREFIX_RE.sub("", text)
-    text = EXAM_PREFIX_RE.sub("", text)
-    heading = text.strip()
-    if EXAM_HEADING_RE.fullmatch(heading) or ADMIN_HEADING_RE.fullmatch(heading):
-        return []
-
-    body, inner = _strip_parentheticals(_strip_unmatched_parentheses(text))
-    terms = []
-    for chunk in [body] + inner:
-        for fragment in SPLIT_RE.split(chunk):
-            term = _clean_fragment(fragment)
-            if _is_usable(term):
-                terms.append(term)
-    return terms
-
-
-def _strip_leading_verb(text: str) -> str:
-    """
-    Drop the Bloom verb that opens a learning outcome.
-
-    "Design and Implement a Robotics system ..." states the depth of the
-    outcome, not the skill; the skill is what follows.
-    """
-    words = text.split()
-    index = 0
-    while index < len(words):
-        word = re.sub(r"[^A-Za-z\-]", "", words[index]).lower()
-        if word in VERB_LEVELS:
-            index += 1
-            # Skip a conjunction joining two verbs ("Design and Implement").
-            if index < len(words) and words[index].lower() in ("and", "or", "&"):
-                index += 1
-            continue
-        break
-    return " ".join(words[index:])
 
 
 # ── Level Resolution ───────────────────────────────────────────
@@ -323,31 +163,6 @@ def _week_level(week: dict, clo_levels: dict) -> str:
 
 
 # ── Extraction ─────────────────────────────────────────────────
-def _add(found: dict, term: str, source: str, level: str, evidence: dict) -> None:
-    """Record one mention, merging into an existing skill when seen before."""
-    key = term.lower()
-    entry = found.get(key)
-    if entry is None:
-        entry = {
-            "term": term,
-            "canonical": None,
-            "level": level,
-            "weight": 0.0,
-            "evidence_count": 0,
-            "sources": [],
-            "evidence": [],
-        }
-        found[key] = entry
-
-    # Keep the deepest level any zone claims for this skill.
-    if LEVEL_RANK[level] > LEVEL_RANK[entry["level"]]:
-        entry["level"] = level
-    if source not in entry["sources"]:
-        entry["sources"].append(source)
-    entry["evidence_count"] += 1
-    entry["evidence"].append(evidence)
-
-
 def extract_skills(syllabus: dict) -> list:
     """
     Extract candidate skills from a parsed syllabus.
@@ -371,9 +186,9 @@ def extract_skills(syllabus: dict) -> list:
     for clo in syllabus.get("clos", []):
         level = _clo_level(clo)
         clo_levels[clo["number"]] = level
-        body = _strip_leading_verb(BOOKKEEPING_RE.sub("", clo["text"]))
+        body = strip_leading_verb(BOOKKEEPING_RE.sub("", clo["text"]))
         for term in _phrases(body):
-            _add(found, term, "clo", level, {
+            add_mention(found, term, "clo", level, {
                 "source": "clo",
                 "clo": clo["number"],
                 "text": clo["text"],
@@ -386,27 +201,19 @@ def extract_skills(syllabus: dict) -> list:
             for line in lines:
                 text = LAB_PREFIX_RE.sub("", line) if source == "lab" else line
                 for term in _phrases(text):
-                    _add(found, term, source, level, {
+                    add_mention(found, term, source, level, {
                         "source": source,
                         "week": week["week"],
                         "text": line,
                     })
 
     for term in _phrases(syllabus.get("description", "")):
-        _add(found, term, "description", "beginner", {
+        add_mention(found, term, "description", "beginner", {
             "source": "description",
             "text": term,
         })
 
-    for entry in found.values():
-        base = max(SOURCE_WEIGHTS[s] for s in entry["sources"])
-        repetition = 0.1 * (entry["evidence_count"] - 1)
-        entry["weight"] = round(min(1.0, base + repetition), 2)
-
-    return sorted(
-        found.values(),
-        key=lambda e: (-e["weight"], -e["evidence_count"], e["term"].lower()),
-    )
+    return finalize(found, SOURCE_WEIGHTS)
 
 
 def save_skills(course_code: str, skills: list, output_path: str, extra: dict = None) -> None:
