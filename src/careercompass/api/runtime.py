@@ -186,8 +186,39 @@ class MatcherRuntime:
         return checks
 
 
+# A readiness probe runs on a schedule, not on demand. Opening a PostgreSQL
+# connection for each one is churn in exchange for a freshness nobody needs:
+# a database that went down two seconds ago is still reported as down on the
+# next probe. Short enough that a real outage surfaces immediately in practice.
+_DB_PROBE_CACHE = {"at": 0.0, "result": None}
+_DB_PROBE_LOCK = threading.Lock()
+
+
+def _db_probe_ttl() -> float:
+    try:
+        return max(0.0, float(os.getenv("CC_API_DB_PROBE_TTL", "5")))
+    except ValueError:
+        return 5.0
+
+
 def _database_check() -> dict:
-    """Probe PostgreSQL without letting a failure propagate."""
+    """Probe PostgreSQL without letting a failure propagate, at most every TTL."""
+    ttl = _db_probe_ttl()
+    if ttl:
+        with _DB_PROBE_LOCK:
+            cached = _DB_PROBE_CACHE["result"]
+            if cached is not None and time.monotonic() - _DB_PROBE_CACHE["at"] < ttl:
+                return cached
+
+    result = _probe_database()
+    with _DB_PROBE_LOCK:
+        _DB_PROBE_CACHE["at"] = time.monotonic()
+        _DB_PROBE_CACHE["result"] = result
+    return result
+
+
+def _probe_database() -> dict:
+    """One real connection attempt."""
     try:
         from careercompass.db.connection import get_connection
     except Exception as exc:  # noqa: BLE001

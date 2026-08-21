@@ -38,6 +38,17 @@ DEFAULT_OLLAMA_TIMEOUT = 300.0
 VALID_PROVIDERS = ("ollama", "anthropic")
 NO_MATCH = "no_match"
 
+# How long Ollama should hold the model in memory between calls.
+DEFAULT_KEEP_ALIVE = "30m"
+
+# A ceiling on one match decision, not a budget to aim at. `_ollama_text` treats
+# a length stop as a failure and sends the term to review, so a tight cap would
+# silently change decisions — which is exactly what this must not do. Measured
+# across 447 real decisions the `reason` field runs mean 199 / max 325
+# characters (~81 tokens), so this is over 3x the worst case observed and can
+# only ever catch a runaway generation.
+DECISION_MAX_TOKENS = 256
+
 # The two documents the pipeline reads. The rules for resolving a phrase
 # are identical; only what the phrase was drawn from differs, and saying
 # so plainly is worth more than it costs — "Java" in a syllabus week and
@@ -124,6 +135,7 @@ class LLMDecider:
         self.ollama_timeout = _timeout(
             os.getenv("CC_OLLAMA_TIMEOUT", DEFAULT_OLLAMA_TIMEOUT)
         )
+        self.keep_alive = os.getenv("CC_OLLAMA_KEEP_ALIVE", DEFAULT_KEEP_ALIVE)
         self.domain = domain if domain in DOMAINS else DEFAULT_DOMAIN
         self.system_prompt = system_prompt(self.domain)
         self.enabled = _enabled(os.getenv("CC_MATCH_LLM")) if enabled is None else bool(enabled)
@@ -222,19 +234,27 @@ class LLMDecider:
         except json.JSONDecodeError as exc:
             raise ValueError("Ollama returned invalid JSON") from exc
 
-    def _ollama_text(self, prompt: str, schema: dict) -> str:
+    def _ollama_text(self, prompt: str, schema: dict, max_tokens: int = 0) -> str:
         """Generate one schema-constrained local response."""
+        options = {"temperature": 0}
+        if max_tokens:
+            options["num_predict"] = max_tokens
         try:
             response = self._ollama_request("/api/chat", {
                 "model": self.model,
                 "stream": False,
                 "think": False,
                 "format": schema,
+                # Hold the model in memory between calls. Unset, Ollama unloads
+                # it after its own default idle window, and the next call pays
+                # the reload: measured 9.7 s against a 2.4 s steady-state call.
+                # A batch run of hundreds of terms should never see that twice.
+                "keep_alive": self.keep_alive,
                 "messages": [
                     {"role": "system", "content": self.system_prompt},
                     {"role": "user", "content": prompt},
                 ],
-                "options": {"temperature": 0},
+                "options": options,
             })
         except (OSError, ValueError) as exc:  # pragma: no cover - service dependent
             logger.warning("Ollama selection failed: %s", exc)
@@ -378,7 +398,7 @@ class LLMDecider:
         )
 
         text = (
-            self._ollama_text(prompt, schema)
+            self._ollama_text(prompt, schema, max_tokens=DECISION_MAX_TOKENS)
             if self.provider == "ollama"
             else self._anthropic_text(prompt, schema)
         )

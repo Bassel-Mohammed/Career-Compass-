@@ -31,6 +31,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from careercompass.config import JOBS_DIR
+from careercompass.skills.artifacts import cached_by_files
 from careercompass.skills.phrases import NOISE_TERMS
 from careercompass.skills.taxonomy import QUALIFIER_RE, normalize
 from careercompass.skills.taxonomy import AliasIndex  # noqa: F401  (kept for callers)
@@ -254,7 +255,14 @@ def save_index(index: dict, path=INDEX_PATH) -> Path:
     return path
 
 
+@cached_by_files(lambda path=INDEX_PATH: [path])
 def load_index(path=INDEX_PATH) -> dict:
+    """The `{skill_id: [courses]}` index M4 recommends from.
+
+    Cached on the index file's fingerprint. This is a 14.2 MB parse that
+    `/api/v1/recommendations` was paying on every single call — 82 ms and 71 MB
+    of transient allocation for a file only `build_course_catalog` ever writes.
+    """
     path = Path(path)
     if not path.exists():
         return {}

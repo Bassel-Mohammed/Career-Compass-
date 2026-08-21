@@ -184,6 +184,54 @@ def test_no_quizzes_falls_back_to_grades():
     check("source unchanged", v["source"], "grades")
 
 
+def test_artefact_cache_sees_a_new_or_rewritten_file():
+    """A stale cache is worse than a slow one.
+
+    The loaders every API request depends on are cached on a fingerprint of the
+    files they read, because re-parsing a 14.2 MB index on each call collapsed
+    p50 from 15 ms to 3.5 s under load. The failure mode that buys is an
+    extraction that "succeeds" and stays invisible to the API — the
+    silent-failure shape ENGINEERING_NOTES.md §4 is about — so invalidation is
+    tested directly rather than reasoned about.
+
+    Note the two cases are different: adding a file changes the directory's
+    mtime, but *rewriting* one does not, which is why the fingerprint covers
+    every file rather than the directory.
+    """
+    import json
+    import tempfile
+    from pathlib import Path
+
+    from careercompass.skills.artifacts import cached_by_files
+
+    runs = {"n": 0}
+
+    @cached_by_files(lambda paths: paths)
+    def load(paths):
+        runs["n"] += 1
+        return {json.loads(Path(p).read_text())["course_code"]: p for p in paths}
+
+    with tempfile.TemporaryDirectory() as directory:
+        root = Path(directory)
+        first = root / "C1.json"
+        first.write_text(json.dumps({"course_code": "C1", "skills": []}))
+
+        paths = tuple(sorted(root.glob("*.json")))
+        check("first load parses", set(load(paths)), {"C1"})
+        load(paths); load(paths)
+        check("repeat loads are cached", runs["n"], 1)
+
+        # A course re-extracted in place: same path, new contents.
+        first.write_text(json.dumps({"course_code": "C1-rewritten", "skills": []}))
+        check("a rewritten file invalidates", set(load(paths)), {"C1-rewritten"})
+        check("...by re-parsing exactly once", runs["n"], 2)
+
+        # A newly extracted course: a path that was not there before.
+        (root / "C2.json").write_text(json.dumps({"course_code": "C2", "skills": []}))
+        grown = tuple(sorted(root.glob("*.json")))
+        check("a new file is visible", set(load(grown)), {"C1-rewritten", "C2"})
+
+
 def test_transfer_credit_adds_coverage_without_scoring_zero():
     """Transfer credit is study without a mark, not a mark of zero.
 
@@ -300,6 +348,7 @@ def main():
     test_quiz_overrides_grades()
     test_quiz_can_add_an_unstudied_skill()
     test_no_quizzes_falls_back_to_grades()
+    test_artefact_cache_sees_a_new_or_rewritten_file()
     test_transfer_credit_adds_coverage_without_scoring_zero()
     test_retired_ids_are_repointed_at_load()
     test_deterministic()

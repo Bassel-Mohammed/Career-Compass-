@@ -27,6 +27,8 @@ as "coverage" in a gap row.
 import json
 from pathlib import Path
 
+from careercompass.skills.artifacts import cached_by_files
+
 # What proficiency each required_level asks for, on the vector's 0-1 scale.
 #
 # The target comes from required_level, NOT from required_score. Those are
@@ -308,6 +310,13 @@ def write_narrative(gap: dict, decider=None, limit: int = 5) -> dict:
     return gap
 
 
+@cached_by_files(lambda path: [path])
+def _read_ontology(path) -> list:
+    """Every ontology row, parsed once per rewrite of the file."""
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
+    return data.get("skills", data) if isinstance(data, dict) else data
+
+
 def load_requirements(path, career_path: str = None) -> list:
     """
     Load ontology rows from the artifact `save_ontology` writes.
@@ -315,12 +324,32 @@ def load_requirements(path, career_path: str = None) -> list:
     Args:
         path: path to `career_path_skills.json`.
         career_path: return only this path's rows; all paths if omitted.
+
+    Returns a fresh list each call, because `attach_skill_types` mutates the
+    rows it is given and a shared list would accumulate those edits across
+    requests. The expensive part — reading and parsing the file — is cached;
+    the cheap part — filtering and copying 771 dicts — is not.
     """
-    data = json.loads(Path(path).read_text(encoding="utf-8"))
-    rows = data.get("skills", data) if isinstance(data, dict) else data
+    rows = _read_ontology(path)
     if career_path:
         rows = [r for r in rows if r.get("career_path") == career_path]
-    return rows
+    return [dict(row) for row in rows]
+
+
+@cached_by_files(lambda taxonomy_path: [taxonomy_path])
+def _skill_types(taxonomy_path) -> dict:
+    """`{skill_id: skill_type}`, read once per taxonomy rebuild.
+
+    This was a full scan of taxonomy.jsonl on every gap request.
+    """
+    types = {}
+    with Path(taxonomy_path).open(encoding="utf-8") as fh:
+        for line in fh:
+            line = line.strip()
+            if line:
+                record = json.loads(line)
+                types[record["id"]] = record.get("skill_type")
+    return types
 
 
 def attach_skill_types(requirements: list, taxonomy_path) -> list:
@@ -331,13 +360,7 @@ def attach_skill_types(requirements: list, taxonomy_path) -> list:
     and the whole point of the column is that soft requirements can be ranked
     apart. Rows are updated in place and returned.
     """
-    types = {}
-    with Path(taxonomy_path).open(encoding="utf-8") as fh:
-        for line in fh:
-            line = line.strip()
-            if line:
-                record = json.loads(line)
-                types[record["id"]] = record.get("skill_type")
+    types = _skill_types(taxonomy_path)
 
     for row in requirements:
         if not row.get("skill_type"):

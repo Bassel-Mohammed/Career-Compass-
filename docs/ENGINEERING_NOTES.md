@@ -254,6 +254,42 @@ Every row here replaced an estimate that was wrong.
 | Syllabus noise filter saves | ~15% | **2.3%** — a quality fix, not a speedup |
 | Weight cutoff would cut work | large | **19%** at 0.7, and it removes real skills |
 | GPU embedder is faster | obviously | **CPU was faster** — it stops competing for VRAM |
+| Concurrent LLM calls would speed matching | 1.56x, microbenchmarked | **0.99x end to end** — no gain at all |
+| Caching the API's artefact loaders | modest | **82 ms → 0.007 ms** on the worst one |
+
+### Concurrent LLM calls: the sixth wrong optimisation
+
+Worth recording in full, because the microbenchmark said yes and the pipeline
+said no.
+
+The LLM decides **447 of 1,253 terms (35.7%)** at ~2.4 s each, so it is
+essentially all of the ~90-200 s per course. Ollama holds the model in VRAM and
+does accept concurrent requests, and a four-call microbenchmark measured
+**1.56x**. Running the LLM-bound terms through a thread pool looked free.
+
+Measured over three full runs of three courses (132 terms):
+
+```text
+serial run 1     199 s
+serial run 2     209 s
+concurrent(4)    201 s      0.99x
+```
+
+**No gain.** The microbenchmark was noise: the serial baseline alone varies
+6.7-9.4 s across warmed runs, which is wider than the effect being claimed.
+Ollama 0.32.5 with no `OLLAMA_NUM_PARALLEL` set auto-selects `num_parallel=1`
+for a 5.6 GB model on an 8.2 GB card, so the requests queue however many
+threads submit them. The code was reverted rather than left as a knob that
+does nothing.
+
+Two things did come out of it, both worth keeping:
+
+- **The LLM is exactly deterministic.** Two serial runs differed in **0 of 132**
+  decisions. `temperature: 0` plus constrained decoding does what it promises,
+  which is what makes an A/B diff a usable acceptance test at all.
+- **Always measure against a noise floor.** Running serial twice *before*
+  comparing serial against concurrent is what turned "1.56x" into "0.99x". A
+  single before/after pair would have shipped this.
 
 **What actually makes the job corpus tractable is a document-frequency cutoff,
 not dedup.** At `df >= 5` the work is ~4,650 terms, and the cutoff costs nothing

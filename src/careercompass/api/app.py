@@ -47,6 +47,7 @@ from careercompass.api.jobs import (
 from careercompass.api.runtime import required_ok, runtime, warmup_enabled
 from careercompass.config import EXTRACTED_DIR, SKILLS_DIR, TEMP_DIR
 from careercompass.parsing.syllabus import parse_syllabus
+from careercompass.skills.artifacts import cached_by_files
 from careercompass.parsing.transcript import parse_academic_plan, save_extraction
 from careercompass.skills.extractor import extract_skills
 
@@ -529,10 +530,23 @@ def get_course_skills_endpoint(
 
 # ── Skill vector and gap ───────────────────────────────────────
 def _taxonomy_skill(skill_id: str) -> dict:
-    """One taxonomy entry, for callers that need a label and description."""
+    """One taxonomy entry, for callers that need a label and description.
+
+    Served from the matcher's already-loaded taxonomy. This was a line-by-line
+    scan of taxonomy.jsonl on every quiz request, re-reading 903 records the
+    process was already holding in memory. The file is still the fallback for
+    the window before warm-up finishes.
+    """
     import json
 
     from careercompass.config import TAXONOMY_PATH
+
+    taxonomy = runtime.taxonomy_if_ready()
+    if taxonomy is not None:
+        record = taxonomy.index.get(skill_id)
+        if record is not None:
+            return record
+        raise Problem.skill_not_found(skill_id)
 
     if Path(TAXONOMY_PATH).exists():
         with Path(TAXONOMY_PATH).open(encoding="utf-8") as fh:
@@ -547,19 +561,38 @@ def _taxonomy_skill(skill_id: str) -> dict:
 
 
 
-def _course_skill_map() -> dict:
-    """The course → skill map, keyed by every code each course is known by.
+@cached_by_files(lambda paths, taxonomy_version=None: paths)
+def _load_course_skills(paths: tuple, taxonomy_version=None) -> dict:
+    """Parse the course → skill map, cached on the fingerprint of every file.
 
-    The loaded taxonomy is passed in so canonical ids retired by a merge are
-    repointed at load time rather than silently failing to join against the
-    career-path ontology. The matcher already holds it, so this costs no I/O.
+    Keyed on `taxonomy_version` as well, because `load_course_skills` resolves
+    retired canonical ids through the alias index as it loads: a taxonomy
+    rebuild changes the result without touching any of these files.
     """
     from careercompass.skills.vector import load_course_skills
 
+    return load_course_skills(paths, taxonomy=runtime.taxonomy_if_ready())
+
+
+def _course_skill_map() -> dict:
+    """The course → skill map, keyed by every code each course is known by.
+
+    The loaded taxonomy resolves canonical ids retired by a merge, so they are
+    repointed rather than silently failing to join against the career-path
+    ontology. The matcher already holds it, so this costs no I/O.
+
+    Fingerprinting every file rather than the directory is deliberate: the
+    extraction worker rewrites a course's JSON in place while the server runs,
+    and that does not change the directory's mtime. Caching on the directory
+    would leave a freshly extracted course invisible to the API.
+    """
     if not SKILLS_DIR.exists():
         return {}
     taxonomy = runtime.taxonomy_if_ready()
-    return load_course_skills(SKILLS_DIR.glob("*.json"), taxonomy=taxonomy)
+    return _load_course_skills(
+        tuple(sorted(SKILLS_DIR.glob("*.json"))),
+        taxonomy_version=getattr(taxonomy, "version", None),
+    )
 
 
 def _requirements(career_path: str) -> list:

@@ -475,6 +475,11 @@ class SkillMatcher:
 
         if queries:
             vectors = self.index.embedder.encode(queries)
+            # Sequential on purpose. Running the LLM-bound terms through a
+            # thread pool was tried and measured: it is decision-neutral but
+            # gains nothing — 201 s against 199 s serial over 132 terms, because
+            # Ollama picks num_parallel=1 for a 5.6 GB model on an 8 GB card.
+            # See ENGINEERING_NOTES.md §6.
             for (position, term, evidence), vector in zip(pending, vectors):
                 results[position] = self.match(term, evidence, _vector=vector)
 
