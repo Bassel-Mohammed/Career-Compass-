@@ -34,6 +34,32 @@ class JwtTokenProviderTest {
         assertThat(principal.getRole()).isEqualTo(Role.JOB_SEEKER);
     }
 
+    // Purpose: every issued token carries its own unique id (jti). This is what lets a single
+    // session be revoked at logout without affecting the user's other sessions
+    // (FR-JS-03, FR-CM-02, FR-EMP-03).
+    @Test
+    void everyIssuedTokenCarriesAUniqueId() {
+        String first = tokenProvider.generateToken(42, "basil@example.com", Role.JOB_SEEKER);
+        String second = tokenProvider.generateToken(42, "basil@example.com", Role.JOB_SEEKER);
+
+        assertThat(tokenProvider.getTokenId(first)).isNotBlank();
+        assertThat(tokenProvider.getTokenId(second)).isNotBlank();
+        // Same user, same role, issued moments apart - the ids must still differ, otherwise
+        // logging out of one session would silently revoke the other.
+        assertThat(tokenProvider.getTokenId(first)).isNotEqualTo(tokenProvider.getTokenId(second));
+    }
+
+    // Purpose: the expiry can be read back off the token, so a denylist entry can be kept for
+    // exactly as long as the token would otherwise have remained usable.
+    @Test
+    void exposesTheTokenExpiryForDenylistHousekeeping() {
+        String token = tokenProvider.generateToken(42, "basil@example.com", Role.JOB_SEEKER);
+
+        assertThat(tokenProvider.getExpiry(token))
+                .isAfter(java.time.Instant.now())
+                .isBefore(java.time.Instant.now().plusSeconds(31 * 60));
+    }
+
     // Purpose: Rejects Tampered Token.
     @Test
     void rejectsTamperedToken() {

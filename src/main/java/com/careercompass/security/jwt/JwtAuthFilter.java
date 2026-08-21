@@ -1,6 +1,7 @@
 package com.careercompass.security.jwt;
 
 import com.careercompass.security.userdetails.UserPrincipal;
+import com.careercompass.service.TokenRevocationService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -34,6 +35,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     private static final String BEARER_PREFIX = "Bearer ";
 
     private final JwtTokenProvider jwtTokenProvider;
+    private final TokenRevocationService tokenRevocationService;
 
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request,
@@ -43,12 +45,19 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         String token = extractToken(request);
 
         if (token != null && jwtTokenProvider.validateToken(token)) {
-            UserPrincipal principal = jwtTokenProvider.getPrincipalFromToken(token);
+            // A signature-valid, unexpired token can still have been surrendered by a logout.
+            // Checking here rather than in each controller means every protected endpoint in
+            // the application is covered by one rule (FR-JS-03, FR-CM-02, FR-EMP-03).
+            boolean revoked = tokenRevocationService.isRevoked(jwtTokenProvider.getTokenId(token));
 
-            var authorities = List.of(new SimpleGrantedAuthority("ROLE_" + principal.getRole().name()));
+            if (!revoked) {
+                UserPrincipal principal = jwtTokenProvider.getPrincipalFromToken(token);
 
-            var authentication = new UsernamePasswordAuthenticationToken(principal, null, authorities);
-            SecurityContextHolder.getContext().setAuthentication(authentication);
+                var authorities = List.of(new SimpleGrantedAuthority("ROLE_" + principal.getRole().name()));
+
+                var authentication = new UsernamePasswordAuthenticationToken(principal, null, authorities);
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+            }
         }
 
         filterChain.doFilter(request, response);

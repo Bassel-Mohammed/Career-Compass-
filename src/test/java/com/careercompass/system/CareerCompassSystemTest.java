@@ -4,8 +4,12 @@ import com.careercompass.entity.*;
 import com.careercompass.integration.ai.DataAnalysisClient;
 import com.careercompass.integration.dto.*;
 import com.careercompass.repository.*;
+import com.careercompass.security.Role;
+import com.careercompass.security.jwt.JwtProperties;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.security.Keys;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -22,8 +26,12 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
+import javax.crypto.SecretKey;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -79,6 +87,7 @@ class CareerCompassSystemTest {
     @Autowired private QuizRepository quizRepository;
     @Autowired private JobSeekerRepository jobSeekerRepository;
     @Autowired private PasswordEncoder passwordEncoder;
+    @Autowired private JwtProperties jwtProperties;
 
     /** The one and only mock in this test - everything else is the real application. */
     @MockBean
@@ -113,6 +122,15 @@ class CareerCompassSystemTest {
     private static Integer quizQuestion2Id;
 
     private static Integer appointmentId;
+
+    // State used only by the requirement-coverage tests added below. The "disposable"
+    // reference data exists so that FR-SA-09/10 (update and delete a career path) can be
+    // exercised without touching the seeded "Software Engineer" path the whole journey
+    // depends on.
+    private static Integer disposableStudyFieldId;
+    private static Integer disposableCareerPathId;
+    private static Integer disposableJobId;
+    private static Integer rejectedAppointmentId;
 
     // =====================================================================================
     // SHARED AI STUBS - the Data Analyses Layer's canonical responses for this journey
@@ -290,6 +308,79 @@ class CareerCompassSystemTest {
         assertThat(adminToken).isNotBlank();
     }
 
+    // Purpose: FR-SA-07 - the Administrator adds a study field through the administrative API.
+    // ST-01 seeded reference data straight through the repositories because later phases need
+    // the ids before any actor exists; this test exercises the endpoint the requirement
+    // actually describes. A separate, disposable field is created so nothing the journey
+    // depends on is disturbed.
+    @Test
+    @Order(5)
+    void phase0_adminCanCreateStudyFieldThroughTheApi() throws Exception {
+        MvcResult result = mockMvc.perform(post("/api/admin/study-fields")
+                        .header("Authorization", "Bearer " + adminToken)
+                        .contentType("application/json")
+                        .content("{\"fieldName\":\"Information Systems\"}"))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.fieldName", is("Information Systems")))
+                .andReturn();
+
+        disposableStudyFieldId = objectMapper.readTree(result.getResponse().getContentAsString())
+                .get("studyFieldId").asInt();
+        assertThat(disposableStudyFieldId).isNotNull();
+    }
+
+    // Purpose: FR-SA-08 - the Administrator creates a career path title within a study field.
+    @Test
+    @Order(6)
+    void phase0_adminCanCreateCareerPathThroughTheApi() throws Exception {
+        String body = String.format(
+                "{\"title\":\"Data Engineer\",\"description\":\"Build and operate data pipelines.\"," +
+                "\"studyFieldIds\":[%d]}", disposableStudyFieldId);
+
+        MvcResult result = mockMvc.perform(post("/api/admin/career-paths")
+                        .header("Authorization", "Bearer " + adminToken)
+                        .contentType("application/json").content(body))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.title", is("Data Engineer")))
+                .andExpect(jsonPath("$.studyFields[0].studyFieldId", is(disposableStudyFieldId)))
+                .andReturn();
+
+        disposableCareerPathId = objectMapper.readTree(result.getResponse().getContentAsString())
+                .get("careerPathId").asInt();
+    }
+
+    // Purpose: FR-SA-09 - the Administrator updates an existing career path title.
+    @Test
+    @Order(7)
+    void phase0_adminCanUpdateCareerPathTitle() throws Exception {
+        mockMvc.perform(put("/api/admin/career-paths/" + disposableCareerPathId)
+                        .header("Authorization", "Bearer " + adminToken)
+                        .contentType("application/json")
+                        .content("{\"title\":\"Senior Data Engineer\"}"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.careerPathId", is(disposableCareerPathId)))
+                .andExpect(jsonPath("$.title", is("Senior Data Engineer")))
+                // the description was not sent, so it must survive the partial update untouched
+                .andExpect(jsonPath("$.description", is("Build and operate data pipelines.")));
+    }
+
+    // Purpose: FR-SA-10 - the Administrator deletes a career path. The listing is checked
+    // afterwards to confirm the correct path was removed and the seeded "Software Engineer"
+    // path - which the Job Seeker selects in ST-10 - was left alone.
+    @Test
+    @Order(8)
+    void phase0_adminCanDeleteCareerPath() throws Exception {
+        mockMvc.perform(delete("/api/admin/career-paths/" + disposableCareerPathId)
+                        .header("Authorization", "Bearer " + adminToken))
+                .andExpect(status().isNoContent());
+
+        mockMvc.perform(get("/api/admin/career-paths")
+                        .header("Authorization", "Bearer " + adminToken))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[?(@.careerPathId == " + disposableCareerPathId + ")]", hasSize(0)))
+                .andExpect(jsonPath("$[?(@.careerPathId == " + careerPathId + ")]", hasSize(1)));
+    }
+
     // =====================================================================================
     // PHASE 1 - Job Seeker: self-registration, login, profile
     // =====================================================================================
@@ -390,6 +481,40 @@ class CareerCompassSystemTest {
                 .andExpect(status().isUnauthorized());
     }
 
+    // Purpose: FR-JS-04 / FR-CM-03 / FR-EMP-04 - the 30-minute inactivity window. The window
+    // is expressed as the expiry claim inside the JWT rather than as server-side session
+    // state, so the requirement has two halves and both are checked here: the configured
+    // policy is 30 minutes, and a token whose expiry has passed is genuinely refused.
+    //
+    // The expired tokens are minted here rather than waiting 30 minutes, using the same
+    // signing key and claim structure JwtTokenProvider uses, with the expiry set in the past.
+    // One is built per actor so this is real evidence for all three requirements, not an
+    // argument by analogy from a single role.
+    //
+    // Logout itself (FR-JS-03 / FR-CM-02 / FR-EMP-03) is covered in Phase 4B, which is the
+    // first point in the journey where all five actor types exist to log out.
+    @Test
+    @Order(18)
+    void phase1_expiredTokenIsRejected_enforcingTheInactivityWindow() throws Exception {
+        assertThat(jwtProperties.getExpirationMinutes()).isEqualTo(30);
+
+        record ActorEndpoint(Role role, String email, String protectedPath) {}
+
+        List<ActorEndpoint> actors = List.of(
+                new ActorEndpoint(Role.JOB_SEEKER, "sara@example.com", "/api/job-seekers/me"),
+                new ActorEndpoint(Role.EMPLOYER, "hr@atlas.example.com", "/api/employers/me"),
+                new ActorEndpoint(Role.CONTENT_MANAGER, "nour@meu.edu.jo", "/api/content-managers/me/learning-outcomes")
+        );
+
+        for (ActorEndpoint actor : actors) {
+            String expiredToken = mintExpiredToken(actor.role(), actor.email());
+
+            mockMvc.perform(get(actor.protectedPath())
+                            .header("Authorization", "Bearer " + expiredToken))
+                    .andExpect(status().isUnauthorized());
+        }
+    }
+
     // =====================================================================================
     // PHASE 2 - Employer: self-registration, login, job posting
     // =====================================================================================
@@ -436,7 +561,7 @@ class CareerCompassSystemTest {
     void phase2_employerCanPostAJob() throws Exception {
         String body = String.format(
                 "{\"title\":\"Backend Engineer\",\"description\":\"Build and maintain our core APIs.\"," +
-                        "\"requiredSkills\":\"Java, SQL, Data Structures\",\"studyFieldId\":%d}", studyFieldId);
+                "\"requiredSkills\":\"Java, SQL, Data Structures\",\"studyFieldId\":%d}", studyFieldId);
 
         MvcResult result = mockMvc.perform(post("/api/employers/me/jobs")
                         .header("Authorization", "Bearer " + employerToken)
@@ -486,6 +611,77 @@ class CareerCompassSystemTest {
                 .andExpect(status().isForbidden());
     }
 
+    // Purpose: FR-EMP-02 / FR-EMP-14 - the Employer logs in through the dedicated login
+    // endpoint. Every other Employer test in this suite uses the token issued at registration,
+    // so without this case the login route itself is never called.
+    @Test
+    @Order(26)
+    void phase2_employerCanLoginThroughTheDedicatedEndpoint() throws Exception {
+        String body = "{\"email\":\"hr@atlas.example.com\",\"password\":\"password123\"}";
+
+        MvcResult result = mockMvc.perform(post("/api/auth/employers/login")
+                        .contentType("application/json").content(body))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.role", is("EMPLOYER")))
+                .andExpect(jsonPath("$.userId", is(employerId)))
+                .andReturn();
+
+        // The token from login must be usable in place of the registration token.
+        String loginToken = readToken(result);
+        mockMvc.perform(get("/api/employers/me")
+                        .header("Authorization", "Bearer " + loginToken))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.employerId", is(employerId)));
+    }
+
+    // Purpose: FR-EMP-06 - the Employer updates their company profile. Only the industry and
+    // description are changed; the company name is left out of the request to confirm the
+    // update is partial rather than overwriting unsent fields with null.
+    @Test
+    @Order(27)
+    void phase2_employerCanUpdateCompanyProfile() throws Exception {
+        String body = "{\"industry\":\"Cloud Infrastructure\"," +
+                "\"companyDescription\":\"We build and operate distributed systems at scale.\"}";
+
+        mockMvc.perform(put("/api/employers/me")
+                        .header("Authorization", "Bearer " + employerToken)
+                        .contentType("application/json").content(body))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.industry", is("Cloud Infrastructure")))
+                .andExpect(jsonPath("$.companyDescription", containsString("distributed systems")))
+                .andExpect(jsonPath("$.companyName", is("Atlas Systems")));
+    }
+
+    // Purpose: FR-EMP-10 - the Employer deletes a job posting. A throwaway vacancy is posted
+    // and removed rather than deleting the "Backend Engineer" job, because Phase 8 matches
+    // the Job Seeker against that job; the listing afterwards proves the right one went.
+    @Test
+    @Order(28)
+    void phase2_employerCanDeleteAJobPosting() throws Exception {
+        String body = String.format(
+                "{\"title\":\"Temporary Listing\",\"description\":\"Posted only to be deleted.\"," +
+                "\"requiredSkills\":\"Java\",\"studyFieldId\":%d}", studyFieldId);
+
+        MvcResult result = mockMvc.perform(post("/api/employers/me/jobs")
+                        .header("Authorization", "Bearer " + employerToken)
+                        .contentType("application/json").content(body))
+                .andExpect(status().isCreated())
+                .andReturn();
+
+        disposableJobId = objectMapper.readTree(result.getResponse().getContentAsString())
+                .get("jobId").asInt();
+
+        mockMvc.perform(delete("/api/employers/me/jobs/" + disposableJobId)
+                        .header("Authorization", "Bearer " + employerToken))
+                .andExpect(status().isNoContent());
+
+        mockMvc.perform(get("/api/employers/me/jobs")
+                        .header("Authorization", "Bearer " + employerToken))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(1)))
+                .andExpect(jsonPath("$[0].jobId", is(jobId)));
+    }
+
     // =====================================================================================
     // PHASE 3 - Content Manager & Expert: admin-created only, never self-registered
     // =====================================================================================
@@ -517,7 +713,7 @@ class CareerCompassSystemTest {
     void phase3_adminCreatesContentManager() throws Exception {
         String body = String.format(
                 "{\"firstName\":\"Nour\",\"lastName\":\"Khaled\",\"email\":\"nour@meu.edu.jo\"," +
-                        "\"initialPassword\":\"cmPassword123\",\"universityId\":%d,\"studyFieldId\":%d}",
+                "\"initialPassword\":\"cmPassword123\",\"universityId\":%d,\"studyFieldId\":%d}",
                 universityId, studyFieldId);
 
         MvcResult result = mockMvc.perform(post("/api/admin/content-managers")
@@ -553,7 +749,7 @@ class CareerCompassSystemTest {
     void phase3_adminCreatesExpert() throws Exception {
         String body = String.format(
                 "{\"firstName\":\"David\",\"lastName\":\"Okafor\",\"email\":\"david@example.com\"," +
-                        "\"initialPassword\":\"expertPass123\",\"studyFieldId\":%d,\"fieldStartingYear\":2010}",
+                "\"initialPassword\":\"expertPass123\",\"studyFieldId\":%d,\"fieldStartingYear\":2010}",
                 studyFieldId);
 
         MvcResult result = mockMvc.perform(post("/api/admin/experts")
@@ -712,6 +908,117 @@ class CareerCompassSystemTest {
     }
 
     // =====================================================================================
+    // PHASE 4B - Logout and session termination (all five actors)
+    //
+    // Placed here rather than beside the login tests in Phase 1 because this is the first
+    // point in the journey where all five actor types exist: the Content Manager and both
+    // Experts are not created until Phase 3.
+    // =====================================================================================
+
+    // Purpose: FR-JS-03 / FR-CM-02 / FR-EMP-03, and the equivalent capability for
+    // Administrators and Experts - every actor can log out, and logging out genuinely ends
+    // the session rather than relying on the client to forget its token.
+    //
+    // Each actor logs in FRESH here to obtain a throwaway token, and it is that token which
+    // is logged out. The journey's main tokens are deliberately left untouched, both so the
+    // remaining phases still work and so ST-67 below can prove revocation is scoped to one
+    // session rather than to the whole account.
+    @Test
+    @Order(43)
+    void phase4b_everyActorCanLogOutAndTheSurrenderedTokenStopsWorking() throws Exception {
+        record ActorSession(String loginPath, String credentials, String protectedPath) {}
+
+        List<ActorSession> actors = List.of(
+                new ActorSession("/api/auth/job-seekers/login",
+                        "{\"email\":\"sara@example.com\",\"password\":\"password123\"}",
+                        "/api/job-seekers/me"),
+                new ActorSession("/api/auth/employers/login",
+                        "{\"email\":\"hr@atlas.example.com\",\"password\":\"password123\"}",
+                        "/api/employers/me"),
+                new ActorSession("/api/auth/content-managers/login",
+                        "{\"email\":\"nour@meu.edu.jo\",\"password\":\"cmPassword123\"}",
+                        "/api/content-managers/me/learning-outcomes"),
+                new ActorSession("/api/auth/experts/login",
+                        "{\"email\":\"david@example.com\",\"password\":\"expertPass123\"}",
+                        "/api/experts/me"),
+                new ActorSession("/api/auth/admins/login",
+                        "{\"email\":\"admin@careercompass.local\",\"password\":\"adminPass123\"}",
+                        "/api/admin/content-managers")
+        );
+
+        for (ActorSession actor : actors) {
+            MvcResult login = mockMvc.perform(post(actor.loginPath())
+                            .contentType("application/json").content(actor.credentials()))
+                    .andExpect(status().isOk())
+                    .andReturn();
+
+            String sessionToken = readToken(login);
+
+            // The token works before logout...
+            mockMvc.perform(get(actor.protectedPath())
+                            .header("Authorization", "Bearer " + sessionToken))
+                    .andExpect(status().isOk());
+
+            mockMvc.perform(post("/api/auth/logout")
+                            .header("Authorization", "Bearer " + sessionToken))
+                    .andExpect(status().isNoContent());
+
+            // ...and is refused afterwards, even though it is still correctly signed and
+            // still well inside its 30-minute expiry window. Only revocation can explain this.
+            mockMvc.perform(get(actor.protectedPath())
+                            .header("Authorization", "Bearer " + sessionToken))
+                    .andExpect(status().isUnauthorized());
+        }
+    }
+
+    // Purpose: logging out is scoped to the session that was surrendered. Revocation is keyed
+    // on the token's jti, so the Job Seeker's original token - issued back in ST-05 and used
+    // by every phase of this journey - must still work after ST-66 logged out a different
+    // session belonging to the same person. Had revocation been implemented per user instead
+    // of per token, this assertion would fail and every later phase would collapse with it.
+    @Test
+    @Order(44)
+    void phase4b_loggingOutOneSessionLeavesOtherSessionsOfTheSameUserWorking() throws Exception {
+        mockMvc.perform(get("/api/job-seekers/me")
+                        .header("Authorization", "Bearer " + jobSeekerToken))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.email", is("sara@example.com")));
+    }
+
+    // Purpose: logout is the one route under /api/auth/** that requires a token - a session
+    // cannot be ended without saying which session. Verifies the ordering of the security
+    // rules, since /api/auth/** is otherwise entirely public.
+    @Test
+    @Order(45)
+    void phase4b_logoutRequiresAuthentication() throws Exception {
+        mockMvc.perform(post("/api/auth/logout"))
+                .andExpect(status().isUnauthorized());
+    }
+
+    // Purpose: a revoked token cannot be replayed against logout itself. The second attempt
+    // is stopped by the filter before it reaches the controller, which confirms the denylist
+    // is consulted for every authenticated route rather than only for business endpoints.
+    @Test
+    @Order(46)
+    void phase4b_aRevokedTokenCannotBeUsedToLogOutAgain() throws Exception {
+        MvcResult login = mockMvc.perform(post("/api/auth/job-seekers/login")
+                        .contentType("application/json")
+                        .content("{\"email\":\"sara@example.com\",\"password\":\"password123\"}"))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        String sessionToken = readToken(login);
+
+        mockMvc.perform(post("/api/auth/logout")
+                        .header("Authorization", "Bearer " + sessionToken))
+                .andExpect(status().isNoContent());
+
+        mockMvc.perform(post("/api/auth/logout")
+                        .header("Authorization", "Bearer " + sessionToken))
+                .andExpect(status().isUnauthorized());
+    }
+
+    // =====================================================================================
     // PHASE 5 - Course recommendations (Module 4)
     // =====================================================================================
 
@@ -785,9 +1092,9 @@ class CareerCompassSystemTest {
     void phase6_jobSeekerCanSubmitQuiz_scoreIsCorrectAndSkillProfileIsRefined() throws Exception {
         String body = String.format(
                 "{\"answers\":[" +
-                        "{\"questionId\":%d,\"selectedOption\":\"A\"}," +
-                        "{\"questionId\":%d,\"selectedOption\":\"A\"}" +
-                        "]}", quizQuestion1Id, quizQuestion2Id); // Q1 correct (A), Q2 wrong (correct is B)
+                "{\"questionId\":%d,\"selectedOption\":\"A\"}," +
+                "{\"questionId\":%d,\"selectedOption\":\"A\"}" +
+                "]}", quizQuestion1Id, quizQuestion2Id); // Q1 correct (A), Q2 wrong (correct is B)
 
         mockMvc.perform(post("/api/job-seekers/me/quizzes/" + quizId + "/submit")
                         .header("Authorization", "Bearer " + jobSeekerToken)
@@ -936,6 +1243,69 @@ class CareerCompassSystemTest {
                 .andExpect(jsonPath("$[0].appointmentId", is(appointmentId)));
     }
 
+    // Purpose: FR-EX-06 - the Expert sets the weekly availability schedule for consultation
+    // sessions. The endpoint replaces the whole schedule rather than appending to it, so the
+    // test writes two slots, then rewrites with one, and confirms the first set is gone.
+    @Test
+    @Order(78)
+    void phase7_expertCanUpdateAvailabilitySchedule() throws Exception {
+        String twoSlots = "{\"slots\":[" +
+                "{\"dayOfWeek\":1,\"startTime\":\"09:00:00\",\"endTime\":\"12:00:00\"}," +
+                "{\"dayOfWeek\":3,\"startTime\":\"14:00:00\",\"endTime\":\"17:00:00\"}" +
+                "]}";
+
+        mockMvc.perform(put("/api/experts/me/availability")
+                        .header("Authorization", "Bearer " + expertToken)
+                        .contentType("application/json").content(twoSlots))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(2)))
+                .andExpect(jsonPath("$[0].dayOfWeek", is(1)));
+
+        String oneSlot = "{\"slots\":[" +
+                "{\"dayOfWeek\":5,\"startTime\":\"10:00:00\",\"endTime\":\"13:00:00\"}" +
+                "]}";
+
+        mockMvc.perform(put("/api/experts/me/availability")
+                        .header("Authorization", "Bearer " + expertToken)
+                        .contentType("application/json").content(oneSlot))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(1)))
+                .andExpect(jsonPath("$[0].dayOfWeek", is(5)));
+    }
+
+    // Purpose: FR-EX-04 - the Expert rejects a consultation request. The suite's original
+    // appointment was accepted and completed in ST-40 to ST-42, so a second session is booked
+    // here as the arrangement for this test; rejecting is the branch under test.
+    @Test
+    @Order(79)
+    void phase7_expertCanRejectAConsultationRequest() throws Exception {
+        String futureDate = LocalDateTime.now().plusDays(10).toString();
+        String body = String.format("{\"expertId\":%d,\"appointmentDate\":\"%s\"}", expertId, futureDate);
+
+        MvcResult booking = mockMvc.perform(post("/api/job-seekers/me/appointments")
+                        .header("Authorization", "Bearer " + jobSeekerToken)
+                        .contentType("application/json").content(body))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.statusName", is("Requested")))
+                .andReturn();
+
+        rejectedAppointmentId = objectMapper.readTree(booking.getResponse().getContentAsString())
+                .get("appointmentId").asInt();
+
+        mockMvc.perform(patch("/api/experts/me/appointments/" + rejectedAppointmentId + "/reject")
+                        .header("Authorization", "Bearer " + expertToken))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.appointmentId", is(rejectedAppointmentId)))
+                .andExpect(jsonPath("$.statusName", is("Rejected")));
+
+        // The earlier, accepted appointment must be unaffected by the rejection.
+        mockMvc.perform(get("/api/job-seekers/me/appointments")
+                        .header("Authorization", "Bearer " + jobSeekerToken))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[?(@.appointmentId == " + appointmentId + ")].statusName",
+                        not(hasItem("Rejected"))));
+    }
+
     // =====================================================================================
     // PHASE 8 - Job matching (Module 6, both directions)
     // =====================================================================================
@@ -980,6 +1350,25 @@ class CareerCompassSystemTest {
     // =====================================================================================
     // PHASE 9 - Admin account-lifecycle management & Job Seeker erasure
     // =====================================================================================
+
+    // Purpose: FR-SA-04 - the Administrator updates Content Manager account information.
+    // Only the name is changed; the email is deliberately left untouched so that ST-48's
+    // login-by-email check further down still refers to the same account.
+    @Test
+    @Order(89)
+    void phase9_adminCanUpdateContentManagerInformation() throws Exception {
+        String body = "{\"firstName\":\"Nour\",\"lastName\":\"Al-Khaled\"}";
+
+        mockMvc.perform(put("/api/admin/content-managers/" + contentManagerId)
+                        .header("Authorization", "Bearer " + adminToken)
+                        .contentType("application/json").content(body))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.contentManagerId", is(contentManagerId)))
+                .andExpect(jsonPath("$.lastName", is("Al-Khaled")))
+                .andExpect(jsonPath("$.email", is("nour@meu.edu.jo")))
+                // the university was not sent, so the partial update must leave it in place
+                .andExpect(jsonPath("$.universityId", is(universityId)));
+    }
 
     // Purpose: FR-SA-05 - the Administrator deactivates the Content Manager account.
     @Test
@@ -1031,9 +1420,71 @@ class CareerCompassSystemTest {
                 .andExpect(status().isNotFound());
     }
 
+    // Purpose: FR-SA-06 - the Administrator reactivates a deactivated Content Manager account.
+    // Placed after the erasure tests because @Order values 92 and 93 were already taken; the
+    // Content Manager thread is independent of the Job Seeker deletion above, so the sequence
+    // is unaffected.
+    @Test
+    @Order(94)
+    void phase9_adminCanReactivateContentManager() throws Exception {
+        mockMvc.perform(patch("/api/admin/content-managers/" + contentManagerId + "/activate")
+                        .header("Authorization", "Bearer " + adminToken))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.isActive", is(true)));
+    }
+
+    // Purpose: FR-SA-06 - reactivation must actually restore access. ST-48 proved the account
+    // was genuinely locked out while deactivated; this proves the lock is lifted, which is
+    // what makes the pair of tests meaningful rather than a check on a display flag.
+    @Test
+    @Order(95)
+    void phase9_reactivatedContentManagerCanLogInAgain() throws Exception {
+        String body = "{\"email\":\"nour@meu.edu.jo\",\"password\":\"cmPassword123\"}";
+
+        mockMvc.perform(post("/api/auth/content-managers/login")
+                        .contentType("application/json").content(body))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.token").exists());
+    }
+
+    // Purpose: FR-EX-02 - the other half of the consulting-status toggle. ST-24 activated the
+    // Expert; this deactivates them, so both directions of the requirement are exercised
+    // rather than only the opt-in.
+    @Test
+    @Order(96)
+    void phase9_expertCanDeactivateForConsulting() throws Exception {
+        mockMvc.perform(patch("/api/experts/me/status/deactivate")
+                        .header("Authorization", "Bearer " + expertToken))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.statusName", is("Inactive")));
+    }
+
     // --- helpers -------------------------------------------------------------------------
 
     private String readToken(MvcResult result) throws Exception {
         return objectMapper.readTree(result.getResponse().getContentAsString()).get("token").asText();
+    }
+
+    /**
+     * Builds a structurally valid, correctly signed JWT whose expiry has already passed,
+     * mirroring the claims JwtTokenProvider issues (subject, email, role).
+     *
+     * Signing with the application's real key matters: it makes the token fail ONLY on
+     * expiry, so a 401 proves the inactivity window is enforced rather than merely proving
+     * that a garbage string is rejected.
+     */
+    private String mintExpiredToken(Role role, String email) {
+        SecretKey key = Keys.hmacShaKeyFor(jwtProperties.getSecret().getBytes(StandardCharsets.UTF_8));
+        Instant issuedAt = Instant.now().minusSeconds(jwtProperties.getExpirationMinutes() * 60 + 60);
+        Instant expiredAt = issuedAt.plusSeconds(jwtProperties.getExpirationMinutes() * 60);
+
+        return Jwts.builder()
+                .subject("1")
+                .claim("email", email)
+                .claim("role", role.name())
+                .issuedAt(Date.from(issuedAt))
+                .expiration(Date.from(expiredAt))
+                .signWith(key)
+                .compact();
     }
 }

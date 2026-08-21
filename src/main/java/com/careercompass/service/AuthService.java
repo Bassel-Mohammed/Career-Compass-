@@ -46,6 +46,7 @@ public class AuthService {
     private final ContentManagerRepository contentManagerRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtTokenProvider jwtTokenProvider;
+    private final TokenRevocationService tokenRevocationService;
 
     @Transactional
     public AuthResponse registerJobSeeker(RegisterJobSeekerRequest request) {
@@ -158,6 +159,28 @@ public class AuthService {
         }
 
         return issueToken(contentManager.getContentManagerId(), contentManager.getEmail(), Role.CONTENT_MANAGER);
+    }
+
+    /**
+     * FR-JS-03 / FR-CM-02 / FR-EMP-03 (plus Administrators and Experts): ends the session the
+     * presented token represents, for whichever actor is calling.
+     *
+     * The token reaching this method has already been validated by JwtAuthFilter — the route
+     * requires authentication — so it is known to be signed, unexpired and not already
+     * revoked. All that remains is to record it as surrendered.
+     */
+    public void logout(String authorizationHeader) {
+        String token = extractBearerToken(authorizationHeader);
+        tokenRevocationService.revoke(token);
+    }
+
+    private String extractBearerToken(String authorizationHeader) {
+        if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
+            // Not reachable through the secured route, but guarded rather than left to throw
+            // a raw StringIndexOutOfBounds if the endpoint is ever exposed differently.
+            throw new InvalidCredentialsException();
+        }
+        return authorizationHeader.substring("Bearer ".length()).trim();
     }
 
     private AuthResponse issueToken(Integer userId, String email, Role role) {

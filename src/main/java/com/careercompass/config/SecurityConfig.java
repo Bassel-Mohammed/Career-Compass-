@@ -76,6 +76,11 @@ public class SecurityConfig {
                         .authenticationEntryPoint(restAuthenticationEntryPoint)
                         .accessDeniedHandler(restAccessDeniedHandler))
                 .authorizeHttpRequests(auth -> auth
+                        // Logout is the one /api/auth route that needs a token: you cannot
+                        // end a session without proving which session it is. This must be
+                        // declared BEFORE the permitAll below, because Spring Security applies
+                        // the first matching rule (FR-JS-03, FR-CM-02, FR-EMP-03).
+                        .requestMatchers("/api/auth/logout").authenticated()
                         // Public: registration/login for every actor
                         .requestMatchers("/api/auth/**").permitAll()
                         // Public: API docs

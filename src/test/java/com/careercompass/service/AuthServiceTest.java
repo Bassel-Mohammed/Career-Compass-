@@ -53,6 +53,11 @@ class AuthServiceTest {
     @Mock
     private JwtTokenProvider jwtTokenProvider;
 
+    // Not exercised by the registration/login cases below, but declared so @InjectMocks fills
+    // every constructor argument rather than silently passing null for the logout dependency.
+    @Mock
+    private TokenRevocationService tokenRevocationService;
+
     @InjectMocks
     private AuthService authService;
 

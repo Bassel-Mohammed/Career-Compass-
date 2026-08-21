@@ -62,4 +62,23 @@ public class AuthController {
     public ResponseEntity<AuthResponse> loginContentManager(@Valid @RequestBody LoginRequest request) {
         return ResponseEntity.ok(authService.loginContentManager(request));
     }
+
+    /**
+     * FR-JS-03, FR-CM-02, FR-EMP-03 (and the equivalent for Administrators and Experts):
+     * log out, ending the session the presented token represents.
+     *
+     * One endpoint serves all five actors, unlike login and registration. Those differ per
+     * actor because each looks up a different table and accepts a different body; logging out
+     * needs neither — the token already says who is calling — so splitting it five ways would
+     * duplicate the same code behind five URLs.
+     *
+     * The token is added to a denylist rather than simply forgotten by the client, so that a
+     * copy taken before logout cannot continue to be used for the remainder of its lifetime.
+     * Returns 204 NO CONTENT: the session is gone and there is nothing meaningful to return.
+     */
+    @PostMapping("/logout")
+    public ResponseEntity<Void> logout(@RequestHeader("Authorization") String authorizationHeader) {
+        authService.logout(authorizationHeader);
+        return ResponseEntity.noContent().build();
+    }
 }

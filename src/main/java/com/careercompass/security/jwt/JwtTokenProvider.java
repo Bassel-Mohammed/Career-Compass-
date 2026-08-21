@@ -13,6 +13,7 @@ import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * Issues and validates signed JWTs (NFR-SEC-03: secure, signed session tokens).
@@ -37,6 +38,10 @@ public class JwtTokenProvider {
         Instant expiry = now.plusSeconds(jwtProperties.getExpirationMinutes() * 60);
 
         return Jwts.builder()
+                // A unique id per issued token. This is what makes logout possible: the
+                // denylist can name one specific token without storing the token itself,
+                // and without invalidating the user's other sessions (FR-JS-03/CM-02/EMP-03).
+                .id(UUID.randomUUID().toString())
                 .subject(String.valueOf(userId))
                 .claim("email", email)
                 .claim("role", role.name())
@@ -44,6 +49,16 @@ public class JwtTokenProvider {
                 .expiration(Date.from(expiry))
                 .signWith(signingKey())
                 .compact();
+    }
+
+    /** The token's `jti` claim. Assumes the token has already passed {@link #validateToken}. */
+    public String getTokenId(String token) {
+        return parseClaims(token).getId();
+    }
+
+    /** The token's own expiry, used to decide how long a denylist entry must be kept. */
+    public Instant getExpiry(String token) {
+        return parseClaims(token).getExpiration().toInstant();
     }
 
     public long getExpirationSeconds() {
@@ -65,16 +80,20 @@ public class JwtTokenProvider {
     }
 
     public UserPrincipal getPrincipalFromToken(String token) {
-        Claims claims = Jwts.parser()
-                .verifyWith(signingKey())
-                .build()
-                .parseSignedClaims(token)
-                .getPayload();
+        Claims claims = parseClaims(token);
 
         Integer userId = Integer.valueOf(claims.getSubject());
         String email = claims.get("email", String.class);
         Role role = Role.valueOf(claims.get("role", String.class));
 
         return new UserPrincipal(userId, email, role);
+    }
+
+    private Claims parseClaims(String token) {
+        return Jwts.parser()
+                .verifyWith(signingKey())
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
     }
 }
