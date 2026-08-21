@@ -34,6 +34,7 @@ from careercompass.skills.reranker import LexicalReranker, _is_acronym
 from careercompass.skills.llm import LLMDecider, NO_MATCH
 from careercompass.skills.matcher import (
     ACCEPTED, NEEDS_REVIEW, UNMATCHED, SkillMatcher, evidence_text,
+    _auto_accept_block, _is_distinctive_token,
 )
 
 FIXTURES = Path(__file__).resolve().parents[1] / "data" / "syllabi"
@@ -580,6 +581,73 @@ class _ChoiceDecider:
         return self.choice
 
 
+def test_auto_accept_guards():
+    """Two matches no confidence score should be allowed to wave through.
+
+    Both scorers report high confidence on matches that are plainly wrong, and
+    a wrong canonical id is invisible once stored. These are the two cases that
+    could be stated as a rule rather than as a word list.
+    """
+    # A soft skill cannot be established by a syllabus phrase. "communication"
+    # in an Operating Systems syllabus is inter-process communication and in an
+    # IoT syllabus it is a network protocol; both resolved to the interpersonal
+    # skill and were accepted at 0.95 and 1.0.
+    soft = {"id": "custom:communication-skills", "label": "communication skills",
+            "skill_type": "soft"}
+    blocked = _auto_accept_block(
+        "communication",
+        "Discuss issues of Process Management including process structure, "
+        "synchronization, scheduling, deadlock and communication",
+        soft)
+    check("soft skill is blocked", bool(blocked), True)
+    check("...even with rich evidence", "soft skill" in (blocked or ""), True)
+
+    technical = {"id": "custom:ros-2", "label": "ROS 2", "skill_type": "tool"}
+    check("a technical skill with context is not blocked",
+          _auto_accept_block("node development", "Lab 4: developing ROS 2 nodes", technical),
+          None)
+
+    # A generic single word whose evidence is only the word again. "Monitors" —
+    # the concurrency primitive, evidenced by the single word "Monitors" —
+    # became `monitoring and observability`.
+    check("no context beyond the term itself",
+          bool(_auto_accept_block("Monitors", "Monitors", technical)), True)
+    check("empty evidence counts as no context",
+          bool(_auto_accept_block("Performance", "", technical)), True)
+    check("real surrounding context is allowed",
+          _auto_accept_block("Simulation", "Lab 8: Visualization and Simulation", technical),
+          None)
+    check("a multi-word term is never context-free",
+          _auto_accept_block("motion planning", "motion planning", technical), None)
+
+    # Distinctive spellings identify themselves and keep the shortcut.
+    for surface, distinctive in (("ROS", True), ("UML", True), ("GazeboSim", True),
+                                 ("Node.js", True), ("C#", True),
+                                 ("Monitors", False), ("dynamics", False),
+                                 ("Performance", False)):
+        check(f"distinctive.{surface}", _is_distinctive_token(surface), distinctive)
+    check("a distinctive token survives with no context",
+          _auto_accept_block("ROS", "ROS", technical), None)
+
+
+def test_noise_terms_are_refused_at_the_matcher(matcher):
+    """The filter must not depend on which entry point the caller used.
+
+    It lived only in `extract_skills`, so anything reaching the matcher another
+    way — POST /api/v1/skills/match above all — was never checked. Measured,
+    "automation" with the evidence "build automation and continuous integration"
+    resolved to `building automation`, an HVAC control system, at 0.95.
+    """
+    for term in ("development", "automation", "activities", "presentation"):
+        result = matcher.match(term, "Week 9: build automation and continuous integration")
+        check(f"noise.{term}.status", result["review_status"], UNMATCHED)
+        check(f"noise.{term}.no_id", result["canonical_id"], None)
+        check(f"noise.{term}.method", result["match_method"], "noise_filter")
+
+    kept = matcher.match("motion planning", "trajectory generation")
+    check("a real skill is not filtered", kept["match_method"] != "noise_filter", True)
+
+
 def test_matcher_llm_routing(matcher):
     """Only a confident LLM no_match may become a final rejection."""
     original_decider = matcher.decider
@@ -675,6 +743,7 @@ def main():
     test_merge()
     test_embeddings()
     test_reranker()
+    test_auto_accept_guards()
     test_llm_decider()
 
     # Build the deterministic test matcher in memory.  This keeps the suite
@@ -691,6 +760,7 @@ def main():
     test_matching(matcher)
     test_batch_matching(matcher)
     test_collision_matching()
+    test_noise_terms_are_refused_at_the_matcher(matcher)
     test_matcher_llm_routing(matcher)
     test_course_matching(matcher)
 

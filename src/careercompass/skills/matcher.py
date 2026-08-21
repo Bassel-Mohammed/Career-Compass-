@@ -36,6 +36,7 @@ Usage:
 import logging
 import re
 
+from careercompass.skills.phrases import SYLLABUS_NOISE_TERMS
 from careercompass.skills.taxonomy import TAXONOMY_VERSION, load_taxonomy, normalize
 from careercompass.skills.embeddings import load_or_build_index
 from careercompass.skills.reranker import get_reranker
@@ -85,20 +86,73 @@ ACCEPTED = "accepted"
 NEEDS_REVIEW = "needs_review"
 UNMATCHED = "no_match"
 
+# Skills a syllabus phrase can never establish on its own, however confident
+# the scorer is. See `_auto_accept_block`.
+SOFT_TYPE = "soft"
+
+
+def _auto_accept_block(term: str, evidence: str, skill: dict):
+    """Why this match must go to review instead of being accepted, or None.
+
+    Both scorers report high confidence on matches that are plainly wrong, and
+    a wrong canonical id is invisible once stored. These two rules are the ones
+    that could be stated deterministically; they are checked at *both* accept
+    points, because the reranker reached some of these on its own without ever
+    calling the model.
+
+    **Soft skills.** "communication" in an Operating Systems syllabus is
+    inter-process communication, and in an IoT syllabus it is a network
+    protocol; both were resolved to `communication skills`, the interpersonal
+    one, and accepted at 0.95 and 1.0. Soft skills are a top-three requirement
+    of nearly every career path, so this quietly credited two systems courses
+    with the skill that differentiates none of them. A syllabus topic cannot
+    evidence an interpersonal skill; a human decides.
+
+    **A generic word with no context.** The exact-alias path already refuses a
+    plain one-word alias without syllabus context, for exactly the right reason.
+    The same phrase reaching the reranker or the model was not held to it.
+    "Monitors" — the concurrency primitive, evidenced by the single word
+    "Monitors" — became `monitoring and observability`; "Performance", evidenced
+    by the word "Performance", became `performance testing`. When the evidence
+    is only the term restated, retrieval had nothing to disambiguate with, so
+    whatever came back is a guess.
+    """
+    if (skill or {}).get("skill_type") == SOFT_TYPE:
+        return ("a soft skill cannot be established by a syllabus phrase; "
+                "a reviewer confirms it")
+
+    if len(normalize(term).split()) == 1 and not _is_distinctive_token(term):
+        context = (evidence or "").strip()
+        if not context or normalize(context) == normalize(term):
+            return ("generic one-word term with no syllabus context beyond "
+                    "itself; nothing to disambiguate with")
+    return None
+
+
+def _is_distinctive_token(surface: str) -> bool:
+    """Whether a surface names a thing on its own, rather than being a plain word.
+
+    Digits and punctuation (ROS 2, Node.js, C#), a short all-caps run (HRI, UML)
+    and product spellings such as GazeboSim all carry identity that an ordinary
+    title-cased word — Node, Access, Spring, Sketch, Monitors — does not.
+
+    Shared by the exact-alias shortcut and the auto-accept guard so the two
+    cannot drift apart on what counts as an unambiguous single word.
+    """
+    if any(character.isdigit() or character in "._+#" for character in surface):
+        return True
+    letters = "".join(character for character in surface if character.isalpha())
+    if 3 <= len(letters) <= 8 and letters.isupper():
+        return True
+    return bool(re.search(r"[a-z][A-Z]", surface))
+
 
 def _is_distinctive_one_word_alias(term: str, details: dict) -> bool:
     """Whether a one-word alias carries enough identity to be exact-safe."""
     if len(normalize(term).split()) != 1:
         return False
     surface = details["matched_surface"]
-    if any(character.isdigit() or character in "._+#" for character in surface):
-        return True
-    letters = "".join(character for character in surface if character.isalpha())
-    if 3 <= len(letters) <= 8 and letters.isupper():
-        return True
-    # Product spellings such as GazeboSim are much less ambiguous than
-    # ordinary title-cased words such as Node, Access, Spring, or Sketch.
-    if re.search(r"[a-z][A-Z]", surface):
+    if _is_distinctive_token(surface):
         return True
 
     # Some public taxonomies lowercase acronym aliases (for example "uml").
@@ -280,6 +334,15 @@ class SkillMatcher:
         if not term:
             return _record(term)
 
+        # 0. Known noise, refused before retrieval.
+        #    The filter used to live only in `extract_skills`, so anything
+        #    reaching the matcher by another route — POST /api/v1/skills/match
+        #    most of all — was never checked at all. A guarantee that depends on
+        #    which entry point the caller used is not a guarantee.
+        if normalize(term) in SYLLABUS_NOISE_TERMS:
+            return _record(term, None, "noise_filter", 0.0, UNMATCHED,
+                           reason="term is on the noise list: too generic to name a skill")
+
         # 1. Exact wording.  Preferred labels, distinctive technology
         #    spellings and multi-word aliases are safe shortcuts.  A plain
         #    one-word alias needs syllabus context because words such as
@@ -335,6 +398,10 @@ class SkillMatcher:
         # 4. Confident and unambiguous.
         if (contextual_exact is None and top_score >= self.accept_score
                 and margin >= self.accept_margin):
+            blocked = _auto_accept_block(term, evidence, top_skill)
+            if blocked:
+                return _record(term, top_skill, "embedding_reranker", top_score,
+                               NEEDS_REVIEW, review_ranked, reason=blocked)
             return _record(term, top_skill, "embedding_reranker", top_score, ACCEPTED,
                            ranked, reason=f"leads the runner-up by {margin:.2f}")
 
@@ -365,10 +432,13 @@ class SkillMatcher:
                     return _record(term, None, "llm", choice["confidence"], NEEDS_REVIEW,
                                    review_ranked,
                                    reason="selected id is not in the taxonomy")
-                status = (ACCEPTED if choice["confidence"] >= LLM_ACCEPT_CONFIDENCE
+                blocked = _auto_accept_block(term, evidence, chosen)
+                status = (ACCEPTED
+                          if choice["confidence"] >= LLM_ACCEPT_CONFIDENCE and not blocked
                           else NEEDS_REVIEW)
+                reason = blocked if blocked and status == NEEDS_REVIEW else choice["reason"]
                 return _record(term, chosen, "llm", choice["confidence"], status,
-                               review_ranked, reason=choice["reason"])
+                               review_ranked, reason=reason)
 
         if contextual_exact is not None:
             reason = "generic one-word alias requires contextual confirmation"

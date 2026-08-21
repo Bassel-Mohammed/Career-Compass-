@@ -43,6 +43,52 @@ DEFAULT_QUESTIONS = 5
 # punctuation or a trailing qualifier.
 DISTRACTOR_SIMILARITY = 0.80
 
+# Two *questions* this close are testing the same fact. Lower than the
+# within-question bar because the failure looks different: the options do not
+# have to be reworded, they are often character-for-character the same set.
+#
+# Measured on real output: a five-question Docker quiz asked "which command
+# builds an image", "which runs a container", "which pushes", "which pulls" —
+# four questions over one identical option set (docker run / build / push /
+# pull), question-text overlap 0.57-0.86. The SQL quiz did the same with
+# SELECT / INSERT / UPDATE / DELETE and rotated the correct index 0, 1, 2, 3 in
+# order. Both passed every existing check, because duplicate detection only ever
+# compared question *text* for exact equality, and the self-check happily
+# answers its own recall questions correctly.
+#
+# A five-question quiz measuring two facts is not a five-question quiz, and the
+# score overwrites the student's grade-derived proficiency.
+# Deliberately conservative. The identical-option-set rule above is the precise
+# signal and catches every Docker/SQL pair measured; this one is the backstop for
+# a restatement that varies its distractors, so it is set where it cannot reject
+# a well-formed quiz. The Git quiz measured on real output peaked at 0.55 between
+# any two of its questions, and the Docker pairs this must catch ran 0.68-0.86.
+QUESTION_SIMILARITY = 0.70
+
+
+def _option_signature(options: list) -> frozenset:
+    """The set of answers a question offers, order and wording folded."""
+    return frozenset(_normalise(option) for option in options)
+
+
+def _restates_an_earlier_question(text: str, options: list, asked: list):
+    """Whether this question re-asks one already accepted, or None.
+
+    Two signals, either of which is enough:
+
+    * the same four options. Order and which one is keyed do not matter — a
+      student who knows the answer to one knows the answer to all of them.
+    * question text that overlaps an earlier one past the threshold.
+    """
+    signature = _option_signature(options)
+    grams = _char_grams(text)
+    for earlier_text, earlier_signature, earlier_grams in asked:
+        if signature == earlier_signature:
+            return "same four options as an earlier question"
+        if _dice(grams, earlier_grams) > QUESTION_SIMILARITY:
+            return "restates an earlier question"
+    return None
+
 QUIZ_SCHEMA = {
     "type": "object",
     "properties": {
@@ -201,13 +247,22 @@ def _similar_options(options: list) -> bool:
     return False
 
 
-def validate_question(question: dict, seen: set):
+def validate_question(question: dict, seen: set, asked: list = None):
     """
     Return ``(clean_question, reason)``; exactly one is None.
 
     Structure is guaranteed by the schema, so these checks exist for what a
     schema cannot express: an answer index that points at nothing meaningful,
-    two options that say the same thing, the same question twice.
+    two options that say the same thing, the same question twice — and, given
+    ``asked``, a question that re-tests a fact an accepted question already
+    covers.
+
+    Args:
+        question: one raw generated question.
+        seen: normalised texts already accepted, for exact-duplicate rejection.
+        asked: ``(text, option signature, char grams)`` per accepted question.
+            Omitted, no cross-question check runs and only this question's own
+            internal consistency is enforced.
     """
     text = str(question.get("question") or "").strip()
     if not text:
@@ -235,6 +290,12 @@ def validate_question(question: dict, seen: set):
 
     if _similar_options(options):
         return None, "options too similar to distinguish"
+
+    if asked is not None:
+        repeats = _restates_an_earlier_question(text, options, asked)
+        if repeats:
+            return None, repeats
+        asked.append((text, _option_signature(options), _char_grams(text)))
 
     seen.add(key)
     return {
@@ -330,7 +391,7 @@ def generate_quiz(skill: dict, question_count: int = DEFAULT_QUESTIONS, *,
         options=OPTION_COUNT,
     )
 
-    seen, questions, warnings = set(), [], []
+    seen, asked, questions, warnings = set(), [], [], []
     for _ in range(max(1, attempts)):
         if len(questions) >= wanted:
             break
@@ -343,7 +404,7 @@ def generate_quiz(skill: dict, question_count: int = DEFAULT_QUESTIONS, *,
         for raw in payload.get("questions") or []:
             if len(questions) >= wanted:
                 break
-            clean, reason = validate_question(raw, seen)
+            clean, reason = validate_question(raw, seen, asked)
             if clean is None:
                 warnings.append(f"dropped ({reason})")
             else:

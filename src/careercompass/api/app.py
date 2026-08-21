@@ -20,12 +20,11 @@ import hashlib
 import logging
 import os
 import re
-import shutil
 import uuid
 from contextlib import asynccontextmanager
 from pathlib import Path
 
-from fastapi import FastAPI, File, Form, HTTPException, Query, Response, UploadFile, status
+from fastapi import FastAPI, File, Form, Query, Response, UploadFile, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, RedirectResponse
@@ -90,11 +89,38 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+def _cors_origins() -> list:
+    """Origins allowed to call this service from a browser.
+
+    `["*"]` with `allow_credentials=True` is not the permissive setting it
+    looks like — Starlette reflects the caller's Origin back and adds
+    `Access-Control-Allow-Credentials: true`, so *any* page a developer visits
+    could call this service on localhost and read the response, which includes
+    parsed transcripts.
+
+    This service is called server-to-server by the Java backend and has no
+    cookies or auth headers to carry, so credentials stay off and the allowed
+    origins are named. `CC_API_CORS_ORIGINS` is a comma-separated list; the
+    default allows the local development front ends only.
+    """
+    raw = os.getenv("CC_API_CORS_ORIGINS", "").strip()
+    if raw == "*":
+        # Explicitly opted into, and still safe: without credentials the
+        # browser will not attach cookies to the request.
+        return ["*"]
+    if raw:
+        return [origin.strip() for origin in raw.split(",") if origin.strip()]
+    return ["http://localhost:3000", "http://127.0.0.1:3000",
+            "http://localhost:8080", "http://127.0.0.1:8080"]
+
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
+    allow_origins=_cors_origins(),
+    # Off deliberately: see _cors_origins. Turning this on requires naming
+    # origins, never "*".
+    allow_credentials=False,
+    allow_methods=["GET", "POST", "DELETE", "OPTIONS"],
     allow_headers=["*"],
 )
 
@@ -136,6 +162,17 @@ async def _read_pdf(file: UploadFile) -> bytes:
     return b"".join(chunks)
 
 
+def _user_facing(exc: Exception, temp_path: Path, filename: str) -> str:
+    """A parse failure phrased in the caller's filename, not the server's.
+
+    The parsers are handed a uuid temp path because pdfplumber needs a file, so
+    their messages name it. Telling a client that
+    `upload_79d937610f494082b41f30b54c6a2dee.pdf` has no text layer is both
+    unhelpful and a small leak of how uploads are stored on disk.
+    """
+    return str(exc).replace(temp_path.name, filename)
+
+
 def _parse_pdf_bytes(data: bytes, filename: str) -> dict:
     """
     Parse uploaded bytes by way of a temp file, because pdfplumber needs a path.
@@ -148,7 +185,7 @@ def _parse_pdf_bytes(data: bytes, filename: str) -> dict:
     try:
         syllabus = parse_syllabus(str(temp_path))
     except ValueError as exc:
-        raise Problem.unparseable_syllabus(str(exc)) from exc
+        raise Problem.unparseable_syllabus(_user_facing(exc, temp_path, filename)) from exc
     finally:
         try:
             temp_path.unlink()
@@ -205,7 +242,7 @@ def _parse_transcript_bytes(data: bytes, filename: str) -> dict:
     try:
         return parse_academic_plan(str(temp_path))
     except ValueError as exc:
-        raise Problem.unparseable_transcript(str(exc)) from exc
+        raise Problem.unparseable_transcript(_user_facing(exc, temp_path, filename)) from exc
     finally:
         try:
             temp_path.unlink()
@@ -511,12 +548,18 @@ def _taxonomy_skill(skill_id: str) -> dict:
 
 
 def _course_skill_map() -> dict:
-    """The course → skill map, keyed by every code each course is known by."""
+    """The course → skill map, keyed by every code each course is known by.
+
+    The loaded taxonomy is passed in so canonical ids retired by a merge are
+    repointed at load time rather than silently failing to join against the
+    career-path ontology. The matcher already holds it, so this costs no I/O.
+    """
     from careercompass.skills.vector import load_course_skills
 
     if not SKILLS_DIR.exists():
         return {}
-    return load_course_skills(SKILLS_DIR.glob("*.json"))
+    taxonomy = runtime.taxonomy_if_ready()
+    return load_course_skills(SKILLS_DIR.glob("*.json"), taxonomy=taxonomy)
 
 
 def _requirements(career_path: str) -> list:
@@ -538,6 +581,60 @@ def _requirements(career_path: str) -> list:
     return rows
 
 
+# What each skip reason means to somebody reading the error, singular and plural.
+_SKIP_REASONS = {
+    "not passed": ("was not passed, so it carries no credit",
+                   "were not passed, so they carry no credit"),
+    "no skill map": ("has no extracted syllabus yet",
+                     "have no extracted syllabus yet"),
+}
+
+
+def _no_profile_detail(vector: dict, submitted: int) -> str:
+    """Say which reason actually applied, rather than assuming one.
+
+    The message used to read "None of the submitted courses have an extracted
+    skill map" whatever happened, so a course skipped for an F grade was
+    reported as missing a syllabus it in fact had — 84 skills of it. The reason
+    is already computed per course; it was being thrown away.
+    """
+    counts = {}
+    for skipped in vector["courses_skipped"]:
+        reason = skipped.get("reason") or "were skipped"
+        counts[reason] = counts.get(reason, 0) + 1
+
+    noun = "course" if submitted == 1 else "courses"
+    if not counts:
+        return f"None of the {submitted} submitted {noun} produced any skills."
+
+    parts = []
+    for reason, count in sorted(counts.items(), key=lambda kv: -kv[1]):
+        phrasing = _SKIP_REASONS.get(reason)
+        if phrasing is None:
+            parts.append(f"{count} {reason}")
+        else:
+            parts.append(f"{count} {phrasing[0] if count == 1 else phrasing[1]}")
+    return (f"No skills could be derived: of {submitted} submitted {noun}, "
+            + ", and ".join(parts) + ". See courses_skipped for the detail.")
+
+
+def _with_coverage(payload: dict, vector: dict) -> dict:
+    """Carry M2's coverage caveat onto whatever M3 or M4 built from it.
+
+    The vector reports `courses_counted` and `courses_skipped`; the gap built
+    from the very same call reported neither, and the gap is the one a student
+    is shown. On the reference transcript that meant serving
+    "Python: no evidence, top priority" while silently dropping 30 of the
+    student's 74 courses for having no syllabus extracted yet.
+
+    "You have not studied this" and "we could not see your courses" are
+    different sentences and the caller cannot tell them apart without these.
+    """
+    payload["courses_counted"] = vector.get("courses_counted", 0)
+    payload["courses_skipped"] = vector.get("courses_skipped", [])
+    return payload
+
+
 def _build_vector(request) -> dict:
     from careercompass.skills.taxonomy import TAXONOMY_VERSION
     from careercompass.skills.vector import apply_quiz_results, build_skill_vector
@@ -554,12 +651,19 @@ def _build_vector(request) -> dict:
         include_unpassed=request.include_unpassed,
     )
     if request.quiz_scores:
+        # An unknown id would otherwise be injected into the vector with the
+        # raw id as its label, where it joins to no requirement and silently
+        # inflates total_skills. A typo should be a 404, not a phantom skill.
+        taxonomy = runtime.taxonomy_if_ready()
+        if taxonomy is not None:
+            for skill_id in request.quiz_scores:
+                if taxonomy.index.get(skill_id) is None:
+                    raise Problem.skill_not_found(skill_id)
         apply_quiz_results(vector, request.quiz_scores)
 
     if not vector["skills"]:
-        raise Problem.no_skill_profile(
-            "None of the submitted courses have an extracted skill map. "
-            f"{len(vector['courses_skipped'])} of {len(request.courses)} were skipped.")
+        raise Problem.no_skill_profile(_no_profile_detail(vector, len(request.courses)),
+                                       courses_skipped=vector["courses_skipped"])
     return vector
 
 
@@ -605,7 +709,7 @@ def build_gap(request: schemas.SkillGapRequest):
     )
     if request.narrative:
         write_narrative(gap)
-    return gap
+    return _with_coverage(gap, vector)
 
 
 # ── Course recommendations ─────────────────────────────────────
@@ -652,14 +756,17 @@ def recommend(request: schemas.RecommendationRequest):
         career_path=request.career_path,
         include_soft=request.include_soft,
     )
-    return recommend_courses(
-        gap, index,
-        limit=request.limit,
-        platform=request.platform,
-        skill_id=request.skill_id,
-        language=request.language,
-        per_skill=request.per_skill,
-        include_soft=request.include_soft,
+    return _with_coverage(
+        recommend_courses(
+            gap, index,
+            limit=request.limit,
+            platform=request.platform,
+            skill_id=request.skill_id,
+            language=request.language,
+            per_skill=request.per_skill,
+            include_soft=request.include_soft,
+        ),
+        vector,
     )
 
 
@@ -775,6 +882,8 @@ async def record_decisions(request: schemas.ReviewDecisionsRequest):
     course, so one correction applies everywhere the term appears and
     survives the next matcher run.
     """
+    import psycopg2
+
     from careercompass.db.skills import record_review
 
     def _record_all():
@@ -789,6 +898,15 @@ async def record_decisions(request: schemas.ReviewDecisionsRequest):
                 recorded += 1
             except ValueError as exc:
                 errors.append({"term": decision.term, "error": str(exc)})
+            except psycopg2.errors.ForeignKeyViolation:
+                # A skill_id that is not in the taxonomy is the reviewer's
+                # mistake, not a database outage. Reporting it as 503 told the
+                # caller to retry something that can never succeed, and leaked
+                # the constraint name while doing it.
+                errors.append({
+                    "term": decision.term,
+                    "error": f"{decision.skill_id!r} is not in the taxonomy",
+                })
         return recorded, errors
 
     try:
@@ -797,65 +915,6 @@ async def record_decisions(request: schemas.ReviewDecisionsRequest):
         raise Problem.database_unavailable(str(exc).strip().splitlines()[0][:200]) from exc
 
     return {"recorded": recorded, "errors": errors}
-
-
-# ── Transcript (pre-existing, unversioned) ─────────────────────
-@app.get("/api/health", tags=["legacy"])
-def health_check():
-    """Deprecated: use /api/v1/health/live."""
-    return {"status": "ok", "service": "CareerCompass API"}
-
-
-@app.post("/api/transcript/upload", tags=["legacy"])
-async def upload_transcript(file: UploadFile = File(...), save_output: bool = True):
-    """
-    Receive a student academic plan PDF and extract structured JSON data.
-
-    Kept on its original path so the existing frontend keeps working. New
-    clients should expect this to move under /api/v1 alongside the rest.
-    """
-    if not (file.filename or "").lower().endswith(".pdf"):
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Invalid file format. Only PDF files (.pdf) are supported.",
-        )
-
-    TEMP_DIR.mkdir(parents=True, exist_ok=True)
-    temp_file_path = TEMP_DIR / f"upload_{os.urandom(8).hex()}_{file.filename}"
-
-    try:
-        with open(temp_file_path, "wb") as buffer:
-            shutil.copyfileobj(file.file, buffer)
-
-        parsed_result = parse_academic_plan(str(temp_file_path))
-
-        if save_output:
-            EXTRACTED_DIR.mkdir(parents=True, exist_ok=True)
-            output_filename = f"{Path(file.filename).stem}.json"
-            save_extraction(parsed_result, str(EXTRACTED_DIR / output_filename))
-
-        return JSONResponse(
-            status_code=status.HTTP_200_OK,
-            content={
-                "success": True,
-                "message": "Academic plan parsed successfully.",
-                "filename": file.filename,
-                "data": parsed_result,
-            },
-        )
-    except FileNotFoundError as exc:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc))
-    except Exception as exc:
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Failed to parse PDF academic plan: {exc}",
-        )
-    finally:
-        if temp_file_path.exists():
-            try:
-                os.remove(temp_file_path)
-            except OSError:
-                pass
 
 
 if __name__ == "__main__":

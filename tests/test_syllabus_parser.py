@@ -223,6 +223,105 @@ def test_missing_file():
         check("missing_file.raises", False, True)
 
 
+def test_malformed_pdfs_raise_valueerror():
+    """A document the parser cannot read is a client error, not a server one.
+
+    `pdfplumber` raises `PdfminerException`, which is not a `ValueError`, so it
+    escaped the `except ValueError` in both API upload handlers and surfaced as
+    HTTP 500 — and as a raw traceback from both CLIs. Everything downstream
+    already turns a `ValueError` into the right 422 and the right `❌ Error:`
+    line, so the guard normalises onto that type.
+    """
+    import tempfile
+
+    cases = {
+        "plain text named .pdf": b"this is not a pdf at all\n",
+        "empty file": b"",
+        "truncated pdf": b"%PDF-1.4\n1 0 obj\n<< /Type /Catalog >>\nendobj\ntrunc",
+    }
+    for label, payload in cases.items():
+        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as handle:
+            handle.write(payload)
+            path = handle.name
+        try:
+            parse_syllabus(path)
+        except ValueError:
+            check(f"malformed.{label}", True, True)
+        except Exception as exc:  # noqa: BLE001 - the point of the test
+            check(f"malformed.{label} raised {type(exc).__name__}", False, True)
+        else:
+            check(f"malformed.{label}", False, True)
+        finally:
+            Path(path).unlink(missing_ok=True)
+
+
+def test_decompression_bomb_is_refused():
+    """A small PDF must not be allowed to expand without bound.
+
+    PDF content streams are Flate-compressed and repeated drawing operators
+    compress extraordinarily well. Measured on this project, a 354 KB file whose
+    content stream expands to 106 MB (295:1) drove the API from 2.5 GB to
+    12.4 GB of RSS before the kernel killed it. The upload limit does not help:
+    it bounds the *compressed* bytes, which is the wrong number.
+
+    The budget is checked before any layout object is built, so this test is
+    fast and allocates only the stream itself.
+    """
+    import tempfile
+    import zlib
+
+    raw = (b"BT /F1 8 Tf 10 700 Td (" + b"A" * 40 + b") Tj ET\n") * 400_000
+    comp = zlib.compress(raw, 9)
+    objs = [
+        b"<< /Type /Catalog /Pages 2 0 R >>",
+        b"<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+        b"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R "
+        b"/Resources << /Font << /F1 5 0 R >> >> >>",
+        b"<< /Length %d /Filter /FlateDecode >>\nstream\n" % len(comp) + comp + b"\nendstream",
+        b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>",
+    ]
+    out = b"%PDF-1.4\n"
+    offsets = []
+    for number, obj in enumerate(objs, start=1):
+        offsets.append(len(out))
+        out += b"%d 0 obj\n" % number + obj + b"\nendobj\n"
+    start = len(out)
+    out += b"xref\n0 %d\n0000000000 65535 f \n" % (len(objs) + 1)
+    for offset in offsets:
+        out += b"%010d 00000 n \n" % offset
+    out += (b"trailer\n<< /Size %d /Root 1 0 R >>\nstartxref\n%d\n%%%%EOF\n"
+            % (len(objs) + 1, start))
+
+    check("bomb.compresses_hard", len(raw) // max(len(out), 1) > 50, True)
+
+    with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as handle:
+        handle.write(out)
+        path = handle.name
+    try:
+        parse_syllabus(path)
+    except ValueError as exc:
+        check("bomb.refused", True, True)
+        check("bomb.says_why", "expands" in str(exc), True)
+    except Exception as exc:  # noqa: BLE001
+        check(f"bomb.refused (raised {type(exc).__name__})", False, True)
+    else:
+        check("bomb.refused", False, True)
+    finally:
+        Path(path).unlink(missing_ok=True)
+
+
+def test_real_syllabi_are_within_budget():
+    """The budgets must never refuse a legitimate document."""
+    from careercompass.parsing.pdf import max_chars, max_pages, max_stream_bytes
+
+    check("budget.pages_generous", max_pages() >= 100, True)
+    check("budget.stream_generous", max_stream_bytes() >= 8 * 1024 * 1024, True)
+    check("budget.chars_generous", max_chars() >= 500_000, True)
+    for pdf in ALL_FIXTURES:
+        result = parse_syllabus(pdf)
+        check(f"budget.parses.{Path(pdf).stem}", bool(result["course_code"]), True)
+
+
 def main():
     for pdf in ALL_FIXTURES:
         if not Path(pdf).exists():
@@ -234,6 +333,9 @@ def main():
     test_probability()
     test_details_heading_outside_table()
     test_missing_file()
+    test_malformed_pdfs_raise_valueerror()
+    test_decompression_bomb_is_refused()
+    test_real_syllabi_are_within_budget()
 
     print(f"Ran {_checks} checks")
     if _failures:

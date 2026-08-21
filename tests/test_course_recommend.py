@@ -105,6 +105,39 @@ def test_ambiguous_surfaces_are_dropped():
           ("s:a", "s:b"))
 
 
+def test_a_label_outranks_another_skills_alias():
+    """The bug that hid CSS from a 14,941-course catalog.
+
+    "css" is the label of CSS and merely an alias of "style sheet languages".
+    Treating both claims as equal dropped the surface as ambiguous, so CSS —
+    asked for by 14% of Backend postings — matched no course at all. The same
+    silence hid NoSQL, Ansible, Metasploit and Xcode.
+    """
+    skills = [skill("s:css", "CSS", ["Cascading Style Sheets"]),
+              skill("s:sheets", "style sheet languages", ["CSS", "SASS"])]
+    surfaces = build_surface_map(skills)
+    check("label wins over alias", surfaces.get("css"), "s:css")
+    check("the alias-only surface survives", surfaces.get("sass"), "s:sheets")
+
+    # Two *labels* colliding is still genuinely ambiguous.
+    both = build_surface_map([skill("s:a", "Overlap"), skill("s:b", "Overlap")])
+    check("colliding labels dropped", both.get("overlap"), None)
+
+
+def test_parenthetical_qualifiers_are_stripped():
+    """ESCO disambiguates in brackets; no course title does.
+
+    "Ruby (computer programming)" is called Ruby, and matching only the full
+    label meant it never matched anything.
+    """
+    skills = [skill("s:ruby", "Ruby (computer programming)", ["Ruby lang"]),
+              skill("s:android", "Android (mobile operating systems)")]
+    surfaces = build_surface_map(skills)
+    check("bare name matches", surfaces.get("ruby"), "s:ruby")
+    check("full label still matches", surfaces.get("ruby computer programming"), "s:ruby")
+    check("second case", surfaces.get("android"), "s:android")
+
+
 def test_restricting_to_ontology_skills():
     """A skill no career path asks for can never appear in a gap."""
     skills = [skill("s:wanted", "Docker"), skill("s:unwanted", "manufacturing dies")]
@@ -223,11 +256,23 @@ def test_platform_filter_and_limits():
 
 
 def test_uncovered_gaps_are_reported_not_hidden():
-    """The honest answer to 'why is there nothing here', and what to fix."""
+    """The honest answer to 'why is there nothing here', and what to fix.
+
+    Carries the label, not just the id. As bare ESCO UUIDs
+    (`esco:1d86f05e-e9cc-40ce-99d8-2b21cc71b16b`) this list could not be shown
+    to anyone, and the calling service has no taxonomy to resolve them against.
+    """
     index = index_of(FakeCourse("c:1", "The Linux Essentials", level="beginner"))
     result = recommend_courses(
         gap_of(gap_row("s:linux", "Linux"), gap_row("s:docker", "Docker")), index)
-    check("reported", result["skills_without_courses"], ["s:docker"])
+    check("reported", result["skills_without_courses"],
+          [{"skill_id": "s:docker", "skill_label": "Docker"}])
+
+    # One entry per skill, however many platforms failed to serve it.
+    twice = recommend_courses(
+        gap_of(gap_row("s:docker", "Docker"), gap_row("s:docker", "Docker")), index)
+    check("deduplicated", twice["skills_without_courses"],
+          [{"skill_id": "s:docker", "skill_label": "Docker"}])
 
 
 def test_explanation_comes_from_the_gap():
@@ -253,6 +298,8 @@ def test_deterministic():
 
 def main():
     test_head_noun_aliases_are_rejected()
+    test_a_label_outranks_another_skills_alias()
+    test_parenthetical_qualifiers_are_stripped()
     test_ambiguous_surfaces_are_dropped()
     test_restricting_to_ontology_skills()
     test_tokeniser_handles_sentence_punctuation()

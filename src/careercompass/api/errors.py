@@ -134,9 +134,18 @@ class Problem(Exception):
         )
 
     @classmethod
-    def no_skill_profile(cls, detail: str):
+    def no_skill_profile(cls, detail: str, courses_skipped: list = None):
+        """
+        Why no profile could be built, per course.
+
+        `courses_skipped` is carried because the reason differs per course and
+        the caller cannot guess it: a course skipped for an F grade and one
+        skipped for having no extracted syllabus are the same 422 otherwise,
+        and the fix is different in each case.
+        """
         return cls(
             422, "no-skill-profile", "No skill profile could be built", detail,
+            courses_skipped=courses_skipped or [],
         )
 
     @classmethod

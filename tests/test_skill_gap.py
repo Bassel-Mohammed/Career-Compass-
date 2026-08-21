@@ -20,8 +20,8 @@ import json
 import sys
 
 from careercompass.skills.gap import (
-    LEVEL_TARGET, MODERATE_RATIO, build_skill_gap, load_requirements,
-    attach_skill_types, top_gaps,
+    LEVEL_COVERAGE, LEVEL_TARGET, MODERATE_RATIO, build_skill_gap,
+    load_requirements, attach_skill_types, top_gaps,
 )
 
 _failures = []
@@ -44,15 +44,19 @@ def close(label: str, actual, expected, tol=1e-4):
 
 
 def vector(*pairs, source="grades"):
-    return {
-        "taxonomy_version": "1.0",
-        "source": source,
-        "skills": [
-            {"skill_id": sid, "label": sid, "proficiency": p, "coverage": 1.0,
-             "evidence": "grades", "course_count": 1, "courses": []}
-            for sid, p in pairs
-        ],
-    }
+    """A skill vector from `(skill_id, proficiency)` or `(id, proficiency, coverage)`.
+
+    Coverage defaults to 1.0 — enough evidence for any requirement — so a test
+    that only cares about proficiency does not have to think about it.
+    """
+    skills = []
+    for pair in pairs:
+        sid, proficiency = pair[0], pair[1]
+        coverage = pair[2] if len(pair) > 2 else 1.0
+        skills.append({"skill_id": sid, "label": sid, "proficiency": proficiency,
+                       "coverage": coverage, "evidence": "grades",
+                       "course_count": 1, "courses": []})
+    return {"taxonomy_version": "1.0", "source": source, "skills": skills}
 
 
 def requirement(skill_id, level="advanced", coverage=0.5, skill_type="knowledge",
@@ -99,6 +103,47 @@ def test_classification_boundaries():
     for proficiency, expected in cases:
         g = build_skill_gap(vector(("s:x", proficiency)), [requirement("s:x")])
         check(f"proficiency {proficiency:.3f}", by_id(g)["s:x"]["classification"], expected)
+
+
+def test_strong_needs_evidence_not_just_a_good_grade():
+    """Proficiency alone cannot establish `strong`; M3 needs coverage too.
+
+    For a student with one course the attainment term is constant across every
+    skill that course names, so it cancels out of the weighted mean entirely:
+    an A gives proficiency 1.0 whether the syllabus built a module on the skill
+    or mentioned it once in a week heading. Measured, that reported
+    `monitoring and observability` as strong from the single word "Monitors",
+    and every strong row in a two-course profile read exactly 1.000.
+    """
+    target = LEVEL_TARGET["advanced"]
+    needed = LEVEL_COVERAGE["advanced"]
+
+    thin = build_skill_gap(vector(("s:x", 1.0, 0.42)), [requirement("s:x")])
+    entry = by_id(thin)["s:x"]
+    check("a single beginner mention is not strong", entry["classification"], "moderate")
+    close("...but proficiency still reads full", entry["current_level"], 1.0)
+    close("evidence_coverage is surfaced", entry["evidence_coverage"], 0.42)
+    close("so is what was required", entry["required_coverage"], needed)
+
+    thick = build_skill_gap(vector(("s:x", 1.0, needed)), [requirement("s:x")])
+    check("enough evidence is strong", by_id(thick)["s:x"]["classification"], "strong")
+
+    # The bar travels with the level asked for, exactly as the target does.
+    easy = build_skill_gap(vector(("s:x", 1.0, 0.55)), [requirement("s:x", "beginner")])
+    check("a beginner requirement asks less evidence",
+          by_id(easy)["s:x"]["classification"], "strong")
+    hard = build_skill_gap(vector(("s:x", 1.0, 0.55)), [requirement("s:x", "advanced")])
+    check("an advanced one asks more", by_id(hard)["s:x"]["classification"], "moderate")
+
+    # Coverage must not rescue a proficiency that never met the bar.
+    poor = build_skill_gap(vector(("s:x", target * 0.5, 5.0)), [requirement("s:x")])
+    check("coverage does not substitute for performance",
+          by_id(poor)["s:x"]["classification"], "weak")
+
+    # A skill the student does not hold is unaffected by the new gate.
+    absent = build_skill_gap(vector(("s:other", 1.0)), [requirement("s:missing")])
+    check("unstudied stays weak", by_id(absent)["s:missing"]["classification"], "weak")
+    close("and reports no evidence", by_id(absent)["s:missing"]["evidence_coverage"], 0.0)
 
 
 def test_gap_is_never_negative():
@@ -229,6 +274,7 @@ def test_deterministic():
 def main():
     test_target_comes_from_level_not_score()
     test_classification_boundaries()
+    test_strong_needs_evidence_not_just_a_good_grade()
     test_gap_is_never_negative()
     test_unstudied_skill_is_a_full_gap()
     test_priority_weights_gap_by_demand()

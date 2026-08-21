@@ -18,7 +18,7 @@ Usage:
 import sys
 
 from careercompass.skills.vector import (
-    LEVEL_FACTOR, apply_quiz_results, build_skill_vector,
+    LEVEL_FACTOR, apply_quiz_results, build_skill_vector, resolve_retired_ids,
 )
 
 _failures = []
@@ -184,6 +184,92 @@ def test_no_quizzes_falls_back_to_grades():
     check("source unchanged", v["source"], "grades")
 
 
+def test_transfer_credit_adds_coverage_without_scoring_zero():
+    """Transfer credit is study without a mark, not a mark of zero.
+
+    `_attainment` returns 0.0 for a missing grade, so a transferred course used
+    to average into the proficiency mean exactly like a failed one. Measured on
+    a mixed profile, 11 of 46 skills came back at proficiency 0.0 because of it.
+    The module comment always said transfer credit "contributes coverage
+    without attainment"; the arithmetic did not.
+    """
+    graded = {"course_code": "C1", "grade": "A", "status": "passed"}
+    transfer = {"course_code": "C2", "grade": None, "status": "transferred"}
+    course_map = {"C1": [skill("s:x", "X")], "C2": [skill("s:x", "X")]}
+
+    v = build_skill_vector([graded, transfer], course_map)
+    entry = by_id(v)["s:x"]
+    close("an A stays an A", entry["proficiency"], 1.0)
+    close("both courses count as study", entry["coverage"], 2.0)
+    close("only one carried a mark", entry["graded_coverage"], 1.0)
+    check("both courses are counted", v["courses_counted"], 2)
+
+    # A transferred course is credit earned, so it is not "not passed".
+    only = build_skill_vector([transfer], {"C2": [skill("s:x", "X")]})
+    check("transfer is not skipped", only["courses_skipped"], [])
+    entry = by_id(only)["s:x"]
+    close("coverage is credited", entry["coverage"], 1.0)
+    close("nothing was marked", entry["graded_coverage"], 0.0)
+    check("and says so", entry["evidence"], "transfer")
+
+    # A genuinely unfinished course is still excluded, and says which.
+    for status in ("registered", "exempted", "withdrawn", "incomplete"):
+        v = build_skill_vector([{"course_code": "C1", "grade": None, "status": status}],
+                               course_map)
+        check(f"{status} is skipped", [s["reason"] for s in v["courses_skipped"]],
+              ["not passed"])
+        check(f"{status} reason names the status",
+              v["courses_skipped"][0]["status"], status)
+
+    # An F is a mark, and it is not credit.
+    failed = build_skill_vector([{"course_code": "C1", "grade": "F", "status": "passed"}],
+                                course_map)
+    check("an F is still skipped", len(failed["courses_skipped"]), 1)
+
+
+def test_retired_ids_are_repointed_at_load():
+    """A merged-away id must not silently fail to join.
+
+    Merging two taxonomy records for one skill retires the loser's id, but rows
+    already written still carry it. `remap_retired_skills` repaired the database
+    and nothing repaired the JSON artefacts — which is what every API path reads.
+    `custom:java` survived there after the 18 August merge, so a student graded
+    A in Object Oriented Programming in Java joined against nothing and was
+    reported as having a complete Java gap.
+
+    The successor is found the way the database repair finds it: resolve the
+    retired *label* through the current alias index, which works because a merge
+    keeps the loser's label as an alias.
+    """
+    from careercompass.skills.taxonomy import Taxonomy, make_skill
+
+    taxonomy = Taxonomy([
+        make_skill("esco:java", "Java", "esco", aliases=["Java (computer programming)"]),
+        make_skill("custom:docker", "Docker", "custom"),
+    ])
+
+    rows = [skill("custom:java", "Java"), skill("custom:docker", "Docker")]
+    repointed = resolve_retired_ids(rows, taxonomy, source="test")
+    check("one row repointed", repointed, 1)
+    check("canonical id follows the merge", rows[0]["canonical"]["id"], "esco:java")
+    check("the audit trail follows too", rows[0]["match"]["canonical_id"], "esco:java")
+    check("and so does the source name", rows[0]["canonical"]["taxonomy"], "esco")
+    check("a live id is untouched", rows[1]["canonical"]["id"], "custom:docker")
+
+    # The whole point: the repointed row now joins to the requirement.
+    vector = build_skill_vector([{"course_code": "C1", "grade": "A"}], {"C1": rows})
+    check("Java is in the vector under the live id", "esco:java" in by_id(vector), True)
+
+    # An id whose label no longer resolves is left alone rather than guessed at.
+    orphan = [skill("custom:gone", "a label no taxonomy has")]
+    check("unresolvable is not invented", resolve_retired_ids(orphan, taxonomy), 0)
+    check("and is left as it was", orphan[0]["canonical"]["id"], "custom:gone")
+
+    # No taxonomy means no resolution, not a crash: the API degrades to this
+    # while the index is still warming.
+    check("no taxonomy is a no-op", resolve_retired_ids(rows, None), 0)
+
+
 def test_deterministic():
     """The same input must serialise identically, every time."""
     import json
@@ -214,6 +300,8 @@ def main():
     test_quiz_overrides_grades()
     test_quiz_can_add_an_unstudied_skill()
     test_no_quizzes_falls_back_to_grades()
+    test_transfer_credit_adds_coverage_without_scoring_zero()
+    test_retired_ids_are_repointed_at_load()
     test_deterministic()
 
     print(f"Ran {_checks} checks")

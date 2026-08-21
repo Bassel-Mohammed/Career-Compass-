@@ -8,7 +8,7 @@ would create two definitions that drift apart the first time a field is
 added. The models below cover the envelopes the API itself owns.
 """
 
-from typing import Any, Literal, Optional
+from typing import Annotated, Any, Literal, Optional
 
 from pydantic import BaseModel, Field
 
@@ -18,6 +18,10 @@ ReviewStatus = Literal["accepted", "needs_review", "no_match"]
 Decision = Literal["confirmed", "corrected", "rejected"]
 
 MAX_MATCH_TERMS = 25
+
+# A quiz score is a fraction of the questions answered correctly, never a
+# percentage. See SkillVectorRequest.quiz_scores.
+QuizScore = Annotated[float, Field(ge=0.0, le=1.0)]
 
 
 # ── Preview ────────────────────────────────────────────────────
@@ -163,7 +167,11 @@ class TranscriptCourse(BaseModel):
 
 class SkillVectorRequest(BaseModel):
     courses: list[TranscriptCourse] = Field(min_length=1, max_length=200)
-    quiz_scores: dict[str, float] = Field(default_factory=dict)
+    # Bounded, because the clamp downstream is silent. A caller sending a
+    # percentage (85) rather than a fraction (0.85) would otherwise be clamped
+    # to 1.0 and get HTTP 200 — turning a D-minus student into a perfect one
+    # with no signal that anything was wrong. Out of range is a 422.
+    quiz_scores: dict[str, QuizScore] = Field(default_factory=dict)
     include_unpassed: bool = False
 
 
@@ -193,6 +201,12 @@ class SkillGapResponse(BaseModel):
     requirements_met: int
     skills: list[dict[str, Any]]
     narrative: Optional[str] = None
+    # How much of the transcript this gap could actually see. A requirement can
+    # read "no evidence" because the student never studied it, or because the
+    # course that teaches it has no syllabus extracted yet, and those are very
+    # different things to show someone. Mirrors SkillVectorResponse.
+    courses_counted: int = 0
+    courses_skipped: list[dict[str, Any]] = Field(default_factory=list)
 
 
 # ── Course recommendations ─────────────────────────────────────
@@ -228,13 +242,27 @@ class RecommendationItem(BaseModel):
     explanation: str
 
 
+class UnservedSkill(BaseModel):
+    """A gap the catalog cannot currently serve.
+
+    Carries the label as well as the id: the caller has no taxonomy to resolve
+    `esco:1d86f05e-…` against, and this list exists to be read.
+    """
+    skill_id: str
+    skill_label: Optional[str] = None
+
+
 class RecommendationResponse(BaseModel):
     career_path: Optional[str] = None
     total: int
     items: list[RecommendationItem]
     # Which gaps the catalog cannot currently serve — the honest answer to
     # "why is there nothing here for X", and the list that says what to widen.
-    skills_without_courses: list[str] = Field(default_factory=list)
+    skills_without_courses: list[UnservedSkill] = Field(default_factory=list)
+    # Same caveat as SkillGapResponse: a recommendation list is only as complete
+    # as the transcript the gap behind it could read.
+    courses_counted: int = 0
+    courses_skipped: list[dict[str, Any]] = Field(default_factory=list)
 
 
 # ── Quizzes ────────────────────────────────────────────────────

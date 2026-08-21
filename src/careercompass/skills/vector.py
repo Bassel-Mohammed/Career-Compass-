@@ -23,8 +23,12 @@ courses built on it, and collapsing both into a single number hides exactly
 the distinction a gap analysis needs.
 """
 
+import logging
+
 from careercompass.parsing.grades import grade_to_points
 from careercompass.skills.matcher import ACCEPTED
+
+logger = logging.getLogger("careercompass.vector")
 
 MAX_GRADE_POINTS = 4.0
 
@@ -44,17 +48,39 @@ DEFAULT_LEVEL_FACTOR = 0.85
 # verdict under match.review_status, not on the skill itself.
 ACCEPTED_STATUS = ACCEPTED
 
-# Grades that mean the course was not completed for credit. "Equivelant" is
-# the registrar's spelling for a transfer credit: the course counts toward the
-# plan but carries no mark, so it contributes coverage without attainment.
+# Statuses that mean the course was not completed for credit at all.
 NON_GRADE_STATUSES = {"registered", "exempted", "withdrawn", "incomplete"}
+
+# Credit that was earned, but carries no mark on this transcript. "Equivelant"
+# is the registrar's spelling for it. These courses count toward the plan and
+# the student did study the material, so they contribute **coverage without
+# attainment**: their weight is evidence of study, and they are kept out of the
+# proficiency mean entirely rather than averaged in as a zero.
+#
+# Averaging them in was the actual defect. `_attainment` returns 0.0 for a
+# missing grade, so under `include_unpassed` a transferred course scored
+# identically to a failed one — measured, 11 of 46 skills in a mixed profile
+# came back at proficiency 0.0 because of it.
+TRANSFER_STATUSES = {"transferred", "equivelant", "equivalent"}
+
+
+def _status(course: dict) -> str:
+    return str(course.get("status") or "").strip().lower()
+
+
+def _is_transfer(course: dict) -> bool:
+    """Credit earned elsewhere: real study, no mark to score."""
+    return _status(course) in TRANSFER_STATUSES
 
 
 def _passed(course: dict) -> bool:
     """Whether a transcript row represents credit actually earned."""
-    status = str(course.get("status") or "").strip().lower()
+    status = _status(course)
     if status in NON_GRADE_STATUSES:
         return False
+    if status in TRANSFER_STATUSES:
+        # Credit was earned; there is simply no mark attached to it.
+        return True
     points = grade_to_points(course.get("grade"))
     return points is not None and points > 0
 
@@ -148,7 +174,11 @@ def build_skill_vector(
         if not code:
             continue
         if not include_unpassed and not _passed(course):
-            skipped.append({"course_code": code, "reason": "not passed"})
+            skipped.append({
+                "course_code": code,
+                "reason": "not passed",
+                "status": _status(course) or None,
+            })
             continue
 
         skills = course_skills.get(code)
@@ -164,7 +194,8 @@ def build_skill_vector(
             continue
 
         counted += 1
-        attainment = _attainment(course)
+        graded = not _is_transfer(course)
+        attainment = _attainment(course) if graded else 0.0
         grade = course.get("grade")
 
         for skill_id, best in _collapse(skills).items():
@@ -177,10 +208,18 @@ def build_skill_vector(
                     "skill_type": skill.get("skill_type"),
                     "weighted_attainment": 0.0,
                     "coverage": 0.0,
+                    "graded_coverage": 0.0,
                     "courses": [],
                 },
             )
-            entry["weighted_attainment"] += weight * attainment
+            # Two denominators, deliberately. `coverage` is how much study
+            # touched the skill and includes transfer credit; `graded_coverage`
+            # is how much of that carried a mark, and is what the proficiency
+            # mean divides by. Collapsing them lets an unmarked course pull a
+            # real average toward zero.
+            if graded:
+                entry["weighted_attainment"] += weight * attainment
+                entry["graded_coverage"] += weight
             entry["coverage"] += weight
             entry["courses"].append(
                 {
@@ -195,7 +234,9 @@ def build_skill_vector(
     skills_out = []
     for entry in accumulator.values():
         coverage = entry["coverage"]
-        proficiency = entry["weighted_attainment"] / coverage if coverage else 0.0
+        graded_coverage = entry["graded_coverage"]
+        proficiency = (entry["weighted_attainment"] / graded_coverage
+                       if graded_coverage else 0.0)
         skills_out.append(
             {
                 "skill_id": entry["skill_id"],
@@ -203,7 +244,12 @@ def build_skill_vector(
                 "skill_type": entry["skill_type"],
                 "proficiency": round(proficiency, 4),
                 "coverage": round(coverage, 4),
-                "evidence": "grades",
+                # Surfaced so a consumer can tell "studied but unmarked" from
+                # "studied and scored". A skill evidenced only by transfer
+                # credit has coverage without a proficiency anyone measured, and
+                # a 0.0 there means unknown, not failed.
+                "graded_coverage": round(graded_coverage, 4),
+                "evidence": "grades" if graded_coverage else "transfer",
                 "course_count": len(entry["courses"]),
                 "courses": sorted(entry["courses"], key=lambda c: c["course_code"]),
                 "quiz_score": None,
@@ -279,13 +325,93 @@ def apply_quiz_results(vector: dict, quiz_scores: dict) -> dict:
     return vector
 
 
-def load_course_skills(paths) -> dict:
+def _canonical_id(skill: dict):
+    """The canonical id a skill row carries, from either place it is written."""
+    canonical = skill.get("canonical") or {}
+    match = skill.get("match") or {}
+    return canonical.get("id") or match.get("canonical_id")
+
+
+def resolve_retired_ids(skills: list, taxonomy, source: str = "") -> int:
+    """
+    Repoint skill rows whose canonical id the taxonomy no longer knows.
+
+    Merging two records for one skill retires the loser's id, but rows already
+    written still carry it. `db.skills.remap_retired_skills` repairs the
+    database; nothing repaired the JSON artefacts, and those are what every API
+    path actually reads. The result was silent: `custom:java` survived in the
+    extracted files after the 18 August merge, so a student graded A in Object
+    Oriented Programming in Java joined against nothing and was reported as
+    having a complete Java gap.
+
+    The successor is found exactly the way the database repair finds it —
+    resolving the retired *label* through the current alias index, which works
+    because a merge keeps the loser's label as an alias. An id whose label no
+    longer resolves is left alone and logged rather than guessed at.
+
+    Rows are updated in place.
+
+    Returns:
+        How many rows were repointed.
+    """
+    if taxonomy is None:
+        return 0
+
+    repointed = 0
+    for skill in skills:
+        skill_id = _canonical_id(skill)
+        if not skill_id or taxonomy.index.get(skill_id) is not None:
+            continue
+
+        match = skill.get("match") or {}
+        label = match.get("canonical_label") or (skill.get("canonical") or {}).get("label")
+        details = taxonomy.index.lookup_details(label) if label else None
+        successor = details["skill"]["id"] if details else None
+
+        if not successor or successor == skill_id:
+            # Loud, because this is the failure mode that hides: the row stays
+            # joinable-looking and silently matches nothing downstream.
+            logger.warning(
+                "%s: %r resolves to retired skill id %s and its label %r no longer "
+                "matches the taxonomy; the row will not join to any requirement",
+                source or "course skills", skill.get("term"), skill_id, label,
+            )
+            continue
+
+        # The source name travels with the id, or the row claims to be a
+        # custom skill while pointing at an ESCO one. Named `taxonomy_source`
+        # and not `source`: that one is this function's argument, and shadowing
+        # it here silently mislabelled every log line.
+        taxonomy_source = details["skill"].get("source")
+        if skill.get("canonical"):
+            skill["canonical"]["id"] = successor
+            if taxonomy_source:
+                skill["canonical"]["taxonomy"] = taxonomy_source
+        if match:
+            match["canonical_id"] = successor
+            if taxonomy_source:
+                match["taxonomy"] = taxonomy_source
+        repointed += 1
+        logger.warning("%s: repointed retired skill id %s -> %s (%r)",
+                       source or "course skills", skill_id, successor, label)
+
+    return repointed
+
+
+def load_course_skills(paths, taxonomy=None) -> dict:
     """
     Build the course → skill map from extracted skill files.
 
     Keys every code a course is known by, because plan editions renumber:
     Operating Systems is 0433301 in three plans and A0413301 in the fourth,
     and a transcript quotes whichever its own plan uses.
+
+    Args:
+        paths: the extracted skill JSON files to load.
+        taxonomy: the current taxonomy. When given, every canonical id is
+            resolved through its alias index, so an id retired by a merge is
+            repointed rather than silently failing to join. See
+            `resolve_retired_ids`.
     """
     import json
     from pathlib import Path
@@ -294,6 +420,8 @@ def load_course_skills(paths) -> dict:
     for path in sorted(Path(p) for p in paths):
         record = json.loads(Path(path).read_text(encoding="utf-8"))
         skills = record.get("skills") or []
+        if taxonomy is not None:
+            resolve_retired_ids(skills, taxonomy, source=Path(path).name)
         codes = record.get("course_codes") or [record.get("course_code")]
         for code in codes:
             if code:

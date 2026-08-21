@@ -142,7 +142,13 @@ def recommend_courses(gap: dict, index: dict, *, limit: int = 10,
         if platform:
             courses = [c for c in courses if c.get("platform") == platform]
         if not courses:
-            skills_without_courses.append(row.get("skill_id"))
+            # Carry the label. This list is the answer to "why is there nothing
+            # here for X", and as bare ESCO UUIDs it could not be shown to
+            # anyone or resolved by a caller that has no taxonomy.
+            skills_without_courses.append({
+                "skill_id": row.get("skill_id"),
+                "skill_label": row.get("label") or row.get("skill_id"),
+            })
             continue
 
         scored = sorted(
@@ -182,5 +188,8 @@ def recommend_courses(gap: dict, index: dict, *, limit: int = 10,
         # Surfaced rather than hidden: it is the honest answer to "why is there
         # nothing here for X", and it is the list of gaps the catalog cannot
         # currently serve, which is what tells you to widen it.
-        "skills_without_courses": sorted(set(skills_without_courses)),
+        "skills_without_courses": sorted(
+            {row["skill_id"]: row for row in skills_without_courses}.values(),
+            key=lambda row: row["skill_id"],
+        ),
     }

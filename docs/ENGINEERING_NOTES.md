@@ -93,6 +93,27 @@ pointed at retired ids. `db.skills.remap_retired_skills` repoints stored rows
 through the current alias index and runs automatically under `--db` — but a
 merge always leaves written rows behind, so this must run after any merge.
 
+**And it only ever repaired half the system.** The database was fixed; the JSON
+artefacts were not, and `data/extracted/skills/*.json` is what every API path
+actually reads. `custom:java` (4 rows) and `custom:python` (1) survived there
+until 21 August, so a student graded **A** in Object Oriented Programming in
+Java joined against nothing and was reported as having a complete Java gap —
+the same defect this section is about, hiding one directory away. Python is the
+top requirement of the AI & ML path at 46%, and it failed the same way.
+
+**A merge is therefore three steps, not two:**
+
+```bash
+python -m careercompass.cli.build_taxonomy                    # 1. merge
+python -m careercompass.cli.remap_extracted_skills --dry-run  # 2. repair the JSON
+python -m careercompass.cli.extract_job_skills --db           # 3. repair the database
+```
+
+`skills.vector.load_course_skills` now also resolves every `canonical_id`
+through the alias index as it loads, and logs a warning naming the course and
+term when one no longer resolves. Step 2 keeps the files correct; the load-time
+pass is what stops the next merge from being silent.
+
 ---
 
 ## 3. Course codes are not course identity

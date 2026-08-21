@@ -54,6 +54,30 @@ DEFAULT_TARGET = 0.70
 STRONG_RATIO = 1.0
 MODERATE_RATIO = 0.7
 
+# How much evidence a requirement needs before "strong" is claimable, on the
+# vector's `coverage` scale (summed evidence weight, typically 0-3).
+#
+# Without this, proficiency alone decides — and for a student with one course,
+# proficiency *is* their grade. The attainment term is constant across that
+# course's skills, so it cancels out of the weighted mean entirely: an A gives
+# 1.0 for every skill the syllabus names, whether it built a module on it or
+# mentioned it once in a week heading. Measured, that reported
+# `monitoring and observability` as strong from the single word "Monitors", and
+# every strong row in a two-course profile read exactly 1.000.
+#
+# The numbers come from the measured distribution over all 20 extracted courses
+# (138 skills, p25 0.56, p50 0.70, p75 1.02). A single beginner mention floors
+# at 0.42 (weight 0.6 x level factor 0.70), so an advanced requirement now needs
+# top-quartile evidence rather than one passing mention.
+#
+# Like the matcher thresholds, these are starting points, not settled values.
+LEVEL_COVERAGE = {
+    "beginner": 0.50,
+    "intermediate": 0.70,
+    "advanced": 1.00,
+}
+DEFAULT_COVERAGE = 0.70
+
 STRONG, MODERATE, WEAK = "strong", "moderate", "weak"
 
 # Soft skills top nearly every career path, which is an accurate reading of job
@@ -63,11 +87,26 @@ STRONG, MODERATE, WEAK = "strong", "moderate", "weak"
 SOFT_TYPE = "soft"
 
 
-def _classify(current: float, required: float) -> str:
+def _classify(current: float, required: float, coverage: float = None,
+              required_coverage: float = 0.0) -> str:
+    """Classify one requirement from both halves of the vector.
+
+    `current` is proficiency — how well they did. `coverage` is how much of
+    their study touched the skill. M3 needs both: passing the proficiency bar on
+    a single passing mention is not the same as passing it across a course built
+    on the subject, and reporting them identically is what made every "strong"
+    row untrustworthy.
+
+    `coverage` of None means the student does not hold the skill at all, which
+    the proficiency test already resolves to weak.
+    """
     if required <= 0:
         return STRONG
     ratio = current / required
     if ratio >= STRONG_RATIO:
+        # Met on performance; now, is there enough evidence behind it?
+        if coverage is not None and coverage < required_coverage:
+            return MODERATE
         return STRONG
     if ratio >= MODERATE_RATIO:
         return MODERATE
@@ -109,8 +148,11 @@ def build_skill_gap(
             continue
 
         required = LEVEL_TARGET.get(req.get("required_level"), DEFAULT_TARGET)
+        required_coverage = LEVEL_COVERAGE.get(
+            req.get("required_level"), DEFAULT_COVERAGE)
         entry = held.get(skill_id)
         current = float(entry["proficiency"]) if entry else 0.0
+        coverage = float(entry.get("coverage") or 0.0) if entry else None
 
         rows.append({
             "skill_id": skill_id,
@@ -119,11 +161,18 @@ def build_skill_gap(
             "required_level": req.get("required_level"),
             "required_proficiency": round(required, 4),
             "current_level": round(current, 4),
+            # The other half of the vector, surfaced so a consumer can see how
+            # much study is behind `current_level`. Named `evidence_coverage`
+            # and not `coverage` on purpose: this row already carries
+            # `importance`, which is the *ontology's* coverage. The two mean
+            # unrelated things and the module docstring exists to keep them apart.
+            "evidence_coverage": round(coverage, 4) if coverage is not None else 0.0,
+            "required_coverage": round(required_coverage, 4),
             # Only ever a shortfall. A student exceeding a requirement has no
             # gap to close, and a negative number here would sort above real
             # gaps and be subtracted again downstream.
             "gap": round(max(0.0, required - current), 4),
-            "classification": _classify(current, required),
+            "classification": _classify(current, required, coverage, required_coverage),
             # How often the market asks for it, so a dashboard can sort by
             # what employers actually want rather than alphabetically.
             "importance": round(float(req.get("coverage") or 0.0), 4),

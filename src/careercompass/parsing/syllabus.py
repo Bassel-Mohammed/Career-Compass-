@@ -17,8 +17,9 @@ Returns only the fields skill extraction and the course graph need:
 
 import re
 import json
-import pdfplumber
 from pathlib import Path
+
+from careercompass.parsing.pdf import open_pdf, page_texts
 
 # ── Regex Patterns ─────────────────────────────────────────────
 COURSE_CODE_RE = re.compile(r"\b0\d{6}\b")
@@ -464,24 +465,23 @@ def parse_syllabus(pdf_path: str) -> dict:
         ValueError: If the PDF has no extractable text layer.
     """
     pdf_path = Path(pdf_path)
-    if not pdf_path.exists():
-        raise FileNotFoundError(f"PDF file not found: {pdf_path}")
 
     tables = []
-    page_texts = []
-    with pdfplumber.open(str(pdf_path)) as pdf:
+    # open_pdf refuses a corrupt file and one that expands without bound, both
+    # as ValueError; page_texts applies the glyph budget. See parsing/pdf.py.
+    with open_pdf(pdf_path) as pdf:
+        texts = page_texts(pdf)
         for page in pdf.pages:
-            page_texts.append(page.extract_text() or "")
             tables.extend(page.extract_tables())
 
-        text_length = sum(len(text) for text in page_texts)
+        text_length = sum(len(text) for text in texts)
         if text_length < 200:
             raise ValueError(
                 f"No text layer found in {pdf_path.name}; the file is likely "
                 "a scan and needs OCR before it can be parsed."
             )
 
-    document_text = "\n".join(page_texts)
+    document_text = "\n".join(texts)
 
     course = {}
     description = ""

@@ -14,6 +14,7 @@ Usage:
 """
 
 import json
+import hashlib
 import sys
 
 from careercompass.skills.quiz import (
@@ -56,11 +57,28 @@ class FakeDecider:
 
 
 def question(text="What does X do?", options=None, correct=1):
+    """One generated question.
+
+    Default options are tagged with a digest of the question text so that two
+    different questions get two different answer sets. A fixture that gave every
+    question the same four options was exactly the shape `validate_question` now
+    rejects — real output did it too, four times over one option set — so the
+    fixture has to be at least as realistic as the check.
+    """
+    if options is None:
+        tag = hashlib.md5(text.encode("utf-8")).hexdigest()[:4]
+        options = [f"alpha {tag}", f"bravo {tag}", f"charlie {tag}", f"delta {tag}"]
     return {
         "question": text,
-        "options": options or ["alpha", "bravo", "charlie", "delta"],
+        "options": options,
         "correct_index": correct,
     }
+
+
+def default_options(text="What does X do?"):
+    """The options `question(text)` will produce, for assertions."""
+    tag = hashlib.md5(text.encode("utf-8")).hexdigest()[:4]
+    return [f"alpha {tag}", f"bravo {tag}", f"charlie {tag}", f"delta {tag}"]
 
 
 def quiz_of(*questions):
@@ -109,7 +127,7 @@ def test_rejects_a_repeated_question():
 def test_accepts_a_good_question():
     clean, reason = validate_question(question(), set())
     check("no reason", reason, None)
-    check("options preserved", clean["options"], ["alpha", "bravo", "charlie", "delta"])
+    check("options preserved", clean["options"], default_options())
     check("index preserved", clean["correct_index"], 1)
     check("explanation optional", clean["explanation"], None)
 
@@ -127,7 +145,8 @@ def test_generates_and_splits_the_key_out():
               sorted(item), ["options", "question", "question_id"])
     check("key covers every question",
           sorted(quiz["answer_key"]), [i["question_id"] for i in quiz["questions"]])
-    check("key holds the answer", quiz["answer_key"]["q1"]["correct_answer"], "alpha")
+    check("key holds the answer", quiz["answer_key"]["q1"]["correct_answer"],
+          default_options("Q1")[0])
 
 
 def test_drops_bad_questions_and_says_so():
@@ -135,6 +154,56 @@ def test_drops_bad_questions_and_says_so():
     quiz = generate_quiz(SKILL, 5, decider=FakeDecider(payload), verify=False)
     check("only the good one", quiz["question_count"], 1)
     check("warned", any("duplicate options" in w for w in quiz["warnings"]), True)
+
+
+def test_rejects_questions_that_re_test_one_fact():
+    """Four questions over one option set is one question, asked four times.
+
+    Taken from real generated output. A five-question Docker quiz asked which
+    command builds an image, which runs a container, which pushes and which
+    pulls — four questions sharing the identical option set
+    (docker run / build / push / pull), with the key rotating through positions.
+    The SQL quiz did the same with SELECT / INSERT / UPDATE / DELETE. Every
+    existing check passed them: duplicate detection compared question text for
+    exact equality, and the self-check answers its own recall questions
+    correctly. The score then overwrites the student's grade-derived
+    proficiency, so a quiz measuring two facts is recorded as measuring five.
+    """
+    commands = ["docker run", "docker build", "docker push", "docker pull"]
+    seen, asked = set(), []
+
+    first, reason = validate_question(
+        question("Which command builds an image from a Dockerfile?",
+                 options=commands, correct=1), seen, asked)
+    check("the first is fine", reason, None)
+    check("and is kept", first is not None, True)
+
+    second, reason = validate_question(
+        question("Which command runs a container from an existing image?",
+                 options=list(reversed(commands)), correct=2), seen, asked)
+    check("the second is refused", second, None)
+    check("...for re-testing one fact", reason, "same four options as an earlier question")
+
+    # A different fact with different answers is still welcome.
+    other, reason = validate_question(
+        question("Which Dockerfile instruction sets the base image?",
+                 options=["FROM", "RUN", "CMD", "EXPOSE"], correct=0), seen, asked)
+    check("a genuinely new question is kept", reason, None)
+    check("and returned", other is not None, True)
+
+    # Near-identical wording, even with fresh distractors, is a restatement.
+    _, reason = validate_question(
+        question("Which Dockerfile instruction sets the base image for a build?",
+                 options=["ADD", "COPY", "ENV", "LABEL"], correct=0), seen, asked)
+    check("a reworded restatement is refused", reason, "restates an earlier question")
+
+    # Without the `asked` context the check does not run, so callers that
+    # validate one question in isolation are unaffected.
+    lone, reason = validate_question(
+        question("Which command runs a container from an existing image?",
+                 options=commands, correct=2), set())
+    check("no context, no cross-question check", reason, None)
+    check("still validated on its own terms", lone is not None, True)
 
 
 def test_honours_the_requested_count():
@@ -147,8 +216,11 @@ def test_honours_the_requested_count():
 
 
 def test_retries_when_the_first_attempt_is_thin():
-    first = quiz_of(question("Only good one"))
-    second = quiz_of(question("Second attempt A"), question("Second attempt B"))
+    # Genuinely different questions, not one question spelt two ways: a retry
+    # that returns near-restatements is what the redundancy check is for.
+    first = quiz_of(question("Which flag publishes a container port?"))
+    second = quiz_of(question("What does a multi-stage build reduce?"),
+                     question("Where are image layers cached?"))
     quiz = generate_quiz(SKILL, 3, decider=FakeDecider(first, second), verify=False)
     check("combined across attempts", quiz["question_count"], 3)
 
@@ -341,6 +413,7 @@ def main():
     test_accepts_a_good_question()
     test_generates_and_splits_the_key_out()
     test_drops_bad_questions_and_says_so()
+    test_rejects_questions_that_re_test_one_fact()
     test_honours_the_requested_count()
     test_retries_when_the_first_attempt_is_thin()
     test_unavailable_model_is_fatal()

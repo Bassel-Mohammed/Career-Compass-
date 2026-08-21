@@ -4,9 +4,9 @@
   "taxonomy_version": "1.0",
   "match_summary": {
     "by_status": {
-      "accepted": 66,
-      "no_match": 7,
-      "needs_review": 11
+      "accepted": 62,
+      "no_match": 8,
+      "needs_review": 14
     },
     "by_method": {
       "exact_alias": 31,
@@ -2634,11 +2634,7 @@
     },
     {
       "term": "automation",
-      "canonical": {
-        "id": "esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694",
-        "label": "automation technology",
-        "taxonomy": "esco"
-      },
+      "canonical": null,
       "level": "beginner",
       "weight": 0.6,
       "evidence_count": 1,
@@ -2653,14 +2649,14 @@
       ],
       "match": {
         "original_term": "automation",
-        "canonical_id": "esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694",
-        "canonical_label": "automation technology",
+        "canonical_id": null,
+        "canonical_label": null,
         "taxonomy": "esco",
         "taxonomy_version": "1.0",
-        "match_method": "llm",
-        "match_score": 0.95,
-        "review_status": "accepted",
-        "reason": "The phrase 'automation' directly matches the label 'automation technology' and its also called entries, which define it as the set of technologies that make a process operate automatically through control systems.",
+        "match_method": "noise_filter",
+        "match_score": 0.0,
+        "review_status": "no_match",
+        "reason": "term is on the noise list: too generic to name a skill",
         "candidates": [
           {
             "id": "custom:test-automation",
@@ -2834,11 +2830,7 @@
     },
     {
       "term": "dynamics",
-      "canonical": {
-        "id": "custom:robot-dynamics",
-        "label": "robot dynamics",
-        "taxonomy": "custom"
-      },
+      "canonical": null,
       "level": "beginner",
       "weight": 0.6,
       "evidence_count": 1,
@@ -2859,8 +2851,8 @@
         "taxonomy_version": "1.0",
         "match_method": "llm",
         "match_score": 0.95,
-        "review_status": "accepted",
-        "reason": "The phrase 'dynamics' matches the label 'robot dynamics' and is also listed as an alias for this entry.",
+        "review_status": "needs_review",
+        "reason": "generic one-word term with no syllabus context beyond itself; nothing to disambiguate with",
         "candidates": [
           {
             "id": "custom:robot-dynamics",
@@ -3194,11 +3186,7 @@
     },
     {
       "term": "programming",
-      "canonical": {
-        "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
-        "label": "computer programming",
-        "taxonomy": "esco"
-      },
+      "canonical": null,
       "level": "beginner",
       "weight": 0.6,
       "evidence_count": 1,
@@ -3219,8 +3207,8 @@
         "taxonomy_version": "1.0",
         "match_method": "llm",
         "match_score": 0.95,
-        "review_status": "accepted",
-        "reason": "The phrase 'programming' is a general term that matches the broader skill 'computer programming' which encompasses the techniques and principles of software development.",
+        "review_status": "needs_review",
+        "reason": "generic one-word term with no syllabus context beyond itself; nothing to disambiguate with",
         "candidates": [
           {
             "id": "custom:c-language",
@@ -3538,11 +3526,7 @@
     },
     {
       "term": "sensing",
-      "canonical": {
-        "id": "esco:70a7b3b3-31ef-4b29-a30f-bb7299dff39b",
-        "label": "sensors",
-        "taxonomy": "esco"
-      },
+      "canonical": null,
       "level": "beginner",
       "weight": 0.6,
       "evidence_count": 1,
@@ -3563,8 +3547,8 @@
         "taxonomy_version": "1.0",
         "match_method": "embedding_reranker",
         "match_score": 0.644,
-        "review_status": "accepted",
-        "reason": "leads the runner-up by 0.36",
+        "review_status": "needs_review",
+        "reason": "generic one-word term with no syllabus context beyond itself; nothing to disambiguate with",
         "candidates": [
           {
             "id": "esco:70a7b3b3-31ef-4b29-a30f-bb7299dff39b",

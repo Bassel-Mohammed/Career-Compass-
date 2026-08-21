@@ -32,7 +32,7 @@ from pathlib import Path
 
 from careercompass.config import JOBS_DIR
 from careercompass.skills.phrases import NOISE_TERMS
-from careercompass.skills.taxonomy import normalize
+from careercompass.skills.taxonomy import QUALIFIER_RE, normalize
 from careercompass.skills.taxonomy import AliasIndex  # noqa: F401  (kept for callers)
 
 logger = logging.getLogger(__name__)
@@ -62,6 +62,13 @@ def _tokens(text: str) -> list:
         if word:
             words.append(word)
     return words
+
+
+def _usable_surface(key: str) -> bool:
+    """Whether a normalised surface is specific enough to scan for."""
+    return (MIN_SURFACE <= len(key)
+            and key not in NOISE_TERMS
+            and len(key.split()) <= MAX_NGRAM)
 
 
 def _is_head_noun_alias(key: str, label_key: str, label_words: set) -> bool:
@@ -105,26 +112,50 @@ def build_surface_map(skills: list, skill_ids: set = None) -> dict:
     to whichever came first: an ambiguous tag is worse than no tag, and the
     taxonomy merge already showed how quietly a wrong id spreads.
     """
-    claims = defaultdict(set)
+    # Tracked separately because a skill's own label outranks another skill's
+    # alias for the same string. "CSS" is the label of CSS and merely an alias
+    # of "style sheet languages"; treating both claims as equal dropped the
+    # surface entirely, and CSS — asked for by 14% of Backend postings —
+    # matched none of 14,941 courses. The matcher has always resolved this the
+    # same way; only this map did not.
+    by_label = defaultdict(set)
+    by_alias = defaultdict(set)
+
     for skill in skills:
         if skill_ids is not None and skill["id"] not in skill_ids:
             continue
         label_key = normalize(skill["label"])
         label_words = set(label_key.split())
-        for surface in [skill["label"], *(skill.get("aliases") or [])]:
+
+        # A parenthetical qualifier disambiguates for a human reader; it is not
+        # part of the name. "Ruby (computer programming)" is called Ruby, and
+        # without this it could only ever be matched by its full ESCO label,
+        # which no course title uses.
+        label_surfaces = {skill["label"], QUALIFIER_RE.sub(" ", skill["label"])}
+
+        for surface in label_surfaces:
             key = normalize(surface)
-            if len(key) < MIN_SURFACE or key in NOISE_TERMS:
-                continue
-            if len(key.split()) > MAX_NGRAM:
+            if _usable_surface(key):
+                by_label[key].add(skill["id"])
+
+        for surface in skill.get("aliases") or []:
+            key = normalize(surface)
+            if not _usable_surface(key):
                 continue
             if _is_head_noun_alias(key, label_key, label_words):
                 continue
-            claims[key].add(skill["id"])
+            by_alias[key].add(skill["id"])
 
-    surface_map = {key: next(iter(ids)) for key, ids in claims.items() if len(ids) == 1}
-    dropped = len(claims) - len(surface_map)
-    if dropped:
-        logger.info("surface map: %d surfaces dropped as ambiguous", dropped)
+    surface_map, ambiguous = {}, 0
+    for key in set(by_label) | set(by_alias):
+        owners = by_label.get(key) or by_alias.get(key) or set()
+        if len(owners) == 1:
+            surface_map[key] = next(iter(owners))
+        else:
+            ambiguous += 1
+
+    if ambiguous:
+        logger.info("surface map: %d surfaces dropped as ambiguous", ambiguous)
     return surface_map
 
 
@@ -174,8 +205,11 @@ def build_index(courses: list, taxonomy, *, min_skills: int = 1,
         # Fundamentals" was being recommended to close a Linux gap.
         in_title = skills_in_text(course.title, surface_map)
         in_body = skills_in_text(course.description, surface_map)
-        skill_ids = in_title | in_body
-        if len(skill_ids) < min_skills:
+        # Not `skill_ids`: that is this function's argument, and rebinding it
+        # here leaves the next reader with a parameter that silently holds the
+        # last course's tags.
+        course_skill_ids = in_title | in_body
+        if len(course_skill_ids) < min_skills:
             continue
         tagged += 1
         base = {
@@ -188,7 +222,7 @@ def build_index(courses: list, taxonomy, *, min_skills: int = 1,
             "duration_hours": course.duration_hours,
             "rating": course.rating,
         }
-        for skill_id in skill_ids:
+        for skill_id in course_skill_ids:
             index[skill_id].append({**base, "in_title": skill_id in in_title})
 
     logger.info("indexed %d of %d courses across %d skills",

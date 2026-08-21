@@ -97,6 +97,13 @@ NOISE_TERMS = {
     "types", "rules", "steps", "approach", "study", "studies", "analysis",
     "theory", "practice", "laws", "law", "tool", "tools", "files", "file",
     "others", "etc", "and", "or",
+    # ENGINEERING_NOTES.md §5 opens by naming these three as the archetypal
+    # dangerous noise terms — frequent, grammatically noun phrases that retrieve
+    # *something* from any taxonomy and outrank the real skills they displace —
+    # and then none of them was actually in a noise set. Measured: "development"
+    # resolved to `software engineering`, "automation" to `building automation`
+    # (an HVAC control system), both accepted at 0.95.
+    "development", "automation", "activities", "activity",
     # Bare modifiers, stranded when a shared head noun is elided
     # ("Internal and External Sensors" leaves "Internal" behind).
     "internal", "external", "legged", "wheeled", "mobile", "basic", "advanced",

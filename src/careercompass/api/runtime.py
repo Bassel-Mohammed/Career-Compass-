@@ -110,6 +110,15 @@ class MatcherRuntime:
             )
         raise Problem.matcher_unavailable("The matcher has not been built yet.")
 
+    def taxonomy_if_ready(self):
+        """The loaded taxonomy, or None when the matcher is not built yet.
+
+        Deliberately non-raising, unlike `require`. Callers use this to improve
+        a result they can still produce without it — resolving retired skill
+        ids — and must not start failing merely because the index is cold.
+        """
+        return self._matcher.taxonomy if self._state == READY else None
+
     def matcher_for(self, use_llm=None) -> SkillMatcher:
         """
         A matcher honouring a per-request LLM override.

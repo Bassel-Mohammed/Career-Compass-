@@ -17,9 +17,10 @@ Usage:
 
 import re
 import json
-import pdfplumber
+import pdfplumber  # noqa: F401  (PDF type annotation on _extract_metadata)
 from pathlib import Path
 
+from careercompass.parsing.pdf import open_pdf, page_texts
 from careercompass.parsing.grades import (
     normalize_grade,
     grade_to_points,
@@ -203,7 +204,7 @@ def _extract_metadata(pdf: pdfplumber.PDF) -> dict:
         "level": "",
     }
 
-    full_text = "\n".join([page.extract_text() or "" for page in pdf.pages])
+    full_text = "\n".join(page_texts(pdf))
 
     id_match = re.search(r"Student Id\s*:\s*(\d+)", full_text)
     if id_match:
@@ -257,14 +258,14 @@ def parse_academic_plan(pdf_path: str) -> dict:
         Dictionary containing student info, requirement categories, and course lists.
     """
     pdf_path = Path(pdf_path)
-    if not pdf_path.exists():
-        raise FileNotFoundError(f"PDF file not found: {pdf_path}")
 
     categories = []
     current_category = None
     all_courses = []
 
-    with pdfplumber.open(str(pdf_path)) as pdf:
+    # open_pdf refuses a corrupt file and one that expands without bound, both
+    # as ValueError, which every caller already maps to a 4xx. See parsing/pdf.py.
+    with open_pdf(pdf_path) as pdf:
         student = _extract_metadata(pdf)
 
         for page in pdf.pages:
