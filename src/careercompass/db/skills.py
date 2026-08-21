@@ -298,11 +298,16 @@ def load_reviewed_matches(conn=None) -> dict:
 
 # ── Job skills ─────────────────────────────────────────────────
 JOB_MIGRATION = "003_job_skills.sql"
+# 004 adds career_path_skills.skill_type and backfills it, so M3 can rank
+# technical and soft requirements separately. It is idempotent and must run
+# after 003.
+PATH_SKILL_TYPE_MIGRATION = "004_career_path_skill_type.sql"
 
 
 def init_job_skill_tables(conn=None) -> None:
     """Create the job-skill and ontology tables if they do not exist."""
     run_migration(JOB_MIGRATION, conn=conn)
+    run_migration(PATH_SKILL_TYPE_MIGRATION, conn=conn)
 
 
 def store_job_skills(job_id: int, skills: list, conn=None) -> int:
@@ -370,6 +375,98 @@ def store_job_skills(job_id: int, skills: list, conn=None) -> int:
             conn.close()
 
 
+CATALOG_MIGRATION = "005_course_catalog.sql"
+
+
+def init_catalog_tables(conn=None) -> None:
+    """Create the course-catalog tables if they do not exist."""
+    run_migration(CATALOG_MIGRATION, conn=conn)
+
+
+def store_catalog_courses(index: dict, conn=None) -> int:
+    """
+    Replace the catalog for every platform the index covers.
+
+    Deletes a platform's rows before inserting rather than upserting: a course
+    withdrawn from the catalog must disappear here too, and an upsert would
+    leave it recommendable forever. Same reasoning as store_career_path_skills.
+
+    Args:
+        index: ``{skill_id: [course records]}`` from skills.course_index.
+
+    Returns:
+        Number of course-skill rows written.
+    """
+    courses, pairs = {}, []
+    for skill_id, records in index.items():
+        for record in records:
+            courses[record["course_id"]] = record
+            pairs.append((record["course_id"], skill_id,
+                          bool(record.get("in_title"))))
+    if not courses:
+        return 0
+
+    platforms = sorted({c["platform"] for c in courses.values()})
+    owned = conn is None
+    conn = conn or get_connection()
+
+    try:
+        with conn.cursor() as cur:
+            cur.execute(
+                "DELETE FROM catalog_courses WHERE platform = ANY(%s)",
+                (platforms,),
+            )
+            psycopg2.extras.execute_batch(cur, """
+                INSERT INTO catalog_courses (
+                    course_id, platform, title, url, level, language,
+                    duration_hours, rating
+                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+            """, [
+                (c["course_id"], c["platform"], c["title"], c["url"],
+                 c.get("level"), c.get("language"), c.get("duration_hours"),
+                 c.get("rating"))
+                for c in courses.values()
+            ], page_size=500)
+
+            # Skills the taxonomy no longer carries would violate the foreign
+            # key and abort the batch, so they are skipped rather than fatal.
+            cur.execute("SELECT skill_id FROM taxonomy_skills")
+            known = {row[0] for row in cur.fetchall()}
+            usable = [p for p in pairs if p[1] in known]
+
+            psycopg2.extras.execute_batch(cur, """
+                INSERT INTO catalog_course_skills (course_id, skill_id, in_title)
+                VALUES (%s, %s, %s)
+                ON CONFLICT (course_id, skill_id) DO NOTHING
+            """, usable, page_size=1000)
+        conn.commit()
+        return len(usable)
+    finally:
+        if owned:
+            conn.close()
+
+
+def get_courses_for_skill(skill_id: str, limit: int = 20, conn=None) -> list:
+    """Catalog courses tagged with one skill, title matches first."""
+    owned = conn is None
+    conn = conn or get_connection()
+    try:
+        with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+            cur.execute("""
+                SELECT c.course_id, c.platform, c.title, c.url, c.level,
+                       c.language, c.duration_hours, c.rating, s.in_title
+                  FROM catalog_course_skills s
+                  JOIN catalog_courses c ON c.course_id = s.course_id
+                 WHERE s.skill_id = %s
+                 ORDER BY s.in_title DESC, c.rating DESC NULLS LAST, c.title
+                 LIMIT %s
+            """, (skill_id, limit))
+            return [dict(row) for row in cur.fetchall()]
+    finally:
+        if owned:
+            conn.close()
+
+
 def store_career_path_skills(rows: list, totals: dict, conn=None) -> int:
     """
     Replace the derived ontology for every path the rows cover.
@@ -396,7 +493,8 @@ def store_career_path_skills(rows: list, totals: dict, conn=None) -> int:
         (
             row["career_path"], row["skill_id"], row["posting_count"],
             totals.get(row["career_path"], 0), row["coverage"],
-            row["required_score"], row["required_level"], TAXONOMY_VERSION,
+            row["required_score"], row["required_level"],
+            row.get("skill_type"), TAXONOMY_VERSION,
         )
         for row in rows
     ]
@@ -410,8 +508,9 @@ def store_career_path_skills(rows: list, totals: dict, conn=None) -> int:
             psycopg2.extras.execute_batch(cur, """
                 INSERT INTO career_path_skills (
                     career_path, skill_id, posting_count, sample_size,
-                    coverage, required_score, required_level, taxonomy_version
-                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+                    coverage, required_score, required_level, skill_type,
+                    taxonomy_version
+                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
             """, values, page_size=500)
         conn.commit()
         logger.info("stored %d ontology rows across %d career paths",

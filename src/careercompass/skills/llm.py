@@ -245,6 +245,71 @@ class LLMDecider:
             return ""
         return str((response.get("message") or {}).get("content") or "")
 
+    def structured(self, prompt: str, schema: dict) -> str:
+        """
+        Generate one schema-constrained response, for callers outside matching.
+
+        `decide` wraps this with a taxonomy shortlist and validates the id it
+        returns. Quiz generation needs the same structural guarantee — exactly
+        four options, a valid answer index — without any of the taxonomy
+        machinery, so the transport is exposed rather than duplicated.
+
+        Returns an empty string when the model is unavailable or errors; the
+        caller decides whether that is fatal.
+        """
+        if not self.available:
+            return ""
+        if self.provider == "ollama":
+            return self._ollama_text(prompt, schema)
+        return self._anthropic_text(prompt, schema)
+
+    def complete(self, prompt: str, max_tokens: int = 400) -> str:
+        """
+        Generate free prose for a prompt, with no schema and no parsing.
+
+        `decide` is the constrained path: its output is a taxonomy id that is
+        validated against the shortlist it was given, because a model must
+        never be able to invent an identifier. This is the opposite case —
+        the M3 narrative, where the numbers are already final and the model is
+        only asked to describe them. Nothing here is parsed back into a value,
+        so there is nothing to constrain.
+
+        Returns an empty string when the model is unavailable or errors: the
+        caller's output is complete without prose.
+        """
+        if not self.available:
+            return ""
+
+        if self.provider == "ollama":
+            try:
+                response = self._ollama_request("/api/chat", {
+                    "model": self.model,
+                    "stream": False,
+                    "think": False,
+                    "messages": [{"role": "user", "content": prompt}],
+                    # Warmer than `decide`, which must be reproducible. Prose
+                    # at temperature 0 reads like a form letter.
+                    "options": {"temperature": 0.4, "num_predict": max_tokens},
+                })
+            except (OSError, ValueError) as exc:  # pragma: no cover
+                logger.warning("Ollama completion failed: %s", exc)
+                return ""
+            return str((response.get("message") or {}).get("content") or "").strip()
+
+        try:
+            message = self.client.messages.create(
+                model=self.model,
+                max_tokens=max_tokens,
+                messages=[{"role": "user", "content": prompt}],
+            )
+            return "".join(
+                block.text for block in message.content
+                if getattr(block, "type", "") == "text"
+            ).strip()
+        except Exception as exc:  # noqa: BLE001 - pragma: no cover
+            logger.warning("Anthropic completion failed: %s", exc)
+            return ""
+
     def _anthropic_text(self, prompt: str, schema: dict) -> str:
         """Generate one schema-constrained Anthropic response."""
         try:

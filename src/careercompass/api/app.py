@@ -490,6 +490,222 @@ def get_course_skills_endpoint(
     }
 
 
+# ── Skill vector and gap ───────────────────────────────────────
+def _taxonomy_skill(skill_id: str) -> dict:
+    """One taxonomy entry, for callers that need a label and description."""
+    import json
+
+    from careercompass.config import TAXONOMY_PATH
+
+    if Path(TAXONOMY_PATH).exists():
+        with Path(TAXONOMY_PATH).open(encoding="utf-8") as fh:
+            for line in fh:
+                line = line.strip()
+                if not line:
+                    continue
+                record = json.loads(line)
+                if record.get("id") == skill_id:
+                    return record
+    raise Problem.skill_not_found(skill_id)
+
+
+
+def _course_skill_map() -> dict:
+    """The course → skill map, keyed by every code each course is known by."""
+    from careercompass.skills.vector import load_course_skills
+
+    if not SKILLS_DIR.exists():
+        return {}
+    return load_course_skills(SKILLS_DIR.glob("*.json"))
+
+
+def _requirements(career_path: str) -> list:
+    """One career path's requirements, with skill_type filled from the taxonomy."""
+    from careercompass.config import TAXONOMY_PATH
+    from careercompass.skills.gap import attach_skill_types, load_requirements
+    from careercompass.skills.ontology import ONTOLOGY_PATH
+
+    if not Path(ONTOLOGY_PATH).exists():
+        raise Problem.career_path_not_found(career_path)
+
+    rows = load_requirements(ONTOLOGY_PATH, career_path)
+    if not rows:
+        known = {r.get("career_path") for r in load_requirements(ONTOLOGY_PATH)}
+        raise Problem.career_path_not_found(career_path, known)
+
+    if Path(TAXONOMY_PATH).exists():
+        attach_skill_types(rows, TAXONOMY_PATH)
+    return rows
+
+
+def _build_vector(request) -> dict:
+    from careercompass.skills.taxonomy import TAXONOMY_VERSION
+    from careercompass.skills.vector import apply_quiz_results, build_skill_vector
+
+    course_skills = _course_skill_map()
+    if not course_skills:
+        raise Problem.no_skill_profile(
+            "No courses have been extracted, so a transcript has nothing to join to.")
+
+    vector = build_skill_vector(
+        [course.model_dump() for course in request.courses],
+        course_skills,
+        taxonomy_version=TAXONOMY_VERSION,
+        include_unpassed=request.include_unpassed,
+    )
+    if request.quiz_scores:
+        apply_quiz_results(vector, request.quiz_scores)
+
+    if not vector["skills"]:
+        raise Problem.no_skill_profile(
+            "None of the submitted courses have an extracted skill map. "
+            f"{len(vector['courses_skipped'])} of {len(request.courses)} were skipped.")
+    return vector
+
+
+@app.post("/api/v1/skill-vector", response_model=schemas.SkillVectorResponse,
+          tags=["skill-gap"])
+def build_vector(request: schemas.SkillVectorRequest):
+    """
+    The Student Skill Vector (M2) — what a transcript implies the student knows.
+
+    Stateless by design: this service holds no users, so the caller sends the
+    confirmed transcript rows and gets the vector back. Identity and storage
+    belong to the platform service.
+
+    Deterministic arithmetic, no model involved. The same transcript and the
+    same course → skill map always produce the same numbers.
+    """
+    return _build_vector(request)
+
+
+@app.post("/api/v1/skill-gap", response_model=schemas.SkillGapResponse,
+          tags=["skill-gap"])
+def build_gap(request: schemas.SkillGapRequest):
+    """
+    The Skill Gap (M3) — the vector subtracted from a career path's requirements.
+
+    `career_path` is the path **name**, never a numeric id, so neither service
+    owns the other's identifiers.
+
+    Every number here is computed arithmetically. `narrative` is the single
+    generated field, it is off by default because it costs an LLM call, and it
+    explains numbers that are already final — it can never change one. If the
+    model is unavailable the gap is returned complete with `narrative` null,
+    rather than failing.
+    """
+    from careercompass.skills.gap import build_skill_gap, write_narrative
+
+    vector = _build_vector(request)
+    gap = build_skill_gap(
+        vector,
+        _requirements(request.career_path),
+        career_path=request.career_path,
+        include_soft=request.include_soft,
+    )
+    if request.narrative:
+        write_narrative(gap)
+    return gap
+
+
+# ── Course recommendations ─────────────────────────────────────
+@app.post("/api/v1/recommendations", response_model=schemas.RecommendationResponse,
+          tags=["recommendations"])
+def recommend(request: schemas.RecommendationRequest):
+    """
+    Courses that close the gaps in a skill profile (M4).
+
+    Items are **retrieved from the catalog and re-ranked, never generated**, so
+    the service cannot invent a course that does not exist and every item
+    carries a real URL. That is why M4 waited for real catalog data rather than
+    being filled with synthetic rows: a wrong skill match is invisible, but a
+    dead course link is something the student clicks.
+
+    Ranking combines what closing the gap is worth — `priority` already weights
+    the shortfall by market demand — with how well the course fits: a student
+    who has never touched a skill is sent the introduction, not the masterclass,
+    and a course that only mentions a skill in passing ranks far below one that
+    names it in its title.
+
+    `explanation` is written from the student's own gap, never from the course
+    description. The platforms' catalog text is not licensed for republication,
+    and the gap makes for better advice anyway.
+
+    An empty catalog answers 503 rather than an empty list: no recommendations
+    because nothing has been ingested is a different thing from no
+    recommendations because the student has no gaps.
+    """
+    from careercompass.skills.course_index import load_index
+    from careercompass.skills.gap import build_skill_gap
+    from careercompass.skills.recommend import recommend_courses
+
+    index = load_index()
+    if not index:
+        raise Problem.catalog_unavailable(
+            "No course catalog has been built. Run: "
+            "python -m careercompass.cli.build_course_catalog --platform coursera")
+
+    vector = _build_vector(request)
+    gap = build_skill_gap(
+        vector,
+        _requirements(request.career_path),
+        career_path=request.career_path,
+        include_soft=request.include_soft,
+    )
+    return recommend_courses(
+        gap, index,
+        limit=request.limit,
+        platform=request.platform,
+        skill_id=request.skill_id,
+        language=request.language,
+        per_skill=request.per_skill,
+        include_soft=request.include_soft,
+    )
+
+
+# ── Quizzes ────────────────────────────────────────────────────
+@app.post("/api/v1/quizzes", response_model=schemas.QuizResponse,
+          status_code=status.HTTP_201_CREATED, tags=["quiz"])
+def create_quiz(request: schemas.QuizRequest):
+    """
+    Generate a multiple-choice quiz for one skill (M5).
+
+    Returns the questions **and** the answer key. The calling service stores
+    both, shows the student only the questions, and grades the submission
+    itself — grading is arithmetic and needs no model. It then feeds the score
+    back through `POST /api/v1/skill-vector` as `quiz_scores`, which already
+    replaces the grade-inferred proficiency.
+
+    Holding the key here would give this service user-scoped state it has none
+    of anywhere else. `API_DESIGN.md`'s concern is the key reaching the
+    browser; a server-to-server response does not.
+
+    Unlike the skill-gap narrative, an unavailable model is fatal: there is no
+    partial quiz worth returning, so this answers 503 rather than an empty one.
+    """
+    from careercompass.skills.llm import LLMDecider
+    from careercompass.skills.quiz import generate_quiz
+
+    skill = _taxonomy_skill(request.skill_id)
+
+    decider = LLMDecider()
+    if not decider.available:
+        raise Problem.llm_unavailable(
+            getattr(decider, "reason_unavailable", "the configured model is not reachable"))
+
+    try:
+        return generate_quiz(
+            skill,
+            request.question_count,
+            decider=decider,
+            verify=request.verify,
+        )
+    except RuntimeError as exc:
+        # Every candidate question failed validation. That is a model-quality
+        # problem, not a bad request, so it reads as a dependency failure.
+        raise Problem.llm_unavailable(str(exc)) from exc
+
+
 # ── Ad-hoc matching ────────────────────────────────────────────
 @app.post("/api/v1/skills/match", response_model=schemas.MatchResponse, tags=["matching"])
 async def match_terms(request: schemas.MatchRequest):

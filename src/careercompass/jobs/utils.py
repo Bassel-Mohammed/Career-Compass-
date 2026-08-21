@@ -38,9 +38,19 @@ def get_random_headers() -> dict:
     }
 
 
-def make_request(url: str, params: dict = None) -> requests.Response | None:
+def make_request(url: str, params: dict = None,
+                 headers: dict = None) -> requests.Response | None:
     """
     GET request with retry logic and exponential backoff.
+
+    Args:
+        url: the URL to fetch.
+        params: query parameters.
+        headers: merged over the rotating browser headers. JSON APIs need
+            ``{"Accept": "application/json"}``: the default Accept asks for
+            HTML, and a Django REST Framework endpoint honours it by returning
+            its browsable HTML view with a 200, which then fails to parse for
+            reasons the status code does not explain.
 
     Returns the Response on success, or None after all retries fail.
     """
@@ -49,7 +59,7 @@ def make_request(url: str, params: dict = None) -> requests.Response | None:
             resp = requests.get(
                 url,
                 params=params,
-                headers=get_random_headers(),
+                headers={**get_random_headers(), **(headers or {})},
                 timeout=REQUEST_TIMEOUT,
             )
 

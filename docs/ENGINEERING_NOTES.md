@@ -24,6 +24,7 @@ Contents:
 11. [Configuration](#11-configuration)
 12. [Tests](#12-tests)
 13. [Open decisions](#13-open-decisions)
+14. [What automated checks cannot catch](#14-what-automated-checks-cannot-catch)
 
 ---
 
@@ -371,6 +372,11 @@ data/
     syllabi/    parsed syllabus JSON   ← ignored, regenerable
     skills/     matched skills JSON    ← ignored, regenerable
     jobs/       job corpus artefacts   ← ignored, tens of MB
+  raw/catalog/  course catalog pulls ← IGNORED: the only place course
+                                        descriptions live, and they are not
+                                        ours to redistribute
+  extracted/catalog/                   ← the derived index: skill ids, titles
+                                        and URLs only, no descriptions
   taxonomy/
     custom_skills.json                 ← tracked, a source file
     taxonomy.jsonl, vector_index.npz   ← ignored, rebuilt
@@ -459,6 +465,9 @@ instead of stopping, so one run shows every failure.
 | `test_job_corpus` | 41 | pooling, cutoff, ontology arithmetic |
 | `test_transcript_parser` | 37 | both code schemes, both spacings |
 | `test_skill_vector` | 39 | M2 arithmetic, double-count guard, determinism |
+| `test_skill_gap` | 49 | M3: target from level not score, priority, soft-skill ranking |
+| `test_skill_quiz` | 74 | M5: question validation, self-check, grading, write-back |
+| `test_course_recommend` | 38 | M4: head-noun aliases, title provenance, level fit, real URLs |
 
 ```bash
 python -m tests.test_skill_vector          # one suite
@@ -528,6 +537,90 @@ batch CLIs build one matcher and reuse it.
 
 ---
 
+## 12d. Catalog sourcing, and the licence boundary
+
+M4 recommends real courses, which makes it the one module where invented data
+is directly harmful: a wrong skill match is invisible, but a dead course link
+is something the student clicks. It therefore could not be filled synthetically
+the way the missing syllabi were.
+
+**Sources, checked rather than assumed (August 2026):**
+
+| Source | Access | Terms |
+|---|---|---|
+| Coursera `api.coursera.org/api/courses.v1` | **Public, no key**, 23,564 courses | Beta, may break without warning. Catalog copyright belongs to university partners; **no licence to republish** descriptions |
+| MIT Learn `api.learn.mit.edu` | Public, 3,002 courses | States `license_cc` per record. Mixes CC-licensed OCW with non-CC xPRO and MITx |
+| YouTube Data API v3 | Official, 10k units/day free | `search.list` costs 100 units, so ~100 searches a day |
+| **Udemy** | **Affiliate API discontinued 1 January 2025** | No sanctioned programmatic access remains |
+
+**Do not scrape.** Coursera needs no scraping — its own API returns everything
+required. Udemy cannot be scraped usefully: its terms forbid it and the site is
+behind bot protection, so a scraper would be both a breach and permanently
+broken. Udemy is simply out.
+
+**The licence boundary, and where it is enforced.** Descriptions are fetched,
+read once to derive skill tags, and dropped. Only skill ids, title and URL are
+persisted. Three places enforce it and all three carry the reason in a comment:
+`skills/course_index.build_index` (which never copies the field),
+`005_course_catalog.sql` (which has no description column and says one must not
+be added), and `.gitignore` (which excludes `data/raw/catalog/`, the only place
+descriptions live).
+
+The `explanation` a student reads is generated from **their own gap**, never
+from the course page. That is a licence rule and also better advice: "the
+container work your coursework never covered, asked for by 18% of postings"
+says something the course's marketing copy cannot.
+
+---
+
+## 12e. Why M4 does not use the skill matcher
+
+The obvious design was to mine terms from course text and resolve them with
+`SkillMatcher`, exactly as the job corpus does. The arithmetic rules it out:
+23,564 courses yield roughly 235,000 terms, and at the measured ~1.7 s per
+LLM-routed term that is over 100 hours. The job corpus made itself tractable
+with a document-frequency cutoff, but a cutoff is precisely wrong here — a
+course teaching a niche skill is exactly what is worth recommending, and
+`df >= 5` deletes it.
+
+So the direction is reversed. Rather than "what does this text mention, and
+which skill is that?", M4 asks "which of the known skills does this text
+name?" — an exact lookup against the taxonomy's labels and aliases. It runs in
+seconds, needs no model, and cannot invent a mapping.
+
+**It trades recall for precision on purpose.** A course whose description says
+"containerisation" in words the taxonomy does not list is missed. But a course
+is never tagged with a skill it does not name, and for recommendation that is
+the right way round: a missing course is invisible, while a wrong one is
+something the student works through and does not get the skill from.
+
+Three defects surfaced while tuning it, all the same family as
+[§5](#5-noise-terms-the-filter-that-only-catches-what-you-name):
+
+- **`packaging engineering` ranked third** in a catalog of computing courses,
+  because ESCO lists `engineering` among its aliases. Fixed with a rule rather
+  than a word list: *a single-word alias that is one of the words of its own
+  multi-word label is a head noun*, and a head noun never identifies a skill.
+  `Access` for Microsoft Access and `communication` for communication skills go
+  the same way, while `Docker`, `ML`, `K8s` and `Jenkins` all survive.
+- **`Design Patterns` was tagged as manufacturing dies**, because `patterns` is
+  an ESCO alias for it. Fixed by indexing only the ~213 skills some career path
+  actually requires: a gap can only ever contain those, so every alias outside
+  that set is pure false-positive surface.
+- **`HTML5: Content Authoring Fundamentals` was offered as a way to learn
+  Linux**, because its description said it runs on Linux. Tags now record
+  whether the skill appeared in the **title** or only the description, and a
+  passing mention ranks far below a course that is actually about the subject.
+
+**A ranking that saturates is not a ranking.** The first scorer multiplied a
+title-match bonus into the total, pushing most results past 1.0 where they were
+clipped — every recommendation displayed `relevance: 1.000`. Relevance is now a
+bounded sum of three terms (is it about the skill, is it the right level, does
+the market want it), and *which skill to address first* is a separate question
+answered by the gap's own priority.
+
+---
+
 ## 13. Open decisions
 
 **The canonical course id.** Nothing has been decided. It must be settled
@@ -559,9 +652,40 @@ the Java team's service contract do not exist, and the sixth differs in path,
 payload and response shape. This is a conversation, not code, and it has been
 outstanding since 18 August.
 
-**Nothing is committed.** Three sessions of work — the job pipeline, the
-ontology, the plan tooling, the `.gitignore` privacy fix, the parser fixes and
-M2 — sit in the working tree.
+**Work is left uncommitted by standing preference.** The user reviews and
+commits their own work; do not run `git commit` or `git push`.
+
+---
+
+## 14. What automated checks cannot catch
+
+Three outputs now reach a student directly, and for each there is a class of
+error no test in this repository can detect. Worth naming, because the passing
+suites make it easy to forget.
+
+**A quiz key can be confidently wrong.** M5 validates structure — four distinct
+options, a valid index, no duplicate questions, no two options that are the same
+number — and then asks the model to answer its own questions and drops any it
+contradicts. A generated question still asked *"What is the primary purpose of
+cross-validation?"* and keyed **"To reduce overfitting"**. Cross-validation is
+an evaluation technique: it detects overfitting, it does not reduce it. The
+question is structurally perfect and the model agrees with itself. A student who
+genuinely understands CV hesitates, and the score overwrites their proficiency.
+
+**Two questions can test one fact.** The same quiz asked which algorithm is
+supervised and which is unsupervised, both hinging on K-means. A four-question
+quiz measuring three things is noisier than its length suggests. Text overlap
+between the two was 0.73 against a 0.80 threshold — close enough that lowering
+the bar would start rejecting good questions.
+
+**A URL that is a non-empty string is not a working link.** M4 tests assert
+every item carries a URL, which is not the same as the page existing. A course
+withdrawn from a platform keeps its slug.
+
+**So: read the output.** Generate a quiz for a skill you know well and check the
+keys by hand. Open a sample of recommended courses. Do it again after any
+Coursera API change, since that endpoint is documented as beta and free to break
+compatibility without warning.
 
 ---
 

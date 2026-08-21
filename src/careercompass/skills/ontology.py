@@ -49,7 +49,8 @@ def path_totals(jobs) -> dict:
 
 
 def build_ontology(skills: list, matches: dict, totals: dict,
-                   min_coverage: float = MIN_COVERAGE) -> list:
+                   min_coverage: float = MIN_COVERAGE,
+                   skill_types: dict = None) -> list:
     """
     Aggregate matched job terms into per-path skill requirements.
 
@@ -58,9 +59,14 @@ def build_ontology(skills: list, matches: dict, totals: dict,
         matches: Output of job_matching.match_terms.
         totals: Postings per career path, from path_totals.
         min_coverage: Fraction of a path's postings a skill must reach.
+        skill_types: Optional ``{skill_id: skill_type}`` from the taxonomy.
+            A match record carries the canonical id and label but not the
+            type, so without this every row's skill_type is None and M3
+            cannot separate technical requirements from soft ones.
 
     Returns:
-        Rows of `career_path`, `skill_id`, `skill_label`, `posting_count`,
+        Rows of `career_path`, `skill_id`, `skill_label`, `skill_type`,
+        `posting_count`,
         `coverage`, `required_score`, `required_level`, `terms`, sorted by
         path then by descending score.
     """
@@ -79,6 +85,10 @@ def build_ontology(skills: list, matches: dict, totals: dict,
         for path, count in skill["postings_by_path"].items():
             bucket = buckets.setdefault((path, skill_id), {
                 "label": record["canonical_label"],
+                # Carried through so M3 can rank technical and soft
+                # requirements separately. Soft skills top nearly every path,
+                # which is accurate but gives every student the same advice.
+                "skill_type": (skill_types or {}).get(skill_id),
                 "postings": set(),
                 "levels": Counter(),
                 "terms": [],
@@ -108,6 +118,7 @@ def build_ontology(skills: list, matches: dict, totals: dict,
             "career_path": path,
             "skill_id": skill_id,
             "skill_label": bucket["label"],
+            "skill_type": bucket["skill_type"],
             "posting_count": min(matched, total),
             "coverage": round(coverage, 4),
             "required_score": round(coverage * 100, 1),

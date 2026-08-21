@@ -193,7 +193,12 @@ def main():
         print(f"     {name:<16} {count:>6}")
 
     # ── Ontology ───────────────────────────────────────────────
-    rows = build_ontology(skills, matches, totals)
+    # The match record carries the canonical id and label but not the type,
+    # so the taxonomy has to supply it. Without it M3 cannot rank technical
+    # requirements separately from soft ones, and soft skills top nearly
+    # every path.
+    skill_types = {s["id"]: s.get("skill_type") for s in matcher.taxonomy.skills}
+    rows = build_ontology(skills, matches, totals, skill_types=skill_types)
     save_ontology(rows, totals)
     print(f"\nOntology        {len(rows):>7}  requirements")
 

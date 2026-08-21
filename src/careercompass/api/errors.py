@@ -124,12 +124,48 @@ class Problem(Exception):
             f"Course {course_code!r} has not been extracted yet.",
         )
 
+    @classmethod
+    def career_path_not_found(cls, career_path: str, known: list = None):
+        known = ", ".join(sorted(known or []))
+        return cls(
+            404, "career-path-not-found", "Unknown career path",
+            f"No requirements are derived for {career_path!r}."
+            + (f" Known paths: {known}." if known else ""),
+        )
+
+    @classmethod
+    def no_skill_profile(cls, detail: str):
+        return cls(
+            422, "no-skill-profile", "No skill profile could be built", detail,
+        )
+
+    @classmethod
+    def skill_not_found(cls, skill_id: str):
+        return cls(
+            404, "skill-not-found", "Unknown skill", 
+            f"{skill_id!r} is not in the taxonomy.",
+        )
+
     # ── Dependencies ───────────────────────────────────────────
     @classmethod
     def matcher_unavailable(cls, detail: str):
         return cls(
             503, "matcher-unavailable", "Skill matcher is not ready", detail,
             headers={"Retry-After": "30"},
+        )
+
+    @classmethod
+    def llm_unavailable(cls, detail: str):
+        return cls(
+            503, "llm-unavailable", "No language model is available", detail,
+            headers={"Retry-After": "30"},
+        )
+
+    @classmethod
+    def catalog_unavailable(cls, detail: str):
+        return cls(
+            503, "catalog-unavailable", "No course catalog is available", detail,
+            headers={"Retry-After": "300"},
         )
 
     @classmethod

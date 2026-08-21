@@ -145,6 +145,125 @@ class MatchResponse(BaseModel):
     matches: list[dict[str, Any]]
 
 
+# ── Skill vector and gap ───────────────────────────────────────
+class TranscriptCourse(BaseModel):
+    """One row of a confirmed transcript.
+
+    ``course_codes`` carries every code the course is known by. Plan editions
+    renumber, so a transcript quoting 0433301 must still join to a skill map
+    holding A0413301 for the same course.
+    """
+    course_code: str = Field(min_length=1, max_length=20)
+    course_codes: list[str] = Field(default_factory=list, max_length=8)
+    course_name: Optional[str] = Field(None, max_length=200)
+    grade: Optional[str] = Field(None, max_length=8)
+    status: Optional[str] = Field(None, max_length=30)
+    credit_hours: Optional[int] = Field(None, ge=0, le=20)
+
+
+class SkillVectorRequest(BaseModel):
+    courses: list[TranscriptCourse] = Field(min_length=1, max_length=200)
+    quiz_scores: dict[str, float] = Field(default_factory=dict)
+    include_unpassed: bool = False
+
+
+class SkillVectorResponse(BaseModel):
+    taxonomy_version: Optional[str] = None
+    source: str
+    total_skills: int
+    courses_counted: int
+    courses_skipped: list[dict[str, Any]]
+    skills: list[dict[str, Any]]
+
+
+class SkillGapRequest(SkillVectorRequest):
+    # A career path *name*, never Java's numeric id: the two services agreed
+    # to key on names so neither owns the other's identifiers.
+    career_path: str = Field(min_length=1, max_length=120)
+    include_soft: bool = True
+    narrative: bool = False
+
+
+class SkillGapResponse(BaseModel):
+    career_path: Optional[str] = None
+    taxonomy_version: Optional[str] = None
+    source: Optional[str] = None
+    summary: dict[str, int]
+    total_requirements: int
+    requirements_met: int
+    skills: list[dict[str, Any]]
+    narrative: Optional[str] = None
+
+
+# ── Course recommendations ─────────────────────────────────────
+class RecommendationRequest(SkillGapRequest):
+    """A gap request plus the knobs that shape which courses come back."""
+    limit: int = Field(10, ge=1, le=50)
+    platform: Optional[str] = Field(None, pattern="^(coursera|ocw|youtube)$")
+    skill_id: Optional[str] = Field(None, max_length=120)
+    language: Optional[str] = Field("en", max_length=10)
+    per_skill: int = Field(3, ge=1, le=10)
+    include_soft: bool = False
+
+
+class RecommendedCourse(BaseModel):
+    course_id: str
+    title: str
+    platform: str
+    # Never empty. The design requires every item carry a real link, because
+    # this is the one output a student clicks rather than reads.
+    url: str
+    level: Optional[str] = None
+    language: Optional[str] = None
+    duration_hours: Optional[float] = None
+    rating: Optional[float] = None
+
+
+class RecommendationItem(BaseModel):
+    skill_id: str
+    skill_label: Optional[str] = None
+    course: RecommendedCourse
+    relevance: float
+    matched_in_title: bool
+    explanation: str
+
+
+class RecommendationResponse(BaseModel):
+    career_path: Optional[str] = None
+    total: int
+    items: list[RecommendationItem]
+    # Which gaps the catalog cannot currently serve — the honest answer to
+    # "why is there nothing here for X", and the list that says what to widen.
+    skills_without_courses: list[str] = Field(default_factory=list)
+
+
+# ── Quizzes ────────────────────────────────────────────────────
+class QuizRequest(BaseModel):
+    skill_id: str = Field(min_length=1, max_length=120)
+    # Capped because Ollama serialises inference: an unbounded count here is
+    # an accidental denial of service against every other caller, the same
+    # reason /skills/match caps its batch.
+    question_count: int = Field(5, ge=1, le=10)
+    verify: bool = True
+
+
+class QuizQuestion(BaseModel):
+    question_id: str
+    question: str
+    options: list[str]
+
+
+class QuizResponse(BaseModel):
+    skill_id: Optional[str] = None
+    skill_label: Optional[str] = None
+    question_count: int
+    questions: list[QuizQuestion]
+    # Returned to the calling service, which stores it and shows the student
+    # only `questions`. Server-to-server, so the key never reaches a browser.
+    answer_key: dict[str, Any]
+    warnings: list[str] = Field(default_factory=list)
+
+
 # ── Review queue ───────────────────────────────────────────────
 class ReviewItem(BaseModel):
     course_code: str
