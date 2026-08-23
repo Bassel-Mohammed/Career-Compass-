@@ -1,113 +1,64 @@
-<<<<<<< HEAD
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+
+# Java / Maven
 target/
 *.class
 
-# IDE
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# JavaScript / frontend
+node_modules/
+.vite/
+coverage/
+
+# Build output
+build/
+dist/
+
+# Editors and operating systems
 .idea/
 *.iml
 .vscode/
 .settings/
 .classpath
 .project
-
-# OS
-.DS_Store
-=======
-# Virtual environments
-/venv
-venv/
-.venv
-env/
-
-# Secrets
-.env
-.env.*
-!.env.example
-
-# Python
-__pycache__/
-*.py[cod]
-*.egg-info/
-.pytest_cache/
-
-# Editors and OS
-.vscode/
-.idea/
 .DS_Store
 Thumbs.db
->>>>>>> origin/mohammed
 
 # Logs
 *.log
 
-<<<<<<< HEAD
-# Env files (never commit secrets)
-.env
-=======
-# ─────────────────────────────────────────────────────────────────────
-# Personal academic records — never commit
-#
-# Study plans and transcripts carry a student's name, ID, advisor, GPA and
-# full grade history. Both the source PDFs and anything parsed out of them
-# are personal data.
-#
-# These patterns are deliberately broad and path-independent: the previous
-# rule was `data/extracted/*.json`, which matched only files sitting directly
-# in that directory. A parsed plan written one level deeper would have been
-# committed.
-data/plans/*.pdf
-data/transcripts/
+# Personal academic records: never commit
+ai-service/data/plans/*.pdf
+ai-service/data/transcripts/
 *_plan_*.pdf
 *_plan_*.json
 *transcript*.pdf
 *transcript*.json
-!tests/**/*transcript*.json
+!ai-service/tests/**/*transcript*.json
 
-# Course syllabi are NOT personal and stay tracked: data/syllabi/ holds the
-# source PDFs and the parser tests use them as fixtures. The collection
-# checklist derived from the plans (data/plans/required_syllabi.md) carries
-# only course codes and names, so it stays tracked too.
+# Rebuildable AI-service artifacts
+ai-service/data/extracted/syllabi/
+ai-service/data/extracted/skills/
+ai-service/data/extracted/jobs/
+ai-service/data/taxonomy/cache/
+ai-service/data/taxonomy/taxonomy.jsonl
+ai-service/data/taxonomy/vector_index.npz
+ai-service/data/temp/
+ai-service/data/raw/catalog/
 
-# ─────────────────────────────────────────────────────────────────────
-# Generated artifacts — rebuilt from tracked inputs
-#
-# Extraction output for real syllabi. Regenerate in ~25 min from the tracked
-# PDFs with:  python -m careercompass.cli.extract_all_syllabi
-data/extracted/syllabi/
-data/extracted/skills/
+# Runtime uploads. Existing tracked fixtures remain until deliberately retired.
+backend/uploads/learning-outcomes/*
 
-# Job-corpus artifacts, all rebuilt by extract_job_skills. The term pool runs
-# to tens of megabytes because it holds every term the corpus produced, not
-# only those above the cutoff; the ontology is small but equally derived, and
-# its consumers read it from PostgreSQL.
-data/extracted/jobs/
-
-# Taxonomy artifacts. custom_skills.json is a source file and stays tracked;
-# these are rebuilt by run_taxonomy_build, and the ESCO crawl cache runs to
-# tens of megabytes.
-data/taxonomy/cache/
-data/taxonomy/taxonomy.jsonl
-data/taxonomy/vector_index.npz
-
-# Scratch output
-data/temp/
-
-# data/mock/ is deliberately NOT ignored. It is generated, but regenerating it
-# costs ~3.5 hours of local GPU time and requires Ollama, and it is what lets
-# anyone else on the team build against M2/M3 before the real syllabi are
-# collected. Every record carries "mock": true and a WARNING field, and nothing
-# in the real pipeline reads it — see docs/ENGINEERING_NOTES.md §10.
-
-# Planning notes
+# Local planning notes
 SKILL_EXTRACTION_PLAN.md
-
-# Packaging
-*.egg-info/
-build/
-dist/
-
-# Course catalog pulls. Cached so re-indexing needs no re-fetch, and
-# git-ignored because this is the only place course descriptions live and
-# they are not ours to redistribute — see docs/ENGINEERING_NOTES.md.
-data/raw/catalog/
->>>>>>> origin/mohammed

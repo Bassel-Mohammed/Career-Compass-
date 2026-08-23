@@ -63,7 +63,7 @@ scale it belongs in an in-memory cache such as Redis rather than the main databa
 
 ### Schema
 
-`DB_Schema.sql` gains a `revoked_tokens` table. It deliberately has no foreign key to any actor
+`../db/schema.sql` gains a `revoked_tokens` table. It deliberately has no foreign key to any actor
 table: one denylist serves all five actors, and the token already identifies its owner. Under
 the dev profile (`ddl-auto: update`) the table is created automatically from the entity.
 

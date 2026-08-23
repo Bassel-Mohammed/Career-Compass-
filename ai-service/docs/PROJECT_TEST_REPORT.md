@@ -1258,7 +1258,7 @@ per request.
 I integrated against this for a day. Here is what actually happened.
 
 **The contract was not obvious, and the document I was given was wrong.** I had
-`CareerCompass-AI-Service-Contract (2).docx`. I called `POST /skill-vector` and got a 404.
+`docs/contracts/AI_SERVICE_CONTRACT.docx`. I called `POST /skill-vector` and got a 404.
 I called all six endpoints from the contract; **all six 404'd**. Every one lives under
 `/api/v1/`, and two are renamed outright — `/course-recommendations` is
 `/api/v1/recommendations`, `/quiz-generate` is `/api/v1/quizzes`. `/job-match` does not
