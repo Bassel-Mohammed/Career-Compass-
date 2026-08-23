@@ -10,12 +10,14 @@ import com.careercompass.integration.dto.*;
 import com.careercompass.repository.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.mock.web.MockMultipartFile;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -70,8 +72,9 @@ class TranscriptServiceTest {
     // Purpose: Upload And Extract - returns Review Rows Without Persisting Anything.
     @Test
     void uploadAndExtract_returnsReviewRowsWithoutPersistingAnything() {
+        byte[] pdfBytes = "fake pdf bytes".getBytes();
         MockMultipartFile file = new MockMultipartFile(
-                "file", "transcript.pdf", "application/pdf", "fake pdf bytes".getBytes());
+                "file", "transcript.pdf", "application/pdf", pdfBytes);
 
         when(dataAnalysisClient.extractTranscript(any(TranscriptExtractionRequest.class)))
                 .thenReturn(TranscriptExtractionResponse.builder()
@@ -81,7 +84,9 @@ class TranscriptServiceTest {
                                         .grade("A").lowConfidence(false).build(),
                                 TranscriptExtractionResponse.ExtractedCourseDto.builder()
                                         .courseCode("CS310").courseName("Operating Systems")
-                                        .grade("C").lowConfidence(true).build()
+                                        .grade("C").confidence(BigDecimal.valueOf(0.62))
+                                        .lowConfidence(true).warnings(List.of("Grade needed review."))
+                                        .build()
                         ))
                         .build());
 
@@ -89,6 +94,16 @@ class TranscriptServiceTest {
 
         assertThat(response.getCourses()).hasSize(2);
         assertThat(response.getLowConfidenceCount()).isEqualTo(1);
+        assertThat(response.getCourses().get(1).getCourseCode()).isEqualTo("CS310");
+        assertThat(response.getCourses().get(1).getConfidence()).isEqualByComparingTo("0.62");
+        assertThat(response.getCourses().get(1).getWarnings()).containsExactly("Grade needed review.");
+
+        ArgumentCaptor<TranscriptExtractionRequest> requestCaptor =
+                ArgumentCaptor.forClass(TranscriptExtractionRequest.class);
+        verify(dataAnalysisClient).extractTranscript(requestCaptor.capture());
+        assertThat(requestCaptor.getValue().getFileContent()).isEqualTo(pdfBytes);
+        assertThat(requestCaptor.getValue().getOriginalFilename()).isEqualTo("transcript.pdf");
+        assertThat(requestCaptor.getValue().getContentType()).isEqualTo("application/pdf");
         verifyNoInteractions(academicRecordRepository, jobSeekerRepository, jobseekerSkillRepository);
     }
 
@@ -100,6 +115,7 @@ class TranscriptServiceTest {
 
         ConfirmTranscriptRequest request = new ConfirmTranscriptRequest();
         var item = new ConfirmTranscriptRequest.CourseGradeItem();
+        item.setCourseCode("CS201");
         item.setCourseName("Data Structures");
         item.setGrade("A");
         request.setCourses(List.of(item));
@@ -120,6 +136,7 @@ class TranscriptServiceTest {
 
         ConfirmTranscriptRequest request = new ConfirmTranscriptRequest();
         var item = new ConfirmTranscriptRequest.CourseGradeItem();
+        item.setCourseCode("CS201");
         item.setCourseName("Data Structures");
         item.setGrade("A");
         request.setCourses(List.of(item));
@@ -168,8 +185,59 @@ class TranscriptServiceTest {
         assertThat(dashboard.isBasedOnQuizResults()).isFalse();
 
         verify(academicRecordRepository).deleteByJobSeeker_JobseekerId(1);
-        verify(academicRecordRepository).saveAll(any());
+        @SuppressWarnings("unchecked")
+        ArgumentCaptor<Iterable<AcademicRecord>> recordsCaptor =
+                ArgumentCaptor.forClass(Iterable.class);
+        verify(academicRecordRepository).saveAll(recordsCaptor.capture());
+        List<AcademicRecord> savedRecords = new ArrayList<>();
+        recordsCaptor.getValue().forEach(savedRecords::add);
+        assertThat(savedRecords).singleElement().satisfies(record -> {
+            assertThat(record.getCourseCode()).isEqualTo("CS201");
+            assertThat(record.getCourseName()).isEqualTo("Data Structures");
+        });
+
+        ArgumentCaptor<BuildSkillVectorRequest> vectorCaptor =
+                ArgumentCaptor.forClass(BuildSkillVectorRequest.class);
+        verify(dataAnalysisClient).buildSkillVector(vectorCaptor.capture());
+        assertThat(vectorCaptor.getValue().getCourses()).singleElement().satisfies(course -> {
+            assertThat(course.getCourseCode()).isEqualTo("CS201");
+            assertThat(course.getCourseName()).isEqualTo("Data Structures");
+        });
         verify(jobseekerSkillRepository).save(any(JobseekerSkill.class));
+    }
+
+    // Purpose: persisted records retain their course identity when a dashboard is reconstructed.
+    @Test
+    void getSkillDashboard_reconstructsCourseCodeForSkillVectorRequest() {
+        CareerPath careerPath = CareerPath.builder().careerPathId(1).title("Software Engineer").build();
+        JobSeeker jobSeeker = JobSeeker.builder().jobseekerId(1).careerPath(careerPath).build();
+        AcademicRecord record = AcademicRecord.builder()
+                .jobSeeker(jobSeeker)
+                .courseCode("CS310")
+                .courseName("Operating Systems")
+                .grade("B")
+                .build();
+
+        when(jobSeekerRepository.findById(1)).thenReturn(Optional.of(jobSeeker));
+        when(academicRecordRepository.findByJobSeeker_JobseekerId(1)).thenReturn(List.of(record));
+        when(dataAnalysisClient.buildSkillVector(any(BuildSkillVectorRequest.class)))
+                .thenReturn(SkillVectorResponse.builder().skills(List.of()).build());
+        when(dataAnalysisClient.analyzeSkillGap(any(SkillGapAnalysisRequest.class)))
+                .thenReturn(SkillGapAnalysisResponse.builder()
+                        .overallReadinessPercent(0)
+                        .skillGaps(List.of())
+                        .build());
+
+        transcriptService.getSkillDashboard(1);
+
+        ArgumentCaptor<BuildSkillVectorRequest> vectorCaptor =
+                ArgumentCaptor.forClass(BuildSkillVectorRequest.class);
+        verify(dataAnalysisClient).buildSkillVector(vectorCaptor.capture());
+        assertThat(vectorCaptor.getValue().getCourses()).singleElement().satisfies(course -> {
+            assertThat(course.getCourseCode()).isEqualTo("CS310");
+            assertThat(course.getCourseName()).isEqualTo("Operating Systems");
+            assertThat(course.getGrade()).isEqualTo("B");
+        });
     }
 
     // Purpose: Get Skill Dashboard - throws When No Academic Records Exist.

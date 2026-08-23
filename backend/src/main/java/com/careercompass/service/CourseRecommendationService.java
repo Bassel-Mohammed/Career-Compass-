@@ -1,16 +1,17 @@
 package com.careercompass.service;
 
 import com.careercompass.dto.response.CourseRecommendationItem;
-import com.careercompass.dto.response.SkillDashboardResponse;
-import com.careercompass.dto.response.SkillLevelResponse;
+import com.careercompass.entity.AcademicRecord;
 import com.careercompass.entity.CourseRecommendation;
 import com.careercompass.entity.JobSeeker;
 import com.careercompass.exception.PrerequisiteNotMetException;
 import com.careercompass.exception.ResourceNotFoundException;
 import com.careercompass.integration.ai.DataAnalysisClient;
+import com.careercompass.integration.dto.CourseGradeDto;
 import com.careercompass.integration.dto.CourseRecommendationRequest;
 import com.careercompass.integration.dto.RecommendedCourseDto;
 import com.careercompass.mapper.CourseRecommendationMapper;
+import com.careercompass.repository.AcademicRecordRepository;
 import com.careercompass.repository.CourseRecommendationRepository;
 import com.careercompass.repository.JobSeekerRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,18 +24,26 @@ import java.util.List;
  * Business Layer for FR-JS-15/16: course recommendations mapped to identified skill gaps,
  * tailored to the job seeker's selected career path (Module 4, Section 5.3.3).
  *
- * Depends on {@link TranscriptService#getSkillDashboard} to identify weak skills — reuses
- * that logic rather than duplicating skill-vector/skill-gap computation here, since "which
- * skills are weak" is already fully solved by Increment 10 and recommendations are simply the
- * next step in the same pipeline (Module 3's output feeds Module 4's input, per Figure 5.3.1.1
- * in the report).
+ * <p>The confirmed courses and quiz evidence go to the AI service, which derives the gaps and
+ * retrieves courses against them in one call. Java previously computed a dashboard first and
+ * sent the resulting list of weak skill <em>names</em>; that made the recommendation depend on a
+ * label surviving a round trip, and produced an empty list whenever it did not. Deriving gaps
+ * where the taxonomy lives also means Module 3's and Module 4's answers cannot disagree
+ * (Figure 5.3.1.1).
+ *
+ * <p>Recommendations are retrieved from a curated catalog rather than generated (NFR-AI-05), so
+ * every stored row points at a course that exists.
  */
 @Service
 @RequiredArgsConstructor
 public class CourseRecommendationService {
 
+    /** Matches the AI contract's ceiling; the service caps anything larger itself. */
+    private static final int MAX_RECOMMENDATIONS = 20;
+
     private final JobSeekerRepository jobSeekerRepository;
     private final CourseRecommendationRepository courseRecommendationRepository;
+    private final AcademicRecordRepository academicRecordRepository;
     private final DataAnalysisClient dataAnalysisClient;
     private final TranscriptService transcriptService;
     private final CourseRecommendationMapper courseRecommendationMapper;
@@ -50,25 +59,34 @@ public class CourseRecommendationService {
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Job seeker with id " + jobseekerId + " not found."));
 
-        SkillDashboardResponse dashboard = transcriptService.getSkillDashboard(jobseekerId);
-
-        List<String> weakSkillNames = dashboard.getSkills().stream()
-                .filter(s -> "Weak".equals(s.getClassification()))
-                .map(SkillLevelResponse::getSkillName)
-                .toList();
-
-        if (weakSkillNames.isEmpty()) {
-            // No gaps to recommend against — clear any stale recommendations and return empty,
-            // rather than erroring, since "no weak skills" is a valid (good!) outcome.
-            courseRecommendationRepository.deleteByJobSeeker_JobseekerId(jobseekerId);
-            return List.of();
+        if (jobSeeker.getCareerPath() == null) {
+            throw new PrerequisiteNotMetException(
+                    "Select a career path (FR-JS-09) before generating course recommendations.");
         }
 
+        List<AcademicRecord> records = academicRecordRepository.findByJobSeeker_JobseekerId(jobseekerId);
+        if (records.isEmpty()) {
+            throw new PrerequisiteNotMetException(
+                    "Upload and confirm your transcript (FR-JS-10/11) before generating recommendations.");
+        }
+
+        List<CourseGradeDto> courses = records.stream()
+                .map(r -> CourseGradeDto.builder()
+                        .courseCode(r.getCourseCode())
+                        .courseName(r.getCourseName())
+                        .grade(r.getGrade())
+                        .build())
+                .toList();
+
         CourseRecommendationRequest request = CourseRecommendationRequest.builder()
-                .careerPathId(jobSeeker.getCareerPath().getCareerPathId())
-                .weakSkillNames(weakSkillNames)
+                .careerPathName(jobSeeker.getCareerPath().getTitle())
+                .courses(courses)
+                .quizScores(transcriptService.latestQuizScoresBySkillId(jobseekerId))
+                .limit(MAX_RECOMMENDATIONS)
                 .build();
 
+        // An empty list is a valid outcome — the student may have no gaps the catalog can serve.
+        // Stale rows are cleared either way so the view never shows last week's answer.
         List<RecommendedCourseDto> recommended = dataAnalysisClient.recommendCourses(request);
 
         courseRecommendationRepository.deleteByJobSeeker_JobseekerId(jobseekerId);

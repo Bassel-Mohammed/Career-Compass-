@@ -41,10 +41,11 @@ class MockDataAnalysisClientTest {
     // Purpose: Analyze Skill Gap - classifies High Score As Strong.
     @Test
     void analyzeSkillGap_classifiesHighScoreAsStrong() {
+        // An A grade drives the mock's grade-based score high enough to classify as Strong.
         SkillGapAnalysisRequest request = SkillGapAnalysisRequest.builder()
-                .careerPathId(1)
-                .skillVector(List.of(
-                        SkillScoreDto.builder().skillName("Algorithms").score(BigDecimal.valueOf(95)).build()
+                .careerPathName("Backend Development")
+                .courses(List.of(
+                        CourseGradeDto.builder().courseCode("CS201").courseName("Algorithms").grade("A").build()
                 ))
                 .build();
 
@@ -52,16 +53,20 @@ class MockDataAnalysisClientTest {
 
         assertThat(response.getSkillGaps()).hasSize(1);
         assertThat(response.getSkillGaps().get(0).getClassification()).isEqualTo("Strong");
+        // The canonical id must travel with the gap: it is what a quiz request and the
+        // FR-JS-20/21 write-back key on.
+        assertThat(response.getSkillGaps().get(0).getSkillId()).isNotBlank();
         assertThat(response.getSkillGaps().get(0).getExplanation()).isNotBlank();
     }
 
     // Purpose: Analyze Skill Gap - classifies Low Score As Weak.
     @Test
     void analyzeSkillGap_classifiesLowScoreAsWeak() {
+        // A failing grade drives the mock's score low enough to classify as Weak.
         SkillGapAnalysisRequest request = SkillGapAnalysisRequest.builder()
-                .careerPathId(1)
-                .skillVector(List.of(
-                        SkillScoreDto.builder().skillName("DevOps").score(BigDecimal.valueOf(30)).build()
+                .careerPathName("DevOps & Cloud")
+                .courses(List.of(
+                        CourseGradeDto.builder().courseCode("OPS101").courseName("DevOps").grade("F").build()
                 ))
                 .build();
 
@@ -73,9 +78,13 @@ class MockDataAnalysisClientTest {
     // Purpose: Recommend Courses - returns One Course Per Weak Skill.
     @Test
     void recommendCourses_returnsOneCoursePerWeakSkill() {
+        // Both courses are failed, so both become weak gaps the mock recommends against.
         CourseRecommendationRequest request = CourseRecommendationRequest.builder()
-                .careerPathId(1)
-                .weakSkillNames(List.of("DevOps", "Cloud Computing"))
+                .careerPathName("DevOps & Cloud")
+                .courses(List.of(
+                        CourseGradeDto.builder().courseCode("OPS101").courseName("DevOps").grade("F").build(),
+                        CourseGradeDto.builder().courseCode("OPS102").courseName("Cloud Computing").grade("F").build()
+                ))
                 .build();
 
         List<RecommendedCourseDto> recommendations = client.recommendCourses(request);
@@ -83,7 +92,9 @@ class MockDataAnalysisClientTest {
         assertThat(recommendations).hasSize(2);
         assertThat(recommendations).allSatisfy(r -> {
             assertThat(r.getCourseName()).isNotBlank();
+            // NFR-AI-05: every recommendation must point at something the student can open.
             assertThat(r.getSourceLink()).startsWith("https://");
+            assertThat(r.getTargetedSkillId()).isNotBlank();
         });
     }
 
@@ -91,7 +102,7 @@ class MockDataAnalysisClientTest {
     @Test
     void generateQuiz_returnsRequestedQuestionCountWithExactlyOneCorrectOptionEach() {
         QuizGenerationRequest request = QuizGenerationRequest.builder()
-                .courseName("Databases")
+                .skillId("custom:databases")
                 .questionCount(5)
                 .build();
 

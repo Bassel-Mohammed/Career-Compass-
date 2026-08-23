@@ -78,7 +78,7 @@ class QuizServiceTest {
         });
 
         GenerateQuizRequest request = new GenerateQuizRequest();
-        request.setCourseName("Databases");
+        request.setSkillId("custom:databases");
         request.setQuestionCount(2);
 
         QuizView view = quizService.generateQuiz(1, request);
@@ -102,7 +102,7 @@ class QuizServiceTest {
                         .build());
 
         GenerateQuizRequest request = new GenerateQuizRequest();
-        request.setCourseName("Databases");
+        request.setSkillId("custom:databases");
         request.setQuestionCount(1);
 
         assertThatThrownBy(() -> quizService.generateQuiz(1, request))

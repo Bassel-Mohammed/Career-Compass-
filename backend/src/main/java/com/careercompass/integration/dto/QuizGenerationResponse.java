@@ -8,16 +8,24 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 /**
- * Response from Module 5. Maps directly onto `quiz_questions` fields when persisted.
- * Per NFR-AI-07 ("exactly one correct option per question"), `correctOption` must be one of
- * A/B/C/D — validated by the Java-side service layer before persistence (Section 5.3.3:
- * "validated against a JSON schema and graded programmatically rather than by the model").
+ * Response from Module 5, already normalised into the A/B/C/D shape the Java quiz tables and UI
+ * use.
+ *
+ * <p>The wire contract returns an options array plus a <em>zero-based</em> correct index.
+ * {@link com.careercompass.integration.ai.HttpDataAnalysisClient} converts that to a letter once,
+ * at the boundary. That conversion is the single place an off-by-one could mis-grade every
+ * attempt ever taken, so it is deliberately not spread across the service layer.
+ *
+ * <p>Per NFR-AI-07 there is exactly one correct option per question; {@code QuizService} still
+ * validates that programmatically rather than trusting the response.
  */
 @Getter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class QuizGenerationResponse {
+    private String skillId;
+    private String skillLabel;
     private List<GeneratedQuizQuestionDto> questions;
 
     @Getter
@@ -31,5 +39,6 @@ public class QuizGenerationResponse {
         private String optionC;
         private String optionD;
         private String correctOption; // "A" / "B" / "C" / "D"
+        private String explanation;
     }
 }

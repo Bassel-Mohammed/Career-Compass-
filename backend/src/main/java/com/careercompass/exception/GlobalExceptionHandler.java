@@ -35,6 +35,18 @@ public class GlobalExceptionHandler {
                 "Invalid email or password.", request, null);
     }
 
+    /**
+     * The AI service failed in a way the integration layer already understood and classified.
+     * Answering with its chosen status keeps "the AI service is down" (503) distinct from "the
+     * AI service sent us something invalid" (502) and from "it took too long" (504) — three
+     * different operational problems that a single 500 would flatten into one.
+     */
+    @ExceptionHandler(AiServiceException.class)
+    public ResponseEntity<ApiErrorResponse> handleAiService(AiServiceException ex,
+                                                            HttpServletRequest request) {
+        return build(ex.getStatus(), ex.getErrorCode(), ex.getMessage(), request, null);
+    }
+
     @ExceptionHandler(IllegalStateException.class)
     public ResponseEntity<ApiErrorResponse> handleIllegalState(IllegalStateException ex,
                                                                HttpServletRequest request) {

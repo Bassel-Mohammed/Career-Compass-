@@ -51,7 +51,7 @@ public class QuizService {
     private final DataAnalysisClient dataAnalysisClient;
     private final TranscriptService transcriptService;
 
-    /** FR-JS-17: generate a quiz for the given course. */
+    /** FR-JS-17: generate a quiz for one of the job seeker's skills. */
     @Transactional
     public QuizView generateQuiz(Integer jobseekerId, GenerateQuizRequest request) {
         JobSeeker jobSeeker = jobSeekerRepository.findById(jobseekerId)
@@ -60,7 +60,7 @@ public class QuizService {
 
         QuizGenerationResponse generated = dataAnalysisClient.generateQuiz(
                 QuizGenerationRequest.builder()
-                        .courseName(request.getCourseName())
+                        .skillId(request.getSkillId())
                         .questionCount(request.getQuestionCount())
                         .build());
 
@@ -77,9 +77,16 @@ public class QuizService {
                     "The AI service did not return any well-formed quiz questions. Please try again.");
         }
 
+        // The canonical id is stored alongside the label because it, not the label, is what the
+        // FR-JS-20/21 write-back joins on when the dashboard is next recomputed.
+        String skillLabel = generated.getSkillLabel() != null
+                ? generated.getSkillLabel()
+                : request.getSkillId();
+
         Quiz quiz = Quiz.builder()
                 .jobSeeker(jobSeeker)
-                .courseName(request.getCourseName())
+                .skillId(request.getSkillId())
+                .courseName(skillLabel)
                 .build();
         quiz = quizRepository.save(quiz);
 

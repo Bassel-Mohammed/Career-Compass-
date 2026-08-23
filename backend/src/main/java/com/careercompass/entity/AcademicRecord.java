@@ -27,6 +27,13 @@ public class AcademicRecord {
     @JoinColumn(name = "jobseeker_id", nullable = false)
     private JobSeeker jobSeeker;
 
+    /**
+     * Stable course identity used across the Java/Python boundary. It remains nullable during
+     * migration because historical records did not retain a course code.
+     */
+    @Column(name = "course_code", length = 50)
+    private String courseCode;
+
     @Column(name = "course_name", nullable = false, length = 200)
     private String courseName;
 

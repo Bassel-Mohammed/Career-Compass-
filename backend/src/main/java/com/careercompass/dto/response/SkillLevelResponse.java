@@ -17,7 +17,16 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class SkillLevelResponse {
 
+    /** Java's local {@code skills} table id. Meaningless to the AI service. */
     private Integer skillId;
+
+    /**
+     * The AI service's canonical skill id. This is what a quiz request must carry, so the
+     * dashboard has to surface it — otherwise the UI has only a label, and resolving a label
+     * back to a skill is the ambiguity this whole identifier exists to remove.
+     */
+    private String canonicalSkillId;
+
     private String skillName;
 
     /** 0-100 current score. */

@@ -26,6 +26,12 @@ public class ConfirmTranscriptRequest {
     @Setter
     public static class CourseGradeItem {
 
+        /**
+         * Stable course identity used by the AI service. Nullable only so existing clients and
+         * pre-migration records can still be reviewed; transcript extraction always supplies it.
+         */
+        private String courseCode;
+
         @NotBlank(message = "Course name is required")
         private String courseName;
 

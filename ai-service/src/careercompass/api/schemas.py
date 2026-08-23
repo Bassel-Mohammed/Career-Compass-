@@ -76,6 +76,23 @@ class TranscriptCategory(BaseModel):
     courses: list[dict[str, Any]] = []
 
 
+class CanonicalTranscriptCourse(BaseModel):
+    """Stable, review-oriented view of one parsed transcript row.
+
+    The current deterministic parser does not calculate a probability for a
+    row, so ``confidence`` is normally null.  Concrete extraction anomalies
+    are carried separately in ``warnings`` and make ``low_confidence`` true;
+    callers must not mistake that flag for a fabricated numeric score.
+    """
+
+    course_code: str
+    course_name: str
+    grade: Optional[str] = None
+    confidence: Optional[float] = Field(None, ge=0.0, le=1.0)
+    low_confidence: bool = False
+    warnings: list[str] = Field(default_factory=list)
+
+
 class TranscriptResponse(BaseModel):
     content_sha256: str
     source_file: str
@@ -83,6 +100,13 @@ class TranscriptResponse(BaseModel):
     summary: TranscriptSummary
     categories: list[TranscriptCategory] = []
     all_courses: list[dict[str, Any]] = []
+    courses: list[CanonicalTranscriptCourse] = Field(
+        default_factory=list,
+        description=(
+            "Canonical typed course rows for service integration. The legacy "
+            "all_courses field remains available during migration."
+        ),
+    )
     saved_to: Optional[str] = Field(
         None,
         description="Where the extraction was written, when save=true was "

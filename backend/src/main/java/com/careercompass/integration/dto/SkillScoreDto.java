@@ -8,17 +8,23 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 /**
- * A single skill's computed score, as returned by Module 2 (deterministic scoring —
- * Section 5.3.1: "never depends on a language-model call"). `skillName` is used rather than
- * `skillId` for this cross-service contract, since the Python service reasons about skills
- * by name against its own ontology copy — the Java-side service layer resolves the name back
- * to a `Skill` entity id when persisting to `jobseeker_skills`.
+ * One skill's score in the Student Skill Vector (Module 2).
+ *
+ * <p>{@code skillId} is the canonical identity and {@code skillName} is display text. They are
+ * deliberately separate: the AI service's taxonomy renames labels between versions, and a label
+ * is not unique — two paths can both call something "testing". Anything that needs to join
+ * (quiz write-back, gap requirements, persistence) must key on {@code skillId}. Treating the
+ * label as identity is what made the old course-name-equals-skill-name write-back unsound.
+ *
+ * <p>{@code score} is a Java-side percentage in {@code 0..100}. The wire contract carries
+ * {@code 0.0..1.0}; {@code HttpDataAnalysisClient} converts at the boundary and nowhere else.
  */
 @Getter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class SkillScoreDto {
+    private String skillId;
     private String skillName;
-    private BigDecimal score; // 0-100
+    private BigDecimal score; // 0-100 (converted from the contract's 0.0-1.0 at the adapter)
 }

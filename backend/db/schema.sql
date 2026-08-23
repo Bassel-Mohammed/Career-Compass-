@@ -129,9 +129,11 @@ CREATE TABLE job_seekers (
 CREATE TABLE academic_records (
     record_id      INT AUTO_INCREMENT PRIMARY KEY,
     jobseeker_id     INT NOT NULL,
+    course_code        VARCHAR(50) NULL,
     course_name        VARCHAR(200) NOT NULL,
     grade                VARCHAR(10) NOT NULL,
     extracted_at          TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_academic_records_jobseeker_course (jobseeker_id, course_code),
     CONSTRAINT fk_ar_jobseeker
         FOREIGN KEY (jobseeker_id) REFERENCES job_seekers(jobseeker_id)
         ON DELETE CASCADE

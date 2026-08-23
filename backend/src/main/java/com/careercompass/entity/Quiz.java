@@ -30,8 +30,23 @@ public class Quiz {
     @JoinColumn(name = "jobseeker_id", nullable = false)
     private JobSeeker jobSeeker;
 
+    /**
+     * Display subject of the quiz — the skill's label. Retained under its original column name
+     * so existing rows and the NOT NULL constraint stay valid; a Flyway migration should rename
+     * it to {@code subject} once ADR-011 lands. Do not join on it: this is display text, and
+     * matching a course name against a skill name is precisely the ambiguity {@link #skillId}
+     * exists to remove.
+     */
     @Column(name = "course_name", nullable = false, length = 200)
     private String courseName;
+
+    /**
+     * Canonical skill id from the AI service's taxonomy — the key FR-JS-20/21's write-back
+     * joins on. Nullable because quizzes generated before this column existed have no id and
+     * must stay readable; they simply cannot update a skill until they are re-taken.
+     */
+    @Column(name = "skill_id", length = 120)
+    private String skillId;
 
     @Column(name = "generated_at")
     private LocalDateTime generatedAt;

@@ -11,16 +11,17 @@ import lombok.NoArgsConstructor;
  * happen inside the Python service, not in Java — Java's only job is to receive the upload
  * from the job seeker (FR-JS-10) and forward the raw bytes here.
  *
- * The PDF is sent base64-encoded in the JSON body rather than as multipart, since this is a
- * service-to-service call over the same WebClient/DataAnalysisClient contract as every other
- * module — simpler than mixing multipart and JSON call styles for one endpoint.
+ * This is the transport-neutral request used by the Java business layer. The HTTP adapter
+ * turns these bytes into the multipart {@code file} part expected by FastAPI. A Java database
+ * job-seeker id is intentionally not part of this request: database-local numeric identifiers
+ * must never become cross-service identities.
  */
 @Getter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class TranscriptExtractionRequest {
-    private Integer jobseekerId;
-    private String fileBase64;
+    private byte[] fileContent;
     private String originalFilename;
+    private String contentType;
 }

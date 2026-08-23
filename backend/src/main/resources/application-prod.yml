@@ -15,6 +15,25 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
 
+careercompass:
+  ai-service:
+    # No default. Startup fails if the AI service location is not configured, which is the
+    # intended behaviour: a production deployment that cannot reach the AI service should refuse
+    # to start rather than serve a degraded experience nobody notices.
+    base-url: ${AI_SERVICE_BASE_URL}
+    # Never true in production. Mock skill scores presented to a student as AI output would be
+    # both wrong and invisible, so this is pinned rather than defaulted.
+    use-mock: false
+    # Required (ADR-008). Startup fails without it rather than calling the AI service
+    # unauthenticated.
+    token: ${AI_SERVICE_TOKEN}
+    timeouts:
+      transcript-seconds: 30      # NFR-PERF-02
+      skill-vector-seconds: 10
+      skill-gap-seconds: 10
+      recommendations-seconds: 5
+      quiz-seconds: 15
+
 logging:
   level:
     com.careercompass: INFO

@@ -18,6 +18,7 @@ Run:
 import asyncio
 import hashlib
 import logging
+import math
 import os
 import re
 import uuid
@@ -48,7 +49,12 @@ from careercompass.api.runtime import required_ok, runtime, warmup_enabled
 from careercompass.config import EXTRACTED_DIR, SKILLS_DIR, TEMP_DIR
 from careercompass.parsing.syllabus import parse_syllabus
 from careercompass.skills.artifacts import cached_by_files
-from careercompass.parsing.transcript import parse_academic_plan, save_extraction
+from careercompass.parsing.grades import grade_to_points, normalize_grade
+from careercompass.parsing.transcript import (
+    COURSE_CODE_RE as TRANSCRIPT_COURSE_CODE_RE,
+    parse_academic_plan,
+    save_extraction,
+)
 from careercompass.skills.extractor import extract_skills
 
 logger = logging.getLogger("careercompass.api")
@@ -251,6 +257,81 @@ def _parse_transcript_bytes(data: bytes, filename: str) -> dict:
             pass
 
 
+def _canonical_transcript_courses(raw_courses: list[dict]) -> list[dict]:
+    """Project parser rows onto the typed cross-service transcript contract.
+
+    ``all_courses`` intentionally remains untouched for legacy callers.  This
+    view normalises the fields Java needs and reports only facts the parser can
+    support.  In particular, no numeric confidence is manufactured: a value is
+    exposed only when an upstream parser explicitly supplied one in the valid
+    0..1 range.
+    """
+    codes = []
+    for raw_course in raw_courses:
+        code = str((raw_course or {}).get("course_code") or "").strip().upper()
+        if code:
+            codes.append(code)
+    duplicate_codes = {code for code in codes if codes.count(code) > 1}
+
+    courses = []
+    for raw_course in raw_courses:
+        raw_course = raw_course or {}
+        course_code = str(raw_course.get("course_code") or "").strip().upper()
+        course_name = str(raw_course.get("course_name") or "").strip()
+
+        raw_grade = raw_course.get("grade")
+        grade = normalize_grade(str(raw_grade)) if raw_grade is not None else None
+        status_value = str(raw_course.get("status") or "").strip().lower()
+
+        raw_warnings = raw_course.get("warnings")
+        warnings = (
+            [str(warning).strip() for warning in raw_warnings if str(warning).strip()]
+            if isinstance(raw_warnings, list)
+            else []
+        )
+
+        if not course_code:
+            warnings.append("Course code is missing.")
+        elif not TRANSCRIPT_COURSE_CODE_RE.fullmatch(course_code):
+            warnings.append("Course code does not match the supported MEU format.")
+        if course_code in duplicate_codes:
+            warnings.append("Course code appears more than once in the transcript.")
+        if not course_name:
+            warnings.append("Course name is missing.")
+        if grade is not None and grade_to_points(grade) is None:
+            warnings.append("Grade is not recognized on the MEU scale.")
+        if status_value == "passed" and grade is None:
+            warnings.append("Passed course has no grade.")
+
+        confidence = None
+        raw_confidence = raw_course.get("confidence")
+        if raw_confidence is not None:
+            if (
+                isinstance(raw_confidence, bool)
+                or not isinstance(raw_confidence, (int, float))
+                or not math.isfinite(raw_confidence)
+                or not 0.0 <= raw_confidence <= 1.0
+            ):
+                warnings.append("Parser confidence is invalid and was omitted.")
+            else:
+                confidence = float(raw_confidence)
+
+        # Keep insertion order while avoiding duplicate messages if an upstream
+        # parser already supplied one of the deterministic warnings above.
+        warnings = list(dict.fromkeys(warnings))
+        low_confidence = raw_course.get("low_confidence") is True or bool(warnings)
+
+        courses.append({
+            "course_code": course_code,
+            "course_name": course_name,
+            "grade": grade,
+            "confidence": confidence,
+            "low_confidence": low_confidence,
+            "warnings": warnings,
+        })
+    return courses
+
+
 @app.post("/api/v1/transcripts/parse", response_model=schemas.TranscriptResponse,
           tags=["transcript"])
 async def parse_transcript(
@@ -293,6 +374,7 @@ async def parse_transcript(
         "summary": parsed.get("summary") or {},
         "categories": parsed.get("categories") or [],
         "all_courses": parsed.get("all_courses") or [],
+        "courses": _canonical_transcript_courses(parsed.get("all_courses") or []),
         "saved_to": saved_to,
     }
 

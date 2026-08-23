@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -29,6 +30,8 @@ public class TranscriptReviewResponse {
         private String courseCode;
         private String courseName;
         private String grade;
+        private BigDecimal confidence;
         private boolean lowConfidence;
+        private List<String> warnings;
     }
 }

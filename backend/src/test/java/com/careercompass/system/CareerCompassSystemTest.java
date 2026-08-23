@@ -137,6 +137,22 @@ class CareerCompassSystemTest {
     // =====================================================================================
 
     /**
+     * Canonical skill ids, as the AI service's taxonomy would supply them. Quizzes and the
+     * FR-JS-20/21 write-back join on these, never on the display label.
+     */
+    private static final String DATA_STRUCTURES_SKILL_ID = "custom:data-structures";
+    private static final String OPERATING_SYSTEMS_SKILL_ID = "custom:operating-systems";
+
+    /** A graded quiz replaces the grade-inferred score for that skill; others keep theirs. */
+    private static BigDecimal effectiveScore(java.util.Map<String, BigDecimal> quizScores,
+                                             String skillId, int gradeBasedScore) {
+        if (quizScores != null && quizScores.containsKey(skillId)) {
+            return quizScores.get(skillId);
+        }
+        return BigDecimal.valueOf(gradeBasedScore);
+    }
+
+    /**
      * Re-applies every DataAnalysisClient stub before EVERY test method.
      *
      * This is required, not merely tidy: Spring Boot resets {@code @MockBean} mocks after each
@@ -168,38 +184,56 @@ class CareerCompassSystemTest {
                         ))
                         .build());
 
-        // Module 2: grade-based skill vector. Operating Systems = 55 here is what the quiz
-        // write-back in Phase 6 later replaces with the quiz-derived 50 (FR-JS-20).
+        // Module 2: grade-based skill vector, with graded quiz evidence folded in exactly as
+        // the real service does. Operating Systems = 55 from grades is what Phase 6's quiz
+        // write-back later replaces with the quiz-derived 50 (FR-JS-20), so this stub has to
+        // honour `quizScores` rather than return a constant — otherwise the single most
+        // important behaviour in the quiz feature would be asserted against a fixture that
+        // could never change.
         when(dataAnalysisClient.buildSkillVector(any(BuildSkillVectorRequest.class)))
-                .thenReturn(SkillVectorResponse.builder()
-                        .skills(List.of(
-                                SkillScoreDto.builder().skillName("Data Structures").score(BigDecimal.valueOf(90)).build(),
-                                SkillScoreDto.builder().skillName("Operating Systems").score(BigDecimal.valueOf(55)).build()
-                        ))
-                        .build());
+                .thenAnswer(inv -> {
+                    BuildSkillVectorRequest req = inv.getArgument(0);
+                    return SkillVectorResponse.builder()
+                            .skills(List.of(
+                                    SkillScoreDto.builder()
+                                            .skillId(DATA_STRUCTURES_SKILL_ID).skillName("Data Structures")
+                                            .score(effectiveScore(req.getQuizScores(), DATA_STRUCTURES_SKILL_ID, 90))
+                                            .build(),
+                                    SkillScoreDto.builder()
+                                            .skillId(OPERATING_SYSTEMS_SKILL_ID).skillName("Operating Systems")
+                                            .score(effectiveScore(req.getQuizScores(), OPERATING_SYSTEMS_SKILL_ID, 55))
+                                            .build()))
+                            .build();
+                });
 
         // Module 3: skill-gap analysis. "Operating Systems" is the one Weak skill, which is
         // what Phase 5's course recommendations are generated against.
         when(dataAnalysisClient.analyzeSkillGap(any(SkillGapAnalysisRequest.class)))
-                .thenReturn(SkillGapAnalysisResponse.builder()
-                        .overallReadinessPercent(72)
-                        .skillGaps(List.of(
-                                SkillGapAnalysisResponse.SkillGapItemDto.builder()
-                                        .skillName("Data Structures").currentScore(BigDecimal.valueOf(90))
-                                        .targetScore(BigDecimal.valueOf(75)).classification("Strong")
-                                        .explanation("Well above target.").build(),
-                                SkillGapAnalysisResponse.SkillGapItemDto.builder()
-                                        .skillName("Operating Systems").currentScore(BigDecimal.valueOf(55))
-                                        .targetScore(BigDecimal.valueOf(75)).classification("Weak")
-                                        .explanation("Below target level.").build()
-                        ))
-                        .build());
+                .thenAnswer(inv -> {
+                    SkillGapAnalysisRequest req = inv.getArgument(0);
+                    BigDecimal osScore = effectiveScore(req.getQuizScores(), OPERATING_SYSTEMS_SKILL_ID, 55);
+                    return SkillGapAnalysisResponse.builder()
+                            .overallReadinessPercent(72)
+                            .skillGaps(List.of(
+                                    SkillGapAnalysisResponse.SkillGapItemDto.builder()
+                                            .skillId(DATA_STRUCTURES_SKILL_ID)
+                                            .skillName("Data Structures").currentScore(BigDecimal.valueOf(90))
+                                            .targetScore(BigDecimal.valueOf(75)).classification("Strong")
+                                            .explanation("Well above target.").build(),
+                                    SkillGapAnalysisResponse.SkillGapItemDto.builder()
+                                            .skillId(OPERATING_SYSTEMS_SKILL_ID)
+                                            .skillName("Operating Systems").currentScore(osScore)
+                                            .targetScore(BigDecimal.valueOf(75)).classification("Weak")
+                                            .explanation("Below target level.").build()))
+                            .build();
+                });
 
         // Module 4: one course recommendation, targeting the Weak skill above.
         when(dataAnalysisClient.recommendCourses(any(CourseRecommendationRequest.class)))
                 .thenReturn(List.of(RecommendedCourseDto.builder()
                         .courseName("Operating Systems Fundamentals")
                         .sourceLink("https://example.com/os-fundamentals")
+                        .targetedSkillId(OPERATING_SYSTEMS_SKILL_ID)
                         .targetedSkillName("Operating Systems")
                         .explanation("Directly targets your weakest skill.")
                         .build()));
@@ -208,6 +242,8 @@ class CareerCompassSystemTest {
         // A and A, so exactly one is correct and the score must come out as 50%.
         when(dataAnalysisClient.generateQuiz(any(QuizGenerationRequest.class)))
                 .thenReturn(QuizGenerationResponse.builder()
+                        .skillId(OPERATING_SYSTEMS_SKILL_ID)
+                        .skillLabel("Operating Systems")
                         .questions(List.of(
                                 QuizGenerationResponse.GeneratedQuizQuestionDto.builder()
                                         .questionText("What does a process control block store?")
@@ -1064,7 +1100,8 @@ class CareerCompassSystemTest {
         // stubDataAnalysisLayer(). The correct answers exist in the mock precisely so the
         // assertion below can prove they never reach the client.
 
-        String body = "{\"courseName\":\"Operating Systems\",\"questionCount\":2}";
+        // Requested by canonical skill id, not by course name — a course teaches many skills.
+        String body = "{\"skillId\":\"" + OPERATING_SYSTEMS_SKILL_ID + "\",\"questionCount\":2}";
 
         MvcResult result = mockMvc.perform(post("/api/job-seekers/me/quizzes")
                         .header("Authorization", "Bearer " + jobSeekerToken)

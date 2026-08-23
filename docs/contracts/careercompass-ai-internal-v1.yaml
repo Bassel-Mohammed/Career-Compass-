@@ -1,0 +1,781 @@
+openapi: 3.0.3
+
+info:
+  title: CareerCompass AI Internal API
+  version: 1.0.0
+  description: |
+    The **internal** service-to-service contract between the Java (Spring Boot) backend and the
+    Python (FastAPI) AI/data-analysis service.
+
+    This is the authoritative contract. It supersedes `docs/contracts/AI_SERVICE_CONTRACT.docx`,
+    which described Java's DTOs rather than an agreed wire format and is retained only as history.
+
+    ## Rules this contract encodes
+
+    * **`Java public API != Python internal API`.** Nothing here is reachable from a browser.
+      The Java backend is the only client. It maps every payload at its own adapter so that
+      Python's `snake_case` shapes never leak into Java domain or public DTOs.
+    * **Naming.** JSON is `snake_case` throughout. Base path is `/api/v1`.
+    * **Scales.** Every proficiency, coverage, gap, readiness and relevance value is a decimal
+      in `0.0..1.0`. Java converts to `0..100` only at its presentation edge. A percentage sent
+      here is a contract violation, not a rounding difference.
+    * **Enums.** Classifications are lower-case: `strong`, `moderate`, `weak`.
+    * **Ownership.** Python computes; it is not the system of record. It holds no users, no
+      transcripts and no quiz attempts. The caller supplies confirmed data on every request and
+      persists whatever it needs from the response.
+    * **Errors.** Every error is RFC 9457 `application/problem+json`.
+
+    ## Scope of v1
+
+    In scope: transcript parsing (M1), skill vector (M2), skill gap (M3), course
+    recommendations (M4), quiz generation (M5).
+
+    **Out of scope by owner decision (24 August 2026):** job matching (M7) and mentor AI
+    ranking (M9). `/api/v1/job-matches/*` and `/api/v1/mentor-matches` are deliberately absent
+    rather than unimplemented, and adding them is a v1.1 additive change.
+
+    ## Known deferrals
+
+    These are recorded so they are not mistaken for oversights. Each is additive and therefore
+    a minor-version change when it lands:
+
+    * `career_path` is keyed by **name**, not by an immutable `career_path_code`. Java career
+      paths are administrator-created free text, so the adapter is responsible for sending a
+      name this service knows; unknown names get a controlled `404 career-path-not-found`
+      listing the names that exist. An immutable code is deferred to v1.1.
+    * The skill vector carries `taxonomy_version` but no `vector_version` document identity.
+      Downstream operations therefore recompute the vector from the supplied courses rather
+      than referencing one stored artefact. Deferred to v1.1.
+    * Opaque cross-service ids for students/jobs/mentors are not required by any v1 operation,
+      because no v1 operation is student-scoped. They land with job matching.
+
+servers:
+  - url: http://localhost:8000
+    description: Local development. Plain HTTP is permitted only on loopback.
+  - url: https://ai.careercompass.internal
+    description: Deployed. TLS and network policy are mandatory.
+
+security:
+  - serviceToken: []
+
+tags:
+  - name: health
+    description: Liveness and readiness, used by the caller's startup diagnostics.
+  - name: transcript
+    description: M1 — transcript parsing.
+  - name: skill-gap
+    description: M2/M3 — skill vector and gap.
+  - name: recommendations
+    description: M4 — grounded course retrieval.
+  - name: quiz
+    description: M5 — quiz generation.
+
+paths:
+
+  /api/v1/health/live:
+    get:
+      tags: [health]
+      summary: Liveness probe
+      security: []
+      responses:
+        '200':
+          description: The process is up.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status: { type: string, example: ok }
+
+  /api/v1/health/ready:
+    get:
+      tags: [health]
+      summary: Readiness probe
+      description: |
+        Reports whether the artefacts each module needs are actually loaded. The caller should
+        surface this in its own startup diagnostics so that "AI unavailable" is visible before a
+        student triggers it, not after.
+      security: []
+      responses:
+        '200':
+          description: Readiness detail. `ready:false` still answers 200; read the field.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [ready, checks]
+                properties:
+                  ready: { type: boolean }
+                  checks:
+                    type: object
+                    additionalProperties:
+                      type: object
+
+  /api/v1/transcripts/parse:
+    post:
+      tags: [transcript]
+      operationId: parseTranscript
+      summary: Parse a transcript PDF into reviewable course rows (M1)
+      description: |
+        **Budget: 30 s** (NFR-PERF-02). Synchronous.
+
+        The caller uploads the PDF as `multipart/form-data` and receives typed rows. It is the
+        caller's job to show those rows for review and correction, and to persist only what the
+        student confirms.
+
+        `save` must be `false` from the Java backend: Python is not the system of record for a
+        student's transcript. `save=true` exists for local CLI work only.
+
+        Read `courses` — the canonical typed rows. `all_courses` is a legacy untyped view kept
+        during migration and will be removed in v2; new callers must not bind to it.
+      parameters:
+        - $ref: '#/components/parameters/CorrelationId'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [file]
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The transcript PDF. Max 10 MB, `application/pdf`.
+                save:
+                  type: boolean
+                  default: false
+                  description: Must be false for service-to-service calls.
+      responses:
+        '200':
+          description: Parsed transcript.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TranscriptParseResponse'
+        '400': { $ref: '#/components/responses/Problem' }
+        '413': { $ref: '#/components/responses/Problem' }
+        '422': { $ref: '#/components/responses/Problem' }
+        '503': { $ref: '#/components/responses/Problem' }
+
+  /api/v1/skill-vector:
+    post:
+      tags: [skill-gap]
+      operationId: buildSkillVector
+      summary: Compute the Student Skill Vector from confirmed courses (M2)
+      description: |
+        **Budget: 10 s.** Synchronous. Deterministic arithmetic — no model is involved, so the
+        same transcript and course-skill map always produce the same numbers.
+
+        Stateless: the caller sends the confirmed transcript rows every time. This service holds
+        no students.
+
+        `quiz_scores` folds graded quiz evidence into the vector, replacing the grade-inferred
+        proficiency for those skills. Scores are fractions in `0.0..1.0`. A percentage such as
+        `85` is rejected with `422` rather than silently clamped to `1.0` — that clamp would
+        turn a failing student into a perfect one with no signal.
+      parameters:
+        - $ref: '#/components/parameters/CorrelationId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SkillVectorRequest'
+      responses:
+        '200':
+          description: The computed vector.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SkillVectorResponse'
+        '404': { $ref: '#/components/responses/Problem' }
+        '422': { $ref: '#/components/responses/Problem' }
+        '503': { $ref: '#/components/responses/Problem' }
+
+  /api/v1/skill-gap:
+    post:
+      tags: [skill-gap]
+      operationId: buildSkillGap
+      summary: Compare the vector against a career path's requirements (M3)
+      description: |
+        **Budget: 10 s.** Synchronous.
+
+        Every number is computed arithmetically. `narrative` is the only generated field; it is
+        off by default because it costs an LLM call, and it explains numbers that are already
+        final — it can never change one. If the model is unavailable the gap is still returned
+        complete with `narrative: null` rather than failing.
+
+        Readiness is not a field. Compute it from `requirements_met / total_requirements`; the
+        caller owns how that is presented.
+      parameters:
+        - $ref: '#/components/parameters/CorrelationId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SkillGapRequest'
+      responses:
+        '200':
+          description: The gap analysis.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SkillGapResponse'
+        '404':
+          description: Unknown `career_path`. The problem body lists the names that do exist.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '422': { $ref: '#/components/responses/Problem' }
+        '503': { $ref: '#/components/responses/Problem' }
+
+  /api/v1/recommendations:
+    post:
+      tags: [recommendations]
+      operationId: recommendCourses
+      summary: Grounded, ranked courses that close the student's gaps (M4)
+      description: |
+        **Target: 5 s.** Synchronous.
+
+        Items are **retrieved from a real catalog and re-ranked, never generated**, so this
+        cannot invent a course and every item carries a working `url`.
+
+        An empty catalog answers `503`, not an empty list: "nothing ingested" and "no gaps to
+        close" are different answers and the caller must not show them the same way. Gaps the
+        catalog cannot serve come back in `skills_without_courses` rather than being dropped.
+      parameters:
+        - $ref: '#/components/parameters/CorrelationId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecommendationRequest'
+      responses:
+        '200':
+          description: Ranked recommendations.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecommendationResponse'
+        '404': { $ref: '#/components/responses/Problem' }
+        '422': { $ref: '#/components/responses/Problem' }
+        '503': { $ref: '#/components/responses/Problem' }
+
+  /api/v1/quizzes:
+    post:
+      tags: [quiz]
+      operationId: generateQuiz
+      summary: Generate a validated multiple-choice quiz for one skill (M5)
+      description: |
+        **Budget: 15 s.** Synchronous.
+
+        Keyed by canonical `skill_id`, never by course name. A course teaches many skills and a
+        skill is taught by many courses, so a course-named quiz cannot be written back to a
+        skill unambiguously.
+
+        Returns the questions **and** the `answer_key`. The caller stores both, shows the
+        student only `questions`, and grades the submission itself — grading is arithmetic and
+        needs no model. It then feeds the resulting score back through `POST /api/v1/skill-vector`
+        as `quiz_scores`. Holding the key here would give this service user-scoped state it has
+        nowhere else; the key never reaches a browser because this is server-to-server.
+
+        Unlike the gap narrative, an unavailable model is fatal here: there is no partial quiz
+        worth returning, so this answers `503`.
+      parameters:
+        - $ref: '#/components/parameters/CorrelationId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuizRequest'
+      responses:
+        '201':
+          description: The generated quiz and its answer key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuizResponse'
+        '404':
+          description: '`skill_id` is not in the taxonomy.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '422': { $ref: '#/components/responses/Problem' }
+        '503': { $ref: '#/components/responses/Problem' }
+
+components:
+
+  securitySchemes:
+    serviceToken:
+      type: http
+      scheme: bearer
+      description: |
+        A shared service token (ADR-008). Sent by the Java backend as
+        `Authorization: Bearer <token>`. This authenticates the *service*, not a student — no
+        end-user identity crosses this boundary. Production additionally requires TLS and
+        network policy; mTLS may replace the token later without changing any payload.
+
+  parameters:
+    CorrelationId:
+      name: X-Correlation-ID
+      in: header
+      required: false
+      description: |
+        Propagated onto every log line on both sides and echoed in problem responses, so one
+        student-visible failure can be followed across both runtimes. The caller generates it.
+      schema:
+        type: string
+        maxLength: 128
+
+  responses:
+    Problem:
+      description: An RFC 9457 problem.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+
+  schemas:
+
+    ProblemDetails:
+      type: object
+      description: RFC 9457 problem details. Every error on this API uses this shape.
+      required: [type, title, status]
+      properties:
+        type:
+          type: string
+          description: A stable machine-readable slug, e.g. `career-path-not-found`.
+          example: career-path-not-found
+        title:
+          type: string
+          example: Unknown career path
+        status:
+          type: integer
+          example: 404
+        detail:
+          type: string
+          description: Human-readable specifics. Safe to log; never contains student PII.
+        errors:
+          type: array
+          description: Field-level validation failures, present on 422.
+          items:
+            type: object
+            properties:
+              field: { type: string }
+              message: { type: string }
+        known:
+          type: array
+          description: On `career-path-not-found`, the names that do exist.
+          items: { type: string }
+
+    CanonicalTranscriptCourse:
+      type: object
+      description: |
+        One parsed transcript row, shaped for review. The deterministic parser does not compute
+        a probability per row, so `confidence` is normally null; concrete anomalies are carried
+        in `warnings` and set `low_confidence`. A null `confidence` must not be rendered as
+        zero confidence, and `low_confidence` must not be read as a numeric score.
+      required: [course_code, course_name]
+      properties:
+        course_code:
+          type: string
+          maxLength: 20
+          description: The deterministic join key to the course-skill map. Never dropped.
+        course_name: { type: string, maxLength: 200 }
+        grade: { type: string, maxLength: 8, nullable: true }
+        confidence: { type: number, format: double, minimum: 0.0, maximum: 1.0, nullable: true }
+        low_confidence:
+          type: boolean
+          default: false
+          description: True when an extraction anomaly means a human should look at this row.
+        warnings:
+          type: array
+          items: { type: string }
+
+    TranscriptParseResponse:
+      type: object
+      required: [content_sha256, source_file, courses]
+      properties:
+        content_sha256:
+          type: string
+          description: Hash of the uploaded bytes, for idempotency and audit.
+        source_file: { type: string }
+        student:
+          type: object
+          description: Whatever identifying header the parser could read. Advisory only.
+        summary:
+          type: object
+          description: Counts and grade distribution.
+        categories:
+          type: array
+          items: { type: object }
+        courses:
+          type: array
+          description: The canonical typed rows. Bind to this.
+          items:
+            $ref: '#/components/schemas/CanonicalTranscriptCourse'
+        all_courses:
+          type: array
+          description: Deprecated untyped view, retained during migration. Do not bind.
+          deprecated: true
+          items: { type: object }
+        saved_to:
+          type: string
+          nullable: true
+          description: Null unless `save=true` was requested. Always null for service calls.
+
+    TranscriptCourse:
+      type: object
+      description: |
+        One confirmed transcript row supplied by the caller. `course_codes` carries every code
+        the course is known by: plan editions renumber, so a transcript quoting `0433301` must
+        still join to a skill map holding `A0413301` for the same course.
+      required: [course_code]
+      properties:
+        course_code: { type: string, minLength: 1, maxLength: 20 }
+        course_codes:
+          type: array
+          maxItems: 8
+          items: { type: string }
+        course_name: { type: string, maxLength: 200, nullable: true }
+        grade: { type: string, maxLength: 8, nullable: true }
+        status: { type: string, maxLength: 30, nullable: true }
+        credit_hours: { type: integer, minimum: 0, maximum: 20, nullable: true }
+
+    SkillVectorRequest:
+      type: object
+      required: [courses]
+      properties:
+        courses:
+          type: array
+          minItems: 1
+          maxItems: 200
+          items:
+            $ref: '#/components/schemas/TranscriptCourse'
+        quiz_scores:
+          type: object
+          description: |
+            Canonical `skill_id` to graded score. Values are fractions in `0.0..1.0`. An unknown
+            id is a `404`, not a silently invented skill.
+          additionalProperties:
+            type: number
+            format: double
+            minimum: 0.0
+            maximum: 1.0
+        include_unpassed:
+          type: boolean
+          default: false
+          description: Whether failed courses still contribute evidence.
+
+    VectorCourseEvidence:
+      type: object
+      properties:
+        course_code: { type: string }
+        course_name: { type: string, nullable: true }
+        grade: { type: string, nullable: true }
+        weight: { type: number, format: double }
+        level: { type: string, nullable: true }
+
+    SkillVectorItem:
+      type: object
+      required: [skill_id, label, proficiency]
+      properties:
+        skill_id:
+          type: string
+          description: Canonical identity. The label is display text and must never be used as identity.
+        label: { type: string }
+        skill_type: { type: string, nullable: true }
+        proficiency:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 1.0
+        coverage:
+          type: number
+          format: double
+          description: May exceed 1.0 when several courses evidence the same skill.
+        graded_coverage: { type: number, format: double }
+        evidence:
+          type: string
+          nullable: true
+          description: Where the proficiency came from, e.g. `grades` or `quiz`.
+        course_count: { type: integer }
+        courses:
+          type: array
+          items:
+            $ref: '#/components/schemas/VectorCourseEvidence'
+        quiz_score:
+          type: number
+          format: double
+          nullable: true
+          minimum: 0.0
+          maximum: 1.0
+
+    SkippedCourse:
+      type: object
+      description: |
+        A course the vector could not use, and why. This is not noise: "the student never
+        studied this" and "we could not see the course that teaches it" are different sentences,
+        and without these the caller cannot tell them apart.
+      properties:
+        course_code: { type: string }
+        reason:
+          type: string
+          description: e.g. `not passed`, `no skill map`.
+
+    SkillVectorResponse:
+      type: object
+      required: [source, total_skills, courses_counted, skills]
+      properties:
+        taxonomy_version: { type: string, nullable: true }
+        source: { type: string }
+        total_skills: { type: integer }
+        courses_counted: { type: integer }
+        courses_skipped:
+          type: array
+          items:
+            $ref: '#/components/schemas/SkippedCourse'
+        skills:
+          type: array
+          items:
+            $ref: '#/components/schemas/SkillVectorItem'
+
+    SkillGapRequest:
+      allOf:
+        - $ref: '#/components/schemas/SkillVectorRequest'
+        - type: object
+          required: [career_path]
+          properties:
+            career_path:
+              type: string
+              minLength: 1
+              maxLength: 120
+              description: |
+                The career path **name**, never the caller's numeric id — neither service owns
+                the other's identifiers. An unknown name answers `404` and lists the known ones.
+            include_soft:
+              type: boolean
+              default: true
+            narrative:
+              type: boolean
+              default: false
+              description: Costs an LLM call. The gap is returned complete either way.
+
+    SkillGapItem:
+      type: object
+      required: [skill_id, label, classification]
+      properties:
+        skill_id: { type: string }
+        label: { type: string }
+        skill_type: { type: string, nullable: true }
+        required_level: { type: string, nullable: true }
+        required_proficiency: { type: number, format: double, minimum: 0.0, maximum: 1.0 }
+        current_level: { type: number, format: double, minimum: 0.0, maximum: 1.0 }
+        evidence_coverage: { type: number, format: double }
+        required_coverage: { type: number, format: double }
+        gap: { type: number, format: double }
+        classification:
+          type: string
+          enum: [strong, moderate, weak]
+          description: Lower-case on the wire. The caller maps to its own display casing.
+        importance: { type: number, format: double }
+        priority:
+          type: number
+          format: double
+          description: Shortfall already weighted by market demand. Rank on this, not on `gap`.
+        evidence: { type: string, nullable: true }
+        course_count: { type: integer }
+        courses:
+          type: array
+          items:
+            $ref: '#/components/schemas/VectorCourseEvidence'
+
+    SkillGapResponse:
+      type: object
+      required: [summary, total_requirements, requirements_met, skills]
+      properties:
+        career_path: { type: string, nullable: true }
+        taxonomy_version: { type: string, nullable: true }
+        source: { type: string, nullable: true }
+        summary:
+          type: object
+          description: Counts per classification.
+          properties:
+            strong: { type: integer }
+            moderate: { type: integer }
+            weak: { type: integer }
+        total_requirements: { type: integer }
+        requirements_met: { type: integer }
+        skills:
+          type: array
+          items:
+            $ref: '#/components/schemas/SkillGapItem'
+        narrative: { type: string, nullable: true }
+        courses_counted: { type: integer }
+        courses_skipped:
+          type: array
+          items:
+            $ref: '#/components/schemas/SkippedCourse'
+
+    RecommendationRequest:
+      allOf:
+        - $ref: '#/components/schemas/SkillGapRequest'
+        - type: object
+          properties:
+            limit: { type: integer, default: 10, minimum: 1, maximum: 50 }
+            platform:
+              type: string
+              nullable: true
+              enum: [coursera, ocw, youtube]
+            skill_id:
+              type: string
+              nullable: true
+              maxLength: 120
+              description: Narrow to a single skill.
+            language: { type: string, default: en, maxLength: 10 }
+            per_skill: { type: integer, default: 3, minimum: 1, maximum: 10 }
+            include_soft: { type: boolean, default: false }
+
+    RecommendedCourse:
+      type: object
+      required: [course_id, title, platform, url]
+      properties:
+        course_id: { type: string }
+        title: { type: string }
+        platform: { type: string }
+        url:
+          type: string
+          format: uri
+          description: Never empty. This is the one output a student clicks rather than reads.
+        level: { type: string, nullable: true }
+        language: { type: string, nullable: true }
+        duration_hours: { type: number, format: double, nullable: true }
+        rating: { type: number, format: double, nullable: true }
+
+    RecommendationItem:
+      type: object
+      required: [skill_id, course, relevance, explanation]
+      properties:
+        skill_id: { type: string }
+        skill_label: { type: string, nullable: true }
+        course:
+          $ref: '#/components/schemas/RecommendedCourse'
+        relevance:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 1.0
+          description: |
+            Retrieval score. The caller may apply its own threshold, but must not present this
+            as a percentage without saying what it measures.
+        matched_in_title: { type: boolean }
+        explanation:
+          type: string
+          description: |
+            Written from the student's own gap, never from the course description — the
+            platforms' catalog text is not licensed for republication.
+
+    UnservedSkill:
+      type: object
+      description: A gap the catalog cannot currently serve. Carries the label because the caller has no taxonomy to resolve the id against.
+      required: [skill_id]
+      properties:
+        skill_id: { type: string }
+        skill_label: { type: string, nullable: true }
+
+    RecommendationResponse:
+      type: object
+      required: [total, items]
+      properties:
+        career_path: { type: string, nullable: true }
+        total: { type: integer }
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/RecommendationItem'
+        skills_without_courses:
+          type: array
+          items:
+            $ref: '#/components/schemas/UnservedSkill'
+        courses_counted: { type: integer }
+        courses_skipped:
+          type: array
+          items:
+            $ref: '#/components/schemas/SkippedCourse'
+
+    QuizRequest:
+      type: object
+      required: [skill_id]
+      properties:
+        skill_id:
+          type: string
+          minLength: 1
+          maxLength: 120
+          description: Canonical taxonomy id. Not a course name.
+        question_count:
+          type: integer
+          default: 5
+          minimum: 1
+          maximum: 10
+          description: |
+            Capped because inference is serialised — an unbounded count is an accidental denial
+            of service against every other caller.
+        verify:
+          type: boolean
+          default: true
+          description: Run the generated questions back through validation before returning.
+
+    QuizQuestion:
+      type: object
+      required: [question_id, question, options]
+      properties:
+        question_id:
+          type: string
+          description: Stable within this quiz, e.g. `q1`. The answer key is keyed by it.
+        question: { type: string }
+        options:
+          type: array
+          minItems: 2
+          items: { type: string }
+
+    QuizAnswer:
+      type: object
+      required: [correct_index, correct_answer]
+      properties:
+        correct_index:
+          type: integer
+          minimum: 0
+          description: |
+            **Zero-based** index into that question's `options`. Exactly one option is correct
+            (NFR-AI-07). A caller using A/B/C/D letters must convert explicitly; an off-by-one
+            here silently grades every attempt wrongly.
+        correct_answer:
+          type: string
+          description: The option text, so the caller can verify the index resolves as expected.
+        explanation: { type: string }
+
+    QuizResponse:
+      type: object
+      required: [question_count, questions, answer_key]
+      properties:
+        skill_id: { type: string, nullable: true }
+        skill_label: { type: string, nullable: true }
+        question_count: { type: integer }
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuizQuestion'
+        answer_key:
+          type: object
+          description: Keyed by `question_id`. Server-to-server only — never forward to a browser.
+          additionalProperties:
+            $ref: '#/components/schemas/QuizAnswer'
+        warnings:
+          type: array
+          items: { type: string }

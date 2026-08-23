@@ -17,6 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CourseGradeDto {
+    private String courseCode;
     private String courseName;
     private String grade;
 }

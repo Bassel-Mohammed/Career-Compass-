@@ -1,0 +1,45 @@
+# Cross-runtime integration profile (ADR-010).
+#
+# This is the only profile that exercises the REAL Java to FastAPI boundary: real HTTP, real
+# routes, real schema validation, real algorithms. Everything the mock cannot tell you — a
+# camelCase field the service rejects, a 0.82 shown as 82%, a zero-based answer index read as
+# one-based — is only visible here.
+#
+# Run with the AI service listening on AI_SERVICE_BASE_URL, then:
+#   SPRING_PROFILES_ACTIVE=integration mvn verify
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:careercompass_it;DB_CLOSE_DELAY=-1;MODE=MySQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+
+careercompass:
+  ai-service:
+    base-url: ${AI_SERVICE_BASE_URL:http://localhost:8000}
+    # The entire point of this profile. Never set this to true here.
+    use-mock: false
+    # Optional on loopback; the AI service rejects the call if it requires one and none is sent.
+    token: ${AI_SERVICE_TOKEN:}
+    timeouts:
+      # Deliberately generous: a cold AI service loads its taxonomy and course index on the
+      # first request, and a timeout there would look like a contract failure rather than a
+      # slow start.
+      transcript-seconds: 60
+      skill-vector-seconds: 30
+      skill-gap-seconds: 30
+      recommendations-seconds: 30
+      quiz-seconds: 60
+
+logging:
+  level:
+    com.careercompass.integration: DEBUG

@@ -16,8 +16,12 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
-import java.util.Base64;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Business Layer for FR-JS-10 through FR-JS-14: transcript upload, extraction review,
@@ -31,15 +35,17 @@ import java.util.List;
  * architecture (Integration Layer sits between this Business Layer and the Data Analyses
  * Layer).
  *
- * <p><b>Quiz write-back (FR-JS-20/21/22):</b> {@code recomputeAndPersistSkillDashboard} looks
- * up the latest completed {@link Quiz} whose {@code courseName} matches a skill's name and, if
- * found, uses the quiz score in place of the grade-based estimate for that skill. This reuses
- * the "course name doubles as skill name" simplification already present in the mock AI
- * client's grade-based scoring (Increment 10) — a real skill ontology would map many courses
- * to one skill, and likewise a quiz would need an explicit skill reference rather than being
- * matched by name. Flagged here and in the Increment 12 doc as a schema/design simplification
- * to revisit once real course-to-skill mapping data exists (same category of gap as the
- * `courses_recommendations` schema limitation noted in Increment 11).
+ * <p><b>Quiz write-back (FR-JS-20/21/22):</b> {@code recomputeAndPersistSkillDashboard} collects
+ * the latest completed {@link Quiz} per canonical {@code skillId} and sends those scores to the
+ * AI service as quiz evidence; the AI service recomputes the vector with them folded in, and
+ * skills with no quiz keep their grade-based score (FR-JS-22).
+ *
+ * <p>This replaces an earlier simplification in which a quiz was matched to a skill by comparing
+ * its course name to the skill's name. That only held while one course mapped to exactly one
+ * identically-named skill. Against a real ontology — many courses to one skill, one course to
+ * many skills — it matched nothing, so quiz results silently stopped affecting the dashboard.
+ * Evidence now travels with an explicit skill id, and a quiz that has none is skipped rather
+ * than attributed to a guess.
  */
 @Service
 @RequiredArgsConstructor
@@ -61,17 +67,17 @@ public class TranscriptService {
     public TranscriptReviewResponse uploadAndExtract(Integer jobseekerId, MultipartFile file) {
         validateFile(file);
 
-        String base64Content;
+        byte[] fileContent;
         try {
-            base64Content = Base64.getEncoder().encodeToString(file.getBytes());
+            fileContent = file.getBytes();
         } catch (java.io.IOException e) {
             throw new IllegalStateException("Could not read the uploaded file.", e);
         }
 
         TranscriptExtractionRequest request = TranscriptExtractionRequest.builder()
-                .jobseekerId(jobseekerId)
-                .fileBase64(base64Content)
+                .fileContent(fileContent)
                 .originalFilename(file.getOriginalFilename())
+                .contentType(file.getContentType())
                 .build();
 
         TranscriptExtractionResponse extraction = dataAnalysisClient.extractTranscript(request);
@@ -81,7 +87,9 @@ public class TranscriptService {
                         .courseCode(c.getCourseCode())
                         .courseName(c.getCourseName())
                         .grade(c.getGrade())
+                        .confidence(c.getConfidence())
                         .lowConfidence(c.isLowConfidence())
+                        .warnings(c.getWarnings())
                         .build())
                 .toList();
 
@@ -115,6 +123,7 @@ public class TranscriptService {
         List<AcademicRecord> records = request.getCourses().stream()
                 .map(c -> AcademicRecord.builder()
                         .jobSeeker(jobSeeker)
+                        .courseCode(c.getCourseCode())
                         .courseName(c.getCourseName())
                         .grade(c.getGrade())
                         .build())
@@ -148,6 +157,7 @@ public class TranscriptService {
         List<ConfirmTranscriptRequest.CourseGradeItem> courseItems = records.stream()
                 .map(r -> {
                     var item = new ConfirmTranscriptRequest.CourseGradeItem();
+                    item.setCourseCode(r.getCourseCode());
                     item.setCourseName(r.getCourseName());
                     item.setGrade(r.getGrade());
                     return item;
@@ -160,53 +170,53 @@ public class TranscriptService {
     private SkillDashboardResponse recomputeAndPersistSkillDashboard(
             JobSeeker jobSeeker, List<ConfirmTranscriptRequest.CourseGradeItem> courses) {
 
-        // Module 2: deterministic skill vector, grade-based (FR-JS-22's baseline).
-        BuildSkillVectorRequest vectorRequest = BuildSkillVectorRequest.builder()
-                .jobseekerId(jobSeeker.getJobseekerId())
-                .careerPathId(jobSeeker.getCareerPath().getCareerPathId())
-                .courses(courses.stream()
-                        .map(c -> CourseGradeDto.builder().courseName(c.getCourseName()).grade(c.getGrade()).build())
-                        .toList())
-                .build();
-        SkillVectorResponse rawSkillVector = dataAnalysisClient.buildSkillVector(vectorRequest);
-
-        // FR-JS-20: apply the quiz write-back on top of the grade-based vector, per skill,
-        // before persisting or running the gap analysis — this is the "red dashed loop" from
-        // Figure 5.3.1.1 in the report (Quiz module refining the Skill Vector). See this
-        // method's class-level Javadoc note on why `courseName` doubles as the skill-matching
-        // key for this lookup.
-        boolean[] anySkillFromQuiz = {false};
-        List<SkillScoreDto> effectiveSkillVector = rawSkillVector.getSkills().stream()
-                .map(skill -> {
-                    List<Quiz> completedQuizzes = quizRepository
-                            .findByJobSeeker_JobseekerIdAndCourseNameIgnoreCaseAndTakenAtIsNotNullOrderByTakenAtDesc(
-                                    jobSeeker.getJobseekerId(), skill.getSkillName());
-                    if (!completedQuizzes.isEmpty() && completedQuizzes.get(0).getScore() != null) {
-                        anySkillFromQuiz[0] = true;
-                        return SkillScoreDto.builder()
-                                .skillName(skill.getSkillName())
-                                .score(completedQuizzes.get(0).getScore())
-                                .build();
-                    }
-                    return skill; // FR-JS-22: no quiz taken -> keep the grade-based score
-                })
+        List<CourseGradeDto> courseGrades = courses.stream()
+                .map(c -> CourseGradeDto.builder()
+                        .courseCode(c.getCourseCode())
+                        .courseName(c.getCourseName())
+                        .grade(c.getGrade())
+                        .build())
                 .toList();
 
-        // Persist each EFFECTIVE skill score (quiz-refined where applicable) into jobseeker_skills.
-        for (SkillScoreDto skillScore : effectiveSkillVector) {
-            persistJobseekerSkill(jobSeeker, skillScore);
-        }
+        // FR-JS-20: graded quiz evidence, keyed by canonical skill id — the "red dashed loop"
+        // in Figure 5.3.1.1. Sent to the AI service rather than patched into the returned vector
+        // locally, so the vector the dashboard shows and the vector the gap was built from
+        // cannot disagree.
+        Map<String, BigDecimal> quizScores = latestQuizScoresBySkillId(jobSeeker.getJobseekerId());
+        String careerPathName = jobSeeker.getCareerPath().getTitle();
 
-        // Module 3: skill-gap analysis, run against the effective (possibly quiz-refined) vector.
-        SkillGapAnalysisRequest gapRequest = SkillGapAnalysisRequest.builder()
-                .careerPathId(jobSeeker.getCareerPath().getCareerPathId())
-                .skillVector(effectiveSkillVector)
-                .build();
-        SkillGapAnalysisResponse gapResponse = dataAnalysisClient.analyzeSkillGap(gapRequest);
+        // Module 2: the skill vector, with quiz evidence already folded in where it exists.
+        SkillVectorResponse skillVector = dataAnalysisClient.buildSkillVector(
+                BuildSkillVectorRequest.builder()
+                        .jobseekerId(jobSeeker.getJobseekerId())
+                        .careerPathId(jobSeeker.getCareerPath().getCareerPathId())
+                        .courses(courseGrades)
+                        .quizScores(quizScores)
+                        .build());
+
+        // Upsert every skill in the new vector, then remove only the rows it no longer
+        // contains. Deleting the whole set first and re-inserting looks simpler but is not
+        // equivalent: the removed rows stay in the persistence context until the transaction
+        // ends, and re-saving the same composite ids inside the same transaction cancels the
+        // inserts, leaving the job seeker with no skills at all.
+        Set<Integer> currentSkillIds = new HashSet<>();
+        for (SkillScoreDto skillScore : skillVector.getSkills()) {
+            currentSkillIds.add(persistJobseekerSkill(jobSeeker, skillScore));
+        }
+        removeSkillsNoLongerInVector(jobSeeker.getJobseekerId(), currentSkillIds);
+
+        // Module 3: skill-gap analysis against the same courses and the same quiz evidence.
+        SkillGapAnalysisResponse gapResponse = dataAnalysisClient.analyzeSkillGap(
+                SkillGapAnalysisRequest.builder()
+                        .careerPathName(careerPathName)
+                        .courses(courseGrades)
+                        .quizScores(quizScores)
+                        .build());
 
         List<SkillLevelResponse> skillLevels = gapResponse.getSkillGaps().stream()
-                .sorted((a, b) -> a.getCurrentScore().compareTo(b.getCurrentScore())) // weakest-first, matches Figure 5.4.6
+                .sorted(Comparator.comparing(SkillGapAnalysisResponse.SkillGapItemDto::getCurrentScore)) // weakest-first, matches Figure 5.4.6
                 .map(gap -> SkillLevelResponse.builder()
+                        .canonicalSkillId(gap.getSkillId())
                         .skillName(gap.getSkillName())
                         .score(gap.getCurrentScore())
                         .classification(gap.getClassification())
@@ -219,11 +229,50 @@ public class TranscriptService {
                 .careerPathTitle(jobSeeker.getCareerPath().getTitle())
                 .overallReadinessPercent(gapResponse.getOverallReadinessPercent())
                 .skills(skillLevels)
-                .basedOnQuizResults(anySkillFromQuiz[0]) // FR-JS-20/21 vs FR-JS-22 fallback
+                .basedOnQuizResults(!quizScores.isEmpty()) // FR-JS-20/21 vs FR-JS-22 fallback
                 .build();
     }
 
-    private void persistJobseekerSkill(JobSeeker jobSeeker, SkillScoreDto skillScore) {
+    /**
+     * The most recent completed quiz score per canonical skill id.
+     *
+     * <p>Fetched in one query and grouped in memory: a vector routinely holds 70+ skills, and a
+     * query per skill would be 70 round trips on every dashboard load.
+     *
+     * <p>Quizzes predating the {@code skillId} column are skipped rather than guessed at —
+     * without an id there is no sound way to say which skill a quiz assessed, and attributing it
+     * to the wrong one would silently corrupt the vector.
+     */
+    public Map<String, BigDecimal> latestQuizScoresBySkillId(Integer jobseekerId) {
+        Map<String, BigDecimal> scores = new LinkedHashMap<>();
+        for (Quiz quiz : quizRepository
+                .findByJobSeeker_JobseekerIdAndTakenAtIsNotNullOrderByTakenAtDesc(jobseekerId)) {
+            if (quiz.getSkillId() == null || quiz.getSkillId().isBlank() || quiz.getScore() == null) {
+                continue;
+            }
+            // Ordered most-recent-first, so the first entry seen per skill is the latest.
+            scores.putIfAbsent(quiz.getSkillId(), quiz.getScore());
+        }
+        return scores;
+    }
+
+    /**
+     * Removes stored skills the freshly computed vector no longer contains — what a re-upload
+     * or a career-path change leaves behind. Without this, a skill dropped from the vector
+     * would keep showing yesterday's score on the dashboard forever.
+     */
+    private void removeSkillsNoLongerInVector(Integer jobseekerId, Set<Integer> currentSkillIds) {
+        List<JobseekerSkill> stale = jobseekerSkillRepository.findByJobSeeker_JobseekerId(jobseekerId)
+                .stream()
+                .filter(existing -> !currentSkillIds.contains(existing.getId().getSkillId()))
+                .toList();
+        if (!stale.isEmpty()) {
+            jobseekerSkillRepository.deleteAll(stale);
+        }
+    }
+
+    /** @return the local skill id that was written, so the caller can identify stale rows. */
+    private Integer persistJobseekerSkill(JobSeeker jobSeeker, SkillScoreDto skillScore) {
         Skill skill = getOrCreateSkill(skillScore.getSkillName());
         Level level = getOrCreateLevel(classifyLevel(skillScore.getScore()));
 
@@ -236,6 +285,7 @@ public class TranscriptService {
         jobseekerSkill.setScore(skillScore.getScore());
 
         jobseekerSkillRepository.save(jobseekerSkill);
+        return skill.getSkillId();
     }
 
     private Skill getOrCreateSkill(String skillName) {
