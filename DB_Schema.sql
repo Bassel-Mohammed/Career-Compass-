@@ -331,3 +331,12 @@ CREATE TABLE appointments (
         FOREIGN KEY (status_id) REFERENCES appointment_statuses(status_id)
         ON DELETE RESTRICT
 );
+
+
+CREATE TABLE revoked_tokens (
+    token_id      VARCHAR(64) NOT NULL PRIMARY KEY,
+    expires_at    TIMESTAMP NOT NULL,
+    revoked_at    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_revoked_tokens_expires_at ON revoked_tokens (expires_at);
