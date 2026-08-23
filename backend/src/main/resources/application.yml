@@ -1,0 +1,61 @@
+spring:
+  application:
+    name: careercompass-backend
+
+  profiles:
+    active: dev   # switch to 'prod' for MySQL / real deployment
+
+  jackson:
+    default-property-inclusion: non_null
+    deserialization:
+      fail-on-unknown-properties: false
+
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+
+# NFR-PERF-07: transcript PDF uploads capped at 10 MB.
+spring.servlet.multipart:
+  max-file-size: 10MB
+  max-request-size: 10MB
+
+# --- Application-specific configuration -------------------------------
+careercompass:
+  jwt:
+    # NFR-SEC-07: real secret must come from an environment variable, never hard-coded.
+    secret: ${JWT_SECRET:CHANGE_ME_LOCAL_DEV_ONLY_NOT_FOR_PRODUCTION_1234567890}
+    expiration-minutes: 30   # FR-JS-04 / FR-CM-03 / FR-EMP-04: 30-minute inactivity session
+
+  ai-service:
+    # Base URL of the Python/FastAPI Data Analyses service (Integration Layer target).
+    base-url: ${AI_SERVICE_BASE_URL:http://localhost:8000}
+    # Local-development default only. The `integration` and `prod` profiles both pin this to
+    # false; see docs/contracts/careercompass-ai-internal-v1.yaml for what the real client speaks.
+    use-mock: true   # true = MockDataAnalysisClient, false = real HTTP client
+    # Bearer service token (ADR-008). Blank is tolerated on loopback; prod requires it.
+    token: ${AI_SERVICE_TOKEN:}
+    # Fallback deadline for any operation without its own budget below.
+    timeout-seconds: 30
+    # Per-operation deadlines, from the NFR budgets. One shared 30s timeout meant a 5s
+    # operation could hang a request thread for 30.
+    timeouts:
+      transcript-seconds: 30      # NFR-PERF-02
+      skill-vector-seconds: 10
+      skill-gap-seconds: 10
+      recommendations-seconds: 5
+      quiz-seconds: 15
+
+  storage:
+    # Local filesystem location for uploaded learning-outcome PDFs (FR-CM-04).
+    # A local disk is fine for a student-project deployment; swap for cloud object storage
+    # (S3-compatible) by replacing FileStorageService's implementation if this ever needs to
+    # run across multiple app instances (NFR-SCAL-02 statelessness would otherwise be broken).
+    learning-outcomes-dir: ${LEARNING_OUTCOMES_DIR:./uploads/learning-outcomes}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs

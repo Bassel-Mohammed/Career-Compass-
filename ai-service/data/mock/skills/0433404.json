@@ -1,0 +1,2760 @@
+{
+  "course_code": "0433404",
+  "course_codes": [
+    "0433404"
+  ],
+  "course_title": "Expert Systems",
+  "credit_hours": 3,
+  "plans": [
+    "CS/AI"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "accepted": 15,
+      "needs_review": 22,
+      "no_match": 21
+    },
+    "by_method": {
+      "llm": 32,
+      "embedding_reranker": 26
+    }
+  },
+  "total_skills": 58,
+  "skills": [
+    {
+      "term": "Prolog",
+      "canonical": {
+        "id": "esco:2bde42ae-e776-41c1-9ded-b07b30bfe985",
+        "label": "Prolog (computer programming)",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a simple expert system using CLIPS or Prolog, demonstrating knowledge acquisition, inference, and user interaction."
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Production Rule Systems: CLIPS and Prolog"
+        },
+        {
+          "source": "description",
+          "text": "Prolog"
+        }
+      ],
+      "match": {
+        "original_term": "Prolog",
+        "canonical_id": "esco:2bde42ae-e776-41c1-9ded-b07b30bfe985",
+        "canonical_label": "Prolog (computer programming)",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'Prolog' directly matches the label 'Prolog (computer programming)' in the taxonomy, which specifically refers to the programming language and its associated skills.",
+        "candidates": [
+          {
+            "id": "esco:2bde42ae-e776-41c1-9ded-b07b30bfe985",
+            "label": "Prolog (computer programming)",
+            "score": 0.542
+          },
+          {
+            "id": "esco:6468e5fb-f3be-4025-87be-4b6556755c61",
+            "label": "programmable logic controller",
+            "score": 0.237
+          },
+          {
+            "id": "esco:ff8bd17c-77e9-4d4e-929a-a0cf86f3ed34",
+            "label": "surveillance methods",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "case-based reasoning systems",
+      "canonical": {
+        "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+        "label": "hybrid control systems",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the differences between rule-based and case-based reasoning systems and their respective applications in real-world domains."
+        },
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Case-Based Reasoning Systems"
+        }
+      ],
+      "match": {
+        "original_term": "case-based reasoning systems",
+        "canonical_id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+        "canonical_label": "hybrid control systems",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'case-based reasoning systems' directly relates to 'decision support systems' as both involve using structured approaches to support decision-making processes, with case-based reasoning being a specific type of decision support system.",
+        "candidates": [
+          {
+            "id": "esco:de134835-030e-4f79-9873-e87c34c1a0db",
+            "label": "laboratory-based sciences",
+            "score": 0.499
+          },
+          {
+            "id": "esco:cdd8b6b2-2fd9-453c-8d62-8a1dc6efcd49",
+            "label": "systems theory",
+            "score": 0.414
+          },
+          {
+            "id": "esco:0f9958d2-f700-4f62-b90b-a5873cb5ae4c",
+            "label": "systems thinking",
+            "score": 0.405
+          }
+        ]
+      }
+    },
+    {
+      "term": "fuzzy logic",
+      "canonical": {
+        "id": "custom:discrete-mathematics",
+        "label": "discrete mathematics",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply fuzzy logic and Bayes nets to model uncertainty in expert systems using Python libraries such as scikit-fuzzy and PyMC3."
+        },
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Uncertainty Handling: Fuzzy Logic"
+        }
+      ],
+      "match": {
+        "original_term": "fuzzy logic",
+        "canonical_id": "custom:discrete-mathematics",
+        "canonical_label": "discrete mathematics",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.625,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.24",
+        "candidates": [
+          {
+            "id": "custom:discrete-mathematics",
+            "label": "discrete mathematics",
+            "score": 0.625
+          },
+          {
+            "id": "esco:6468e5fb-f3be-4025-87be-4b6556755c61",
+            "label": "programmable logic controller",
+            "score": 0.382
+          },
+          {
+            "id": "esco:c5e8abde-d2ba-4e8e-a65e-720b71180666",
+            "label": "unstructured data",
+            "score": 0.192
+          }
+        ]
+      }
+    },
+    {
+      "term": "inference engine",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the architecture and components of an expert system, including the knowledge base, inference engine, and user interface."
+        },
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Design an inference engine for a diagnostic application"
+        }
+      ],
+      "match": {
+        "original_term": "inference engine",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to an 'inference engine' as defined in the syllabus. The closest entries are related to engine components or software architecture, but none directly match the concept of an inference engine in the context of expert systems.",
+        "candidates": [
+          {
+            "id": "esco:f5fa2654-52cc-45d2-ac92-ac979dee5d12",
+            "label": "engine components",
+            "score": 0.494
+          },
+          {
+            "id": "esco:be99117b-49a1-4ec2-a670-e9baac66c1bd",
+            "label": "principles of combustion engines",
+            "score": 0.431
+          },
+          {
+            "id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+            "label": "usability engineering",
+            "score": 0.279
+          }
+        ]
+      }
+    },
+    {
+      "term": "architecture",
+      "canonical": {
+        "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+        "label": "principles of artificial intelligence",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the architecture and components of an expert system, including the knowledge base, inference engine, and user interface."
+        }
+      ],
+      "match": {
+        "original_term": "architecture",
+        "canonical_id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+        "canonical_label": "principles of artificial intelligence",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'architecture' in the context of an expert system aligns with 'principles of artificial intelligence' which explicitly mentions 'expert systems' as part of its description.",
+        "candidates": [
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.724
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.693
+          },
+          {
+            "id": "esco:1bba98a7-92b9-450b-9235-e0c905f8f3c4",
+            "label": "information architecture",
+            "score": 0.673
+          }
+        ]
+      }
+    },
+    {
+      "term": "components of an expert system",
+      "canonical": {
+        "id": "esco:e5ad0cce-e3d5-4c60-8504-5d1c7e3b55b9",
+        "label": "electrical equipment components",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the architecture and components of an expert system, including the knowledge base, inference engine, and user interface."
+        }
+      ],
+      "match": {
+        "original_term": "components of an expert system",
+        "canonical_id": "esco:e5ad0cce-e3d5-4c60-8504-5d1c7e3b55b9",
+        "canonical_label": "electrical equipment components",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'components of an expert system' refers to the specific parts of an expert system, such as the knowledge base, inference engine, and user interface. While none of the candidates directly mention 'expert system components,' the closest match is 'electrical equipment components,' which is a",
+        "candidates": [
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.601
+          },
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.469
+          },
+          {
+            "id": "esco:7a950986-27fe-4b6c-adf3-88f211e77019",
+            "label": "robotic components",
+            "score": 0.453
+          }
+        ]
+      }
+    },
+    {
+      "term": "demonstrating knowledge acquisition",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a simple expert system using CLIPS or Prolog, demonstrating knowledge acquisition, inference, and user interaction."
+        }
+      ],
+      "match": {
+        "original_term": "demonstrating knowledge acquisition",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.216,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.216
+          },
+          {
+            "id": "esco:2bde42ae-e776-41c1-9ded-b07b30bfe985",
+            "label": "Prolog (computer programming)",
+            "score": 0.21
+          },
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.209
+          }
+        ]
+      }
+    },
+    {
+      "term": "differences between rule-based",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the differences between rule-based and case-based reasoning systems and their respective applications in real-world domains."
+        }
+      ],
+      "match": {
+        "original_term": "differences between rule-based",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.359,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:de134835-030e-4f79-9873-e87c34c1a0db",
+            "label": "laboratory-based sciences",
+            "score": 0.359
+          },
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.356
+          },
+          {
+            "id": "esco:2ba2e69d-ae04-40b6-bb95-adbc5edd6e80",
+            "label": "differentiate between airfield lighting",
+            "score": 0.354
+          }
+        ]
+      }
+    },
+    {
+      "term": "inference",
+      "canonical": {
+        "id": "custom:inferential-statistics",
+        "label": "inferential statistics",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a simple expert system using CLIPS or Prolog, demonstrating knowledge acquisition, inference, and user interaction."
+        }
+      ],
+      "match": {
+        "original_term": "inference",
+        "canonical_id": "custom:inferential-statistics",
+        "canonical_label": "inferential statistics",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.623,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.41",
+        "candidates": [
+          {
+            "id": "custom:inferential-statistics",
+            "label": "inferential statistics",
+            "score": 0.623
+          },
+          {
+            "id": "esco:ff8bd17c-77e9-4d4e-929a-a0cf86f3ed34",
+            "label": "surveillance methods",
+            "score": 0.211
+          },
+          {
+            "id": "esco:0f9958d2-f700-4f62-b90b-a5873cb5ae4c",
+            "label": "systems thinking",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "knowledge base",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the architecture and components of an expert system, including the knowledge base, inference engine, and user interface."
+        }
+      ],
+      "match": {
+        "original_term": "knowledge base",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.242,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.242
+          },
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.233
+          },
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.221
+          }
+        ]
+      }
+    },
+    {
+      "term": "operation of forward",
+      "canonical": {
+        "id": "custom:forward-kinematics",
+        "label": "forward kinematics",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the operation of forward and backward chaining algorithms in production rule systems."
+        }
+      ],
+      "match": {
+        "original_term": "operation of forward",
+        "canonical_id": "custom:forward-kinematics",
+        "canonical_label": "forward kinematics",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'operation of forward' is part of the syllabus explanation of 'forward and backward chaining algorithms', which is closely related to 'forward kinematics' as both involve the concept of 'forward' in computational processes.",
+        "candidates": [
+          {
+            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
+            "label": "packaging processes",
+            "score": 0.47
+          },
+          {
+            "id": "esco:1a163b43-9826-426f-9bda-05133a9f4bf3",
+            "label": "milking operations",
+            "score": 0.461
+          },
+          {
+            "id": "custom:forward-kinematics",
+            "label": "forward kinematics",
+            "score": 0.458
+          }
+        ]
+      }
+    },
+    {
+      "term": "PyMC3",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply fuzzy logic and Bayes nets to model uncertainty in expert systems using Python libraries such as scikit-fuzzy and PyMC3."
+        }
+      ],
+      "match": {
+        "original_term": "PyMC3",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.233,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.233
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.204
+          },
+          {
+            "id": "custom:apache-spark",
+            "label": "Apache Spark",
+            "score": 0.191
+          }
+        ]
+      }
+    },
+    {
+      "term": "respective applications in real-world domains",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the differences between rule-based and case-based reasoning systems and their respective applications in real-world domains."
+        }
+      ],
+      "match": {
+        "original_term": "respective applications in real-world domains",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.338,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.338
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.322
+          },
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.227
+          }
+        ]
+      }
+    },
+    {
+      "term": "scikit-fuzzy",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply fuzzy logic and Bayes nets to model uncertainty in expert systems using Python libraries such as scikit-fuzzy and PyMC3."
+        }
+      ],
+      "match": {
+        "original_term": "scikit-fuzzy",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'scikit-fuzzy' refers to a specific Python library for fuzzy logic, which is not represented by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:scikit-learn",
+            "label": "scikit-learn",
+            "score": 0.478
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.195
+          },
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.186
+          }
+        ]
+      }
+    },
+    {
+      "term": "simple expert system using CLIPS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a simple expert system using CLIPS or Prolog, demonstrating knowledge acquisition, inference, and user interaction."
+        }
+      ],
+      "match": {
+        "original_term": "simple expert system using CLIPS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.354,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:0f9958d2-f700-4f62-b90b-a5873cb5ae4c",
+            "label": "systems thinking",
+            "score": 0.354
+          },
+          {
+            "id": "esco:ca73ac82-867a-4afa-9732-834aebe896ff",
+            "label": "ICT system user requirements",
+            "score": 0.331
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.329
+          }
+        ]
+      }
+    },
+    {
+      "term": "user interaction",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a simple expert system using CLIPS or Prolog, demonstrating knowledge acquisition, inference, and user interaction."
+        }
+      ],
+      "match": {
+        "original_term": "user interaction",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'user interaction' refers to the interaction between users and a system, which is not explicitly covered by any of the provided taxonomy entries. The closest candidates are 'software interaction design' and 'user interface design', but these focus on design rather than the interaction its",
+        "candidates": [
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.527
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.442
+          },
+          {
+            "id": "esco:ca73ac82-867a-4afa-9732-834aebe896ff",
+            "label": "ICT system user requirements",
+            "score": 0.365
+          }
+        ]
+      }
+    },
+    {
+      "term": "user interface",
+      "canonical": {
+        "id": "custom:ui-design",
+        "label": "user interface design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the architecture and components of an expert system, including the knowledge base, inference engine, and user interface."
+        }
+      ],
+      "match": {
+        "original_term": "user interface",
+        "canonical_id": "custom:ui-design",
+        "canonical_label": "user interface design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.759,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.33",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.759
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.432
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.295
+          }
+        ]
+      }
+    },
+    {
+      "term": "Bayes Nets",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Uncertainty Handling: Bayes Nets"
+        },
+        {
+          "source": "description",
+          "text": "Bayes nets"
+        }
+      ],
+      "match": {
+        "original_term": "Bayes Nets",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Bayes Nets' refers to Bayesian networks, which are not explicitly covered by any of the provided taxonomy entries. The closest entry is 'Bayes theorem,' but this is a different concept.",
+        "candidates": [
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.489
+          },
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.249
+          },
+          {
+            "id": "custom:confidence-intervals",
+            "label": "confidence intervals",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "Forward",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Forward and Backward Chaining Algorithms"
+        },
+        {
+          "source": "description",
+          "text": "forward"
+        }
+      ],
+      "match": {
+        "original_term": "Forward",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'Forward' does not clearly match any of the provided taxonomy entries. It is too vague and does not align with any specific skill or concept listed in the candidates.",
+        "candidates": [
+          {
+            "id": "custom:forward-kinematics",
+            "label": "forward kinematics",
+            "score": 0.607
+          },
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.261
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "term": "Frames",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Knowledge Representation: Semantic Networks and Frames"
+        },
+        {
+          "source": "description",
+          "text": "frames"
+        }
+      ],
+      "match": {
+        "original_term": "Frames",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Frames' in the syllabus refers to 'Semantic Networks and Frames' as a knowledge representation method, which is not directly matched by any of the provided taxonomy entries. None of the candidates clearly represent the same skill.",
+        "candidates": [
+          {
+            "id": "custom:tf-transforms",
+            "label": "coordinate frame transforms",
+            "score": 0.5
+          },
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.37
+          },
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.253
+          }
+        ]
+      }
+    },
+    {
+      "term": "Inference Engines",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Inference Engines and Knowledge Bases"
+        },
+        {
+          "source": "description",
+          "text": "inference engines"
+        }
+      ],
+      "match": {
+        "original_term": "Inference Engines",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Inference Engines' as they refer to statistical inference, combustion engines, vehicle engines, or unrelated fields.",
+        "candidates": [
+          {
+            "id": "custom:inferential-statistics",
+            "label": "inferential statistics",
+            "score": 0.485
+          },
+          {
+            "id": "esco:be99117b-49a1-4ec2-a670-e9baac66c1bd",
+            "label": "principles of combustion engines",
+            "score": 0.462
+          },
+          {
+            "id": "esco:8a5d67b6-4abf-4fae-bedf-78c8882d7d47",
+            "label": "types of vehicle engines",
+            "score": 0.432
+          }
+        ]
+      }
+    },
+    {
+      "term": "Integration with Modern AI Frameworks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Integration with Modern AI Frameworks"
+        },
+        {
+          "source": "description",
+          "text": "integration with modern AI frameworks"
+        }
+      ],
+      "match": {
+        "original_term": "Integration with Modern AI Frameworks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries specifically refer to 'Integration with Modern AI Frameworks'. The closest entries are related to AI in general or specific frameworks like PyTorch and TensorFlow, but none capture the integration aspect explicitly.",
+        "candidates": [
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.414
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.357
+          },
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.321
+          }
+        ]
+      }
+    },
+    {
+      "term": "Knowledge Acquisition Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Knowledge Acquisition Techniques"
+        },
+        {
+          "source": "description",
+          "text": "knowledge acquisition techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Knowledge Acquisition Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Knowledge Acquisition Techniques'. The closest entries are related to information extraction or data mining, but they do not specifically refer to the process of acquiring knowledge.",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.424
+          },
+          {
+            "id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+            "label": "computer technology",
+            "score": 0.317
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.221
+          }
+        ]
+      }
+    },
+    {
+      "term": "MYCIN",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Expert System Architectures: MYCIN and Dendral"
+        },
+        {
+          "source": "description",
+          "text": "MYCIN"
+        }
+      ],
+      "match": {
+        "original_term": "MYCIN",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.199,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.199
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.197
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.196
+          }
+        ]
+      }
+    },
+    {
+      "term": "Uncertainty Handling",
+      "canonical": {
+        "id": "custom:probability-theory",
+        "label": "probability theory",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Uncertainty Handling: Fuzzy Logic"
+        },
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Uncertainty Handling: Bayes Nets"
+        }
+      ],
+      "match": {
+        "original_term": "Uncertainty Handling",
+        "canonical_id": "custom:probability-theory",
+        "canonical_label": "probability theory",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Uncertainty Handling' is closely related to probability theory, as it involves concepts like fuzzy logic and Bayes Nets, which are part of handling uncertainty through probabilistic methods.",
+        "candidates": [
+          {
+            "id": "esco:e3b4b533-cc4d-4c70-adb6-128120f40c88",
+            "label": "handling of dangerous goods",
+            "score": 0.421
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.351
+          },
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.22
+          }
+        ]
+      }
+    },
+    {
+      "term": "Bayesian network",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Build a Bayesian network for risk assessment using PyMC3"
+        }
+      ],
+      "match": {
+        "original_term": "Bayesian network",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Bayesian network' refers to a specific probabilistic graphical model used for reasoning under uncertainty, which is not captured by any of the provided taxonomy entries. None of the candidates directly relate to building or understanding Bayesian networks.",
+        "candidates": [
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.445
+          },
+          {
+            "id": "esco:2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80",
+            "label": "ICT network security risks",
+            "score": 0.409
+          },
+          {
+            "id": "esco:f6424ebb-8401-446b-9f7e-10d7c854da02",
+            "label": "ICT network simulation",
+            "score": 0.389
+          }
+        ]
+      }
+    },
+    {
+      "term": "case-based reasoning system",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Develop a case-based reasoning system for customer service"
+        }
+      ],
+      "match": {
+        "original_term": "case-based reasoning system",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.396,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:0f9958d2-f700-4f62-b90b-a5873cb5ae4c",
+            "label": "systems thinking",
+            "score": 0.396
+          },
+          {
+            "id": "esco:ca73ac82-867a-4afa-9732-834aebe896ff",
+            "label": "ICT system user requirements",
+            "score": 0.366
+          },
+          {
+            "id": "esco:cdd8b6b2-2fd9-453c-8d62-8a1dc6efcd49",
+            "label": "systems theory",
+            "score": 0.362
+          }
+        ]
+      }
+    },
+    {
+      "term": "customer service",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Develop a case-based reasoning system for customer service"
+        }
+      ],
+      "match": {
+        "original_term": "customer service",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'customer service' as described in the syllabus. The closest entries are related to user research, service-oriented modeling, or ICT systems, but none specifically refer to customer service skills.",
+        "candidates": [
+          {
+            "id": "esco:83218cac-3599-417e-93d2-26013cdccd98",
+            "label": "service-oriented modelling",
+            "score": 0.492
+          },
+          {
+            "id": "custom:user-research",
+            "label": "user research",
+            "score": 0.246
+          },
+          {
+            "id": "esco:ca73ac82-867a-4afa-9732-834aebe896ff",
+            "label": "ICT system user requirements",
+            "score": 0.227
+          }
+        ]
+      }
+    },
+    {
+      "term": "diagnostic application",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Design an inference engine for a diagnostic application"
+        }
+      ],
+      "match": {
+        "original_term": "diagnostic application",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'diagnostic application' refers to a specific type of application designed for diagnostic purposes, while none of the taxonomy entries directly match this skill. The closest is 'automotive diagnostic equipment' (id 2), but that refers to physical equipment rather than an application.",
+        "candidates": [
+          {
+            "id": "esco:96eb286a-58b7-45ff-a916-5578d0b79b8c",
+            "label": "Rapid application development",
+            "score": 0.467
+          },
+          {
+            "id": "esco:187f82c7-b165-4e6b-b327-704e38e85cdd",
+            "label": "automotive diagnostic equipment",
+            "score": 0.431
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.271
+          }
+        ]
+      }
+    },
+    {
+      "term": "expert system using precision",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Evaluate an expert system using precision and recall metrics"
+        }
+      ],
+      "match": {
+        "original_term": "expert system using precision",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.394,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:25c4cb91-d64b-48d1-a350-3527334a360d",
+            "label": "precision engineering",
+            "score": 0.394
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.394
+          },
+          {
+            "id": "esco:3ce1fe19-7f9e-4070-941d-651673a5693b",
+            "label": "decision support systems",
+            "score": 0.384
+          }
+        ]
+      }
+    },
+    {
+      "term": "recall metrics",
+      "canonical": {
+        "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+        "label": "software metrics",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Evaluate an expert system using precision and recall metrics"
+        }
+      ],
+      "match": {
+        "original_term": "recall metrics",
+        "canonical_id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+        "canonical_label": "software metrics",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'recall metrics' refers to metrics used in evaluating an expert system, which aligns with 'software metrics' as defined in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.51
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.24
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "risk assessment using PyMC3",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Build a Bayesian network for risk assessment using PyMC3"
+        }
+      ],
+      "match": {
+        "original_term": "risk assessment using PyMC3",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.631,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.09",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.631
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.544
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.369
+          }
+        ]
+      }
+    },
+    {
+      "term": "simple rule-based system in CLIPS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Implement a simple rule-based system in CLIPS"
+        }
+      ],
+      "match": {
+        "original_term": "simple rule-based system in CLIPS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.317,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:0f9958d2-f700-4f62-b90b-a5873cb5ae4c",
+            "label": "systems thinking",
+            "score": 0.317
+          },
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.308
+          },
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.296
+          }
+        ]
+      }
+    },
+    {
+      "term": "Backward Chaining Algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Forward and Backward Chaining Algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "Backward Chaining Algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Backward Chaining Algorithms' is a specific type of algorithm, and the entry 'algorithms' includes all self-contained step-by-step operations for solving problems, which matches the skill described.",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.538
+          },
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.216
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.207
+          }
+        ]
+      }
+    },
+    {
+      "term": "CLIPS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Production Rule Systems: CLIPS and Prolog"
+        }
+      ],
+      "match": {
+        "original_term": "CLIPS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.217,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.217
+          },
+          {
+            "id": "esco:2bde42ae-e776-41c1-9ded-b07b30bfe985",
+            "label": "Prolog (computer programming)",
+            "score": 0.216
+          },
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.201
+          }
+        ]
+      }
+    },
+    {
+      "term": "Current Trends",
+      "canonical": {
+        "id": "esco:42cb7669-c371-4903-9c0b-13db67b2e4bb",
+        "label": "emergent technologies",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Current Trends and Future Directions"
+        }
+      ],
+      "match": {
+        "original_term": "Current Trends",
+        "canonical_id": "esco:42cb7669-c371-4903-9c0b-13db67b2e4bb",
+        "canonical_label": "emergent technologies",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Current Trends' aligns with 'emergent technologies' as both refer to recent trends and developments in technology fields.",
+        "candidates": [
+          {
+            "id": "esco:57869946-cec2-4121-981c-84c9846c58d0",
+            "label": "electric current",
+            "score": 0.455
+          },
+          {
+            "id": "esco:071c7f1d-f659-4b96-a222-b21012297f3b",
+            "label": "energy market",
+            "score": 0.411
+          },
+          {
+            "id": "esco:42cb7669-c371-4903-9c0b-13db67b2e4bb",
+            "label": "emergent technologies",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "Dendral",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Expert System Architectures: MYCIN and Dendral"
+        }
+      ],
+      "match": {
+        "original_term": "Dendral",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.218,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.218
+          },
+          {
+            "id": "esco:69bece91-c806-42ad-bde4-db28c7f8fc4b",
+            "label": "mechanical systems",
+            "score": 0.214
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "term": "Ethical",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Ethical and Legal Considerations in Expert Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Ethical",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.631,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.39",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.631
+          },
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.245
+          },
+          {
+            "id": "esco:3ce1fe19-7f9e-4070-941d-651673a5693b",
+            "label": "decision support systems",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "Evolution of Expert Systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "History and Evolution of Expert Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Evolution of Expert Systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Evolution of Expert Systems'. The closest entries relate to software development methodologies or specific technical fields, but none capture the historical and developmental aspect of expert systems.",
+        "candidates": [
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.433
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.424
+          },
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.374
+          }
+        ]
+      }
+    },
+    {
+      "term": "Expert System Architectures",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Expert System Architectures: MYCIN and Dendral"
+        }
+      ],
+      "match": {
+        "original_term": "Expert System Architectures",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'Expert System Architectures' or its examples like MYCIN and Dendral. The closest entries are related to robotics, embedded systems, or software design patterns, but none specifically match the concept of expert system architectures.",
+        "candidates": [
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.582
+          },
+          {
+            "id": "esco:2180bd8c-86de-4889-8165-adac902eee9d",
+            "label": "embedded systems",
+            "score": 0.502
+          },
+          {
+            "id": "esco:69bece91-c806-42ad-bde4-db28c7f8fc4b",
+            "label": "mechanical systems",
+            "score": 0.376
+          }
+        ]
+      }
+    },
+    {
+      "term": "Expert System Evaluation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Expert System Evaluation and Testing"
+        }
+      ],
+      "match": {
+        "original_term": "Expert System Evaluation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill described by 'Expert System Evaluation' from the syllabus. The closest entries relate to testing procedures or systems, but none specifically address the evaluation of expert systems.",
+        "candidates": [
+          {
+            "id": "esco:4cdbc76c-75d8-4e12-8653-4820c2d5446f",
+            "label": "microsystem test procedures",
+            "score": 0.461
+          },
+          {
+            "id": "esco:0e9e3a56-3b26-4fa5-91df-6d9bfbea4259",
+            "label": "electronic test procedures",
+            "score": 0.447
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.431
+          }
+        ]
+      }
+    },
+    {
+      "term": "Expert Systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Expert Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Expert Systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Expert Systems' as described in the syllabus. The closest candidate, 'decision support systems', is a related but distinct concept.",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.484
+          },
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.474
+          },
+          {
+            "id": "esco:3ce1fe19-7f9e-4070-941d-651673a5693b",
+            "label": "decision support systems",
+            "score": 0.439
+          }
+        ]
+      }
+    },
+    {
+      "term": "Future Directions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Current Trends and Future Directions"
+        }
+      ],
+      "match": {
+        "original_term": "Future Directions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.239,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:42cb7669-c371-4903-9c0b-13db67b2e4bb",
+            "label": "emergent technologies",
+            "score": 0.239
+          },
+          {
+            "id": "esco:1acc3692-efa7-47d0-9deb-062e60b2208f",
+            "label": "new vehicles on the market",
+            "score": 0.225
+          },
+          {
+            "id": "esco:071c7f1d-f659-4b96-a222-b21012297f3b",
+            "label": "energy market",
+            "score": 0.224
+          }
+        ]
+      }
+    },
+    {
+      "term": "History",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "History and Evolution of Expert Systems"
+        }
+      ],
+      "match": {
+        "original_term": "History",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.237,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:cdd8b6b2-2fd9-453c-8d62-8a1dc6efcd49",
+            "label": "systems theory",
+            "score": 0.237
+          },
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.235
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "Knowledge Bases",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Inference Engines and Knowledge Bases"
+        }
+      ],
+      "match": {
+        "original_term": "Knowledge Bases",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.257,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.257
+          },
+          {
+            "id": "esco:be99117b-49a1-4ec2-a670-e9baac66c1bd",
+            "label": "principles of combustion engines",
+            "score": 0.241
+          },
+          {
+            "id": "custom:vector-databases",
+            "label": "vector databases",
+            "score": 0.235
+          }
+        ]
+      }
+    },
+    {
+      "term": "Knowledge Representation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Knowledge Representation: Semantic Networks and Frames"
+        }
+      ],
+      "match": {
+        "original_term": "Knowledge Representation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.258,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.258
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.227
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.226
+          }
+        ]
+      }
+    },
+    {
+      "term": "Legal Considerations in Expert Systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Ethical and Legal Considerations in Expert Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Legal Considerations in Expert Systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.38,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.38
+          },
+          {
+            "id": "esco:3ce1fe19-7f9e-4070-941d-651673a5693b",
+            "label": "decision support systems",
+            "score": 0.369
+          },
+          {
+            "id": "esco:5088c536-13fb-4b6b-85e7-4053578e1451",
+            "label": "electrical systems used in transportation",
+            "score": 0.362
+          }
+        ]
+      }
+    },
+    {
+      "term": "Production Rule Systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Production Rule Systems: CLIPS and Prolog"
+        }
+      ],
+      "match": {
+        "original_term": "Production Rule Systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'Production Rule Systems' refers to a specific type of rule-based system used in artificial intelligence and logic programming, particularly with tools like CLIPS and Prolog. None of the provided taxonomy entries accurately capture this specific skill.",
+        "candidates": [
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.455
+          },
+          {
+            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
+            "label": "packaging processes",
+            "score": 0.429
+          },
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.415
+          }
+        ]
+      }
+    },
+    {
+      "term": "Semantic Networks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Knowledge Representation: Semantic Networks and Frames"
+        }
+      ],
+      "match": {
+        "original_term": "Semantic Networks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Semantic Networks' refers to a specific knowledge representation technique, which is not captured by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.544
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.491
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.487
+          }
+        ]
+      }
+    },
+    {
+      "term": "Testing",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Expert System Evaluation and Testing"
+        }
+      ],
+      "match": {
+        "original_term": "Testing",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Testing' directly matches the label 'software testing' and is also listed as an alias in the 'also called' field.",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.891
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.698
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.674
+          }
+        ]
+      }
+    },
+    {
+      "term": "backward chaining",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "backward chaining"
+        }
+      ],
+      "match": {
+        "original_term": "backward chaining",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.23,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+            "label": "reverse engineering",
+            "score": 0.23
+          },
+          {
+            "id": "custom:forward-kinematics",
+            "label": "forward kinematics",
+            "score": 0.206
+          },
+          {
+            "id": "custom:backend-development",
+            "label": "back-end development",
+            "score": 0.196
+          }
+        ]
+      }
+    },
+    {
+      "term": "case-based reasoning",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "case-based reasoning"
+        }
+      ],
+      "match": {
+        "original_term": "case-based reasoning",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.249,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.249
+          },
+          {
+            "id": "custom:problem-solving",
+            "label": "problem solving",
+            "score": 0.196
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.194
+          }
+        ]
+      }
+    },
+    {
+      "term": "Dendral systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Dendral systems"
+        }
+      ],
+      "match": {
+        "original_term": "Dendral systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Dendral systems' does not match any of the provided taxonomy entries, as none of the labels or also-called terms align with 'Dendral systems'.",
+        "candidates": [
+          {
+            "id": "esco:69bece91-c806-42ad-bde4-db28c7f8fc4b",
+            "label": "mechanical systems",
+            "score": 0.49
+          },
+          {
+            "id": "esco:6c4b5031-2eaf-449e-af88-8304a66e4eb5",
+            "label": "fuel distribution systems",
+            "score": 0.423
+          },
+          {
+            "id": "esco:748d926e-0662-4c0d-b61d-78949c513a64",
+            "label": "vessel electrical system",
+            "score": 0.423
+          }
+        ]
+      }
+    },
+    {
+      "term": "implementation of expert systems using rule-based",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "implementation of expert systems using rule-based"
+        }
+      ],
+      "match": {
+        "original_term": "implementation of expert systems using rule-based",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.338,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.338
+          },
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.33
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.329
+          }
+        ]
+      }
+    },
+    {
+      "term": "industry-standard ontologies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "industry-standard ontologies"
+        }
+      ],
+      "match": {
+        "original_term": "industry-standard ontologies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'industry-standard ontologies' or a skill closely related to it.",
+        "candidates": [
+          {
+            "id": "esco:bac209e9-d337-4312-9041-17c2e75fa4df",
+            "label": "hardware industry",
+            "score": 0.406
+          },
+          {
+            "id": "esco:34d88149-a42c-4f01-a9f7-4ec0a6e5a77f",
+            "label": "farrier industry",
+            "score": 0.393
+          },
+          {
+            "id": "esco:41ec47dd-08b3-464a-9c45-c706f3e74467",
+            "label": "industrial software",
+            "score": 0.385
+          }
+        ]
+      }
+    },
+    {
+      "term": "production rule systems like CLIPS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "production rule systems like CLIPS"
+        }
+      ],
+      "match": {
+        "original_term": "production rule systems like CLIPS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'production rule systems like CLIPS' refers to a specific type of rule-based system used in artificial intelligence and expert systems, which is not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "esco:8bbb4eda-7964-4d30-8cbf-2742efbec484",
+            "label": "starch production processes",
+            "score": 0.481
+          },
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.376
+          },
+          {
+            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
+            "label": "packaging processes",
+            "score": 0.355
+          }
+        ]
+      }
+    },
+    {
+      "term": "Students will explore expert system architectures",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Students will explore expert system architectures"
+        }
+      ],
+      "match": {
+        "original_term": "Students will explore expert system architectures",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries accurately represent the skill described in the extracted phrase 'Students will explore expert system architectures'. The phrase refers to expert systems, which are rule-based systems used in artificial intelligence, while the closest entries relate to robotics,",
+        "candidates": [
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.472
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.358
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.336
+          }
+        ]
+      }
+    },
+    {
+      "term": "uncertainty handling with fuzzy logic",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "uncertainty handling with fuzzy logic"
+        }
+      ],
+      "match": {
+        "original_term": "uncertainty handling with fuzzy logic",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.336,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:e3b4b533-cc4d-4c70-adb6-128120f40c88",
+            "label": "handling of dangerous goods",
+            "score": 0.336
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.286
+          },
+          {
+            "id": "esco:0b472dad-1a3f-456e-99ba-de5ffe8665c2",
+            "label": "non-ferrous metal processing",
+            "score": 0.181
+          }
+        ]
+      }
+    }
+  ]
+}

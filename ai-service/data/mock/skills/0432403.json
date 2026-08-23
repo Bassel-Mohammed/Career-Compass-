@@ -1,0 +1,4737 @@
+{
+  "course_code": "0432403",
+  "course_codes": [
+    "0432403"
+  ],
+  "course_title": "Machine Learning",
+  "credit_hours": 2,
+  "plans": [
+    "CS/AI"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "accepted": 41,
+      "no_match": 45,
+      "needs_review": 18
+    },
+    "by_method": {
+      "exact_alias": 12,
+      "embedding_reranker": 54,
+      "llm": 38
+    }
+  },
+  "total_skills": 104,
+  "skills": [
+    {
+      "term": "PyTorch",
+      "canonical": {
+        "id": "custom:pytorch",
+        "label": "PyTorch",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and operation of deep learning frameworks such as TensorFlow and PyTorch, including their role in building neural networks."
+        },
+        {
+          "source": "description",
+          "text": "PyTorch"
+        }
+      ],
+      "match": {
+        "original_term": "PyTorch",
+        "canonical_id": "custom:pytorch",
+        "canonical_label": "PyTorch",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "scikit-learn",
+      "canonical": {
+        "id": "custom:scikit-learn",
+        "label": "scikit-learn",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply machine learning algorithms to solve practical problems using Python libraries such as scikit-learn and pandas."
+        },
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Tune hyperparameters using Optuna and scikit-learn"
+        }
+      ],
+      "match": {
+        "original_term": "scikit-learn",
+        "canonical_id": "custom:scikit-learn",
+        "canonical_label": "scikit-learn",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "selection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of model evaluation and selection, including the use of cross-validation, confusion matrices, and ROC curves."
+        },
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Feature Engineering and Selection"
+        }
+      ],
+      "match": {
+        "original_term": "selection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.229,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:be99117b-49a1-4ec2-a670-e9baac66c1bd",
+            "label": "principles of combustion engines",
+            "score": 0.229
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.219
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "supervised",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define supervised and unsupervised learning paradigms, including their mathematical foundations and applications in real-world scenarios."
+        },
+        {
+          "source": "description",
+          "text": "supervised"
+        }
+      ],
+      "match": {
+        "original_term": "supervised",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.231,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:de134835-030e-4f79-9873-e87c34c1a0db",
+            "label": "laboratory-based sciences",
+            "score": 0.231
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.227
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.209
+          }
+        ]
+      }
+    },
+    {
+      "term": "applications in real-world scenarios",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define supervised and unsupervised learning paradigms, including their mathematical foundations and applications in real-world scenarios."
+        }
+      ],
+      "match": {
+        "original_term": "applications in real-world scenarios",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.388,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.388
+          },
+          {
+            "id": "esco:8bc3c77c-30c3-45e6-bd61-069ba433ecfe",
+            "label": "e-learning software infrastructure",
+            "score": 0.35
+          },
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.265
+          }
+        ]
+      }
+    },
+    {
+      "term": "architecture",
+      "canonical": {
+        "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+        "label": "software architecture models",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and operation of deep learning frameworks such as TensorFlow and PyTorch, including their role in building neural networks."
+        }
+      ],
+      "match": {
+        "original_term": "architecture",
+        "canonical_id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+        "canonical_label": "software architecture models",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'architecture' in the context of deep learning frameworks refers to the structure and organization of software systems, which matches the definition of 'software architecture models' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.658
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.636
+          },
+          {
+            "id": "esco:1bba98a7-92b9-450b-9235-e0c905f8f3c4",
+            "label": "information architecture",
+            "score": 0.63
+          }
+        ]
+      }
+    },
+    {
+      "term": "complete machine learning pipeline",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design and implement a complete machine learning pipeline, including data preprocessing, model training, and deployment on cloud platforms."
+        }
+      ],
+      "match": {
+        "original_term": "complete machine learning pipeline",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.644,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.25",
+        "candidates": [
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.644
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.393
+          },
+          {
+            "id": "esco:d88cb3f1-8e02-4618-bf32-4b0488066934",
+            "label": "mechatronics",
+            "score": 0.378
+          }
+        ]
+      }
+    },
+    {
+      "term": "confusion matrices",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of model evaluation and selection, including the use of cross-validation, confusion matrices, and ROC curves."
+        }
+      ],
+      "match": {
+        "original_term": "confusion matrices",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'confusion matrices' as a skill. The closest entry is 'decision support systems', which is related but not the same skill.",
+        "candidates": [
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.613
+          },
+          {
+            "id": "esco:3ce1fe19-7f9e-4070-941d-651673a5693b",
+            "label": "decision support systems",
+            "score": 0.256
+          },
+          {
+            "id": "esco:c3a03c5a-c260-4c26-9b9a-873abb396f4d",
+            "label": "MATLAB",
+            "score": 0.211
+          }
+        ]
+      }
+    },
+    {
+      "term": "cross-validation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of model evaluation and selection, including the use of cross-validation, confusion matrices, and ROC curves."
+        }
+      ],
+      "match": {
+        "original_term": "cross-validation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.236,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.236
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.218
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "data preprocessing",
+      "canonical": {
+        "id": "custom:etl",
+        "label": "ETL pipelines",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design and implement a complete machine learning pipeline, including data preprocessing, model training, and deployment on cloud platforms."
+        }
+      ],
+      "match": {
+        "original_term": "data preprocessing",
+        "canonical_id": "custom:etl",
+        "canonical_label": "ETL pipelines",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'data preprocessing' is a core component of ETL pipelines, which involve extracting, transforming, and loading data. The syllabus explicitly mentions data preprocessing as part of a machine learning pipeline, aligning closely with the ETL pipelines skill.",
+        "candidates": [
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.502
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.488
+          },
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.468
+          }
+        ]
+      }
+    },
+    {
+      "term": "deployment on cloud platforms",
+      "canonical": {
+        "id": "esco:bd14968e-e409-45af-b362-3495ed7b10e0",
+        "label": "cloud technologies",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design and implement a complete machine learning pipeline, including data preprocessing, model training, and deployment on cloud platforms."
+        }
+      ],
+      "match": {
+        "original_term": "deployment on cloud platforms",
+        "canonical_id": "esco:bd14968e-e409-45af-b362-3495ed7b10e0",
+        "canonical_label": "cloud technologies",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'deployment on cloud platforms' directly relates to cloud technologies, which is explicitly defined as technologies enabling access to resources through remote servers, matching the context of deploying machine learning pipelines on cloud platforms.",
+        "candidates": [
+          {
+            "id": "esco:1d86f05e-e9cc-40ce-99d8-2b21cc71b16b",
+            "label": "solution deployment",
+            "score": 0.458
+          },
+          {
+            "id": "custom:ci-cd",
+            "label": "CI/CD pipelines",
+            "score": 0.44
+          },
+          {
+            "id": "esco:117373c8-f04b-4fff-8683-aebe36edac81",
+            "label": "hardware platforms",
+            "score": 0.425
+          }
+        ]
+      }
+    },
+    {
+      "term": "mathematical foundations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define supervised and unsupervised learning paradigms, including their mathematical foundations and applications in real-world scenarios."
+        }
+      ],
+      "match": {
+        "original_term": "mathematical foundations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.25,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.25
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.246
+          },
+          {
+            "id": "esco:7b5cce4d-c7fe-4119-b48f-70aa05391787",
+            "label": "computer science",
+            "score": 0.245
+          }
+        ]
+      }
+    },
+    {
+      "term": "model training",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design and implement a complete machine learning pipeline, including data preprocessing, model training, and deployment on cloud platforms."
+        }
+      ],
+      "match": {
+        "original_term": "model training",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'model training' is directly related to the machine learning process, and the taxonomy entry 'machine learning' explicitly covers algorithms that improve performance through data, which aligns with the syllabus mention of model training as part of a machine learning pipeline.",
+        "candidates": [
+          {
+            "id": "esco:67a118f4-8a5f-48f7-8e5f-de34b9ca2c37",
+            "label": "Hybrid model",
+            "score": 0.473
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.47
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.456
+          }
+        ]
+      }
+    },
+    {
+      "term": "operation of deep learning frameworks",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and operation of deep learning frameworks such as TensorFlow and PyTorch, including their role in building neural networks."
+        }
+      ],
+      "match": {
+        "original_term": "operation of deep learning frameworks",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.631,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.26",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.631
+          },
+          {
+            "id": "esco:24c200e5-be20-4370-a137-ab53797f3a17",
+            "label": "software frameworks",
+            "score": 0.372
+          },
+          {
+            "id": "esco:8bc3c77c-30c3-45e6-bd61-069ba433ecfe",
+            "label": "e-learning software infrastructure",
+            "score": 0.325
+          }
+        ]
+      }
+    },
+    {
+      "term": "pandas",
+      "canonical": {
+        "id": "custom:pandas",
+        "label": "pandas",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply machine learning algorithms to solve practical problems using Python libraries such as scikit-learn and pandas."
+        }
+      ],
+      "match": {
+        "original_term": "pandas",
+        "canonical_id": "custom:pandas",
+        "canonical_label": "pandas",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "principles of model evaluation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of model evaluation and selection, including the use of cross-validation, confusion matrices, and ROC curves."
+        }
+      ],
+      "match": {
+        "original_term": "principles of model evaluation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.367,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.367
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.363
+          },
+          {
+            "id": "esco:83218cac-3599-417e-93d2-26013cdccd98",
+            "label": "service-oriented modelling",
+            "score": 0.342
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROC curves",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of model evaluation and selection, including the use of cross-validation, confusion matrices, and ROC curves."
+        }
+      ],
+      "match": {
+        "original_term": "ROC curves",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.237,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:51586df8-1c46-4b47-8583-773cb63bf00b",
+            "label": "R",
+            "score": 0.237
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.205
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "role in building neural networks",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and operation of deep learning frameworks such as TensorFlow and PyTorch, including their role in building neural networks."
+        }
+      ],
+      "match": {
+        "original_term": "role in building neural networks",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.65,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.31",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.65
+          },
+          {
+            "id": "esco:2d63745d-3c4c-4da1-ad77-985f68768be9",
+            "label": "manufacturing of metal structures",
+            "score": 0.342
+          },
+          {
+            "id": "custom:pytorch",
+            "label": "PyTorch",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "TensorFlow",
+      "canonical": {
+        "id": "custom:tensorflow",
+        "label": "TensorFlow",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and operation of deep learning frameworks such as TensorFlow and PyTorch, including their role in building neural networks."
+        }
+      ],
+      "match": {
+        "original_term": "TensorFlow",
+        "canonical_id": "custom:tensorflow",
+        "canonical_label": "TensorFlow",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "unsupervised learning paradigms",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define supervised and unsupervised learning paradigms, including their mathematical foundations and applications in real-world scenarios."
+        }
+      ],
+      "match": {
+        "original_term": "unsupervised learning paradigms",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'unsupervised learning paradigms' is a specific type of machine learning, and the syllabus explicitly mentions both supervised and unsupervised learning paradigms, aligning directly with the 'machine learning' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.423
+          },
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.422
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.418
+          }
+        ]
+      }
+    },
+    {
+      "term": "SVM",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Implement SVM for text classification using TfidfVectorizer"
+        },
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Support Vector Machines (SVM) and Kernel Methods"
+        }
+      ],
+      "match": {
+        "original_term": "SVM",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.217,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.217
+          },
+          {
+            "id": "custom:vector-databases",
+            "label": "vector databases",
+            "score": 0.172
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.171
+          }
+        ]
+      }
+    },
+    {
+      "term": "VAE",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Build a VAE for image generation using TensorFlow"
+        },
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Variational Autoencoders (VAE)"
+        }
+      ],
+      "match": {
+        "original_term": "VAE",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.206,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.206
+          },
+          {
+            "id": "esco:82313e12-9d39-47d1-b7c9-78bbd6bb50e2",
+            "label": "CAE software",
+            "score": 0.205
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.184
+          }
+        ]
+      }
+    },
+    {
+      "term": "Classification",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Logistic Regression and Classification"
+        },
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Evaluation Metrics for Classification"
+        }
+      ],
+      "match": {
+        "original_term": "Classification",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.278,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.278
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.27
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.26
+          }
+        ]
+      }
+    },
+    {
+      "term": "Decision Trees",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Decision Trees and Ensemble Methods"
+        },
+        {
+          "source": "description",
+          "text": "decision trees"
+        }
+      ],
+      "match": {
+        "original_term": "Decision Trees",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'Decision Trees' as a specific skill. The closest entry, 'decision support systems', is broader and not specifically about decision trees.",
+        "candidates": [
+          {
+            "id": "esco:3ce1fe19-7f9e-4070-941d-651673a5693b",
+            "label": "decision support systems",
+            "score": 0.432
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.256
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.236
+          }
+        ]
+      }
+    },
+    {
+      "term": "Ethical Considerations in AI",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Ethical Considerations in AI"
+        },
+        {
+          "source": "description",
+          "text": "ethical considerations in AI"
+        }
+      ],
+      "match": {
+        "original_term": "Ethical Considerations in AI",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically address 'Ethical Considerations in AI'. The closest entry, 'principles of artificial intelligence', focuses on AI theories and systems, not ethical considerations.",
+        "candidates": [
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.461
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.389
+          },
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.356
+          }
+        ]
+      }
+    },
+    {
+      "term": "Evaluation Metrics",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Evaluation Metrics for Classification"
+        },
+        {
+          "source": "description",
+          "text": "evaluation metrics"
+        }
+      ],
+      "match": {
+        "original_term": "Evaluation Metrics",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the concept of 'Evaluation Metrics' as described in the syllabus. The closest entries are related to software metrics or database quality standards, but they do not specifically refer to evaluation metrics for classification tasks.",
+        "candidates": [
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.478
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.437
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.251
+          }
+        ]
+      }
+    },
+    {
+      "term": "Hyperparameter Tuning",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Model Optimization and Hyperparameter Tuning"
+        },
+        {
+          "source": "description",
+          "text": "hyperparameter tuning"
+        }
+      ],
+      "match": {
+        "original_term": "Hyperparameter Tuning",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.262,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.262
+          },
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.248
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.22
+          }
+        ]
+      }
+    },
+    {
+      "term": "Linear Regression",
+      "canonical": {
+        "id": "custom:regression-analysis",
+        "label": "regression analysis",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Linear Regression and Gradient Descent"
+        },
+        {
+          "source": "description",
+          "text": "linear regression"
+        }
+      ],
+      "match": {
+        "original_term": "Linear Regression",
+        "canonical_id": "custom:regression-analysis",
+        "canonical_label": "regression analysis",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Support Vector Machines",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Support Vector Machines (SVM) and Kernel Methods"
+        },
+        {
+          "source": "description",
+          "text": "support vector machines"
+        }
+      ],
+      "match": {
+        "original_term": "Support Vector Machines",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Support Vector Machines (SVM) is a specific type of machine learning algorithm, and the taxonomy entry for machine learning includes SVM as part of its scope.",
+        "candidates": [
+          {
+            "id": "esco:8203b07a-8097-4383-aff6-603b7df7f0f4",
+            "label": "ATM systems",
+            "score": 0.431
+          },
+          {
+            "id": "esco:44297bbb-306a-46fa-ab1b-fa3fb327ebda",
+            "label": "mechanical tools",
+            "score": 0.42
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.403
+          }
+        ]
+      }
+    },
+    {
+      "term": "binary classification",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Build a logistic regression model for binary classification"
+        }
+      ],
+      "match": {
+        "original_term": "binary classification",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.254,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.254
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.236
+          },
+          {
+            "id": "custom:binomial-distribution",
+            "label": "binomial distribution",
+            "score": 0.228
+          }
+        ]
+      }
+    },
+    {
+      "term": "dimensionality reduction on the Wine dataset",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Apply PCA for dimensionality reduction on the Wine dataset"
+        }
+      ],
+      "match": {
+        "original_term": "dimensionality reduction on the Wine dataset",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.351,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:18532b8f-360c-4e69-94f8-50795b07277a",
+            "label": "wine blending",
+            "score": 0.351
+          },
+          {
+            "id": "esco:13bf8e76-044a-43c3-9924-ee6d99b50a9f",
+            "label": "wine characteristics",
+            "score": 0.337
+          },
+          {
+            "id": "esco:198517e5-63bc-4337-bb33-6819bfa2f265",
+            "label": "sparkling wines",
+            "score": 0.313
+          }
+        ]
+      }
+    },
+    {
+      "term": "evaluation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 15,
+          "text": "Final project presentation and evaluation"
+        }
+      ],
+      "match": {
+        "original_term": "evaluation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.28,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.28
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.245
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.226
+          }
+        ]
+      }
+    },
+    {
+      "term": "image classification on the CIFAR-10 dataset",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Train a CNN for image classification on the CIFAR-10 dataset"
+        }
+      ],
+      "match": {
+        "original_term": "image classification on the CIFAR-10 dataset",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.338,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.338
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.331
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.33
+          }
+        ]
+      }
+    },
+    {
+      "term": "image generation using TensorFlow",
+      "canonical": {
+        "id": "custom:tensorflow",
+        "label": "TensorFlow",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Build a VAE for image generation using TensorFlow"
+        }
+      ],
+      "match": {
+        "original_term": "image generation using TensorFlow",
+        "canonical_id": "custom:tensorflow",
+        "canonical_label": "TensorFlow",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'image generation using TensorFlow' directly references the use of TensorFlow for a specific task, which aligns with the 'TensorFlow' skill in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.511
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.381
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.373
+          }
+        ]
+      }
+    },
+    {
+      "term": "k-means clustering on the MNIST dataset",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Perform k-means clustering on the MNIST dataset"
+        }
+      ],
+      "match": {
+        "original_term": "k-means clustering on the MNIST dataset",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.371,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.371
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.205
+          },
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.201
+          }
+        ]
+      }
+    },
+    {
+      "term": "linear regression using scikit-learn",
+      "canonical": {
+        "id": "custom:regression-analysis",
+        "label": "regression analysis",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 2,
+          "text": "Implement linear regression using scikit-learn"
+        }
+      ],
+      "match": {
+        "original_term": "linear regression using scikit-learn",
+        "canonical_id": "custom:regression-analysis",
+        "canonical_label": "regression analysis",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'linear regression using scikit-learn' directly refers to the skill of regression analysis, which is explicitly defined as modelling the relationship between a response and predictors, and includes linear regression as a specific case.",
+        "candidates": [
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.601
+          },
+          {
+            "id": "custom:scikit-learn",
+            "label": "scikit-learn",
+            "score": 0.592
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.327
+          }
+        ]
+      }
+    },
+    {
+      "term": "logistic regression model",
+      "canonical": {
+        "id": "custom:regression-analysis",
+        "label": "regression analysis",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Build a logistic regression model for binary classification"
+        }
+      ],
+      "match": {
+        "original_term": "logistic regression model",
+        "canonical_id": "custom:regression-analysis",
+        "canonical_label": "regression analysis",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'logistic regression model' specifically refers to a type of regression analysis used for binary classification, which aligns directly with the 'regression analysis' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.557
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.396
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.354
+          }
+        ]
+      }
+    },
+    {
+      "term": "LSTM network",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Implement an LSTM network for time series prediction"
+        }
+      ],
+      "match": {
+        "original_term": "LSTM network",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'LSTM network' refers to a type of neural network used in deep learning, which is directly captured by the 'deep learning' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.475
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.453
+          },
+          {
+            "id": "esco:f6424ebb-8401-446b-9f7e-10d7c854da02",
+            "label": "ICT network simulation",
+            "score": 0.407
+          }
+        ]
+      }
+    },
+    {
+      "term": "PCA",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Apply PCA for dimensionality reduction on the Wine dataset"
+        }
+      ],
+      "match": {
+        "original_term": "PCA",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.184,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:18532b8f-360c-4e69-94f8-50795b07277a",
+            "label": "wine blending",
+            "score": 0.184
+          },
+          {
+            "id": "esco:13bf8e76-044a-43c3-9924-ee6d99b50a9f",
+            "label": "wine characteristics",
+            "score": 0.182
+          },
+          {
+            "id": "esco:198517e5-63bc-4337-bb33-6819bfa2f265",
+            "label": "sparkling wines",
+            "score": 0.17
+          }
+        ]
+      }
+    },
+    {
+      "term": "simple neural network using TensorFlow",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Build a simple neural network using TensorFlow"
+        }
+      ],
+      "match": {
+        "original_term": "simple neural network using TensorFlow",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'simple neural network using TensorFlow' directly refers to deep learning, which is explicitly defined as 'machine learning with multi-layer neural networks' and includes TensorFlow as a framework.",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.489
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.487
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.341
+          }
+        ]
+      }
+    },
+    {
+      "term": "text classification using TfidfVectorizer",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Implement SVM for text classification using TfidfVectorizer"
+        }
+      ],
+      "match": {
+        "original_term": "text classification using TfidfVectorizer",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.362,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.362
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.332
+          },
+          {
+            "id": "custom:vector-databases",
+            "label": "vector databases",
+            "score": 0.198
+          }
+        ]
+      }
+    },
+    {
+      "term": "time series prediction",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Implement an LSTM network for time series prediction"
+        }
+      ],
+      "match": {
+        "original_term": "time series prediction",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'time series prediction' is implemented using an LSTM network, which is a type of deep learning model. This directly aligns with the 'deep learning' skill entry.",
+        "candidates": [
+          {
+            "id": "esco:5d46ca01-f2b4-4d0b-9232-6b8f012c223c",
+            "label": "similitude",
+            "score": 0.548
+          },
+          {
+            "id": "esco:f6424ebb-8401-446b-9f7e-10d7c854da02",
+            "label": "ICT network simulation",
+            "score": 0.24
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "Train a CNN",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Train a CNN for image classification on the CIFAR-10 dataset"
+        }
+      ],
+      "match": {
+        "original_term": "Train a CNN",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.201,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.201
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.194
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.189
+          }
+        ]
+      }
+    },
+    {
+      "term": "Tune hyperparameters using Optuna",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Tune hyperparameters using Optuna and scikit-learn"
+        }
+      ],
+      "match": {
+        "original_term": "Tune hyperparameters using Optuna",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.264,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:scikit-learn",
+            "label": "scikit-learn",
+            "score": 0.264
+          },
+          {
+            "id": "esco:27fabb9a-3294-4ddb-9844-9214b77d9084",
+            "label": "optomechanical devices",
+            "score": 0.199
+          },
+          {
+            "id": "esco:3912401a-cccf-4995-9f5b-76302b26fff4",
+            "label": "optomechanical components",
+            "score": 0.192
+          }
+        ]
+      }
+    },
+    {
+      "term": "Accuracy Metrics",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Confusion Matrix and Accuracy Metrics"
+        }
+      ],
+      "match": {
+        "original_term": "Accuracy Metrics",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Accuracy Metrics' refers to a specific type of evaluation metric used in machine learning or data analysis, which is not captured by any of the provided taxonomy entries. None of the candidates directly relate to accuracy metrics as a skill.",
+        "candidates": [
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.452
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.267
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.22
+          }
+        ]
+      }
+    },
+    {
+      "term": "Autoencoders",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Autoencoders and Generative Models"
+        }
+      ],
+      "match": {
+        "original_term": "Autoencoders",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.232,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.232
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.204
+          },
+          {
+            "id": "custom:actuators",
+            "label": "actuators",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "AWS",
+      "canonical": {
+        "id": "custom:aws",
+        "label": "Amazon Web Services",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "AWS and Google Cloud Platforms"
+        }
+      ],
+      "match": {
+        "original_term": "AWS",
+        "canonical_id": "custom:aws",
+        "canonical_label": "Amazon Web Services",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Backpropagation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Neural Networks and Backpropagation"
+        }
+      ],
+      "match": {
+        "original_term": "Backpropagation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.305,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.305
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.282
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.246
+          }
+        ]
+      }
+    },
+    {
+      "term": "Bayesian Optimization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Bayesian Optimization and Grid Search"
+        }
+      ],
+      "match": {
+        "original_term": "Bayesian Optimization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'Bayesian Optimization', which is a specific optimization technique using Bayesian methods. The closest entry is 'custom:bayes-theorem', but that refers to Bayes' theorem, not Bayesian Optimization.",
+        "candidates": [
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.462
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.23
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.223
+          }
+        ]
+      }
+    },
+    {
+      "term": "Bias",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Bias, Fairness, and Privacy"
+        }
+      ],
+      "match": {
+        "original_term": "Bias",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.236,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.236
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.229
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.206
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cloud Integration",
+      "canonical": {
+        "id": "custom:calculus",
+        "label": "calculus",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Model Deployment and Cloud Integration"
+        }
+      ],
+      "match": {
+        "original_term": "Cloud Integration",
+        "canonical_id": "custom:calculus",
+        "canonical_label": "calculus",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.672,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.16",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.672
+          },
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.512
+          },
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.467
+          }
+        ]
+      }
+    },
+    {
+      "term": "Clustering",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "K-Nearest Neighbors (KNN) and Clustering"
+        }
+      ],
+      "match": {
+        "original_term": "Clustering",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.227,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:7b969ac9-f085-4afb-a480-c5210fb4da7d",
+            "label": "milling machines",
+            "score": 0.227
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.222
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.204
+          }
+        ]
+      }
+    },
+    {
+      "term": "CNN",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Convolutional Neural Networks (CNN) for Image Recognition"
+        }
+      ],
+      "match": {
+        "original_term": "CNN",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.314,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.314
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.227
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.223
+          }
+        ]
+      }
+    },
+    {
+      "term": "Confusion Matrix",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Confusion Matrix and Accuracy Metrics"
+        }
+      ],
+      "match": {
+        "original_term": "Confusion Matrix",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Confusion Matrix' refers to a specific concept in machine learning and statistics used to evaluate classification models, which is not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.46
+          },
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.245
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.228
+          }
+        ]
+      }
+    },
+    {
+      "term": "Convolutional Neural Networks",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Convolutional Neural Networks (CNN) for Image Recognition"
+        }
+      ],
+      "match": {
+        "original_term": "Convolutional Neural Networks",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.732,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.44",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.732
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.289
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.272
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cost Function",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Cost Function and Optimization"
+        }
+      ],
+      "match": {
+        "original_term": "Cost Function",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'Cost Function' or its related concepts. The closest entries are about pricing, consumption, and calculus, which are distinct from the concept of a cost function in optimization.",
+        "candidates": [
+          {
+            "id": "esco:da40ce72-a158-4116-84d2-01d4924e0667",
+            "label": "parts pricing",
+            "score": 0.437
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.26
+          },
+          {
+            "id": "esco:3b73a161-be59-4079-815e-b4879f9b20b5",
+            "label": "gas consumption",
+            "score": 0.243
+          }
+        ]
+      }
+    },
+    {
+      "term": "Deep Learning",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Introduction to Deep Learning"
+        }
+      ],
+      "match": {
+        "original_term": "Deep Learning",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Dimensionality Reduction Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Dimensionality Reduction Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Dimensionality Reduction Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.389,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.389
+          },
+          {
+            "id": "esco:f26fa635-1f5e-469c-a1fc-3dea4ab39fc1",
+            "label": "metal eroding technology",
+            "score": 0.225
+          },
+          {
+            "id": "esco:f12d412a-04e3-49a8-a4f6-2e32a67c12a2",
+            "label": "metal drawing processes",
+            "score": 0.221
+          }
+        ]
+      }
+    },
+    {
+      "term": "Ensemble Methods",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Decision Trees and Ensemble Methods"
+        }
+      ],
+      "match": {
+        "original_term": "Ensemble Methods",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Ensemble Methods' as it is not covered by any of the listed labels or descriptions.",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.465
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.197
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.195
+          }
+        ]
+      }
+    },
+    {
+      "term": "Fairness",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Bias, Fairness, and Privacy"
+        }
+      ],
+      "match": {
+        "original_term": "Fairness",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.261,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.261
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.239
+          },
+          {
+            "id": "esco:13bf8e76-044a-43c3-9924-ee6d99b50a9f",
+            "label": "wine characteristics",
+            "score": 0.185
+          }
+        ]
+      }
+    },
+    {
+      "term": "Feature Engineering",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Feature Engineering and Selection"
+        }
+      ],
+      "match": {
+        "original_term": "Feature Engineering",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'Feature Engineering' or a closely related skill. The closest entries are in unrelated domains such as mining engineering, usability engineering, and mechanical engineering.",
+        "candidates": [
+          {
+            "id": "esco:5eeac647-dc4b-496d-b109-c90b58006021",
+            "label": "mining engineering",
+            "score": 0.531
+          },
+          {
+            "id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+            "label": "usability engineering",
+            "score": 0.505
+          },
+          {
+            "id": "esco:209a5498-3449-4689-8ed9-bd08cab4fd78",
+            "label": "engineering principles",
+            "score": 0.501
+          }
+        ]
+      }
+    },
+    {
+      "term": "Filters",
+      "canonical": {
+        "id": "esco:d1f607d0-48bb-4d08-a0c8-c6ee1c888b8d",
+        "label": "manufacturing plant equipment",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Pooling Layers and Filters"
+        }
+      ],
+      "match": {
+        "original_term": "Filters",
+        "canonical_id": "esco:d1f607d0-48bb-4d08-a0c8-c6ee1c888b8d",
+        "canonical_label": "manufacturing plant equipment",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'Filters' directly matches the 'filters' entry in the also called list of the 'manufacturing plant equipment' taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:d1f607d0-48bb-4d08-a0c8-c6ee1c888b8d",
+            "label": "manufacturing plant equipment",
+            "score": 1.0
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.284
+          },
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.209
+          }
+        ]
+      }
+    },
+    {
+      "term": "Generative Models",
+      "canonical": {
+        "id": "custom:large-language-models",
+        "label": "large language models",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Autoencoders and Generative Models"
+        }
+      ],
+      "match": {
+        "original_term": "Generative Models",
+        "canonical_id": "custom:large-language-models",
+        "canonical_label": "large language models",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Generative Models' is explicitly listed in the also called section of the 'large language models' entry, indicating it refers to the same skill.",
+        "candidates": [
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.518
+          },
+          {
+            "id": "custom:robot-dynamics",
+            "label": "robot dynamics",
+            "score": 0.219
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "Google Cloud Platforms",
+      "canonical": {
+        "id": "custom:gcp",
+        "label": "Google Cloud Platform",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "AWS and Google Cloud Platforms"
+        }
+      ],
+      "match": {
+        "original_term": "Google Cloud Platforms",
+        "canonical_id": "custom:gcp",
+        "canonical_label": "Google Cloud Platform",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Gradient Boosting",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Random Forest and Gradient Boosting"
+        }
+      ],
+      "match": {
+        "original_term": "Gradient Boosting",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.212,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.212
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.207
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.195
+          }
+        ]
+      }
+    },
+    {
+      "term": "Gradient Descent",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Linear Regression and Gradient Descent"
+        }
+      ],
+      "match": {
+        "original_term": "Gradient Descent",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.299,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.299
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.244
+          },
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "Grid Search",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Bayesian Optimization and Grid Search"
+        }
+      ],
+      "match": {
+        "original_term": "Grid Search",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly or indirectly refer to 'Grid Search' or related concepts. The closest is 'Bayes theorem' (id: custom:bayes-theorem), but 'Grid Search' is a specific optimization technique, not related to Bayesian probability.",
+        "candidates": [
+          {
+            "id": "custom:vector-databases",
+            "label": "vector databases",
+            "score": 0.475
+          },
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.468
+          },
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.227
+          }
+        ]
+      }
+    },
+    {
+      "term": "Hierarchical Clustering",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "K-Means and Hierarchical Clustering"
+        }
+      ],
+      "match": {
+        "original_term": "Hierarchical Clustering",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.251,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.251
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.222
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.211
+          }
+        ]
+      }
+    },
+    {
+      "term": "Image Recognition",
+      "canonical": {
+        "id": "custom:object-detection",
+        "label": "object detection",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Convolutional Neural Networks (CNN) for Image Recognition"
+        }
+      ],
+      "match": {
+        "original_term": "Image Recognition",
+        "canonical_id": "custom:object-detection",
+        "canonical_label": "object detection",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Image Recognition' is explicitly linked to 'object detection' in the syllabus, and 'object detection' is also called 'image detection' and 'object recognition', which directly matches the extracted phrase.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.526
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.476
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.468
+          }
+        ]
+      }
+    },
+    {
+      "term": "K-Means",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "K-Means and Hierarchical Clustering"
+        }
+      ],
+      "match": {
+        "original_term": "K-Means",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'K-Means' refers to a specific clustering algorithm in machine learning, which is not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.594
+          },
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.199
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.19
+          }
+        ]
+      }
+    },
+    {
+      "term": "K-Nearest Neighbors",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "K-Nearest Neighbors (KNN) and Clustering"
+        }
+      ],
+      "match": {
+        "original_term": "K-Nearest Neighbors",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.199,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.199
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.198
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.178
+          }
+        ]
+      }
+    },
+    {
+      "term": "Kernel Methods",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Support Vector Machines (SVM) and Kernel Methods"
+        }
+      ],
+      "match": {
+        "original_term": "Kernel Methods",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Kernel Methods' as described in the syllabus. The closest candidates are unrelated to machine learning or kernel methods.",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.475
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.415
+          },
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.415
+          }
+        ]
+      }
+    },
+    {
+      "term": "KNN",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "K-Nearest Neighbors (KNN) and Clustering"
+        }
+      ],
+      "match": {
+        "original_term": "KNN",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.251,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.251
+          },
+          {
+            "id": "custom:vector-databases",
+            "label": "vector databases",
+            "score": 0.186
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.171
+          }
+        ]
+      }
+    },
+    {
+      "term": "Logistic Regression",
+      "canonical": {
+        "id": "custom:regression-analysis",
+        "label": "regression analysis",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Logistic Regression and Classification"
+        }
+      ],
+      "match": {
+        "original_term": "Logistic Regression",
+        "canonical_id": "custom:regression-analysis",
+        "canonical_label": "regression analysis",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.67,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.42",
+        "candidates": [
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.67
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.247
+          },
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.241
+          }
+        ]
+      }
+    },
+    {
+      "term": "LSTM",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Recurrent Neural Networks (RNN) and LSTM"
+        }
+      ],
+      "match": {
+        "original_term": "LSTM",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.25,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.25
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.213
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.178
+          }
+        ]
+      }
+    },
+    {
+      "term": "Machine Learning",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Machine Learning"
+        }
+      ],
+      "match": {
+        "original_term": "Machine Learning",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Model Deployment",
+      "canonical": {
+        "id": "custom:cloud-computing",
+        "label": "cloud computing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Model Deployment and Cloud Integration"
+        }
+      ],
+      "match": {
+        "original_term": "Model Deployment",
+        "canonical_id": "custom:cloud-computing",
+        "canonical_label": "cloud computing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Model Deployment' is closely related to 'cloud computing' as it involves deploying models in a cloud environment, which is a key aspect of cloud computing.",
+        "candidates": [
+          {
+            "id": "esco:1d86f05e-e9cc-40ce-99d8-2b21cc71b16b",
+            "label": "solution deployment",
+            "score": 0.511
+          },
+          {
+            "id": "esco:67a118f4-8a5f-48f7-8e5f-de34b9ca2c37",
+            "label": "Hybrid model",
+            "score": 0.454
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.442
+          }
+        ]
+      }
+    },
+    {
+      "term": "Model Optimization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Model Optimization and Hyperparameter Tuning"
+        }
+      ],
+      "match": {
+        "original_term": "Model Optimization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Model Optimization' as described in the syllabus. The closest entries are related to machine learning or numerical methods, but they do not specifically refer to model optimization.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.424
+          },
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.265
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.237
+          }
+        ]
+      }
+    },
+    {
+      "term": "Neural Networks",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Neural Networks and Backpropagation"
+        }
+      ],
+      "match": {
+        "original_term": "Neural Networks",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Optimization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Cost Function and Optimization"
+        }
+      ],
+      "match": {
+        "original_term": "Optimization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.266,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:3b3b7373-220a-4287-87cf-e24a208b63c6",
+            "label": "quality and cycle time optimisation",
+            "score": 0.266
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.262
+          },
+          {
+            "id": "esco:da40ce72-a158-4116-84d2-01d4924e0667",
+            "label": "parts pricing",
+            "score": 0.255
+          }
+        ]
+      }
+    },
+    {
+      "term": "Pooling Layers",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Pooling Layers and Filters"
+        }
+      ],
+      "match": {
+        "original_term": "Pooling Layers",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.231,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.231
+          },
+          {
+            "id": "esco:7b969ac9-f085-4afb-a480-c5210fb4da7d",
+            "label": "milling machines",
+            "score": 0.227
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.219
+          }
+        ]
+      }
+    },
+    {
+      "term": "Privacy",
+      "canonical": {
+        "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+        "label": "data protection",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Bias, Fairness, and Privacy"
+        }
+      ],
+      "match": {
+        "original_term": "Privacy",
+        "canonical_id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+        "canonical_label": "data protection",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.668,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.12",
+        "candidates": [
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.668
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.545
+          },
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.184
+          }
+        ]
+      }
+    },
+    {
+      "term": "Random Forest",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Random Forest and Gradient Boosting"
+        }
+      ],
+      "match": {
+        "original_term": "Random Forest",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Random Forest' as it is a specific machine learning algorithm, and no entry in the shortlist refers to ensemble learning methods like Random Forest.",
+        "candidates": [
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.44
+          },
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.18
+          },
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.172
+          }
+        ]
+      }
+    },
+    {
+      "term": "Recurrent Neural Networks",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Recurrent Neural Networks (RNN) and LSTM"
+        }
+      ],
+      "match": {
+        "original_term": "Recurrent Neural Networks",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.74,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.53",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.74
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.214
+          },
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.207
+          }
+        ]
+      }
+    },
+    {
+      "term": "RNN",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Recurrent Neural Networks (RNN) and LSTM"
+        }
+      ],
+      "match": {
+        "original_term": "RNN",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.323,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.323
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.209
+          },
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.172
+          }
+        ]
+      }
+    },
+    {
+      "term": "Sequence Modeling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Sequence Modeling and Time Series"
+        }
+      ],
+      "match": {
+        "original_term": "Sequence Modeling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Sequence Modeling' as it is not related to database design, computer networks, counting rules, linear algebra, regression analysis, computer vision, TensorFlow, design patterns, calculus, or data models.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.504
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.254
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.251
+          }
+        ]
+      }
+    },
+    {
+      "term": "Supervised vs",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Supervised vs. Unsupervised Learning"
+        }
+      ],
+      "match": {
+        "original_term": "Supervised vs",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.209,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:dc298fac-7ab4-4feb-9b43-33d947d7703e",
+            "label": "standards for web-based e-learning",
+            "score": 0.209
+          },
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.205
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "Time Series",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Sequence Modeling and Time Series"
+        }
+      ],
+      "match": {
+        "original_term": "Time Series",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.242,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.242
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.219
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.199
+          }
+        ]
+      }
+    },
+    {
+      "term": "Unsupervised Learning",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Supervised vs. Unsupervised Learning"
+        }
+      ],
+      "match": {
+        "original_term": "Unsupervised Learning",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Unsupervised Learning is a subset of Machine Learning, and the phrase directly references a specific type of learning within the broader category of machine learning.",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.48
+          },
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.479
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.465
+          }
+        ]
+      }
+    },
+    {
+      "term": "Variational Autoencoders",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Variational Autoencoders (VAE)"
+        }
+      ],
+      "match": {
+        "original_term": "Variational Autoencoders",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.211,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.211
+          },
+          {
+            "id": "esco:8a5d67b6-4abf-4fae-bedf-78c8882d7d47",
+            "label": "types of vehicle engines",
+            "score": 0.205
+          },
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.187
+          }
+        ]
+      }
+    },
+    {
+      "term": "accuracy",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "accuracy"
+        }
+      ],
+      "match": {
+        "original_term": "accuracy",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.166,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:tableau",
+            "label": "Tableau",
+            "score": 0.166
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.165
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.165
+          }
+        ]
+      }
+    },
+    {
+      "term": "advanced concepts in Machine Learning",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "advanced concepts in Machine Learning"
+        }
+      ],
+      "match": {
+        "original_term": "advanced concepts in Machine Learning",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.636,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.24",
+        "candidates": [
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.636
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.391
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.376
+          }
+        ]
+      }
+    },
+    {
+      "term": "algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "cloud platforms like AWS",
+      "canonical": {
+        "id": "custom:aws",
+        "label": "Amazon Web Services",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "cloud platforms like AWS"
+        }
+      ],
+      "match": {
+        "original_term": "cloud platforms like AWS",
+        "canonical_id": "custom:aws",
+        "canonical_label": "Amazon Web Services",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'cloud platforms like AWS' directly refers to Amazon Web Services, which is explicitly named in the 'custom:aws' entry.",
+        "candidates": [
+          {
+            "id": "custom:gcp",
+            "label": "Google Cloud Platform",
+            "score": 0.548
+          },
+          {
+            "id": "custom:aws",
+            "label": "Amazon Web Services",
+            "score": 0.48
+          },
+          {
+            "id": "esco:778ca7ad-6c5d-4868-9b96-a7777dca799c",
+            "label": "ICT help platforms",
+            "score": 0.389
+          }
+        ]
+      }
+    },
+    {
+      "term": "deep learning frameworks like TensorFlow",
+      "canonical": {
+        "id": "custom:tensorflow",
+        "label": "TensorFlow",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "deep learning frameworks like TensorFlow"
+        }
+      ],
+      "match": {
+        "original_term": "deep learning frameworks like TensorFlow",
+        "canonical_id": "custom:tensorflow",
+        "canonical_label": "TensorFlow",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'deep learning frameworks like TensorFlow' directly mentions TensorFlow as a specific framework, matching the label 'TensorFlow' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.571
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.525
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.363
+          }
+        ]
+      }
+    },
+    {
+      "term": "F1 score",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "F1 score"
+        }
+      ],
+      "match": {
+        "original_term": "F1 score",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.148,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:8a5d67b6-4abf-4fae-bedf-78c8882d7d47",
+            "label": "types of vehicle engines",
+            "score": 0.148
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.147
+          },
+          {
+            "id": "custom:forward-kinematics",
+            "label": "forward kinematics",
+            "score": 0.146
+          }
+        ]
+      }
+    },
+    {
+      "term": "Google Cloud",
+      "canonical": {
+        "id": "custom:gcp",
+        "label": "Google Cloud Platform",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Google Cloud"
+        }
+      ],
+      "match": {
+        "original_term": "Google Cloud",
+        "canonical_id": "custom:gcp",
+        "canonical_label": "Google Cloud Platform",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "k-means clustering",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "k-means clustering"
+        }
+      ],
+      "match": {
+        "original_term": "k-means clustering",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.192,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.192
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.182
+          },
+          {
+            "id": "custom:teamwork",
+            "label": "teamwork",
+            "score": 0.181
+          }
+        ]
+      }
+    },
+    {
+      "term": "Kaggle",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Kaggle"
+        }
+      ],
+      "match": {
+        "original_term": "Kaggle",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.208,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:message-queues",
+            "label": "message queues",
+            "score": 0.208
+          },
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.184
+          },
+          {
+            "id": "custom:tableau",
+            "label": "Tableau",
+            "score": 0.173
+          }
+        ]
+      }
+    },
+    {
+      "term": "model selection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "model selection"
+        }
+      ],
+      "match": {
+        "original_term": "model selection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'model selection'. The closest is 'scientific modelling', but 'model selection' is a specific task within the broader concept of scientific modelling and does not exactly match the label.",
+        "candidates": [
+          {
+            "id": "esco:cb304338-3a44-4b6f-802b-dfc6c64de109",
+            "label": "scientific modelling",
+            "score": 0.432
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.392
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.242
+          }
+        ]
+      }
+    },
+    {
+      "term": "precision",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "precision"
+        }
+      ],
+      "match": {
+        "original_term": "precision",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'precision' does not match any of the provided taxonomy entries in meaning or specific terminology.",
+        "candidates": [
+          {
+            "id": "esco:2fea2558-630e-480d-9e12-47a05bc19b55",
+            "label": "precision mechanics",
+            "score": 0.62
+          },
+          {
+            "id": "esco:25c4cb91-d64b-48d1-a350-3527334a360d",
+            "label": "precision engineering",
+            "score": 0.611
+          },
+          {
+            "id": "esco:b386e189-12c5-4df6-b1db-059eb3f6dd88",
+            "label": "precision measuring instruments",
+            "score": 0.512
+          }
+        ]
+      }
+    },
+    {
+      "term": "recall",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "recall"
+        }
+      ],
+      "match": {
+        "original_term": "recall",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.201,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.201
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.187
+          },
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.177
+          }
+        ]
+      }
+    },
+    {
+      "term": "This course covers foundational",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "This course covers foundational"
+        }
+      ],
+      "match": {
+        "original_term": "This course covers foundational",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.248,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:be99117b-49a1-4ec2-a670-e9baac66c1bd",
+            "label": "principles of combustion engines",
+            "score": 0.248
+          },
+          {
+            "id": "esco:54804209-6aac-4ca4-bf3c-aef4fbe18f8c",
+            "label": "principles of mechanical engineering",
+            "score": 0.231
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "unsupervised learning methods",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "unsupervised learning methods"
+        }
+      ],
+      "match": {
+        "original_term": "unsupervised learning methods",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'unsupervised learning methods' is a specific type of machine learning, and the taxonomy entry for 'machine learning' includes all learning algorithms, including unsupervised methods.",
+        "candidates": [
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.418
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.414
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.408
+          }
+        ]
+      }
+    }
+  ]
+}

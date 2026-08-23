@@ -1,0 +1,4505 @@
+{
+  "course_code": "0444504",
+  "course_codes": [
+    "0444504"
+  ],
+  "course_title": "Advanced Web Applications Programming",
+  "credit_hours": 3,
+  "plans": [
+    "SE"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "no_match": 32,
+      "accepted": 39,
+      "needs_review": 25
+    },
+    "by_method": {
+      "embedding_reranker": 42,
+      "llm": 50,
+      "exact_alias": 4
+    }
+  },
+  "total_skills": 96,
+  "skills": [
+    {
+      "term": "JWT",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "lab",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of OAuth2 and JWT for secure user authentication and session management."
+        },
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Implement user authentication with OAuth2 and JWT"
+        },
+        {
+          "source": "description",
+          "text": "JWT"
+        }
+      ],
+      "match": {
+        "original_term": "JWT",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.185,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.185
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.183
+          },
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.183
+          }
+        ]
+      }
+    },
+    {
+      "term": "load balancing",
+      "canonical": {
+        "id": "custom:performance-testing",
+        "label": "performance testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "lab",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Optimize API performance with caching and load balancing"
+        },
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Load balancing"
+        },
+        {
+          "source": "description",
+          "text": "load balancing"
+        }
+      ],
+      "match": {
+        "original_term": "load balancing",
+        "canonical_id": "custom:performance-testing",
+        "canonical_label": "performance testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'load balancing' is directly related to optimizing system performance under load, which aligns with the definition of performance testing, including load testing.",
+        "candidates": [
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.503
+          },
+          {
+            "id": "esco:7b2ebf06-c789-434e-b274-7f159a1a4ea3",
+            "label": "machinery load capacity",
+            "score": 0.391
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.237
+          }
+        ]
+      }
+    },
+    {
+      "term": "Node.js",
+      "canonical": {
+        "id": "custom:nodejs",
+        "label": "Node.js",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply Node.js and Express middleware for routing, middleware chaining, and error handling in web applications."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Node.js and Express setup"
+        },
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Node.js and MongoDB integration"
+        }
+      ],
+      "match": {
+        "original_term": "Node.js",
+        "canonical_id": "custom:nodejs",
+        "canonical_label": "Node.js",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "middleware chaining",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply Node.js and Express middleware for routing, middleware chaining, and error handling in web applications."
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Middleware chaining"
+        }
+      ],
+      "match": {
+        "original_term": "middleware chaining",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.262,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.262
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.212
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.209
+          }
+        ]
+      }
+    },
+    {
+      "term": "routing",
+      "canonical": {
+        "id": "esco:7f1a7abb-9208-48b7-8b84-2c1f283a50a0",
+        "label": "call routing",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply Node.js and Express middleware for routing, middleware chaining, and error handling in web applications."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Routing and middleware"
+        }
+      ],
+      "match": {
+        "original_term": "routing",
+        "canonical_id": "esco:7f1a7abb-9208-48b7-8b84-2c1f283a50a0",
+        "canonical_label": "call routing",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.661,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.12",
+        "candidates": [
+          {
+            "id": "esco:7f1a7abb-9208-48b7-8b84-2c1f283a50a0",
+            "label": "call routing",
+            "score": 0.661
+          },
+          {
+            "id": "esco:0da6cab1-0ee9-4391-a299-f71fbf21db56",
+            "label": "ICT network routing",
+            "score": 0.544
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.27
+          }
+        ]
+      }
+    },
+    {
+      "term": "session management",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of OAuth2 and JWT for secure user authentication and session management."
+        },
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Session management"
+        }
+      ],
+      "match": {
+        "original_term": "session management",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'session management' as a skill. The closest entries relate to cybersecurity, information confidentiality, and mobile device management, but none specifically match the concept of session management.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.495
+          },
+          {
+            "id": "esco:cf532795-a1fd-43bd-8407-6e43f877e6e3",
+            "label": "mobile device management",
+            "score": 0.434
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.233
+          }
+        ]
+      }
+    },
+    {
+      "term": "XML",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define RESTful API architecture using JSON and XML for data exchange between client and server."
+        },
+        {
+          "source": "description",
+          "text": "XML"
+        }
+      ],
+      "match": {
+        "original_term": "XML",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'XML' refers specifically to the eXtensible Markup Language, which is not directly covered by any of the provided taxonomy entries. None of the candidates explicitly name XML as a skill.",
+        "candidates": [
+          {
+            "id": "esco:b4dc6e4f-dc7d-445f-8ce2-d7b9d225e282",
+            "label": "AJAX",
+            "score": 0.491
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.254
+          },
+          {
+            "id": "custom:backend-development",
+            "label": "back-end development",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "data exchange between client",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define RESTful API architecture using JSON and XML for data exchange between client and server."
+        }
+      ],
+      "match": {
+        "original_term": "data exchange between client",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.363,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.363
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.359
+          },
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.356
+          }
+        ]
+      }
+    },
+    {
+      "term": "error handling in web applications",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply Node.js and Express middleware for routing, middleware chaining, and error handling in web applications."
+        }
+      ],
+      "match": {
+        "original_term": "error handling in web applications",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.265,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.265
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.23
+          },
+          {
+            "id": "esco:976455eb-5bbe-4493-ae64-ed16c3b009ea",
+            "label": "mobile operating systems",
+            "score": 0.207
+          }
+        ]
+      }
+    },
+    {
+      "term": "Express middleware",
+      "canonical": {
+        "id": "custom:nodejs",
+        "label": "Node.js",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply Node.js and Express middleware for routing, middleware chaining, and error handling in web applications."
+        }
+      ],
+      "match": {
+        "original_term": "Express middleware",
+        "canonical_id": "custom:nodejs",
+        "canonical_label": "Node.js",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.694,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.49",
+        "candidates": [
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.694
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.204
+          },
+          {
+            "id": "esco:8c88d336-c249-4537-b26e-d679a85c4b9b",
+            "label": "Ajax Framework",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "hooks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the lifecycle of a React component and its interaction with the DOM using JSX and hooks."
+        }
+      ],
+      "match": {
+        "original_term": "hooks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.197,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.197
+          },
+          {
+            "id": "esco:8c88d336-c249-4537-b26e-d679a85c4b9b",
+            "label": "Ajax Framework",
+            "score": 0.178
+          },
+          {
+            "id": "esco:9b9de2a4-d8af-4a7b-933a-a8334ae60067",
+            "label": "JavaScript Framework",
+            "score": 0.178
+          }
+        ]
+      }
+    },
+    {
+      "term": "interaction with the DOM using JSX",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the lifecycle of a React component and its interaction with the DOM using JSX and hooks."
+        }
+      ],
+      "match": {
+        "original_term": "interaction with the DOM using JSX",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.381,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.381
+          },
+          {
+            "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+            "label": "JavaScript",
+            "score": 0.232
+          },
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "lifecycle of a React component",
+      "canonical": {
+        "id": "esco:09f2f811-a3fb-4de3-a70f-6420a6935575",
+        "label": "systems development life-cycle",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the lifecycle of a React component and its interaction with the DOM using JSX and hooks."
+        }
+      ],
+      "match": {
+        "original_term": "lifecycle of a React component",
+        "canonical_id": "esco:09f2f811-a3fb-4de3-a70f-6420a6935575",
+        "canonical_label": "systems development life-cycle",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'lifecycle of a React component' directly relates to the 'systems development life-cycle' as it describes the stages a component goes through during its existence, which aligns with the concept of a life-cycle in software development.",
+        "candidates": [
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.496
+          },
+          {
+            "id": "esco:f5db895c-533b-421b-8e7a-0ea39aadf3e5",
+            "label": "components of clocks",
+            "score": 0.398
+          },
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.397
+          }
+        ]
+      }
+    },
+    {
+      "term": "principles of OAuth2",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of OAuth2 and JWT for secure user authentication and session management."
+        }
+      ],
+      "match": {
+        "original_term": "principles of OAuth2",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to the principles of OAuth2, which is a specific protocol for authentication and authorization. The closest entries relate to cybersecurity, data protection, and secure coding, but none specifically address OAuth2 principles.",
+        "candidates": [
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.51
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.458
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.389
+          }
+        ]
+      }
+    },
+    {
+      "term": "real-time chat application using WebSockets",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a real-time chat application using WebSockets and Socket.IO with secure authentication mechanisms."
+        }
+      ],
+      "match": {
+        "original_term": "real-time chat application using WebSockets",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill described in the extracted phrase 'real-time chat application using WebSockets'. The closest entries are related to real-time computing, web application security, and specific technologies like WebSphere or Tomcat, but none specifically ",
+        "candidates": [
+          {
+            "id": "esco:bf6c5ed4-84af-440f-abcc-7fa5ba19c738",
+            "label": "real-time computing",
+            "score": 0.421
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.344
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.324
+          }
+        ]
+      }
+    },
+    {
+      "term": "RESTful API architecture using JSON",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define RESTful API architecture using JSON and XML for data exchange between client and server."
+        }
+      ],
+      "match": {
+        "original_term": "RESTful API architecture using JSON",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.624,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.29",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.624
+          },
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.331
+          },
+          {
+            "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+            "label": "JavaScript",
+            "score": 0.266
+          }
+        ]
+      }
+    },
+    {
+      "term": "secure user authentication",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of OAuth2 and JWT for secure user authentication and session management."
+        }
+      ],
+      "match": {
+        "original_term": "secure user authentication",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.15,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'secure user authentication' specifically refers to methods for authenticating users securely, which is not directly captured by any of the provided taxonomy entries. None of the entries focus on authentication mechanisms like OAuth2 and JWT, which are explicitly mentioned in the syllabus",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.425
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.362
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.26
+          }
+        ]
+      }
+    },
+    {
+      "term": "server",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define RESTful API architecture using JSON and XML for data exchange between client and server."
+        }
+      ],
+      "match": {
+        "original_term": "server",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'server' does not directly match any of the provided taxonomy entries, which focus on API development, JavaScript, or web design rather than the general concept of a server.",
+        "candidates": [
+          {
+            "id": "custom:backend-development",
+            "label": "back-end development",
+            "score": 0.549
+          },
+          {
+            "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+            "label": "JavaScript",
+            "score": 0.535
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.332
+          }
+        ]
+      }
+    },
+    {
+      "term": "Socket.IO with secure authentication mechanisms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a real-time chat application using WebSockets and Socket.IO with secure authentication mechanisms."
+        }
+      ],
+      "match": {
+        "original_term": "Socket.IO with secure authentication mechanisms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.385,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.385
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.242
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.221
+          }
+        ]
+      }
+    },
+    {
+      "term": "management with Redux",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Implement state management with Redux"
+        },
+        {
+          "source": "description",
+          "text": "management with Redux"
+        }
+      ],
+      "match": {
+        "original_term": "management with Redux",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'management with Redux' as it refers to state management using the Redux library, which is not covered by any of the listed skills.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.479
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.424
+          },
+          {
+            "id": "esco:cf532795-a1fd-43bd-8407-6e43f877e6e3",
+            "label": "mobile device management",
+            "score": 0.417
+          }
+        ]
+      }
+    },
+    {
+      "term": "authentication",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Middleware for logging and authentication"
+        },
+        {
+          "source": "description",
+          "text": "authentication"
+        }
+      ],
+      "match": {
+        "original_term": "authentication",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.262,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.262
+          },
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.257
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.244
+          }
+        ]
+      }
+    },
+    {
+      "term": "CSRF prevention",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "XSS and CSRF prevention"
+        },
+        {
+          "source": "description",
+          "text": "CSRF prevention"
+        }
+      ],
+      "match": {
+        "original_term": "CSRF prevention",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'CSRF prevention' directly relates to secure coding practices, as it involves protecting against common web vulnerabilities, which is a core aspect of secure coding.",
+        "candidates": [
+          {
+            "id": "esco:75f312e1-622b-4751-8d93-815b32feaf8d",
+            "label": "pollution prevention",
+            "score": 0.479
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.204
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "term": "middleware",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Routing and middleware"
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Middleware for logging and authentication"
+        }
+      ],
+      "match": {
+        "original_term": "middleware",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.22,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:0da6cab1-0ee9-4391-a299-f71fbf21db56",
+            "label": "ICT network routing",
+            "score": 0.22
+          },
+          {
+            "id": "esco:7f1a7abb-9208-48b7-8b84-2c1f283a50a0",
+            "label": "call routing",
+            "score": 0.22
+          },
+          {
+            "id": "esco:3ce1fe19-7f9e-4070-941d-651673a5693b",
+            "label": "decision support systems",
+            "score": 0.219
+          }
+        ]
+      }
+    },
+    {
+      "term": "XSS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "XSS and CSRF prevention"
+        },
+        {
+          "source": "description",
+          "text": "XSS"
+        }
+      ],
+      "match": {
+        "original_term": "XSS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.171,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.171
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.159
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.158
+          }
+        ]
+      }
+    },
+    {
+      "term": "API performance with caching",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Optimize API performance with caching and load balancing"
+        }
+      ],
+      "match": {
+        "original_term": "API performance with caching",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'API performance with caching' as a skill. The closest entries are related to API testing, REST API development, or performance analysis methods, but none directly match the phrase.",
+        "candidates": [
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.406
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.388
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.382
+          }
+        ]
+      }
+    },
+    {
+      "term": "full-stack microservices application",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Design and implement a full-stack microservices application"
+        }
+      ],
+      "match": {
+        "original_term": "full-stack microservices application",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'full-stack microservices application' refers to a specific combination of full-stack development and microservices architecture, which is not explicitly captured by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:microservices",
+            "label": "microservices architecture",
+            "score": 0.533
+          },
+          {
+            "id": "custom:full-stack-development",
+            "label": "full-stack development",
+            "score": 0.515
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.376
+          }
+        ]
+      }
+    },
+    {
+      "term": "management using React Context",
+      "canonical": {
+        "id": "custom:react",
+        "label": "React",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Implement state management using React Context"
+        }
+      ],
+      "match": {
+        "original_term": "management using React Context",
+        "canonical_id": "custom:react",
+        "canonical_label": "React",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'management using React Context' refers to state management in React, which is a core aspect of the React library.",
+        "candidates": [
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.458
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.356
+          },
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.35
+          }
+        ]
+      }
+    },
+    {
+      "term": "MongoDB-based REST API with Express",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Develop a MongoDB-based REST API with Express"
+        }
+      ],
+      "match": {
+        "original_term": "MongoDB-based REST API with Express",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'MongoDB-based REST API with Express' directly refers to REST API development, which is explicitly named in the 'custom:rest-api' entry.",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.504
+          },
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.447
+          },
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.447
+          }
+        ]
+      }
+    },
+    {
+      "term": "props",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Create a simple React component with state and props"
+        }
+      ],
+      "match": {
+        "original_term": "props",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.194,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.194
+          },
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.183
+          },
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.164
+          }
+        ]
+      }
+    },
+    {
+      "term": "real-time chat application with Socket.IO",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Create a real-time chat application with Socket.IO"
+        }
+      ],
+      "match": {
+        "original_term": "real-time chat application with Socket.IO",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.334,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.334
+          },
+          {
+            "id": "esco:96eb286a-58b7-45ff-a916-5578d0b79b8c",
+            "label": "Rapid application development",
+            "score": 0.32
+          },
+          {
+            "id": "esco:0fb753a1-2ef2-4429-84d2-ecb2b24daf7a",
+            "label": "Apache Tomcat",
+            "score": 0.189
+          }
+        ]
+      }
+    },
+    {
+      "term": "REST API with Express",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 2,
+          "text": "Build a basic REST API with Express"
+        }
+      ],
+      "match": {
+        "original_term": "REST API with Express",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'REST API with Express' directly aligns with 'REST API development', which specifically refers to designing and building HTTP interfaces between services, matching the syllabus phrase.",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.618
+          },
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.558
+          },
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.424
+          }
+        ]
+      }
+    },
+    {
+      "term": "simple React component with state",
+      "canonical": {
+        "id": "custom:react",
+        "label": "React",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Create a simple React component with state and props"
+        }
+      ],
+      "match": {
+        "original_term": "simple React component with state",
+        "canonical_id": "custom:react",
+        "canonical_label": "React",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'simple React component with state' directly relates to React development, which is explicitly covered by the 'custom:react' entry.",
+        "candidates": [
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.43
+          },
+          {
+            "id": "esco:f5fa2654-52cc-45d2-ac92-ac979dee5d12",
+            "label": "engine components",
+            "score": 0.342
+          },
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "term": "single-page application with React Router",
+      "canonical": {
+        "id": "custom:react",
+        "label": "React",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Build a single-page application with React Router"
+        }
+      ],
+      "match": {
+        "original_term": "single-page application with React Router",
+        "canonical_id": "custom:react",
+        "canonical_label": "React",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'single-page application with React Router' specifically refers to using React for building single-page applications, which aligns directly with the 'React' skill entry.",
+        "candidates": [
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.422
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.355
+          },
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.336
+          }
+        ]
+      }
+    },
+    {
+      "term": "user authentication with OAuth2",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Implement user authentication with OAuth2 and JWT"
+        }
+      ],
+      "match": {
+        "original_term": "user authentication with OAuth2",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.35,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:user-research",
+            "label": "user research",
+            "score": 0.35
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.315
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.201
+          }
+        ]
+      }
+    },
+    {
+      "term": "AngularJS vs React",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "AngularJS vs React"
+        }
+      ],
+      "match": {
+        "original_term": "AngularJS vs React",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'AngularJS vs React' compares two frameworks, but none of the taxonomy entries directly refer to this comparison as a skill. The closest entries are for Angular and React individually, but the phrase refers to a comparison, not a single skill.",
+        "candidates": [
+          {
+            "id": "custom:angular",
+            "label": "Angular",
+            "score": 0.573
+          },
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.54
+          },
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.382
+          }
+        ]
+      }
+    },
+    {
+      "term": "API gateways",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "API gateways"
+        }
+      ],
+      "match": {
+        "original_term": "API gateways",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries directly match 'API gateways'. The closest is 'REST API development', but that refers to designing and building HTTP interfaces, not specifically API gateways.",
+        "candidates": [
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.458
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.443
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.432
+          }
+        ]
+      }
+    },
+    {
+      "term": "Caching strategies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Caching strategies"
+        }
+      ],
+      "match": {
+        "original_term": "Caching strategies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries directly match the skill 'Caching strategies'. The closest entry is 'custom:redis' which refers to Redis, a specific caching layer, but 'Caching strategies' is a broader concept that encompasses various techniques and approaches, not just Redis.",
+        "candidates": [
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.492
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.237
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.22
+          }
+        ]
+      }
+    },
+    {
+      "term": "Client-side routing",
+      "canonical": {
+        "id": "custom:frontend-development",
+        "label": "front-end development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Client-side routing"
+        }
+      ],
+      "match": {
+        "original_term": "Client-side routing",
+        "canonical_id": "custom:frontend-development",
+        "canonical_label": "front-end development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Client-side routing' is a specific aspect of front-end development, which is explicitly defined as building the user-facing layer of a web application.",
+        "candidates": [
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.571
+          },
+          {
+            "id": "esco:7f1a7abb-9208-48b7-8b84-2c1f283a50a0",
+            "label": "call routing",
+            "score": 0.483
+          },
+          {
+            "id": "esco:0da6cab1-0ee9-4391-a299-f71fbf21db56",
+            "label": "ICT network routing",
+            "score": 0.391
+          }
+        ]
+      }
+    },
+    {
+      "term": "Code review",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Code review"
+        }
+      ],
+      "match": {
+        "original_term": "Code review",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.229,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.229
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.215
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.196
+          }
+        ]
+      }
+    },
+    {
+      "term": "Component lifecycle",
+      "canonical": {
+        "id": "esco:09f2f811-a3fb-4de3-a70f-6420a6935575",
+        "label": "systems development life-cycle",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Component lifecycle"
+        }
+      ],
+      "match": {
+        "original_term": "Component lifecycle",
+        "canonical_id": "esco:09f2f811-a3fb-4de3-a70f-6420a6935575",
+        "canonical_label": "systems development life-cycle",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Component lifecycle' directly aligns with the label 'systems development life-cycle' and its also called entry 'application development life-cycle', which refers to the sequence of steps in developing and managing a system, matching the concept of a component's lifecycle.",
+        "candidates": [
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.499
+          },
+          {
+            "id": "esco:f5db895c-533b-421b-8e7a-0ea39aadf3e5",
+            "label": "components of clocks",
+            "score": 0.481
+          },
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.476
+          }
+        ]
+      }
+    },
+    {
+      "term": "Context API",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Context API"
+        }
+      ],
+      "match": {
+        "original_term": "Context API",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Context API' does not match any of the provided taxonomy entries, which focus on general API development, testing, or specific frameworks like FastAPI, React, or cloud platforms. None of the entries specifically refer to a 'Context API' skill.",
+        "candidates": [
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.479
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.442
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.432
+          }
+        ]
+      }
+    },
+    {
+      "term": "CRUD operations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "CRUD operations"
+        }
+      ],
+      "match": {
+        "original_term": "CRUD operations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'CRUD operations' as they are all related to manufacturing processes, cloud computing, or robotics, while CRUD operations refer to database operations.",
+        "candidates": [
+          {
+            "id": "esco:95b3f4dc-f57f-414a-82b3-eaa22afee5ad",
+            "label": "forging processes",
+            "score": 0.481
+          },
+          {
+            "id": "esco:0be7c835-a562-416f-8c35-67abd0995b4d",
+            "label": "swaging processes",
+            "score": 0.48
+          },
+          {
+            "id": "esco:05caf274-8edf-42d9-8de3-c350f6e3c703",
+            "label": "extrusion processes",
+            "score": 0.479
+          }
+        ]
+      }
+    },
+    {
+      "term": "Error handling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Error handling"
+        }
+      ],
+      "match": {
+        "original_term": "Error handling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.221,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.221
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.214
+          },
+          {
+            "id": "custom:robot-troubleshooting",
+            "label": "robot system troubleshooting",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "Event-driven architecture",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Event-driven architecture"
+        }
+      ],
+      "match": {
+        "original_term": "Event-driven architecture",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match 'Event-driven architecture' in meaning or terminology.",
+        "candidates": [
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.464
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.454
+          },
+          {
+            "id": "esco:1bba98a7-92b9-450b-9235-e0c905f8f3c4",
+            "label": "information architecture",
+            "score": 0.451
+          }
+        ]
+      }
+    },
+    {
+      "term": "Express setup",
+      "canonical": {
+        "id": "custom:nodejs",
+        "label": "Node.js",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Node.js and Express setup"
+        }
+      ],
+      "match": {
+        "original_term": "Express setup",
+        "canonical_id": "custom:nodejs",
+        "canonical_label": "Node.js",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.788,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.60",
+        "candidates": [
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.788
+          },
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.188
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.188
+          }
+        ]
+      }
+    },
+    {
+      "term": "Frontend frameworks comparison",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Frontend frameworks comparison"
+        }
+      ],
+      "match": {
+        "original_term": "Frontend frameworks comparison",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Frontend frameworks comparison' does not match any of the provided taxonomy entries, which focus on specific frameworks or broader topics rather than a comparative analysis of frontend frameworks.",
+        "candidates": [
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.418
+          },
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.397
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.193
+          }
+        ]
+      }
+    },
+    {
+      "term": "Frontend state management",
+      "canonical": {
+        "id": "custom:frontend-development",
+        "label": "front-end development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Frontend state management"
+        }
+      ],
+      "match": {
+        "original_term": "Frontend state management",
+        "canonical_id": "custom:frontend-development",
+        "canonical_label": "front-end development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Frontend state management' is a specific aspect of front-end development, which is directly captured by the label 'front-end development' and its also called entries.",
+        "candidates": [
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.466
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.441
+          },
+          {
+            "id": "custom:backend-development",
+            "label": "back-end development",
+            "score": 0.244
+          }
+        ]
+      }
+    },
+    {
+      "term": "Full-stack application design",
+      "canonical": {
+        "id": "custom:full-stack-development",
+        "label": "full-stack development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Full-stack application design"
+        }
+      ],
+      "match": {
+        "original_term": "Full-stack application design",
+        "canonical_id": "custom:full-stack-development",
+        "canonical_label": "full-stack development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Full-stack application design' directly matches the label 'full-stack development' and aligns with the description of working across both client and server layers of an application.",
+        "candidates": [
+          {
+            "id": "custom:full-stack-development",
+            "label": "full-stack development",
+            "score": 0.537
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.401
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.393
+          }
+        ]
+      }
+    },
+    {
+      "term": "HTTP methods",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "HTTP methods and status codes"
+        }
+      ],
+      "match": {
+        "original_term": "HTTP methods",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'HTTP methods' is directly related to 'REST API development' as it involves designing and building HTTP interfaces between services, which explicitly includes HTTP methods and status codes.",
+        "candidates": [
+          {
+            "id": "esco:ff8bd17c-77e9-4d4e-929a-a0cf86f3ed34",
+            "label": "surveillance methods",
+            "score": 0.46
+          },
+          {
+            "id": "custom:html-css",
+            "label": "HTML and CSS",
+            "score": 0.221
+          },
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.183
+          }
+        ]
+      }
+    },
+    {
+      "term": "Input validation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Input validation"
+        }
+      ],
+      "match": {
+        "original_term": "Input validation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.263,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.263
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.256
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "term": "JSON",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "JSON and XML data formats"
+        }
+      ],
+      "match": {
+        "original_term": "JSON",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.282,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+            "label": "JavaScript",
+            "score": 0.282
+          },
+          {
+            "id": "esco:8785ccda-6f9f-4cf3-9033-fda10653d0be",
+            "label": "JSSS",
+            "score": 0.206
+          },
+          {
+            "id": "esco:b4dc6e4f-dc7d-445f-8ce2-d7b9d225e282",
+            "label": "AJAX",
+            "score": 0.204
+          }
+        ]
+      }
+    },
+    {
+      "term": "JSX syntax",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "JSX syntax"
+        }
+      ],
+      "match": {
+        "original_term": "JSX syntax",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.272,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+            "label": "JavaScript",
+            "score": 0.272
+          },
+          {
+            "id": "esco:8785ccda-6f9f-4cf3-9033-fda10653d0be",
+            "label": "JSSS",
+            "score": 0.2
+          },
+          {
+            "id": "esco:b4dc6e4f-dc7d-445f-8ce2-d7b9d225e282",
+            "label": "AJAX",
+            "score": 0.198
+          }
+        ]
+      }
+    },
+    {
+      "term": "JWT token generation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "JWT token generation and validation"
+        }
+      ],
+      "match": {
+        "original_term": "JWT token generation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.379,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:23759dba-1abd-4865-b0f9-608012348870",
+            "label": "geothermal power plant operations",
+            "score": 0.379
+          },
+          {
+            "id": "esco:a929f335-e5b9-4f8f-a052-0a8b166d595c",
+            "label": "geothermal power generation methods",
+            "score": 0.376
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "logging",
+      "canonical": {
+        "id": "custom:monitoring-observability",
+        "label": "monitoring and observability",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Middleware for logging and authentication"
+        }
+      ],
+      "match": {
+        "original_term": "logging",
+        "canonical_id": "custom:monitoring-observability",
+        "canonical_label": "monitoring and observability",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'logging' is explicitly listed in the 'monitoring and observability' entry as an alternative name, indicating it refers to the same skill.",
+        "candidates": [
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.883
+          },
+          {
+            "id": "esco:6014921e-1d25-4039-adc2-04852d61880e",
+            "label": "ICT debugging tools",
+            "score": 0.244
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "management",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "State management"
+        }
+      ],
+      "match": {
+        "original_term": "management",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'management' is too generic and does not match any of the specific skills in the shortlist, which all refer to more specific types of management (e.g., project, risk, device, etc.).",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.662
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.652
+          },
+          {
+            "id": "esco:cf532795-a1fd-43bd-8407-6e43f877e6e3",
+            "label": "mobile device management",
+            "score": 0.546
+          }
+        ]
+      }
+    },
+    {
+      "term": "Microservices architecture",
+      "canonical": {
+        "id": "custom:microservices",
+        "label": "microservices architecture",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Microservices architecture"
+        }
+      ],
+      "match": {
+        "original_term": "Microservices architecture",
+        "canonical_id": "custom:microservices",
+        "canonical_label": "microservices architecture",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "MobX alternatives",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "MobX alternatives"
+        }
+      ],
+      "match": {
+        "original_term": "MobX alternatives",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.225,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.225
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.192
+          },
+          {
+            "id": "custom:message-queues",
+            "label": "message queues",
+            "score": 0.185
+          }
+        ]
+      }
+    },
+    {
+      "term": "Modern framework selection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Modern framework selection"
+        }
+      ],
+      "match": {
+        "original_term": "Modern framework selection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Modern framework selection' does not match any of the provided taxonomy entries, as none specifically refer to the skill of selecting modern frameworks.",
+        "candidates": [
+          {
+            "id": "esco:9b9de2a4-d8af-4a7b-933a-a8334ae60067",
+            "label": "JavaScript Framework",
+            "score": 0.411
+          },
+          {
+            "id": "esco:2d63745d-3c4c-4da1-ad77-985f68768be9",
+            "label": "manufacturing of metal structures",
+            "score": 0.379
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.226
+          }
+        ]
+      }
+    },
+    {
+      "term": "MongoDB integration",
+      "canonical": {
+        "id": "custom:mongodb",
+        "label": "MongoDB",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Node.js and MongoDB integration"
+        }
+      ],
+      "match": {
+        "original_term": "MongoDB integration",
+        "canonical_id": "custom:mongodb",
+        "canonical_label": "MongoDB",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.643,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.17",
+        "candidates": [
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.643
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.47
+          },
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.271
+          }
+        ]
+      }
+    },
+    {
+      "term": "Mongoose ORM",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Mongoose ORM"
+        }
+      ],
+      "match": {
+        "original_term": "Mongoose ORM",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.352,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.352
+          },
+          {
+            "id": "custom:go-language",
+            "label": "Go",
+            "score": 0.212
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "Navigation patterns",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Navigation patterns"
+        }
+      ],
+      "match": {
+        "original_term": "Navigation patterns",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Navigation patterns' does not match any of the provided taxonomy entries, as none of the labels or also-called terms directly refer to navigation patterns.",
+        "candidates": [
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.505
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.504
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.233
+          }
+        ]
+      }
+    },
+    {
+      "term": "OAuth2 authentication flow",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "OAuth2 authentication flow"
+        }
+      ],
+      "match": {
+        "original_term": "OAuth2 authentication flow",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.367,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.367
+          },
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.217
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.198
+          }
+        ]
+      }
+    },
+    {
+      "term": "performance evaluation",
+      "canonical": {
+        "id": "custom:performance-testing",
+        "label": "performance testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Security and performance evaluation"
+        }
+      ],
+      "match": {
+        "original_term": "performance evaluation",
+        "canonical_id": "custom:performance-testing",
+        "canonical_label": "performance testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'performance evaluation' directly aligns with 'performance testing' as both involve assessing system behavior under load and measuring performance metrics.",
+        "candidates": [
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.515
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.447
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.353
+          }
+        ]
+      }
+    },
+    {
+      "term": "Performance optimization techniques",
+      "canonical": {
+        "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+        "label": "ICT performance analysis methods",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Performance optimization techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Performance optimization techniques",
+        "canonical_id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+        "canonical_label": "ICT performance analysis methods",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Performance optimization techniques' directly matches the label 'ICT performance analysis methods' and is also called 'performance analysis techniques', which aligns with the same skill.",
+        "candidates": [
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.596
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.431
+          },
+          {
+            "id": "esco:4e09e2d2-e317-47d2-bf5e-1d6c66be3efc",
+            "label": "energy performance of buildings",
+            "score": 0.403
+          }
+        ]
+      }
+    },
+    {
+      "term": "React component structure",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "React component structure"
+        }
+      ],
+      "match": {
+        "original_term": "React component structure",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'React component structure' as a skill. The closest match is 'React' (id: custom:react), but it is too broad and does not capture the specific focus on component structure.",
+        "candidates": [
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.524
+          },
+          {
+            "id": "esco:748d926e-0662-4c0d-b61d-78949c513a64",
+            "label": "vessel electrical system",
+            "score": 0.51
+          },
+          {
+            "id": "esco:f5fa2654-52cc-45d2-ac92-ac979dee5d12",
+            "label": "engine components",
+            "score": 0.418
+          }
+        ]
+      }
+    },
+    {
+      "term": "React hooks",
+      "canonical": {
+        "id": "custom:react",
+        "label": "React",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "React hooks"
+        }
+      ],
+      "match": {
+        "original_term": "React hooks",
+        "canonical_id": "custom:react",
+        "canonical_label": "React",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.638,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.19",
+        "candidates": [
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.638
+          },
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.451
+          },
+          {
+            "id": "esco:a0427808-b57d-41fe-b71c-ee0b620579f6",
+            "label": "adhesives",
+            "score": 0.227
+          }
+        ]
+      }
+    },
+    {
+      "term": "React Router setup",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "React Router setup"
+        }
+      ],
+      "match": {
+        "original_term": "React Router setup",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'React Router setup' refers to a specific skill related to routing in React applications, but none of the provided taxonomy entries directly match this skill. The closest entry is 'React' (id: custom:react), but it is too broad and does not specifically capture the concept of 'React Route",
+        "candidates": [
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.533
+          },
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.403
+          },
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.231
+          }
+        ]
+      }
+    },
+    {
+      "term": "Real-time communication",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Real-time communication"
+        }
+      ],
+      "match": {
+        "original_term": "Real-time communication",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries precisely match the skill 'Real-time communication'. The closest is 'real-time computing', which focuses on hardware and software systems with strict time constraints, not communication. The other entries are either too broad, unrelated, or focus on different aspects.",
+        "candidates": [
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.602
+          },
+          {
+            "id": "esco:bf6c5ed4-84af-440f-abcc-7fa5ba19c738",
+            "label": "real-time computing",
+            "score": 0.57
+          },
+          {
+            "id": "esco:debef2fc-7af4-4bff-ac92-4d0317915a84",
+            "label": "electronic communication",
+            "score": 0.474
+          }
+        ]
+      }
+    },
+    {
+      "term": "Redux architecture",
+      "canonical": {
+        "id": "custom:design-patterns",
+        "label": "software design patterns",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Redux architecture"
+        }
+      ],
+      "match": {
+        "original_term": "Redux architecture",
+        "canonical_id": "custom:design-patterns",
+        "canonical_label": "software design patterns",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Redux architecture is a specific implementation of a software design pattern, specifically an architectural pattern for state management in applications.",
+        "candidates": [
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.502
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.491
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.296
+          }
+        ]
+      }
+    },
+    {
+      "term": "Request-response cycle",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Request-response cycle"
+        }
+      ],
+      "match": {
+        "original_term": "Request-response cycle",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.332,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:09f2f811-a3fb-4de3-a70f-6420a6935575",
+            "label": "systems development life-cycle",
+            "score": 0.332
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.242
+          },
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.198
+          }
+        ]
+      }
+    },
+    {
+      "term": "RESTful API fundamentals",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "RESTful API fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "RESTful API fundamentals",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.73,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.33",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.73
+          },
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.397
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.395
+          }
+        ]
+      }
+    },
+    {
+      "term": "Security",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Security and performance evaluation"
+        }
+      ],
+      "match": {
+        "original_term": "Security",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.648,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.10",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.648
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.544
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.446
+          }
+        ]
+      }
+    },
+    {
+      "term": "Security headers",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Security headers"
+        }
+      ],
+      "match": {
+        "original_term": "Security headers",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries specifically refer to 'Security headers', which is a specific technical concept related to HTTP headers used for security purposes. The closest entries are broader topics like cybersecurity or network security, but none match the exact skill.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.51
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.49
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.485
+          }
+        ]
+      }
+    },
+    {
+      "term": "Socket.IO",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "WebSockets and Socket.IO"
+        }
+      ],
+      "match": {
+        "original_term": "Socket.IO",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.178,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.178
+          },
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.175
+          },
+          {
+            "id": "custom:vuejs",
+            "label": "Vue.js",
+            "score": 0.174
+          }
+        ]
+      }
+    },
+    {
+      "term": "status codes",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "HTTP methods and status codes"
+        }
+      ],
+      "match": {
+        "original_term": "status codes",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.203,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.203
+          },
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.197
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.186
+          }
+        ]
+      }
+    },
+    {
+      "term": "validation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "JWT token generation and validation"
+        }
+      ],
+      "match": {
+        "original_term": "validation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.236,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:retrieval-augmented-generation",
+            "label": "retrieval-augmented generation",
+            "score": 0.236
+          },
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.22
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.211
+          }
+        ]
+      }
+    },
+    {
+      "term": "WebSockets",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "WebSockets and Socket.IO"
+        }
+      ],
+      "match": {
+        "original_term": "WebSockets",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.211,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.211
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.182
+          },
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.18
+          }
+        ]
+      }
+    },
+    {
+      "term": "XML data formats",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "JSON and XML data formats"
+        }
+      ],
+      "match": {
+        "original_term": "XML data formats",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.399,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:c4dcfe3a-a8b0-4352-ba82-a5e345d88c08",
+            "label": "types of spring",
+            "score": 0.399
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.388
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.384
+          }
+        ]
+      }
+    },
+    {
+      "term": "AngularJS",
+      "canonical": {
+        "id": "custom:angular",
+        "label": "Angular",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "AngularJS"
+        }
+      ],
+      "match": {
+        "original_term": "AngularJS",
+        "canonical_id": "custom:angular",
+        "canonical_label": "Angular",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "authorization using OAuth2",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "authorization using OAuth2"
+        }
+      ],
+      "match": {
+        "original_term": "authorization using OAuth2",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.205,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.205
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.182
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.18
+          }
+        ]
+      }
+    },
+    {
+      "term": "backend development with Node.js",
+      "canonical": {
+        "id": "custom:backend-development",
+        "label": "back-end development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "backend development with Node.js"
+        }
+      ],
+      "match": {
+        "original_term": "backend development with Node.js",
+        "canonical_id": "custom:backend-development",
+        "canonical_label": "back-end development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.733,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.20",
+        "candidates": [
+          {
+            "id": "custom:backend-development",
+            "label": "back-end development",
+            "score": 0.733
+          },
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.53
+          },
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.469
+          }
+        ]
+      }
+    },
+    {
+      "term": "CSS3",
+      "canonical": {
+        "id": "custom:html-css",
+        "label": "HTML and CSS",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "CSS3"
+        }
+      ],
+      "match": {
+        "original_term": "CSS3",
+        "canonical_id": "custom:html-css",
+        "canonical_label": "HTML and CSS",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "database integration using MongoDB",
+      "canonical": {
+        "id": "custom:mongodb",
+        "label": "MongoDB",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "database integration using MongoDB"
+        }
+      ],
+      "match": {
+        "original_term": "database integration using MongoDB",
+        "canonical_id": "custom:mongodb",
+        "canonical_label": "MongoDB",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'database integration using MongoDB' directly refers to the use of MongoDB, which is explicitly named in the 'custom:mongodb' entry.",
+        "candidates": [
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.499
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.455
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.388
+          }
+        ]
+      }
+    },
+    {
+      "term": "dynamic user interfaces",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "dynamic user interfaces"
+        }
+      ],
+      "match": {
+        "original_term": "dynamic user interfaces",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries specifically match 'dynamic user interfaces'. The closest entries are related to UI/UX design but do not capture the dynamic aspect of the skill.",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.586
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.35
+          },
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.224
+          }
+        ]
+      }
+    },
+    {
+      "term": "EJS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "EJS"
+        }
+      ],
+      "match": {
+        "original_term": "EJS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.334,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.334
+          },
+          {
+            "id": "custom:vuejs",
+            "label": "Vue.js",
+            "score": 0.333
+          },
+          {
+            "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+            "label": "JavaScript",
+            "score": 0.308
+          }
+        ]
+      }
+    },
+    {
+      "term": "Express",
+      "canonical": {
+        "id": "custom:nodejs",
+        "label": "Node.js",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Express"
+        }
+      ],
+      "match": {
+        "original_term": "Express",
+        "canonical_id": "custom:nodejs",
+        "canonical_label": "Node.js",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Express' is explicitly listed as an alias for 'Node.js' in the taxonomy entry, indicating it refers to the same skill.",
+        "candidates": [
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.89
+          },
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.173
+          },
+          {
+            "id": "custom:message-queues",
+            "label": "message queues",
+            "score": 0.171
+          }
+        ]
+      }
+    },
+    {
+      "term": "frontend frameworks like React",
+      "canonical": {
+        "id": "custom:react",
+        "label": "React",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "frontend frameworks like React"
+        }
+      ],
+      "match": {
+        "original_term": "frontend frameworks like React",
+        "canonical_id": "custom:react",
+        "canonical_label": "React",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'frontend frameworks like React' directly refers to React, which is explicitly listed as a candidate with the label 'React' and also called 'ReactJS', 'React.js', and 'Next.js'.",
+        "candidates": [
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.481
+          },
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.382
+          },
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.381
+          }
+        ]
+      }
+    },
+    {
+      "term": "It also explores security best practices",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "It also explores security best practices"
+        }
+      ],
+      "match": {
+        "original_term": "It also explores security best practices",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'security best practices' directly aligns with 'secure coding practices' as both focus on implementing security measures in software development.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.456
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.429
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.369
+          }
+        ]
+      }
+    },
+    {
+      "term": "MobX",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "MobX"
+        }
+      ],
+      "match": {
+        "original_term": "MobX",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.199,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:mobile-robots",
+            "label": "mobile robots",
+            "score": 0.199
+          },
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.195
+          },
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.177
+          }
+        ]
+      }
+    },
+    {
+      "term": "performance optimization through caching",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "performance optimization through caching"
+        }
+      ],
+      "match": {
+        "original_term": "performance optimization through caching",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.395,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.395
+          },
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.37
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.357
+          }
+        ]
+      }
+    },
+    {
+      "term": "real-time communication via WebSockets",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "real-time communication via WebSockets"
+        }
+      ],
+      "match": {
+        "original_term": "real-time communication via WebSockets",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'real-time communication via WebSockets', which is a specific technical skill involving real-time data transfer using WebSocket protocols.",
+        "candidates": [
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.463
+          },
+          {
+            "id": "esco:bf6c5ed4-84af-440f-abcc-7fa5ba19c738",
+            "label": "real-time computing",
+            "score": 0.458
+          },
+          {
+            "id": "esco:debef2fc-7af4-4bff-ac92-4d0317915a84",
+            "label": "electronic communication",
+            "score": 0.388
+          }
+        ]
+      }
+    },
+    {
+      "term": "RESTful API design using JSON",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "RESTful API design using JSON"
+        }
+      ],
+      "match": {
+        "original_term": "RESTful API design using JSON",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.623,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.25",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.623
+          },
+          {
+            "id": "custom:responsive-design",
+            "label": "responsive web design",
+            "score": 0.369
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.367
+          }
+        ]
+      }
+    },
+    {
+      "term": "server-side templating with Jade",
+      "canonical": {
+        "id": "custom:backend-development",
+        "label": "back-end development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "server-side templating with Jade"
+        }
+      ],
+      "match": {
+        "original_term": "server-side templating with Jade",
+        "canonical_id": "custom:backend-development",
+        "canonical_label": "back-end development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'server-side templating with Jade' refers to server-side development, which is explicitly covered by the 'back-end development' entry.",
+        "candidates": [
+          {
+            "id": "custom:backend-development",
+            "label": "back-end development",
+            "score": 0.476
+          },
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.311
+          },
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.194
+          }
+        ]
+      }
+    },
+    {
+      "term": "SQL with ORM tools",
+      "canonical": {
+        "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "label": "SQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "SQL with ORM tools"
+        }
+      ],
+      "match": {
+        "original_term": "SQL with ORM tools",
+        "canonical_id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "canonical_label": "SQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'SQL with ORM tools' directly refers to the use of SQL, which is explicitly captured by the 'SQL' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.505
+          },
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.498
+          },
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.395
+          }
+        ]
+      }
+    },
+    {
+      "term": "standards compliance with HTML5",
+      "canonical": {
+        "id": "esco:8696aff0-18c0-4ba6-a4d0-9a21861b3e5e",
+        "label": "World Wide Web Consortium standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "standards compliance with HTML5"
+        }
+      ],
+      "match": {
+        "original_term": "standards compliance with HTML5",
+        "canonical_id": "esco:8696aff0-18c0-4ba6-a4d0-9a21861b3e5e",
+        "canonical_label": "World Wide Web Consortium standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'standards compliance with HTML5' directly relates to adhering to W3C standards, which is explicitly covered by the 'World Wide Web Consortium standards' entry.",
+        "candidates": [
+          {
+            "id": "custom:html-css",
+            "label": "HTML and CSS",
+            "score": 0.487
+          },
+          {
+            "id": "esco:8696aff0-18c0-4ba6-a4d0-9a21861b3e5e",
+            "label": "World Wide Web Consortium standards",
+            "score": 0.401
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.381
+          }
+        ]
+      }
+    },
+    {
+      "term": "W3C guidelines",
+      "canonical": {
+        "id": "esco:8696aff0-18c0-4ba6-a4d0-9a21861b3e5e",
+        "label": "World Wide Web Consortium standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "W3C guidelines"
+        }
+      ],
+      "match": {
+        "original_term": "W3C guidelines",
+        "canonical_id": "esco:8696aff0-18c0-4ba6-a4d0-9a21861b3e5e",
+        "canonical_label": "World Wide Web Consortium standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'W3C guidelines' directly matches the label 'World Wide Web Consortium standards' and its also called entry 'W3C standards', which is exactly what the phrase refers to.",
+        "candidates": [
+          {
+            "id": "esco:8696aff0-18c0-4ba6-a4d0-9a21861b3e5e",
+            "label": "World Wide Web Consortium standards",
+            "score": 0.449
+          },
+          {
+            "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+            "label": "ICT accessibility standards",
+            "score": 0.412
+          },
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.258
+          }
+        ]
+      }
+    }
+  ]
+}

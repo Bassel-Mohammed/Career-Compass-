@@ -129,9 +129,11 @@ CREATE TABLE job_seekers (
 CREATE TABLE academic_records (
     record_id      INT AUTO_INCREMENT PRIMARY KEY,
     jobseeker_id     INT NOT NULL,
+    course_code        VARCHAR(50) NULL,
     course_name        VARCHAR(200) NOT NULL,
     grade                VARCHAR(10) NOT NULL,
     extracted_at          TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_academic_records_jobseeker_course (jobseeker_id, course_code),
     CONSTRAINT fk_ar_jobseeker
         FOREIGN KEY (jobseeker_id) REFERENCES job_seekers(jobseeker_id)
         ON DELETE CASCADE
@@ -331,3 +333,12 @@ CREATE TABLE appointments (
         FOREIGN KEY (status_id) REFERENCES appointment_statuses(status_id)
         ON DELETE RESTRICT
 );
+
+
+CREATE TABLE revoked_tokens (
+    token_id      VARCHAR(64) NOT NULL PRIMARY KEY,
+    expires_at    TIMESTAMP NOT NULL,
+    revoked_at    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_revoked_tokens_expires_at ON revoked_tokens (expires_at);

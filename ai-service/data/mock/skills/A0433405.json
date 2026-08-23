@@ -1,0 +1,4876 @@
+{
+  "course_code": "A0433405",
+  "course_codes": [
+    "A0433405"
+  ],
+  "course_title": "Penetration and Vulnerability Testing",
+  "credit_hours": 3,
+  "plans": [
+    "CYBER"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "accepted": 58,
+      "no_match": 31,
+      "needs_review": 15
+    },
+    "by_method": {
+      "exact_alias": 9,
+      "embedding_reranker": 51,
+      "llm": 44
+    }
+  },
+  "total_skills": 104,
+  "skills": [
+    {
+      "term": "vulnerability assessment",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the core principles of penetration testing and vulnerability assessment, including the ethical, legal, and regulatory frameworks governing the practice."
+        },
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply penetration testing techniques to real-world scenarios, including network scanning, vulnerability assessment, and exploit development using Kali Linux."
+        },
+        {
+          "source": "description",
+          "text": "vulnerability assessment"
+        }
+      ],
+      "match": {
+        "original_term": "vulnerability assessment",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "XSS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the technical components of network and application security, including TCP/IP protocols, SQL injection, and cross-site scripting (XSS) vulnerabilities."
+        },
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Cross-Site Scripting (XSS) and Prevention"
+        },
+        {
+          "source": "description",
+          "text": "XSS"
+        }
+      ],
+      "match": {
+        "original_term": "XSS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.223,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.223
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.212
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "legal",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the core principles of penetration testing and vulnerability assessment, including the ethical, legal, and regulatory frameworks governing the practice."
+        },
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Legal and Regulatory Frameworks"
+        }
+      ],
+      "match": {
+        "original_term": "legal",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.276,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.276
+          },
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.22
+          },
+          {
+            "id": "esco:625b57ee-29d4-425b-bf99-9fd54dd021fe",
+            "label": "Kali Linux",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "OSSTMM",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement secure coding practices and remediation strategies to mitigate vulnerabilities, using tools like OWASP ZAP and following standardized frameworks such as PTES and OSSTMM."
+        },
+        {
+          "source": "description",
+          "text": "OSSTMM"
+        }
+      ],
+      "match": {
+        "original_term": "OSSTMM",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.236,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:53456d90-8c0d-4bd2-9f1b-312619b6e2a6",
+            "label": "hardware testing methods",
+            "score": 0.236
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.23
+          },
+          {
+            "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+            "label": "OWASP ZAP",
+            "score": 0.211
+          }
+        ]
+      }
+    },
+    {
+      "term": "PTES",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement secure coding practices and remediation strategies to mitigate vulnerabilities, using tools like OWASP ZAP and following standardized frameworks such as PTES and OSSTMM."
+        },
+        {
+          "source": "description",
+          "text": "PTES"
+        }
+      ],
+      "match": {
+        "original_term": "PTES",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.251,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.251
+          },
+          {
+            "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+            "label": "OWASP ZAP",
+            "score": 0.221
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "secure coding practices",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement secure coding practices and remediation strategies to mitigate vulnerabilities, using tools like OWASP ZAP and following standardized frameworks such as PTES and OSSTMM."
+        },
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Secure Coding Practices"
+        }
+      ],
+      "match": {
+        "original_term": "secure coding practices",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "SQL injection",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the technical components of network and application security, including TCP/IP protocols, SQL injection, and cross-site scripting (XSS) vulnerabilities."
+        },
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "SQL Injection and Prevention Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "SQL injection",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'SQL injection' is a specific type of security vulnerability that falls under secure coding practices, as it relates to writing software that resists common classes of attack.",
+        "candidates": [
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.591
+          },
+          {
+            "id": "esco:6f7512ab-d46d-402a-8c30-a8878d7c1f88",
+            "label": "SQL Server Integration Services",
+            "score": 0.419
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.266
+          }
+        ]
+      }
+    },
+    {
+      "term": "application security",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the technical components of network and application security, including TCP/IP protocols, SQL injection, and cross-site scripting (XSS) vulnerabilities."
+        }
+      ],
+      "match": {
+        "original_term": "application security",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "core principles of penetration testing",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the core principles of penetration testing and vulnerability assessment, including the ethical, legal, and regulatory frameworks governing the practice."
+        }
+      ],
+      "match": {
+        "original_term": "core principles of penetration testing",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.688,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.15",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.688
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.542
+          },
+          {
+            "id": "esco:d512d178-37a6-4eab-a660-412d2bb0824a",
+            "label": "test procedures",
+            "score": 0.395
+          }
+        ]
+      }
+    },
+    {
+      "term": "cross-site scripting vulnerabilities",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the technical components of network and application security, including TCP/IP protocols, SQL injection, and cross-site scripting (XSS) vulnerabilities."
+        }
+      ],
+      "match": {
+        "original_term": "cross-site scripting vulnerabilities",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'cross-site scripting vulnerabilities' directly relates to application security vulnerabilities, which is a core component of 'secure coding practices' as defined in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.518
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.234
+          },
+          {
+            "id": "esco:867137fb-ff1b-4ca3-99f3-cb6969aa2c68",
+            "label": "TypeScript",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "ethical",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the core principles of penetration testing and vulnerability assessment, including the ethical, legal, and regulatory frameworks governing the practice."
+        }
+      ],
+      "match": {
+        "original_term": "ethical",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.704,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.48",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.704
+          },
+          {
+            "id": "esco:76526bf6-bada-4ca1-8e79-6b9d4228b607",
+            "label": "electrical safety regulations",
+            "score": 0.227
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "exploit development using Kali Linux",
+      "canonical": {
+        "id": "esco:625b57ee-29d4-425b-bf99-9fd54dd021fe",
+        "label": "Kali Linux",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply penetration testing techniques to real-world scenarios, including network scanning, vulnerability assessment, and exploit development using Kali Linux."
+        }
+      ],
+      "match": {
+        "original_term": "exploit development using Kali Linux",
+        "canonical_id": "esco:625b57ee-29d4-425b-bf99-9fd54dd021fe",
+        "canonical_label": "Kali Linux",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.632,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.38",
+        "candidates": [
+          {
+            "id": "esco:625b57ee-29d4-425b-bf99-9fd54dd021fe",
+            "label": "Kali Linux",
+            "score": 0.632
+          },
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.249
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.244
+          }
+        ]
+      }
+    },
+    {
+      "term": "exploiting vulnerabilities",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the methodologies and tools used in penetration testing, such as Nmap, Metasploit, and OWASP ZAP, and their roles in identifying and exploiting vulnerabilities."
+        }
+      ],
+      "match": {
+        "original_term": "exploiting vulnerabilities",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.307,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.307
+          },
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.295
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.291
+          }
+        ]
+      }
+    },
+    {
+      "term": "following standardized frameworks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement secure coding practices and remediation strategies to mitigate vulnerabilities, using tools like OWASP ZAP and following standardized frameworks such as PTES and OSSTMM."
+        }
+      ],
+      "match": {
+        "original_term": "following standardized frameworks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'following standardized frameworks' does not match any of the provided taxonomy entries, as none specifically refer to following standardized frameworks in the context of security or software development.",
+        "candidates": [
+          {
+            "id": "esco:24c200e5-be20-4370-a137-ab53797f3a17",
+            "label": "software frameworks",
+            "score": 0.424
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.264
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "term": "Metasploit",
+      "canonical": {
+        "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+        "label": "Metasploit",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the methodologies and tools used in penetration testing, such as Nmap, Metasploit, and OWASP ZAP, and their roles in identifying and exploiting vulnerabilities."
+        }
+      ],
+      "match": {
+        "original_term": "Metasploit",
+        "canonical_id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+        "canonical_label": "Metasploit",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "methodologies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the methodologies and tools used in penetration testing, such as Nmap, Metasploit, and OWASP ZAP, and their roles in identifying and exploiting vulnerabilities."
+        }
+      ],
+      "match": {
+        "original_term": "methodologies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.291,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.291
+          },
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.289
+          },
+          {
+            "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+            "label": "OWASP ZAP",
+            "score": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "term": "network scanning",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply penetration testing techniques to real-world scenarios, including network scanning, vulnerability assessment, and exploit development using Kali Linux."
+        }
+      ],
+      "match": {
+        "original_term": "network scanning",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.273,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:625b57ee-29d4-425b-bf99-9fd54dd021fe",
+            "label": "Kali Linux",
+            "score": 0.273
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.271
+          },
+          {
+            "id": "esco:baf1fadb-975a-42be-9744-d8ba02304d09",
+            "label": "Samurai Web Testing Framework",
+            "score": 0.263
+          }
+        ]
+      }
+    },
+    {
+      "term": "Nmap",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the methodologies and tools used in penetration testing, such as Nmap, Metasploit, and OWASP ZAP, and their roles in identifying and exploiting vulnerabilities."
+        }
+      ],
+      "match": {
+        "original_term": "Nmap",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.274,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+            "label": "OWASP ZAP",
+            "score": 0.274
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.253
+          },
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.251
+          }
+        ]
+      }
+    },
+    {
+      "term": "OWASP ZAP",
+      "canonical": {
+        "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+        "label": "OWASP ZAP",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the methodologies and tools used in penetration testing, such as Nmap, Metasploit, and OWASP ZAP, and their roles in identifying and exploiting vulnerabilities."
+        }
+      ],
+      "match": {
+        "original_term": "OWASP ZAP",
+        "canonical_id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+        "canonical_label": "OWASP ZAP",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "penetration testing techniques to real-world scenarios",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply penetration testing techniques to real-world scenarios, including network scanning, vulnerability assessment, and exploit development using Kali Linux."
+        }
+      ],
+      "match": {
+        "original_term": "penetration testing techniques to real-world scenarios",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'penetration testing techniques to real-world scenarios' directly aligns with the skill 'penetration testing' which involves applying simulated attacks to find exploitable weaknesses, matching the syllabus description.",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.584
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.487
+          },
+          {
+            "id": "esco:58783f72-5098-4807-b1d1-954ec2ae94c4",
+            "label": "Backbox (penetration testing tool)",
+            "score": 0.464
+          }
+        ]
+      }
+    },
+    {
+      "term": "regulatory frameworks governing the practice",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the core principles of penetration testing and vulnerability assessment, including the ethical, legal, and regulatory frameworks governing the practice."
+        }
+      ],
+      "match": {
+        "original_term": "regulatory frameworks governing the practice",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill described in the extracted phrase 'regulatory frameworks governing the practice'. The closest entries are related to specific domains (e.g., good laboratory practice, electrical safety regulations) or broader concepts (e.g., risk managem",
+        "candidates": [
+          {
+            "id": "esco:1618ee1c-6753-456e-a171-3d7e5f75404a",
+            "label": "good laboratory practice",
+            "score": 0.406
+          },
+          {
+            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+            "label": "ICT architectural frameworks",
+            "score": 0.36
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.268
+          }
+        ]
+      }
+    },
+    {
+      "term": "remediation strategies to mitigate vulnerabilities",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement secure coding practices and remediation strategies to mitigate vulnerabilities, using tools like OWASP ZAP and following standardized frameworks such as PTES and OSSTMM."
+        }
+      ],
+      "match": {
+        "original_term": "remediation strategies to mitigate vulnerabilities",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.252,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.252
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.245
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.228
+          }
+        ]
+      }
+    },
+    {
+      "term": "roles in identifying",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the methodologies and tools used in penetration testing, such as Nmap, Metasploit, and OWASP ZAP, and their roles in identifying and exploiting vulnerabilities."
+        }
+      ],
+      "match": {
+        "original_term": "roles in identifying",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.266,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.266
+          },
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.243
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.235
+          }
+        ]
+      }
+    },
+    {
+      "term": "TCP/IP protocols",
+      "canonical": {
+        "id": "custom:computer-networks",
+        "label": "computer networks",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the technical components of network and application security, including TCP/IP protocols, SQL injection, and cross-site scripting (XSS) vulnerabilities."
+        }
+      ],
+      "match": {
+        "original_term": "TCP/IP protocols",
+        "canonical_id": "custom:computer-networks",
+        "canonical_label": "computer networks",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.705,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.29",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.705
+          },
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.417
+          },
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.257
+          }
+        ]
+      }
+    },
+    {
+      "term": "technical components of network",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the technical components of network and application security, including TCP/IP protocols, SQL injection, and cross-site scripting (XSS) vulnerabilities."
+        }
+      ],
+      "match": {
+        "original_term": "technical components of network",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'technical components of network' aligns with 'network security' as it includes topics like TCP/IP protocols, SQL injection, and XSS vulnerabilities, which are security-related network components.",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.454
+          },
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.437
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.435
+          }
+        ]
+      }
+    },
+    {
+      "term": "tools like OWASP ZAP",
+      "canonical": {
+        "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+        "label": "OWASP ZAP",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement secure coding practices and remediation strategies to mitigate vulnerabilities, using tools like OWASP ZAP and following standardized frameworks such as PTES and OSSTMM."
+        }
+      ],
+      "match": {
+        "original_term": "tools like OWASP ZAP",
+        "canonical_id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+        "canonical_label": "OWASP ZAP",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.667,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.14",
+        "candidates": [
+          {
+            "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+            "label": "OWASP ZAP",
+            "score": 0.667
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.53
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.496
+          }
+        ]
+      }
+    },
+    {
+      "term": "tools used in penetration testing",
+      "canonical": {
+        "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+        "label": "penetration testing tool",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the methodologies and tools used in penetration testing, such as Nmap, Metasploit, and OWASP ZAP, and their roles in identifying and exploiting vulnerabilities."
+        }
+      ],
+      "match": {
+        "original_term": "tools used in penetration testing",
+        "canonical_id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+        "canonical_label": "penetration testing tool",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.738,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.08",
+        "candidates": [
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.738
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.659
+          },
+          {
+            "id": "esco:09cf2c34-6f93-4a19-a9f1-c0d866414bcc",
+            "label": "Cain and Abel (penetration testing tool)",
+            "score": 0.592
+          }
+        ]
+      }
+    },
+    {
+      "term": "Log Analysis",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Log Analysis and Incident Response Simulation"
+        },
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Log Analysis and Forensics"
+        }
+      ],
+      "match": {
+        "original_term": "Log Analysis",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Log Analysis' is part of the syllabus entry 'Log Analysis and Incident Response Simulation' and 'Log Analysis and Forensics', which directly aligns with the taxonomy entry 'security incident response' which includes log analysis as part of incident response.",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.516
+          },
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.513
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.495
+          }
+        ]
+      }
+    },
+    {
+      "term": "Network Scanning with Nmap",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 2,
+          "text": "Basic Network Scanning with Nmap"
+        },
+        {
+          "source": "description",
+          "text": "network scanning with Nmap"
+        }
+      ],
+      "match": {
+        "original_term": "Network Scanning with Nmap",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Network Scanning with Nmap' as a skill. The closest is 'network management system tools', but it is not specific to network scanning with Nmap.",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.415
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.406
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.384
+          }
+        ]
+      }
+    },
+    {
+      "term": "Buffer Overflow Attacks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Buffer Overflow Attacks and Exploitation"
+        },
+        {
+          "source": "description",
+          "text": "buffer overflow attacks"
+        }
+      ],
+      "match": {
+        "original_term": "Buffer Overflow Attacks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.234,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.234
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.195
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.184
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cross-Site Scripting",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Cross-Site Scripting (XSS) and Prevention"
+        },
+        {
+          "source": "description",
+          "text": "cross-site scripting"
+        }
+      ],
+      "match": {
+        "original_term": "Cross-Site Scripting",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Cross-Site Scripting' is directly related to secure coding practices, as it refers to a common security vulnerability and its prevention, which aligns with the 'secure coding practices' label.",
+        "candidates": [
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.56
+          },
+          {
+            "id": "custom:linux",
+            "label": "Linux",
+            "score": 0.442
+          },
+          {
+            "id": "custom:responsive-design",
+            "label": "responsive web design",
+            "score": 0.346
+          }
+        ]
+      }
+    },
+    {
+      "term": "Exploit Development",
+      "canonical": {
+        "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+        "label": "Metasploit",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Exploit Development"
+        },
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Exploit Development"
+        }
+      ],
+      "match": {
+        "original_term": "Exploit Development",
+        "canonical_id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+        "canonical_label": "Metasploit",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Exploit Development' directly relates to the skill 'Metasploit', which is described as a penetration testing tool based on the concept of 'exploit'.",
+        "candidates": [
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.52
+          },
+          {
+            "id": "custom:ios-development",
+            "label": "iOS development",
+            "score": 0.512
+          },
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.487
+          }
+        ]
+      }
+    },
+    {
+      "term": "Packet Analysis",
+      "canonical": {
+        "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "label": "Wireshark",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Wireshark for Packet Analysis"
+        },
+        {
+          "source": "description",
+          "text": "packet analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Packet Analysis",
+        "canonical_id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "canonical_label": "Wireshark",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Packet Analysis' is directly related to the Wireshark tool, which is explicitly described in the taxonomy entry as being used for network protocol analysis.",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.481
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.469
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.468
+          }
+        ]
+      }
+    },
+    {
+      "term": "Vulnerability Scanning with Nessus",
+      "canonical": {
+        "id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+        "label": "Nessus",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Vulnerability Scanning with Nessus"
+        },
+        {
+          "source": "description",
+          "text": "vulnerability scanning with Nessus"
+        }
+      ],
+      "match": {
+        "original_term": "Vulnerability Scanning with Nessus",
+        "canonical_id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+        "canonical_label": "Nessus",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.706,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.27",
+        "candidates": [
+          {
+            "id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+            "label": "Nessus",
+            "score": 0.706
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.433
+          },
+          {
+            "id": "esco:ff6904ef-36e7-4890-8fb1-8353b299f047",
+            "label": "microchip scanners",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "Wireshark",
+      "canonical": {
+        "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "label": "Wireshark",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Wireshark for Packet Analysis"
+        },
+        {
+          "source": "description",
+          "text": "Wireshark"
+        }
+      ],
+      "match": {
+        "original_term": "Wireshark",
+        "canonical_id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "canonical_label": "Wireshark",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Buffer Overflow Exploitation Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Buffer Overflow Exploitation Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Buffer Overflow Exploitation Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.218,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.218
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.215
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.21
+          }
+        ]
+      }
+    },
+    {
+      "term": "Code Review Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Secure Coding and Code Review Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Code Review Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.339,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.339
+          },
+          {
+            "id": "esco:c3a03c5a-c260-4c26-9b9a-873abb396f4d",
+            "label": "MATLAB",
+            "score": 0.267
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.231
+          }
+        ]
+      }
+    },
+    {
+      "term": "Comprehensive Penetration Test",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 15,
+          "text": "Final Project: Comprehensive Penetration Test"
+        }
+      ],
+      "match": {
+        "original_term": "Comprehensive Penetration Test",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Comprehensive Penetration Test' directly aligns with the skill 'penetration testing', which involves authorised simulated attacks to find exploitable weaknesses, matching the context of a final project in a cybersecurity or related course.",
+        "candidates": [
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.549
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.459
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.398
+          }
+        ]
+      }
+    },
+    {
+      "term": "Exploit Development with Metasploit",
+      "canonical": {
+        "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+        "label": "Metasploit",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Exploit Development with Metasploit"
+        }
+      ],
+      "match": {
+        "original_term": "Exploit Development with Metasploit",
+        "canonical_id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+        "canonical_label": "Metasploit",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Exploit Development with Metasploit' directly refers to the use of Metasploit, which is explicitly described in the taxonomy entry as a penetration testing tool focused on exploit development.",
+        "candidates": [
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.555
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.434
+          },
+          {
+            "id": "custom:ios-development",
+            "label": "iOS development",
+            "score": 0.433
+          }
+        ]
+      }
+    },
+    {
+      "term": "Incident Response Simulation",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Log Analysis and Incident Response Simulation"
+        }
+      ],
+      "match": {
+        "original_term": "Incident Response Simulation",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.727,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.28",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.727
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.442
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.274
+          }
+        ]
+      }
+    },
+    {
+      "term": "Mitigation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "SQL Injection Testing and Mitigation"
+        }
+      ],
+      "match": {
+        "original_term": "Mitigation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.263,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.263
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.259
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.258
+          }
+        ]
+      }
+    },
+    {
+      "term": "Penetration Test Methodology Implementation",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Penetration Test Methodology Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "Penetration Test Methodology Implementation",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Penetration Test Methodology Implementation' directly aligns with the skill 'penetration testing', which involves authorized simulated attacks to find exploitable weaknesses, matching the implementation aspect of the phrase.",
+        "candidates": [
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.505
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.428
+          },
+          {
+            "id": "esco:0e9e3a56-3b26-4fa5-91df-6d9bfbea4259",
+            "label": "electronic test procedures",
+            "score": 0.321
+          }
+        ]
+      }
+    },
+    {
+      "term": "Penetration Test Report Generation",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Penetration Test Report Generation"
+        }
+      ],
+      "match": {
+        "original_term": "Penetration Test Report Generation",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Penetration Test Report Generation' directly relates to the skill of penetration testing, which involves authorized simulated attacks to find exploitable weaknesses, as described in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.433
+          },
+          {
+            "id": "custom:retrieval-augmented-generation",
+            "label": "retrieval-augmented generation",
+            "score": 0.366
+          },
+          {
+            "id": "esco:23759dba-1abd-4865-b0f9-608012348870",
+            "label": "geothermal power plant operations",
+            "score": 0.36
+          }
+        ]
+      }
+    },
+    {
+      "term": "Secure Coding",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Secure Coding and Code Review Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Secure Coding",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Social Engineering Simulation Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Social Engineering Simulation Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Social Engineering Simulation Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Social Engineering Simulation Lab' does not match any of the provided taxonomy entries, which are focused on robotics, software development, and design tools, not social engineering simulations.",
+        "candidates": [
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.408
+          },
+          {
+            "id": "custom:devops",
+            "label": "DevOps practices",
+            "score": 0.393
+          },
+          {
+            "id": "custom:gazebo",
+            "label": "Gazebo simulator",
+            "score": 0.228
+          }
+        ]
+      }
+    },
+    {
+      "term": "SQL Injection Testing",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "SQL Injection Testing and Mitigation"
+        }
+      ],
+      "match": {
+        "original_term": "SQL Injection Testing",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "SQL Injection Testing is a specific type of penetration testing focused on identifying vulnerabilities in SQL databases, which aligns directly with the definition of penetration testing as authorized simulated attacks to find exploitable weaknesses.",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.53
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.48
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.45
+          }
+        ]
+      }
+    },
+    {
+      "term": "Vulnerability Assessment Using Nessus",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Vulnerability Assessment Using Nessus"
+        }
+      ],
+      "match": {
+        "original_term": "Vulnerability Assessment Using Nessus",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Vulnerability Assessment Using Nessus' directly relates to penetration testing, which includes authorized simulated attacks to find exploitable weaknesses, as defined by the entry.",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.658
+          },
+          {
+            "id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+            "label": "Nessus",
+            "score": 0.61
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.361
+          }
+        ]
+      }
+    },
+    {
+      "term": "Wireless Network Vulnerability Assessment",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Wireless Network Vulnerability Assessment"
+        }
+      ],
+      "match": {
+        "original_term": "Wireless Network Vulnerability Assessment",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.649,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.26",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.649
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.385
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.363
+          }
+        ]
+      }
+    },
+    {
+      "term": "XSS Testing with OWASP ZAP",
+      "canonical": {
+        "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+        "label": "OWASP ZAP",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "XSS Testing with OWASP ZAP"
+        }
+      ],
+      "match": {
+        "original_term": "XSS Testing with OWASP ZAP",
+        "canonical_id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+        "canonical_label": "OWASP ZAP",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.634,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.17",
+        "candidates": [
+          {
+            "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+            "label": "OWASP ZAP",
+            "score": 0.634
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.46
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.45
+          }
+        ]
+      }
+    },
+    {
+      "term": "Automated Vulnerability Scanning",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Automated Vulnerability Scanning"
+        }
+      ],
+      "match": {
+        "original_term": "Automated Vulnerability Scanning",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Automated Vulnerability Scanning'. The closest entries are related to testing or security but do not specifically refer to automated vulnerability scanning.",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.435
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.422
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "Code Review Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Code Review Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Code Review Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.235,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.235
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.214
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "CVE",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Common Vulnerabilities and Exposures (CVE)"
+        }
+      ],
+      "match": {
+        "original_term": "CVE",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.254,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:opencv",
+            "label": "OpenCV",
+            "score": 0.254
+          },
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.222
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.167
+          }
+        ]
+      }
+    },
+    {
+      "term": "Database Security",
+      "canonical": {
+        "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+        "label": "database",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Database Security"
+        }
+      ],
+      "match": {
+        "original_term": "Database Security",
+        "canonical_id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+        "canonical_label": "database",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.637,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.13",
+        "candidates": [
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.637
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.511
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.51
+          }
+        ]
+      }
+    },
+    {
+      "term": "Digital Evidence Collection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Digital Evidence Collection"
+        }
+      ],
+      "match": {
+        "original_term": "Digital Evidence Collection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.363,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:06f33d6a-f7a7-4a2b-baa5-8c3c53bd1a9c",
+            "label": "keywords in digital content",
+            "score": 0.363
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.363
+          },
+          {
+            "id": "esco:debef2fc-7af4-4bff-ac92-4d0317915a84",
+            "label": "electronic communication",
+            "score": 0.225
+          }
+        ]
+      }
+    },
+    {
+      "term": "Documentation Standards",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Documentation Standards"
+        }
+      ],
+      "match": {
+        "original_term": "Documentation Standards",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.659,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.659
+          },
+          {
+            "id": "esco:8696aff0-18c0-4ba6-a4d0-9a21861b3e5e",
+            "label": "World Wide Web Consortium standards",
+            "score": 0.476
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.415
+          }
+        ]
+      }
+    },
+    {
+      "term": "Ethical Hacking Best Practices",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Ethical Hacking Best Practices"
+        }
+      ],
+      "match": {
+        "original_term": "Ethical Hacking Best Practices",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.64,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.19",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.64
+          },
+          {
+            "id": "esco:47ca0da1-cae5-4395-ae6b-fd97b9ff48d3",
+            "label": "system backup best practice",
+            "score": 0.452
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.366
+          }
+        ]
+      }
+    },
+    {
+      "term": "Ethical Hacking Principles",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Ethical Hacking Principles"
+        }
+      ],
+      "match": {
+        "original_term": "Ethical Hacking Principles",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.704,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.26",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.704
+          },
+          {
+            "id": "esco:5eeac647-dc4b-496d-b109-c90b58006021",
+            "label": "mining engineering",
+            "score": 0.449
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.411
+          }
+        ]
+      }
+    },
+    {
+      "term": "Exploitation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Buffer Overflow Attacks and Exploitation"
+        }
+      ],
+      "match": {
+        "original_term": "Exploitation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.241,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.241
+          },
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.234
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.225
+          }
+        ]
+      }
+    },
+    {
+      "term": "Exposures",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Common Vulnerabilities and Exposures (CVE)"
+        }
+      ],
+      "match": {
+        "original_term": "Exposures",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.219,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:f049d050-12da-4e40-813a-2b5eb6df6b51",
+            "label": "Internet of Things",
+            "score": 0.219
+          },
+          {
+            "id": "custom:opencv",
+            "label": "OpenCV",
+            "score": 0.185
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.184
+          }
+        ]
+      }
+    },
+    {
+      "term": "Final Project Integration",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Final Project Integration"
+        }
+      ],
+      "match": {
+        "original_term": "Final Project Integration",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Final Project Integration' does not match any of the provided taxonomy entries, as none of the labels or aliases refer to project integration or similar concepts.",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.563
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.44
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "Findings Presentation",
+      "canonical": {
+        "id": "custom:communication-skills",
+        "label": "communication skills",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Findings Presentation"
+        }
+      ],
+      "match": {
+        "original_term": "Findings Presentation",
+        "canonical_id": "custom:communication-skills",
+        "canonical_label": "communication skills",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Findings Presentation' directly relates to conveying information clearly, which aligns with the definition of 'communication skills' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.493
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.245
+          },
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.244
+          }
+        ]
+      }
+    },
+    {
+      "term": "Forensics",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Log Analysis and Forensics"
+        }
+      ],
+      "match": {
+        "original_term": "Forensics",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Forensics' is closely related to 'digital forensics' which is explicitly mentioned in the description of 'security incident response'.",
+        "candidates": [
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.647
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.645
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "term": "Human Factor in Security",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Human Factor in Security"
+        }
+      ],
+      "match": {
+        "original_term": "Human Factor in Security",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Human Factor in Security'. The closest entries are related to cybersecurity, security panels, and risk assessment, but none specifically address the human factor in security.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.433
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.424
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.38
+          }
+        ]
+      }
+    },
+    {
+      "term": "Incident Response",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Incident Response"
+        }
+      ],
+      "match": {
+        "original_term": "Incident Response",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Injection Attacks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Injection Attacks"
+        }
+      ],
+      "match": {
+        "original_term": "Injection Attacks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.229,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.229
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.21
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.206
+          }
+        ]
+      }
+    },
+    {
+      "term": "Input Validation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Input Validation"
+        }
+      ],
+      "match": {
+        "original_term": "Input Validation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.257,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.257
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.251
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.233
+          }
+        ]
+      }
+    },
+    {
+      "term": "Memory Management",
+      "canonical": {
+        "id": "custom:operating-systems",
+        "label": "operating systems",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Memory Management"
+        }
+      ],
+      "match": {
+        "original_term": "Memory Management",
+        "canonical_id": "custom:operating-systems",
+        "canonical_label": "operating systems",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Memory Management is a core component of operating systems, which manage hardware resources and process execution, aligning directly with the phrase.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.516
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.437
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "Metasploit Framework Overview",
+      "canonical": {
+        "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+        "label": "Metasploit",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Metasploit Framework Overview"
+        }
+      ],
+      "match": {
+        "original_term": "Metasploit Framework Overview",
+        "canonical_id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+        "canonical_label": "Metasploit",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'Metasploit Framework Overview' directly matches the label 'Metasploit' in the taxonomy, which describes the same tool and its purpose.",
+        "candidates": [
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.552
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.411
+          },
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.377
+          }
+        ]
+      }
+    },
+    {
+      "term": "Network Scanning Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Network Scanning Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Network Scanning Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Network Scanning Techniques'. The closest is 'network security', but that is a broader category and does not directly match the specific skill described.",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.441
+          },
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.42
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.416
+          }
+        ]
+      }
+    },
+    {
+      "term": "Nmap Fundamentals",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Nmap Fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "Nmap Fundamentals",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.19,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:eb0e5615-1575-4a86-a1a2-7d39595033c5",
+            "label": "ABAP",
+            "score": 0.19
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.183
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.182
+          }
+        ]
+      }
+    },
+    {
+      "term": "OSSTMM Standards",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "OSSTMM Standards"
+        }
+      ],
+      "match": {
+        "original_term": "OSSTMM Standards",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'OSSTMM Standards' does not match any of the provided taxonomy entries, which cover topics like IPC standards, electronic equipment standards, and mechanical mine machinery manuals, but none specifically refer to OSSTMM (Organization for Security, Standards, and Training in Military Medic",
+        "candidates": [
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.484
+          },
+          {
+            "id": "esco:19ec88aa-c0b1-4515-ba10-56b6cf27369e",
+            "label": "electronic equipment standards",
+            "score": 0.401
+          },
+          {
+            "id": "esco:76526bf6-bada-4ca1-8e79-6b9d4228b607",
+            "label": "electrical safety regulations",
+            "score": 0.396
+          }
+        ]
+      }
+    },
+    {
+      "term": "OWASP Top Ten Vulnerabilities",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "OWASP Top Ten Vulnerabilities"
+        }
+      ],
+      "match": {
+        "original_term": "OWASP Top Ten Vulnerabilities",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'OWASP Top Ten Vulnerabilities' is explicitly mentioned in the also called section of the 'secure coding practices' entry, indicating it refers to the same skill.",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.573
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.479
+          },
+          {
+            "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+            "label": "OWASP ZAP",
+            "score": 0.356
+          }
+        ]
+      }
+    },
+    {
+      "term": "OWASP ZAP Tools",
+      "canonical": {
+        "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+        "label": "OWASP ZAP",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "OWASP ZAP Tools"
+        }
+      ],
+      "match": {
+        "original_term": "OWASP ZAP Tools",
+        "canonical_id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+        "canonical_label": "OWASP ZAP",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.725,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.20",
+        "candidates": [
+          {
+            "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+            "label": "OWASP ZAP",
+            "score": 0.725
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.523
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.52
+          }
+        ]
+      }
+    },
+    {
+      "term": "Payload Creation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Payload Creation"
+        }
+      ],
+      "match": {
+        "original_term": "Payload Creation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.234,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.234
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.226
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "Penetration Testing",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Penetration Testing"
+        }
+      ],
+      "match": {
+        "original_term": "Penetration Testing",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Penetration Testing Methodologies",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Penetration Testing Methodologies"
+        }
+      ],
+      "match": {
+        "original_term": "Penetration Testing Methodologies",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.711,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.13",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.711
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.584
+          },
+          {
+            "id": "esco:c8bd9f9f-0ec6-447a-ab78-ad6eeeed9aa8",
+            "label": "electrical testing methods",
+            "score": 0.42
+          }
+        ]
+      }
+    },
+    {
+      "term": "Penetration Testing Report Writing",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Penetration Testing Report Writing"
+        }
+      ],
+      "match": {
+        "original_term": "Penetration Testing Report Writing",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.656,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.12",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.656
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.538
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.405
+          }
+        ]
+      }
+    },
+    {
+      "term": "Phishing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Phishing and Pretexting"
+        }
+      ],
+      "match": {
+        "original_term": "Phishing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.301,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.301
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.22
+          },
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "Pretexting",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Phishing and Pretexting"
+        }
+      ],
+      "match": {
+        "original_term": "Pretexting",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.233,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.233
+          },
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.233
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.228
+          }
+        ]
+      }
+    },
+    {
+      "term": "Prevention",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Cross-Site Scripting (XSS) and Prevention"
+        }
+      ],
+      "match": {
+        "original_term": "Prevention",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.233,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:linux",
+            "label": "Linux",
+            "score": 0.233
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.228
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "Prevention Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "SQL Injection and Prevention Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Prevention Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.387,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.387
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.259
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.236
+          }
+        ]
+      }
+    },
+    {
+      "term": "PTES Framework",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "PTES Framework"
+        }
+      ],
+      "match": {
+        "original_term": "PTES Framework",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'PTES Framework' does not match any of the provided taxonomy entries, which are focused on software frameworks, tools, or programming languages, while 'PTES Framework' refers to a penetration testing framework.",
+        "candidates": [
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.489
+          },
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.458
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "Regulatory Frameworks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Legal and Regulatory Frameworks"
+        }
+      ],
+      "match": {
+        "original_term": "Regulatory Frameworks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'Regulatory Frameworks' or its syllabus counterpart 'Legal and Regulatory Frameworks'. The closest entries relate to machinery products, machine tools, or energy sector policies, which are distinct from regulatory frameworks in the context of l",
+        "candidates": [
+          {
+            "id": "esco:24c200e5-be20-4370-a137-ab53797f3a17",
+            "label": "software frameworks",
+            "score": 0.485
+          },
+          {
+            "id": "esco:8c88d336-c249-4537-b26e-d679a85c4b9b",
+            "label": "Ajax Framework",
+            "score": 0.471
+          },
+          {
+            "id": "esco:9b9de2a4-d8af-4a7b-933a-a8334ae60067",
+            "label": "JavaScript Framework",
+            "score": 0.463
+          }
+        ]
+      }
+    },
+    {
+      "term": "Social Engineering Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Social Engineering Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Social Engineering Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Social Engineering Techniques'.",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.451
+          },
+          {
+            "id": "esco:14764a75-3104-4875-ba1d-57c059b9b013",
+            "label": "telecommunications engineering",
+            "score": 0.44
+          },
+          {
+            "id": "esco:209a5498-3449-4689-8ed9-bd08cab4fd78",
+            "label": "engineering principles",
+            "score": 0.433
+          }
+        ]
+      }
+    },
+    {
+      "term": "TCP/IP Protocol Analysis",
+      "canonical": {
+        "id": "custom:computer-networks",
+        "label": "computer networks",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "TCP/IP Protocol Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "TCP/IP Protocol Analysis",
+        "canonical_id": "custom:computer-networks",
+        "canonical_label": "computer networks",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'TCP/IP Protocol Analysis' directly relates to the study of network protocols, which is explicitly covered under 'computer networks' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.606
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.38
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.364
+          }
+        ]
+      }
+    },
+    {
+      "term": "Test Case Development",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Test Case Development"
+        }
+      ],
+      "match": {
+        "original_term": "Test Case Development",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Test Case Development' directly aligns with the skill 'software testing' as it is explicitly mentioned in the also called list and is a core part of the description.",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.611
+          },
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.599
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.487
+          }
+        ]
+      }
+    },
+    {
+      "term": "Vulnerabilities",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Common Vulnerabilities and Exposures (CVE)"
+        }
+      ],
+      "match": {
+        "original_term": "Vulnerabilities",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.294,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.294
+          },
+          {
+            "id": "custom:opencv",
+            "label": "OpenCV",
+            "score": 0.191
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.188
+          }
+        ]
+      }
+    },
+    {
+      "term": "Web Application Penetration Testing",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Web Application Penetration Testing"
+        }
+      ],
+      "match": {
+        "original_term": "Web Application Penetration Testing",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.673,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.11",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.673
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.566
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.49
+          }
+        ]
+      }
+    },
+    {
+      "term": "Web Application Security",
+      "canonical": {
+        "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+        "label": "web application security threats",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Web Application Security"
+        }
+      ],
+      "match": {
+        "original_term": "Web Application Security",
+        "canonical_id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+        "canonical_label": "web application security threats",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Web Application Security' directly matches the label 'web application security threats' and is also referred to as OWASP, which aligns with the description of threats and vulnerabilities in web applications.",
+        "candidates": [
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.785
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.752
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.472
+          }
+        ]
+      }
+    },
+    {
+      "term": "Wireless Network Penetration Testing",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Wireless Network Penetration Testing"
+        }
+      ],
+      "match": {
+        "original_term": "Wireless Network Penetration Testing",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.655,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.12",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.655
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.54
+          },
+          {
+            "id": "esco:557e9247-1a2d-4497-aa7f-0cded7768da1",
+            "label": "Aircrack (penetration testing tool)",
+            "score": 0.495
+          }
+        ]
+      }
+    },
+    {
+      "term": "Wireless Security Protocols",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Wireless Security Protocols"
+        }
+      ],
+      "match": {
+        "original_term": "Wireless Security Protocols",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically match 'Wireless Security Protocols'. The closest entries are related to network security, cryptography, or ICT communications protocols, but none directly refer to wireless security protocols.",
+        "candidates": [
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.438
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.43
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.422
+          }
+        ]
+      }
+    },
+    {
+      "term": "XSS Vulnerability Testing",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "XSS Vulnerability Testing"
+        }
+      ],
+      "match": {
+        "original_term": "XSS Vulnerability Testing",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "XSS Vulnerability Testing is a specific type of penetration testing focused on identifying security vulnerabilities like cross-site scripting.",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.509
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.446
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.424
+          }
+        ]
+      }
+    },
+    {
+      "term": "conduct penetration testing using Kali Linux",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "conduct penetration testing using Kali Linux"
+        }
+      ],
+      "match": {
+        "original_term": "conduct penetration testing using Kali Linux",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'conduct penetration testing using Kali Linux' directly refers to the skill of penetration testing, which is explicitly named in the 'penetration testing' entry. Kali Linux is a tool used in this process, but the core skill is penetration testing itself.",
+        "candidates": [
+          {
+            "id": "esco:625b57ee-29d4-425b-bf99-9fd54dd021fe",
+            "label": "Kali Linux",
+            "score": 0.566
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.556
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.462
+          }
+        ]
+      }
+    },
+    {
+      "term": "course also covers ethical hacking principles",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "course also covers ethical hacking principles"
+        }
+      ],
+      "match": {
+        "original_term": "course also covers ethical hacking principles",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ethical hacking principles' is explicitly listed as an alternative name for 'penetration testing' in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.533
+          },
+          {
+            "id": "esco:209a5498-3449-4689-8ed9-bd08cab4fd78",
+            "label": "engineering principles",
+            "score": 0.343
+          },
+          {
+            "id": "esco:c8ac1986-38fa-43b2-89dc-50a4beeb420e",
+            "label": "electricity",
+            "score": 0.329
+          }
+        ]
+      }
+    },
+    {
+      "term": "document findings",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "document findings"
+        }
+      ],
+      "match": {
+        "original_term": "document findings",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.27,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.27
+          },
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.241
+          },
+          {
+            "id": "esco:06f33d6a-f7a7-4a2b-baa5-8c3c53bd1a9c",
+            "label": "keywords in digital content",
+            "score": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "term": "execute penetration tests",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "execute penetration tests"
+        }
+      ],
+      "match": {
+        "original_term": "execute penetration tests",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'execute penetration tests' directly aligns with the definition of 'penetration testing' as an authorised simulated attack to find exploitable weaknesses.",
+        "candidates": [
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.565
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.49
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.403
+          }
+        ]
+      }
+    },
+    {
+      "term": "exploit development using Metasploit",
+      "canonical": {
+        "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+        "label": "Metasploit",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "exploit development using Metasploit"
+        }
+      ],
+      "match": {
+        "original_term": "exploit development using Metasploit",
+        "canonical_id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+        "canonical_label": "Metasploit",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'exploit development using Metasploit' directly refers to the use of Metasploit, which is explicitly described in the taxonomy entry as a penetration testing tool focused on exploit development.",
+        "candidates": [
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.516
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.468
+          },
+          {
+            "id": "custom:ios-development",
+            "label": "iOS development",
+            "score": 0.395
+          }
+        ]
+      }
+    },
+    {
+      "term": "legal frameworks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "legal frameworks"
+        }
+      ],
+      "match": {
+        "original_term": "legal frameworks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'legal frameworks' refers to legal systems or regulations, which is unrelated to the software frameworks and tools listed in the taxonomy candidates.",
+        "candidates": [
+          {
+            "id": "esco:24c200e5-be20-4370-a137-ab53797f3a17",
+            "label": "software frameworks",
+            "score": 0.486
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.472
+          },
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.42
+          }
+        ]
+      }
+    },
+    {
+      "term": "OWASP",
+      "canonical": {
+        "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+        "label": "web application security threats",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "OWASP"
+        }
+      ],
+      "match": {
+        "original_term": "OWASP",
+        "canonical_id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+        "canonical_label": "web application security threats",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'OWASP' is explicitly mentioned in the taxonomy entry for 'web application security threats' as an alternative name, confirming it matches the skill.",
+        "candidates": [
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.891
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.88
+          },
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.175
+          }
+        ]
+      }
+    },
+    {
+      "term": "recommend remediation strategies using standardized methodologies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "recommend remediation strategies using standardized methodologies"
+        }
+      ],
+      "match": {
+        "original_term": "recommend remediation strategies using standardized methodologies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.317,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b1b118c4-3291-484e-b64d-6d51fd5da8b3",
+            "label": "environmental engineering",
+            "score": 0.317
+          },
+          {
+            "id": "esco:00eefa32-9f77-4500-abe9-20afc7924a9d",
+            "label": "cold vulcanisation",
+            "score": 0.299
+          },
+          {
+            "id": "esco:ebd90bfe-ab0f-4155-a77c-3de9267b27a1",
+            "label": "metal smoothing technologies",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "secure coding practices with OWASP ZAP",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "secure coding practices with OWASP ZAP"
+        }
+      ],
+      "match": {
+        "original_term": "secure coding practices with OWASP ZAP",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.734,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.17",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.734
+          },
+          {
+            "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+            "label": "OWASP ZAP",
+            "score": 0.562
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.418
+          }
+        ]
+      }
+    },
+    {
+      "term": "SQL injection techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "SQL injection techniques"
+        }
+      ],
+      "match": {
+        "original_term": "SQL injection techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'SQL injection techniques', which is a security-related skill involving exploiting vulnerabilities in SQL databases. The closest entries are related to SQL or database management systems, but they do not capture the specific skill of SQL in",
+        "candidates": [
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.493
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.486
+          },
+          {
+            "id": "esco:0bb4b474-da3a-45ce-9de3-0c964d84e73f",
+            "label": "soldering techniques",
+            "score": 0.433
+          }
+        ]
+      }
+    },
+    {
+      "term": "Students will learn to design",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Students will learn to design"
+        }
+      ],
+      "match": {
+        "original_term": "Students will learn to design",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.383,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.383
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.375
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.362
+          }
+        ]
+      }
+    },
+    {
+      "term": "Topics include TCP/IP protocol analysis",
+      "canonical": {
+        "id": "custom:computer-networks",
+        "label": "computer networks",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Topics include TCP/IP protocol analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Topics include TCP/IP protocol analysis",
+        "canonical_id": "custom:computer-networks",
+        "canonical_label": "computer networks",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'TCP/IP protocol analysis' directly relates to 'computer networks' as defined by the taxonomy entry, which includes TCP/IP and network protocols.",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.518
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.327
+          },
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.32
+          }
+        ]
+      }
+    }
+  ]
+}

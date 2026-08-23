@@ -1,0 +1,37 @@
+# CareerCompass — Python Dependencies
+
+# Web scraping
+beautifulsoup4==4.15.0
+soupsieve==2.9.1
+requests==2.31.0
+
+# Data processing
+pandas==2.0.3
+
+# PostgreSQL
+psycopg2-binary==2.9.10
+
+# Numerical computing (skill embeddings + vector index)
+numpy>=2.0
+
+# ── Optional: RAG taxonomy matching upgrades ──────────────────
+# The matcher runs without these on lexical retrieval and reranking.
+# Install them to switch on the multilingual semantic backends:
+#
+#   pip install sentence-transformers   # BAAI/bge-m3 + bge-reranker-v2-m3
+#   pip install anthropic               # optional hosted Anthropic provider
+#
+# Local Qwen3 uses Ollama over HTTP and needs no Python package.
+#
+# Then set CC_EMBEDDING_BACKEND=bge, CC_RERANKER=cross, CC_MATCH_LLM=1.
+
+# PDF extraction
+pdfplumber==0.11.10
+
+# Web API Framework
+fastapi==0.141.1
+uvicorn==0.52.1
+python-multipart==0.0.32
+
+# Code formatting
+black

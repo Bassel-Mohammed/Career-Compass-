@@ -1,0 +1,3291 @@
+{
+  "course_code": "A0434301",
+  "course_codes": [
+    "A0434301"
+  ],
+  "course_title": "Infrastructure Security",
+  "credit_hours": 3,
+  "plans": [
+    "CYBER"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "accepted": 46,
+      "no_match": 14,
+      "needs_review": 11
+    },
+    "by_method": {
+      "llm": 32,
+      "embedding_reranker": 29,
+      "exact_alias": 10
+    }
+  },
+  "total_skills": 71,
+  "skills": [
+    {
+      "term": "virtual private networks",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and functionality of firewalls, intrusion detection systems, and virtual private networks."
+        },
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Virtual Private Networks"
+        },
+        {
+          "source": "description",
+          "text": "virtual private networks"
+        }
+      ],
+      "match": {
+        "original_term": "virtual private networks",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'virtual private networks' is explicitly listed in the also called field of the 'network security' entry, confirming it is the same skill.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.54
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.433
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.391
+          }
+        ]
+      }
+    },
+    {
+      "term": "ECC",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define cryptographic algorithms such as AES, RSA, and ECC and their roles in securing data transmission and storage."
+        },
+        {
+          "source": "description",
+          "text": "ECC"
+        }
+      ],
+      "match": {
+        "original_term": "ECC",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.243,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.243
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.236
+          },
+          {
+            "id": "esco:debef2fc-7af4-4bff-ac92-4d0317915a84",
+            "label": "electronic communication",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "intrusion detection systems",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and functionality of firewalls, intrusion detection systems, and virtual private networks."
+        },
+        {
+          "source": "description",
+          "text": "intrusion detection systems"
+        }
+      ],
+      "match": {
+        "original_term": "intrusion detection systems",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'intrusion detection systems' is directly listed in the also called section of the 'network security' entry, indicating it is the same skill.",
+        "candidates": [
+          {
+            "id": "esco:2180bd8c-86de-4889-8165-adac902eee9d",
+            "label": "embedded systems",
+            "score": 0.444
+          },
+          {
+            "id": "esco:0e8d16c9-e2db-4862-ac06-1567f01ef806",
+            "label": "building systems monitoring technology",
+            "score": 0.434
+          },
+          {
+            "id": "esco:f049d050-12da-4e40-813a-2b5eb6df6b51",
+            "label": "Internet of Things",
+            "score": 0.427
+          }
+        ]
+      }
+    },
+    {
+      "term": "Nmap",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply security tools such as Wireshark, Nmap, and Metasploit to conduct vulnerability assessments and penetration testing."
+        },
+        {
+          "source": "description",
+          "text": "Nmap"
+        }
+      ],
+      "match": {
+        "original_term": "Nmap",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.271,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.271
+          },
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.264
+          },
+          {
+            "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+            "label": "Wireshark",
+            "score": 0.257
+          }
+        ]
+      }
+    },
+    {
+      "term": "penetration testing",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply security tools such as Wireshark, Nmap, and Metasploit to conduct vulnerability assessments and penetration testing."
+        },
+        {
+          "source": "description",
+          "text": "penetration testing"
+        }
+      ],
+      "match": {
+        "original_term": "penetration testing",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "RSA",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define cryptographic algorithms such as AES, RSA, and ECC and their roles in securing data transmission and storage."
+        },
+        {
+          "source": "description",
+          "text": "RSA"
+        }
+      ],
+      "match": {
+        "original_term": "RSA",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.244,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.244
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.242
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "secure access controls",
+      "canonical": {
+        "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+        "label": "information confidentiality",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design a secure infrastructure architecture that incorporates PKI, secure access controls, and cloud security best practices."
+        },
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Secure Access Controls"
+        }
+      ],
+      "match": {
+        "original_term": "secure access controls",
+        "canonical_id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+        "canonical_label": "information confidentiality",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.621,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.16",
+        "candidates": [
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.621
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.463
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.436
+          }
+        ]
+      }
+    },
+    {
+      "term": "security tools",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply security tools such as Wireshark, Nmap, and Metasploit to conduct vulnerability assessments and penetration testing."
+        },
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Security Tools and Vulnerability Assessment"
+        }
+      ],
+      "match": {
+        "original_term": "security tools",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'security tools' is a general term referring to a category of tools, while the taxonomy entries refer to specific tools or activities (e.g., penetration testing, Wireshark, Metasploit). None of the entries directly name the general skill of using security tools.",
+        "candidates": [
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.452
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.377
+          },
+          {
+            "id": "esco:09cf2c34-6f93-4a19-a9f1-c0d866414bcc",
+            "label": "Cain and Abel (penetration testing tool)",
+            "score": 0.357
+          }
+        ]
+      }
+    },
+    {
+      "term": "AES",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define cryptographic algorithms such as AES, RSA, and ECC and their roles in securing data transmission and storage."
+        }
+      ],
+      "match": {
+        "original_term": "AES",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.245,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.245
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.241
+          },
+          {
+            "id": "esco:7b5cce4d-c7fe-4119-b48f-70aa05391787",
+            "label": "computer science",
+            "score": 0.231
+          }
+        ]
+      }
+    },
+    {
+      "term": "architecture",
+      "canonical": {
+        "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+        "label": "software architecture models",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and functionality of firewalls, intrusion detection systems, and virtual private networks."
+        }
+      ],
+      "match": {
+        "original_term": "architecture",
+        "canonical_id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+        "canonical_label": "software architecture models",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'architecture' in the context of firewalls, intrusion detection systems, and virtual private networks refers to the structural design of these systems, which aligns with 'software architecture models' as it involves the organization and structure of software systems.",
+        "candidates": [
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.698
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.676
+          },
+          {
+            "id": "esco:1bba98a7-92b9-450b-9235-e0c905f8f3c4",
+            "label": "information architecture",
+            "score": 0.656
+          }
+        ]
+      }
+    },
+    {
+      "term": "cloud security best practices",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design a secure infrastructure architecture that incorporates PKI, secure access controls, and cloud security best practices."
+        }
+      ],
+      "match": {
+        "original_term": "cloud security best practices",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.15,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries directly match 'cloud security best practices'. The closest is 'cloud technologies' (esco:bd14968e-e409-45af-b362-3495ed7b10e0), but it is broader and does not specifically address security best practices.",
+        "candidates": [
+          {
+            "id": "esco:47ca0da1-cae5-4395-ae6b-fd97b9ff48d3",
+            "label": "system backup best practice",
+            "score": 0.512
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.449
+          },
+          {
+            "id": "esco:bd14968e-e409-45af-b362-3495ed7b10e0",
+            "label": "cloud technologies",
+            "score": 0.411
+          }
+        ]
+      }
+    },
+    {
+      "term": "cryptographic algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define cryptographic algorithms such as AES, RSA, and ECC and their roles in securing data transmission and storage."
+        }
+      ],
+      "match": {
+        "original_term": "cryptographic algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.651,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.10",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.651
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.551
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.489
+          }
+        ]
+      }
+    },
+    {
+      "term": "functionality of firewalls",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and functionality of firewalls, intrusion detection systems, and virtual private networks."
+        }
+      ],
+      "match": {
+        "original_term": "functionality of firewalls",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.635,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.35",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.635
+          },
+          {
+            "id": "esco:d11fd23b-ad01-4f12-85f4-e0d2ed16d5af",
+            "label": "functional properties of foods",
+            "score": 0.286
+          },
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.276
+          }
+        ]
+      }
+    },
+    {
+      "term": "Metasploit to conduct vulnerability assessments",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply security tools such as Wireshark, Nmap, and Metasploit to conduct vulnerability assessments and penetration testing."
+        }
+      ],
+      "match": {
+        "original_term": "Metasploit to conduct vulnerability assessments",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.664,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.10",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.664
+          },
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.566
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.563
+          }
+        ]
+      }
+    },
+    {
+      "term": "principles of secure configuration",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of secure configuration and management of network devices using industry standards like NIST SP 800-53."
+        }
+      ],
+      "match": {
+        "original_term": "principles of secure configuration",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill described in the extracted phrase 'principles of secure configuration'. The closest entries are related to secure coding, risk assessment, and ICT security standards, but none specifically address secure configuration principles as descr",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.419
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.4
+          },
+          {
+            "id": "esco:b3a186be-5f1b-45d3-a468-41183e9780f3",
+            "label": "configuration of the tote room hardware",
+            "score": 0.391
+          }
+        ]
+      }
+    },
+    {
+      "term": "roles in securing data transmission",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define cryptographic algorithms such as AES, RSA, and ECC and their roles in securing data transmission and storage."
+        }
+      ],
+      "match": {
+        "original_term": "roles in securing data transmission",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'roles in securing data transmission' is closely related to cryptographic algorithms like AES, RSA, and ECC, which are explicitly mentioned in the syllabus. The 'custom:cryptography' entry directly refers to securing information through mathematical transformation, which aligns with the r",
+        "candidates": [
+          {
+            "id": "esco:71f81e1a-e2ca-48d6-b7b8-7a34c56c51f8",
+            "label": "transmission technology",
+            "score": 0.415
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.379
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.354
+          }
+        ]
+      }
+    },
+    {
+      "term": "secure infrastructure architecture that incorporates PKI",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design a secure infrastructure architecture that incorporates PKI, secure access controls, and cloud security best practices."
+        }
+      ],
+      "match": {
+        "original_term": "secure infrastructure architecture that incorporates PKI",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.4,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.4
+          },
+          {
+            "id": "esco:d0c6d77e-cb25-4770-bf77-2073fc5f7523",
+            "label": "ICT infrastructure",
+            "score": 0.397
+          },
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.395
+          }
+        ]
+      }
+    },
+    {
+      "term": "storage",
+      "canonical": {
+        "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+        "label": "data storage",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define cryptographic algorithms such as AES, RSA, and ECC and their roles in securing data transmission and storage."
+        }
+      ],
+      "match": {
+        "original_term": "storage",
+        "canonical_id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+        "canonical_label": "data storage",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.69,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.15",
+        "candidates": [
+          {
+            "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+            "label": "data storage",
+            "score": 0.69
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.542
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.242
+          }
+        ]
+      }
+    },
+    {
+      "term": "Wireshark",
+      "canonical": {
+        "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "label": "Wireshark",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply security tools such as Wireshark, Nmap, and Metasploit to conduct vulnerability assessments and penetration testing."
+        }
+      ],
+      "match": {
+        "original_term": "Wireshark",
+        "canonical_id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "canonical_label": "Wireshark",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Network Security Protocols",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Network Security Protocols"
+        },
+        {
+          "source": "description",
+          "text": "network security protocols"
+        }
+      ],
+      "match": {
+        "original_term": "Network Security Protocols",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.743,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.07",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.743
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.677
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.449
+          }
+        ]
+      }
+    },
+    {
+      "term": "Security Frameworks",
+      "canonical": {
+        "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "label": "ICT security standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Security Frameworks and Compliance"
+        },
+        {
+          "source": "description",
+          "text": "security frameworks"
+        }
+      ],
+      "match": {
+        "original_term": "Security Frameworks",
+        "canonical_id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "canonical_label": "ICT security standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Security Frameworks' directly aligns with 'ICT security standards' which includes security frameworks and compliance, matching the syllabus evidence.",
+        "candidates": [
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.547
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.539
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.517
+          }
+        ]
+      }
+    },
+    {
+      "term": "Vulnerability Assessment",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Security Tools and Vulnerability Assessment"
+        },
+        {
+          "source": "description",
+          "text": "vulnerability assessment"
+        }
+      ],
+      "match": {
+        "original_term": "Vulnerability Assessment",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Advanced Threat Simulation Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Advanced Threat Simulation Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Advanced Threat Simulation Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Advanced Threat Simulation Lab' does not match any of the provided taxonomy entries, as none of the labels or also called entries align with the concept of a lab focused on advanced threat simulation.",
+        "candidates": [
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.406
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.321
+          },
+          {
+            "id": "custom:gazebo",
+            "label": "Gazebo simulator",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "AWS Security Best Practices Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "AWS Security Best Practices Lab"
+        }
+      ],
+      "match": {
+        "original_term": "AWS Security Best Practices Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'AWS Security Best Practices Lab' refers to a specific lab focused on AWS security practices, which is not captured by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "esco:1618ee1c-6753-456e-a171-3d7e5f75404a",
+            "label": "good laboratory practice",
+            "score": 0.476
+          },
+          {
+            "id": "custom:aws",
+            "label": "Amazon Web Services",
+            "score": 0.4
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "term": "Digital Forensics",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Digital Forensics and Incident Response Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Digital Forensics",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Firewall Configuration Lab",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Firewall Configuration Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Firewall Configuration Lab",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Firewall Configuration Lab' directly relates to configuring firewalls, which is a core component of network security as defined by the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.447
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.216
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "IDS/IPS Setup",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "IDS/IPS Setup and Monitoring Lab"
+        }
+      ],
+      "match": {
+        "original_term": "IDS/IPS Setup",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'IDS/IPS Setup' directly relates to network security, as IDS (Intrusion Detection System) and IPS (Intrusion Prevention System) are core components of network security infrastructure.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.526
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.202
+          },
+          {
+            "id": "esco:ce26e71f-2d47-474e-89b6-7920931ac4fc",
+            "label": "iOS",
+            "score": 0.199
+          }
+        ]
+      }
+    },
+    {
+      "term": "Incident Response Lab",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Digital Forensics and Incident Response Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Incident Response Lab",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.86,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.56",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.86
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.295
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "LDAP",
+      "canonical": {
+        "id": "esco:a57a54b6-2f2e-43e4-9621-b52f4a63cb08",
+        "label": "LDAP",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "LDAP and RADIUS Configuration Lab"
+        }
+      ],
+      "match": {
+        "original_term": "LDAP",
+        "canonical_id": "esco:a57a54b6-2f2e-43e4-9621-b52f4a63cb08",
+        "canonical_label": "LDAP",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Metasploit-Based Penetration Testing Lab",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Metasploit-Based Penetration Testing Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Metasploit-Based Penetration Testing Lab",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Metasploit-Based Penetration Testing Lab' directly refers to penetration testing, which is explicitly defined as 'Authorised simulated attacks that find exploitable weaknesses' and matches the label 'penetration testing' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.588
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.568
+          },
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.477
+          }
+        ]
+      }
+    },
+    {
+      "term": "Monitoring Lab",
+      "canonical": {
+        "id": "custom:monitoring-observability",
+        "label": "monitoring and observability",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "IDS/IPS Setup and Monitoring Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Monitoring Lab",
+        "canonical_id": "custom:monitoring-observability",
+        "canonical_label": "monitoring and observability",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.67,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.67
+          },
+          {
+            "id": "esco:20b1d521-3d18-4b59-aee5-aaf296170c1b",
+            "label": "electronic signals intelligence",
+            "score": 0.489
+          },
+          {
+            "id": "esco:0e8d16c9-e2db-4862-ac06-1567f01ef806",
+            "label": "building systems monitoring technology",
+            "score": 0.435
+          }
+        ]
+      }
+    },
+    {
+      "term": "NIST SP 800-53 Compliance Assessment Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "NIST SP 800-53 Compliance Assessment Lab"
+        }
+      ],
+      "match": {
+        "original_term": "NIST SP 800-53 Compliance Assessment Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.39,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.39
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.299
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.191
+          }
+        ]
+      }
+    },
+    {
+      "term": "PKI Implementation Lab",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "PKI Implementation Lab"
+        }
+      ],
+      "match": {
+        "original_term": "PKI Implementation Lab",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'PKI Implementation Lab' directly references PKI, which is explicitly listed in the 'cryptography' entry's 'also called' field.",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.486
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.218
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "RADIUS Configuration Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "LDAP and RADIUS Configuration Lab"
+        }
+      ],
+      "match": {
+        "original_term": "RADIUS Configuration Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.291,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:a57a54b6-2f2e-43e4-9621-b52f4a63cb08",
+            "label": "LDAP",
+            "score": 0.291
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.194
+          },
+          {
+            "id": "esco:de9f85ba-e77f-48fd-8c66-f5ebaf32d655",
+            "label": "Oracle Relational Database",
+            "score": 0.192
+          }
+        ]
+      }
+    },
+    {
+      "term": "VPN Configuration Lab",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "VPN Configuration Lab"
+        }
+      ],
+      "match": {
+        "original_term": "VPN Configuration Lab",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'VPN Configuration Lab' directly relates to network security, as VPN (Virtual Private Network) is explicitly listed in the also called section of the 'network security' entry.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.472
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.223
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "Vulnerability Scanning with Nmap Lab",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Vulnerability Scanning with Nmap Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Vulnerability Scanning with Nmap Lab",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Vulnerability Scanning with Nmap Lab' directly relates to penetration testing, which involves finding exploitable weaknesses through simulated attacks, matching the description and also called terms of the 'penetration testing' entry.",
+        "candidates": [
+          {
+            "id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+            "label": "Nessus",
+            "score": 0.412
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.392
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.196
+          }
+        ]
+      }
+    },
+    {
+      "term": "Advanced Threats",
+      "canonical": {
+        "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "label": "assessment of risks and threats",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Advanced Threats and Mitigation"
+        }
+      ],
+      "match": {
+        "original_term": "Advanced Threats",
+        "canonical_id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "canonical_label": "assessment of risks and threats",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Advanced Threats' aligns with 'assessment of risks and threats' as both focus on evaluating and managing security-related threats.",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.41
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.198
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.192
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cloud Infrastructure Security",
+      "canonical": {
+        "id": "custom:cloud-computing",
+        "label": "cloud computing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Cloud Infrastructure Security"
+        }
+      ],
+      "match": {
+        "original_term": "Cloud Infrastructure Security",
+        "canonical_id": "custom:cloud-computing",
+        "canonical_label": "cloud computing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.734,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.28",
+        "candidates": [
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.734
+          },
+          {
+            "id": "custom:terraform",
+            "label": "Terraform",
+            "score": 0.458
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.441
+          }
+        ]
+      }
+    },
+    {
+      "term": "Compliance",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Security Frameworks and Compliance"
+        }
+      ],
+      "match": {
+        "original_term": "Compliance",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Compliance' is explicitly listed in the 'also called' field of the 'security risk management' entry, indicating it directly refers to the same skill.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.904
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.623
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.255
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cryptography Fundamentals",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Cryptography Fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "Cryptography Fundamentals",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.666,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.19",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.666
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.475
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.19
+          }
+        ]
+      }
+    },
+    {
+      "term": "Forensics",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Incident Response and Forensics"
+        }
+      ],
+      "match": {
+        "original_term": "Forensics",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.773,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.13",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.773
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.642
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "Incident Response",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Incident Response and Forensics"
+        }
+      ],
+      "match": {
+        "original_term": "Incident Response",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Infrastructure Security",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Infrastructure Security"
+        }
+      ],
+      "match": {
+        "original_term": "Infrastructure Security",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries precisely match 'Infrastructure Security' as a specific skill. The closest entries are broader or related but not exact matches.",
+        "candidates": [
+          {
+            "id": "esco:d0c6d77e-cb25-4770-bf77-2073fc5f7523",
+            "label": "ICT infrastructure",
+            "score": 0.523
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.502
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.495
+          }
+        ]
+      }
+    },
+    {
+      "term": "Intrusion Detection",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Intrusion Detection and Prevention Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Intrusion Detection",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Intrusion Detection' aligns with 'security incident response' as both involve detecting security incidents, which is a core part of the description for the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.502
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.499
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "term": "Mitigation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Advanced Threats and Mitigation"
+        }
+      ],
+      "match": {
+        "original_term": "Mitigation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.275,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.275
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.264
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "term": "Penetration Testing Techniques",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Penetration Testing Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Penetration Testing Techniques",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.729,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.12",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.729
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.606
+          },
+          {
+            "id": "esco:d512d178-37a6-4eab-a660-412d2bb0824a",
+            "label": "test procedures",
+            "score": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "term": "Prevention Systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Intrusion Detection and Prevention Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Prevention Systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Prevention Systems' refers to a specific type of security technology, but none of the provided taxonomy entries directly match this term. The closest entries are related to security systems or cybersecurity, but they do not specifically capture the concept of 'Prevention Systems' as desc",
+        "candidates": [
+          {
+            "id": "esco:0e8d16c9-e2db-4862-ac06-1567f01ef806",
+            "label": "building systems monitoring technology",
+            "score": 0.487
+          },
+          {
+            "id": "esco:8203b07a-8097-4383-aff6-603b7df7f0f4",
+            "label": "ATM systems",
+            "score": 0.482
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.463
+          }
+        ]
+      }
+    },
+    {
+      "term": "Secure Configuration of Firewalls",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Secure Configuration of Firewalls"
+        }
+      ],
+      "match": {
+        "original_term": "Secure Configuration of Firewalls",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Secure Configuration of Firewalls' directly relates to network security, which is explicitly listed as a synonym for 'network security' in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.542
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.419
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.261
+          }
+        ]
+      }
+    },
+    {
+      "term": "Secure Data Storage",
+      "canonical": {
+        "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+        "label": "data storage",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Secure Data Storage and Transmission"
+        }
+      ],
+      "match": {
+        "original_term": "Secure Data Storage",
+        "canonical_id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+        "canonical_label": "data storage",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.728,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.30",
+        "candidates": [
+          {
+            "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+            "label": "data storage",
+            "score": 0.728
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.424
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.405
+          }
+        ]
+      }
+    },
+    {
+      "term": "Transmission",
+      "canonical": {
+        "id": "esco:71f81e1a-e2ca-48d6-b7b8-7a34c56c51f8",
+        "label": "transmission technology",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Secure Data Storage and Transmission"
+        }
+      ],
+      "match": {
+        "original_term": "Transmission",
+        "canonical_id": "esco:71f81e1a-e2ca-48d6-b7b8-7a34c56c51f8",
+        "canonical_label": "transmission technology",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.689,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.38",
+        "candidates": [
+          {
+            "id": "esco:71f81e1a-e2ca-48d6-b7b8-7a34c56c51f8",
+            "label": "transmission technology",
+            "score": 0.689
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.308
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.26
+          }
+        ]
+      }
+    },
+    {
+      "term": "AWS",
+      "canonical": {
+        "id": "custom:aws",
+        "label": "Amazon Web Services",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "AWS"
+        }
+      ],
+      "match": {
+        "original_term": "AWS",
+        "canonical_id": "custom:aws",
+        "canonical_label": "Amazon Web Services",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Azure security best practices",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Azure security best practices"
+        }
+      ],
+      "match": {
+        "original_term": "Azure security best practices",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Azure security best practices'. The closest entries are related to general cybersecurity, secure coding, or system backup, but none match the specific focus on Azure security best practices.",
+        "candidates": [
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.483
+          },
+          {
+            "id": "esco:47ca0da1-cae5-4395-ae6b-fd97b9ff48d3",
+            "label": "system backup best practice",
+            "score": 0.453
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.424
+          }
+        ]
+      }
+    },
+    {
+      "term": "course also explores secure cloud infrastructure",
+      "canonical": {
+        "id": "custom:cloud-computing",
+        "label": "cloud computing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "course also explores secure cloud infrastructure"
+        }
+      ],
+      "match": {
+        "original_term": "course also explores secure cloud infrastructure",
+        "canonical_id": "custom:cloud-computing",
+        "canonical_label": "cloud computing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'secure cloud infrastructure' directly aligns with the 'cloud computing' entry, which includes 'cloud infrastructure' in its also-called list.",
+        "candidates": [
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.563
+          },
+          {
+            "id": "esco:8bc3c77c-30c3-45e6-bd61-069ba433ecfe",
+            "label": "e-learning software infrastructure",
+            "score": 0.335
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.331
+          }
+        ]
+      }
+    },
+    {
+      "term": "cryptographic algorithms like AES",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "cryptographic algorithms like AES"
+        }
+      ],
+      "match": {
+        "original_term": "cryptographic algorithms like AES",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'cryptographic algorithms like AES' directly relates to cryptography, which is explicitly covered by the 'cryptography' entry.",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.473
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.421
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.362
+          }
+        ]
+      }
+    },
+    {
+      "term": "Diameter protocols",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Diameter protocols"
+        }
+      ],
+      "match": {
+        "original_term": "Diameter protocols",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Diameter protocols', which is a specific type of network protocol. The closest entry is 'computer networks', but it is too broad and does not specifically match the phrase.",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.476
+          },
+          {
+            "id": "esco:4cdbc76c-75d8-4e12-8653-4820c2d5446f",
+            "label": "microsystem test procedures",
+            "score": 0.421
+          },
+          {
+            "id": "esco:f12d412a-04e3-49a8-a4f6-2e32a67c12a2",
+            "label": "metal drawing processes",
+            "score": 0.22
+          }
+        ]
+      }
+    },
+    {
+      "term": "digital certificates",
+      "canonical": {
+        "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "label": "ICT security standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "digital certificates"
+        }
+      ],
+      "match": {
+        "original_term": "digital certificates",
+        "canonical_id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "canonical_label": "ICT security standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "Digital certificates are related to ICT security standards, such as compliance with security protocols and standards like ISO, which is covered by the 'ICT security standards' entry.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.435
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.386
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.253
+          }
+        ]
+      }
+    },
+    {
+      "term": "IDS",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "IDS"
+        }
+      ],
+      "match": {
+        "original_term": "IDS",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "IPSec",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "IPSec"
+        }
+      ],
+      "match": {
+        "original_term": "IPSec",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.347,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.347
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.255
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.186
+          }
+        ]
+      }
+    },
+    {
+      "term": "ISO/IEC 27001",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "ISO/IEC 27001"
+        }
+      ],
+      "match": {
+        "original_term": "ISO/IEC 27001",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.661,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.47",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.661
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.188
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.185
+          }
+        ]
+      }
+    },
+    {
+      "term": "Metasploit",
+      "canonical": {
+        "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+        "label": "Metasploit",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Metasploit"
+        }
+      ],
+      "match": {
+        "original_term": "Metasploit",
+        "canonical_id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+        "canonical_label": "Metasploit",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "NIST SP 800-53",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "NIST SP 800-53"
+        }
+      ],
+      "match": {
+        "original_term": "NIST SP 800-53",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.151,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:d09ea154-1549-4ad0-a0e4-c8ca8fca8e52",
+            "label": "types of straightening machine",
+            "score": 0.151
+          },
+          {
+            "id": "esco:fbf3b986-7eeb-415f-8abd-5a96785b20cc",
+            "label": "types of planing cutters",
+            "score": 0.148
+          },
+          {
+            "id": "esco:09637f9c-ad8c-42ff-94d8-6a5a81d1dfd1",
+            "label": "types of sanders",
+            "score": 0.147
+          }
+        ]
+      }
+    },
+    {
+      "term": "RADIUS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "RADIUS"
+        }
+      ],
+      "match": {
+        "original_term": "RADIUS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.232,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:286d0e0d-48e9-4210-b110-b1fbf04c35f1",
+            "label": "radars",
+            "score": 0.232
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.183
+          },
+          {
+            "id": "esco:f6f22c8e-249e-4e82-9528-6779a947b265",
+            "label": "surveillance radars",
+            "score": 0.181
+          }
+        ]
+      }
+    },
+    {
+      "term": "secure infrastructure architectures",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "secure infrastructure architectures"
+        }
+      ],
+      "match": {
+        "original_term": "secure infrastructure architectures",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'secure infrastructure architectures' refers to designing secure infrastructure systems, which is not directly captured by any of the provided taxonomy entries. None of the entries specifically address secure infrastructure architectures.",
+        "candidates": [
+          {
+            "id": "custom:terraform",
+            "label": "Terraform",
+            "score": 0.471
+          },
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.465
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.401
+          }
+        ]
+      }
+    },
+    {
+      "term": "secure storage",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "secure storage"
+        }
+      ],
+      "match": {
+        "original_term": "secure storage",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'secure storage' does not clearly match any of the provided taxonomy entries, as none specifically refer to secure storage practices or systems.",
+        "candidates": [
+          {
+            "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+            "label": "data storage",
+            "score": 0.48
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.466
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.402
+          }
+        ]
+      }
+    },
+    {
+      "term": "SSH",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "SSH"
+        }
+      ],
+      "match": {
+        "original_term": "SSH",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.23,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:linux",
+            "label": "Linux",
+            "score": 0.23
+          },
+          {
+            "id": "custom:message-queues",
+            "label": "message queues",
+            "score": 0.162
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.161
+          }
+        ]
+      }
+    },
+    {
+      "term": "Students will analyze real-world security breaches",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Students will analyze real-world security breaches"
+        }
+      ],
+      "match": {
+        "original_term": "Students will analyze real-world security breaches",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.31,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.31
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.307
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.298
+          }
+        ]
+      }
+    },
+    {
+      "term": "TLS 1.3",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "TLS 1.3"
+        }
+      ],
+      "match": {
+        "original_term": "TLS 1.3",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.162,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:angular",
+            "label": "Angular",
+            "score": 0.162
+          },
+          {
+            "id": "custom:html-css",
+            "label": "HTML and CSS",
+            "score": 0.159
+          },
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.159
+          }
+        ]
+      }
+    },
+    {
+      "term": "tools like Wireshark",
+      "canonical": {
+        "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "label": "Wireshark",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "tools like Wireshark"
+        }
+      ],
+      "match": {
+        "original_term": "tools like Wireshark",
+        "canonical_id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "canonical_label": "Wireshark",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'tools like Wireshark' directly refers to the Wireshark tool, which is explicitly described in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+            "label": "Wireshark",
+            "score": 0.598
+          },
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.379
+          },
+          {
+            "id": "custom:rqt",
+            "label": "RQT",
+            "score": 0.373
+          }
+        ]
+      }
+    },
+    {
+      "term": "Topics include secure configuration of firewalls",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Topics include secure configuration of firewalls"
+        }
+      ],
+      "match": {
+        "original_term": "Topics include secure configuration of firewalls",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'secure configuration of firewalls' directly relates to network security, which is explicitly covered under the 'network security' label that includes firewalls as an also-called term.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.454
+          },
+          {
+            "id": "esco:b3a186be-5f1b-45d3-a468-41183e9780f3",
+            "label": "configuration of the tote room hardware",
+            "score": 0.363
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.356
+          }
+        ]
+      }
+    },
+    {
+      "term": "transmission of data using PKI",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "transmission of data using PKI"
+        }
+      ],
+      "match": {
+        "original_term": "transmission of data using PKI",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'transmission of data using PKI' directly relates to 'ICT encryption' which specifically includes PKI as a technique.",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.459
+          },
+          {
+            "id": "esco:71f81e1a-e2ca-48d6-b7b8-7a34c56c51f8",
+            "label": "transmission technology",
+            "score": 0.414
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.207
+          }
+        ]
+      }
+    },
+    {
+      "term": "VPNs",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "VPNs"
+        }
+      ],
+      "match": {
+        "original_term": "VPNs",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    }
+  ]
+}

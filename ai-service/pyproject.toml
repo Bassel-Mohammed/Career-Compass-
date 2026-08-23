@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "careercompass"
+version = "0.1.0"
+description = "Skill-gap analysis between university course syllabi and the job market"
+readme = "README.md"
+requires-python = ">=3.10"
+
+dependencies = [
+    "beautifulsoup4>=4.12",
+    "requests>=2.31",
+    "pandas>=2.0",
+    "psycopg2-binary>=2.9",
+    "pdfplumber>=0.11",
+    "numpy>=2.0",
+    "python-dotenv>=1.0",
+    "fastapi>=0.110",
+    "uvicorn>=0.27",
+    "python-multipart>=0.0.9",
+]
+
+[project.optional-dependencies]
+# Multilingual semantic retrieval and reranking (BAAI/bge-m3,
+# bge-reranker-v2-m3). Without these the matcher runs on lexical
+# scoring; see docs/SYLLABUS_SKILL_EXTRACTION.md.
+semantic = ["sentence-transformers>=3.0"]
+# Optional hosted Anthropic provider. Local Ollama uses the standard library
+# and does not need a Python dependency.
+llm = ["anthropic>=0.40"]
+dev = ["black", "pytest>=8.0", "httpx>=0.27", "openapi-spec-validator>=0.7"]
+
+[project.scripts]
+cc-parse-transcript = "careercompass.cli.parse_transcript:main"
+cc-parse-syllabus = "careercompass.cli.parse_syllabus:main"
+cc-extract-skills = "careercompass.cli.extract_skills:main"
+cc-build-taxonomy = "careercompass.cli.build_taxonomy:main"
+cc-match-skills = "careercompass.cli.match_skills:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 100

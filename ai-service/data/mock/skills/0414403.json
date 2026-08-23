@@ -1,0 +1,2610 @@
+{
+  "course_code": "0414403",
+  "course_codes": [
+    "0414403"
+  ],
+  "course_title": "Human-Computer Interaction",
+  "credit_hours": 3,
+  "plans": [
+    "CS",
+    "SE"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "no_match": 13,
+      "needs_review": 11,
+      "accepted": 31
+    },
+    "by_method": {
+      "embedding_reranker": 20,
+      "llm": 30,
+      "exact_alias": 5
+    }
+  },
+  "total_skills": 55,
+  "skills": [
+    {
+      "term": "SUS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "lab",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the methodologies for usability testing, including the System Usability Scale (SUS) and Nielsen's Heuristics."
+        },
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Conduct a usability test using the System Usability Scale (SUS)"
+        },
+        {
+          "source": "description",
+          "text": "SUS"
+        }
+      ],
+      "match": {
+        "original_term": "SUS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.359,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+            "label": "Nessus",
+            "score": 0.359
+          },
+          {
+            "id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+            "label": "usability engineering",
+            "score": 0.229
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "user experience metrics",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement accessibility features in digital interfaces using WCAG 2.1 guidelines and evaluate user experience metrics such as task success rates."
+        },
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "User Experience Metrics and Evaluation"
+        },
+        {
+          "source": "description",
+          "text": "user experience metrics"
+        }
+      ],
+      "match": {
+        "original_term": "user experience metrics",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'user experience metrics' refers specifically to metrics used to evaluate user experience, which is not directly captured by any of the provided taxonomy entries. None of the entries explicitly mention metrics related to user experience evaluation.",
+        "candidates": [
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.59
+          },
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.436
+          },
+          {
+            "id": "custom:user-research",
+            "label": "user research",
+            "score": 0.393
+          }
+        ]
+      }
+    },
+    {
+      "term": "accessibility standards like WCAG 2.1",
+      "canonical": {
+        "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "label": "ICT accessibility standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key HCI principles such as user-centered design, usability, and accessibility standards like WCAG 2.1."
+        },
+        {
+          "source": "description",
+          "text": "accessibility standards like WCAG 2.1"
+        }
+      ],
+      "match": {
+        "original_term": "accessibility standards like WCAG 2.1",
+        "canonical_id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "canonical_label": "ICT accessibility standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'accessibility standards like WCAG 2.1' directly matches the label 'ICT accessibility standards' and is explicitly mentioned in the description as including standards such as Web Content Accessibility Guidelines.",
+        "candidates": [
+          {
+            "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+            "label": "ICT accessibility standards",
+            "score": 0.587
+          },
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.523
+          },
+          {
+            "id": "esco:8696aff0-18c0-4ba6-a4d0-9a21861b3e5e",
+            "label": "World Wide Web Consortium standards",
+            "score": 0.388
+          }
+        ]
+      }
+    },
+    {
+      "term": "cognitive models of user behavior",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the cognitive models of user behavior, including the GOMS model and the cognitive walkthrough technique."
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Cognitive Models of User Behavior"
+        }
+      ],
+      "match": {
+        "original_term": "cognitive models of user behavior",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.378,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.378
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.365
+          },
+          {
+            "id": "esco:cb304338-3a44-4b6f-802b-dfc6c64de109",
+            "label": "scientific modelling",
+            "score": 0.359
+          }
+        ]
+      }
+    },
+    {
+      "term": "Nielsen's Heuristics",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the methodologies for usability testing, including the System Usability Scale (SUS) and Nielsen's Heuristics."
+        },
+        {
+          "source": "description",
+          "text": "Nielsen's Heuristics"
+        }
+      ],
+      "match": {
+        "original_term": "Nielsen's Heuristics",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.23,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.23
+          },
+          {
+            "id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+            "label": "levels of software testing",
+            "score": 0.224
+          },
+          {
+            "id": "custom:user-research",
+            "label": "user research",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "System Usability Scale",
+      "canonical": {
+        "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+        "label": "application usability",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the methodologies for usability testing, including the System Usability Scale (SUS) and Nielsen's Heuristics."
+        },
+        {
+          "source": "description",
+          "text": "System Usability Scale"
+        }
+      ],
+      "match": {
+        "original_term": "System Usability Scale",
+        "canonical_id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+        "canonical_label": "application usability",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'System Usability Scale' is a specific methodology for measuring usability, which aligns directly with the definition of 'application usability' as a process to measure the usability of a software application.",
+        "candidates": [
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.462
+          },
+          {
+            "id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+            "label": "usability engineering",
+            "score": 0.454
+          },
+          {
+            "id": "custom:user-research",
+            "label": "user research",
+            "score": 0.452
+          }
+        ]
+      }
+    },
+    {
+      "term": "task success rates",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement accessibility features in digital interfaces using WCAG 2.1 guidelines and evaluate user experience metrics such as task success rates."
+        },
+        {
+          "source": "description",
+          "text": "task success rates"
+        }
+      ],
+      "match": {
+        "original_term": "task success rates",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.269,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+            "label": "ICT accessibility standards",
+            "score": 0.269
+          },
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.25
+          },
+          {
+            "id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+            "label": "usability engineering",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "cognitive walkthrough technique",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the cognitive models of user behavior, including the GOMS model and the cognitive walkthrough technique."
+        }
+      ],
+      "match": {
+        "original_term": "cognitive walkthrough technique",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to the 'cognitive walkthrough technique' as described in the syllabus. The closest entries are related to interaction design or modeling, but none directly match the specific skill.",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.409
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.201
+          },
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.194
+          }
+        ]
+      }
+    },
+    {
+      "term": "GOMS model",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the cognitive models of user behavior, including the GOMS model and the cognitive walkthrough technique."
+        }
+      ],
+      "match": {
+        "original_term": "GOMS model",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to the 'GOMS model' or a closely related skill. The closest match would be 'software interaction design' (esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56), but it is not specific to the GOMS model.",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.479
+          },
+          {
+            "id": "esco:cb304338-3a44-4b6f-802b-dfc6c64de109",
+            "label": "scientific modelling",
+            "score": 0.452
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.449
+          }
+        ]
+      }
+    },
+    {
+      "term": "HCI principles",
+      "canonical": {
+        "id": "esco:9136cbf1-7916-4f1c-bc9a-0318ee1d6016",
+        "label": "human-computer interaction",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key HCI principles such as user-centered design, usability, and accessibility standards like WCAG 2.1."
+        }
+      ],
+      "match": {
+        "original_term": "HCI principles",
+        "canonical_id": "esco:9136cbf1-7916-4f1c-bc9a-0318ee1d6016",
+        "canonical_label": "human-computer interaction",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'HCI principles' directly aligns with the label 'human-computer interaction' and its also called entry 'HCI', which matches the syllabus evidence about defining key HCI principles.",
+        "candidates": [
+          {
+            "id": "esco:9136cbf1-7916-4f1c-bc9a-0318ee1d6016",
+            "label": "human-computer interaction",
+            "score": 0.576
+          },
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.531
+          },
+          {
+            "id": "esco:209a5498-3449-4689-8ed9-bd08cab4fd78",
+            "label": "engineering principles",
+            "score": 0.517
+          }
+        ]
+      }
+    },
+    {
+      "term": "interactive mockups",
+      "canonical": {
+        "id": "custom:wireframing",
+        "label": "wireframing and prototyping",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply user interface design principles using prototyping tools like Figma and InVision to create wireframes and interactive mockups."
+        }
+      ],
+      "match": {
+        "original_term": "interactive mockups",
+        "canonical_id": "custom:wireframing",
+        "canonical_label": "wireframing and prototyping",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.677,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.37",
+        "candidates": [
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.677
+          },
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.309
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.288
+          }
+        ]
+      }
+    },
+    {
+      "term": "InVision to create wireframes",
+      "canonical": {
+        "id": "custom:wireframing",
+        "label": "wireframing and prototyping",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply user interface design principles using prototyping tools like Figma and InVision to create wireframes and interactive mockups."
+        }
+      ],
+      "match": {
+        "original_term": "InVision to create wireframes",
+        "canonical_id": "custom:wireframing",
+        "canonical_label": "wireframing and prototyping",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'InVision to create wireframes' directly relates to wireframing, which is explicitly covered in the 'wireframing and prototyping' entry.",
+        "candidates": [
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.601
+          },
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.256
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.243
+          }
+        ]
+      }
+    },
+    {
+      "term": "methodologies",
+      "canonical": {
+        "id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+        "label": "usability engineering",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the methodologies for usability testing, including the System Usability Scale (SUS) and Nielsen's Heuristics."
+        }
+      ],
+      "match": {
+        "original_term": "methodologies",
+        "canonical_id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+        "canonical_label": "usability engineering",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'methodologies' in the context of usability testing aligns with the 'usability engineering' taxonomy entry, which specifically refers to methods of assessing usability and deriving recommendations from usability tests.",
+        "candidates": [
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.572
+          },
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.22
+          },
+          {
+            "id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+            "label": "usability engineering",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "usability",
+      "canonical": {
+        "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+        "label": "application usability",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key HCI principles such as user-centered design, usability, and accessibility standards like WCAG 2.1."
+        }
+      ],
+      "match": {
+        "original_term": "usability",
+        "canonical_id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+        "canonical_label": "application usability",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'usability' directly matches the label 'application usability' and is explicitly listed in its also called section.",
+        "candidates": [
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.905
+          },
+          {
+            "id": "custom:user-research",
+            "label": "user research",
+            "score": 0.671
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.662
+          }
+        ]
+      }
+    },
+    {
+      "term": "usability testing",
+      "canonical": {
+        "id": "custom:user-research",
+        "label": "user research",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the methodologies for usability testing, including the System Usability Scale (SUS) and Nielsen's Heuristics."
+        }
+      ],
+      "match": {
+        "original_term": "usability testing",
+        "canonical_id": "custom:user-research",
+        "canonical_label": "user research",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "user-centered design",
+      "canonical": {
+        "id": "custom:ux-design",
+        "label": "user experience design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key HCI principles such as user-centered design, usability, and accessibility standards like WCAG 2.1."
+        }
+      ],
+      "match": {
+        "original_term": "user-centered design",
+        "canonical_id": "custom:ux-design",
+        "canonical_label": "user experience design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'user-centered design' directly aligns with the label 'user experience design' and its also called entries, which include 'UX design' and 'usability'.",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.593
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.583
+          },
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.463
+          }
+        ]
+      }
+    },
+    {
+      "term": "User Interface Design",
+      "canonical": {
+        "id": "custom:ui-design",
+        "label": "user interface design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 3,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "User Interface Design for Web Applications"
+        },
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "User Interface Design for Mobile Applications"
+        },
+        {
+          "source": "description",
+          "text": "user interface design"
+        }
+      ],
+      "match": {
+        "original_term": "User Interface Design",
+        "canonical_id": "custom:ui-design",
+        "canonical_label": "user interface design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Diverse User Populations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Designing for Diverse User Populations"
+        },
+        {
+          "source": "description",
+          "text": "diverse user populations"
+        }
+      ],
+      "match": {
+        "original_term": "Diverse User Populations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Diverse User Populations' refers to designing for a variety of users, which is not directly captured by any of the provided taxonomy entries. None of the entries specifically address designing for diverse user groups, though some related concepts like user experience design or user resea",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.469
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.458
+          },
+          {
+            "id": "custom:user-research",
+            "label": "user research",
+            "score": 0.388
+          }
+        ]
+      }
+    },
+    {
+      "term": "Interaction Paradigms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Interaction Paradigms and Gestures"
+        },
+        {
+          "source": "description",
+          "text": "interaction paradigms"
+        }
+      ],
+      "match": {
+        "original_term": "Interaction Paradigms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Interaction Paradigms' does not match any of the provided taxonomy entries in meaning or wording.",
+        "candidates": [
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.493
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.444
+          },
+          {
+            "id": "custom:human-robot-interaction",
+            "label": "human-robot interaction",
+            "score": 0.437
+          }
+        ]
+      }
+    },
+    {
+      "term": "Usability Testing Frameworks",
+      "canonical": {
+        "id": "custom:user-research",
+        "label": "user research",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Usability Testing Frameworks"
+        },
+        {
+          "source": "description",
+          "text": "usability testing frameworks"
+        }
+      ],
+      "match": {
+        "original_term": "Usability Testing Frameworks",
+        "canonical_id": "custom:user-research",
+        "canonical_label": "user research",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.726,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.19",
+        "candidates": [
+          {
+            "id": "custom:user-research",
+            "label": "user research",
+            "score": 0.726
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.533
+          },
+          {
+            "id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+            "label": "usability engineering",
+            "score": 0.462
+          }
+        ]
+      }
+    },
+    {
+      "term": "AI-driven recommendation system using NLP techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Implement an AI-driven recommendation system using NLP techniques"
+        }
+      ],
+      "match": {
+        "original_term": "AI-driven recommendation system using NLP techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.377,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.377
+          },
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.35
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.303
+          }
+        ]
+      }
+    },
+    {
+      "term": "gesture-based interfaces using ARKit",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Explore gesture-based interfaces using ARKit"
+        }
+      ],
+      "match": {
+        "original_term": "gesture-based interfaces using ARKit",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.351,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.351
+          },
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.202
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.198
+          }
+        ]
+      }
+    },
+    {
+      "term": "inclusive interface",
+      "canonical": {
+        "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "label": "ICT accessibility standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Design an inclusive interface for users with disabilities"
+        }
+      ],
+      "match": {
+        "original_term": "inclusive interface",
+        "canonical_id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "canonical_label": "ICT accessibility standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'inclusive interface' directly relates to designing interfaces accessible to people with disabilities, which is exactly what 'ICT accessibility standards' covers.",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.604
+          },
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.327
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.325
+          }
+        ]
+      }
+    },
+    {
+      "term": "interactive prototype using Framer",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Develop an interactive prototype using Framer"
+        }
+      ],
+      "match": {
+        "original_term": "interactive prototype using Framer",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.284,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.284
+          },
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.274
+          },
+          {
+            "id": "esco:ed1d8bd4-cd2a-4c64-b665-56d70651026c",
+            "label": "Prototyping development",
+            "score": 0.249
+          }
+        ]
+      }
+    },
+    {
+      "term": "mobile app wireframe using Sketch",
+      "canonical": {
+        "id": "custom:figma",
+        "label": "Figma",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Create a mobile app wireframe using Sketch"
+        }
+      ],
+      "match": {
+        "original_term": "mobile app wireframe using Sketch",
+        "canonical_id": "custom:figma",
+        "canonical_label": "Figma",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'mobile app wireframe using Sketch' directly refers to the use of Sketch for wireframing, which is explicitly covered under the 'Figma' taxonomy entry, as Sketch is listed as an alternative name for Figma in the also called field.",
+        "candidates": [
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.491
+          },
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.42
+          },
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.399
+          }
+        ]
+      }
+    },
+    {
+      "term": "responsive web interface using Figma",
+      "canonical": {
+        "id": "custom:responsive-design",
+        "label": "responsive web design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Design a responsive web interface using Figma"
+        }
+      ],
+      "match": {
+        "original_term": "responsive web interface using Figma",
+        "canonical_id": "custom:responsive-design",
+        "canonical_label": "responsive web design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'responsive web interface using Figma' directly relates to 'responsive web design', which is explicitly defined as building interfaces that adapt to screen size and device.",
+        "candidates": [
+          {
+            "id": "custom:responsive-design",
+            "label": "responsive web design",
+            "score": 0.609
+          },
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.551
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.469
+          }
+        ]
+      }
+    },
+    {
+      "term": "user feedback",
+      "canonical": {
+        "id": "custom:user-research",
+        "label": "user research",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Analyze user satisfaction scores using task success rates and user feedback"
+        }
+      ],
+      "match": {
+        "original_term": "user feedback",
+        "canonical_id": "custom:user-research",
+        "canonical_label": "user research",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'user feedback' directly relates to gathering and analyzing user input, which aligns with 'user research' as defined in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:user-research",
+            "label": "user research",
+            "score": 0.458
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.39
+          },
+          {
+            "id": "esco:ca73ac82-867a-4afa-9732-834aebe896ff",
+            "label": "ICT system user requirements",
+            "score": 0.357
+          }
+        ]
+      }
+    },
+    {
+      "term": "users with disabilities",
+      "canonical": {
+        "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "label": "ICT accessibility standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Design an inclusive interface for users with disabilities"
+        }
+      ],
+      "match": {
+        "original_term": "users with disabilities",
+        "canonical_id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "canonical_label": "ICT accessibility standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'users with disabilities' directly relates to accessibility standards, which is explicitly covered by the 'ICT accessibility standards' entry.",
+        "candidates": [
+          {
+            "id": "custom:user-research",
+            "label": "user research",
+            "score": 0.482
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.478
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.475
+          }
+        ]
+      }
+    },
+    {
+      "term": "Accessibility Standards",
+      "canonical": {
+        "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "label": "ICT accessibility standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Accessibility Standards and Practices"
+        }
+      ],
+      "match": {
+        "original_term": "Accessibility Standards",
+        "canonical_id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "canonical_label": "ICT accessibility standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.778,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.30",
+        "candidates": [
+          {
+            "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+            "label": "ICT accessibility standards",
+            "score": 0.778
+          },
+          {
+            "id": "esco:8696aff0-18c0-4ba6-a4d0-9a21861b3e5e",
+            "label": "World Wide Web Consortium standards",
+            "score": 0.481
+          },
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.481
+          }
+        ]
+      }
+    },
+    {
+      "term": "AI in Adaptive Interfaces",
+      "canonical": {
+        "id": "custom:artificial-intelligence",
+        "label": "artificial intelligence",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "AI in Adaptive Interfaces"
+        }
+      ],
+      "match": {
+        "original_term": "AI in Adaptive Interfaces",
+        "canonical_id": "custom:artificial-intelligence",
+        "canonical_label": "artificial intelligence",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'AI in Adaptive Interfaces' directly relates to the application of artificial intelligence, which is explicitly covered by the 'artificial intelligence' entry.",
+        "candidates": [
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.482
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.418
+          },
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.373
+          }
+        ]
+      }
+    },
+    {
+      "term": "Designing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Designing for Diverse User Populations"
+        }
+      ],
+      "match": {
+        "original_term": "Designing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.351,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.351
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.344
+          },
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.306
+          }
+        ]
+      }
+    },
+    {
+      "term": "Emerging Interaction Technologies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Emerging Interaction Technologies"
+        }
+      ],
+      "match": {
+        "original_term": "Emerging Interaction Technologies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Emerging Interaction Technologies' does not clearly match any of the provided taxonomy entries, as none specifically refer to the development or study of emerging interaction technologies.",
+        "candidates": [
+          {
+            "id": "esco:42cb7669-c371-4903-9c0b-13db67b2e4bb",
+            "label": "emergent technologies",
+            "score": 0.461
+          },
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.422
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.28
+          }
+        ]
+      }
+    },
+    {
+      "term": "Evaluation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "User Experience Metrics and Evaluation"
+        }
+      ],
+      "match": {
+        "original_term": "Evaluation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.303,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.303
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.252
+          },
+          {
+            "id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+            "label": "usability engineering",
+            "score": 0.239
+          }
+        ]
+      }
+    },
+    {
+      "term": "Gestures",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Interaction Paradigms and Gestures"
+        }
+      ],
+      "match": {
+        "original_term": "Gestures",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.221,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.221
+          },
+          {
+            "id": "custom:human-robot-interaction",
+            "label": "human-robot interaction",
+            "score": 0.22
+          },
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "Human-Computer Interaction",
+      "canonical": {
+        "id": "esco:9136cbf1-7916-4f1c-bc9a-0318ee1d6016",
+        "label": "human-computer interaction",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Human-Computer Interaction"
+        }
+      ],
+      "match": {
+        "original_term": "Human-Computer Interaction",
+        "canonical_id": "esco:9136cbf1-7916-4f1c-bc9a-0318ee1d6016",
+        "canonical_label": "human-computer interaction",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Mobile Applications",
+      "canonical": {
+        "id": "custom:mobile-development",
+        "label": "mobile application development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "User Interface Design for Mobile Applications"
+        }
+      ],
+      "match": {
+        "original_term": "Mobile Applications",
+        "canonical_id": "custom:mobile-development",
+        "canonical_label": "mobile application development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.694,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.694
+          },
+          {
+            "id": "custom:responsive-design",
+            "label": "responsive web design",
+            "score": 0.512
+          },
+          {
+            "id": "esco:976455eb-5bbe-4493-ae64-ed16c3b009ea",
+            "label": "mobile operating systems",
+            "score": 0.438
+          }
+        ]
+      }
+    },
+    {
+      "term": "Practices",
+      "canonical": {
+        "id": "custom:devops",
+        "label": "DevOps practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Accessibility Standards and Practices"
+        }
+      ],
+      "match": {
+        "original_term": "Practices",
+        "canonical_id": "custom:devops",
+        "canonical_label": "DevOps practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.633,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.09",
+        "candidates": [
+          {
+            "id": "custom:devops",
+            "label": "DevOps practices",
+            "score": 0.633
+          },
+          {
+            "id": "esco:1618ee1c-6753-456e-a171-3d7e5f75404a",
+            "label": "good laboratory practice",
+            "score": 0.538
+          },
+          {
+            "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+            "label": "ICT accessibility standards",
+            "score": 0.323
+          }
+        ]
+      }
+    },
+    {
+      "term": "Prototyping Tools",
+      "canonical": {
+        "id": "custom:figma",
+        "label": "Figma",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Prototyping Tools and Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Prototyping Tools",
+        "canonical_id": "custom:figma",
+        "canonical_label": "Figma",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Techniques",
+      "canonical": {
+        "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+        "label": "interfacing techniques",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Prototyping Tools and Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Techniques",
+        "canonical_id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+        "canonical_label": "interfacing techniques",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.636,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.32",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.636
+          },
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.312
+          },
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.273
+          }
+        ]
+      }
+    },
+    {
+      "term": "User Research Methods",
+      "canonical": {
+        "id": "custom:user-research",
+        "label": "user research",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "User Research Methods"
+        }
+      ],
+      "match": {
+        "original_term": "User Research Methods",
+        "canonical_id": "custom:user-research",
+        "canonical_label": "user research",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.745,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.33",
+        "candidates": [
+          {
+            "id": "custom:user-research",
+            "label": "user research",
+            "score": 0.745
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.415
+          },
+          {
+            "id": "esco:ff8bd17c-77e9-4d4e-929a-a0cf86f3ed34",
+            "label": "surveillance methods",
+            "score": 0.415
+          }
+        ]
+      }
+    },
+    {
+      "term": "User-Centered Design Principles",
+      "canonical": {
+        "id": "custom:ux-design",
+        "label": "user experience design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "User-Centered Design Principles"
+        }
+      ],
+      "match": {
+        "original_term": "User-Centered Design Principles",
+        "canonical_id": "custom:ux-design",
+        "canonical_label": "user experience design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'User-Centered Design Principles' directly aligns with the definition of 'user experience design' which focuses on designing a product around how people actually use it.",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.532
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.512
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.402
+          }
+        ]
+      }
+    },
+    {
+      "term": "Web Applications",
+      "canonical": {
+        "id": "custom:ui-design",
+        "label": "user interface design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "User Interface Design for Web Applications"
+        }
+      ],
+      "match": {
+        "original_term": "Web Applications",
+        "canonical_id": "custom:ui-design",
+        "canonical_label": "user interface design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Web Applications' is directly related to 'User Interface Design for Web Applications,' and the closest matching taxonomy entry is 'user interface design,' which specifically refers to designing the visual and interactive surface of a product.",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.52
+          },
+          {
+            "id": "custom:responsive-design",
+            "label": "responsive web design",
+            "score": 0.487
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.465
+          }
+        ]
+      }
+    },
+    {
+      "term": "direct manipulation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "direct manipulation"
+        }
+      ],
+      "match": {
+        "original_term": "direct manipulation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'direct manipulation' does not match any of the provided taxonomy entries, which cover topics like kinematics, robotics, calculus, and computer vision, but none specifically refer to 'direct manipulation'.",
+        "candidates": [
+          {
+            "id": "custom:forward-kinematics",
+            "label": "forward kinematics",
+            "score": 0.452
+          },
+          {
+            "id": "custom:robot-manipulators",
+            "label": "robot manipulators",
+            "score": 0.291
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.22
+          }
+        ]
+      }
+    },
+    {
+      "term": "focusing on user-centered design principles",
+      "canonical": {
+        "id": "custom:ux-design",
+        "label": "user experience design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "focusing on user-centered design principles"
+        }
+      ],
+      "match": {
+        "original_term": "focusing on user-centered design principles",
+        "canonical_id": "custom:ux-design",
+        "canonical_label": "user experience design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'focusing on user-centered design principles' directly aligns with the definition of 'user experience design' which emphasizes designing a product around how people actually use it.",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.477
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.468
+          },
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.371
+          }
+        ]
+      }
+    },
+    {
+      "term": "gesture-based interfaces",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "gesture-based interfaces"
+        }
+      ],
+      "match": {
+        "original_term": "gesture-based interfaces",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries specifically refer to 'gesture-based interfaces', which is a distinct skill related to interaction design through gestures rather than general UI/UX design or software interaction design.",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.425
+          },
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.217
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.21
+          }
+        ]
+      }
+    },
+    {
+      "term": "HCI",
+      "canonical": {
+        "id": "esco:9136cbf1-7916-4f1c-bc9a-0318ee1d6016",
+        "label": "human-computer interaction",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "HCI"
+        }
+      ],
+      "match": {
+        "original_term": "HCI",
+        "canonical_id": "esco:9136cbf1-7916-4f1c-bc9a-0318ee1d6016",
+        "canonical_label": "human-computer interaction",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "human factors in designing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "human factors in designing"
+        }
+      ],
+      "match": {
+        "original_term": "human factors in designing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.264,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.264
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.258
+          },
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.258
+          }
+        ]
+      }
+    },
+    {
+      "term": "interaction techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "interaction techniques"
+        }
+      ],
+      "match": {
+        "original_term": "interaction techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries exactly match the skill 'interaction techniques' from the syllabus. The closest entries are related but not equivalent.",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.544
+          },
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.501
+          },
+          {
+            "id": "custom:human-robot-interaction",
+            "label": "human-robot interaction",
+            "score": 0.44
+          }
+        ]
+      }
+    },
+    {
+      "term": "InVision",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "InVision"
+        }
+      ],
+      "match": {
+        "original_term": "InVision",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.288,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.288
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.217
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "mobile applications using Figma",
+      "canonical": {
+        "id": "custom:mobile-development",
+        "label": "mobile application development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "mobile applications using Figma"
+        }
+      ],
+      "match": {
+        "original_term": "mobile applications using Figma",
+        "canonical_id": "custom:mobile-development",
+        "canonical_label": "mobile application development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'mobile applications using Figma' directly relates to building mobile applications, which is exactly what 'mobile application development' describes.",
+        "candidates": [
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.526
+          },
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.464
+          },
+          {
+            "id": "esco:976455eb-5bbe-4493-ae64-ed16c3b009ea",
+            "label": "mobile operating systems",
+            "score": 0.341
+          }
+        ]
+      }
+    },
+    {
+      "term": "role of AI in adaptive interfaces",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "role of AI in adaptive interfaces"
+        }
+      ],
+      "match": {
+        "original_term": "role of AI in adaptive interfaces",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically address the role of AI in adaptive interfaces, which involves the integration of AI to create interfaces that adapt to user behavior or environment.",
+        "candidates": [
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.43
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.379
+          },
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.36
+          }
+        ]
+      }
+    },
+    {
+      "term": "Sketch",
+      "canonical": {
+        "id": "custom:figma",
+        "label": "Figma",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Sketch"
+        }
+      ],
+      "match": {
+        "original_term": "Sketch",
+        "canonical_id": "custom:figma",
+        "canonical_label": "Figma",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Sketch' is explicitly listed as an alias for 'Figma' in the taxonomy entry, indicating it refers to the same skill.",
+        "candidates": [
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.886
+          },
+          {
+            "id": "esco:85038d57-1fdd-40de-b908-2c005545a8c3",
+            "label": "SketchBook Pro",
+            "score": 0.345
+          },
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.175
+          }
+        ]
+      }
+    },
+    {
+      "term": "usability evaluation methods",
+      "canonical": {
+        "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+        "label": "application usability",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "usability evaluation methods"
+        }
+      ],
+      "match": {
+        "original_term": "usability evaluation methods",
+        "canonical_id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+        "canonical_label": "application usability",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'usability evaluation methods' directly aligns with the definition of 'application usability' which focuses on measuring usability through specific methods.",
+        "candidates": [
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.533
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.466
+          },
+          {
+            "id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+            "label": "usability engineering",
+            "score": 0.454
+          }
+        ]
+      }
+    },
+    {
+      "term": "user satisfaction scores",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "user satisfaction scores"
+        }
+      ],
+      "match": {
+        "original_term": "user satisfaction scores",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.39,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:user-research",
+            "label": "user research",
+            "score": 0.39
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.357
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.348
+          }
+        ]
+      }
+    },
+    {
+      "term": "web",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "web"
+        }
+      ],
+      "match": {
+        "original_term": "web",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'web' is too generic and does not match any specific skill in the shortlisted taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:web-scraping",
+            "label": "web scraping",
+            "score": 0.568
+          },
+          {
+            "id": "custom:aws",
+            "label": "Amazon Web Services",
+            "score": 0.48
+          },
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.181
+          }
+        ]
+      }
+    }
+  ]
+}

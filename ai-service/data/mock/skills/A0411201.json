@@ -1,0 +1,5113 @@
+{
+  "course_code": "A0411201",
+  "course_codes": [
+    "A0411201"
+  ],
+  "course_title": "Object-Oriented Programming (1)",
+  "credit_hours": 3,
+  "plans": [
+    "CYBER"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "no_match": 41,
+      "accepted": 43,
+      "needs_review": 25
+    },
+    "by_method": {
+      "embedding_reranker": 54,
+      "llm": 49,
+      "exact_alias": 6
+    }
+  },
+  "total_skills": 109,
+  "skills": [
+    {
+      "term": "HashMap",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 4,
+      "sources": [
+        "clo",
+        "lab",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the Java Collections Framework, including ArrayList, HashMap, and TreeSet, and demonstrate their usage in implementing data structures."
+        },
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Implement a data structure using ArrayList and HashMap"
+        },
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "ArrayList and HashMap"
+        },
+        {
+          "source": "description",
+          "text": "HashMap"
+        }
+      ],
+      "match": {
+        "original_term": "HashMap",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.228,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:e46291c7-52b9-4174-bd59-178884861038",
+            "label": "Hadoop",
+            "score": 0.228
+          },
+          {
+            "id": "esco:000f1d3d-220f-4789-9c0a-cc742521fb02",
+            "label": "Haskell",
+            "score": 0.228
+          },
+          {
+            "id": "esco:9b9de2a4-d8af-4a7b-933a-a8334ae60067",
+            "label": "JavaScript Framework",
+            "score": 0.185
+          }
+        ]
+      }
+    },
+    {
+      "term": "patterns",
+      "canonical": {
+        "id": "custom:design-patterns",
+        "label": "software design patterns",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 4,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the core principles of Object-Oriented Programming (OOP), including encapsulation, inheritance, and polymorphism, using Java syntax and design patterns."
+        },
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a software system using UML modeling techniques and design patterns such as Singleton, Factory, and Observer to ensure scalability and maintainability."
+        },
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "UML modeling and design patterns"
+        },
+        {
+          "source": "description",
+          "text": "patterns"
+        }
+      ],
+      "match": {
+        "original_term": "patterns",
+        "canonical_id": "custom:design-patterns",
+        "canonical_label": "software design patterns",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'patterns' in the context of software design, specifically mentioning design patterns like Singleton, Factory, and Observer, directly matches the 'software design patterns' entry.",
+        "candidates": [
+          {
+            "id": "esco:86ed2a45-eae9-4ab7-b0e6-d7508d33df4f",
+            "label": "dies",
+            "score": 1.0
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.671
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.26
+          }
+        ]
+      }
+    },
+    {
+      "term": "polymorphism",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 4,
+      "sources": [
+        "clo",
+        "lab",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the core principles of Object-Oriented Programming (OOP), including encapsulation, inheritance, and polymorphism, using Java syntax and design patterns."
+        },
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Implement a hierarchy of classes with inheritance and polymorphism"
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Inheritance and polymorphism"
+        },
+        {
+          "source": "description",
+          "text": "polymorphism"
+        }
+      ],
+      "match": {
+        "original_term": "polymorphism",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.252,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.252
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.251
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.246
+          }
+        ]
+      }
+    },
+    {
+      "term": "inheritance",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the core principles of Object-Oriented Programming (OOP), including encapsulation, inheritance, and polymorphism, using Java syntax and design patterns."
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Inheritance and polymorphism"
+        },
+        {
+          "source": "description",
+          "text": "inheritance"
+        }
+      ],
+      "match": {
+        "original_term": "inheritance",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.25,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.25
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.237
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.227
+          }
+        ]
+      }
+    },
+    {
+      "term": "OOP",
+      "canonical": {
+        "id": "custom:object-oriented-programming",
+        "label": "object-oriented programming",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the core principles of Object-Oriented Programming (OOP), including encapsulation, inheritance, and polymorphism, using Java syntax and design patterns."
+        },
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Java and OOP"
+        },
+        {
+          "source": "description",
+          "text": "OOP"
+        }
+      ],
+      "match": {
+        "original_term": "OOP",
+        "canonical_id": "custom:object-oriented-programming",
+        "canonical_label": "object-oriented programming",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "ArrayList",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the Java Collections Framework, including ArrayList, HashMap, and TreeSet, and demonstrate their usage in implementing data structures."
+        },
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "ArrayList and HashMap"
+        }
+      ],
+      "match": {
+        "original_term": "ArrayList",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.191,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:e46291c7-52b9-4174-bd59-178884861038",
+            "label": "Hadoop",
+            "score": 0.191
+          },
+          {
+            "id": "esco:9b9de2a4-d8af-4a7b-933a-a8334ae60067",
+            "label": "JavaScript Framework",
+            "score": 0.186
+          },
+          {
+            "id": "esco:8764d4b1-e069-44f2-8baa-fb1eee1850ec",
+            "label": "Oracle Application Development Framework",
+            "score": 0.184
+          }
+        ]
+      }
+    },
+    {
+      "term": "encapsulation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the core principles of Object-Oriented Programming (OOP), including encapsulation, inheritance, and polymorphism, using Java syntax and design patterns."
+        },
+        {
+          "source": "description",
+          "text": "encapsulation"
+        }
+      ],
+      "match": {
+        "original_term": "encapsulation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.255,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.255
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.236
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.235
+          }
+        ]
+      }
+    },
+    {
+      "term": "Factory",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a software system using UML modeling techniques and design patterns such as Singleton, Factory, and Observer to ensure scalability and maintainability."
+        },
+        {
+          "source": "description",
+          "text": "Factory"
+        }
+      ],
+      "match": {
+        "original_term": "Factory",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.233,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:41ec47dd-08b3-464a-9c45-c706f3e74467",
+            "label": "industrial software",
+            "score": 0.233
+          },
+          {
+            "id": "esco:27065048-bca8-4b0a-891a-b192b9ceadfd",
+            "label": "CAM software",
+            "score": 0.224
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "JVM",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the Java Virtual Machine (JVM) architecture, garbage collection mechanisms, and memory management techniques in Java applications."
+        },
+        {
+          "source": "description",
+          "text": "JVM"
+        }
+      ],
+      "match": {
+        "original_term": "JVM",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.206,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.206
+          },
+          {
+            "id": "esco:8203b07a-8097-4383-aff6-603b7df7f0f4",
+            "label": "ATM systems",
+            "score": 0.19
+          },
+          {
+            "id": "esco:8764d4b1-e069-44f2-8baa-fb1eee1850ec",
+            "label": "Oracle Application Development Framework",
+            "score": 0.185
+          }
+        ]
+      }
+    },
+    {
+      "term": "Singleton",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a software system using UML modeling techniques and design patterns such as Singleton, Factory, and Observer to ensure scalability and maintainability."
+        },
+        {
+          "source": "description",
+          "text": "Singleton"
+        }
+      ],
+      "match": {
+        "original_term": "Singleton",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.225,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:a4d336a6-9ffd-402a-91cc-f359716ba4e0",
+            "label": "ML (computer programming)",
+            "score": 0.225
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.224
+          },
+          {
+            "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+            "label": "unified modelling language",
+            "score": 0.224
+          }
+        ]
+      }
+    },
+    {
+      "term": "core principles of Object-Oriented Programming",
+      "canonical": {
+        "id": "custom:object-oriented-programming",
+        "label": "object-oriented programming",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the core principles of Object-Oriented Programming (OOP), including encapsulation, inheritance, and polymorphism, using Java syntax and design patterns."
+        }
+      ],
+      "match": {
+        "original_term": "core principles of Object-Oriented Programming",
+        "canonical_id": "custom:object-oriented-programming",
+        "canonical_label": "object-oriented programming",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.75,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.22",
+        "candidates": [
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.75
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.528
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.396
+          }
+        ]
+      }
+    },
+    {
+      "term": "garbage collection mechanisms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the Java Virtual Machine (JVM) architecture, garbage collection mechanisms, and memory management techniques in Java applications."
+        }
+      ],
+      "match": {
+        "original_term": "garbage collection mechanisms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.241,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:30783499-3872-4b14-9684-6217e98c6e1d",
+            "label": "discharge of collected waste",
+            "score": 0.241
+          },
+          {
+            "id": "esco:6c2dab43-b56a-4879-ae5f-75ae50e193c3",
+            "label": "dredging consoles",
+            "score": 0.223
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "Java Collections Framework",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the Java Collections Framework, including ArrayList, HashMap, and TreeSet, and demonstrate their usage in implementing data structures."
+        }
+      ],
+      "match": {
+        "original_term": "Java Collections Framework",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to the Java Collections Framework, which is a core part of Java's standard library for data structures. The closest entry is 'Java' (esco:19a8293b-8e95-4de3-983f-77484079c389), but it is too broad and does not specifically capture the Collecti",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.482
+          },
+          {
+            "id": "esco:9b9de2a4-d8af-4a7b-933a-a8334ae60067",
+            "label": "JavaScript Framework",
+            "score": 0.45
+          },
+          {
+            "id": "esco:8c88d336-c249-4537-b26e-d679a85c4b9b",
+            "label": "Ajax Framework",
+            "score": 0.422
+          }
+        ]
+      }
+    },
+    {
+      "term": "Java syntax",
+      "canonical": {
+        "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "label": "Java",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the core principles of Object-Oriented Programming (OOP), including encapsulation, inheritance, and polymorphism, using Java syntax and design patterns."
+        }
+      ],
+      "match": {
+        "original_term": "Java syntax",
+        "canonical_id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "canonical_label": "Java",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.671,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.42",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.671
+          },
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.248
+          },
+          {
+            "id": "esco:b4dc6e4f-dc7d-445f-8ce2-d7b9d225e282",
+            "label": "AJAX",
+            "score": 0.248
+          }
+        ]
+      }
+    },
+    {
+      "term": "Java Virtual Machine architecture",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the Java Virtual Machine (JVM) architecture, garbage collection mechanisms, and memory management techniques in Java applications."
+        }
+      ],
+      "match": {
+        "original_term": "Java Virtual Machine architecture",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Java Virtual Machine architecture'. The closest entry is 'Java' (esco:19a8293b-8e95-4de3-983f-77484079c389), but it is too broad and does not specifically address JVM architecture.",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.47
+          },
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.415
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.413
+          }
+        ]
+      }
+    },
+    {
+      "term": "Java's standard libraries",
+      "canonical": {
+        "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+        "label": "software components libraries",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply OOP concepts to design and implement a multi-tiered enterprise application using Spring Boot and Java's standard libraries."
+        }
+      ],
+      "match": {
+        "original_term": "Java's standard libraries",
+        "canonical_id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+        "canonical_label": "software components libraries",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Java's standard libraries' refers to software libraries provided by Java, which aligns with the definition of 'software components libraries' as a set of related functions and reusable components.",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.476
+          },
+          {
+            "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+            "label": "software components libraries",
+            "score": 0.368
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.231
+          }
+        ]
+      }
+    },
+    {
+      "term": "maintainability",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a software system using UML modeling techniques and design patterns such as Singleton, Factory, and Observer to ensure scalability and maintainability."
+        }
+      ],
+      "match": {
+        "original_term": "maintainability",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.297,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.297
+          },
+          {
+            "id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+            "label": "usability engineering",
+            "score": 0.289
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.233
+          }
+        ]
+      }
+    },
+    {
+      "term": "memory management techniques in Java applications",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the Java Virtual Machine (JVM) architecture, garbage collection mechanisms, and memory management techniques in Java applications."
+        }
+      ],
+      "match": {
+        "original_term": "memory management techniques in Java applications",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'memory management techniques in Java applications'. The closest entry is 'Java', but it is too broad and does not capture the specific focus on memory management.",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.407
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.352
+          },
+          {
+            "id": "esco:8764d4b1-e069-44f2-8baa-fb1eee1850ec",
+            "label": "Oracle Application Development Framework",
+            "score": 0.325
+          }
+        ]
+      }
+    },
+    {
+      "term": "multi-tiered enterprise application using Spring Boot",
+      "canonical": {
+        "id": "custom:spring-boot",
+        "label": "Spring Boot",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply OOP concepts to design and implement a multi-tiered enterprise application using Spring Boot and Java's standard libraries."
+        }
+      ],
+      "match": {
+        "original_term": "multi-tiered enterprise application using Spring Boot",
+        "canonical_id": "custom:spring-boot",
+        "canonical_label": "Spring Boot",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'multi-tiered enterprise application using Spring Boot' directly references Spring Boot as the framework used, matching the 'custom:spring-boot' entry.",
+        "candidates": [
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.521
+          },
+          {
+            "id": "esco:8764d4b1-e069-44f2-8baa-fb1eee1850ec",
+            "label": "Oracle Application Development Framework",
+            "score": 0.321
+          },
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.228
+          }
+        ]
+      }
+    },
+    {
+      "term": "Observer to ensure scalability",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a software system using UML modeling techniques and design patterns such as Singleton, Factory, and Observer to ensure scalability and maintainability."
+        }
+      ],
+      "match": {
+        "original_term": "Observer to ensure scalability",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.319,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ffddfc7c-a9dd-449f-9e96-882dc447c8b6",
+            "label": "Scala",
+            "score": 0.319
+          },
+          {
+            "id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+            "label": "usability engineering",
+            "score": 0.263
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.262
+          }
+        ]
+      }
+    },
+    {
+      "term": "OOP concepts to design",
+      "canonical": {
+        "id": "custom:object-oriented-programming",
+        "label": "object-oriented programming",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply OOP concepts to design and implement a multi-tiered enterprise application using Spring Boot and Java's standard libraries."
+        }
+      ],
+      "match": {
+        "original_term": "OOP concepts to design",
+        "canonical_id": "custom:object-oriented-programming",
+        "canonical_label": "object-oriented programming",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'OOP concepts to design' directly aligns with the skill 'object-oriented programming' which is explicitly defined as designing software around objects that combine state and behaviour, matching the syllabus context.",
+        "candidates": [
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.524
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.376
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.225
+          }
+        ]
+      }
+    },
+    {
+      "term": "software system using UML modeling techniques",
+      "canonical": {
+        "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "label": "unified modelling language",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a software system using UML modeling techniques and design patterns such as Singleton, Factory, and Observer to ensure scalability and maintainability."
+        }
+      ],
+      "match": {
+        "original_term": "software system using UML modeling techniques",
+        "canonical_id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "canonical_label": "unified modelling language",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'software system using UML modeling techniques' directly refers to the use of UML, which is explicitly defined in the 'unified modelling language' entry.",
+        "candidates": [
+          {
+            "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+            "label": "unified modelling language",
+            "score": 0.423
+          },
+          {
+            "id": "esco:41ec47dd-08b3-464a-9c45-c706f3e74467",
+            "label": "industrial software",
+            "score": 0.386
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.371
+          }
+        ]
+      }
+    },
+    {
+      "term": "TreeSet",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the Java Collections Framework, including ArrayList, HashMap, and TreeSet, and demonstrate their usage in implementing data structures."
+        }
+      ],
+      "match": {
+        "original_term": "TreeSet",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.207,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:4e6d2538-a48e-48a7-8dad-14b067cfcb8b",
+            "label": "TripleStore",
+            "score": 0.207
+          },
+          {
+            "id": "esco:9d0d89be-bffa-4393-b6f6-8d05bea49051",
+            "label": "data extraction, transformation and loading tools",
+            "score": 0.191
+          },
+          {
+            "id": "esco:e46291c7-52b9-4174-bd59-178884861038",
+            "label": "Hadoop",
+            "score": 0.189
+          }
+        ]
+      }
+    },
+    {
+      "term": "usage in implementing data structures",
+      "canonical": {
+        "id": "custom:data-structures",
+        "label": "data structures",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the Java Collections Framework, including ArrayList, HashMap, and TreeSet, and demonstrate their usage in implementing data structures."
+        }
+      ],
+      "match": {
+        "original_term": "usage in implementing data structures",
+        "canonical_id": "custom:data-structures",
+        "canonical_label": "data structures",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'usage in implementing data structures' directly relates to the concept of data structures, which is explicitly covered in the syllabus by describing the Java Collections Framework and demonstrating their usage.",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.603
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.338
+          },
+          {
+            "id": "esco:3ec2e4d6-7000-4905-bf1a-c5b1679416de",
+            "label": "data warehouse",
+            "score": 0.326
+          }
+        ]
+      }
+    },
+    {
+      "term": "access modifiers",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 2,
+          "text": "Create a Java class with encapsulation and access modifiers"
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Access modifiers"
+        }
+      ],
+      "match": {
+        "original_term": "access modifiers",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'access modifiers' refers to programming concepts in languages like Java, specifically about controlling access to class members. None of the provided taxonomy entries directly match this skill.",
+        "candidates": [
+          {
+            "id": "esco:3d03c40c-1b83-4793-8902-2523f40af59e",
+            "label": "Microsoft Access",
+            "score": 0.599
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.384
+          },
+          {
+            "id": "custom:actuators",
+            "label": "actuators",
+            "score": 0.199
+          }
+        ]
+      }
+    },
+    {
+      "term": "Exception handling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Exception handling and assertions"
+        },
+        {
+          "source": "description",
+          "text": "exception handling"
+        }
+      ],
+      "match": {
+        "original_term": "Exception handling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'exception handling' as a skill. The closest entries are related to security incident response, risk assessment, or production processes, but none specifically match the concept of exception handling in software or programming contexts.",
+        "candidates": [
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.509
+          },
+          {
+            "id": "esco:e3b4b533-cc4d-4c70-adb6-128120f40c88",
+            "label": "handling of dangerous goods",
+            "score": 0.416
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.358
+          }
+        ]
+      }
+    },
+    {
+      "term": "UML modeling",
+      "canonical": {
+        "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "label": "unified modelling language",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "UML modeling and design patterns"
+        },
+        {
+          "source": "description",
+          "text": "UML modeling"
+        }
+      ],
+      "match": {
+        "original_term": "UML modeling",
+        "canonical_id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "canonical_label": "unified modelling language",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'UML modeling' directly matches the label 'unified modelling language' and its also called entry 'uml', which is the exact skill name.",
+        "candidates": [
+          {
+            "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+            "label": "unified modelling language",
+            "score": 0.606
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.579
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.326
+          }
+        ]
+      }
+    },
+    {
+      "term": "data structure using ArrayList",
+      "canonical": {
+        "id": "custom:data-structures",
+        "label": "data structures",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Implement a data structure using ArrayList and HashMap"
+        }
+      ],
+      "match": {
+        "original_term": "data structure using ArrayList",
+        "canonical_id": "custom:data-structures",
+        "canonical_label": "data structures",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.634,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.25",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.634
+          },
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.379
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.376
+          }
+        ]
+      }
+    },
+    {
+      "term": "file I/O application with exception handling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Implement a file I/O application with exception handling"
+        }
+      ],
+      "match": {
+        "original_term": "file I/O application with exception handling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.348,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:cf310cff-0d28-4dbc-9dbb-cc500a3196c2",
+            "label": "office software",
+            "score": 0.348
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.347
+          },
+          {
+            "id": "esco:ce26e71f-2d47-474e-89b6-7920931ac4fc",
+            "label": "iOS",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "file system operations using Java NIO",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Perform file system operations using Java NIO"
+        }
+      ],
+      "match": {
+        "original_term": "file system operations using Java NIO",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.37,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.37
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.362
+          },
+          {
+            "id": "esco:cf310cff-0d28-4dbc-9dbb-cc500a3196c2",
+            "label": "office software",
+            "score": 0.342
+          }
+        ]
+      }
+    },
+    {
+      "term": "filter data",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Use Java Streams to process and filter data"
+        }
+      ],
+      "match": {
+        "original_term": "filter data",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'filter data' refers to the process of filtering data, which is not directly captured by any of the provided taxonomy entries. None of the labels or descriptions match the specific skill of filtering data.",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.442
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.437
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.277
+          }
+        ]
+      }
+    },
+    {
+      "term": "hierarchy of classes with inheritance",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Implement a hierarchy of classes with inheritance and polymorphism"
+        }
+      ],
+      "match": {
+        "original_term": "hierarchy of classes with inheritance",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.2,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.2
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.198
+          },
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.196
+          }
+        ]
+      }
+    },
+    {
+      "term": "Java applications using JUnit",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Write unit tests for Java applications using JUnit"
+        }
+      ],
+      "match": {
+        "original_term": "Java applications using JUnit",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Java applications using JUnit' and the syllabus evidence 'Write unit tests for Java applications using JUnit' directly refer to unit testing, which is explicitly listed in the 'custom:unit-testing' entry with JUnit as an alternative name.",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.552
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.444
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.394
+          }
+        ]
+      }
+    },
+    {
+      "term": "Java class with encapsulation",
+      "canonical": {
+        "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "label": "Java",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 2,
+          "text": "Create a Java class with encapsulation and access modifiers"
+        }
+      ],
+      "match": {
+        "original_term": "Java class with encapsulation",
+        "canonical_id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "canonical_label": "Java",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Java class with encapsulation' directly relates to Java programming, which is explicitly covered by the 'Java' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.477
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.198
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.196
+          }
+        ]
+      }
+    },
+    {
+      "term": "Java reflection to inspect",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Use Java reflection to inspect and modify class metadata"
+        }
+      ],
+      "match": {
+        "original_term": "Java reflection to inspect",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Java reflection to inspect' refers to a specific programming technique related to Java's reflection API, which is not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.478
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.228
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.21
+          }
+        ]
+      }
+    },
+    {
+      "term": "Java Streams to process",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Use Java Streams to process and filter data"
+        }
+      ],
+      "match": {
+        "original_term": "Java Streams to process",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Java Streams to process' refers to a specific programming technique in Java for data processing, but none of the provided taxonomy entries specifically match this skill. The closest entry is 'Java', but it is too broad and does not capture the specific skill of using Java Streams.",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.513
+          },
+          {
+            "id": "esco:c2fb860d-7866-4909-9eaf-0a2af58b24a3",
+            "label": "beverages production process",
+            "score": 0.362
+          },
+          {
+            "id": "esco:6d355a4e-d9b6-4a24-a79b-30176e15589e",
+            "label": "beverages filtration processes",
+            "score": 0.361
+          }
+        ]
+      }
+    },
+    {
+      "term": "JVM memory usage using JVM tools",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Analyze JVM memory usage using JVM tools"
+        }
+      ],
+      "match": {
+        "original_term": "JVM memory usage using JVM tools",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.267,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:41ec47dd-08b3-464a-9c45-c706f3e74467",
+            "label": "industrial software",
+            "score": 0.267
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.202
+          },
+          {
+            "id": "esco:8203b07a-8097-4383-aff6-603b7df7f0f4",
+            "label": "ATM systems",
+            "score": 0.179
+          }
+        ]
+      }
+    },
+    {
+      "term": "Model a software system using UML",
+      "canonical": {
+        "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "label": "unified modelling language",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Model a software system using UML and implement a design pattern"
+        }
+      ],
+      "match": {
+        "original_term": "Model a software system using UML",
+        "canonical_id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "canonical_label": "unified modelling language",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Model a software system using UML' directly refers to the use of the Unified Modelling Language (UML), which is exactly what the 'unified modelling language' taxonomy entry describes.",
+        "candidates": [
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.497
+          },
+          {
+            "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+            "label": "unified modelling language",
+            "score": 0.456
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.44
+          }
+        ]
+      }
+    },
+    {
+      "term": "modify class metadata",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Use Java reflection to inspect and modify class metadata"
+        }
+      ],
+      "match": {
+        "original_term": "modify class metadata",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.199,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.199
+          },
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.194
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.181
+          }
+        ]
+      }
+    },
+    {
+      "term": "multithreaded application with synchronization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Implement a multithreaded application with synchronization"
+        }
+      ],
+      "match": {
+        "original_term": "multithreaded application with synchronization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.376,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.376
+          },
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.225
+          },
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "pattern",
+      "canonical": {
+        "id": "custom:design-patterns",
+        "label": "software design patterns",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Model a software system using UML and implement a design pattern"
+        }
+      ],
+      "match": {
+        "original_term": "pattern",
+        "canonical_id": "custom:design-patterns",
+        "canonical_label": "software design patterns",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'implement a design pattern' directly aligns with the definition of 'software design patterns' as reusable solutions to recurring software design problems.",
+        "candidates": [
+          {
+            "id": "esco:86ed2a45-eae9-4ab7-b0e6-d7508d33df4f",
+            "label": "dies",
+            "score": 0.909
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.688
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.531
+          }
+        ]
+      }
+    },
+    {
+      "term": "RESTful API using Spring Boot",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Develop a RESTful API using Spring Boot"
+        }
+      ],
+      "match": {
+        "original_term": "RESTful API using Spring Boot",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'RESTful API using Spring Boot' directly aligns with the skill 'REST API development' as it involves designing and building HTTP interfaces between services, which is the core of REST API development.",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.627
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.614
+          },
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.345
+          }
+        ]
+      }
+    },
+    {
+      "term": "simple client-server application using sockets",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Create a simple client-server application using sockets"
+        }
+      ],
+      "match": {
+        "original_term": "simple client-server application using sockets",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.352,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.352
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.345
+          },
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.322
+          }
+        ]
+      }
+    },
+    {
+      "term": "Write unit tests",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Write unit tests for Java applications using JUnit"
+        }
+      ],
+      "match": {
+        "original_term": "Write unit tests",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.771,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.39",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.771
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.385
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.368
+          }
+        ]
+      }
+    },
+    {
+      "term": "Abstract classes",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Abstract classes"
+        }
+      ],
+      "match": {
+        "original_term": "Abstract classes",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Abstract classes' does not match any of the provided taxonomy entries, which are focused on data structures, mathematics, computer vision, and other topics, but none specifically address abstract classes in software design.",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.45
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.209
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "annotations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Java reflection and annotations"
+        }
+      ],
+      "match": {
+        "original_term": "annotations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.237,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:8764d4b1-e069-44f2-8baa-fb1eee1850ec",
+            "label": "Oracle Application Development Framework",
+            "score": 0.237
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.222
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "assertions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Exception handling and assertions"
+        }
+      ],
+      "match": {
+        "original_term": "assertions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.269,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.269
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.252
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.243
+          }
+        ]
+      }
+    },
+    {
+      "term": "Classes",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Classes and objects in Java"
+        }
+      ],
+      "match": {
+        "original_term": "Classes",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.256,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.256
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.223
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "Code review",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Code review and optimization"
+        }
+      ],
+      "match": {
+        "original_term": "Code review",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.208,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.208
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.205
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.205
+          }
+        ]
+      }
+    },
+    {
+      "term": "Constructors",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Constructors and methods"
+        }
+      ],
+      "match": {
+        "original_term": "Constructors",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.281,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:2d63745d-3c4c-4da1-ad77-985f68768be9",
+            "label": "manufacturing of metal structures",
+            "score": 0.281
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.247
+          },
+          {
+            "id": "custom:actuators",
+            "label": "actuators",
+            "score": 0.238
+          }
+        ]
+      }
+    },
+    {
+      "term": "Dependency injection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Dependency injection"
+        }
+      ],
+      "match": {
+        "original_term": "Dependency injection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.235,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.235
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.204
+          },
+          {
+            "id": "custom:binomial-distribution",
+            "label": "binomial distribution",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "Dynamic class loading",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Dynamic class loading"
+        }
+      ],
+      "match": {
+        "original_term": "Dynamic class loading",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Dynamic class loading'.",
+        "candidates": [
+          {
+            "id": "custom:robot-dynamics",
+            "label": "robot dynamics",
+            "score": 0.466
+          },
+          {
+            "id": "esco:0b2de99d-e762-4b15-ac4c-0e0063329b23",
+            "label": "locomotive brake applications",
+            "score": 0.379
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "term": "File reading",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "File reading and writing"
+        }
+      ],
+      "match": {
+        "original_term": "File reading",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.32,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.32
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.252
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.226
+          }
+        ]
+      }
+    },
+    {
+      "term": "File system operations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "File system operations"
+        }
+      ],
+      "match": {
+        "original_term": "File system operations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries specifically refer to 'file system operations' as a skill. The closest is 'operating systems', but that is broader and does not match the specific skill.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.468
+          },
+          {
+            "id": "esco:cf310cff-0d28-4dbc-9dbb-cc500a3196c2",
+            "label": "office software",
+            "score": 0.417
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.404
+          }
+        ]
+      }
+    },
+    {
+      "term": "file systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Java NIO and file systems"
+        }
+      ],
+      "match": {
+        "original_term": "file systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries directly match the skill 'file systems' as described in the syllabus. The closest entries are related to Java or operating systems, but none specifically refer to file systems as a skill.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.462
+          },
+          {
+            "id": "custom:ros2-launch-files",
+            "label": "ROS 2 launch files",
+            "score": 0.413
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.231
+          }
+        ]
+      }
+    },
+    {
+      "term": "Files API",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Path and Files API"
+        }
+      ],
+      "match": {
+        "original_term": "Files API",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Files API' does not match any of the provided taxonomy entries, which cover topics like FastAPI, REST API development, API testing, and others, but none specifically refer to 'Files API'.",
+        "candidates": [
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.467
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.443
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.425
+          }
+        ]
+      }
+    },
+    {
+      "term": "Final project submission",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Final project submission"
+        }
+      ],
+      "match": {
+        "original_term": "Final project submission",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.217,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.217
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.212
+          },
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.206
+          }
+        ]
+      }
+    },
+    {
+      "term": "Functional programming",
+      "canonical": {
+        "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+        "label": "computer programming",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Functional programming concepts"
+        }
+      ],
+      "match": {
+        "original_term": "Functional programming",
+        "canonical_id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+        "canonical_label": "computer programming",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Functional programming' is explicitly mentioned in the description of the 'computer programming' taxonomy entry, which directly matches the skill.",
+        "candidates": [
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.515
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.515
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.503
+          }
+        ]
+      }
+    },
+    {
+      "term": "Garbage collection algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Garbage collection algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "Garbage collection algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Garbage collection algorithms' directly refers to a specific type of algorithm, which is explicitly covered by the 'algorithms' entry in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.534
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.423
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.419
+          }
+        ]
+      }
+    },
+    {
+      "term": "inner classes",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Interfaces and inner classes"
+        }
+      ],
+      "match": {
+        "original_term": "inner classes",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.317,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.317
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.314
+          },
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.301
+          }
+        ]
+      }
+    },
+    {
+      "term": "Interfaces",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Interfaces and inner classes"
+        }
+      ],
+      "match": {
+        "original_term": "Interfaces",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Interfaces' is too generic and does not clearly align with any of the specific skills listed in the taxonomy candidates.",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.573
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.296
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "Java",
+      "canonical": {
+        "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "label": "Java",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Java and OOP"
+        }
+      ],
+      "match": {
+        "original_term": "Java",
+        "canonical_id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "canonical_label": "Java",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Java Collections Framework overview",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Java Collections Framework overview"
+        }
+      ],
+      "match": {
+        "original_term": "Java Collections Framework overview",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Java Collections Framework overview' refers specifically to the Java Collections Framework, which is not explicitly covered by any of the provided taxonomy entries. None of the entries match the specific skill described.",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.438
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.39
+          },
+          {
+            "id": "esco:9b9de2a4-d8af-4a7b-933a-a8334ae60067",
+            "label": "JavaScript Framework",
+            "score": 0.387
+          }
+        ]
+      }
+    },
+    {
+      "term": "Java concurrency",
+      "canonical": {
+        "id": "custom:operating-systems",
+        "label": "operating systems",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Java concurrency and multithreading"
+        }
+      ],
+      "match": {
+        "original_term": "Java concurrency",
+        "canonical_id": "custom:operating-systems",
+        "canonical_label": "operating systems",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.677,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.09",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.677
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.584
+          },
+          {
+            "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+            "label": "JavaScript",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "Java I/O operations",
+      "canonical": {
+        "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "label": "Java",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Java I/O operations"
+        }
+      ],
+      "match": {
+        "original_term": "Java I/O operations",
+        "canonical_id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "canonical_label": "Java",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Java I/O operations' directly relates to Java programming, which is covered by the 'Java' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.458
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.234
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.172
+          }
+        ]
+      }
+    },
+    {
+      "term": "Java memory management",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Java memory management and JVM internals"
+        }
+      ],
+      "match": {
+        "original_term": "Java memory management",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Java memory management' refers to specific concepts related to Java's memory handling and JVM internals, which is not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.495
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.435
+          },
+          {
+            "id": "esco:9b9de2a4-d8af-4a7b-933a-a8334ae60067",
+            "label": "JavaScript Framework",
+            "score": 0.201
+          }
+        ]
+      }
+    },
+    {
+      "term": "Java networking",
+      "canonical": {
+        "id": "custom:computer-networks",
+        "label": "computer networks",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Java networking and sockets"
+        }
+      ],
+      "match": {
+        "original_term": "Java networking",
+        "canonical_id": "custom:computer-networks",
+        "canonical_label": "computer networks",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.67,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.08",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.67
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.588
+          },
+          {
+            "id": "esco:f9e788df-d68a-4f92-92c7-80e135fc35ff",
+            "label": "ICT networking hardware",
+            "score": 0.447
+          }
+        ]
+      }
+    },
+    {
+      "term": "Java NIO",
+      "canonical": {
+        "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "label": "Java",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Java NIO and file systems"
+        }
+      ],
+      "match": {
+        "original_term": "Java NIO",
+        "canonical_id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "canonical_label": "Java",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.63,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.42",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.63
+          },
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.215
+          },
+          {
+            "id": "esco:778ca7ad-6c5d-4868-9b96-a7777dca799c",
+            "label": "ICT help platforms",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "Java reflection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Java reflection and annotations"
+        }
+      ],
+      "match": {
+        "original_term": "Java reflection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Java reflection' or related concepts. The closest entry is 'Java' (esco:19a8293b-8e95-4de3-983f-77484079c389), but it is too broad and does not capture the specific skill of Java reflection.",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.572
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.217
+          },
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.193
+          }
+        ]
+      }
+    },
+    {
+      "term": "Java Streams",
+      "canonical": {
+        "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "label": "Java",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Java Streams and Lambda expressions"
+        }
+      ],
+      "match": {
+        "original_term": "Java Streams",
+        "canonical_id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "canonical_label": "Java",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Java Streams' is a specific feature within Java programming, and the taxonomy entry for 'Java' explicitly covers Java programming techniques, including streams and lambda expressions.",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.605
+          },
+          {
+            "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+            "label": "JavaScript",
+            "score": 0.314
+          },
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.191
+          }
+        ]
+      }
+    },
+    {
+      "term": "Java syntax basics",
+      "canonical": {
+        "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "label": "Java",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Java syntax basics"
+        }
+      ],
+      "match": {
+        "original_term": "Java syntax basics",
+        "canonical_id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "canonical_label": "Java",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'Java syntax basics' directly matches the label 'Java' and is explicitly mentioned in the syllabus.",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.527
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.316
+          },
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "JVM internals",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Java memory management and JVM internals"
+        }
+      ],
+      "match": {
+        "original_term": "JVM internals",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.223,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.223
+          },
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.205
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "JVM memory areas",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "JVM memory areas"
+        }
+      ],
+      "match": {
+        "original_term": "JVM memory areas",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.175,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.175
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.171
+          },
+          {
+            "id": "custom:jupyter",
+            "label": "Jupyter Notebook",
+            "score": 0.164
+          }
+        ]
+      }
+    },
+    {
+      "term": "Lambda expressions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Java Streams and Lambda expressions"
+        }
+      ],
+      "match": {
+        "original_term": "Lambda expressions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.325,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.325
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.221
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "Meta-programming",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Meta-programming"
+        }
+      ],
+      "match": {
+        "original_term": "Meta-programming",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Meta-programming'. The closest entries are related to programming languages, robotics, or software development, but none capture the specific concept of meta-programming.",
+        "candidates": [
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.533
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.518
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.498
+          }
+        ]
+      }
+    },
+    {
+      "term": "Method overriding",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Method overriding"
+        }
+      ],
+      "match": {
+        "original_term": "Method overriding",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Method overriding' as it is a specific programming concept related to object-oriented programming, and no entry in the shortlist captures this exact skill.",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.417
+          },
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.401
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "term": "multithreading",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Java concurrency and multithreading"
+        }
+      ],
+      "match": {
+        "original_term": "multithreading",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.27,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.27
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.263
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "term": "objects in Java",
+      "canonical": {
+        "id": "custom:object-oriented-programming",
+        "label": "object-oriented programming",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Classes and objects in Java"
+        }
+      ],
+      "match": {
+        "original_term": "objects in Java",
+        "canonical_id": "custom:object-oriented-programming",
+        "canonical_label": "object-oriented programming",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'objects in Java' directly relates to object-oriented programming concepts, which are explicitly covered in the syllabus phrase 'Classes and objects in Java'.",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.592
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.486
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.44
+          }
+        ]
+      }
+    },
+    {
+      "term": "operators",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Primitive data types and operators"
+        }
+      ],
+      "match": {
+        "original_term": "operators",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.266,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.266
+          },
+          {
+            "id": "custom:actuators",
+            "label": "actuators",
+            "score": 0.263
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.211
+          }
+        ]
+      }
+    },
+    {
+      "term": "optimization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Code review and optimization"
+        }
+      ],
+      "match": {
+        "original_term": "optimization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.268,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.268
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.255
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.243
+          }
+        ]
+      }
+    },
+    {
+      "term": "Path",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Path and Files API"
+        }
+      ],
+      "match": {
+        "original_term": "Path",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.237,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.237
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.221
+          },
+          {
+            "id": "esco:b8c01891-e3df-4a4b-948d-95b45e1788f5",
+            "label": "mobile device software frameworks",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "pattern implementation",
+      "canonical": {
+        "id": "custom:design-patterns",
+        "label": "software design patterns",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Design pattern implementation"
+        }
+      ],
+      "match": {
+        "original_term": "pattern implementation",
+        "canonical_id": "custom:design-patterns",
+        "canonical_label": "software design patterns",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'pattern implementation' directly relates to the implementation of software design patterns, which is exactly what the 'software design patterns' entry describes.",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.592
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.487
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.342
+          }
+        ]
+      }
+    },
+    {
+      "term": "Primitive data types",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Primitive data types and operators"
+        }
+      ],
+      "match": {
+        "original_term": "Primitive data types",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'Primitive data types' or its related concepts. The closest entries are about data structures, data models, or specific tools like pandas, but none match the exact skill described.",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.566
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.415
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.404
+          }
+        ]
+      }
+    },
+    {
+      "term": "quality assurance",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Software testing and quality assurance"
+        }
+      ],
+      "match": {
+        "original_term": "quality assurance",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "RESTful web services",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "RESTful web services"
+        }
+      ],
+      "match": {
+        "original_term": "RESTful web services",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.757,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.36",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.757
+          },
+          {
+            "id": "custom:web-scraping",
+            "label": "web scraping",
+            "score": 0.395
+          },
+          {
+            "id": "custom:responsive-design",
+            "label": "responsive web design",
+            "score": 0.369
+          }
+        ]
+      }
+    },
+    {
+      "term": "Socket programming",
+      "canonical": {
+        "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+        "label": "ICT system programming",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Socket programming"
+        }
+      ],
+      "match": {
+        "original_term": "Socket programming",
+        "canonical_id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+        "canonical_label": "ICT system programming",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Socket programming is a form of network programming, which is explicitly listed as an 'also called' term in the ICT system programming entry.",
+        "candidates": [
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.594
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.537
+          },
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.514
+          }
+        ]
+      }
+    },
+    {
+      "term": "sockets",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Java networking and sockets"
+        }
+      ],
+      "match": {
+        "original_term": "sockets",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.232,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.232
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.225
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.225
+          }
+        ]
+      }
+    },
+    {
+      "term": "Software testing",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Software testing and quality assurance"
+        }
+      ],
+      "match": {
+        "original_term": "Software testing",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "SOLID principles",
+      "canonical": {
+        "id": "custom:design-patterns",
+        "label": "software design patterns",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "SOLID principles"
+        }
+      ],
+      "match": {
+        "original_term": "SOLID principles",
+        "canonical_id": "custom:design-patterns",
+        "canonical_label": "software design patterns",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'SOLID principles' refers to software design principles, and 'software design patterns' is the closest matching taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:c8ac1986-38fa-43b2-89dc-50a4beeb420e",
+            "label": "electricity",
+            "score": 0.471
+          },
+          {
+            "id": "esco:87b1c959-236d-4761-b3be-b1c729497f75",
+            "label": "fluid mechanics",
+            "score": 0.194
+          },
+          {
+            "id": "esco:7b969ac9-f085-4afb-a480-c5210fb4da7d",
+            "label": "milling machines",
+            "score": 0.194
+          }
+        ]
+      }
+    },
+    {
+      "term": "Spring Boot fundamentals",
+      "canonical": {
+        "id": "custom:spring-boot",
+        "label": "Spring Boot",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Spring Boot fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "Spring Boot fundamentals",
+        "canonical_id": "custom:spring-boot",
+        "canonical_label": "Spring Boot",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.703,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.28",
+        "candidates": [
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.703
+          },
+          {
+            "id": "esco:c8ac1986-38fa-43b2-89dc-50a4beeb420e",
+            "label": "electricity",
+            "score": 0.421
+          },
+          {
+            "id": "esco:be99117b-49a1-4ec2-a670-e9baac66c1bd",
+            "label": "principles of combustion engines",
+            "score": 0.404
+          }
+        ]
+      }
+    },
+    {
+      "term": "Stream API",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Stream API"
+        }
+      ],
+      "match": {
+        "original_term": "Stream API",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Stream API' does not match any of the provided taxonomy entries, which include specific frameworks or tools like FastAPI, REST API development, or GraphQL, none of which are directly related to 'Stream API'.",
+        "candidates": [
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.463
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.448
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.437
+          }
+        ]
+      }
+    },
+    {
+      "term": "Synchronization blocks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Synchronization blocks"
+        }
+      ],
+      "match": {
+        "original_term": "Synchronization blocks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.238,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.238
+          },
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.225
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "TCP/IP communication",
+      "canonical": {
+        "id": "custom:computer-networks",
+        "label": "computer networks",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "TCP/IP communication"
+        }
+      ],
+      "match": {
+        "original_term": "TCP/IP communication",
+        "canonical_id": "custom:computer-networks",
+        "canonical_label": "computer networks",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.68,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.07",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.68
+          },
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.608
+          },
+          {
+            "id": "esco:debef2fc-7af4-4bff-ac92-4d0317915a84",
+            "label": "electronic communication",
+            "score": 0.482
+          }
+        ]
+      }
+    },
+    {
+      "term": "Test-driven development",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Test-driven development"
+        }
+      ],
+      "match": {
+        "original_term": "Test-driven development",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Thread synchronization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Thread synchronization"
+        }
+      ],
+      "match": {
+        "original_term": "Thread synchronization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Thread synchronization' or its equivalent. The closest entry is 'operating systems' (id: custom:operating-systems), but it is too broad and does not directly match the skill.",
+        "candidates": [
+          {
+            "id": "esco:db5d130a-b89e-4386-95b0-1d79d7a9b0f2",
+            "label": "types of thread",
+            "score": 0.434
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.234
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "Unit testing with JUnit",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Unit testing with JUnit"
+        }
+      ],
+      "match": {
+        "original_term": "Unit testing with JUnit",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.736,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.21",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.736
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.527
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.434
+          }
+        ]
+      }
+    },
+    {
+      "term": "writing",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "File reading and writing"
+        }
+      ],
+      "match": {
+        "original_term": "writing",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.62,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.40",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.62
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.22
+          },
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "Big O notation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Big O notation"
+        }
+      ],
+      "match": {
+        "original_term": "Big O notation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.232,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.232
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.221
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "collections framework",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "collections framework"
+        }
+      ],
+      "match": {
+        "original_term": "collections framework",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'collections framework' does not match any of the provided taxonomy entries, which are all specific technologies or frameworks (e.g., Spring Boot, Django, Docker, etc.). None of these entries refer to a 'collections framework' as a skill or concept.",
+        "candidates": [
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.475
+          },
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.42
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.207
+          }
+        ]
+      }
+    },
+    {
+      "term": "course also covers algorithmic complexity analysis",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "course also covers algorithmic complexity analysis"
+        }
+      ],
+      "match": {
+        "original_term": "course also covers algorithmic complexity analysis",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'algorithmic complexity analysis' is explicitly listed as an 'also called' entry for the 'algorithms' skill in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.572
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.331
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.321
+          }
+        ]
+      }
+    },
+    {
+      "term": "I/O operations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "I/O operations"
+        }
+      ],
+      "match": {
+        "original_term": "I/O operations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries directly refer to 'I/O operations' or a closely related skill.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.475
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.266
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.219
+          }
+        ]
+      }
+    },
+    {
+      "term": "Java's built-in data structures like ArrayList",
+      "canonical": {
+        "id": "custom:data-structures",
+        "label": "data structures",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Java's built-in data structures like ArrayList"
+        }
+      ],
+      "match": {
+        "original_term": "Java's built-in data structures like ArrayList",
+        "canonical_id": "custom:data-structures",
+        "canonical_label": "data structures",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Java's built-in data structures like ArrayList' specifically refers to data structures, which is exactly what the 'data structures' entry describes.",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.51
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.364
+          },
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.309
+          }
+        ]
+      }
+    },
+    {
+      "term": "memory management",
+      "canonical": {
+        "id": "custom:operating-systems",
+        "label": "operating systems",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "memory management"
+        }
+      ],
+      "match": {
+        "original_term": "memory management",
+        "canonical_id": "custom:operating-systems",
+        "canonical_label": "operating systems",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Memory management is a core component of operating systems, specifically related to managing computer memory resources.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.508
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.429
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.206
+          }
+        ]
+      }
+    },
+    {
+      "term": "objects",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "objects"
+        }
+      ],
+      "match": {
+        "original_term": "objects",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'objects' does not clearly match any of the provided taxonomy entries, which are all specific skills or tools.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.543
+          },
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.444
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.432
+          }
+        ]
+      }
+    },
+    {
+      "term": "practices of Object-Oriented Programming using Java",
+      "canonical": {
+        "id": "custom:object-oriented-programming",
+        "label": "object-oriented programming",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "practices of Object-Oriented Programming using Java"
+        }
+      ],
+      "match": {
+        "original_term": "practices of Object-Oriented Programming using Java",
+        "canonical_id": "custom:object-oriented-programming",
+        "canonical_label": "object-oriented programming",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.673,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.15",
+        "candidates": [
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.673
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.52
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.479
+          }
+        ]
+      }
+    },
+    {
+      "term": "software development",
+      "canonical": {
+        "id": "custom:software-engineering",
+        "label": "software engineering",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "software development"
+        }
+      ],
+      "match": {
+        "original_term": "software development",
+        "canonical_id": "custom:software-engineering",
+        "canonical_label": "software engineering",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "SOLID",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "SOLID"
+        }
+      ],
+      "match": {
+        "original_term": "SOLID",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.205,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:0bb4b474-da3a-45ce-9de3-0c964d84e73f",
+            "label": "soldering techniques",
+            "score": 0.205
+          },
+          {
+            "id": "esco:2d63745d-3c4c-4da1-ad77-985f68768be9",
+            "label": "manufacturing of metal structures",
+            "score": 0.149
+          },
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.149
+          }
+        ]
+      }
+    },
+    {
+      "term": "Students will explore Java's standard libraries",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Students will explore Java's standard libraries"
+        }
+      ],
+      "match": {
+        "original_term": "Students will explore Java's standard libraries",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.386,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.386
+          },
+          {
+            "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+            "label": "software components libraries",
+            "score": 0.311
+          },
+          {
+            "id": "esco:13bdd41a-2a18-441f-96db-41252c519413",
+            "label": "Visual Studio .NET",
+            "score": 0.179
+          }
+        ]
+      }
+    },
+    {
+      "term": "Topics include classes",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Topics include classes"
+        }
+      ],
+      "match": {
+        "original_term": "Topics include classes",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.218,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.218
+          },
+          {
+            "id": "esco:629c9139-8a87-447b-8f61-bfe678cf3e7c",
+            "label": "types of maritime vessels",
+            "score": 0.21
+          },
+          {
+            "id": "esco:52838a25-11f5-4cb1-b4ab-c5c7d59041e8",
+            "label": "types of electronics",
+            "score": 0.2
+          }
+        ]
+      }
+    }
+  ]
+}

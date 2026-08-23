@@ -1,0 +1,4322 @@
+{
+  "course_code": "A0433401",
+  "course_codes": [
+    "A0433401"
+  ],
+  "course_title": "Data Analytics in Cybersecurity",
+  "credit_hours": 3,
+  "plans": [
+    "CYBER"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "accepted": 62,
+      "no_match": 19,
+      "needs_review": 15
+    },
+    "by_method": {
+      "exact_alias": 23,
+      "llm": 44,
+      "embedding_reranker": 29
+    }
+  },
+  "total_skills": 96,
+  "skills": [
+    {
+      "term": "Cybersecurity",
+      "canonical": {
+        "id": "custom:cybersecurity",
+        "label": "cybersecurity",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 4,
+      "sources": [
+        "topic",
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Data Collection and Preprocessing for Cybersecurity"
+        },
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Deep Learning for Cybersecurity"
+        },
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Data Mining Techniques for Cybersecurity"
+        },
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Big Data Analytics for Cybersecurity"
+        }
+      ],
+      "match": {
+        "original_term": "Cybersecurity",
+        "canonical_id": "custom:cybersecurity",
+        "canonical_label": "cybersecurity",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "hypothesis testing",
+      "canonical": {
+        "id": "custom:hypothesis-testing",
+        "label": "hypothesis testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply statistical methods including hypothesis testing, regression analysis, and data visualization to analyze network traffic and security logs."
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Hypothesis Testing for Anomaly Detection"
+        },
+        {
+          "source": "description",
+          "text": "hypothesis testing"
+        }
+      ],
+      "match": {
+        "original_term": "hypothesis testing",
+        "canonical_id": "custom:hypothesis-testing",
+        "canonical_label": "hypothesis testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "intrusion detection",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key data analytics concepts and their specific applications in cybersecurity contexts such as intrusion detection and incident response."
+        },
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Deep Learning for Intrusion Detection"
+        }
+      ],
+      "match": {
+        "original_term": "intrusion detection",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'intrusion detection' is directly mentioned in the syllabus alongside 'incident response', and both are part of cybersecurity contexts. The taxonomy entry for 'security incident response' explicitly includes 'threat detection', which aligns with 'intrusion detection'.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.525
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.504
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.279
+          }
+        ]
+      }
+    },
+    {
+      "term": "predictive modeling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement data-driven cybersecurity solutions using Python libraries such as Pandas, NumPy, and TensorFlow for threat detection and predictive modeling."
+        },
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Predictive Modeling for Cyber Threats"
+        }
+      ],
+      "match": {
+        "original_term": "predictive modeling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.23,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.23
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.208
+          },
+          {
+            "id": "esco:41ec47dd-08b3-464a-9c45-c706f3e74467",
+            "label": "industrial software",
+            "score": 0.205
+          }
+        ]
+      }
+    },
+    {
+      "term": "regression analysis",
+      "canonical": {
+        "id": "custom:regression-analysis",
+        "label": "regression analysis",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply statistical methods including hypothesis testing, regression analysis, and data visualization to analyze network traffic and security logs."
+        },
+        {
+          "source": "description",
+          "text": "regression analysis"
+        }
+      ],
+      "match": {
+        "original_term": "regression analysis",
+        "canonical_id": "custom:regression-analysis",
+        "canonical_label": "regression analysis",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "statistical methods",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply statistical methods including hypothesis testing, regression analysis, and data visualization to analyze network traffic and security logs."
+        },
+        {
+          "source": "description",
+          "text": "statistical methods"
+        }
+      ],
+      "match": {
+        "original_term": "statistical methods",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'statistical methods' refers to a broad set of techniques for data analysis, including hypothesis testing, regression analysis, and data visualization. None of the provided taxonomy entries precisely capture this skill, as they are either too narrow (e.g., descriptive statistics",
+        "candidates": [
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.545
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.534
+          },
+          {
+            "id": "custom:inferential-statistics",
+            "label": "inferential statistics",
+            "score": 0.506
+          }
+        ]
+      }
+    },
+    {
+      "term": "TensorFlow",
+      "canonical": {
+        "id": "custom:tensorflow",
+        "label": "TensorFlow",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement data-driven cybersecurity solutions using Python libraries such as Pandas, NumPy, and TensorFlow for threat detection and predictive modeling."
+        },
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Introduction to TensorFlow and PyTorch"
+        }
+      ],
+      "match": {
+        "original_term": "TensorFlow",
+        "canonical_id": "custom:tensorflow",
+        "canonical_label": "TensorFlow",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "threat detection",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement data-driven cybersecurity solutions using Python libraries such as Pandas, NumPy, and TensorFlow for threat detection and predictive modeling."
+        },
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Supervised Learning for Threat Detection"
+        }
+      ],
+      "match": {
+        "original_term": "threat detection",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "threat intelligence platforms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and functionality of cybersecurity tools like ELK stack, SIEM systems, and threat intelligence platforms."
+        },
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Threat Intelligence Platforms and Integration"
+        }
+      ],
+      "match": {
+        "original_term": "threat intelligence platforms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'threat intelligence platforms' as a skill. The closest entries are related to cybersecurity, incident response, or risk assessment, but none directly match the phrase.",
+        "candidates": [
+          {
+            "id": "esco:20b1d521-3d18-4b59-aee5-aaf296170c1b",
+            "label": "electronic signals intelligence",
+            "score": 0.453
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.419
+          },
+          {
+            "id": "esco:778ca7ad-6c5d-4868-9b96-a7777dca799c",
+            "label": "ICT help platforms",
+            "score": 0.409
+          }
+        ]
+      }
+    },
+    {
+      "term": "architecture",
+      "canonical": {
+        "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+        "label": "software architecture models",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and functionality of cybersecurity tools like ELK stack, SIEM systems, and threat intelligence platforms."
+        }
+      ],
+      "match": {
+        "original_term": "architecture",
+        "canonical_id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+        "canonical_label": "software architecture models",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'architecture' in the context of cybersecurity tools like ELK stack, SIEM systems, and threat intelligence platforms refers to the structure and organization of software systems, which matches the definition of 'software architecture models' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.682
+          },
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.671
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.654
+          }
+        ]
+      }
+    },
+    {
+      "term": "data analytics",
+      "canonical": {
+        "id": "custom:data-analysis",
+        "label": "data analysis",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key data analytics concepts and their specific applications in cybersecurity contexts such as intrusion detection and incident response."
+        }
+      ],
+      "match": {
+        "original_term": "data analytics",
+        "canonical_id": "custom:data-analysis",
+        "canonical_label": "data analysis",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'data analytics' is explicitly listed as an alternative name for 'data analysis' in the taxonomy entry, and the syllabus phrase aligns with the definition of inspecting and modelling data to extract useful information.",
+        "candidates": [
+          {
+            "id": "esco:c5e8abde-d2ba-4e8e-a65e-720b71180666",
+            "label": "unstructured data",
+            "score": 1.0
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.915
+          },
+          {
+            "id": "esco:1605025e-a179-421f-8f35-5b07d182a6b2",
+            "label": "web analytics",
+            "score": 0.548
+          }
+        ]
+      }
+    },
+    {
+      "term": "data visualization to analyze network traffic",
+      "canonical": {
+        "id": "custom:data-visualization",
+        "label": "data visualization",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply statistical methods including hypothesis testing, regression analysis, and data visualization to analyze network traffic and security logs."
+        }
+      ],
+      "match": {
+        "original_term": "data visualization to analyze network traffic",
+        "canonical_id": "custom:data-visualization",
+        "canonical_label": "data visualization",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'data visualization to analyze network traffic' directly refers to the skill of presenting data graphically to identify patterns, which matches the definition of 'data visualization' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.613
+          },
+          {
+            "id": "esco:f6424ebb-8401-446b-9f7e-10d7c854da02",
+            "label": "ICT network simulation",
+            "score": 0.367
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.366
+          }
+        ]
+      }
+    },
+    {
+      "term": "data-driven cybersecurity solutions using Python libraries",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement data-driven cybersecurity solutions using Python libraries such as Pandas, NumPy, and TensorFlow for threat detection and predictive modeling."
+        }
+      ],
+      "match": {
+        "original_term": "data-driven cybersecurity solutions using Python libraries",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.394,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.394
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.321
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.311
+          }
+        ]
+      }
+    },
+    {
+      "term": "implementation in cybersecurity threat detection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of machine learning algorithms such as Random Forest and Naive Bayes, and their implementation in cybersecurity threat detection."
+        }
+      ],
+      "match": {
+        "original_term": "implementation in cybersecurity threat detection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.15,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'implementation in cybersecurity threat detection' refers to applying machine learning algorithms in cybersecurity contexts, which is not directly captured by any of the provided taxonomy entries. None of the entries specifically mention implementation in threat detection.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.602
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.477
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.37
+          }
+        ]
+      }
+    },
+    {
+      "term": "incident response",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key data analytics concepts and their specific applications in cybersecurity contexts such as intrusion detection and incident response."
+        }
+      ],
+      "match": {
+        "original_term": "incident response",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Naive Bayes",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of machine learning algorithms such as Random Forest and Naive Bayes, and their implementation in cybersecurity threat detection."
+        }
+      ],
+      "match": {
+        "original_term": "Naive Bayes",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.21,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.21
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.202
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.198
+          }
+        ]
+      }
+    },
+    {
+      "term": "NumPy",
+      "canonical": {
+        "id": "custom:numpy",
+        "label": "NumPy",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement data-driven cybersecurity solutions using Python libraries such as Pandas, NumPy, and TensorFlow for threat detection and predictive modeling."
+        }
+      ],
+      "match": {
+        "original_term": "NumPy",
+        "canonical_id": "custom:numpy",
+        "canonical_label": "NumPy",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Pandas",
+      "canonical": {
+        "id": "custom:pandas",
+        "label": "pandas",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement data-driven cybersecurity solutions using Python libraries such as Pandas, NumPy, and TensorFlow for threat detection and predictive modeling."
+        }
+      ],
+      "match": {
+        "original_term": "Pandas",
+        "canonical_id": "custom:pandas",
+        "canonical_label": "pandas",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "principles of machine learning algorithms",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of machine learning algorithms such as Random Forest and Naive Bayes, and their implementation in cybersecurity threat detection."
+        }
+      ],
+      "match": {
+        "original_term": "principles of machine learning algorithms",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.642,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.17",
+        "candidates": [
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.642
+          },
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.469
+          },
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.439
+          }
+        ]
+      }
+    },
+    {
+      "term": "Random Forest",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of machine learning algorithms such as Random Forest and Naive Bayes, and their implementation in cybersecurity threat detection."
+        }
+      ],
+      "match": {
+        "original_term": "Random Forest",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.227,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.227
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.217
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "term": "security logs",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply statistical methods including hypothesis testing, regression analysis, and data visualization to analyze network traffic and security logs."
+        }
+      ],
+      "match": {
+        "original_term": "security logs",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'security logs' as a specific skill. The closest entries relate to security incident response, network security risks, and risk assessment, but none specifically name the analysis or handling of security logs.",
+        "candidates": [
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.448
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.43
+          },
+          {
+            "id": "esco:2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80",
+            "label": "ICT network security risks",
+            "score": 0.42
+          }
+        ]
+      }
+    },
+    {
+      "term": "SIEM systems",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and functionality of cybersecurity tools like ELK stack, SIEM systems, and threat intelligence platforms."
+        }
+      ],
+      "match": {
+        "original_term": "SIEM systems",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.635,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.13",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.635
+          },
+          {
+            "id": "esco:2180bd8c-86de-4889-8165-adac902eee9d",
+            "label": "embedded systems",
+            "score": 0.505
+          },
+          {
+            "id": "esco:b1272de4-1f5f-408b-8b26-061f2550fc72",
+            "label": "e-commerce systems",
+            "score": 0.455
+          }
+        ]
+      }
+    },
+    {
+      "term": "specific applications in cybersecurity contexts",
+      "canonical": {
+        "id": "custom:cybersecurity",
+        "label": "cybersecurity",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key data analytics concepts and their specific applications in cybersecurity contexts such as intrusion detection and incident response."
+        }
+      ],
+      "match": {
+        "original_term": "specific applications in cybersecurity contexts",
+        "canonical_id": "custom:cybersecurity",
+        "canonical_label": "cybersecurity",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'specific applications in cybersecurity contexts' directly relates to cybersecurity, which is explicitly covered by the 'custom:cybersecurity' entry.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.516
+          },
+          {
+            "id": "esco:9ce670ec-318c-4a91-9179-03437db728dc",
+            "label": "ICT software specifications",
+            "score": 0.418
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.269
+          }
+        ]
+      }
+    },
+    {
+      "term": "Deep Learning",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Deep Learning for Intrusion Detection"
+        },
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Deep Learning for Cybersecurity"
+        }
+      ],
+      "match": {
+        "original_term": "Deep Learning",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Anomaly Detection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Hypothesis Testing for Anomaly Detection"
+        },
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Clustering for Anomaly Detection"
+        }
+      ],
+      "match": {
+        "original_term": "Anomaly Detection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Anomaly Detection' as described in the syllabus. The closest candidate, 'software anomalies', refers to deviations in software systems, which is not the same as detecting anomalies in data or systems.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.493
+          },
+          {
+            "id": "esco:c199731b-1c17-47be-8f5d-296b9892a1b4",
+            "label": "smoke sensors",
+            "score": 0.238
+          },
+          {
+            "id": "esco:438ff259-d086-4004-acda-1ec3e1631bc6",
+            "label": "software anomalies",
+            "score": 0.235
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Analysis",
+      "canonical": {
+        "id": "custom:data-analysis",
+        "label": "data analysis",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Introduction to Python for Data Analysis"
+        },
+        {
+          "source": "description",
+          "text": "data analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Data Analysis",
+        "canonical_id": "custom:data-analysis",
+        "canonical_label": "data analysis",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "ISO 27001",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Overview of Cybersecurity Frameworks (NIST, ISO 27001)"
+        },
+        {
+          "source": "description",
+          "text": "ISO 27001"
+        }
+      ],
+      "match": {
+        "original_term": "ISO 27001",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Natural Language Processing",
+      "canonical": {
+        "id": "custom:natural-language-processing",
+        "label": "natural language processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Natural Language Processing for Security Analysis"
+        },
+        {
+          "source": "description",
+          "text": "natural language processing"
+        }
+      ],
+      "match": {
+        "original_term": "Natural Language Processing",
+        "canonical_id": "custom:natural-language-processing",
+        "canonical_label": "natural language processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "NIST",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Overview of Cybersecurity Frameworks (NIST, ISO 27001)"
+        },
+        {
+          "source": "description",
+          "text": "NIST"
+        }
+      ],
+      "match": {
+        "original_term": "NIST",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.222,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.222
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.214
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "term": "PyTorch",
+      "canonical": {
+        "id": "custom:pytorch",
+        "label": "PyTorch",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Introduction to TensorFlow and PyTorch"
+        },
+        {
+          "source": "description",
+          "text": "PyTorch"
+        }
+      ],
+      "match": {
+        "original_term": "PyTorch",
+        "canonical_id": "custom:pytorch",
+        "canonical_label": "PyTorch",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Big Data Analytics",
+      "canonical": {
+        "id": "custom:data-analysis",
+        "label": "data analysis",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Big Data Analytics for Cybersecurity"
+        }
+      ],
+      "match": {
+        "original_term": "Big Data Analytics",
+        "canonical_id": "custom:data-analysis",
+        "canonical_label": "data analysis",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.732,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.26",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.732
+          },
+          {
+            "id": "esco:1605025e-a179-421f-8f35-5b07d182a6b2",
+            "label": "web analytics",
+            "score": 0.47
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.393
+          }
+        ]
+      }
+    },
+    {
+      "term": "Building a Basic Classifier",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Building a Basic Classifier for Malware Detection"
+        }
+      ],
+      "match": {
+        "original_term": "Building a Basic Classifier",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.347,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.347
+          },
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.257
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.227
+          }
+        ]
+      }
+    },
+    {
+      "term": "Capstone Project Presentation",
+      "canonical": {
+        "id": "custom:communication-skills",
+        "label": "communication skills",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 15,
+          "text": "Capstone Project Presentation and Defense"
+        }
+      ],
+      "match": {
+        "original_term": "Capstone Project Presentation",
+        "canonical_id": "custom:communication-skills",
+        "canonical_label": "communication skills",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Capstone Project Presentation' directly relates to conveying information clearly to an audience, which aligns with the definition of 'communication skills' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.425
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.333
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.282
+          }
+        ]
+      }
+    },
+    {
+      "term": "Clustering Network Traffic Patterns",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Clustering Network Traffic Patterns"
+        }
+      ],
+      "match": {
+        "original_term": "Clustering Network Traffic Patterns",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.397,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.397
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.383
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.371
+          }
+        ]
+      }
+    },
+    {
+      "term": "Creating Visualizations of Security Logs",
+      "canonical": {
+        "id": "custom:data-visualization",
+        "label": "data visualization",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Creating Visualizations of Security Logs"
+        }
+      ],
+      "match": {
+        "original_term": "Creating Visualizations of Security Logs",
+        "canonical_id": "custom:data-visualization",
+        "canonical_label": "data visualization",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Creating Visualizations of Security Logs' directly relates to data visualization, which is explicitly defined as presenting data graphically to make patterns readable.",
+        "candidates": [
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.407
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.371
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.371
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Analysis with Pandas",
+      "canonical": {
+        "id": "custom:data-analysis",
+        "label": "data analysis",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 2,
+          "text": "Basic Data Analysis with Pandas"
+        }
+      ],
+      "match": {
+        "original_term": "Data Analysis with Pandas",
+        "canonical_id": "custom:data-analysis",
+        "canonical_label": "data analysis",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.698,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.698
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.521
+          },
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.406
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Mining",
+      "canonical": {
+        "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+        "label": "data mining",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Data Mining for Zero-Day Exploit Detection"
+        }
+      ],
+      "match": {
+        "original_term": "Data Mining",
+        "canonical_id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+        "canonical_label": "data mining",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Defense",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 15,
+          "text": "Capstone Project Presentation and Defense"
+        }
+      ],
+      "match": {
+        "original_term": "Defense",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Defense' does not clearly match any of the provided taxonomy entries, as none of the labels or also called terms directly refer to 'Defense' in the context of a capstone project.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.616
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.19
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.175
+          }
+        ]
+      }
+    },
+    {
+      "term": "Log Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "SIEM Configuration and Log Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Log Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.239,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.239
+          },
+          {
+            "id": "esco:1605025e-a179-421f-8f35-5b07d182a6b2",
+            "label": "web analytics",
+            "score": 0.231
+          },
+          {
+            "id": "esco:c7451027-8249-405a-bb1b-342ff0f3fb3b",
+            "label": "Salt (tools for software configuration management)",
+            "score": 0.223
+          }
+        ]
+      }
+    },
+    {
+      "term": "LSTM",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Predictive Modeling with ARIMA and LSTM"
+        }
+      ],
+      "match": {
+        "original_term": "LSTM",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.184,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.184
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.171
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.156
+          }
+        ]
+      }
+    },
+    {
+      "term": "Malware Detection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Building a Basic Classifier for Malware Detection"
+        }
+      ],
+      "match": {
+        "original_term": "Malware Detection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Malware Detection'. The closest entries are related to secure coding, penetration testing, and Kali Linux, but none specifically refer to malware detection as a skill.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.503
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.24
+          },
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.233
+          }
+        ]
+      }
+    },
+    {
+      "term": "NLP",
+      "canonical": {
+        "id": "custom:natural-language-processing",
+        "label": "natural language processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "NLP for Threat Intelligence Extraction"
+        }
+      ],
+      "match": {
+        "original_term": "NLP",
+        "canonical_id": "custom:natural-language-processing",
+        "canonical_label": "natural language processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Predictive Modeling with ARIMA",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Predictive Modeling with ARIMA and LSTM"
+        }
+      ],
+      "match": {
+        "original_term": "Predictive Modeling with ARIMA",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.231,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:5d46ca01-f2b4-4d0b-9232-6b8f012c223c",
+            "label": "similitude",
+            "score": 0.231
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.215
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.187
+          }
+        ]
+      }
+    },
+    {
+      "term": "SIEM Configuration",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "SIEM Configuration and Log Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "SIEM Configuration",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'SIEM Configuration' is explicitly listed in the 'also called' field of the 'security incident response' entry, indicating it refers to the same skill.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.579
+          },
+          {
+            "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+            "label": "tools for software configuration management",
+            "score": 0.436
+          },
+          {
+            "id": "esco:c7451027-8249-405a-bb1b-342ff0f3fb3b",
+            "label": "Salt (tools for software configuration management)",
+            "score": 0.411
+          }
+        ]
+      }
+    },
+    {
+      "term": "Statistical Analysis of Network Traffic",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Statistical Analysis of Network Traffic"
+        }
+      ],
+      "match": {
+        "original_term": "Statistical Analysis of Network Traffic",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.398,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.398
+          },
+          {
+            "id": "custom:inferential-statistics",
+            "label": "inferential statistics",
+            "score": 0.387
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.379
+          }
+        ]
+      }
+    },
+    {
+      "term": "Threat Intelligence Extraction",
+      "canonical": {
+        "id": "esco:696e3b5b-8b61-45af-ae4c-3ab700f197ec",
+        "label": "information extraction",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "NLP for Threat Intelligence Extraction"
+        }
+      ],
+      "match": {
+        "original_term": "Threat Intelligence Extraction",
+        "canonical_id": "esco:696e3b5b-8b61-45af-ae4c-3ab700f197ec",
+        "canonical_label": "information extraction",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Threat Intelligence Extraction' directly relates to extracting information, which is the core of 'information extraction' as defined in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:696e3b5b-8b61-45af-ae4c-3ab700f197ec",
+            "label": "information extraction",
+            "score": 0.423
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.343
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.305
+          }
+        ]
+      }
+    },
+    {
+      "term": "Threat Intelligence Integration with SIEM",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Threat Intelligence Integration with SIEM"
+        }
+      ],
+      "match": {
+        "original_term": "Threat Intelligence Integration with SIEM",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Threat Intelligence Integration with SIEM' aligns with 'security incident response' as it involves integrating threat intelligence with SIEM tools for detecting and responding to security incidents.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.473
+          },
+          {
+            "id": "esco:20b1d521-3d18-4b59-aee5-aaf296170c1b",
+            "label": "electronic signals intelligence",
+            "score": 0.397
+          },
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.382
+          }
+        ]
+      }
+    },
+    {
+      "term": "Zero-Day Exploit Detection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Data Mining for Zero-Day Exploit Detection"
+        }
+      ],
+      "match": {
+        "original_term": "Zero-Day Exploit Detection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.304,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.304
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.298
+          },
+          {
+            "id": "esco:5eeac647-dc4b-496d-b109-c90b58006021",
+            "label": "mining engineering",
+            "score": 0.274
+          }
+        ]
+      }
+    },
+    {
+      "term": "Advanced Data Analytics Techniques",
+      "canonical": {
+        "id": "custom:data-analysis",
+        "label": "data analysis",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Advanced Data Analytics Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Advanced Data Analytics Techniques",
+        "canonical_id": "custom:data-analysis",
+        "canonical_label": "data analysis",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.639,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.24",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.639
+          },
+          {
+            "id": "esco:1605025e-a179-421f-8f35-5b07d182a6b2",
+            "label": "web analytics",
+            "score": 0.398
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.365
+          }
+        ]
+      }
+    },
+    {
+      "term": "Analyzing Incident Reports",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Analyzing Incident Reports"
+        }
+      ],
+      "match": {
+        "original_term": "Analyzing Incident Reports",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Analyzing Incident Reports' aligns with the skill 'security incident response', which involves detecting, containing, and recovering from security incidents, matching the context of analyzing incident reports.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.437
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.23
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "Association Rule Mining",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Association Rule Mining for Threat Patterns"
+        }
+      ],
+      "match": {
+        "original_term": "Association Rule Mining",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Association Rule Mining' does not match any of the provided taxonomy entries in meaning or specific terminology.",
+        "candidates": [
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.405
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.389
+          },
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.376
+          }
+        ]
+      }
+    },
+    {
+      "term": "Attack Forecasting",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Time Series Analysis for Attack Forecasting"
+        }
+      ],
+      "match": {
+        "original_term": "Attack Forecasting",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.219,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.219
+          },
+          {
+            "id": "esco:1605025e-a179-421f-8f35-5b07d182a6b2",
+            "label": "web analytics",
+            "score": 0.212
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "Big Data Analytics with Hadoop",
+      "canonical": {
+        "id": "custom:data-analysis",
+        "label": "data analysis",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Big Data Analytics with Hadoop and Spark"
+        }
+      ],
+      "match": {
+        "original_term": "Big Data Analytics with Hadoop",
+        "canonical_id": "custom:data-analysis",
+        "canonical_label": "data analysis",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Big Data Analytics with Hadoop' directly relates to data analysis, which is explicitly covered by the 'data analysis' label and its synonyms.",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.609
+          },
+          {
+            "id": "esco:e46291c7-52b9-4174-bd59-178884861038",
+            "label": "Hadoop",
+            "score": 0.472
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.339
+          }
+        ]
+      }
+    },
+    {
+      "term": "Capstone Project Development",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Capstone Project Development"
+        }
+      ],
+      "match": {
+        "original_term": "Capstone Project Development",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Capstone Project Development' refers to a comprehensive project-based learning experience, which is not specifically covered by any of the provided taxonomy entries. None of the listed skills directly match the concept of a capstone project.",
+        "candidates": [
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.456
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.441
+          },
+          {
+            "id": "custom:ios-development",
+            "label": "iOS development",
+            "score": 0.437
+          }
+        ]
+      }
+    },
+    {
+      "term": "CK Framework",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Using MITRE ATT&CK Framework"
+        }
+      ],
+      "match": {
+        "original_term": "CK Framework",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'CK Framework' refers to a cybersecurity framework, specifically the MITRE ATT&CK Framework, which is not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "esco:9b9de2a4-d8af-4a7b-933a-a8334ae60067",
+            "label": "JavaScript Framework",
+            "score": 0.463
+          },
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.432
+          },
+          {
+            "id": "custom:android-development",
+            "label": "Android development",
+            "score": 0.17
+          }
+        ]
+      }
+    },
+    {
+      "term": "Clustering",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Clustering for Anomaly Detection"
+        }
+      ],
+      "match": {
+        "original_term": "Clustering",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.257,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.257
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.243
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cyber Threats",
+      "canonical": {
+        "id": "custom:cybersecurity",
+        "label": "cybersecurity",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Predictive Modeling for Cyber Threats"
+        }
+      ],
+      "match": {
+        "original_term": "Cyber Threats",
+        "canonical_id": "custom:cybersecurity",
+        "canonical_label": "cybersecurity",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Cyber Threats' is directly related to the broader concept of cybersecurity, which encompasses protecting systems from unauthorized access and attacks, aligning with the syllabus mention of 'Predictive Modeling for Cyber Threats'.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.474
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.451
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.412
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Analytics in Cybersecurity",
+      "canonical": {
+        "id": "custom:data-analysis",
+        "label": "data analysis",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Data Analytics in Cybersecurity"
+        }
+      ],
+      "match": {
+        "original_term": "Data Analytics in Cybersecurity",
+        "canonical_id": "custom:data-analysis",
+        "canonical_label": "data analysis",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.677,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.10",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.677
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.575
+          },
+          {
+            "id": "esco:1605025e-a179-421f-8f35-5b07d182a6b2",
+            "label": "web analytics",
+            "score": 0.426
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Collection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Data Collection and Preprocessing for Cybersecurity"
+        }
+      ],
+      "match": {
+        "original_term": "Data Collection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Data Collection' from the syllabus. The closest entries are related to data protection, cybersecurity, and data mining, but none specifically refer to data collection.",
+        "candidates": [
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.508
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.446
+          },
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.445
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Mining Techniques",
+      "canonical": {
+        "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+        "label": "data mining",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Data Mining Techniques for Cybersecurity"
+        }
+      ],
+      "match": {
+        "original_term": "Data Mining Techniques",
+        "canonical_id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+        "canonical_label": "data mining",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Data Mining Techniques' directly matches the label 'data mining' in the taxonomy, which refers to the methods used to extract content from datasets, aligning precisely with the syllabus phrase.",
+        "candidates": [
+          {
+            "id": "esco:5eeac647-dc4b-496d-b109-c90b58006021",
+            "label": "mining engineering",
+            "score": 0.741
+          },
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.714
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.592
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Privacy",
+      "canonical": {
+        "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+        "label": "data protection",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Data Privacy and Ethics in Cybersecurity Analytics"
+        }
+      ],
+      "match": {
+        "original_term": "Data Privacy",
+        "canonical_id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+        "canonical_label": "data protection",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Data Protection Standards",
+      "canonical": {
+        "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+        "label": "data protection",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "GDPR and Data Protection Standards"
+        }
+      ],
+      "match": {
+        "original_term": "Data Protection Standards",
+        "canonical_id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+        "canonical_label": "data protection",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.74,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.32",
+        "candidates": [
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.74
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.418
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.405
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Visualization Techniques",
+      "canonical": {
+        "id": "custom:data-visualization",
+        "label": "data visualization",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Data Visualization Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Data Visualization Techniques",
+        "canonical_id": "custom:data-visualization",
+        "canonical_label": "data visualization",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.755,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.33",
+        "candidates": [
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.755
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.421
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.398
+          }
+        ]
+      }
+    },
+    {
+      "term": "Ethics in Cybersecurity Analytics",
+      "canonical": {
+        "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+        "label": "data protection",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Data Privacy and Ethics in Cybersecurity Analytics"
+        }
+      ],
+      "match": {
+        "original_term": "Ethics in Cybersecurity Analytics",
+        "canonical_id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+        "canonical_label": "data protection",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Ethics in Cybersecurity Analytics' directly relates to data protection principles, which are explicitly covered in the 'data protection' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.61
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.565
+          },
+          {
+            "id": "esco:1605025e-a179-421f-8f35-5b07d182a6b2",
+            "label": "web analytics",
+            "score": 0.476
+          }
+        ]
+      }
+    },
+    {
+      "term": "Event Management Systems",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Security Information and Event Management (SIEM) Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Event Management Systems",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Event Management Systems' is explicitly linked to 'Security Information and Event Management (SIEM) Systems' in the syllabus, and the taxonomy entry 'security incident response' includes 'SIEM' as an alias.",
+        "candidates": [
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.607
+          },
+          {
+            "id": "esco:0e8d16c9-e2db-4862-ac06-1567f01ef806",
+            "label": "building systems monitoring technology",
+            "score": 0.474
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.458
+          }
+        ]
+      }
+    },
+    {
+      "term": "GDPR",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "GDPR and Data Protection Standards"
+        }
+      ],
+      "match": {
+        "original_term": "GDPR",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.277,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.277
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.226
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "Integration",
+      "canonical": {
+        "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+        "label": "ICT system integration",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Threat Intelligence Platforms and Integration"
+        }
+      ],
+      "match": {
+        "original_term": "Integration",
+        "canonical_id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+        "canonical_label": "ICT system integration",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Integration' in the context of 'Threat Intelligence Platforms and Integration' directly aligns with the skill 'ICT system integration', which specifically refers to integrating ICT components and ensuring interoperability.",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 1.0
+          },
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.663
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.65
+          }
+        ]
+      }
+    },
+    {
+      "term": "Integration with Log Analysis Tools",
+      "canonical": {
+        "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+        "label": "ICT system integration",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Integration with Log Analysis Tools"
+        }
+      ],
+      "match": {
+        "original_term": "Integration with Log Analysis Tools",
+        "canonical_id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+        "canonical_label": "ICT system integration",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Integration with Log Analysis Tools' aligns with the skill 'ICT system integration' as both involve integrating components to create an operational system, which matches the focus of the phrase.",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.487
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.391
+          },
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.384
+          }
+        ]
+      }
+    },
+    {
+      "term": "Machine Learning Fundamentals in Cybersecurity",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Machine Learning Fundamentals in Cybersecurity"
+        }
+      ],
+      "match": {
+        "original_term": "Machine Learning Fundamentals in Cybersecurity",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Machine Learning Fundamentals in Cybersecurity' directly relates to the core concept of machine learning, which is explicitly covered by the 'machine learning' entry.",
+        "candidates": [
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.618
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.49
+          },
+          {
+            "id": "esco:54804209-6aac-4ca4-bf3c-aef4fbe18f8c",
+            "label": "principles of mechanical engineering",
+            "score": 0.377
+          }
+        ]
+      }
+    },
+    {
+      "term": "Matplotlib",
+      "canonical": {
+        "id": "custom:matplotlib",
+        "label": "Matplotlib",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Introduction to Tableau and Matplotlib"
+        }
+      ],
+      "match": {
+        "original_term": "Matplotlib",
+        "canonical_id": "custom:matplotlib",
+        "canonical_label": "Matplotlib",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "MITRE ATT",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Using MITRE ATT&CK Framework"
+        }
+      ],
+      "match": {
+        "original_term": "MITRE ATT",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.19,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:vuejs",
+            "label": "Vue.js",
+            "score": 0.19
+          },
+          {
+            "id": "custom:rqt",
+            "label": "RQT",
+            "score": 0.188
+          },
+          {
+            "id": "custom:message-queues",
+            "label": "message queues",
+            "score": 0.173
+          }
+        ]
+      }
+    },
+    {
+      "term": "Overview of Cybersecurity Frameworks",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Overview of Cybersecurity Frameworks (NIST, ISO 27001)"
+        }
+      ],
+      "match": {
+        "original_term": "Overview of Cybersecurity Frameworks",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Overview of Cybersecurity Frameworks' includes references to ISO 27001, which is explicitly mentioned in the 'security risk management' entry as part of its also called list. This indicates a direct match.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.547
+          },
+          {
+            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+            "label": "ICT architectural frameworks",
+            "score": 0.373
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.312
+          }
+        ]
+      }
+    },
+    {
+      "term": "Preprocessing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Data Collection and Preprocessing for Cybersecurity"
+        }
+      ],
+      "match": {
+        "original_term": "Preprocessing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.334,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.334
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.27
+          },
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.249
+          }
+        ]
+      }
+    },
+    {
+      "term": "Presenting Data-Driven Cybersecurity Solutions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Presenting Data-Driven Cybersecurity Solutions"
+        }
+      ],
+      "match": {
+        "original_term": "Presenting Data-Driven Cybersecurity Solutions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Presenting Data-Driven Cybersecurity Solutions' involves both data presentation and cybersecurity, but none of the taxonomy entries specifically capture the combination of these two aspects. The closest entries are 'cybersecurity' and 'data visualization', but neither fully matches the s",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.482
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.353
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.342
+          }
+        ]
+      }
+    },
+    {
+      "term": "Python",
+      "canonical": {
+        "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "label": "Python",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Introduction to Python for Data Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Python",
+        "canonical_id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "canonical_label": "Python",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Security Analysis",
+      "canonical": {
+        "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "label": "assessment of risks and threats",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Natural Language Processing for Security Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Security Analysis",
+        "canonical_id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "canonical_label": "assessment of risks and threats",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Security Analysis' aligns with the entry 'assessment of risks and threats' as both focus on evaluating security-related risks and threats.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.482
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.473
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.468
+          }
+        ]
+      }
+    },
+    {
+      "term": "Security Information",
+      "canonical": {
+        "id": "custom:cybersecurity",
+        "label": "cybersecurity",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Security Information and Event Management (SIEM) Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Security Information",
+        "canonical_id": "custom:cybersecurity",
+        "canonical_label": "cybersecurity",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.828,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.29",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.828
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.535
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.525
+          }
+        ]
+      }
+    },
+    {
+      "term": "SIEM",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Security Information and Event Management (SIEM) Systems"
+        }
+      ],
+      "match": {
+        "original_term": "SIEM",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Spark",
+      "canonical": {
+        "id": "esco:af7ae54f-4649-4c16-87c7-59ba41d4d57f",
+        "label": "SPARK",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Big Data Analytics with Hadoop and Spark"
+        }
+      ],
+      "match": {
+        "original_term": "Spark",
+        "canonical_id": "esco:af7ae54f-4649-4c16-87c7-59ba41d4d57f",
+        "canonical_label": "SPARK",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Statistical Analysis in Cybersecurity",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Statistical Analysis in Cybersecurity"
+        }
+      ],
+      "match": {
+        "original_term": "Statistical Analysis in Cybersecurity",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Statistical Analysis in Cybersecurity' combines elements of statistics and cybersecurity, but none of the provided taxonomy entries specifically capture this combination. The closest entries are 'cybersecurity' and 'inferential statistics,' but neither fully matches the specific skill de",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.56
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.432
+          },
+          {
+            "id": "custom:inferential-statistics",
+            "label": "inferential statistics",
+            "score": 0.423
+          }
+        ]
+      }
+    },
+    {
+      "term": "Supervised Learning",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Supervised Learning for Threat Detection"
+        }
+      ],
+      "match": {
+        "original_term": "Supervised Learning",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Supervised Learning is a subset of machine learning, and the phrase 'Supervised Learning for Threat Detection' clearly refers to a machine learning technique, making 'machine learning' the most specific matching skill in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.494
+          },
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.487
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.474
+          }
+        ]
+      }
+    },
+    {
+      "term": "Tableau",
+      "canonical": {
+        "id": "custom:tableau",
+        "label": "Tableau",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Introduction to Tableau and Matplotlib"
+        }
+      ],
+      "match": {
+        "original_term": "Tableau",
+        "canonical_id": "custom:tableau",
+        "canonical_label": "Tableau",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Threat Patterns",
+      "canonical": {
+        "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "label": "assessment of risks and threats",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Association Rule Mining for Threat Patterns"
+        }
+      ],
+      "match": {
+        "original_term": "Threat Patterns",
+        "canonical_id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "canonical_label": "assessment of risks and threats",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Threat Patterns' aligns with the skill 'assessment of risks and threats' as both focus on identifying and analyzing security-related threats.",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.482
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.388
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.232
+          }
+        ]
+      }
+    },
+    {
+      "term": "Time Series Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Time Series Analysis for Attack Forecasting"
+        }
+      ],
+      "match": {
+        "original_term": "Time Series Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically match 'Time Series Analysis' or its context 'Time Series Analysis for Attack Forecasting'. The closest entries are related to data analysis or correlation analysis, but they do not capture the specific focus on time series data.",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.429
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.428
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.423
+          }
+        ]
+      }
+    },
+    {
+      "term": "Unsupervised Learning Techniques",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Unsupervised Learning Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Unsupervised Learning Techniques",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Unsupervised Learning Techniques is a subset of machine learning, and the phrase directly aligns with the broader category of machine learning.",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.421
+          },
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.408
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.407
+          }
+        ]
+      }
+    },
+    {
+      "term": "analyzing security incident reports",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "analyzing security incident reports"
+        }
+      ],
+      "match": {
+        "original_term": "analyzing security incident reports",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'analyzing security incident reports' directly relates to the skill of 'security incident response', which includes detecting, containing, and recovering from security incidents.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.559
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.388
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.379
+          }
+        ]
+      }
+    },
+    {
+      "term": "construct predictive models",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "construct predictive models"
+        }
+      ],
+      "match": {
+        "original_term": "construct predictive models",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.265,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:5d46ca01-f2b4-4d0b-9232-6b8f012c223c",
+            "label": "similitude",
+            "score": 0.265
+          },
+          {
+            "id": "esco:2d63745d-3c4c-4da1-ad77-985f68768be9",
+            "label": "manufacturing of metal structures",
+            "score": 0.254
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.205
+          }
+        ]
+      }
+    },
+    {
+      "term": "cyber threat forecasting using TensorFlow",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "cyber threat forecasting using TensorFlow"
+        }
+      ],
+      "match": {
+        "original_term": "cyber threat forecasting using TensorFlow",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'cyber threat forecasting using TensorFlow' combines both cybersecurity and TensorFlow skills, but none of the taxonomy entries specifically capture this combination. The closest entries are 'cybersecurity' and 'TensorFlow', but neither fully represents the skill described.",
+        "candidates": [
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.475
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.326
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.304
+          }
+        ]
+      }
+    },
+    {
+      "term": "cybersecurity frameworks",
+      "canonical": {
+        "id": "custom:cybersecurity",
+        "label": "cybersecurity",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "cybersecurity frameworks"
+        }
+      ],
+      "match": {
+        "original_term": "cybersecurity frameworks",
+        "canonical_id": "custom:cybersecurity",
+        "canonical_label": "cybersecurity",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.653,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.24",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.653
+          },
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.409
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.284
+          }
+        ]
+      }
+    },
+    {
+      "term": "Kali Linux",
+      "canonical": {
+        "id": "esco:625b57ee-29d4-425b-bf99-9fd54dd021fe",
+        "label": "Kali Linux",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Kali Linux"
+        }
+      ],
+      "match": {
+        "original_term": "Kali Linux",
+        "canonical_id": "esco:625b57ee-29d4-425b-bf99-9fd54dd021fe",
+        "canonical_label": "Kali Linux",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "log analysis with ELK stack",
+      "canonical": {
+        "id": "custom:monitoring-observability",
+        "label": "monitoring and observability",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "log analysis with ELK stack"
+        }
+      ],
+      "match": {
+        "original_term": "log analysis with ELK stack",
+        "canonical_id": "custom:monitoring-observability",
+        "canonical_label": "monitoring and observability",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'log analysis with ELK stack' directly matches the 'monitoring and observability' skill, as ELK stack is explicitly listed as an example under this label.",
+        "candidates": [
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.605
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.379
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.36
+          }
+        ]
+      }
+    },
+    {
+      "term": "penetration testing",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "penetration testing"
+        }
+      ],
+      "match": {
+        "original_term": "penetration testing",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Python libraries like Matplotlib",
+      "canonical": {
+        "id": "custom:matplotlib",
+        "label": "Matplotlib",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Python libraries like Matplotlib"
+        }
+      ],
+      "match": {
+        "original_term": "Python libraries like Matplotlib",
+        "canonical_id": "custom:matplotlib",
+        "canonical_label": "Matplotlib",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'Python libraries like Matplotlib' directly refers to the Matplotlib library, which is explicitly named in the candidate with id 'custom:matplotlib'.",
+        "candidates": [
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.567
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.458
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.391
+          }
+        ]
+      }
+    },
+    {
+      "term": "Seaborn",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Seaborn"
+        }
+      ],
+      "match": {
+        "original_term": "Seaborn",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.174,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:scikit-learn",
+            "label": "scikit-learn",
+            "score": 0.174
+          },
+          {
+            "id": "custom:poisson-distribution",
+            "label": "Poisson distribution",
+            "score": 0.15
+          },
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.15
+          }
+        ]
+      }
+    },
+    {
+      "term": "Support Vector Machines",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Support Vector Machines"
+        }
+      ],
+      "match": {
+        "original_term": "Support Vector Machines",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Support Vector Machines is a specific type of machine learning algorithm, so it falls under the broader category of machine learning.",
+        "candidates": [
+          {
+            "id": "custom:vector-databases",
+            "label": "vector databases",
+            "score": 0.411
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.404
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.402
+          }
+        ]
+      }
+    },
+    {
+      "term": "threat intelligence integration with SIEM tools",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "threat intelligence integration with SIEM tools"
+        }
+      ],
+      "match": {
+        "original_term": "threat intelligence integration with SIEM tools",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'threat intelligence integration with SIEM tools' is closely related to 'security incident response' as SIEM (Security Information and Event Management) tools are integral to threat detection and incident response processes.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.441
+          },
+          {
+            "id": "esco:20b1d521-3d18-4b59-aee5-aaf296170c1b",
+            "label": "electronic signals intelligence",
+            "score": 0.371
+          },
+          {
+            "id": "esco:42c3287f-5e50-4559-a2d1-2000c70e0aab",
+            "label": "Pentaho Data Integration",
+            "score": 0.33
+          }
+        ]
+      }
+    }
+  ]
+}

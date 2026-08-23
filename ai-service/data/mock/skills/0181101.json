@@ -1,0 +1,2314 @@
+{
+  "course_code": "0181101",
+  "course_codes": [
+    "0181101",
+    "A0181101"
+  ],
+  "course_title": "Calculus (1)",
+  "credit_hours": 3,
+  "plans": [
+    "CS",
+    "CS/AI",
+    "CYBER",
+    "SE"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "accepted": 22,
+      "no_match": 21,
+      "needs_review": 6
+    },
+    "by_method": {
+      "llm": 16,
+      "embedding_reranker": 29,
+      "exact_alias": 4
+    }
+  },
+  "total_skills": 49,
+  "skills": [
+    {
+      "term": "derivatives",
+      "canonical": {
+        "id": "custom:calculus",
+        "label": "calculus",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the concept of derivatives and compute derivatives of composite functions using the chain rule."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Derivatives and Differentiation Rules"
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Applications of Derivatives: Optimization"
+        }
+      ],
+      "match": {
+        "original_term": "derivatives",
+        "canonical_id": "custom:calculus",
+        "canonical_label": "calculus",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'derivatives' is explicitly listed in the 'calculus' entry's also called section, and the syllabus content focuses on derivatives and differentiation rules, which are core components of calculus.",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.914
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.422
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.221
+          }
+        ]
+      }
+    },
+    {
+      "term": "convergence",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement numerical integration methods in Python to approximate definite integrals and analyze their convergence."
+        }
+      ],
+      "match": {
+        "original_term": "convergence",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.256,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.256
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.228
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "data compression",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply integration techniques to solve problems in algorithm complexity analysis and data compression."
+        }
+      ],
+      "match": {
+        "original_term": "data compression",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'data compression' as a specific skill. The closest is 'data mining methods' (ESCO), which focuses on economic and marketing analysis, not data compression. 'Algorithms' (ESCO) includes algorithm analysis but not specifically data compression.",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.46
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.42
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "term": "Intermediate Value Theorem to solve real-world",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the properties of continuous functions and apply the Intermediate Value Theorem to solve real-world problems."
+        }
+      ],
+      "match": {
+        "original_term": "Intermediate Value Theorem to solve real-world",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.29,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:hypothesis-testing",
+            "label": "hypothesis testing",
+            "score": 0.29
+          },
+          {
+            "id": "esco:d11fd23b-ad01-4f12-85f4-e0d2ed16d5af",
+            "label": "functional properties of foods",
+            "score": 0.194
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.19
+          }
+        ]
+      }
+    },
+    {
+      "term": "limit of a function",
+      "canonical": {
+        "id": "custom:calculus",
+        "label": "calculus",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the limit of a function and compute limits using algebraic manipulation and L’Hospital’s Rule."
+        }
+      ],
+      "match": {
+        "original_term": "limit of a function",
+        "canonical_id": "custom:calculus",
+        "canonical_label": "calculus",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'limit of a function' is a fundamental concept in calculus, and the syllabus explicitly mentions computing limits using algebraic manipulation and L’Hospital’s Rule, which are calculus-specific techniques.",
+        "candidates": [
+          {
+            "id": "esco:44297bbb-306a-46fa-ab1b-fa3fb327ebda",
+            "label": "mechanical tools",
+            "score": 0.406
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.227
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.221
+          }
+        ]
+      }
+    },
+    {
+      "term": "limits using algebraic manipulation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the limit of a function and compute limits using algebraic manipulation and L’Hospital’s Rule."
+        }
+      ],
+      "match": {
+        "original_term": "limits using algebraic manipulation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.251,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-manipulators",
+            "label": "robot manipulators",
+            "score": 0.251
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.238
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "L’Hospital’s Rule",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the limit of a function and compute limits using algebraic manipulation and L’Hospital’s Rule."
+        }
+      ],
+      "match": {
+        "original_term": "L’Hospital’s Rule",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.374,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.374
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.342
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.189
+          }
+        ]
+      }
+    },
+    {
+      "term": "properties of continuous functions",
+      "canonical": {
+        "id": "custom:calculus",
+        "label": "calculus",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the properties of continuous functions and apply the Intermediate Value Theorem to solve real-world problems."
+        }
+      ],
+      "match": {
+        "original_term": "properties of continuous functions",
+        "canonical_id": "custom:calculus",
+        "canonical_label": "calculus",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'properties of continuous functions' is a core concept in calculus, specifically within the study of real analysis and function behavior, which aligns directly with the 'calculus' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:d11fd23b-ad01-4f12-85f4-e0d2ed16d5af",
+            "label": "functional properties of foods",
+            "score": 0.46
+          },
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.223
+          },
+          {
+            "id": "esco:77592603-505b-4096-97dd-d0def6bd7601",
+            "label": "computational fluid dynamics",
+            "score": 0.204
+          }
+        ]
+      }
+    },
+    {
+      "term": "Continuity",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Limits and Continuity"
+        },
+        {
+          "source": "description",
+          "text": "continuity"
+        }
+      ],
+      "match": {
+        "original_term": "Continuity",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.221,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.221
+          },
+          {
+            "id": "esco:c8ac1986-38fa-43b2-89dc-50a4beeb420e",
+            "label": "electricity",
+            "score": 0.212
+          },
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.211
+          }
+        ]
+      }
+    },
+    {
+      "term": "Exponential",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Exponential and Logarithmic Functions"
+        },
+        {
+          "source": "description",
+          "text": "exponential"
+        }
+      ],
+      "match": {
+        "original_term": "Exponential",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.258,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.258
+          },
+          {
+            "id": "custom:inferential-statistics",
+            "label": "inferential statistics",
+            "score": 0.226
+          },
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "Integration by Parts",
+      "canonical": {
+        "id": "custom:calculus",
+        "label": "calculus",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Integration by Parts and Partial Fractions"
+        },
+        {
+          "source": "description",
+          "text": "integration by parts"
+        }
+      ],
+      "match": {
+        "original_term": "Integration by Parts",
+        "canonical_id": "custom:calculus",
+        "canonical_label": "calculus",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.672,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.21",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.672
+          },
+          {
+            "id": "esco:da40ce72-a158-4116-84d2-01d4924e0667",
+            "label": "parts pricing",
+            "score": 0.465
+          },
+          {
+            "id": "esco:f5db895c-533b-421b-8e7a-0ea39aadf3e5",
+            "label": "components of clocks",
+            "score": 0.457
+          }
+        ]
+      }
+    },
+    {
+      "term": "Limits",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Limits and Continuity"
+        },
+        {
+          "source": "description",
+          "text": "limits"
+        }
+      ],
+      "match": {
+        "original_term": "Limits",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.186,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.186
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.179
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.175
+          }
+        ]
+      }
+    },
+    {
+      "term": "Logarithmic Functions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Exponential and Logarithmic Functions"
+        },
+        {
+          "source": "description",
+          "text": "logarithmic functions"
+        }
+      ],
+      "match": {
+        "original_term": "Logarithmic Functions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Logarithmic Functions' refers to a specific mathematical concept in algebra or calculus, which is not explicitly covered by any of the provided taxonomy entries. None of the labels or also-called terms match the precise skill described.",
+        "candidates": [
+          {
+            "id": "esco:44297bbb-306a-46fa-ab1b-fa3fb327ebda",
+            "label": "mechanical tools",
+            "score": 0.41
+          },
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.26
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.239
+          }
+        ]
+      }
+    },
+    {
+      "term": "Multiple Integrals",
+      "canonical": {
+        "id": "custom:calculus",
+        "label": "calculus",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Partial Derivatives and Multiple Integrals"
+        },
+        {
+          "source": "description",
+          "text": "multiple integrals"
+        }
+      ],
+      "match": {
+        "original_term": "Multiple Integrals",
+        "canonical_id": "custom:calculus",
+        "canonical_label": "calculus",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Multiple Integrals' is a specific topic within calculus, and the taxonomy entry 'calculus' explicitly includes integration as part of its description.",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.55
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.42
+          },
+          {
+            "id": "esco:61c81161-b732-4c47-aba5-9e554d9a853f",
+            "label": "integrated circuit types",
+            "score": 0.233
+          }
+        ]
+      }
+    },
+    {
+      "term": "Partial Derivatives",
+      "canonical": {
+        "id": "custom:calculus",
+        "label": "calculus",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Partial Derivatives and Multiple Integrals"
+        },
+        {
+          "source": "description",
+          "text": "partial derivatives"
+        }
+      ],
+      "match": {
+        "original_term": "Partial Derivatives",
+        "canonical_id": "custom:calculus",
+        "canonical_label": "calculus",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.739,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.27",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.739
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.465
+          },
+          {
+            "id": "esco:da40ce72-a158-4116-84d2-01d4924e0667",
+            "label": "parts pricing",
+            "score": 0.237
+          }
+        ]
+      }
+    },
+    {
+      "term": "Partial Fractions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Integration by Parts and Partial Fractions"
+        },
+        {
+          "source": "description",
+          "text": "partial fractions"
+        }
+      ],
+      "match": {
+        "original_term": "Partial Fractions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.292,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.292
+          },
+          {
+            "id": "esco:da40ce72-a158-4116-84d2-01d4924e0667",
+            "label": "parts pricing",
+            "score": 0.284
+          },
+          {
+            "id": "esco:f5db895c-533b-421b-8e7a-0ea39aadf3e5",
+            "label": "components of clocks",
+            "score": 0.279
+          }
+        ]
+      }
+    },
+    {
+      "term": "Substitution",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Techniques of Integration: Substitution"
+        },
+        {
+          "source": "description",
+          "text": "substitution"
+        }
+      ],
+      "match": {
+        "original_term": "Substitution",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.317,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.317
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.273
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "Techniques of Integration",
+      "canonical": {
+        "id": "custom:calculus",
+        "label": "calculus",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Techniques of Integration: Substitution"
+        },
+        {
+          "source": "description",
+          "text": "techniques of integration"
+        }
+      ],
+      "match": {
+        "original_term": "Techniques of Integration",
+        "canonical_id": "custom:calculus",
+        "canonical_label": "calculus",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.654,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.14",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.654
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.518
+          },
+          {
+            "id": "esco:0bb4b474-da3a-45ce-9de3-0c964d84e73f",
+            "label": "soldering techniques",
+            "score": 0.487
+          }
+        ]
+      }
+    },
+    {
+      "term": "Euler's Method Implementation in Python",
+      "canonical": {
+        "id": "custom:numerical-methods",
+        "label": "numerical methods",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Euler's Method Implementation in Python"
+        }
+      ],
+      "match": {
+        "original_term": "Euler's Method Implementation in Python",
+        "canonical_id": "custom:numerical-methods",
+        "canonical_label": "numerical methods",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Euler's Method Implementation in Python' refers to implementing a numerical method for solving differential equations, which aligns with the 'numerical methods' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.431
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.339
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.335
+          }
+        ]
+      }
+    },
+    {
+      "term": "Runge-Kutta Method in MATLAB",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Runge-Kutta Method in MATLAB"
+        }
+      ],
+      "match": {
+        "original_term": "Runge-Kutta Method in MATLAB",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Runge-Kutta Method in MATLAB' refers to a specific numerical method implemented in MATLAB, but none of the provided taxonomy entries capture this exact skill. The closest is 'MATLAB' (esco:c3a03c5a-c260-4c26-9b9a-873abb396f4d), but it is too broad and does not specifically address the Ru",
+        "candidates": [
+          {
+            "id": "esco:c3a03c5a-c260-4c26-9b9a-873abb396f4d",
+            "label": "MATLAB",
+            "score": 0.441
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.331
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.177
+          }
+        ]
+      }
+    },
+    {
+      "term": "Area",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Applications of Integration: Area and Volume"
+        }
+      ],
+      "match": {
+        "original_term": "Area",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.224,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:61d6ef20-6cc7-40f8-919e-3360db6cf2b3",
+            "label": "hardware materials",
+            "score": 0.224
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.21
+          },
+          {
+            "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+            "label": "software components libraries",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "Curl",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Vector Calculus: Gradient, Divergence, Curl"
+        }
+      ],
+      "match": {
+        "original_term": "Curl",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.223,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.223
+          },
+          {
+            "id": "esco:401eb8d8-6daa-4f8b-90ad-60afc71eb4f8",
+            "label": "Perl",
+            "score": 0.212
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "Differential Equations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Numerical Methods for Differential Equations"
+        }
+      ],
+      "match": {
+        "original_term": "Differential Equations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Differential Equations' is not covered by any of the provided taxonomy entries, which include topics like calculus, numerical methods, probability, and others, but none specifically refer to differential equations.",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.519
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.359
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.252
+          }
+        ]
+      }
+    },
+    {
+      "term": "Differentiation Rules",
+      "canonical": {
+        "id": "custom:calculus",
+        "label": "calculus",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Derivatives and Differentiation Rules"
+        }
+      ],
+      "match": {
+        "original_term": "Differentiation Rules",
+        "canonical_id": "custom:calculus",
+        "canonical_label": "calculus",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Differentiation Rules' is a specific part of 'calculus' as listed in the taxonomy, and the syllabus explicitly mentions 'Derivatives and Differentiation Rules', which directly aligns with the calculus entry.",
+        "candidates": [
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.444
+          },
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.424
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.409
+          }
+        ]
+      }
+    },
+    {
+      "term": "Divergence",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Vector Calculus: Gradient, Divergence, Curl"
+        }
+      ],
+      "match": {
+        "original_term": "Divergence",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.253,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.253
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.229
+          },
+          {
+            "id": "custom:standard-deviation",
+            "label": "standard deviation",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "Gradient",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Vector Calculus: Gradient, Divergence, Curl"
+        }
+      ],
+      "match": {
+        "original_term": "Gradient",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.25,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.25
+          },
+          {
+            "id": "esco:5a9a6d45-f4e5-437a-8f2d-2671061917ea",
+            "label": "pattern grading",
+            "score": 0.233
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.207
+          }
+        ]
+      }
+    },
+    {
+      "term": "Integration",
+      "canonical": {
+        "id": "esco:0f9958d2-f700-4f62-b90b-a5873cb5ae4c",
+        "label": "systems thinking",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Applications of Integration: Area and Volume"
+        }
+      ],
+      "match": {
+        "original_term": "Integration",
+        "canonical_id": "esco:0f9958d2-f700-4f62-b90b-a5873cb5ae4c",
+        "canonical_label": "systems thinking",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Integration' directly matches the also-called entry 'integration of thinking' in the 'systems thinking' taxonomy, which aligns with the context of 'Applications of Integration: Area and Volume' from the syllabus.",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.904
+          },
+          {
+            "id": "esco:0f9958d2-f700-4f62-b90b-a5873cb5ae4c",
+            "label": "systems thinking",
+            "score": 0.666
+          },
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.654
+          }
+        ]
+      }
+    },
+    {
+      "term": "Numerical Methods",
+      "canonical": {
+        "id": "custom:numerical-methods",
+        "label": "numerical methods",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Numerical Methods for Differential Equations"
+        }
+      ],
+      "match": {
+        "original_term": "Numerical Methods",
+        "canonical_id": "custom:numerical-methods",
+        "canonical_label": "numerical methods",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Optimization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Applications of Derivatives: Optimization"
+        }
+      ],
+      "match": {
+        "original_term": "Optimization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.333,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.333
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.279
+          },
+          {
+            "id": "esco:41ec47dd-08b3-464a-9c45-c706f3e74467",
+            "label": "industrial software",
+            "score": 0.277
+          }
+        ]
+      }
+    },
+    {
+      "term": "Parametric Equations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Parametric Equations and Polar Coordinates"
+        }
+      ],
+      "match": {
+        "original_term": "Parametric Equations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.243,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.243
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.227
+          },
+          {
+            "id": "esco:c8ac1986-38fa-43b2-89dc-50a4beeb420e",
+            "label": "electricity",
+            "score": 0.22
+          }
+        ]
+      }
+    },
+    {
+      "term": "Polar Coordinates",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Parametric Equations and Polar Coordinates"
+        }
+      ],
+      "match": {
+        "original_term": "Polar Coordinates",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Polar Coordinates' does not match any of the provided taxonomy entries, which cover topics like coordinate frame transforms, counting rules, calculus, linear algebra, minerals prices, electricity, numerical methods, robot localization, electrical wiring diagrams, and circuit diagrams. No",
+        "candidates": [
+          {
+            "id": "custom:tf-transforms",
+            "label": "coordinate frame transforms",
+            "score": 0.445
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.207
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.189
+          }
+        ]
+      }
+    },
+    {
+      "term": "Power Series",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Power Series and Taylor Series"
+        }
+      ],
+      "match": {
+        "original_term": "Power Series",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly relate to 'Power Series' or 'Power Series and Taylor Series'. The closest entries are related to electricity, power electronics, or energy, but none specifically refer to mathematical power series.",
+        "candidates": [
+          {
+            "id": "esco:3a116ee0-19d4-49e9-a8f0-f2cd4f51c463",
+            "label": "transmission towers",
+            "score": 0.465
+          },
+          {
+            "id": "esco:56a13f47-ad7c-451f-81cf-e550107abc03",
+            "label": "electrical discharge",
+            "score": 0.46
+          },
+          {
+            "id": "esco:86ff9a65-66eb-4c8f-93d8-22e0a467fc08",
+            "label": "power electronics",
+            "score": 0.434
+          }
+        ]
+      }
+    },
+    {
+      "term": "Sequences",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Sequences and Series"
+        }
+      ],
+      "match": {
+        "original_term": "Sequences",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.222,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.222
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.198
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.189
+          }
+        ]
+      }
+    },
+    {
+      "term": "Series",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Sequences and Series"
+        }
+      ],
+      "match": {
+        "original_term": "Series",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.218,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.218
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.195
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.181
+          }
+        ]
+      }
+    },
+    {
+      "term": "Taylor Series",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Power Series and Taylor Series"
+        }
+      ],
+      "match": {
+        "original_term": "Taylor Series",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.297,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:3a116ee0-19d4-49e9-a8f0-f2cd4f51c463",
+            "label": "transmission towers",
+            "score": 0.297
+          },
+          {
+            "id": "esco:56a13f47-ad7c-451f-81cf-e550107abc03",
+            "label": "electrical discharge",
+            "score": 0.274
+          },
+          {
+            "id": "esco:c4dcfe3a-a8b0-4352-ba82-a5e345d88c08",
+            "label": "types of spring",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "Vector Calculus",
+      "canonical": {
+        "id": "custom:calculus",
+        "label": "calculus",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Vector Calculus: Gradient, Divergence, Curl"
+        }
+      ],
+      "match": {
+        "original_term": "Vector Calculus",
+        "canonical_id": "custom:calculus",
+        "canonical_label": "calculus",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.679,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.23",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.679
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.451
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.192
+          }
+        ]
+      }
+    },
+    {
+      "term": "Vector-Valued Functions",
+      "canonical": {
+        "id": "custom:linear-algebra",
+        "label": "linear algebra",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Vectors and Vector-Valued Functions"
+        }
+      ],
+      "match": {
+        "original_term": "Vector-Valued Functions",
+        "canonical_id": "custom:linear-algebra",
+        "canonical_label": "linear algebra",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Vector-Valued Functions' is a specific topic within linear algebra, which is explicitly covered in the description of the 'linear algebra' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.401
+          },
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.221
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.209
+          }
+        ]
+      }
+    },
+    {
+      "term": "Vectors",
+      "canonical": {
+        "id": "custom:linear-algebra",
+        "label": "linear algebra",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Vectors and Vector-Valued Functions"
+        }
+      ],
+      "match": {
+        "original_term": "Vectors",
+        "canonical_id": "custom:linear-algebra",
+        "canonical_label": "linear algebra",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.63,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.09",
+        "candidates": [
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.63
+          },
+          {
+            "id": "custom:vector-databases",
+            "label": "vector databases",
+            "score": 0.543
+          },
+          {
+            "id": "custom:actuators",
+            "label": "actuators",
+            "score": 0.269
+          }
+        ]
+      }
+    },
+    {
+      "term": "Volume",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Applications of Integration: Area and Volume"
+        }
+      ],
+      "match": {
+        "original_term": "Volume",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.218,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.218
+          },
+          {
+            "id": "esco:61d6ef20-6cc7-40f8-919e-3360db6cf2b3",
+            "label": "hardware materials",
+            "score": 0.206
+          },
+          {
+            "id": "esco:cdd8b6b2-2fd9-453c-8d62-8a1dc6efcd49",
+            "label": "systems theory",
+            "score": 0.204
+          }
+        ]
+      }
+    },
+    {
+      "term": "curve sketching",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "curve sketching"
+        }
+      ],
+      "match": {
+        "original_term": "curve sketching",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.336,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.336
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.202
+          },
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.201
+          }
+        ]
+      }
+    },
+    {
+      "term": "data modeling",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "data modeling"
+        }
+      ],
+      "match": {
+        "original_term": "data modeling",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "derivatives in optimization",
+      "canonical": {
+        "id": "custom:calculus",
+        "label": "calculus",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "derivatives in optimization"
+        }
+      ],
+      "match": {
+        "original_term": "derivatives in optimization",
+        "canonical_id": "custom:calculus",
+        "canonical_label": "calculus",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.64,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.26",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.64
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.379
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.225
+          }
+        ]
+      }
+    },
+    {
+      "term": "derivatives of algebraic",
+      "canonical": {
+        "id": "custom:calculus",
+        "label": "calculus",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "derivatives of algebraic"
+        }
+      ],
+      "match": {
+        "original_term": "derivatives of algebraic",
+        "canonical_id": "custom:calculus",
+        "canonical_label": "calculus",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.639,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.29",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.639
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.345
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.247
+          }
+        ]
+      }
+    },
+    {
+      "term": "information technology",
+      "canonical": {
+        "id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+        "label": "computer technology",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "information technology"
+        }
+      ],
+      "match": {
+        "original_term": "information technology",
+        "canonical_id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+        "canonical_label": "computer technology",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "multivariable calculus",
+      "canonical": {
+        "id": "custom:calculus",
+        "label": "calculus",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "multivariable calculus"
+        }
+      ],
+      "match": {
+        "original_term": "multivariable calculus",
+        "canonical_id": "custom:calculus",
+        "canonical_label": "calculus",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.627,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.41",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.627
+          },
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.213
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "Python",
+      "canonical": {
+        "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "label": "Python",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Python"
+        }
+      ],
+      "match": {
+        "original_term": "Python",
+        "canonical_id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "canonical_label": "Python",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "solving differential equations using MATLAB",
+      "canonical": {
+        "id": "esco:c3a03c5a-c260-4c26-9b9a-873abb396f4d",
+        "label": "MATLAB",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "solving differential equations using MATLAB"
+        }
+      ],
+      "match": {
+        "original_term": "solving differential equations using MATLAB",
+        "canonical_id": "esco:c3a03c5a-c260-4c26-9b9a-873abb396f4d",
+        "canonical_label": "MATLAB",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'solving differential equations using MATLAB' directly references the use of MATLAB for mathematical problem-solving, which aligns with the 'MATLAB' entry in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:c3a03c5a-c260-4c26-9b9a-873abb396f4d",
+            "label": "MATLAB",
+            "score": 0.415
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.374
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.194
+          }
+        ]
+      }
+    },
+    {
+      "term": "Students will also explore numerical methods",
+      "canonical": {
+        "id": "custom:numerical-methods",
+        "label": "numerical methods",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Students will also explore numerical methods"
+        }
+      ],
+      "match": {
+        "original_term": "Students will also explore numerical methods",
+        "canonical_id": "custom:numerical-methods",
+        "canonical_label": "numerical methods",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'Students will also explore numerical methods' directly matches the label 'numerical methods' and aligns with the description of algorithms for approximating solutions to mathematical problems.",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.551
+          },
+          {
+            "id": "esco:5fb469fc-65e4-4bc5-a512-e55281e3500a",
+            "label": "time-display methods",
+            "score": 0.292
+          },
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.206
+          }
+        ]
+      }
+    },
+    {
+      "term": "trigonometric",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "trigonometric"
+        }
+      ],
+      "match": {
+        "original_term": "trigonometric",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.209,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.209
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.166
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.163
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,3111 @@
+{
+  "course_code": "0434404",
+  "course_codes": [
+    "0434404"
+  ],
+  "course_title": "Pattern Recognition",
+  "credit_hours": 3,
+  "plans": [
+    "CS/AI"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "no_match": 32,
+      "accepted": 18,
+      "needs_review": 17
+    },
+    "by_method": {
+      "embedding_reranker": 36,
+      "llm": 26,
+      "exact_alias": 5
+    }
+  },
+  "total_skills": 67,
+  "skills": [
+    {
+      "term": "clustering techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key concepts in pattern recognition, including feature extraction, classification, and clustering techniques."
+        },
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Unsupervised Learning: Clustering Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "clustering techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.25,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+            "label": "computer technology",
+            "score": 0.25
+          },
+          {
+            "id": "esco:5a9a6d45-f4e5-437a-8f2d-2671061917ea",
+            "label": "pattern grading",
+            "score": 0.245
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.239
+          }
+        ]
+      }
+    },
+    {
+      "term": "ensemble methods",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles and applications of various machine learning algorithms, such as SVMs, neural networks, and ensemble methods."
+        },
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Ensemble Methods and Boosting"
+        }
+      ],
+      "match": {
+        "original_term": "ensemble methods",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ensemble methods' is a specific type of machine learning technique, and the 'machine learning' entry in the taxonomy directly encompasses this skill.",
+        "candidates": [
+          {
+            "id": "esco:ff8bd17c-77e9-4d4e-929a-a0cf86f3ed34",
+            "label": "surveillance methods",
+            "score": 0.477
+          },
+          {
+            "id": "esco:47b9bbcf-356c-4782-83a4-7f5a1b2b51a3",
+            "label": "Assembly (computer programming)",
+            "score": 0.264
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.231
+          }
+        ]
+      }
+    },
+    {
+      "term": "feature extraction",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key concepts in pattern recognition, including feature extraction, classification, and clustering techniques."
+        },
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Feature Extraction and Dimensionality Reduction"
+        }
+      ],
+      "match": {
+        "original_term": "feature extraction",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'feature extraction' as described in the syllabus. The closest entries are related but not exact matches.",
+        "candidates": [
+          {
+            "id": "esco:696e3b5b-8b61-45af-ae4c-3ab700f197ec",
+            "label": "information extraction",
+            "score": 0.513
+          },
+          {
+            "id": "esco:5eeac647-dc4b-496d-b109-c90b58006021",
+            "label": "mining engineering",
+            "score": 0.429
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.255
+          }
+        ]
+      }
+    },
+    {
+      "term": "neural networks",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles and applications of various machine learning algorithms, such as SVMs, neural networks, and ensemble methods."
+        },
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Neural Networks and Deep Learning"
+        }
+      ],
+      "match": {
+        "original_term": "neural networks",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "probability theory",
+      "canonical": {
+        "id": "custom:probability-theory",
+        "label": "probability theory",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the mathematical foundations of pattern recognition, including probability theory, statistical models, and optimization algorithms."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Probability Theory and Statistical Models"
+        }
+      ],
+      "match": {
+        "original_term": "probability theory",
+        "canonical_id": "custom:probability-theory",
+        "canonical_label": "probability theory",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "statistical models",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the mathematical foundations of pattern recognition, including probability theory, statistical models, and optimization algorithms."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Probability Theory and Statistical Models"
+        }
+      ],
+      "match": {
+        "original_term": "statistical models",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'statistical models' does not match any of the provided taxonomy entries, which cover topics like descriptive statistics, inferential statistics, machine learning, or data models, but none specifically refer to 'statistical models' as a skill.",
+        "candidates": [
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.597
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.532
+          },
+          {
+            "id": "custom:inferential-statistics",
+            "label": "inferential statistics",
+            "score": 0.525
+          }
+        ]
+      }
+    },
+    {
+      "term": "SVMs",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles and applications of various machine learning algorithms, such as SVMs, neural networks, and ensemble methods."
+        },
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Support Vector Machines (SVMs)"
+        }
+      ],
+      "match": {
+        "original_term": "SVMs",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.265,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:8203b07a-8097-4383-aff6-603b7df7f0f4",
+            "label": "ATM systems",
+            "score": 0.265
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.256
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.254
+          }
+        ]
+      }
+    },
+    {
+      "term": "TensorFlow",
+      "canonical": {
+        "id": "custom:tensorflow",
+        "label": "TensorFlow",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply pattern recognition techniques to real-world problems using Python libraries like scikit-learn and TensorFlow."
+        },
+        {
+          "source": "description",
+          "text": "TensorFlow"
+        }
+      ],
+      "match": {
+        "original_term": "TensorFlow",
+        "canonical_id": "custom:tensorflow",
+        "canonical_label": "TensorFlow",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "classification",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key concepts in pattern recognition, including feature extraction, classification, and clustering techniques."
+        }
+      ],
+      "match": {
+        "original_term": "classification",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.259,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.259
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.255
+          },
+          {
+            "id": "esco:696e3b5b-8b61-45af-ae4c-3ab700f197ec",
+            "label": "information extraction",
+            "score": 0.251
+          }
+        ]
+      }
+    },
+    {
+      "term": "concepts in pattern recognition",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key concepts in pattern recognition, including feature extraction, classification, and clustering techniques."
+        }
+      ],
+      "match": {
+        "original_term": "concepts in pattern recognition",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill described in the extracted phrase 'concepts in pattern recognition'. The closest entries are related to object detection, information extraction, or computer vision, but none specifically refer to pattern recognition concepts as defined ",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.439
+          },
+          {
+            "id": "esco:5a9a6d45-f4e5-437a-8f2d-2671061917ea",
+            "label": "pattern grading",
+            "score": 0.417
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.401
+          }
+        ]
+      }
+    },
+    {
+      "term": "machine learning algorithms",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles and applications of various machine learning algorithms, such as SVMs, neural networks, and ensemble methods."
+        }
+      ],
+      "match": {
+        "original_term": "machine learning algorithms",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.764,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.19",
+        "candidates": [
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.764
+          },
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.574
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.469
+          }
+        ]
+      }
+    },
+    {
+      "term": "mathematical foundations of pattern recognition",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the mathematical foundations of pattern recognition, including probability theory, statistical models, and optimization algorithms."
+        }
+      ],
+      "match": {
+        "original_term": "mathematical foundations of pattern recognition",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.39,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:5a9a6d45-f4e5-437a-8f2d-2671061917ea",
+            "label": "pattern grading",
+            "score": 0.39
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.368
+          },
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.239
+          }
+        ]
+      }
+    },
+    {
+      "term": "optimization algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the mathematical foundations of pattern recognition, including probability theory, statistical models, and optimization algorithms."
+        }
+      ],
+      "match": {
+        "original_term": "optimization algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.649,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.13",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.649
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.516
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.495
+          }
+        ]
+      }
+    },
+    {
+      "term": "pattern recognition systems using standard datasets",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement and evaluate pattern recognition systems using standard datasets and performance metrics."
+        }
+      ],
+      "match": {
+        "original_term": "pattern recognition systems using standard datasets",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.355,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:5a9a6d45-f4e5-437a-8f2d-2671061917ea",
+            "label": "pattern grading",
+            "score": 0.355
+          },
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.352
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.346
+          }
+        ]
+      }
+    },
+    {
+      "term": "performance metrics",
+      "canonical": {
+        "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+        "label": "software metrics",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement and evaluate pattern recognition systems using standard datasets and performance metrics."
+        }
+      ],
+      "match": {
+        "original_term": "performance metrics",
+        "canonical_id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+        "canonical_label": "software metrics",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'performance metrics' directly aligns with the definition of 'software metrics' which involves evaluating software systems using metrics.",
+        "candidates": [
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.524
+          },
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.518
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.487
+          }
+        ]
+      }
+    },
+    {
+      "term": "Autoencoders",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Autoencoders and Representation Learning"
+        },
+        {
+          "source": "description",
+          "text": "Autoencoders"
+        }
+      ],
+      "match": {
+        "original_term": "Autoencoders",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.253,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.253
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.237
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.235
+          }
+        ]
+      }
+    },
+    {
+      "term": "Deep Learning",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Neural Networks and Deep Learning"
+        },
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Deep Learning for Pattern Recognition"
+        }
+      ],
+      "match": {
+        "original_term": "Deep Learning",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "F1-Score",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Precision, Recall, and F1-Score"
+        },
+        {
+          "source": "description",
+          "text": "F1-score"
+        }
+      ],
+      "match": {
+        "original_term": "F1-Score",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.167,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.167
+          },
+          {
+            "id": "esco:f5fa2654-52cc-45d2-ac92-ac979dee5d12",
+            "label": "engine components",
+            "score": 0.164
+          },
+          {
+            "id": "esco:8a5d67b6-4abf-4fae-bedf-78c8882d7d47",
+            "label": "types of vehicle engines",
+            "score": 0.164
+          }
+        ]
+      }
+    },
+    {
+      "term": "Hidden Markov Models",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Hidden Markov Models (HMMs)"
+        },
+        {
+          "source": "description",
+          "text": "Hidden Markov Models"
+        }
+      ],
+      "match": {
+        "original_term": "Hidden Markov Models",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.217,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-dynamics",
+            "label": "robot dynamics",
+            "score": 0.217
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.197
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.193
+          }
+        ]
+      }
+    },
+    {
+      "term": "Linear Discriminant Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Linear Discriminant Analysis"
+        },
+        {
+          "source": "description",
+          "text": "Linear Discriminant Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Linear Discriminant Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match 'Linear Discriminant Analysis'. The closest candidates are 'regression analysis' and 'correlation analysis', but neither captures the specific skill of Linear Discriminant Analysis.",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.423
+          },
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.411
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.409
+          }
+        ]
+      }
+    },
+    {
+      "term": "Pattern Recognition",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Pattern Recognition"
+        },
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Deep Learning for Pattern Recognition"
+        }
+      ],
+      "match": {
+        "original_term": "Pattern Recognition",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Pattern Recognition' is not accurately represented by any of the provided taxonomy entries. None of the entries specifically refer to the concept of pattern recognition as a skill, though 'computer vision' and 'object detection' are related but not equivalent.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.511
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.45
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.276
+          }
+        ]
+      }
+    },
+    {
+      "term": "Recall",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Precision, Recall, and F1-Score"
+        },
+        {
+          "source": "description",
+          "text": "recall"
+        }
+      ],
+      "match": {
+        "original_term": "Recall",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.198,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.198
+          },
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.189
+          },
+          {
+            "id": "custom:forward-kinematics",
+            "label": "forward kinematics",
+            "score": 0.179
+          }
+        ]
+      }
+    },
+    {
+      "term": "Support Vector Machines",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Support Vector Machines (SVMs)"
+        },
+        {
+          "source": "description",
+          "text": "Support Vector Machines"
+        }
+      ],
+      "match": {
+        "original_term": "Support Vector Machines",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Support Vector Machines (SVMs) is a specific type of machine learning algorithm, and the taxonomy entry for machine learning includes all such algorithms.",
+        "candidates": [
+          {
+            "id": "esco:8203b07a-8097-4383-aff6-603b7df7f0f4",
+            "label": "ATM systems",
+            "score": 0.431
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.411
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.404
+          }
+        ]
+      }
+    },
+    {
+      "term": "Advanced Pattern Recognition Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Advanced Pattern Recognition Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Advanced Pattern Recognition Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.376,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:530cb489-d900-46ab-9350-4d50ccd49eea",
+            "label": "welding techniques",
+            "score": 0.376
+          },
+          {
+            "id": "esco:5a9a6d45-f4e5-437a-8f2d-2671061917ea",
+            "label": "pattern grading",
+            "score": 0.361
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.36
+          }
+        ]
+      }
+    },
+    {
+      "term": "Bayesian Decision Theory",
+      "canonical": {
+        "id": "custom:bayes-theorem",
+        "label": "Bayes theorem",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Bayesian Decision Theory"
+        }
+      ],
+      "match": {
+        "original_term": "Bayesian Decision Theory",
+        "canonical_id": "custom:bayes-theorem",
+        "canonical_label": "Bayes theorem",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Bayesian Decision Theory' directly relates to 'Bayes theorem', which is a core component of Bayesian decision theory.",
+        "candidates": [
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.455
+          },
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.392
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "Benchmarking",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Standard Datasets and Benchmarking"
+        }
+      ],
+      "match": {
+        "original_term": "Benchmarking",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.249,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.249
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.242
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.219
+          }
+        ]
+      }
+    },
+    {
+      "term": "Boosting",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Ensemble Methods and Boosting"
+        }
+      ],
+      "match": {
+        "original_term": "Boosting",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.257,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:530cb489-d900-46ab-9350-4d50ccd49eea",
+            "label": "welding techniques",
+            "score": 0.257
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.251
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "term": "CIFAR-10 Datasets",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "MNIST and CIFAR-10 Datasets"
+        }
+      ],
+      "match": {
+        "original_term": "CIFAR-10 Datasets",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.202,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.202
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.199
+          },
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.192
+          }
+        ]
+      }
+    },
+    {
+      "term": "CNNs",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Convolutional Neural Networks (CNNs)"
+        }
+      ],
+      "match": {
+        "original_term": "CNNs",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.281,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.281
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.214
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.201
+          }
+        ]
+      }
+    },
+    {
+      "term": "Convolutional Neural Networks",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Convolutional Neural Networks (CNNs)"
+        }
+      ],
+      "match": {
+        "original_term": "Convolutional Neural Networks",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.746,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.49",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.746
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.256
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cross-Validation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Evaluation Metrics and Cross-Validation"
+        }
+      ],
+      "match": {
+        "original_term": "Cross-Validation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.241,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.241
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.215
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "Decision Surfaces",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Pattern Classification and Decision Surfaces"
+        }
+      ],
+      "match": {
+        "original_term": "Decision Surfaces",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Decision Surfaces' refers to a concept in pattern classification, specifically the decision boundaries between classes, which is not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "esco:3ce1fe19-7f9e-4070-941d-651673a5693b",
+            "label": "decision support systems",
+            "score": 0.44
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.255
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.244
+          }
+        ]
+      }
+    },
+    {
+      "term": "Dimensionality Reduction",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Feature Extraction and Dimensionality Reduction"
+        }
+      ],
+      "match": {
+        "original_term": "Dimensionality Reduction",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.271,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:f12d412a-04e3-49a8-a4f6-2e32a67c12a2",
+            "label": "metal drawing processes",
+            "score": 0.271
+          },
+          {
+            "id": "esco:696e3b5b-8b61-45af-ae4c-3ab700f197ec",
+            "label": "information extraction",
+            "score": 0.269
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.231
+          }
+        ]
+      }
+    },
+    {
+      "term": "Evaluation Metrics",
+      "canonical": {
+        "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+        "label": "software metrics",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Evaluation Metrics and Cross-Validation"
+        }
+      ],
+      "match": {
+        "original_term": "Evaluation Metrics",
+        "canonical_id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+        "canonical_label": "software metrics",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Evaluation Metrics' directly aligns with 'software metrics' as both refer to metrics used to evaluate software systems, which matches the syllabus evidence.",
+        "candidates": [
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.457
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.425
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "term": "Fundamental",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Fundamental Concepts and Applications"
+        }
+      ],
+      "match": {
+        "original_term": "Fundamental",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Fundamental' does not match any of the provided taxonomy entries, as none of the labels or also-called terms specifically refer to 'fundamental' as a skill.",
+        "candidates": [
+          {
+            "id": "esco:c8ac1986-38fa-43b2-89dc-50a4beeb420e",
+            "label": "electricity",
+            "score": 0.616
+          },
+          {
+            "id": "esco:be99117b-49a1-4ec2-a670-e9baac66c1bd",
+            "label": "principles of combustion engines",
+            "score": 0.549
+          },
+          {
+            "id": "esco:54804209-6aac-4ca4-bf3c-aef4fbe18f8c",
+            "label": "principles of mechanical engineering",
+            "score": 0.54
+          }
+        ]
+      }
+    },
+    {
+      "term": "Gradient Boosting",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Random Forests and Gradient Boosting"
+        }
+      ],
+      "match": {
+        "original_term": "Gradient Boosting",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.212,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.212
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.21
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.191
+          }
+        ]
+      }
+    },
+    {
+      "term": "Hierarchical Clustering",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "K-means and Hierarchical Clustering"
+        }
+      ],
+      "match": {
+        "original_term": "Hierarchical Clustering",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.252,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.252
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.225
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "HMMs",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Hidden Markov Models (HMMs)"
+        }
+      ],
+      "match": {
+        "original_term": "HMMs",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.191,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.191
+          },
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.179
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.175
+          }
+        ]
+      }
+    },
+    {
+      "term": "Image Recognition Applications",
+      "canonical": {
+        "id": "custom:computer-vision",
+        "label": "computer vision",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Image Recognition Applications"
+        }
+      ],
+      "match": {
+        "original_term": "Image Recognition Applications",
+        "canonical_id": "custom:computer-vision",
+        "canonical_label": "computer vision",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Image Recognition Applications' aligns closely with 'computer vision' as both involve extracting information from images, which is the core of the description for the computer vision entry.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.456
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.416
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.41
+          }
+        ]
+      }
+    },
+    {
+      "term": "K-means",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "K-means and Hierarchical Clustering"
+        }
+      ],
+      "match": {
+        "original_term": "K-means",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'K-means' refers to a specific clustering algorithm in machine learning, which is not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.594
+          },
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.199
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.193
+          }
+        ]
+      }
+    },
+    {
+      "term": "Kernel Methods",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Kernel Methods"
+        }
+      ],
+      "match": {
+        "original_term": "Kernel Methods",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the extracted phrase 'Kernel Methods'.",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.481
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.419
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.231
+          }
+        ]
+      }
+    },
+    {
+      "term": "MNIST",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "MNIST and CIFAR-10 Datasets"
+        }
+      ],
+      "match": {
+        "original_term": "MNIST",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.186,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:rust",
+            "label": "Rust",
+            "score": 0.186
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.145
+          },
+          {
+            "id": "esco:7b969ac9-f085-4afb-a480-c5210fb4da7d",
+            "label": "milling machines",
+            "score": 0.139
+          }
+        ]
+      }
+    },
+    {
+      "term": "Multi-Layer Perceptrons",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Perceptrons and Multi-Layer Perceptrons"
+        }
+      ],
+      "match": {
+        "original_term": "Multi-Layer Perceptrons",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.362,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.362
+          },
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.273
+          },
+          {
+            "id": "esco:aa9eb826-390c-4923-b379-ba56444e680e",
+            "label": "laser types",
+            "score": 0.201
+          }
+        ]
+      }
+    },
+    {
+      "term": "Pattern Classification",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Pattern Classification and Decision Surfaces"
+        }
+      ],
+      "match": {
+        "original_term": "Pattern Classification",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Pattern Classification' from the syllabus. The closest entries are related to software design patterns, pattern grading, or computer vision, but none directly refer to the concept of pattern classification as taught in the course.",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.461
+          },
+          {
+            "id": "esco:5a9a6d45-f4e5-437a-8f2d-2671061917ea",
+            "label": "pattern grading",
+            "score": 0.46
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.244
+          }
+        ]
+      }
+    },
+    {
+      "term": "Perceptrons",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Perceptrons and Multi-Layer Perceptrons"
+        }
+      ],
+      "match": {
+        "original_term": "Perceptrons",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.317,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.317
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.283
+          },
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.231
+          }
+        ]
+      }
+    },
+    {
+      "term": "Precision",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Precision, Recall, and F1-Score"
+        }
+      ],
+      "match": {
+        "original_term": "Precision",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'Precision' refers to a performance metric in the context of machine learning (e.g., Precision, Recall, F1-Score), but none of the taxonomy entries directly or indirectly refer to this specific skill. The closest match, 'precision mechanics', is unrelated to the statistical conc",
+        "candidates": [
+          {
+            "id": "esco:2fea2558-630e-480d-9e12-47a05bc19b55",
+            "label": "precision mechanics",
+            "score": 0.616
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.239
+          },
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.231
+          }
+        ]
+      }
+    },
+    {
+      "term": "Principal Component Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Principal Component Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Principal Component Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Principal Component Analysis'.",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.426
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.42
+          },
+          {
+            "id": "esco:f5fa2654-52cc-45d2-ac92-ac979dee5d12",
+            "label": "engine components",
+            "score": 0.411
+          }
+        ]
+      }
+    },
+    {
+      "term": "Random Forests",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Random Forests and Gradient Boosting"
+        }
+      ],
+      "match": {
+        "original_term": "Random Forests",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Random Forests' as it is a specific machine learning algorithm, and no entry in the shortlist refers to ensemble learning methods like Random Forests.",
+        "candidates": [
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.446
+          },
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.179
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.177
+          }
+        ]
+      }
+    },
+    {
+      "term": "Representation Learning",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Autoencoders and Representation Learning"
+        }
+      ],
+      "match": {
+        "original_term": "Representation Learning",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match 'Representation Learning'. The closest is 'deep learning', but 'representation learning' is a subfield of deep learning and not explicitly listed as a separate skill in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.566
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.472
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.472
+          }
+        ]
+      }
+    },
+    {
+      "term": "Sequence Recognition",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Speech and Sequence Recognition"
+        }
+      ],
+      "match": {
+        "original_term": "Sequence Recognition",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match 'Sequence Recognition' or its related context 'Speech and Sequence Recognition'. The closest entries are in unrelated domains such as computer vision, natural language processing, and deep learning, but none specifically refer to sequence recognit",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.509
+          },
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.236
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "Speech",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Speech and Sequence Recognition"
+        }
+      ],
+      "match": {
+        "original_term": "Speech",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.227,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.227
+          },
+          {
+            "id": "custom:pytorch",
+            "label": "PyTorch",
+            "score": 0.211
+          },
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.199
+          }
+        ]
+      }
+    },
+    {
+      "term": "Standard Datasets",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Standard Datasets and Benchmarking"
+        }
+      ],
+      "match": {
+        "original_term": "Standard Datasets",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Standard Datasets' does not clearly match any of the provided taxonomy entries, which focus on database design, data structures, data visualization, or data mining, rather than standard datasets themselves.",
+        "candidates": [
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.472
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.234
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.233
+          }
+        ]
+      }
+    },
+    {
+      "term": "Unsupervised Learning",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Unsupervised Learning: Clustering Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Unsupervised Learning",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Unsupervised Learning is a subset of machine learning, and the phrase specifically refers to a type of machine learning technique, making it a direct match.",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.486
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.468
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.262
+          }
+        ]
+      }
+    },
+    {
+      "term": "Variational Autoencoders",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Variational Autoencoders"
+        }
+      ],
+      "match": {
+        "original_term": "Variational Autoencoders",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.208,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.208
+          },
+          {
+            "id": "esco:8a5d67b6-4abf-4fae-bedf-78c8882d7d47",
+            "label": "types of vehicle engines",
+            "score": 0.2
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.185
+          }
+        ]
+      }
+    },
+    {
+      "term": "advanced concepts in Pattern Recognition",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "advanced concepts in Pattern Recognition"
+        }
+      ],
+      "match": {
+        "original_term": "advanced concepts in Pattern Recognition",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.388,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.388
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.365
+          },
+          {
+            "id": "esco:300d432b-f457-4cd3-9cb1-1858c7d14954",
+            "label": "OpenEdge Advanced Business Language",
+            "score": 0.317
+          }
+        ]
+      }
+    },
+    {
+      "term": "Bayes classifier",
+      "canonical": {
+        "id": "custom:bayes-theorem",
+        "label": "Bayes theorem",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Bayes classifier"
+        }
+      ],
+      "match": {
+        "original_term": "Bayes classifier",
+        "canonical_id": "custom:bayes-theorem",
+        "canonical_label": "Bayes theorem",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Bayes classifier' directly relates to the application of Bayes theorem, which is explicitly listed as a synonym for 'Bayes theorem' in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.459
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.189
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.188
+          }
+        ]
+      }
+    },
+    {
+      "term": "CIFAR-10",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "CIFAR-10"
+        }
+      ],
+      "match": {
+        "original_term": "CIFAR-10",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.204,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.204
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.154
+          },
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.147
+          }
+        ]
+      }
+    },
+    {
+      "term": "evaluation metrics like precision",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "evaluation metrics like precision"
+        }
+      ],
+      "match": {
+        "original_term": "evaluation metrics like precision",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.37,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:25c4cb91-d64b-48d1-a350-3527334a360d",
+            "label": "precision engineering",
+            "score": 0.37
+          },
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.366
+          },
+          {
+            "id": "esco:b386e189-12c5-4df6-b1db-059eb3f6dd88",
+            "label": "precision measuring instruments",
+            "score": 0.355
+          }
+        ]
+      }
+    },
+    {
+      "term": "Gaussian Mixture Models",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Gaussian Mixture Models"
+        }
+      ],
+      "match": {
+        "original_term": "Gaussian Mixture Models",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.399,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:normal-distribution",
+            "label": "normal distribution",
+            "score": 0.399
+          },
+          {
+            "id": "custom:robot-dynamics",
+            "label": "robot dynamics",
+            "score": 0.204
+          },
+          {
+            "id": "esco:0be7c835-a562-416f-8c35-67abd0995b4d",
+            "label": "swaging processes",
+            "score": 0.184
+          }
+        ]
+      }
+    },
+    {
+      "term": "implementing pattern recognition systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "implementing pattern recognition systems"
+        }
+      ],
+      "match": {
+        "original_term": "implementing pattern recognition systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.396,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.396
+          },
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.394
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.39
+          }
+        ]
+      }
+    },
+    {
+      "term": "industry tools",
+      "canonical": {
+        "id": "esco:a125a4c2-3b0a-4996-9a63-57043d4d9159",
+        "label": "industrial tools",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "industry tools"
+        }
+      ],
+      "match": {
+        "original_term": "industry tools",
+        "canonical_id": "esco:a125a4c2-3b0a-4996-9a63-57043d4d9159",
+        "canonical_label": "industrial tools",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'industry tools' directly matches the label 'industrial tools' in the taxonomy, which refers to the same concept of tools and equipment used for industrial purposes.",
+        "candidates": [
+          {
+            "id": "esco:a125a4c2-3b0a-4996-9a63-57043d4d9159",
+            "label": "industrial tools",
+            "score": 0.558
+          },
+          {
+            "id": "esco:bac209e9-d337-4312-9041-17c2e75fa4df",
+            "label": "hardware industry",
+            "score": 0.503
+          },
+          {
+            "id": "esco:41ec47dd-08b3-464a-9c45-c706f3e74467",
+            "label": "industrial software",
+            "score": 0.484
+          }
+        ]
+      }
+    },
+    {
+      "term": "K-means clustering",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "K-means clustering"
+        }
+      ],
+      "match": {
+        "original_term": "K-means clustering",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.252,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.252
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.203
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.193
+          }
+        ]
+      }
+    },
+    {
+      "term": "pattern classification frameworks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "pattern classification frameworks"
+        }
+      ],
+      "match": {
+        "original_term": "pattern classification frameworks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'pattern classification frameworks'. The closest entries are related to design patterns, coordinate transformations, or statistical methods, but none specifically refer to pattern classification frameworks.",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.401
+          },
+          {
+            "id": "custom:tf-transforms",
+            "label": "coordinate frame transforms",
+            "score": 0.228
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "PyTorch",
+      "canonical": {
+        "id": "custom:pytorch",
+        "label": "PyTorch",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "PyTorch"
+        }
+      ],
+      "match": {
+        "original_term": "PyTorch",
+        "canonical_id": "custom:pytorch",
+        "canonical_label": "PyTorch",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "supervised",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "supervised"
+        }
+      ],
+      "match": {
+        "original_term": "supervised",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.189,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.189
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.187
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.178
+          }
+        ]
+      }
+    },
+    {
+      "term": "This course covers fundamental",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "This course covers fundamental"
+        }
+      ],
+      "match": {
+        "original_term": "This course covers fundamental",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.396,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:c8ac1986-38fa-43b2-89dc-50a4beeb420e",
+            "label": "electricity",
+            "score": 0.396
+          },
+          {
+            "id": "esco:be99117b-49a1-4ec2-a670-e9baac66c1bd",
+            "label": "principles of combustion engines",
+            "score": 0.372
+          },
+          {
+            "id": "esco:54804209-6aac-4ca4-bf3c-aef4fbe18f8c",
+            "label": "principles of mechanical engineering",
+            "score": 0.356
+          }
+        ]
+      }
+    },
+    {
+      "term": "unsupervised learning algorithms",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "unsupervised learning algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "unsupervised learning algorithms",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.708,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.19",
+        "candidates": [
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.708
+          },
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.521
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.438
+          }
+        ]
+      }
+    }
+  ]
+}

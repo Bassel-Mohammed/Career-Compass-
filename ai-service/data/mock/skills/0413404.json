@@ -1,0 +1,4414 @@
+{
+  "course_code": "0413404",
+  "course_codes": [
+    "0413404"
+  ],
+  "course_title": "Database Systems Lab",
+  "credit_hours": 1,
+  "plans": [
+    "CS",
+    "CS/AI",
+    "SE"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "accepted": 43,
+      "needs_review": 21,
+      "no_match": 30
+    },
+    "by_method": {
+      "exact_alias": 6,
+      "llm": 43,
+      "embedding_reranker": 45
+    }
+  },
+  "total_skills": 94,
+  "skills": [
+    {
+      "term": "PostgreSQL",
+      "canonical": {
+        "id": "esco:a8d07b5a-c1a1-42c6-9d53-db9c7a2ca996",
+        "label": "PostgreSQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 4,
+      "sources": [
+        "clo",
+        "topic",
+        "lab",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define relational database concepts and SQL syntax for MySQL and PostgreSQL"
+        },
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "SQL syntax for PostgreSQL"
+        },
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Write portable SQL code across MySQL and PostgreSQL"
+        },
+        {
+          "source": "description",
+          "text": "PostgreSQL"
+        }
+      ],
+      "match": {
+        "original_term": "PostgreSQL",
+        "canonical_id": "esco:a8d07b5a-c1a1-42c6-9d53-db9c7a2ca996",
+        "canonical_label": "PostgreSQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "MySQL",
+      "canonical": {
+        "id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+        "label": "MySQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define relational database concepts and SQL syntax for MySQL and PostgreSQL"
+        },
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "SQL syntax for MySQL"
+        },
+        {
+          "source": "description",
+          "text": "MySQL"
+        }
+      ],
+      "match": {
+        "original_term": "MySQL",
+        "canonical_id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+        "canonical_label": "MySQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "SQL syntax",
+      "canonical": {
+        "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "label": "SQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define relational database concepts and SQL syntax for MySQL and PostgreSQL"
+        },
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "SQL syntax for MySQL"
+        },
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "SQL syntax for PostgreSQL"
+        }
+      ],
+      "match": {
+        "original_term": "SQL syntax",
+        "canonical_id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "canonical_label": "SQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'SQL syntax' directly matches the label 'SQL' in the taxonomy, as both refer specifically to the syntax of the SQL language.",
+        "candidates": [
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.651
+          },
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.63
+          },
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.488
+          }
+        ]
+      }
+    },
+    {
+      "term": "ACID properties",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain ACID properties and implement transaction management in SQL"
+        },
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Transactions and ACID properties"
+        }
+      ],
+      "match": {
+        "original_term": "ACID properties",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill described by 'ACID properties' from the syllabus.",
+        "candidates": [
+          {
+            "id": "esco:d11fd23b-ad01-4f12-85f4-e0d2ed16d5af",
+            "label": "functional properties of foods",
+            "score": 0.438
+          },
+          {
+            "id": "esco:142f7164-fe09-49ec-af18-7c9e86269d9e",
+            "label": "battery fluids",
+            "score": 0.425
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.204
+          }
+        ]
+      }
+    },
+    {
+      "term": "distributed database system using MongoDB",
+      "canonical": {
+        "id": "custom:mongodb",
+        "label": "MongoDB",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design and implement a distributed database system using MongoDB"
+        }
+      ],
+      "match": {
+        "original_term": "distributed database system using MongoDB",
+        "canonical_id": "custom:mongodb",
+        "canonical_label": "MongoDB",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'distributed database system using MongoDB' specifically refers to MongoDB as the database system, which matches the 'MongoDB' entry in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.579
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.508
+          },
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.469
+          }
+        ]
+      }
+    },
+    {
+      "term": "ER modeling techniques",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe ER modeling techniques and normalization forms up to BCNF"
+        }
+      ],
+      "match": {
+        "original_term": "ER modeling techniques",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ER modeling techniques' directly aligns with the 'database design' entry, which includes ER diagrams and normalization as part of its description.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.455
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.454
+          },
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.414
+          }
+        ]
+      }
+    },
+    {
+      "term": "indexing strategies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply indexing strategies and query optimization techniques in MySQL"
+        }
+      ],
+      "match": {
+        "original_term": "indexing strategies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.24,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.24
+          },
+          {
+            "id": "esco:11eebd42-44ab-401d-8a2c-bdb9fc9beb50",
+            "label": "information security strategy",
+            "score": 0.236
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.233
+          }
+        ]
+      }
+    },
+    {
+      "term": "normalization forms up to BCNF",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe ER modeling techniques and normalization forms up to BCNF"
+        }
+      ],
+      "match": {
+        "original_term": "normalization forms up to BCNF",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'normalization forms up to BCNF' is a specific aspect of database design, which is explicitly listed in the also called section of the 'database design' entry.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.563
+          },
+          {
+            "id": "esco:6055f185-3214-491e-975a-cfcc1756fe1d",
+            "label": "metal forming technologies",
+            "score": 0.238
+          },
+          {
+            "id": "esco:aa9eb826-390c-4923-b379-ba56444e680e",
+            "label": "laser types",
+            "score": 0.228
+          }
+        ]
+      }
+    },
+    {
+      "term": "query optimization techniques in MySQL",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply indexing strategies and query optimization techniques in MySQL"
+        }
+      ],
+      "match": {
+        "original_term": "query optimization techniques in MySQL",
+        "canonical_id": "esco:5eeac647-dc4b-496d-b109-c90b58006021",
+        "canonical_label": "mining engineering",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "The phrase 'query optimization techniques in MySQL' is about database query optimization, which is not covered by the label 'mining engineering' or any of the other candidates.",
+        "candidates": [
+          {
+            "id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+            "label": "MySQL",
+            "score": 0.461
+          },
+          {
+            "id": "esco:5eeac647-dc4b-496d-b109-c90b58006021",
+            "label": "mining engineering",
+            "score": 0.384
+          },
+          {
+            "id": "esco:365c74da-c38d-42d7-ac9c-747e2e401dca",
+            "label": "fuel inventory methods",
+            "score": 0.361
+          }
+        ]
+      }
+    },
+    {
+      "term": "relational database",
+      "canonical": {
+        "id": "esco:de9f85ba-e77f-48fd-8c66-f5ebaf32d655",
+        "label": "Oracle Relational Database",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define relational database concepts and SQL syntax for MySQL and PostgreSQL"
+        }
+      ],
+      "match": {
+        "original_term": "relational database",
+        "canonical_id": "esco:de9f85ba-e77f-48fd-8c66-f5ebaf32d655",
+        "canonical_label": "Oracle Relational Database",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.738,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.10",
+        "candidates": [
+          {
+            "id": "esco:de9f85ba-e77f-48fd-8c66-f5ebaf32d655",
+            "label": "Oracle Relational Database",
+            "score": 0.738
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.634
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.542
+          }
+        ]
+      }
+    },
+    {
+      "term": "transaction management in SQL",
+      "canonical": {
+        "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+        "label": "database management systems",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain ACID properties and implement transaction management in SQL"
+        }
+      ],
+      "match": {
+        "original_term": "transaction management in SQL",
+        "canonical_id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+        "canonical_label": "database management systems",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'transaction management in SQL' directly relates to database management systems, as it involves implementing transaction management using SQL, which is a core component of DBMS.",
+        "candidates": [
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.507
+          },
+          {
+            "id": "esco:e5a6e1e0-1b07-4432-83ba-77d593b2cb47",
+            "label": "SAS Data Management",
+            "score": 0.391
+          },
+          {
+            "id": "esco:6f7512ab-d46d-402a-8c30-a8878d7c1f88",
+            "label": "SQL Server Integration Services",
+            "score": 0.342
+          }
+        ]
+      }
+    },
+    {
+      "term": "Install",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Install and configure MySQL server"
+        },
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Install and configure PostgreSQL server"
+        }
+      ],
+      "match": {
+        "original_term": "Install",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.243,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+            "label": "MySQL",
+            "score": 0.243
+          },
+          {
+            "id": "esco:a8d07b5a-c1a1-42c6-9d53-db9c7a2ca996",
+            "label": "PostgreSQL",
+            "score": 0.218
+          },
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "performance",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Indexing techniques for performance"
+        },
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Optimize complex SQL queries for performance"
+        }
+      ],
+      "match": {
+        "original_term": "performance",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'performance' in the context of optimizing SQL queries and indexing techniques does not match any of the provided taxonomy entries, which focus on specific areas like energy performance, ICT analysis, or data mining.",
+        "candidates": [
+          {
+            "id": "esco:4e09e2d2-e317-47d2-bf5e-1d6c66be3efc",
+            "label": "energy performance of buildings",
+            "score": 0.576
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.562
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.221
+          }
+        ]
+      }
+    },
+    {
+      "term": "configuration",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "MySQL installation and configuration"
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "PostgreSQL installation and configuration"
+        }
+      ],
+      "match": {
+        "original_term": "configuration",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.278,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.278
+          },
+          {
+            "id": "esco:1d86f05e-e9cc-40ce-99d8-2b21cc71b16b",
+            "label": "solution deployment",
+            "score": 0.261
+          },
+          {
+            "id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+            "label": "MySQL",
+            "score": 0.26
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cost-based optimization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Cost-based optimization"
+        },
+        {
+          "source": "description",
+          "text": "cost-based optimization"
+        }
+      ],
+      "match": {
+        "original_term": "Cost-based optimization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.262,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.262
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.239
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.232
+          }
+        ]
+      }
+    },
+    {
+      "term": "Distributed database systems",
+      "canonical": {
+        "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+        "label": "database management systems",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Distributed database systems"
+        },
+        {
+          "source": "description",
+          "text": "distributed database systems"
+        }
+      ],
+      "match": {
+        "original_term": "Distributed database systems",
+        "canonical_id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+        "canonical_label": "database management systems",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.738,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.738
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.556
+          },
+          {
+            "id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+            "label": "distributed computing",
+            "score": 0.464
+          }
+        ]
+      }
+    },
+    {
+      "term": "Indexing techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Indexing techniques for performance"
+        },
+        {
+          "source": "description",
+          "text": "indexing techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Indexing techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Indexing techniques' does not match any of the provided taxonomy entries, as none of the labels or descriptions specifically refer to indexing techniques in the context of data retrieval or database management.",
+        "candidates": [
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.538
+          },
+          {
+            "id": "esco:a3ce2bf7-5562-4639-9b52-fdb4850a3904",
+            "label": "ICT problem management techniques",
+            "score": 0.4
+          },
+          {
+            "id": "esco:1605025e-a179-421f-8f35-5b07d182a6b2",
+            "label": "web analytics",
+            "score": 0.298
+          }
+        ]
+      }
+    },
+    {
+      "term": "Query optimization techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Query optimization techniques"
+        },
+        {
+          "source": "description",
+          "text": "query optimization techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Query optimization techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Query optimization techniques'. The closest related entries are 'data mining methods' and 'machine learning', but they are not exact matches.",
+        "candidates": [
+          {
+            "id": "esco:5eeac647-dc4b-496d-b109-c90b58006021",
+            "label": "mining engineering",
+            "score": 0.433
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.228
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "Query rewriting",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Query rewriting"
+        },
+        {
+          "source": "description",
+          "text": "query rewriting"
+        }
+      ],
+      "match": {
+        "original_term": "Query rewriting",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.249,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.249
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.222
+          },
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "term": "SQL standard compliance",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "SQL standard compliance"
+        },
+        {
+          "source": "description",
+          "text": "SQL standard compliance"
+        }
+      ],
+      "match": {
+        "original_term": "SQL standard compliance",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'SQL standard compliance' as a skill. The closest entries relate to SQL or database management systems, but none explicitly address compliance with SQL standards.",
+        "candidates": [
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.501
+          },
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.488
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.469
+          }
+        ]
+      }
+    },
+    {
+      "term": "complex SQL queries",
+      "canonical": {
+        "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "label": "SQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Optimize complex SQL queries for performance"
+        }
+      ],
+      "match": {
+        "original_term": "complex SQL queries",
+        "canonical_id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "canonical_label": "SQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.71,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.21",
+        "candidates": [
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.71
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.495
+          },
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.392
+          }
+        ]
+      }
+    },
+    {
+      "term": "concurrency control in MySQL",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Implement concurrency control in MySQL"
+        }
+      ],
+      "match": {
+        "original_term": "concurrency control in MySQL",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'concurrency control in MySQL' refers to a specific skill within database management systems, specifically related to managing concurrent access in MySQL. None of the provided taxonomy entries precisely capture this skill.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.553
+          },
+          {
+            "id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+            "label": "MySQL",
+            "score": 0.501
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.395
+          }
+        ]
+      }
+    },
+    {
+      "term": "configure MySQL server",
+      "canonical": {
+        "id": "esco:6f7512ab-d46d-402a-8c30-a8878d7c1f88",
+        "label": "SQL Server Integration Services",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Install and configure MySQL server"
+        }
+      ],
+      "match": {
+        "original_term": "configure MySQL server",
+        "canonical_id": "esco:6f7512ab-d46d-402a-8c30-a8878d7c1f88",
+        "canonical_label": "SQL Server Integration Services",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'configure MySQL server' specifically refers to configuring a MySQL server, which is a task related to SQL Server Integration Services, which involves integration and management of databases.",
+        "candidates": [
+          {
+            "id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+            "label": "MySQL",
+            "score": 0.536
+          },
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.509
+          },
+          {
+            "id": "esco:6f7512ab-d46d-402a-8c30-a8878d7c1f88",
+            "label": "SQL Server Integration Services",
+            "score": 0.353
+          }
+        ]
+      }
+    },
+    {
+      "term": "configure PostgreSQL server",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Install and configure PostgreSQL server"
+        }
+      ],
+      "match": {
+        "original_term": "configure PostgreSQL server",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'configure PostgreSQL server' refers to the specific task of configuring a PostgreSQL server, which is not captured by any of the provided taxonomy entries. The closest entry is 'PostgreSQL', but it refers to the software itself, not the act of configuring it.",
+        "candidates": [
+          {
+            "id": "esco:a8d07b5a-c1a1-42c6-9d53-db9c7a2ca996",
+            "label": "PostgreSQL",
+            "score": 0.574
+          },
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.489
+          },
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.394
+          }
+        ]
+      }
+    },
+    {
+      "term": "data analysis",
+      "canonical": {
+        "id": "custom:data-analysis",
+        "label": "data analysis",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Write complex SQL queries for data analysis"
+        }
+      ],
+      "match": {
+        "original_term": "data analysis",
+        "canonical_id": "custom:data-analysis",
+        "canonical_label": "data analysis",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "distributed database architecture",
+      "canonical": {
+        "id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+        "label": "distributed computing",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Implement a distributed database architecture"
+        }
+      ],
+      "match": {
+        "original_term": "distributed database architecture",
+        "canonical_id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+        "canonical_label": "distributed computing",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'distributed database architecture' directly relates to the concept of distributed computing, which involves components interacting over a network, matching the description of the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.542
+          },
+          {
+            "id": "esco:1bba98a7-92b9-450b-9235-e0c905f8f3c4",
+            "label": "information architecture",
+            "score": 0.455
+          },
+          {
+            "id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+            "label": "distributed computing",
+            "score": 0.449
+          }
+        ]
+      }
+    },
+    {
+      "term": "evaluation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 15,
+          "text": "Final project presentation and evaluation"
+        }
+      ],
+      "match": {
+        "original_term": "evaluation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.28,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.28
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.245
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.226
+          }
+        ]
+      }
+    },
+    {
+      "term": "Manipulate JSON/XML data in SQL databases",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Manipulate JSON/XML data in SQL databases"
+        }
+      ],
+      "match": {
+        "original_term": "Manipulate JSON/XML data in SQL databases",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.15,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to the skill of manipulating JSON/XML data in SQL databases. The closest entries are related to SQL, databases, or database management systems, but none capture the exact skill described.",
+        "candidates": [
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.436
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.418
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.414
+          }
+        ]
+      }
+    },
+    {
+      "term": "master-slave replication in MySQL",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Implement master-slave replication in MySQL"
+        }
+      ],
+      "match": {
+        "original_term": "master-slave replication in MySQL",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'master-slave replication in MySQL' as a skill. The closest entry is 'MySQL', but it is too broad and does not capture the specific skill of replication.",
+        "candidates": [
+          {
+            "id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+            "label": "MySQL",
+            "score": 0.45
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.232
+          },
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.186
+          }
+        ]
+      }
+    },
+    {
+      "term": "MongoDB schema",
+      "canonical": {
+        "id": "custom:mongodb",
+        "label": "MongoDB",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Design a MongoDB schema for a sample application"
+        }
+      ],
+      "match": {
+        "original_term": "MongoDB schema",
+        "canonical_id": "custom:mongodb",
+        "canonical_label": "MongoDB",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.66,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.17",
+        "candidates": [
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.66
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.494
+          },
+          {
+            "id": "esco:ed1d8bd4-cd2a-4c64-b665-56d70651026c",
+            "label": "Prototyping development",
+            "score": 0.243
+          }
+        ]
+      }
+    },
+    {
+      "term": "queries using indexing strategies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Optimize queries using indexing strategies"
+        }
+      ],
+      "match": {
+        "original_term": "queries using indexing strategies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.208,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.208
+          },
+          {
+            "id": "esco:365c74da-c38d-42d7-ac9c-747e2e401dca",
+            "label": "fuel inventory methods",
+            "score": 0.201
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.198
+          }
+        ]
+      }
+    },
+    {
+      "term": "sample application",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Design a MongoDB schema for a sample application"
+        }
+      ],
+      "match": {
+        "original_term": "sample application",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'sample application' refers to a specific example or test case used in application development, which is not directly captured by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "esco:96eb286a-58b7-45ff-a916-5578d0b79b8c",
+            "label": "Rapid application development",
+            "score": 0.467
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.444
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.296
+          }
+        ]
+      }
+    },
+    {
+      "term": "Secure SQL applications against injection attacks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Secure SQL applications against injection attacks"
+        }
+      ],
+      "match": {
+        "original_term": "Secure SQL applications against injection attacks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.39,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.39
+          },
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.379
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.375
+          }
+        ]
+      }
+    },
+    {
+      "term": "transaction management in MySQL",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Implement transaction management in MySQL"
+        }
+      ],
+      "match": {
+        "original_term": "transaction management in MySQL",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'transaction management in MySQL' as a skill. The closest entries are general database-related terms, but they do not capture the specific skill of transaction management within MySQL.",
+        "candidates": [
+          {
+            "id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+            "label": "MySQL",
+            "score": 0.514
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.438
+          },
+          {
+            "id": "esco:e5a6e1e0-1b07-4432-83ba-77d593b2cb47",
+            "label": "SAS Data Management",
+            "score": 0.372
+          }
+        ]
+      }
+    },
+    {
+      "term": "Write complex SQL queries",
+      "canonical": {
+        "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "label": "SQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Write complex SQL queries for data analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Write complex SQL queries",
+        "canonical_id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "canonical_label": "SQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.688,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.24",
+        "candidates": [
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.688
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.444
+          },
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.364
+          }
+        ]
+      }
+    },
+    {
+      "term": "Write portable SQL code across MySQL",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Write portable SQL code across MySQL and PostgreSQL"
+        }
+      ],
+      "match": {
+        "original_term": "Write portable SQL code across MySQL",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.396,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+            "label": "MySQL",
+            "score": 0.396
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.367
+          },
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.363
+          }
+        ]
+      }
+    },
+    {
+      "term": "Aggregation functions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Aggregation functions"
+        }
+      ],
+      "match": {
+        "original_term": "Aggregation functions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.251,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:teamwork",
+            "label": "teamwork",
+            "score": 0.251
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.244
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.239
+          }
+        ]
+      }
+    },
+    {
+      "term": "Backup",
+      "canonical": {
+        "id": "esco:47ca0da1-cae5-4395-ae6b-fd97b9ff48d3",
+        "label": "system backup best practice",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Backup and recovery techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Backup",
+        "canonical_id": "esco:47ca0da1-cae5-4395-ae6b-fd97b9ff48d3",
+        "canonical_label": "system backup best practice",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Backup and recovery techniques' directly aligns with 'system backup best practice' as both refer to procedures for recovering technology infrastructure after failure or damage.",
+        "candidates": [
+          {
+            "id": "esco:47ca0da1-cae5-4395-ae6b-fd97b9ff48d3",
+            "label": "system backup best practice",
+            "score": 0.554
+          },
+          {
+            "id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+            "label": "ICT recovery techniques",
+            "score": 0.311
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "term": "CAP theorem",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "CAP theorem"
+        }
+      ],
+      "match": {
+        "original_term": "CAP theorem",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the extracted phrase 'CAP theorem'. The closest entry is 'custom:bayes-theorem', which refers to Bayes theorem, not the CAP theorem.",
+        "candidates": [
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.502
+          },
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.219
+          },
+          {
+            "id": "esco:ee1417ac-4e9a-4102-b89a-528ab4ffba13",
+            "label": "analog electronics theory",
+            "score": 0.205
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cassandra data modeling",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Cassandra data modeling"
+        }
+      ],
+      "match": {
+        "original_term": "Cassandra data modeling",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.698,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.25",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.698
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.449
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.407
+          }
+        ]
+      }
+    },
+    {
+      "term": "Concurrency control",
+      "canonical": {
+        "id": "custom:operating-systems",
+        "label": "operating systems",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Concurrency control"
+        }
+      ],
+      "match": {
+        "original_term": "Concurrency control",
+        "canonical_id": "custom:operating-systems",
+        "canonical_label": "operating systems",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.687,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.20",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.687
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.488
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.475
+          }
+        ]
+      }
+    },
+    {
+      "term": "Consistency models",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Consistency models"
+        }
+      ],
+      "match": {
+        "original_term": "Consistency models",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.212,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.212
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.21
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "data retrieval",
+      "canonical": {
+        "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "label": "SQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "SQL queries for data retrieval"
+        }
+      ],
+      "match": {
+        "original_term": "data retrieval",
+        "canonical_id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "canonical_label": "SQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'data retrieval' is directly supported by the entry for 'SQL' which explicitly mentions 'SQL queries for retrieval of information from a database'.",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.441
+          },
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.44
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.436
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data type conversion",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Data type conversion"
+        }
+      ],
+      "match": {
+        "original_term": "Data type conversion",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries directly refer to 'data type conversion' as a specific skill. The closest entries are related to data structures, data visualization, or data analysis, but none match the exact skill described.",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.562
+          },
+          {
+            "id": "esco:106b9659-4b9a-4ce2-8d16-80add5bf81b0",
+            "label": "energy transformation",
+            "score": 0.451
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.409
+          }
+        ]
+      }
+    },
+    {
+      "term": "Database design review",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Database design review"
+        }
+      ],
+      "match": {
+        "original_term": "Database design review",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.738,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.738
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.558
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.436
+          }
+        ]
+      }
+    },
+    {
+      "term": "Database replication strategies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Database replication strategies"
+        }
+      ],
+      "match": {
+        "original_term": "Database replication strategies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'database replication strategies'. The closest entries are related to databases in general, but none address replication strategies directly.",
+        "candidates": [
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.533
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.463
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.418
+          }
+        ]
+      }
+    },
+    {
+      "term": "deadlocks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Locking mechanisms and deadlocks"
+        }
+      ],
+      "match": {
+        "original_term": "deadlocks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'deadlocks' refers to a concept in computer science related to concurrency and resource allocation, which is not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.547
+          },
+          {
+            "id": "esco:2b544b2c-f22d-40e6-8578-3cb65554643a",
+            "label": "electronic locks",
+            "score": 0.325
+          },
+          {
+            "id": "esco:3f391588-3ba2-4b9f-bcb4-91ff6bc4860b",
+            "label": "mechanical clocks",
+            "score": 0.309
+          }
+        ]
+      }
+    },
+    {
+      "term": "Disaster recovery",
+      "canonical": {
+        "id": "esco:47ca0da1-cae5-4395-ae6b-fd97b9ff48d3",
+        "label": "system backup best practice",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Disaster recovery"
+        }
+      ],
+      "match": {
+        "original_term": "Disaster recovery",
+        "canonical_id": "esco:47ca0da1-cae5-4395-ae6b-fd97b9ff48d3",
+        "canonical_label": "system backup best practice",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.657,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.23",
+        "candidates": [
+          {
+            "id": "esco:47ca0da1-cae5-4395-ae6b-fd97b9ff48d3",
+            "label": "system backup best practice",
+            "score": 0.657
+          },
+          {
+            "id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+            "label": "ICT recovery techniques",
+            "score": 0.423
+          },
+          {
+            "id": "esco:44832432-3bcc-4e62-8696-0411dd28e4b7",
+            "label": "natural gas liquids recovery processes",
+            "score": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "term": "ER modeling",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "ER modeling and schema design"
+        }
+      ],
+      "match": {
+        "original_term": "ER modeling",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.662,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.34",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.662
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.325
+          },
+          {
+            "id": "esco:63d91373-3140-4e63-a2fa-f0a2937eef57",
+            "label": "orthotics",
+            "score": 0.267
+          }
+        ]
+      }
+    },
+    {
+      "term": "Functional dependencies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Functional dependencies"
+        }
+      ],
+      "match": {
+        "original_term": "Functional dependencies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.236,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.236
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.212
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.211
+          }
+        ]
+      }
+    },
+    {
+      "term": "Index types",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Index types and usage"
+        }
+      ],
+      "match": {
+        "original_term": "Index types",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Index types' refers to types of database indexes, which is not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "esco:61c81161-b732-4c47-aba5-9e554d9a853f",
+            "label": "integrated circuit types",
+            "score": 0.496
+          },
+          {
+            "id": "esco:e6c993f2-89b9-4da7-8c5c-5a165f654bff",
+            "label": "types of watches",
+            "score": 0.473
+          },
+          {
+            "id": "esco:0132ac4f-ffac-4396-8b56-052fde0c9d73",
+            "label": "types of barley",
+            "score": 0.473
+          }
+        ]
+      }
+    },
+    {
+      "term": "Input validation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Input validation"
+        }
+      ],
+      "match": {
+        "original_term": "Input validation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.263,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.263
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.256
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "term": "Isolation levels",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Isolation levels"
+        }
+      ],
+      "match": {
+        "original_term": "Isolation levels",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.252,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.252
+          },
+          {
+            "id": "esco:2bdc2f65-b42f-4963-abff-d7214ca4caae",
+            "label": "emission standards",
+            "score": 0.232
+          },
+          {
+            "id": "custom:confidence-intervals",
+            "label": "confidence intervals",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "joins",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Subqueries and joins"
+        }
+      ],
+      "match": {
+        "original_term": "joins",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.166,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:graphql",
+            "label": "GraphQL",
+            "score": 0.166
+          },
+          {
+            "id": "custom:message-queues",
+            "label": "message queues",
+            "score": 0.166
+          },
+          {
+            "id": "custom:tableau",
+            "label": "Tableau",
+            "score": 0.158
+          }
+        ]
+      }
+    },
+    {
+      "term": "JSON data handling in MySQL",
+      "canonical": {
+        "id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+        "label": "MySQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "JSON data handling in MySQL"
+        }
+      ],
+      "match": {
+        "original_term": "JSON data handling in MySQL",
+        "canonical_id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+        "canonical_label": "MySQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'JSON data handling in MySQL' specifically refers to working with MySQL, which is directly matched by the 'MySQL' entry in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+            "label": "MySQL",
+            "score": 0.464
+          },
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.36
+          },
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.338
+          }
+        ]
+      }
+    },
+    {
+      "term": "Locking mechanisms",
+      "canonical": {
+        "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+        "label": "locking mechanisms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Locking mechanisms and deadlocks"
+        }
+      ],
+      "match": {
+        "original_term": "Locking mechanisms",
+        "canonical_id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+        "canonical_label": "locking mechanisms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "MongoDB document modeling",
+      "canonical": {
+        "id": "custom:mongodb",
+        "label": "MongoDB",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "MongoDB document modeling"
+        }
+      ],
+      "match": {
+        "original_term": "MongoDB document modeling",
+        "canonical_id": "custom:mongodb",
+        "canonical_label": "MongoDB",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'MongoDB document modeling' directly refers to the skill of working with MongoDB, a document-oriented NoSQL database, which matches the 'MongoDB' entry in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.574
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.415
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.194
+          }
+        ]
+      }
+    },
+    {
+      "term": "MVCC in PostgreSQL",
+      "canonical": {
+        "id": "esco:a8d07b5a-c1a1-42c6-9d53-db9c7a2ca996",
+        "label": "PostgreSQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "MVCC in PostgreSQL"
+        }
+      ],
+      "match": {
+        "original_term": "MVCC in PostgreSQL",
+        "canonical_id": "esco:a8d07b5a-c1a1-42c6-9d53-db9c7a2ca996",
+        "canonical_label": "PostgreSQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.63,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.39",
+        "candidates": [
+          {
+            "id": "esco:a8d07b5a-c1a1-42c6-9d53-db9c7a2ca996",
+            "label": "PostgreSQL",
+            "score": 0.63
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.24
+          },
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "MySQL installation",
+      "canonical": {
+        "id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+        "label": "MySQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "MySQL installation and configuration"
+        }
+      ],
+      "match": {
+        "original_term": "MySQL installation",
+        "canonical_id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+        "canonical_label": "MySQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'MySQL installation' directly relates to the skill 'MySQL', which is specifically about the MySQL database tool, matching the exact skill.",
+        "candidates": [
+          {
+            "id": "esco:4da171e5-779c-4983-a76f-91c16751e99f",
+            "label": "MySQL",
+            "score": 0.61
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.282
+          },
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.232
+          }
+        ]
+      }
+    },
+    {
+      "term": "Normalization techniques",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Normalization techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Normalization techniques",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.65,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.65
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.474
+          },
+          {
+            "id": "esco:ebd90bfe-ab0f-4155-a77c-3de9267b27a1",
+            "label": "metal smoothing technologies",
+            "score": 0.429
+          }
+        ]
+      }
+    },
+    {
+      "term": "NoSQL databases",
+      "canonical": {
+        "id": "custom:mongodb",
+        "label": "MongoDB",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Introduction to NoSQL databases"
+        }
+      ],
+      "match": {
+        "original_term": "NoSQL databases",
+        "canonical_id": "custom:mongodb",
+        "canonical_label": "MongoDB",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'NoSQL databases' is specifically referring to a type of NoSQL database, and 'MongoDB' is a well-known example of a NoSQL database, making it a direct match.",
+        "candidates": [
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.645
+          },
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.64
+          },
+          {
+            "id": "esco:76ef6ed3-1658-4a1a-9593-204d799c6d0c",
+            "label": "NoSQL",
+            "score": 0.631
+          }
+        ]
+      }
+    },
+    {
+      "term": "Parameterized queries",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Parameterized queries"
+        }
+      ],
+      "match": {
+        "original_term": "Parameterized queries",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.226,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:9cf681c7-89ec-470c-b651-7fe03786f586",
+            "label": "query languages",
+            "score": 0.226
+          },
+          {
+            "id": "custom:message-queues",
+            "label": "message queues",
+            "score": 0.21
+          },
+          {
+            "id": "esco:99207709-d076-4cce-ba38-e90d3bb28806",
+            "label": "resource description framework query language",
+            "score": 0.206
+          }
+        ]
+      }
+    },
+    {
+      "term": "Portability considerations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Portability considerations"
+        }
+      ],
+      "match": {
+        "original_term": "Portability considerations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.255,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.255
+          },
+          {
+            "id": "esco:b3a186be-5f1b-45d3-a468-41183e9780f3",
+            "label": "configuration of the tote room hardware",
+            "score": 0.248
+          },
+          {
+            "id": "esco:5088c536-13fb-4b6b-85e7-4053578e1451",
+            "label": "electrical systems used in transportation",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "PostgreSQL installation",
+      "canonical": {
+        "id": "esco:a8d07b5a-c1a1-42c6-9d53-db9c7a2ca996",
+        "label": "PostgreSQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "PostgreSQL installation and configuration"
+        }
+      ],
+      "match": {
+        "original_term": "PostgreSQL installation",
+        "canonical_id": "esco:a8d07b5a-c1a1-42c6-9d53-db9c7a2ca996",
+        "canonical_label": "PostgreSQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.648,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.37",
+        "candidates": [
+          {
+            "id": "esco:a8d07b5a-c1a1-42c6-9d53-db9c7a2ca996",
+            "label": "PostgreSQL",
+            "score": 0.648
+          },
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.276
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.267
+          }
+        ]
+      }
+    },
+    {
+      "term": "Presentation preparation",
+      "canonical": {
+        "id": "custom:communication-skills",
+        "label": "communication skills",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Presentation preparation"
+        }
+      ],
+      "match": {
+        "original_term": "Presentation preparation",
+        "canonical_id": "custom:communication-skills",
+        "canonical_label": "communication skills",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Presentation preparation' is explicitly listed as an alias for 'communication skills' in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.541
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.279
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.27
+          }
+        ]
+      }
+    },
+    {
+      "term": "Query execution plans",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Query execution plans"
+        }
+      ],
+      "match": {
+        "original_term": "Query execution plans",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.24,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.24
+          },
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.208
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.188
+          }
+        ]
+      }
+    },
+    {
+      "term": "recovery techniques",
+      "canonical": {
+        "id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+        "label": "ICT recovery techniques",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Backup and recovery techniques"
+        }
+      ],
+      "match": {
+        "original_term": "recovery techniques",
+        "canonical_id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+        "canonical_label": "ICT recovery techniques",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.775,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.26",
+        "candidates": [
+          {
+            "id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+            "label": "ICT recovery techniques",
+            "score": 0.775
+          },
+          {
+            "id": "esco:47ca0da1-cae5-4395-ae6b-fd97b9ff48d3",
+            "label": "system backup best practice",
+            "score": 0.517
+          },
+          {
+            "id": "esco:5eeac647-dc4b-496d-b109-c90b58006021",
+            "label": "mining engineering",
+            "score": 0.498
+          }
+        ]
+      }
+    },
+    {
+      "term": "Relational database fundamentals",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Relational database fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "Relational database fundamentals",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries specifically refer to 'Relational database fundamentals' as a skill. The closest entries are broader or more specific, but none match the exact skill.",
+        "candidates": [
+          {
+            "id": "esco:de9f85ba-e77f-48fd-8c66-f5ebaf32d655",
+            "label": "Oracle Relational Database",
+            "score": 0.581
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.529
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.425
+          }
+        ]
+      }
+    },
+    {
+      "term": "rollbacks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Savepoints and rollbacks"
+        }
+      ],
+      "match": {
+        "original_term": "rollbacks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.177,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.177
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.167
+          },
+          {
+            "id": "custom:forward-kinematics",
+            "label": "forward kinematics",
+            "score": 0.162
+          }
+        ]
+      }
+    },
+    {
+      "term": "Savepoints",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Savepoints and rollbacks"
+        }
+      ],
+      "match": {
+        "original_term": "Savepoints",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.179,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.179
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.166
+          },
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.16
+          }
+        ]
+      }
+    },
+    {
+      "term": "Schema creation",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Schema creation"
+        }
+      ],
+      "match": {
+        "original_term": "Schema creation",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Schema creation' directly matches the taxonomy entry 'database design' which also includes 'schema design' as an alternative name.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.474
+          },
+          {
+            "id": "esco:02c71cde-f513-43da-8952-0974763c7568",
+            "label": "circuit diagrams",
+            "score": 0.256
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "term": "schema design",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "ER modeling and schema design"
+        }
+      ],
+      "match": {
+        "original_term": "schema design",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "SQL injection prevention techniques",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "SQL injection prevention techniques"
+        }
+      ],
+      "match": {
+        "original_term": "SQL injection prevention techniques",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'SQL injection prevention techniques' directly relates to secure coding practices, specifically secure coding techniques to prevent common vulnerabilities like SQL injection.",
+        "candidates": [
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.429
+          },
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.365
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.348
+          }
+        ]
+      }
+    },
+    {
+      "term": "SQL queries",
+      "canonical": {
+        "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "label": "SQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "SQL queries for data retrieval"
+        }
+      ],
+      "match": {
+        "original_term": "SQL queries",
+        "canonical_id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "canonical_label": "SQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Subqueries",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Subqueries and joins"
+        }
+      ],
+      "match": {
+        "original_term": "Subqueries",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.228,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:message-queues",
+            "label": "message queues",
+            "score": 0.228
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.211
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.188
+          }
+        ]
+      }
+    },
+    {
+      "term": "Transactions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Transactions and ACID properties"
+        }
+      ],
+      "match": {
+        "original_term": "Transactions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.244,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:142f7164-fe09-49ec-af18-7c9e86269d9e",
+            "label": "battery fluids",
+            "score": 0.244
+          },
+          {
+            "id": "esco:87b1c959-236d-4761-b3be-b1c729497f75",
+            "label": "fluid mechanics",
+            "score": 0.218
+          },
+          {
+            "id": "esco:608eb32b-276c-42a6-9be9-2d7bc33e9b3b",
+            "label": "natural gas",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "usage",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Index types and usage"
+        }
+      ],
+      "match": {
+        "original_term": "usage",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.267,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.267
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.252
+          },
+          {
+            "id": "esco:61c81161-b732-4c47-aba5-9e554d9a853f",
+            "label": "integrated circuit types",
+            "score": 0.245
+          }
+        ]
+      }
+    },
+    {
+      "term": "Vendor-specific extensions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Vendor-specific extensions"
+        }
+      ],
+      "match": {
+        "original_term": "Vendor-specific extensions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.179,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:98d7a8fd-62a7-45eb-acfb-84531967bc5d",
+            "label": "variety of tobacco leaves",
+            "score": 0.179
+          },
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.178
+          },
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.176
+          }
+        ]
+      }
+    },
+    {
+      "term": "XML data handling in PostgreSQL",
+      "canonical": {
+        "id": "esco:a8d07b5a-c1a1-42c6-9d53-db9c7a2ca996",
+        "label": "PostgreSQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "XML data handling in PostgreSQL"
+        }
+      ],
+      "match": {
+        "original_term": "XML data handling in PostgreSQL",
+        "canonical_id": "esco:a8d07b5a-c1a1-42c6-9d53-db9c7a2ca996",
+        "canonical_label": "PostgreSQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'XML data handling in PostgreSQL' directly refers to working with PostgreSQL, which is the specific database system mentioned in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:a8d07b5a-c1a1-42c6-9d53-db9c7a2ca996",
+            "label": "PostgreSQL",
+            "score": 0.494
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.352
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.349
+          }
+        ]
+      }
+    },
+    {
+      "term": "backup strategies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "backup strategies"
+        }
+      ],
+      "match": {
+        "original_term": "backup strategies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.377,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:47ca0da1-cae5-4395-ae6b-fd97b9ff48d3",
+            "label": "system backup best practice",
+            "score": 0.377
+          },
+          {
+            "id": "esco:11eebd42-44ab-401d-8a2c-bdb9fc9beb50",
+            "label": "information security strategy",
+            "score": 0.223
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cassandra",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Cassandra"
+        }
+      ],
+      "match": {
+        "original_term": "Cassandra",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.172,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.172
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.162
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.149
+          }
+        ]
+      }
+    },
+    {
+      "term": "concurrency control using locks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "concurrency control using locks"
+        }
+      ],
+      "match": {
+        "original_term": "concurrency control using locks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'concurrency control using locks' as a skill. The closest entries are about locking mechanisms or control systems, but they do not capture the specific skill described in the phrase.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.512
+          },
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.456
+          },
+          {
+            "id": "esco:bf1f763e-c505-46e7-8af3-e48f13ec5f44",
+            "label": "control engineering",
+            "score": 0.376
+          }
+        ]
+      }
+    },
+    {
+      "term": "database design using ER modeling",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "database design using ER modeling"
+        }
+      ],
+      "match": {
+        "original_term": "database design using ER modeling",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.636,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.636
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.458
+          },
+          {
+            "id": "esco:9ef0f3a0-9ce2-4ef1-a987-0366b5cb2dbe",
+            "label": "database development tools",
+            "score": 0.363
+          }
+        ]
+      }
+    },
+    {
+      "term": "JSON",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "JSON"
+        }
+      ],
+      "match": {
+        "original_term": "JSON",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.235,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:poisson-distribution",
+            "label": "Poisson distribution",
+            "score": 0.235
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.167
+          },
+          {
+            "id": "custom:kotlin",
+            "label": "Kotlin",
+            "score": 0.161
+          }
+        ]
+      }
+    },
+    {
+      "term": "MVCC",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "MVCC"
+        }
+      ],
+      "match": {
+        "original_term": "MVCC",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.151,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:8369ede5-4200-4a44-be2e-bc60ef959259",
+            "label": "Microsoft Visual C++",
+            "score": 0.151
+          },
+          {
+            "id": "custom:opencv",
+            "label": "OpenCV",
+            "score": 0.146
+          },
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.135
+          }
+        ]
+      }
+    },
+    {
+      "term": "normalization",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "normalization"
+        }
+      ],
+      "match": {
+        "original_term": "normalization",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'normalization' is explicitly listed in the 'also called' field of the 'database design' taxonomy entry, indicating it refers to the same skill.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.871
+          },
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.298
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.28
+          }
+        ]
+      }
+    },
+    {
+      "term": "NoSQL databases like MongoDB",
+      "canonical": {
+        "id": "custom:mongodb",
+        "label": "MongoDB",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "NoSQL databases like MongoDB"
+        }
+      ],
+      "match": {
+        "original_term": "NoSQL databases like MongoDB",
+        "canonical_id": "custom:mongodb",
+        "canonical_label": "MongoDB",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'NoSQL databases like MongoDB' specifically refers to MongoDB, which is explicitly named in the 'custom:mongodb' entry.",
+        "candidates": [
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.538
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.481
+          },
+          {
+            "id": "esco:76ef6ed3-1658-4a1a-9593-204d799c6d0c",
+            "label": "NoSQL",
+            "score": 0.465
+          }
+        ]
+      }
+    },
+    {
+      "term": "performance optimization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "performance optimization"
+        }
+      ],
+      "match": {
+        "original_term": "performance optimization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries exactly match the skill 'performance optimization'. The closest entries are related to performance testing or analysis, but they do not specifically refer to the act of optimizing performance.",
+        "candidates": [
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.488
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.42
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.228
+          }
+        ]
+      }
+    },
+    {
+      "term": "query writing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "query writing"
+        }
+      ],
+      "match": {
+        "original_term": "query writing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'query writing' does not match any of the provided taxonomy entries, as they all refer to specific query languages or technical documentation, not the general skill of writing queries.",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.464
+          },
+          {
+            "id": "esco:9cf681c7-89ec-470c-b651-7fe03786f586",
+            "label": "query languages",
+            "score": 0.432
+          },
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.402
+          }
+        ]
+      }
+    },
+    {
+      "term": "replication",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "replication"
+        }
+      ],
+      "match": {
+        "original_term": "replication",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.246,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.246
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.22
+          },
+          {
+            "id": "custom:retrieval-augmented-generation",
+            "label": "retrieval-augmented generation",
+            "score": 0.219
+          }
+        ]
+      }
+    },
+    {
+      "term": "SQL injection prevention",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "SQL injection prevention"
+        }
+      ],
+      "match": {
+        "original_term": "SQL injection prevention",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'SQL injection prevention' directly relates to secure coding practices, specifically writing code that resists common attacks like SQL injection.",
+        "candidates": [
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.484
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.482
+          },
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.407
+          }
+        ]
+      }
+    },
+    {
+      "term": "This course covers SQL syntax",
+      "canonical": {
+        "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "label": "SQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "This course covers SQL syntax"
+        }
+      ],
+      "match": {
+        "original_term": "This course covers SQL syntax",
+        "canonical_id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "canonical_label": "SQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'SQL syntax' directly matches the label 'SQL' and is also explicitly listed in the 'also called' field of the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.41
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.389
+          },
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.351
+          }
+        ]
+      }
+    },
+    {
+      "term": "transaction management with ACID properties",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "transaction management with ACID properties"
+        }
+      ],
+      "match": {
+        "original_term": "transaction management with ACID properties",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.378,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.378
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.211
+          },
+          {
+            "id": "esco:77592603-505b-4096-97dd-d0def6bd7601",
+            "label": "computational fluid dynamics",
+            "score": 0.199
+          }
+        ]
+      }
+    },
+    {
+      "term": "XML data handling",
+      "canonical": {
+        "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+        "label": "database",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "XML data handling"
+        }
+      ],
+      "match": {
+        "original_term": "XML data handling",
+        "canonical_id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+        "canonical_label": "database",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'XML data handling' is explicitly mentioned in the description of the 'database' entry as part of the classification of databases, which includes XML databases.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.427
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.425
+          },
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.406
+          }
+        ]
+      }
+    }
+  ]
+}

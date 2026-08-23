@@ -1,0 +1,2843 @@
+{
+  "course_code": "0432102",
+  "course_codes": [
+    "0432102",
+    "A0412102"
+  ],
+  "course_title": "Algorithm Design and Analysis",
+  "credit_hours": 3,
+  "plans": [
+    "CS",
+    "CS/AI",
+    "CYBER",
+    "SE"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "no_match": 27,
+      "accepted": 24,
+      "needs_review": 9
+    },
+    "by_method": {
+      "embedding_reranker": 40,
+      "llm": 17,
+      "exact_alias": 3
+    }
+  },
+  "total_skills": 60,
+  "skills": [
+    {
+      "term": "balanced trees",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of data structures such as heaps, balanced trees, and graphs and their applications in algorithm design."
+        },
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Advanced Data Structures: Heaps and Balanced Trees"
+        },
+        {
+          "source": "description",
+          "text": "balanced trees"
+        }
+      ],
+      "match": {
+        "original_term": "balanced trees",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.238,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.238
+          },
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.226
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "divide",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the characteristics of different algorithmic paradigms such as greedy, dynamic programming, and divide-and-conquer."
+        },
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Divide-and-Conquer Algorithms and Sorting"
+        },
+        {
+          "source": "description",
+          "text": "divide"
+        }
+      ],
+      "match": {
+        "original_term": "divide",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.236,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.236
+          },
+          {
+            "id": "esco:47b9bbcf-356c-4782-83a4-7f5a1b2b51a3",
+            "label": "Assembly (computer programming)",
+            "score": 0.233
+          },
+          {
+            "id": "esco:d56fc2b5-4b0a-4e7e-9bde-a33736f6ff18",
+            "label": "Scratch (computer programming)",
+            "score": 0.229
+          }
+        ]
+      }
+    },
+    {
+      "term": "dynamic programming",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the characteristics of different algorithmic paradigms such as greedy, dynamic programming, and divide-and-conquer."
+        },
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Dynamic Programming and Optimization"
+        },
+        {
+          "source": "description",
+          "text": "dynamic programming"
+        }
+      ],
+      "match": {
+        "original_term": "dynamic programming",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'dynamic programming' is a specific algorithmic paradigm, and the taxonomy entry 'algorithms' explicitly includes algorithmic paradigms such as dynamic programming.",
+        "candidates": [
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.556
+          },
+          {
+            "id": "esco:a4d336a6-9ffd-402a-91cc-f359716ba4e0",
+            "label": "ML (computer programming)",
+            "score": 0.491
+          },
+          {
+            "id": "esco:2bde42ae-e776-41c1-9ded-b07b30bfe985",
+            "label": "Prolog (computer programming)",
+            "score": 0.486
+          }
+        ]
+      }
+    },
+    {
+      "term": "heaps",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of data structures such as heaps, balanced trees, and graphs and their applications in algorithm design."
+        },
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Advanced Data Structures: Heaps and Balanced Trees"
+        },
+        {
+          "source": "description",
+          "text": "heaps"
+        }
+      ],
+      "match": {
+        "original_term": "heaps",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.229,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.229
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.222
+          },
+          {
+            "id": "esco:9ef0f3a0-9ce2-4ef1-a987-0366b5cb2dbe",
+            "label": "database development tools",
+            "score": 0.221
+          }
+        ]
+      }
+    },
+    {
+      "term": "graphs",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of data structures such as heaps, balanced trees, and graphs and their applications in algorithm design."
+        },
+        {
+          "source": "description",
+          "text": "graphs"
+        }
+      ],
+      "match": {
+        "original_term": "graphs",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.229,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.229
+          },
+          {
+            "id": "esco:02c71cde-f513-43da-8952-0974763c7568",
+            "label": "circuit diagrams",
+            "score": 0.228
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.224
+          }
+        ]
+      }
+    },
+    {
+      "term": "-conquer",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the characteristics of different algorithmic paradigms such as greedy, dynamic programming, and divide-and-conquer."
+        }
+      ],
+      "match": {
+        "original_term": "-conquer",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.252,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.252
+          },
+          {
+            "id": "esco:def007fa-5fed-4a5f-91a2-b0d7e3db1be1",
+            "label": "COBOL",
+            "score": 0.25
+          },
+          {
+            "id": "esco:47b9bbcf-356c-4782-83a4-7f5a1b2b51a3",
+            "label": "Assembly (computer programming)",
+            "score": 0.237
+          }
+        ]
+      }
+    },
+    {
+      "term": "applications in algorithm design",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of data structures such as heaps, balanced trees, and graphs and their applications in algorithm design."
+        }
+      ],
+      "match": {
+        "original_term": "applications in algorithm design",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.708,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.30",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.708
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.409
+          },
+          {
+            "id": "esco:209a5498-3449-4689-8ed9-bd08cab4fd78",
+            "label": "engineering principles",
+            "score": 0.396
+          }
+        ]
+      }
+    },
+    {
+      "term": "characteristics of different algorithmic paradigms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the characteristics of different algorithmic paradigms such as greedy, dynamic programming, and divide-and-conquer."
+        }
+      ],
+      "match": {
+        "original_term": "characteristics of different algorithmic paradigms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'characteristics of different algorithmic paradigms' directly relates to understanding algorithms, which is explicitly covered by the 'algorithms' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.482
+          },
+          {
+            "id": "esco:51586df8-1c46-4b47-8583-773cb63bf00b",
+            "label": "R",
+            "score": 0.271
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.229
+          }
+        ]
+      }
+    },
+    {
+      "term": "efficiency of algorithms using Python",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement and evaluate the efficiency of algorithms using Python and C++ for real-world applications."
+        }
+      ],
+      "match": {
+        "original_term": "efficiency of algorithms using Python",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to the 'efficiency of algorithms using Python' skill. The closest entries are related to programming languages (Python, C++) or performance analysis, but none capture the exact skill described.",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.478
+          },
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.207
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "Fast Fourier Transform to solve computational",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply standard algorithms such as Dijkstra's, Kruskal's, and the Fast Fourier Transform to solve computational problems."
+        }
+      ],
+      "match": {
+        "original_term": "Fast Fourier Transform to solve computational",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.359,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:tf-transforms",
+            "label": "coordinate frame transforms",
+            "score": 0.359
+          },
+          {
+            "id": "esco:77592603-505b-4096-97dd-d0def6bd7601",
+            "label": "computational fluid dynamics",
+            "score": 0.35
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.289
+          }
+        ]
+      }
+    },
+    {
+      "term": "greedy",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the characteristics of different algorithmic paradigms such as greedy, dynamic programming, and divide-and-conquer."
+        }
+      ],
+      "match": {
+        "original_term": "greedy",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.267,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:51586df8-1c46-4b47-8583-773cb63bf00b",
+            "label": "R",
+            "score": 0.267
+          },
+          {
+            "id": "esco:52cf3037-ab53-4806-85ed-7fd21ea7f6a1",
+            "label": "Groovy",
+            "score": 0.254
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.219
+          }
+        ]
+      }
+    },
+    {
+      "term": "principles of data structures",
+      "canonical": {
+        "id": "custom:data-structures",
+        "label": "data structures",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of data structures such as heaps, balanced trees, and graphs and their applications in algorithm design."
+        }
+      ],
+      "match": {
+        "original_term": "principles of data structures",
+        "canonical_id": "custom:data-structures",
+        "canonical_label": "data structures",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.721,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.12",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.721
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.596
+          },
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.488
+          }
+        ]
+      }
+    },
+    {
+      "term": "real-world applications",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement and evaluate the efficiency of algorithms using Python and C++ for real-world applications."
+        }
+      ],
+      "match": {
+        "original_term": "real-world applications",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.262,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:51586df8-1c46-4b47-8583-773cb63bf00b",
+            "label": "R",
+            "score": 0.262
+          },
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.233
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.225
+          }
+        ]
+      }
+    },
+    {
+      "term": "standard algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply standard algorithms such as Dijkstra's, Kruskal's, and the Fast Fourier Transform to solve computational problems."
+        }
+      ],
+      "match": {
+        "original_term": "standard algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.669,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.669
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.493
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "time",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the time and space complexity of algorithms using Big-O notation."
+        }
+      ],
+      "match": {
+        "original_term": "time",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'time' refers to time complexity in algorithms, which is not directly captured by any of the provided taxonomy entries. None of the candidates specifically address time complexity or Big-O notation.",
+        "candidates": [
+          {
+            "id": "esco:bf6c5ed4-84af-440f-abcc-7fa5ba19c738",
+            "label": "real-time computing",
+            "score": 0.503
+          },
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.224
+          },
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.195
+          }
+        ]
+      }
+    },
+    {
+      "term": "Backtracking",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Backtracking and Branch-and-Bound Techniques"
+        },
+        {
+          "source": "description",
+          "text": "backtracking"
+        }
+      ],
+      "match": {
+        "original_term": "Backtracking",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.253,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.253
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.251
+          },
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "term": "Branch",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Backtracking and Branch-and-Bound Techniques"
+        },
+        {
+          "source": "description",
+          "text": "branch"
+        }
+      ],
+      "match": {
+        "original_term": "Branch",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.21,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.21
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.208
+          },
+          {
+            "id": "custom:pytorch",
+            "label": "PyTorch",
+            "score": 0.204
+          }
+        ]
+      }
+    },
+    {
+      "term": "Complexity Analysis",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Algorithms and Complexity Analysis"
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Asymptotic Notations and Complexity Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Complexity Analysis",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Complexity Analysis' is explicitly mentioned in the syllabus and is directly related to 'algorithmic complexity' and 'algorithm analysis', which are listed as alternative names for the 'algorithms' skill in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.519
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.506
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.473
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Structures",
+      "canonical": {
+        "id": "custom:data-structures",
+        "label": "data structures",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Data Structures: Arrays, Lists, and Trees"
+        },
+        {
+          "source": "description",
+          "text": "data structures"
+        }
+      ],
+      "match": {
+        "original_term": "Data Structures",
+        "canonical_id": "custom:data-structures",
+        "canonical_label": "data structures",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Greedy Algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Greedy Algorithms and Applications"
+        },
+        {
+          "source": "description",
+          "text": "greedy algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "Greedy Algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.658,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.17",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.658
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.492
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.492
+          }
+        ]
+      }
+    },
+    {
+      "term": "Testing",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Algorithm Evaluation and Testing"
+        },
+        {
+          "source": "description",
+          "text": "testing"
+        }
+      ],
+      "match": {
+        "original_term": "Testing",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Testing' directly matches the label 'software testing' and is listed as an alias in the also called field.",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.9
+          },
+          {
+            "id": "esco:d512d178-37a6-4eab-a660-412d2bb0824a",
+            "label": "test procedures",
+            "score": 0.681
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.673
+          }
+        ]
+      }
+    },
+    {
+      "term": "-Bound Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Backtracking and Branch-and-Bound Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "-Bound Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill described in the extracted phrase '-Bound Techniques' from the syllabus. The phrase refers to algorithmic techniques in computer science, specifically backtracking and branch-and-bound methods, which are not covered by any of the listed taxonomy ",
+        "candidates": [
+          {
+            "id": "esco:530cb489-d900-46ab-9350-4d50ccd49eea",
+            "label": "welding techniques",
+            "score": 0.498
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.497
+          },
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.446
+          }
+        ]
+      }
+    },
+    {
+      "term": "-Conquer Algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Divide-and-Conquer Algorithms and Sorting"
+        }
+      ],
+      "match": {
+        "original_term": "-Conquer Algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.65,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.16",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.65
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.491
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.221
+          }
+        ]
+      }
+    },
+    {
+      "term": "Advanced Data Structures",
+      "canonical": {
+        "id": "custom:data-structures",
+        "label": "data structures",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Advanced Data Structures: Heaps and Balanced Trees"
+        }
+      ],
+      "match": {
+        "original_term": "Advanced Data Structures",
+        "canonical_id": "custom:data-structures",
+        "canonical_label": "data structures",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.716,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.33",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.716
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.382
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.375
+          }
+        ]
+      }
+    },
+    {
+      "term": "Algorithm Design",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Algorithm Design for NP-Complete Problems"
+        }
+      ],
+      "match": {
+        "original_term": "Algorithm Design",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Algorithm Evaluation",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Algorithm Evaluation and Testing"
+        }
+      ],
+      "match": {
+        "original_term": "Algorithm Evaluation",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.644,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.17",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.644
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.473
+          },
+          {
+            "id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+            "label": "levels of software testing",
+            "score": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "term": "Algorithm Optimization",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Algorithm Optimization and Memoization"
+        }
+      ],
+      "match": {
+        "original_term": "Algorithm Optimization",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.626,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.16",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.626
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.466
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.458
+          }
+        ]
+      }
+    },
+    {
+      "term": "Algorithmic Standards",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Algorithmic Standards and IEEE 754 Compliance"
+        }
+      ],
+      "match": {
+        "original_term": "Algorithmic Standards",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Algorithmic Standards' directly relates to 'algorithms' as defined in the taxonomy, which includes algorithmic standards and compliance with standards like IEEE 754.",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.616
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.46
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.395
+          }
+        ]
+      }
+    },
+    {
+      "term": "Algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Algorithms and Complexity Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Arrays",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Data Structures: Arrays, Lists, and Trees"
+        }
+      ],
+      "match": {
+        "original_term": "Arrays",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.258,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.258
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.245
+          },
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.242
+          }
+        ]
+      }
+    },
+    {
+      "term": "Asymptotic Notations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Asymptotic Notations and Complexity Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Asymptotic Notations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.285,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.285
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.27
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.266
+          }
+        ]
+      }
+    },
+    {
+      "term": "Distributed Algorithm Design",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Parallel and Distributed Algorithm Design"
+        }
+      ],
+      "match": {
+        "original_term": "Distributed Algorithm Design",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.704,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.27",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.704
+          },
+          {
+            "id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+            "label": "distributed computing",
+            "score": 0.437
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.409
+          }
+        ]
+      }
+    },
+    {
+      "term": "Graph Algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Graph Algorithms and Shortest Path Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Graph Algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.655,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.12",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.655
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.54
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "IEEE 754 Compliance",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Algorithmic Standards and IEEE 754 Compliance"
+        }
+      ],
+      "match": {
+        "original_term": "IEEE 754 Compliance",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to IEEE 754 Compliance, which is a standard for floating-point arithmetic. The closest entries relate to electronics, ICT security, and manufacturing standards, but none match the precise skill described.",
+        "candidates": [
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.45
+          },
+          {
+            "id": "esco:19ec88aa-c0b1-4515-ba10-56b6cf27369e",
+            "label": "electronic equipment standards",
+            "score": 0.227
+          },
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "Lists",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Data Structures: Arrays, Lists, and Trees"
+        }
+      ],
+      "match": {
+        "original_term": "Lists",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.262,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.262
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.247
+          },
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.245
+          }
+        ]
+      }
+    },
+    {
+      "term": "Memoization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Algorithm Optimization and Memoization"
+        }
+      ],
+      "match": {
+        "original_term": "Memoization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.302,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.302
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.296
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.292
+          }
+        ]
+      }
+    },
+    {
+      "term": "NP-Complete",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Algorithm Design for NP-Complete Problems"
+        }
+      ],
+      "match": {
+        "original_term": "NP-Complete",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.314,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.314
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.266
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "Optimization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Dynamic Programming and Optimization"
+        }
+      ],
+      "match": {
+        "original_term": "Optimization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.268,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.268
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.25
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.248
+          }
+        ]
+      }
+    },
+    {
+      "term": "Parallel",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Parallel and Distributed Algorithm Design"
+        }
+      ],
+      "match": {
+        "original_term": "Parallel",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.25,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.25
+          },
+          {
+            "id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+            "label": "distributed computing",
+            "score": 0.245
+          },
+          {
+            "id": "custom:apache-spark",
+            "label": "Apache Spark",
+            "score": 0.242
+          }
+        ]
+      }
+    },
+    {
+      "term": "Shortest Path Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Graph Algorithms and Shortest Path Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Shortest Path Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Shortest Path Techniques' from the syllabus. The closest candidate, 'motion planning', refers to path planning for robots, which is a broader concept and not specifically about shortest path algorithms.",
+        "candidates": [
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.436
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.416
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.238
+          }
+        ]
+      }
+    },
+    {
+      "term": "Sorting",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Divide-and-Conquer Algorithms and Sorting"
+        }
+      ],
+      "match": {
+        "original_term": "Sorting",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.245,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.245
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.245
+          },
+          {
+            "id": "esco:7b969ac9-f085-4afb-a480-c5210fb4da7d",
+            "label": "milling machines",
+            "score": 0.224
+          }
+        ]
+      }
+    },
+    {
+      "term": "Trees",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Data Structures: Arrays, Lists, and Trees"
+        }
+      ],
+      "match": {
+        "original_term": "Trees",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.284,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.284
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.25
+          },
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.245
+          }
+        ]
+      }
+    },
+    {
+      "term": "-conquer strategies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "-conquer strategies"
+        }
+      ],
+      "match": {
+        "original_term": "-conquer strategies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase '-conquer strategies' does not match any of the provided taxonomy entries in meaning or wording.",
+        "candidates": [
+          {
+            "id": "esco:343dd8e6-225f-460b-99e4-2e24ecbfd7ed",
+            "label": "sommelier activities",
+            "score": 0.489
+          },
+          {
+            "id": "esco:4600e453-d1cf-4567-96ff-5e9b4b26c030",
+            "label": "mining sector policies",
+            "score": 0.422
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.187
+          }
+        ]
+      }
+    },
+    {
+      "term": "algorithm implementation",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "algorithm implementation"
+        }
+      ],
+      "match": {
+        "original_term": "algorithm implementation",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.633,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.17",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.633
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.46
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.453
+          }
+        ]
+      }
+    },
+    {
+      "term": "algorithm optimization using memoization",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "algorithm optimization using memoization"
+        }
+      ],
+      "match": {
+        "original_term": "algorithm optimization using memoization",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'algorithm optimization using memoization' directly relates to the broader concept of 'algorithms' as defined in the taxonomy, specifically involving optimization techniques like memoization.",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.472
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.388
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.378
+          }
+        ]
+      }
+    },
+    {
+      "term": "algorithmic paradigms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "algorithmic paradigms"
+        }
+      ],
+      "match": {
+        "original_term": "algorithmic paradigms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.661,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.38",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.661
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.28
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.274
+          }
+        ]
+      }
+    },
+    {
+      "term": "analysis of time",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "analysis of time"
+        }
+      ],
+      "match": {
+        "original_term": "analysis of time",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'analysis of time' does not match any of the provided taxonomy entries, as none specifically refer to the analysis of time as a skill.",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.482
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.48
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.472
+          }
+        ]
+      }
+    },
+    {
+      "term": "bound",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "bound"
+        }
+      ],
+      "match": {
+        "original_term": "bound",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.182,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.182
+          },
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.159
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.158
+          }
+        ]
+      }
+    },
+    {
+      "term": "caching",
+      "canonical": {
+        "id": "custom:redis",
+        "label": "Redis",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "caching"
+        }
+      ],
+      "match": {
+        "original_term": "caching",
+        "canonical_id": "custom:redis",
+        "canonical_label": "Redis",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.662,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.40",
+        "candidates": [
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.662
+          },
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.267
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.26
+          }
+        ]
+      }
+    },
+    {
+      "term": "computational tools like Python",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "computational tools like Python"
+        }
+      ],
+      "match": {
+        "original_term": "computational tools like Python",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'computational tools like Python' refers to a broader set of tools and skills, not just the Python programming language itself. None of the provided taxonomy entries specifically capture the concept of using computational tools like Python.",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.488
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.413
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.406
+          }
+        ]
+      }
+    },
+    {
+      "term": "course also explores algorithmic standards",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "course also explores algorithmic standards"
+        }
+      ],
+      "match": {
+        "original_term": "course also explores algorithmic standards",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'algorithmic standards' directly maps to the 'algorithms' entry, as it refers to the standards and principles of algorithm design and implementation.",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.444
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.327
+          },
+          {
+            "id": "esco:dc298fac-7ab4-4feb-9b43-33d947d7703e",
+            "label": "standards for web-based e-learning",
+            "score": 0.296
+          }
+        ]
+      }
+    },
+    {
+      "term": "Fast Fourier Transform",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Fast Fourier Transform"
+        }
+      ],
+      "match": {
+        "original_term": "Fast Fourier Transform",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Fast Fourier Transform'.",
+        "candidates": [
+          {
+            "id": "custom:tf-transforms",
+            "label": "coordinate frame transforms",
+            "score": 0.432
+          },
+          {
+            "id": "esco:0b472dad-1a3f-456e-99ba-de5ffe8665c2",
+            "label": "non-ferrous metal processing",
+            "score": 0.181
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.179
+          }
+        ]
+      }
+    },
+    {
+      "term": "heap sort",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "heap sort"
+        }
+      ],
+      "match": {
+        "original_term": "heap sort",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.182,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.182
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.179
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.166
+          }
+        ]
+      }
+    },
+    {
+      "term": "IEEE 754 floating-point standard",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "IEEE 754 floating-point standard"
+        }
+      ],
+      "match": {
+        "original_term": "IEEE 754 floating-point standard",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.345,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.345
+          },
+          {
+            "id": "esco:19ec88aa-c0b1-4515-ba10-56b6cf27369e",
+            "label": "electronic equipment standards",
+            "score": 0.322
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.314
+          }
+        ]
+      }
+    },
+    {
+      "term": "Kruskal's minimum spanning tree",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Kruskal's minimum spanning tree"
+        }
+      ],
+      "match": {
+        "original_term": "Kruskal's minimum spanning tree",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.205,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:064018ab-0192-441b-92a5-43c2328e9be2",
+            "label": "electrical mine machinery manuals",
+            "score": 0.205
+          },
+          {
+            "id": "esco:76526bf6-bada-4ca1-8e79-6b9d4228b607",
+            "label": "electrical safety regulations",
+            "score": 0.186
+          },
+          {
+            "id": "esco:ed291aa0-8b2f-4179-b2f7-540ea6f63bf3",
+            "label": "electrical wiring diagrams",
+            "score": 0.181
+          }
+        ]
+      }
+    },
+    {
+      "term": "merge sort",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "merge sort"
+        }
+      ],
+      "match": {
+        "original_term": "merge sort",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.181,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.181
+          },
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.178
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.171
+          }
+        ]
+      }
+    },
+    {
+      "term": "quick sort",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "quick sort"
+        }
+      ],
+      "match": {
+        "original_term": "quick sort",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.177,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.177
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.169
+          },
+          {
+            "id": "custom:rust",
+            "label": "Rust",
+            "score": 0.153
+          }
+        ]
+      }
+    },
+    {
+      "term": "space complexity using Big-O notation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "space complexity using Big-O notation"
+        }
+      ],
+      "match": {
+        "original_term": "space complexity using Big-O notation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.317,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.317
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.218
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "standard algorithms like Dijkstra's shortest path",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "standard algorithms like Dijkstra's shortest path"
+        }
+      ],
+      "match": {
+        "original_term": "standard algorithms like Dijkstra's shortest path",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.315,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.315
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.302
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.183
+          }
+        ]
+      }
+    },
+    {
+      "term": "Topics include sorting algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Topics include sorting algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "Topics include sorting algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'sorting algorithms' directly relates to the skill 'algorithms' as defined in the taxonomy, which includes step-by-step operations for solving problems.",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.496
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.421
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.416
+          }
+        ]
+      }
+    }
+  ]
+}

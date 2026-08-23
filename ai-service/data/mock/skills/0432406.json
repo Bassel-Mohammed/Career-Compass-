@@ -1,0 +1,4246 @@
+{
+  "course_code": "0432406",
+  "course_codes": [
+    "0432406"
+  ],
+  "course_title": "Robotics Programming Lab",
+  "credit_hours": 1,
+  "plans": [
+    "CS/AI"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "needs_review": 12,
+      "accepted": 69,
+      "no_match": 10
+    },
+    "by_method": {
+      "llm": 46,
+      "embedding_reranker": 35,
+      "exact_alias": 10
+    }
+  },
+  "total_skills": 91,
+  "skills": [
+    {
+      "term": "autonomous navigation systems using ROS packages",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement autonomous navigation systems using ROS packages and path planning algorithms such as A* and RRT in simulated and real-world environments."
+        },
+        {
+          "source": "description",
+          "text": "autonomous navigation systems using ROS packages"
+        }
+      ],
+      "match": {
+        "original_term": "autonomous navigation systems using ROS packages",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.6,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'autonomous navigation systems using ROS packages' refers to implementing navigation systems with ROS, which involves both navigation algorithms and ROS integration. None of the provided taxonomy entries specifically capture this combination of skills.",
+        "candidates": [
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.43
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.404
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.333
+          }
+        ]
+      }
+    },
+    {
+      "term": "path planning algorithms",
+      "canonical": {
+        "id": "custom:motion-planning",
+        "label": "motion planning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement autonomous navigation systems using ROS packages and path planning algorithms such as A* and RRT in simulated and real-world environments."
+        },
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Path Planning Algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "path planning algorithms",
+        "canonical_id": "custom:motion-planning",
+        "canonical_label": "motion planning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.777,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.22",
+        "candidates": [
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.777
+          },
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.559
+          },
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.425
+          }
+        ]
+      }
+    },
+    {
+      "term": "SLAM techniques using Gazebo",
+      "canonical": {
+        "id": "custom:slam",
+        "label": "SLAM",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply SLAM techniques using Gazebo and Rviz to create 2D/3D maps of unknown environments and validate localization algorithms."
+        },
+        {
+          "source": "description",
+          "text": "SLAM techniques using Gazebo"
+        }
+      ],
+      "match": {
+        "original_term": "SLAM techniques using Gazebo",
+        "canonical_id": "custom:slam",
+        "canonical_label": "SLAM",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'SLAM techniques using Gazebo' directly refers to the skill of SLAM, which is explicitly defined in the taxonomy entry as 'Building a map of an unknown environment while tracking the robot's pose within it.'",
+        "candidates": [
+          {
+            "id": "custom:slam",
+            "label": "SLAM",
+            "score": 0.516
+          },
+          {
+            "id": "custom:gazebo",
+            "label": "Gazebo simulator",
+            "score": 0.49
+          },
+          {
+            "id": "esco:286d0e0d-48e9-4210-b110-b1fbf04c35f1",
+            "label": "radars",
+            "score": 0.335
+          }
+        ]
+      }
+    },
+    {
+      "term": "edge detection",
+      "canonical": {
+        "id": "custom:image-processing",
+        "label": "image processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe sensor data processing techniques and apply OpenCV for image filtering, edge detection, and object recognition in robotic systems."
+        }
+      ],
+      "match": {
+        "original_term": "edge detection",
+        "canonical_id": "custom:image-processing",
+        "canonical_label": "image processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'edge detection' is a specific technique within 'image processing', which is explicitly mentioned in the syllabus as part of OpenCV applications.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.577
+          },
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.27
+          },
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.248
+          }
+        ]
+      }
+    },
+    {
+      "term": "image filtering",
+      "canonical": {
+        "id": "custom:image-processing",
+        "label": "image processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe sensor data processing techniques and apply OpenCV for image filtering, edge detection, and object recognition in robotic systems."
+        }
+      ],
+      "match": {
+        "original_term": "image filtering",
+        "canonical_id": "custom:image-processing",
+        "canonical_label": "image processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "motion control principles",
+      "canonical": {
+        "id": "custom:robot-control",
+        "label": "robot control",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain motion control principles and implement PID algorithms for position and velocity regulation in robotic actuators."
+        }
+      ],
+      "match": {
+        "original_term": "motion control principles",
+        "canonical_id": "custom:robot-control",
+        "canonical_label": "robot control",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'motion control principles' directly relates to designing and tuning control loops for robots, which matches the description of 'robot control' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.497
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.464
+          },
+          {
+            "id": "esco:557d1221-0235-4a48-ada5-8fca73443627",
+            "label": "electronics principles",
+            "score": 0.449
+          }
+        ]
+      }
+    },
+    {
+      "term": "object recognition in robotic systems",
+      "canonical": {
+        "id": "custom:object-detection",
+        "label": "object detection",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe sensor data processing techniques and apply OpenCV for image filtering, edge detection, and object recognition in robotic systems."
+        }
+      ],
+      "match": {
+        "original_term": "object recognition in robotic systems",
+        "canonical_id": "custom:object-detection",
+        "canonical_label": "object detection",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.67,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.16",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.67
+          },
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.508
+          },
+          {
+            "id": "custom:robot-troubleshooting",
+            "label": "robot system troubleshooting",
+            "score": 0.496
+          }
+        ]
+      }
+    },
+    {
+      "term": "OpenCV",
+      "canonical": {
+        "id": "custom:opencv",
+        "label": "OpenCV",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe sensor data processing techniques and apply OpenCV for image filtering, edge detection, and object recognition in robotic systems."
+        }
+      ],
+      "match": {
+        "original_term": "OpenCV",
+        "canonical_id": "custom:opencv",
+        "canonical_label": "OpenCV",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "PID algorithms",
+      "canonical": {
+        "id": "custom:pid-control",
+        "label": "PID control",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain motion control principles and implement PID algorithms for position and velocity regulation in robotic actuators."
+        }
+      ],
+      "match": {
+        "original_term": "PID algorithms",
+        "canonical_id": "custom:pid-control",
+        "canonical_label": "PID control",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'PID algorithms' directly matches the label 'PID control' and is explicitly mentioned in the syllabus as part of implementing motion control principles.",
+        "candidates": [
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.609
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.527
+          },
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.231
+          }
+        ]
+      }
+    },
+    {
+      "term": "position",
+      "canonical": {
+        "id": "custom:robot-control",
+        "label": "robot control",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain motion control principles and implement PID algorithms for position and velocity regulation in robotic actuators."
+        }
+      ],
+      "match": {
+        "original_term": "position",
+        "canonical_id": "custom:robot-control",
+        "canonical_label": "robot control",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.672,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.38",
+        "candidates": [
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.672
+          },
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.293
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.263
+          }
+        ]
+      }
+    },
+    {
+      "term": "real-world environments",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement autonomous navigation systems using ROS packages and path planning algorithms such as A* and RRT in simulated and real-world environments."
+        }
+      ],
+      "match": {
+        "original_term": "real-world environments",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.393,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:e7f7ceb9-6b2e-4a9f-9bc3-34613fd984c7",
+            "label": "airport operating environment",
+            "score": 0.393
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.225
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROS node communication protocols",
+      "canonical": {
+        "id": "custom:ros2-node-development",
+        "label": "ROS 2 node development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define ROS node communication protocols and implement message passing between nodes using ROS 2 topics and services."
+        }
+      ],
+      "match": {
+        "original_term": "ROS node communication protocols",
+        "canonical_id": "custom:ros2-node-development",
+        "canonical_label": "ROS 2 node development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ROS node communication protocols' directly relates to implementing message passing between nodes using ROS 2 topics and services, which is explicitly covered under 'ROS 2 node development' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.581
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.574
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.493
+          }
+        ]
+      }
+    },
+    {
+      "term": "RRT in simulated",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement autonomous navigation systems using ROS packages and path planning algorithms such as A* and RRT in simulated and real-world environments."
+        }
+      ],
+      "match": {
+        "original_term": "RRT in simulated",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.269,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.269
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.224
+          },
+          {
+            "id": "custom:slam",
+            "label": "SLAM",
+            "score": 0.209
+          }
+        ]
+      }
+    },
+    {
+      "term": "sensor data processing techniques",
+      "canonical": {
+        "id": "custom:image-processing",
+        "label": "image processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe sensor data processing techniques and apply OpenCV for image filtering, edge detection, and object recognition in robotic systems."
+        }
+      ],
+      "match": {
+        "original_term": "sensor data processing techniques",
+        "canonical_id": "custom:image-processing",
+        "canonical_label": "image processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'sensor data processing techniques' directly relates to the application of image processing techniques like image filtering, edge detection, and object recognition, which are explicitly covered under the 'image processing' label.",
+        "candidates": [
+          {
+            "id": "custom:robot-sensors",
+            "label": "robot sensors",
+            "score": 0.467
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.435
+          },
+          {
+            "id": "esco:70a7b3b3-31ef-4b29-a30f-bb7299dff39b",
+            "label": "sensors",
+            "score": 0.403
+          }
+        ]
+      }
+    },
+    {
+      "term": "services",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define ROS node communication protocols and implement message passing between nodes using ROS 2 topics and services."
+        }
+      ],
+      "match": {
+        "original_term": "services",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.687,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.10",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.687
+          },
+          {
+            "id": "custom:microservices",
+            "label": "microservices architecture",
+            "score": 0.585
+          },
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "term": "validate localization algorithms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply SLAM techniques using Gazebo and Rviz to create 2D/3D maps of unknown environments and validate localization algorithms."
+        }
+      ],
+      "match": {
+        "original_term": "validate localization algorithms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'validate localization algorithms' refers to testing and verifying the accuracy of localization methods, which is not directly captured by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.546
+          },
+          {
+            "id": "custom:slam",
+            "label": "SLAM",
+            "score": 0.501
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.406
+          }
+        ]
+      }
+    },
+    {
+      "term": "velocity regulation in robotic actuators",
+      "canonical": {
+        "id": "custom:robot-control",
+        "label": "robot control",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain motion control principles and implement PID algorithms for position and velocity regulation in robotic actuators."
+        }
+      ],
+      "match": {
+        "original_term": "velocity regulation in robotic actuators",
+        "canonical_id": "custom:robot-control",
+        "canonical_label": "robot control",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'velocity regulation in robotic actuators' directly relates to control mechanisms for motion, which is explicitly covered under 'robot control' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:actuators",
+            "label": "actuators",
+            "score": 0.509
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.415
+          },
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.399
+          }
+        ]
+      }
+    },
+    {
+      "term": "MoveIt Motion Planning Lab",
+      "canonical": {
+        "id": "custom:motion-planning",
+        "label": "motion planning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "MoveIt Motion Planning Lab"
+        }
+      ],
+      "match": {
+        "original_term": "MoveIt Motion Planning Lab",
+        "canonical_id": "custom:motion-planning",
+        "canonical_label": "motion planning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.65,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.44",
+        "candidates": [
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.65
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.206
+          },
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.205
+          }
+        ]
+      }
+    },
+    {
+      "term": "Navigation Stack Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Navigation Stack Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Navigation Stack Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.221,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.221
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.21
+          },
+          {
+            "id": "custom:jupyter",
+            "label": "Jupyter Notebook",
+            "score": 0.181
+          }
+        ]
+      }
+    },
+    {
+      "term": "Object Recognition Lab",
+      "canonical": {
+        "id": "custom:object-detection",
+        "label": "object detection",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Object Recognition Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Object Recognition Lab",
+        "canonical_id": "custom:object-detection",
+        "canonical_label": "object detection",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.757,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.53",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.757
+          },
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.229
+          },
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "OpenCV Image Filtering Lab",
+      "canonical": {
+        "id": "custom:image-processing",
+        "label": "image processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "OpenCV Image Filtering Lab"
+        }
+      ],
+      "match": {
+        "original_term": "OpenCV Image Filtering Lab",
+        "canonical_id": "custom:image-processing",
+        "canonical_label": "image processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.655,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.15",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.655
+          },
+          {
+            "id": "custom:opencv",
+            "label": "OpenCV",
+            "score": 0.5
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.361
+          }
+        ]
+      }
+    },
+    {
+      "term": "Path Planning Lab",
+      "canonical": {
+        "id": "custom:motion-planning",
+        "label": "motion planning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Path Planning Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Path Planning Lab",
+        "canonical_id": "custom:motion-planning",
+        "canonical_label": "motion planning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.747,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.31",
+        "candidates": [
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.747
+          },
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.432
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.21
+          }
+        ]
+      }
+    },
+    {
+      "term": "PID Tuning Lab",
+      "canonical": {
+        "id": "custom:pid-control",
+        "label": "PID control",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "PID Tuning Lab"
+        }
+      ],
+      "match": {
+        "original_term": "PID Tuning Lab",
+        "canonical_id": "custom:pid-control",
+        "canonical_label": "PID control",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'PID Tuning Lab' directly refers to the skill of PID control, which is explicitly listed as 'PID control' in the taxonomy entry with the label 'PID control' and also called 'PID', matching the extracted phrase.",
+        "candidates": [
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.518
+          },
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.221
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "Real-Time Control Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Real-Time Control Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Real-Time Control Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Real-Time Control Lab' does not match any of the provided taxonomy entries, which focus on specific control methods, tools, or systems rather than a lab or practical application of real-time control.",
+        "candidates": [
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.426
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.419
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.399
+          }
+        ]
+      }
+    },
+    {
+      "term": "Sensor Fusion Lab",
+      "canonical": {
+        "id": "custom:sensor-fusion",
+        "label": "sensor fusion",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Sensor Fusion Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Sensor Fusion Lab",
+        "canonical_id": "custom:sensor-fusion",
+        "canonical_label": "sensor fusion",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.772,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.23",
+        "candidates": [
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.772
+          },
+          {
+            "id": "custom:robot-sensors",
+            "label": "robot sensors",
+            "score": 0.539
+          },
+          {
+            "id": "esco:70a7b3b3-31ef-4b29-a30f-bb7299dff39b",
+            "label": "sensors",
+            "score": 0.456
+          }
+        ]
+      }
+    },
+    {
+      "term": "SLAM Map Building Lab",
+      "canonical": {
+        "id": "custom:slam",
+        "label": "SLAM",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "SLAM Map Building Lab"
+        }
+      ],
+      "match": {
+        "original_term": "SLAM Map Building Lab",
+        "canonical_id": "custom:slam",
+        "canonical_label": "SLAM",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'SLAM Map Building Lab' directly refers to the skill of Simultaneous Localization and Mapping, which is exactly what the 'custom:slam' entry describes.",
+        "candidates": [
+          {
+            "id": "custom:slam",
+            "label": "SLAM",
+            "score": 0.483
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.197
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.195
+          }
+        ]
+      }
+    },
+    {
+      "term": "SLAM Simulation Lab",
+      "canonical": {
+        "id": "custom:slam",
+        "label": "SLAM",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "SLAM Simulation Lab"
+        }
+      ],
+      "match": {
+        "original_term": "SLAM Simulation Lab",
+        "canonical_id": "custom:slam",
+        "canonical_label": "SLAM",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'SLAM Simulation Lab' directly refers to Simultaneous Localization and Mapping, which is exactly what the 'SLAM' entry describes.",
+        "candidates": [
+          {
+            "id": "custom:slam",
+            "label": "SLAM",
+            "score": 0.512
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.459
+          },
+          {
+            "id": "custom:gazebo",
+            "label": "Gazebo simulator",
+            "score": 0.247
+          }
+        ]
+      }
+    },
+    {
+      "term": "A* Path Planning Algorithm",
+      "canonical": {
+        "id": "custom:motion-planning",
+        "label": "motion planning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "A* Path Planning Algorithm"
+        }
+      ],
+      "match": {
+        "original_term": "A* Path Planning Algorithm",
+        "canonical_id": "custom:motion-planning",
+        "canonical_label": "motion planning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.719,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.20",
+        "candidates": [
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.719
+          },
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.523
+          },
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.404
+          }
+        ]
+      }
+    },
+    {
+      "term": "Coordinate Transformations",
+      "canonical": {
+        "id": "custom:tf-transforms",
+        "label": "coordinate frame transforms",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "ROS 2 TF2 for Coordinate Transformations"
+        }
+      ],
+      "match": {
+        "original_term": "Coordinate Transformations",
+        "canonical_id": "custom:tf-transforms",
+        "canonical_label": "coordinate frame transforms",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Costmap Configuration",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Costmap Configuration"
+        }
+      ],
+      "match": {
+        "original_term": "Costmap Configuration",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Costmap Configuration'. The closest is 'ROS parameter server', but 'Costmap Configuration' refers to a specific aspect of robot navigation and is not the same as the general concept of a ROS parameter server.",
+        "candidates": [
+          {
+            "id": "esco:b3a186be-5f1b-45d3-a468-41183e9780f3",
+            "label": "configuration of the tote room hardware",
+            "score": 0.407
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.247
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.241
+          }
+        ]
+      }
+    },
+    {
+      "term": "Demonstration",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Project Presentation and Demonstration"
+        }
+      ],
+      "match": {
+        "original_term": "Demonstration",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.301,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.301
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.276
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "term": "Estimation Techniques",
+      "canonical": {
+        "id": "custom:robot-localization",
+        "label": "robot localization",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "State Estimation Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Estimation Techniques",
+        "canonical_id": "custom:robot-localization",
+        "canonical_label": "robot localization",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Estimation Techniques' aligns with 'robot localization' as both involve estimating position and orientation, which is explicitly described in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.498
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.238
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "Forward Kinematics",
+      "canonical": {
+        "id": "custom:forward-kinematics",
+        "label": "forward kinematics",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Robot Kinematics and Forward Kinematics"
+        }
+      ],
+      "match": {
+        "original_term": "Forward Kinematics",
+        "canonical_id": "custom:forward-kinematics",
+        "canonical_label": "forward kinematics",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Gazebo Simulation Setup",
+      "canonical": {
+        "id": "custom:gazebo",
+        "label": "Gazebo simulator",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Gazebo Simulation Setup"
+        }
+      ],
+      "match": {
+        "original_term": "Gazebo Simulation Setup",
+        "canonical_id": "custom:gazebo",
+        "canonical_label": "Gazebo simulator",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Gazebo Simulation Setup' directly matches the label 'Gazebo simulator' and is also listed in its 'also called' section as 'GazeboSim Harmonic'.",
+        "candidates": [
+          {
+            "id": "custom:gazebo",
+            "label": "Gazebo simulator",
+            "score": 0.601
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.444
+          },
+          {
+            "id": "custom:urdf",
+            "label": "URDF robot modelling",
+            "score": 0.331
+          }
+        ]
+      }
+    },
+    {
+      "term": "Global",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Global and Local Planning"
+        }
+      ],
+      "match": {
+        "original_term": "Global",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.229,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.229
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.227
+          },
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.221
+          }
+        ]
+      }
+    },
+    {
+      "term": "Inverse Kinematics Solutions",
+      "canonical": {
+        "id": "custom:inverse-kinematics",
+        "label": "inverse kinematics",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Inverse Kinematics Solutions"
+        }
+      ],
+      "match": {
+        "original_term": "Inverse Kinematics Solutions",
+        "canonical_id": "custom:inverse-kinematics",
+        "canonical_label": "inverse kinematics",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.752,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.20",
+        "candidates": [
+          {
+            "id": "custom:inverse-kinematics",
+            "label": "inverse kinematics",
+            "score": 0.752
+          },
+          {
+            "id": "custom:robot-kinematics",
+            "label": "robot kinematics",
+            "score": 0.55
+          },
+          {
+            "id": "custom:forward-kinematics",
+            "label": "forward kinematics",
+            "score": 0.451
+          }
+        ]
+      }
+    },
+    {
+      "term": "Kalman Filter",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Kalman Filter for Sensor Fusion"
+        }
+      ],
+      "match": {
+        "original_term": "Kalman Filter",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.311,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.311
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.258
+          },
+          {
+            "id": "custom:lidar",
+            "label": "LiDAR",
+            "score": 0.251
+          }
+        ]
+      }
+    },
+    {
+      "term": "Local Planning",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Global and Local Planning"
+        }
+      ],
+      "match": {
+        "original_term": "Local Planning",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Local Planning' does not match any of the provided taxonomy entries, as none of the labels or also-called terms directly refer to 'Local Planning' in the context of robotics or path planning.",
+        "candidates": [
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.506
+          },
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.49
+          },
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.488
+          }
+        ]
+      }
+    },
+    {
+      "term": "Map Building with SLAM",
+      "canonical": {
+        "id": "custom:slam",
+        "label": "SLAM",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Map Building with SLAM"
+        }
+      ],
+      "match": {
+        "original_term": "Map Building with SLAM",
+        "canonical_id": "custom:slam",
+        "canonical_label": "SLAM",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'Map Building with SLAM' directly refers to the skill of SLAM, which is explicitly defined as 'Building a map of an unknown environment while tracking the robot's pose within it.'",
+        "candidates": [
+          {
+            "id": "custom:slam",
+            "label": "SLAM",
+            "score": 0.528
+          },
+          {
+            "id": "esco:2d63745d-3c4c-4da1-ad77-985f68768be9",
+            "label": "manufacturing of metal structures",
+            "score": 0.371
+          },
+          {
+            "id": "esco:962c3758-7fc8-4ee1-95b2-73b5efcd4684",
+            "label": "inland waterway ship building",
+            "score": 0.345
+          }
+        ]
+      }
+    },
+    {
+      "term": "Motion Planning in 3D Space",
+      "canonical": {
+        "id": "custom:motion-planning",
+        "label": "motion planning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Motion Planning in 3D Space"
+        }
+      ],
+      "match": {
+        "original_term": "Motion Planning in 3D Space",
+        "canonical_id": "custom:motion-planning",
+        "canonical_label": "motion planning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.659,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.27",
+        "candidates": [
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.659
+          },
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.384
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "Motor Control Implementation",
+      "canonical": {
+        "id": "custom:robot-control",
+        "label": "robot control",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Motor Control Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "Motor Control Implementation",
+        "canonical_id": "custom:robot-control",
+        "canonical_label": "robot control",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Motor Control Implementation' directly relates to designing and tuning control loops for robots, which matches the description of 'robot control' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.459
+          },
+          {
+            "id": "esco:bf1f763e-c505-46e7-8af3-e48f13ec5f44",
+            "label": "control engineering",
+            "score": 0.422
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.421
+          }
+        ]
+      }
+    },
+    {
+      "term": "Object Detection with OpenCV",
+      "canonical": {
+        "id": "custom:object-detection",
+        "label": "object detection",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Object Detection with OpenCV"
+        }
+      ],
+      "match": {
+        "original_term": "Object Detection with OpenCV",
+        "canonical_id": "custom:object-detection",
+        "canonical_label": "object detection",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.715,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.19",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.715
+          },
+          {
+            "id": "custom:opencv",
+            "label": "OpenCV",
+            "score": 0.521
+          },
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.411
+          }
+        ]
+      }
+    },
+    {
+      "term": "Obstacle Avoidance",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "RRT for Obstacle Avoidance"
+        }
+      ],
+      "match": {
+        "original_term": "Obstacle Avoidance",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.168,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.168
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.168
+          },
+          {
+            "id": "esco:e7f7ceb9-6b2e-4a9f-9bc3-34613fd984c7",
+            "label": "airport operating environment",
+            "score": 0.168
+          }
+        ]
+      }
+    },
+    {
+      "term": "OpenCV Image Processing",
+      "canonical": {
+        "id": "custom:image-processing",
+        "label": "image processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "OpenCV Image Processing"
+        }
+      ],
+      "match": {
+        "original_term": "OpenCV Image Processing",
+        "canonical_id": "custom:image-processing",
+        "canonical_label": "image processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.738,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.738
+          },
+          {
+            "id": "custom:opencv",
+            "label": "OpenCV",
+            "score": 0.563
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.402
+          }
+        ]
+      }
+    },
+    {
+      "term": "Parameters",
+      "canonical": {
+        "id": "custom:ros-parameter-server",
+        "label": "ROS parameter server",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "ROS Services and Parameters"
+        }
+      ],
+      "match": {
+        "original_term": "Parameters",
+        "canonical_id": "custom:ros-parameter-server",
+        "canonical_label": "ROS parameter server",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.763,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.46",
+        "candidates": [
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.763
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.302
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.288
+          }
+        ]
+      }
+    },
+    {
+      "term": "PID Control Fundamentals",
+      "canonical": {
+        "id": "custom:pid-control",
+        "label": "PID control",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "PID Control Fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "PID Control Fundamentals",
+        "canonical_id": "custom:pid-control",
+        "canonical_label": "PID control",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.723,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.31",
+        "candidates": [
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.723
+          },
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.41
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.41
+          }
+        ]
+      }
+    },
+    {
+      "term": "QoS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "ROS 2 Quality of Service (QoS)"
+        }
+      ],
+      "match": {
+        "original_term": "QoS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.344,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.344
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.298
+          },
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.278
+          }
+        ]
+      }
+    },
+    {
+      "term": "Real-Time Detection",
+      "canonical": {
+        "id": "custom:object-detection",
+        "label": "object detection",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "YOLOv4 for Real-Time Detection"
+        }
+      ],
+      "match": {
+        "original_term": "Real-Time Detection",
+        "canonical_id": "custom:object-detection",
+        "canonical_label": "object detection",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Real-Time Detection' is explicitly linked to 'YOLOv4 for Real-Time Detection', and YOLO is explicitly listed as an example of object detection in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.478
+          },
+          {
+            "id": "esco:286d0e0d-48e9-4210-b110-b1fbf04c35f1",
+            "label": "radars",
+            "score": 0.227
+          },
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.209
+          }
+        ]
+      }
+    },
+    {
+      "term": "Robot Kinematics",
+      "canonical": {
+        "id": "custom:robot-kinematics",
+        "label": "robot kinematics",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Robot Kinematics and Forward Kinematics"
+        }
+      ],
+      "match": {
+        "original_term": "Robot Kinematics",
+        "canonical_id": "custom:robot-kinematics",
+        "canonical_label": "robot kinematics",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Robotic Arms",
+      "canonical": {
+        "id": "custom:robot-manipulators",
+        "label": "robot manipulators",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "ROS 2 MoveIt for Robotic Arms"
+        }
+      ],
+      "match": {
+        "original_term": "Robotic Arms",
+        "canonical_id": "custom:robot-manipulators",
+        "canonical_label": "robot manipulators",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "ROS 2 Communication Protocols",
+      "canonical": {
+        "id": "custom:ros2",
+        "label": "ROS 2",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "ROS 2 Communication Protocols"
+        }
+      ],
+      "match": {
+        "original_term": "ROS 2 Communication Protocols",
+        "canonical_id": "custom:ros2",
+        "canonical_label": "ROS 2",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ROS 2 Communication Protocols' is a specific aspect of the broader 'ROS 2' framework, which includes communication protocols as part of its middleware system.",
+        "candidates": [
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.576
+          },
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.551
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.477
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROS 2 Hardware Integration",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "ROS 2 Hardware Integration"
+        }
+      ],
+      "match": {
+        "original_term": "ROS 2 Hardware Integration",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically match the skill 'ROS 2 Hardware Integration'. The closest entries are related to ROS 2 in general or hardware components, but none capture the specific integration aspect.",
+        "candidates": [
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.598
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.478
+          },
+          {
+            "id": "custom:ros2-launch-files",
+            "label": "ROS 2 launch files",
+            "score": 0.433
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROS 2 Image Processing Nodes",
+      "canonical": {
+        "id": "custom:ros2-node-development",
+        "label": "ROS 2 node development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "ROS 2 Image Processing Nodes"
+        }
+      ],
+      "match": {
+        "original_term": "ROS 2 Image Processing Nodes",
+        "canonical_id": "custom:ros2-node-development",
+        "canonical_label": "ROS 2 node development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ROS 2 Image Processing Nodes' directly refers to developing nodes in ROS 2, which matches the label 'ROS 2 node development' and its also called entries.",
+        "candidates": [
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.618
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.609
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.548
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROS 2 Image Transport",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "ROS 2 Image Transport"
+        }
+      ],
+      "match": {
+        "original_term": "ROS 2 Image Transport",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'ROS 2 Image Transport' refers to a specific component within ROS 2 for handling image data, which is not explicitly covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.584
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.475
+          },
+          {
+            "id": "custom:ros2-launch-files",
+            "label": "ROS 2 launch files",
+            "score": 0.43
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROS 2 Introduction",
+      "canonical": {
+        "id": "custom:ros2",
+        "label": "ROS 2",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "ROS 2 Introduction and Setup"
+        }
+      ],
+      "match": {
+        "original_term": "ROS 2 Introduction",
+        "canonical_id": "custom:ros2",
+        "canonical_label": "ROS 2",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.684,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.15",
+        "candidates": [
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.684
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.537
+          },
+          {
+            "id": "custom:ros2-launch-files",
+            "label": "ROS 2 launch files",
+            "score": 0.492
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROS 2 Kinematics Libraries",
+      "canonical": {
+        "id": "custom:robot-kinematics",
+        "label": "robot kinematics",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "ROS 2 Kinematics Libraries"
+        }
+      ],
+      "match": {
+        "original_term": "ROS 2 Kinematics Libraries",
+        "canonical_id": "custom:robot-kinematics",
+        "canonical_label": "robot kinematics",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ROS 2 Kinematics Libraries' directly refers to the study of robot kinematics, which is exactly what the 'robot kinematics' entry describes.",
+        "candidates": [
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.571
+          },
+          {
+            "id": "custom:robot-kinematics",
+            "label": "robot kinematics",
+            "score": 0.505
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.472
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROS 2 Launch Files",
+      "canonical": {
+        "id": "custom:ros2-launch-files",
+        "label": "ROS 2 launch files",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "ROS 2 Launch Files"
+        }
+      ],
+      "match": {
+        "original_term": "ROS 2 Launch Files",
+        "canonical_id": "custom:ros2-launch-files",
+        "canonical_label": "ROS 2 launch files",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "ROS 2 MoveIt",
+      "canonical": {
+        "id": "custom:ros2",
+        "label": "ROS 2",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "ROS 2 MoveIt for Robotic Arms"
+        }
+      ],
+      "match": {
+        "original_term": "ROS 2 MoveIt",
+        "canonical_id": "custom:ros2",
+        "canonical_label": "ROS 2",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.74,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.21",
+        "candidates": [
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.74
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.528
+          },
+          {
+            "id": "custom:ros2-launch-files",
+            "label": "ROS 2 launch files",
+            "score": 0.48
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROS 2 Navigation Stack",
+      "canonical": {
+        "id": "custom:ros2",
+        "label": "ROS 2",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "ROS 2 Navigation Stack"
+        }
+      ],
+      "match": {
+        "original_term": "ROS 2 Navigation Stack",
+        "canonical_id": "custom:ros2",
+        "canonical_label": "ROS 2",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ROS 2 Navigation Stack' is a specific component of the broader 'ROS 2' framework, and the taxonomy entry 'ROS 2' encompasses the general use of the framework, which includes the Navigation Stack.",
+        "candidates": [
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.585
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.499
+          },
+          {
+            "id": "custom:ros2-launch-files",
+            "label": "ROS 2 launch files",
+            "score": 0.439
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROS 2 Navigation Stack Implementation",
+      "canonical": {
+        "id": "custom:ros2-node-development",
+        "label": "ROS 2 node development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "ROS 2 Navigation Stack Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "ROS 2 Navigation Stack Implementation",
+        "canonical_id": "custom:ros2-node-development",
+        "canonical_label": "ROS 2 node development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ROS 2 Navigation Stack Implementation' specifically refers to implementing the navigation stack, which is a core component of ROS 2 node development, making it a direct match.",
+        "candidates": [
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.528
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.458
+          },
+          {
+            "id": "custom:ros2-launch-files",
+            "label": "ROS 2 launch files",
+            "score": 0.404
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROS 2 Packages",
+      "canonical": {
+        "id": "custom:ros2",
+        "label": "ROS 2",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "ROS 2 Packages and Build Systems"
+        }
+      ],
+      "match": {
+        "original_term": "ROS 2 Packages",
+        "canonical_id": "custom:ros2",
+        "canonical_label": "ROS 2",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.754,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.754
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.573
+          },
+          {
+            "id": "custom:ros2-launch-files",
+            "label": "ROS 2 launch files",
+            "score": 0.571
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROS 2 Parameter Server",
+      "canonical": {
+        "id": "custom:ros-parameter-server",
+        "label": "ROS parameter server",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "ROS 2 Parameter Server"
+        }
+      ],
+      "match": {
+        "original_term": "ROS 2 Parameter Server",
+        "canonical_id": "custom:ros-parameter-server",
+        "canonical_label": "ROS parameter server",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.815,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.22",
+        "candidates": [
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.815
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.594
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.48
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROS 2 PID Controllers",
+      "canonical": {
+        "id": "custom:pid-control",
+        "label": "PID control",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "ROS 2 PID Controllers"
+        }
+      ],
+      "match": {
+        "original_term": "ROS 2 PID Controllers",
+        "canonical_id": "custom:pid-control",
+        "canonical_label": "PID control",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.649,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.06",
+        "candidates": [
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.649
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.588
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.479
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROS 2 Planning Pipelines",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "ROS 2 Planning Pipelines"
+        }
+      ],
+      "match": {
+        "original_term": "ROS 2 Planning Pipelines",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'ROS 2 Planning Pipelines'. The closest entry is 'ROS 2', which is a broader category and does not capture the specific skill of planning pipelines.",
+        "candidates": [
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.578
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.489
+          },
+          {
+            "id": "custom:ros2-launch-files",
+            "label": "ROS 2 launch files",
+            "score": 0.449
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROS 2 Quality of Service",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "ROS 2 Quality of Service (QoS)"
+        }
+      ],
+      "match": {
+        "original_term": "ROS 2 Quality of Service",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'ROS 2 Quality of Service' refers to specific quality of service parameters in ROS 2, which is not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.596
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.478
+          },
+          {
+            "id": "custom:ros2-launch-files",
+            "label": "ROS 2 launch files",
+            "score": 0.422
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROS 2 Real-Time Control Systems",
+      "canonical": {
+        "id": "custom:robot-control",
+        "label": "robot control",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "ROS 2 Real-Time Control Systems"
+        }
+      ],
+      "match": {
+        "original_term": "ROS 2 Real-Time Control Systems",
+        "canonical_id": "custom:robot-control",
+        "canonical_label": "robot control",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ROS 2 Real-Time Control Systems' directly relates to the design and implementation of control systems for robots, which is precisely what 'robot control' describes.",
+        "candidates": [
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.561
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.529
+          },
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.476
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROS 2 Sensor Data Fusion",
+      "canonical": {
+        "id": "custom:sensor-fusion",
+        "label": "sensor fusion",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "ROS 2 Sensor Data Fusion"
+        }
+      ],
+      "match": {
+        "original_term": "ROS 2 Sensor Data Fusion",
+        "canonical_id": "custom:sensor-fusion",
+        "canonical_label": "sensor fusion",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.634,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.09",
+        "candidates": [
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.634
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.548
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.444
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROS 2 SLAM Algorithms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "ROS 2 SLAM Algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "ROS 2 SLAM Algorithms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'ROS 2 SLAM Algorithms' refers to a specific skill combining ROS 2 and SLAM algorithms, but none of the provided taxonomy entries capture this exact skill.",
+        "candidates": [
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.579
+          },
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.507
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.47
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROS 2 System Integration",
+      "canonical": {
+        "id": "custom:ros2",
+        "label": "ROS 2",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "ROS 2 System Integration"
+        }
+      ],
+      "match": {
+        "original_term": "ROS 2 System Integration",
+        "canonical_id": "custom:ros2",
+        "canonical_label": "ROS 2",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.623,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.14",
+        "candidates": [
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.623
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.487
+          },
+          {
+            "id": "custom:ros2-launch-files",
+            "label": "ROS 2 launch files",
+            "score": 0.443
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROS 2 TF2",
+      "canonical": {
+        "id": "custom:tf-transforms",
+        "label": "coordinate frame transforms",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "ROS 2 TF2 for Coordinate Transformations"
+        }
+      ],
+      "match": {
+        "original_term": "ROS 2 TF2",
+        "canonical_id": "custom:tf-transforms",
+        "canonical_label": "coordinate frame transforms",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ROS 2 TF2' refers to coordinate transformations, which is exactly what the 'coordinate frame transforms' entry describes.",
+        "candidates": [
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.712
+          },
+          {
+            "id": "custom:tf-transforms",
+            "label": "coordinate frame transforms",
+            "score": 0.674
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.544
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROS Nodes",
+      "canonical": {
+        "id": "custom:ros2-node-development",
+        "label": "ROS 2 node development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "ROS Nodes and Topics"
+        }
+      ],
+      "match": {
+        "original_term": "ROS Nodes",
+        "canonical_id": "custom:ros2-node-development",
+        "canonical_label": "ROS 2 node development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "ROS Services",
+      "canonical": {
+        "id": "custom:ros-parameter-server",
+        "label": "ROS parameter server",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "ROS Services and Parameters"
+        }
+      ],
+      "match": {
+        "original_term": "ROS Services",
+        "canonical_id": "custom:ros-parameter-server",
+        "canonical_label": "ROS parameter server",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ROS Services' is closely related to the 'ROS parameter server' as both are components of the ROS framework, and 'Services' are a key part of the parameter server functionality.",
+        "candidates": [
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.605
+          },
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.599
+          },
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.471
+          }
+        ]
+      }
+    },
+    {
+      "term": "RRT",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "RRT for Obstacle Avoidance"
+        }
+      ],
+      "match": {
+        "original_term": "RRT",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.216,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.216
+          },
+          {
+            "id": "custom:rust",
+            "label": "Rust",
+            "score": 0.175
+          },
+          {
+            "id": "custom:rqt",
+            "label": "RQT",
+            "score": 0.167
+          }
+        ]
+      }
+    },
+    {
+      "term": "Rviz Visualization",
+      "canonical": {
+        "id": "custom:rviz",
+        "label": "RViz 2",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Rviz Visualization"
+        }
+      ],
+      "match": {
+        "original_term": "Rviz Visualization",
+        "canonical_id": "custom:rviz",
+        "canonical_label": "RViz 2",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Rviz Visualization' directly matches the label 'RViz 2' and its also called entries, which include 'RViz' and 'rviz2'.",
+        "candidates": [
+          {
+            "id": "custom:rviz",
+            "label": "RViz 2",
+            "score": 0.603
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.53
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.233
+          }
+        ]
+      }
+    },
+    {
+      "term": "Sensor Data Acquisition",
+      "canonical": {
+        "id": "custom:robot-sensors",
+        "label": "robot sensors",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Sensor Data Acquisition"
+        }
+      ],
+      "match": {
+        "original_term": "Sensor Data Acquisition",
+        "canonical_id": "custom:robot-sensors",
+        "canonical_label": "robot sensors",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Sensor Data Acquisition' directly relates to the use of sensors, which is exactly what the 'robot sensors' entry describes.",
+        "candidates": [
+          {
+            "id": "custom:robot-sensors",
+            "label": "robot sensors",
+            "score": 0.53
+          },
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.465
+          },
+          {
+            "id": "esco:70a7b3b3-31ef-4b29-a30f-bb7299dff39b",
+            "label": "sensors",
+            "score": 0.456
+          }
+        ]
+      }
+    },
+    {
+      "term": "Sensor Fusion",
+      "canonical": {
+        "id": "custom:sensor-fusion",
+        "label": "sensor fusion",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Kalman Filter for Sensor Fusion"
+        }
+      ],
+      "match": {
+        "original_term": "Sensor Fusion",
+        "canonical_id": "custom:sensor-fusion",
+        "canonical_label": "sensor fusion",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Serial Communication Implementation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Serial Communication Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "Serial Communication Implementation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Serial Communication Implementation' as a skill. The closest entries are related to broader communication or electronic concepts, but none match the specific skill described.",
+        "candidates": [
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.546
+          },
+          {
+            "id": "esco:debef2fc-7af4-4bff-ac92-4d0317915a84",
+            "label": "electronic communication",
+            "score": 0.442
+          },
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.391
+          }
+        ]
+      }
+    },
+    {
+      "term": "Setup",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "ROS 2 Introduction and Setup"
+        }
+      ],
+      "match": {
+        "original_term": "Setup",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.292,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.292
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.287
+          },
+          {
+            "id": "custom:ros2-launch-files",
+            "label": "ROS 2 launch files",
+            "score": 0.274
+          }
+        ]
+      }
+    },
+    {
+      "term": "SLAM Fundamentals",
+      "canonical": {
+        "id": "custom:slam",
+        "label": "SLAM",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "SLAM Fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "SLAM Fundamentals",
+        "canonical_id": "custom:slam",
+        "canonical_label": "SLAM",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'SLAM Fundamentals' directly matches the label 'SLAM' and its also called entries, which include 'Simultaneous Localization and Mapping'.",
+        "candidates": [
+          {
+            "id": "custom:slam",
+            "label": "SLAM",
+            "score": 0.573
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.172
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.171
+          }
+        ]
+      }
+    },
+    {
+      "term": "YOLOv4",
+      "canonical": {
+        "id": "custom:object-detection",
+        "label": "object detection",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "YOLOv4 for Real-Time Detection"
+        }
+      ],
+      "match": {
+        "original_term": "YOLOv4",
+        "canonical_id": "custom:object-detection",
+        "canonical_label": "object detection",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "YOLOv4 is a specific implementation of object detection, and the taxonomy entry explicitly lists YOLO as an alternative name.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.416
+          },
+          {
+            "id": "custom:pytorch",
+            "label": "PyTorch",
+            "score": 0.168
+          },
+          {
+            "id": "custom:rviz",
+            "label": "RViz 2",
+            "score": 0.158
+          }
+        ]
+      }
+    },
+    {
+      "term": "motion control via PID algorithms",
+      "canonical": {
+        "id": "custom:pid-control",
+        "label": "PID control",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "motion control via PID algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "motion control via PID algorithms",
+        "canonical_id": "custom:pid-control",
+        "canonical_label": "PID control",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'motion control via PID algorithms' directly refers to the use of PID control, which is explicitly defined in the 'PID control' entry as feedback control using proportional, integral, and derivative terms.",
+        "candidates": [
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.58
+          },
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.39
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.383
+          }
+        ]
+      }
+    },
+    {
+      "term": "real-time control systems using ROS 2",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "real-time control systems using ROS 2"
+        }
+      ],
+      "match": {
+        "original_term": "real-time control systems using ROS 2",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.6,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'real-time control systems using ROS 2' combines elements of control systems and ROS 2, but none of the candidates precisely capture this specific skill. The closest is 'control systems' (esco:4ff549c3-daa5-4def-9916-301c7bdf13b8), but it lacks the real-time and ROS 2 specificity.",
+        "candidates": [
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.523
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.513
+          },
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.445
+          }
+        ]
+      }
+    },
+    {
+      "term": "Robot Operating System",
+      "canonical": {
+        "id": "custom:ros2",
+        "label": "ROS 2",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Robot Operating System"
+        }
+      ],
+      "match": {
+        "original_term": "Robot Operating System",
+        "canonical_id": "custom:ros2",
+        "canonical_label": "ROS 2",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "robotic arm programming with ROS MoveIt",
+      "canonical": {
+        "id": "custom:robot-programming",
+        "label": "robot programming",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "robotic arm programming with ROS MoveIt"
+        }
+      ],
+      "match": {
+        "original_term": "robotic arm programming with ROS MoveIt",
+        "canonical_id": "custom:robot-programming",
+        "canonical_label": "robot programming",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'robotic arm programming with ROS MoveIt' directly relates to writing software for a robotic system, which matches the definition of 'robot programming' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:robot-manipulators",
+            "label": "robot manipulators",
+            "score": 0.551
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.523
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.404
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROS node communication",
+      "canonical": {
+        "id": "custom:ros2-node-development",
+        "label": "ROS 2 node development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "ROS node communication"
+        }
+      ],
+      "match": {
+        "original_term": "ROS node communication",
+        "canonical_id": "custom:ros2-node-development",
+        "canonical_label": "ROS 2 node development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ROS node communication' directly relates to the development of ROS 2 nodes, which includes communication between nodes, as described in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:ros2-node-development",
+            "label": "ROS 2 node development",
+            "score": 0.617
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.495
+          },
+          {
+            "id": "esco:debef2fc-7af4-4bff-ac92-4d0317915a84",
+            "label": "electronic communication",
+            "score": 0.447
+          }
+        ]
+      }
+    },
+    {
+      "term": "RRT in simulation environments",
+      "canonical": {
+        "id": "custom:robot-simulation",
+        "label": "robot simulation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "RRT in simulation environments"
+        }
+      ],
+      "match": {
+        "original_term": "RRT in simulation environments",
+        "canonical_id": "custom:robot-simulation",
+        "canonical_label": "robot simulation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'RRT in simulation environments' directly relates to simulating robots, which matches the 'robot simulation' entry.",
+        "candidates": [
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.445
+          },
+          {
+            "id": "custom:gazebo",
+            "label": "Gazebo simulator",
+            "score": 0.226
+          },
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "Rviz",
+      "canonical": {
+        "id": "custom:rviz",
+        "label": "RViz 2",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Rviz"
+        }
+      ],
+      "match": {
+        "original_term": "Rviz",
+        "canonical_id": "custom:rviz",
+        "canonical_label": "RViz 2",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The extracted phrase 'Rviz' directly matches the label 'RViz 2' and its also called entries, which include 'RViz' and 'rviz2'.",
+        "candidates": [
+          {
+            "id": "custom:rviz",
+            "label": "RViz 2",
+            "score": 0.872
+          },
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.158
+          },
+          {
+            "id": "custom:tableau",
+            "label": "Tableau",
+            "score": 0.153
+          }
+        ]
+      }
+    },
+    {
+      "term": "sensor data processing with OpenCV",
+      "canonical": {
+        "id": "custom:opencv",
+        "label": "OpenCV",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "sensor data processing with OpenCV"
+        }
+      ],
+      "match": {
+        "original_term": "sensor data processing with OpenCV",
+        "canonical_id": "custom:opencv",
+        "canonical_label": "OpenCV",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'sensor data processing with OpenCV' directly references the use of OpenCV for processing sensor data, which aligns precisely with the 'OpenCV' entry in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:opencv",
+            "label": "OpenCV",
+            "score": 0.469
+          },
+          {
+            "id": "custom:robot-sensors",
+            "label": "robot sensors",
+            "score": 0.445
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.387
+          }
+        ]
+      }
+    },
+    {
+      "term": "sensor fusion with Kalman filters",
+      "canonical": {
+        "id": "custom:sensor-fusion",
+        "label": "sensor fusion",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "sensor fusion with Kalman filters"
+        }
+      ],
+      "match": {
+        "original_term": "sensor fusion with Kalman filters",
+        "canonical_id": "custom:sensor-fusion",
+        "canonical_label": "sensor fusion",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.644,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.26",
+        "candidates": [
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.644
+          },
+          {
+            "id": "esco:70a7b3b3-31ef-4b29-a30f-bb7299dff39b",
+            "label": "sensors",
+            "score": 0.381
+          },
+          {
+            "id": "esco:fa7d581b-da0e-47cf-bae8-4d07f267a225",
+            "label": "infrared sensors",
+            "score": 0.351
+          }
+        ]
+      }
+    },
+    {
+      "term": "This course covers robotics programming fundamentals",
+      "canonical": {
+        "id": "custom:robot-programming",
+        "label": "robot programming",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "This course covers robotics programming fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "This course covers robotics programming fundamentals",
+        "canonical_id": "custom:robot-programming",
+        "canonical_label": "robot programming",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'robotics programming fundamentals' directly matches the label 'robot programming' and is explicitly listed in its 'also called' section.",
+        "candidates": [
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.595
+          },
+          {
+            "id": "esco:e87ec79a-c9ff-46f5-84fa-7a0f394cdf40",
+            "label": "robotics",
+            "score": 0.41
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.358
+          }
+        ]
+      }
+    },
+    {
+      "term": "Topics include robot kinematics",
+      "canonical": {
+        "id": "custom:robot-kinematics",
+        "label": "robot kinematics",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Topics include robot kinematics"
+        }
+      ],
+      "match": {
+        "original_term": "Topics include robot kinematics",
+        "canonical_id": "custom:robot-kinematics",
+        "canonical_label": "robot kinematics",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.684,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.26",
+        "candidates": [
+          {
+            "id": "custom:robot-kinematics",
+            "label": "robot kinematics",
+            "score": 0.684
+          },
+          {
+            "id": "custom:forward-kinematics",
+            "label": "forward kinematics",
+            "score": 0.423
+          },
+          {
+            "id": "custom:robot-dynamics",
+            "label": "robot dynamics",
+            "score": 0.41
+          }
+        ]
+      }
+    }
+  ]
+}

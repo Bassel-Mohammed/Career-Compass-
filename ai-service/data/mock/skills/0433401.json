@@ -1,0 +1,2490 @@
+{
+  "course_code": "0433401",
+  "course_codes": [
+    "0433401"
+  ],
+  "course_title": "Neural Networks",
+  "credit_hours": 2,
+  "plans": [
+    "CS/AI"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "needs_review": 10,
+      "no_match": 20,
+      "accepted": 23
+    },
+    "by_method": {
+      "llm": 19,
+      "embedding_reranker": 30,
+      "exact_alias": 4
+    }
+  },
+  "total_skills": 53,
+  "skills": [
+    {
+      "term": "activation functions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the architecture and components of a perceptron, including weights, bias, and activation functions."
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Activation Functions and Their Impact on Network Performance"
+        },
+        {
+          "source": "description",
+          "text": "activation functions"
+        }
+      ],
+      "match": {
+        "original_term": "activation functions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'activation functions' as a skill. The closest entries are related to electronics, mechanics, or robotics systems, but none specifically address activation functions in the context of neural networks or machine learning.",
+        "candidates": [
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.439
+          },
+          {
+            "id": "esco:af0bbc31-b54d-4e8d-82b1-2e91a1115523",
+            "label": "mechanics of trains",
+            "score": 0.425
+          },
+          {
+            "id": "esco:d11fd23b-ad01-4f12-85f4-e0d2ed16d5af",
+            "label": "functional properties of foods",
+            "score": 0.255
+          }
+        ]
+      }
+    },
+    {
+      "term": "CNNs",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of convolutional neural networks (CNNs) and their application in image classification tasks."
+        },
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Introduction to Convolutional Neural Networks (CNNs)"
+        }
+      ],
+      "match": {
+        "original_term": "CNNs",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.227,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.227
+          },
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.226
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.21
+          }
+        ]
+      }
+    },
+    {
+      "term": "Adam",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply optimization algorithms such as Adam and stochastic gradient descent to train neural networks using TensorFlow."
+        }
+      ],
+      "match": {
+        "original_term": "Adam",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.204,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.204
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.198
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.184
+          }
+        ]
+      }
+    },
+    {
+      "term": "application in image classification",
+      "canonical": {
+        "id": "custom:computer-vision",
+        "label": "computer vision",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of convolutional neural networks (CNNs) and their application in image classification tasks."
+        }
+      ],
+      "match": {
+        "original_term": "application in image classification",
+        "canonical_id": "custom:computer-vision",
+        "canonical_label": "computer vision",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'application in image classification' directly relates to using CNNs for image classification, which is a core component of computer vision.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.42
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.403
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.398
+          }
+        ]
+      }
+    },
+    {
+      "term": "architecture",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the architecture and components of a perceptron, including weights, bias, and activation functions."
+        }
+      ],
+      "match": {
+        "original_term": "architecture",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'architecture' in the context of a perceptron refers to the structure of a machine learning model, which is not directly covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.705
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.681
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.586
+          }
+        ]
+      }
+    },
+    {
+      "term": "bias",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the architecture and components of a perceptron, including weights, bias, and activation functions."
+        }
+      ],
+      "match": {
+        "original_term": "bias",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.229,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.229
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.22
+          },
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "components of a perceptron",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the architecture and components of a perceptron, including weights, bias, and activation functions."
+        }
+      ],
+      "match": {
+        "original_term": "components of a perceptron",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to the components of a perceptron, which is a machine learning concept. The closest entries are about hardware, electronics, or robotics components, but none match the precise skill described in the syllabus phrase.",
+        "candidates": [
+          {
+            "id": "esco:f5db895c-533b-421b-8e7a-0ea39aadf3e5",
+            "label": "components of clocks",
+            "score": 0.511
+          },
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.51
+          },
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.509
+          }
+        ]
+      }
+    },
+    {
+      "term": "GAN",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a generative adversarial network (GAN) for image generation using PyTorch."
+        }
+      ],
+      "match": {
+        "original_term": "GAN",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.191,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.191
+          },
+          {
+            "id": "custom:pytorch",
+            "label": "PyTorch",
+            "score": 0.187
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.177
+          }
+        ]
+      }
+    },
+    {
+      "term": "generative adversarial network",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a generative adversarial network (GAN) for image generation using PyTorch."
+        }
+      ],
+      "match": {
+        "original_term": "generative adversarial network",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'generative adversarial network' does not match any of the provided taxonomy entries, which include topics like large language models, deep learning, image processing, and graphics editor software. None of these entries specifically refer to GANs.",
+        "candidates": [
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.442
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.387
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "image generation using PyTorch",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a generative adversarial network (GAN) for image generation using PyTorch."
+        }
+      ],
+      "match": {
+        "original_term": "image generation using PyTorch",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'image generation using PyTorch' refers to creating images via generative models (like GANs) using the PyTorch framework, which is not captured by any of the provided taxonomy entries. None of the candidates specifically address generative image creation with PyTorch.",
+        "candidates": [
+          {
+            "id": "custom:pytorch",
+            "label": "PyTorch",
+            "score": 0.477
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.376
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.366
+          }
+        ]
+      }
+    },
+    {
+      "term": "mathematical formulation of backpropagation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the mathematical formulation of backpropagation and its role in training multi-layer perceptrons."
+        }
+      ],
+      "match": {
+        "original_term": "mathematical formulation of backpropagation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.242,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.242
+          },
+          {
+            "id": "custom:forward-kinematics",
+            "label": "forward kinematics",
+            "score": 0.219
+          },
+          {
+            "id": "esco:be99117b-49a1-4ec2-a670-e9baac66c1bd",
+            "label": "principles of combustion engines",
+            "score": 0.211
+          }
+        ]
+      }
+    },
+    {
+      "term": "optimization algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply optimization algorithms such as Adam and stochastic gradient descent to train neural networks using TensorFlow."
+        }
+      ],
+      "match": {
+        "original_term": "optimization algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.636,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.15",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.636
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.488
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.484
+          }
+        ]
+      }
+    },
+    {
+      "term": "principles of convolutional neural networks",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of convolutional neural networks (CNNs) and their application in image classification tasks."
+        }
+      ],
+      "match": {
+        "original_term": "principles of convolutional neural networks",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.621,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.19",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.621
+          },
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.434
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.378
+          }
+        ]
+      }
+    },
+    {
+      "term": "role in training multi-layer perceptrons",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the mathematical formulation of backpropagation and its role in training multi-layer perceptrons."
+        }
+      ],
+      "match": {
+        "original_term": "role in training multi-layer perceptrons",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.212,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.212
+          },
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.195
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.189
+          }
+        ]
+      }
+    },
+    {
+      "term": "weights",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the architecture and components of a perceptron, including weights, bias, and activation functions."
+        }
+      ],
+      "match": {
+        "original_term": "weights",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.228,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.228
+          },
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.227
+          },
+          {
+            "id": "esco:f5db895c-533b-421b-8e7a-0ea39aadf3e5",
+            "label": "components of clocks",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "Backpropagation Algorithm",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Multi-Layer Perceptrons and Backpropagation Algorithm"
+        },
+        {
+          "source": "description",
+          "text": "backpropagation algorithm"
+        }
+      ],
+      "match": {
+        "original_term": "Backpropagation Algorithm",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Backpropagation Algorithm' refers to a specific algorithm used in training neural networks, which is not directly covered by any of the provided taxonomy entries. None of the candidates explicitly or implicitly refer to backpropagation.",
+        "candidates": [
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.446
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.259
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "Computer Vision",
+      "canonical": {
+        "id": "custom:computer-vision",
+        "label": "computer vision",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Applications of Neural Networks in NLP and Computer Vision"
+        },
+        {
+          "source": "description",
+          "text": "computer vision"
+        }
+      ],
+      "match": {
+        "original_term": "Computer Vision",
+        "canonical_id": "custom:computer-vision",
+        "canonical_label": "computer vision",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "GANs",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Generative Adversarial Networks (GANs) and Their Training Process"
+        },
+        {
+          "source": "description",
+          "text": "GANs"
+        }
+      ],
+      "match": {
+        "original_term": "GANs",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.225,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.225
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.214
+          },
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.204
+          }
+        ]
+      }
+    },
+    {
+      "term": "Image Recognition",
+      "canonical": {
+        "id": "custom:object-detection",
+        "label": "object detection",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "CNN Architectures for Image Recognition"
+        },
+        {
+          "source": "description",
+          "text": "image recognition"
+        }
+      ],
+      "match": {
+        "original_term": "Image Recognition",
+        "canonical_id": "custom:object-detection",
+        "canonical_label": "object detection",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Image Recognition' is directly related to 'object detection' as it is also called 'object recognition' and involves locating and classifying objects within images, which matches the syllabus evidence.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.529
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.478
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.462
+          }
+        ]
+      }
+    },
+    {
+      "term": "Multi-Layer Perceptrons",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Multi-Layer Perceptrons and Backpropagation Algorithm"
+        },
+        {
+          "source": "description",
+          "text": "multi-layer perceptrons"
+        }
+      ],
+      "match": {
+        "original_term": "Multi-Layer Perceptrons",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.354,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.354
+          },
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.269
+          },
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "Perceptrons",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Neural Networks and Perceptrons"
+        },
+        {
+          "source": "description",
+          "text": "perceptrons"
+        }
+      ],
+      "match": {
+        "original_term": "Perceptrons",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.316,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.316
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.256
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "RNNs",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Recurrent Neural Networks (RNNs) and Sequence Modeling"
+        },
+        {
+          "source": "description",
+          "text": "RNNs"
+        }
+      ],
+      "match": {
+        "original_term": "RNNs",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.261,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.261
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.218
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.209
+          }
+        ]
+      }
+    },
+    {
+      "term": "Sequence Modeling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Recurrent Neural Networks (RNNs) and Sequence Modeling"
+        },
+        {
+          "source": "description",
+          "text": "sequence modeling"
+        }
+      ],
+      "match": {
+        "original_term": "Sequence Modeling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Sequence Modeling' as described in the syllabus. The closest entries are related to deep learning or data modeling, but they do not specifically capture the concept of sequence modeling.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.5
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.298
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.286
+          }
+        ]
+      }
+    },
+    {
+      "term": "PyTorch Basic Neural Network Implementation",
+      "canonical": {
+        "id": "custom:pytorch",
+        "label": "PyTorch",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "PyTorch Basic Neural Network Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "PyTorch Basic Neural Network Implementation",
+        "canonical_id": "custom:pytorch",
+        "canonical_label": "PyTorch",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'PyTorch Basic Neural Network Implementation' directly refers to using PyTorch, a deep learning framework, which matches the label 'PyTorch' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.457
+          },
+          {
+            "id": "custom:pytorch",
+            "label": "PyTorch",
+            "score": 0.448
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.189
+          }
+        ]
+      }
+    },
+    {
+      "term": "TensorFlow Basic Neural Network Implementation",
+      "canonical": {
+        "id": "custom:tensorflow",
+        "label": "TensorFlow",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "TensorFlow Basic Neural Network Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "TensorFlow Basic Neural Network Implementation",
+        "canonical_id": "custom:tensorflow",
+        "canonical_label": "TensorFlow",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'TensorFlow Basic Neural Network Implementation' directly refers to using TensorFlow, a deep learning framework, for implementing neural networks, which matches the 'TensorFlow' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.473
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.471
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "Advanced Techniques in Neural Network Training",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Advanced Techniques in Neural Network Training"
+        }
+      ],
+      "match": {
+        "original_term": "Advanced Techniques in Neural Network Training",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Advanced Techniques in Neural Network Training' is a specific application within the broader field of deep learning, which is directly aligned with the taxonomy entry for 'deep learning' that includes neural networks.",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.518
+          },
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.354
+          },
+          {
+            "id": "esco:300d432b-f457-4cd3-9cb1-1858c7d14954",
+            "label": "OpenEdge Advanced Business Language",
+            "score": 0.303
+          }
+        ]
+      }
+    },
+    {
+      "term": "CNN Architectures",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "CNN Architectures for Image Recognition"
+        }
+      ],
+      "match": {
+        "original_term": "CNN Architectures",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.304,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.304
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.294
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.255
+          }
+        ]
+      }
+    },
+    {
+      "term": "Convolutional Neural Networks",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Introduction to Convolutional Neural Networks (CNNs)"
+        }
+      ],
+      "match": {
+        "original_term": "Convolutional Neural Networks",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.739,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.49",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.739
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.251
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.229
+          }
+        ]
+      }
+    },
+    {
+      "term": "Deep Learning Frameworks",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Deep Learning Frameworks: TensorFlow and PyTorch Overview"
+        }
+      ],
+      "match": {
+        "original_term": "Deep Learning Frameworks",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.701,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.33",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.701
+          },
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.372
+          },
+          {
+            "id": "esco:99207709-d076-4cce-ba38-e90d3bb28806",
+            "label": "resource description framework query language",
+            "score": 0.318
+          }
+        ]
+      }
+    },
+    {
+      "term": "Final Project Preparation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Course Review and Final Project Preparation"
+        }
+      ],
+      "match": {
+        "original_term": "Final Project Preparation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Final Project Preparation' does not match any of the provided taxonomy entries, as none of the labels or descriptions align with the concept of preparing for a final project.",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.423
+          },
+          {
+            "id": "esco:d512d178-37a6-4eab-a660-412d2bb0824a",
+            "label": "test procedures",
+            "score": 0.242
+          },
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.238
+          }
+        ]
+      }
+    },
+    {
+      "term": "Generative Adversarial Networks",
+      "canonical": {
+        "id": "custom:large-language-models",
+        "label": "large language models",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Generative Adversarial Networks (GANs) and Their Training Process"
+        }
+      ],
+      "match": {
+        "original_term": "Generative Adversarial Networks",
+        "canonical_id": "custom:large-language-models",
+        "canonical_label": "large language models",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Generative Adversarial Networks (GANs) are a type of generative AI, which is explicitly listed under 'large language models' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.458
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.454
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.241
+          }
+        ]
+      }
+    },
+    {
+      "term": "Impact on Network Performance",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Activation Functions and Their Impact on Network Performance"
+        }
+      ],
+      "match": {
+        "original_term": "Impact on Network Performance",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.389,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.389
+          },
+          {
+            "id": "esco:69fe6624-bc7f-412e-ad6d-35c7b0df842e",
+            "label": "instrument performance elements",
+            "score": 0.384
+          },
+          {
+            "id": "esco:f6424ebb-8401-446b-9f7e-10d7c854da02",
+            "label": "ICT network simulation",
+            "score": 0.371
+          }
+        ]
+      }
+    },
+    {
+      "term": "Implementing Neural Networks with PyTorch",
+      "canonical": {
+        "id": "custom:pytorch",
+        "label": "PyTorch",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Implementing Neural Networks with PyTorch"
+        }
+      ],
+      "match": {
+        "original_term": "Implementing Neural Networks with PyTorch",
+        "canonical_id": "custom:pytorch",
+        "canonical_label": "PyTorch",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Implementing Neural Networks with PyTorch' directly references PyTorch as the framework used for implementing neural networks, matching the label 'PyTorch' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.592
+          },
+          {
+            "id": "custom:pytorch",
+            "label": "PyTorch",
+            "score": 0.486
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.206
+          }
+        ]
+      }
+    },
+    {
+      "term": "Implementing Neural Networks with TensorFlow",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Implementing Neural Networks with TensorFlow"
+        }
+      ],
+      "match": {
+        "original_term": "Implementing Neural Networks with TensorFlow",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Implementing Neural Networks with TensorFlow' directly relates to deep learning, which is explicitly defined as 'Machine learning with multi-layer neural networks' and includes TensorFlow as a framework.",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.607
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.51
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "Long Short-Term Memory Networks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Long Short-Term Memory (LSTM) Networks and Their Applications"
+        }
+      ],
+      "match": {
+        "original_term": "Long Short-Term Memory Networks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.374,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.374
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.369
+          },
+          {
+            "id": "esco:8203b07a-8097-4383-aff6-603b7df7f0f4",
+            "label": "ATM systems",
+            "score": 0.245
+          }
+        ]
+      }
+    },
+    {
+      "term": "LSTM",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Long Short-Term Memory (LSTM) Networks and Their Applications"
+        }
+      ],
+      "match": {
+        "original_term": "LSTM",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.22,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:8203b07a-8097-4383-aff6-603b7df7f0f4",
+            "label": "ATM systems",
+            "score": 0.22
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.194
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.193
+          }
+        ]
+      }
+    },
+    {
+      "term": "Neural Networks",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Neural Networks and Perceptrons"
+        }
+      ],
+      "match": {
+        "original_term": "Neural Networks",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Neural Networks in NLP",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Applications of Neural Networks in NLP and Computer Vision"
+        }
+      ],
+      "match": {
+        "original_term": "Neural Networks in NLP",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.736,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.22",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.736
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.516
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.452
+          }
+        ]
+      }
+    },
+    {
+      "term": "Optimization Techniques in Neural Networks",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Optimization Techniques in Neural Networks"
+        }
+      ],
+      "match": {
+        "original_term": "Optimization Techniques in Neural Networks",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.625,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.24",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.625
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.388
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.245
+          }
+        ]
+      }
+    },
+    {
+      "term": "PyTorch Overview",
+      "canonical": {
+        "id": "custom:pytorch",
+        "label": "PyTorch",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Deep Learning Frameworks: TensorFlow and PyTorch Overview"
+        }
+      ],
+      "match": {
+        "original_term": "PyTorch Overview",
+        "canonical_id": "custom:pytorch",
+        "canonical_label": "PyTorch",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.739,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.44",
+        "candidates": [
+          {
+            "id": "custom:pytorch",
+            "label": "PyTorch",
+            "score": 0.739
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.3
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.224
+          }
+        ]
+      }
+    },
+    {
+      "term": "Recurrent Neural Networks",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Recurrent Neural Networks (RNNs) and Sequence Modeling"
+        }
+      ],
+      "match": {
+        "original_term": "Recurrent Neural Networks",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.748,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.32",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.748
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.425
+          },
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.221
+          }
+        ]
+      }
+    },
+    {
+      "term": "TensorFlow",
+      "canonical": {
+        "id": "custom:tensorflow",
+        "label": "TensorFlow",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Deep Learning Frameworks: TensorFlow and PyTorch Overview"
+        }
+      ],
+      "match": {
+        "original_term": "TensorFlow",
+        "canonical_id": "custom:tensorflow",
+        "canonical_label": "TensorFlow",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Training Process",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Generative Adversarial Networks (GANs) and Their Training Process"
+        }
+      ],
+      "match": {
+        "original_term": "Training Process",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Training Process' refers specifically to the process of training models, particularly in the context of GANs. None of the provided taxonomy entries directly or indirectly refer to the training process of machine learning models.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.452
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.263
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.257
+          }
+        ]
+      }
+    },
+    {
+      "term": "Adam optimizer",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Adam optimizer"
+        }
+      ],
+      "match": {
+        "original_term": "Adam optimizer",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.19,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.19
+          },
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.187
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.177
+          }
+        ]
+      }
+    },
+    {
+      "term": "data normalization",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "data normalization"
+        }
+      ],
+      "match": {
+        "original_term": "data normalization",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.679,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.15",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.679
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.527
+          },
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.456
+          }
+        ]
+      }
+    },
+    {
+      "term": "explores applications in natural language processing",
+      "canonical": {
+        "id": "custom:natural-language-processing",
+        "label": "natural language processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "explores applications in natural language processing"
+        }
+      ],
+      "match": {
+        "original_term": "explores applications in natural language processing",
+        "canonical_id": "custom:natural-language-processing",
+        "canonical_label": "natural language processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.691,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.31",
+        "candidates": [
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.691
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.378
+          },
+          {
+            "id": "esco:04f1b938-d4d4-4cb1-a863-982af76b9d93",
+            "label": "SAS language",
+            "score": 0.341
+          }
+        ]
+      }
+    },
+    {
+      "term": "generative modeling",
+      "canonical": {
+        "id": "custom:large-language-models",
+        "label": "large language models",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "generative modeling"
+        }
+      ],
+      "match": {
+        "original_term": "generative modeling",
+        "canonical_id": "custom:large-language-models",
+        "canonical_label": "large language models",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'generative modeling' is explicitly listed as an alias for 'large language models' in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.518
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.249
+          },
+          {
+            "id": "custom:retrieval-augmented-generation",
+            "label": "retrieval-augmented generation",
+            "score": 0.241
+          }
+        ]
+      }
+    },
+    {
+      "term": "It discusses standardization practices",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "It discusses standardization practices"
+        }
+      ],
+      "match": {
+        "original_term": "It discusses standardization practices",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.355,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:1618ee1c-6753-456e-a171-3d7e5f75404a",
+            "label": "good laboratory practice",
+            "score": 0.355
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.351
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.344
+          }
+        ]
+      }
+    },
+    {
+      "term": "PyTorch",
+      "canonical": {
+        "id": "custom:pytorch",
+        "label": "PyTorch",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "PyTorch"
+        }
+      ],
+      "match": {
+        "original_term": "PyTorch",
+        "canonical_id": "custom:pytorch",
+        "canonical_label": "PyTorch",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "ReLU",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "ReLU"
+        }
+      ],
+      "match": {
+        "original_term": "ReLU",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.209,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.209
+          },
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.201
+          },
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.174
+          }
+        ]
+      }
+    },
+    {
+      "term": "sigmoid",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "sigmoid"
+        }
+      ],
+      "match": {
+        "original_term": "sigmoid",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.183,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.183
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.179
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.16
+          }
+        ]
+      }
+    },
+    {
+      "term": "stochastic gradient descent",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "stochastic gradient descent"
+        }
+      ],
+      "match": {
+        "original_term": "stochastic gradient descent",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.201,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:inferential-statistics",
+            "label": "inferential statistics",
+            "score": 0.201
+          },
+          {
+            "id": "custom:standard-deviation",
+            "label": "standard deviation",
+            "score": 0.188
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.182
+          }
+        ]
+      }
+    },
+    {
+      "term": "validation techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "validation techniques"
+        }
+      ],
+      "match": {
+        "original_term": "validation techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill phrase 'validation techniques'. The closest entries are related to testing or analysis but do not specifically refer to validation techniques.",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.465
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.245
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.239
+          }
+        ]
+      }
+    }
+  ]
+}

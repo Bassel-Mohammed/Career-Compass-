@@ -1,0 +1,2496 @@
+{
+  "course_code": "0181503",
+  "course_codes": [
+    "0181503",
+    "A0181504"
+  ],
+  "course_title": "Programming Fundamentals",
+  "credit_hours": 2,
+  "plans": [
+    "CS",
+    "CS/AI",
+    "CYBER",
+    "SE"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "accepted": 27,
+      "no_match": 15,
+      "needs_review": 12
+    },
+    "by_method": {
+      "exact_alias": 7,
+      "embedding_reranker": 25,
+      "llm": 22
+    }
+  },
+  "total_skills": 54,
+  "skills": [
+    {
+      "term": "Java",
+      "canonical": {
+        "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "label": "Java",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 4,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define fundamental programming concepts such as variables, data types, and control flow structures in Python and Java."
+        },
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the syntax and semantics of Python and Java, including their standard libraries and built-in functions."
+        },
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Introduction to Java"
+        },
+        {
+          "source": "description",
+          "text": "Java"
+        }
+      ],
+      "match": {
+        "original_term": "Java",
+        "canonical_id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "canonical_label": "Java",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "arrays",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply algorithmic problem-solving techniques to implement solutions using loops, conditionals, and data structures such as arrays and linked lists."
+        },
+        {
+          "source": "description",
+          "text": "arrays"
+        }
+      ],
+      "match": {
+        "original_term": "arrays",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.271,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:51586df8-1c46-4b47-8583-773cb63bf00b",
+            "label": "R",
+            "score": 0.271
+          },
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.236
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "data structures",
+      "canonical": {
+        "id": "custom:data-structures",
+        "label": "data structures",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply algorithmic problem-solving techniques to implement solutions using loops, conditionals, and data structures such as arrays and linked lists."
+        },
+        {
+          "source": "description",
+          "text": "data structures"
+        }
+      ],
+      "match": {
+        "original_term": "data structures",
+        "canonical_id": "custom:data-structures",
+        "canonical_label": "data structures",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "linked lists",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply algorithmic problem-solving techniques to implement solutions using loops, conditionals, and data structures such as arrays and linked lists."
+        },
+        {
+          "source": "description",
+          "text": "linked lists"
+        }
+      ],
+      "match": {
+        "original_term": "linked lists",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.273,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:0de61385-de6d-4146-ba32-1cc1bc102220",
+            "label": "Lisp",
+            "score": 0.273
+          },
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.232
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.228
+          }
+        ]
+      }
+    },
+    {
+      "term": "built-in functions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the syntax and semantics of Python and Java, including their standard libraries and built-in functions."
+        }
+      ],
+      "match": {
+        "original_term": "built-in functions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.22,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:9ce670ec-318c-4a91-9179-03437db728dc",
+            "label": "ICT software specifications",
+            "score": 0.22
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.208
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.205
+          }
+        ]
+      }
+    },
+    {
+      "term": "classes",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of object-oriented programming, including classes, objects, inheritance, and polymorphism."
+        }
+      ],
+      "match": {
+        "original_term": "classes",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.268,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.268
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.258
+          },
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.246
+          }
+        ]
+      }
+    },
+    {
+      "term": "conditionals",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply algorithmic problem-solving techniques to implement solutions using loops, conditionals, and data structures such as arrays and linked lists."
+        }
+      ],
+      "match": {
+        "original_term": "conditionals",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.252,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.252
+          },
+          {
+            "id": "esco:def007fa-5fed-4a5f-91a2-b0d7e3db1be1",
+            "label": "COBOL",
+            "score": 0.241
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.233
+          }
+        ]
+      }
+    },
+    {
+      "term": "control flow structures in Python",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define fundamental programming concepts such as variables, data types, and control flow structures in Python and Java."
+        }
+      ],
+      "match": {
+        "original_term": "control flow structures in Python",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'control flow structures in Python'. The closest entry is 'control panel components', which refers to physical components in control panels, not programming concepts. The other entries are either about different programming languages or bro",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.516
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.432
+          },
+          {
+            "id": "esco:fc72d86f-7e69-4bf8-b407-23303a798a0b",
+            "label": "control panel components",
+            "score": 0.382
+          }
+        ]
+      }
+    },
+    {
+      "term": "data types",
+      "canonical": {
+        "id": "custom:data-structures",
+        "label": "data structures",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define fundamental programming concepts such as variables, data types, and control flow structures in Python and Java."
+        }
+      ],
+      "match": {
+        "original_term": "data types",
+        "canonical_id": "custom:data-structures",
+        "canonical_label": "data structures",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.739,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.22",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.739
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.52
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.476
+          }
+        ]
+      }
+    },
+    {
+      "term": "file I/O operations in Python",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement basic software applications using Java Swing for GUI development and file I/O operations in Python."
+        }
+      ],
+      "match": {
+        "original_term": "file I/O operations in Python",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'file I/O operations in Python' refers to a specific programming skill related to reading and writing files in Python, which is not captured by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.494
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.359
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.345
+          }
+        ]
+      }
+    },
+    {
+      "term": "fundamental programming",
+      "canonical": {
+        "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+        "label": "computer programming",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define fundamental programming concepts such as variables, data types, and control flow structures in Python and Java."
+        }
+      ],
+      "match": {
+        "original_term": "fundamental programming",
+        "canonical_id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+        "canonical_label": "computer programming",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'fundamental programming' aligns with the broader concept of 'computer programming' which encompasses the techniques and principles taught in the syllabus, including variables, data types, and control flow structures in Python and Java.",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.541
+          },
+          {
+            "id": "esco:69bbd53f-fbb0-4476-b4b2-ef7844464e28",
+            "label": "web programming",
+            "score": 0.535
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.533
+          }
+        ]
+      }
+    },
+    {
+      "term": "GUI development",
+      "canonical": {
+        "id": "custom:frontend-development",
+        "label": "front-end development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement basic software applications using Java Swing for GUI development and file I/O operations in Python."
+        }
+      ],
+      "match": {
+        "original_term": "GUI development",
+        "canonical_id": "custom:frontend-development",
+        "canonical_label": "front-end development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'GUI development' refers to creating user interfaces, which aligns with 'front-end development' as the user-facing layer of a web application.",
+        "candidates": [
+          {
+            "id": "esco:dba46f87-0831-49cd-a1c7-340a653c0221",
+            "label": "Agile development",
+            "score": 0.553
+          },
+          {
+            "id": "esco:4840338b-ac6c-486a-be1d-9ddfe00b8bdf",
+            "label": "Spiral development",
+            "score": 0.543
+          },
+          {
+            "id": "esco:ed1d8bd4-cd2a-4c64-b665-56d70651026c",
+            "label": "Prototyping development",
+            "score": 0.524
+          }
+        ]
+      }
+    },
+    {
+      "term": "inheritance",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of object-oriented programming, including classes, objects, inheritance, and polymorphism."
+        }
+      ],
+      "match": {
+        "original_term": "inheritance",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.276,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.276
+          },
+          {
+            "id": "esco:51586df8-1c46-4b47-8583-773cb63bf00b",
+            "label": "R",
+            "score": 0.267
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.257
+          }
+        ]
+      }
+    },
+    {
+      "term": "objects",
+      "canonical": {
+        "id": "custom:object-oriented-programming",
+        "label": "object-oriented programming",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of object-oriented programming, including classes, objects, inheritance, and polymorphism."
+        }
+      ],
+      "match": {
+        "original_term": "objects",
+        "canonical_id": "custom:object-oriented-programming",
+        "canonical_label": "object-oriented programming",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'objects' is directly related to object-oriented programming, which is explicitly mentioned in the syllabus as part of the principles being taught.",
+        "candidates": [
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.619
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.529
+          },
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.504
+          }
+        ]
+      }
+    },
+    {
+      "term": "polymorphism",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of object-oriented programming, including classes, objects, inheritance, and polymorphism."
+        }
+      ],
+      "match": {
+        "original_term": "polymorphism",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.277,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.277
+          },
+          {
+            "id": "esco:51586df8-1c46-4b47-8583-773cb63bf00b",
+            "label": "R",
+            "score": 0.271
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.261
+          }
+        ]
+      }
+    },
+    {
+      "term": "principles of object-oriented programming",
+      "canonical": {
+        "id": "custom:object-oriented-programming",
+        "label": "object-oriented programming",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of object-oriented programming, including classes, objects, inheritance, and polymorphism."
+        }
+      ],
+      "match": {
+        "original_term": "principles of object-oriented programming",
+        "canonical_id": "custom:object-oriented-programming",
+        "canonical_label": "object-oriented programming",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.78,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.19",
+        "candidates": [
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.78
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.591
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.421
+          }
+        ]
+      }
+    },
+    {
+      "term": "semantics of Python",
+      "canonical": {
+        "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "label": "Python",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the syntax and semantics of Python and Java, including their standard libraries and built-in functions."
+        }
+      ],
+      "match": {
+        "original_term": "semantics of Python",
+        "canonical_id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "canonical_label": "Python",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.63,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.40",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.63
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.225
+          },
+          {
+            "id": "esco:9ce670ec-318c-4a91-9179-03437db728dc",
+            "label": "ICT software specifications",
+            "score": 0.207
+          }
+        ]
+      }
+    },
+    {
+      "term": "software applications using Java Swing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement basic software applications using Java Swing for GUI development and file I/O operations in Python."
+        }
+      ],
+      "match": {
+        "original_term": "software applications using Java Swing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'software applications using Java Swing' specifically refers to GUI development with Java Swing, which is not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.452
+          },
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.4
+          },
+          {
+            "id": "esco:be80acfc-b6f2-4411-9b8d-b19d9cd2556a",
+            "label": "Swift",
+            "score": 0.238
+          }
+        ]
+      }
+    },
+    {
+      "term": "standard libraries",
+      "canonical": {
+        "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+        "label": "software components libraries",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the syntax and semantics of Python and Java, including their standard libraries and built-in functions."
+        }
+      ],
+      "match": {
+        "original_term": "standard libraries",
+        "canonical_id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+        "canonical_label": "software components libraries",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'standard libraries' refers to reusable software components, which is directly captured by the entry 'software components libraries'.",
+        "candidates": [
+          {
+            "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+            "label": "software components libraries",
+            "score": 0.428
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.208
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.207
+          }
+        ]
+      }
+    },
+    {
+      "term": "syntax",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the syntax and semantics of Python and Java, including their standard libraries and built-in functions."
+        }
+      ],
+      "match": {
+        "original_term": "syntax",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.252,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.252
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.212
+          },
+          {
+            "id": "esco:c3a03c5a-c260-4c26-9b9a-873abb396f4d",
+            "label": "MATLAB",
+            "score": 0.191
+          }
+        ]
+      }
+    },
+    {
+      "term": "variables",
+      "canonical": {
+        "id": "custom:probability-distributions",
+        "label": "probability distributions",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define fundamental programming concepts such as variables, data types, and control flow structures in Python and Java."
+        }
+      ],
+      "match": {
+        "original_term": "variables",
+        "canonical_id": "custom:probability-distributions",
+        "canonical_label": "probability distributions",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.661,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.42",
+        "candidates": [
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.661
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.241
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "Algorithm Design",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Algorithm Design and Optimization"
+        },
+        {
+          "source": "description",
+          "text": "algorithm design"
+        }
+      ],
+      "match": {
+        "original_term": "Algorithm Design",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "File I/O",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "File I/O and Exception Handling in Python"
+        },
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "File I/O and Exception Handling in Java"
+        }
+      ],
+      "match": {
+        "original_term": "File I/O",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.215,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ce26e71f-2d47-474e-89b6-7920931ac4fc",
+            "label": "iOS",
+            "score": 0.215
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.202
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.194
+          }
+        ]
+      }
+    },
+    {
+      "term": "Functions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Functions and Modules in Python"
+        },
+        {
+          "source": "description",
+          "text": "functions"
+        }
+      ],
+      "match": {
+        "original_term": "Functions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.251,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:d11fd23b-ad01-4f12-85f4-e0d2ed16d5af",
+            "label": "functional properties of foods",
+            "score": 0.251
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.239
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "Operators",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Python Data Types and Operators"
+        },
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Java Data Types and Operators"
+        }
+      ],
+      "match": {
+        "original_term": "Operators",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.254,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.254
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.243
+          },
+          {
+            "id": "esco:09637f9c-ad8c-42ff-94d8-6a5a81d1dfd1",
+            "label": "types of sanders",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "Control Structures in Java",
+      "canonical": {
+        "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "label": "Java",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Control Structures in Java"
+        }
+      ],
+      "match": {
+        "original_term": "Control Structures in Java",
+        "canonical_id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "canonical_label": "Java",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Control Structures in Java' directly relates to Java programming, which is exactly what the 'Java' entry in the taxonomy describes.",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.5
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.433
+          },
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.407
+          }
+        ]
+      }
+    },
+    {
+      "term": "Control Structures in Python",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Control Structures in Python"
+        }
+      ],
+      "match": {
+        "original_term": "Control Structures in Python",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Control Structures in Python' refers to programming constructs like loops and conditionals, which are not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.514
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.425
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.42
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Structures in Java",
+      "canonical": {
+        "id": "custom:data-structures",
+        "label": "data structures",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Data Structures in Java"
+        }
+      ],
+      "match": {
+        "original_term": "Data Structures in Java",
+        "canonical_id": "custom:data-structures",
+        "canonical_label": "data structures",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.736,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.23",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.736
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.51
+          },
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.421
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Structures in Python",
+      "canonical": {
+        "id": "custom:data-structures",
+        "label": "data structures",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Data Structures in Python"
+        }
+      ],
+      "match": {
+        "original_term": "Data Structures in Python",
+        "canonical_id": "custom:data-structures",
+        "canonical_label": "data structures",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.726,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.20",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.726
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.521
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.428
+          }
+        ]
+      }
+    },
+    {
+      "term": "Exception Handling in Java",
+      "canonical": {
+        "id": "esco:438ff259-d086-4004-acda-1ec3e1631bc6",
+        "label": "software anomalies",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "File I/O and Exception Handling in Java"
+        }
+      ],
+      "match": {
+        "original_term": "Exception Handling in Java",
+        "canonical_id": "esco:438ff259-d086-4004-acda-1ec3e1631bc6",
+        "canonical_label": "software anomalies",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Exception Handling in Java' directly relates to handling software anomalies, which is explicitly described in the 'software anomalies' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.495
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.202
+          },
+          {
+            "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+            "label": "JavaScript",
+            "score": 0.201
+          }
+        ]
+      }
+    },
+    {
+      "term": "Exception Handling in Python",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "File I/O and Exception Handling in Python"
+        }
+      ],
+      "match": {
+        "original_term": "Exception Handling in Python",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Exception Handling in Python'. The closest entry is 'Python', but it is too broad and does not capture the specific skill of exception handling.",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.526
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.411
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.391
+          }
+        ]
+      }
+    },
+    {
+      "term": "GUI Development with Java Swing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "GUI Development with Java Swing"
+        }
+      ],
+      "match": {
+        "original_term": "GUI Development with Java Swing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically match the skill of 'GUI Development with Java Swing'. The closest entries are related to Java programming or front-end development, but none capture the specific focus on GUI development using Java Swing.",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.45
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.409
+          },
+          {
+            "id": "esco:dba46f87-0831-49cd-a1c7-340a653c0221",
+            "label": "Agile development",
+            "score": 0.405
+          }
+        ]
+      }
+    },
+    {
+      "term": "Java Data Types",
+      "canonical": {
+        "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "label": "Java",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Java Data Types and Operators"
+        }
+      ],
+      "match": {
+        "original_term": "Java Data Types",
+        "canonical_id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+        "canonical_label": "Java",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Java Data Types' is a specific topic within the broader 'Java' skill, which includes the techniques and principles of software development in Java, such as data types.",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.58
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.524
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.442
+          }
+        ]
+      }
+    },
+    {
+      "term": "Modules in Python",
+      "canonical": {
+        "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "label": "Python",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Functions and Modules in Python"
+        }
+      ],
+      "match": {
+        "original_term": "Modules in Python",
+        "canonical_id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "canonical_label": "Python",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.621,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.14",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.621
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.479
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.463
+          }
+        ]
+      }
+    },
+    {
+      "term": "Object-Oriented Programming in Java",
+      "canonical": {
+        "id": "custom:object-oriented-programming",
+        "label": "object-oriented programming",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Object-Oriented Programming in Java"
+        }
+      ],
+      "match": {
+        "original_term": "Object-Oriented Programming in Java",
+        "canonical_id": "custom:object-oriented-programming",
+        "canonical_label": "object-oriented programming",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.788,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.19",
+        "candidates": [
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.788
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.594
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.556
+          }
+        ]
+      }
+    },
+    {
+      "term": "Optimization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Algorithm Design and Optimization"
+        }
+      ],
+      "match": {
+        "original_term": "Optimization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.313,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.313
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.305
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.302
+          }
+        ]
+      }
+    },
+    {
+      "term": "Programming",
+      "canonical": {
+        "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "label": "Python",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Programming and Python"
+        }
+      ],
+      "match": {
+        "original_term": "Programming",
+        "canonical_id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "canonical_label": "Python",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.746,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.08",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.746
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.662
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.654
+          }
+        ]
+      }
+    },
+    {
+      "term": "Python",
+      "canonical": {
+        "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "label": "Python",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Programming and Python"
+        }
+      ],
+      "match": {
+        "original_term": "Python",
+        "canonical_id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "canonical_label": "Python",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Python Data Types",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Python Data Types and Operators"
+        }
+      ],
+      "match": {
+        "original_term": "Python Data Types",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Python Data Types' refers specifically to the fundamental data types in Python, such as integers, strings, lists, etc., which is not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.572
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.55
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.443
+          }
+        ]
+      }
+    },
+    {
+      "term": "advanced coursework in software development",
+      "canonical": {
+        "id": "custom:software-engineering",
+        "label": "software engineering",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "advanced coursework in software development"
+        }
+      ],
+      "match": {
+        "original_term": "advanced coursework in software development",
+        "canonical_id": "custom:software-engineering",
+        "canonical_label": "software engineering",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.637,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.23",
+        "candidates": [
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.637
+          },
+          {
+            "id": "esco:dba46f87-0831-49cd-a1c7-340a653c0221",
+            "label": "Agile development",
+            "score": 0.407
+          },
+          {
+            "id": "esco:33d49d4f-31ec-473f-9b8a-b555aa5116bb",
+            "label": "Iterative development",
+            "score": 0.399
+          }
+        ]
+      }
+    },
+    {
+      "term": "algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "code efficiency",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "code efficiency"
+        }
+      ],
+      "match": {
+        "original_term": "code efficiency",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'code efficiency'.",
+        "candidates": [
+          {
+            "id": "esco:83fc0b2b-6cd2-46af-b1ff-d3fc83604c26",
+            "label": "energy efficiency",
+            "score": 0.499
+          },
+          {
+            "id": "esco:21c27eba-bd1f-42f5-a1d5-c250227030f7",
+            "label": "electricity consumption",
+            "score": 0.246
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.233
+          }
+        ]
+      }
+    },
+    {
+      "term": "computer science",
+      "canonical": {
+        "id": "esco:7b5cce4d-c7fe-4119-b48f-70aa05391787",
+        "label": "computer science",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "computer science"
+        }
+      ],
+      "match": {
+        "original_term": "computer science",
+        "canonical_id": "esco:7b5cce4d-c7fe-4119-b48f-70aa05391787",
+        "canonical_label": "computer science",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "control structures",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "control structures"
+        }
+      ],
+      "match": {
+        "original_term": "control structures",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'control structures' refers to programming constructs like loops and conditionals, which is distinct from the 'control systems' or 'robot control' skills listed in the taxonomy candidates.",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.51
+          },
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.495
+          },
+          {
+            "id": "custom:control-systems",
+            "label": "control systems engineering",
+            "score": 0.49
+          }
+        ]
+      }
+    },
+    {
+      "term": "course emphasizes problem-solving techniques",
+      "canonical": {
+        "id": "custom:problem-solving",
+        "label": "problem solving",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "course emphasizes problem-solving techniques"
+        }
+      ],
+      "match": {
+        "original_term": "course emphasizes problem-solving techniques",
+        "canonical_id": "custom:problem-solving",
+        "canonical_label": "problem solving",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'problem-solving techniques' directly aligns with the label 'problem solving' and its also called entries like 'analytical thinking' and 'critical thinking', which are explicitly mentioned in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:problem-solving",
+            "label": "problem solving",
+            "score": 0.581
+          },
+          {
+            "id": "esco:a3ce2bf7-5562-4639-9b52-fdb4850a3904",
+            "label": "ICT problem management techniques",
+            "score": 0.453
+          },
+          {
+            "id": "esco:de134835-030e-4f79-9873-e87c34c1a0db",
+            "label": "laboratory-based sciences",
+            "score": 0.322
+          }
+        ]
+      }
+    },
+    {
+      "term": "error handling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "error handling"
+        }
+      ],
+      "match": {
+        "original_term": "error handling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'error handling' from the syllabus. The closest entries are related to troubleshooting, incident response, or system management, but none specifically refer to error handling as a skill.",
+        "candidates": [
+          {
+            "id": "esco:e3b4b533-cc4d-4c70-adb6-128120f40c88",
+            "label": "handling of dangerous goods",
+            "score": 0.416
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.211
+          },
+          {
+            "id": "custom:robot-troubleshooting",
+            "label": "robot system troubleshooting",
+            "score": 0.204
+          }
+        ]
+      }
+    },
+    {
+      "term": "file I/O operations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "file I/O operations"
+        }
+      ],
+      "match": {
+        "original_term": "file I/O operations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.328,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ros2-launch-files",
+            "label": "ROS 2 launch files",
+            "score": 0.328
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.242
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "GUI development using Java Swing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "GUI development using Java Swing"
+        }
+      ],
+      "match": {
+        "original_term": "GUI development using Java Swing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically match the skill of 'GUI development using Java Swing'. The closest entries are 'Java' and 'user interface design', but neither captures the specific combination of GUI development with Java Swing.",
+        "candidates": [
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.429
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.394
+          },
+          {
+            "id": "esco:ed1d8bd4-cd2a-4c64-b665-56d70651026c",
+            "label": "Prototyping development",
+            "score": 0.392
+          }
+        ]
+      }
+    },
+    {
+      "term": "object-oriented programming",
+      "canonical": {
+        "id": "custom:object-oriented-programming",
+        "label": "object-oriented programming",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "object-oriented programming"
+        }
+      ],
+      "match": {
+        "original_term": "object-oriented programming",
+        "canonical_id": "custom:object-oriented-programming",
+        "canonical_label": "object-oriented programming",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "preparing students",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "preparing students"
+        }
+      ],
+      "match": {
+        "original_term": "preparing students",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.232,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:c1bbc099-92c5-493c-9f65-8d7acfce5851",
+            "label": "prepared meals",
+            "score": 0.232
+          },
+          {
+            "id": "esco:abb90a61-34c0-491e-b5ee-df66ebc353a4",
+            "label": "manufacturing of different chilled prepared meals",
+            "score": 0.213
+          },
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "term": "queues",
+      "canonical": {
+        "id": "custom:message-queues",
+        "label": "message queues",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "queues"
+        }
+      ],
+      "match": {
+        "original_term": "queues",
+        "canonical_id": "custom:message-queues",
+        "canonical_label": "message queues",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'queues' directly matches the skill 'message queues' which is explicitly listed as an alternative name for the entry.",
+        "candidates": [
+          {
+            "id": "custom:message-queues",
+            "label": "message queues",
+            "score": 0.617
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.181
+          },
+          {
+            "id": "custom:ci-cd",
+            "label": "CI/CD pipelines",
+            "score": 0.169
+          }
+        ]
+      }
+    },
+    {
+      "term": "stacks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "stacks"
+        }
+      ],
+      "match": {
+        "original_term": "stacks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'stacks' does not clearly match any of the provided taxonomy entries, which refer to specific technologies or domains like monitoring, full-stack development, or Apache Spark. 'Stacks' is too generic and does not align with any of the specific skills listed.",
+        "candidates": [
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.534
+          },
+          {
+            "id": "custom:full-stack-development",
+            "label": "full-stack development",
+            "score": 0.531
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.171
+          }
+        ]
+      }
+    },
+    {
+      "term": "Students will also explore standard libraries",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Students will also explore standard libraries"
+        }
+      ],
+      "match": {
+        "original_term": "Students will also explore standard libraries",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.312,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.312
+          },
+          {
+            "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+            "label": "software components libraries",
+            "score": 0.31
+          },
+          {
+            "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+            "label": "ICT accessibility standards",
+            "score": 0.281
+          }
+        ]
+      }
+    },
+    {
+      "term": "Topics include data types",
+      "canonical": {
+        "id": "custom:data-structures",
+        "label": "data structures",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Topics include data types"
+        }
+      ],
+      "match": {
+        "original_term": "Topics include data types",
+        "canonical_id": "custom:data-structures",
+        "canonical_label": "data structures",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'data types' is closely related to 'data structures', which involves organizing data for efficient access and modification, matching the description and also called entries.",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.525
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.4
+          },
+          {
+            "id": "esco:52838a25-11f5-4cb1-b4ab-c5c7d59041e8",
+            "label": "types of electronics",
+            "score": 0.384
+          }
+        ]
+      }
+    }
+  ]
+}

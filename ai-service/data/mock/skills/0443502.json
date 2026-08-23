@@ -1,0 +1,3147 @@
+{
+  "course_code": "0443502",
+  "course_codes": [
+    "0443502"
+  ],
+  "course_title": "Software Architecture lab",
+  "credit_hours": 1,
+  "plans": [
+    "SE"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "accepted": 33,
+      "no_match": 17,
+      "needs_review": 17
+    },
+    "by_method": {
+      "embedding_reranker": 30,
+      "exact_alias": 6,
+      "llm": 31
+    }
+  },
+  "total_skills": 67,
+  "skills": [
+    {
+      "term": "software architecture",
+      "canonical": {
+        "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+        "label": "software architecture models",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 4,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key software architecture concepts, including architectural patterns, styles, and quality attributes such as performance and scalability."
+        },
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a software architecture for a distributed system using microservices patterns and cloud-native technologies like Docker and Kubernetes."
+        },
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Software Architecture"
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "UML Modeling for Software Architecture"
+        }
+      ],
+      "match": {
+        "original_term": "software architecture",
+        "canonical_id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+        "canonical_label": "software architecture models",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.784,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.11",
+        "candidates": [
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.784
+          },
+          {
+            "id": "esco:2180bd8c-86de-4889-8165-adac902eee9d",
+            "label": "embedded systems",
+            "score": 0.678
+          },
+          {
+            "id": "custom:microservices",
+            "label": "microservices architecture",
+            "score": 0.537
+          }
+        ]
+      }
+    },
+    {
+      "term": "performance",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key software architecture concepts, including architectural patterns, styles, and quality attributes such as performance and scalability."
+        },
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Performance and Scalability in Distributed Systems"
+        },
+        {
+          "source": "description",
+          "text": "performance"
+        }
+      ],
+      "match": {
+        "original_term": "performance",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.268,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:83218cac-3599-417e-93d2-26013cdccd98",
+            "label": "service-oriented modelling",
+            "score": 0.268
+          },
+          {
+            "id": "esco:117373c8-f04b-4fff-8683-aebe36edac81",
+            "label": "hardware platforms",
+            "score": 0.249
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.245
+          }
+        ]
+      }
+    },
+    {
+      "term": "SOA",
+      "canonical": {
+        "id": "custom:microservices",
+        "label": "microservices architecture",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of service-oriented architecture (SOA) and how to implement RESTful APIs using frameworks like Spring Boot and Node.js."
+        },
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Service-Oriented Architecture (SOA) Overview"
+        },
+        {
+          "source": "description",
+          "text": "SOA"
+        }
+      ],
+      "match": {
+        "original_term": "SOA",
+        "canonical_id": "custom:microservices",
+        "canonical_label": "microservices architecture",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "architectural evaluation techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply architectural evaluation techniques such as ATAM to analyze tradeoffs between system qualities like security and maintainability."
+        },
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Architectural Evaluation Techniques (ATAM)"
+        }
+      ],
+      "match": {
+        "original_term": "architectural evaluation techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'architectural evaluation techniques' as described in the syllabus. The closest entries are related to software architecture models or performance analysis, but none specifically refer to architectural evaluation techniques like ATAM.",
+        "candidates": [
+          {
+            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+            "label": "ICT architectural frameworks",
+            "score": 0.425
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.403
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.39
+          }
+        ]
+      }
+    },
+    {
+      "term": "architectural patterns",
+      "canonical": {
+        "id": "custom:design-patterns",
+        "label": "software design patterns",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key software architecture concepts, including architectural patterns, styles, and quality attributes such as performance and scalability."
+        },
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Architectural Patterns and Styles"
+        }
+      ],
+      "match": {
+        "original_term": "architectural patterns",
+        "canonical_id": "custom:design-patterns",
+        "canonical_label": "software design patterns",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Kubernetes",
+      "canonical": {
+        "id": "custom:kubernetes",
+        "label": "Kubernetes",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a software architecture for a distributed system using microservices patterns and cloud-native technologies like Docker and Kubernetes."
+        },
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Containerization with Docker and Kubernetes"
+        }
+      ],
+      "match": {
+        "original_term": "Kubernetes",
+        "canonical_id": "custom:kubernetes",
+        "canonical_label": "Kubernetes",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "quality attributes",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key software architecture concepts, including architectural patterns, styles, and quality attributes such as performance and scalability."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Quality Attributes and Their Impact on Architecture"
+        }
+      ],
+      "match": {
+        "original_term": "quality attributes",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'quality attributes' refers to specific characteristics of software systems, such as performance and scalability, which are not directly captured by any of the provided taxonomy entries. None of the candidates explicitly name 'quality attributes' or a closely related skill.",
+        "candidates": [
+          {
+            "id": "esco:fafe0b9d-dbd9-46bd-b770-26299539ce66",
+            "label": "ICT process quality models",
+            "score": 0.444
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.438
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.254
+          }
+        ]
+      }
+    },
+    {
+      "term": "scalability",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key software architecture concepts, including architectural patterns, styles, and quality attributes such as performance and scalability."
+        },
+        {
+          "source": "description",
+          "text": "scalability"
+        }
+      ],
+      "match": {
+        "original_term": "scalability",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'scalability' as a skill. The closest entries relate to software architecture or quality attributes, but none specifically name scalability.",
+        "candidates": [
+          {
+            "id": "esco:ffddfc7c-a9dd-449f-9e96-882dc447c8b6",
+            "label": "Scala",
+            "score": 0.405
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.327
+          },
+          {
+            "id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+            "label": "usability engineering",
+            "score": 0.304
+          }
+        ]
+      }
+    },
+    {
+      "term": "styles",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key software architecture concepts, including architectural patterns, styles, and quality attributes such as performance and scalability."
+        },
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Architectural Patterns and Styles"
+        }
+      ],
+      "match": {
+        "original_term": "styles",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.256,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.256
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.255
+          },
+          {
+            "id": "esco:83218cac-3599-417e-93d2-26013cdccd98",
+            "label": "service-oriented modelling",
+            "score": 0.251
+          }
+        ]
+      }
+    },
+    {
+      "term": "UML",
+      "canonical": {
+        "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "label": "unified modelling language",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the UML and ArchiMate modeling notations and their application in representing software architecture diagrams."
+        },
+        {
+          "source": "description",
+          "text": "UML"
+        }
+      ],
+      "match": {
+        "original_term": "UML",
+        "canonical_id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "canonical_label": "unified modelling language",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "application in representing software architecture diagrams",
+      "canonical": {
+        "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+        "label": "software architecture models",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the UML and ArchiMate modeling notations and their application in representing software architecture diagrams."
+        }
+      ],
+      "match": {
+        "original_term": "application in representing software architecture diagrams",
+        "canonical_id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+        "canonical_label": "software architecture models",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase refers to representing software architecture diagrams using modeling notations like UML and ArchiMate, which aligns with the concept of 'software architecture models' as described in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.522
+          },
+          {
+            "id": "esco:83218cac-3599-417e-93d2-26013cdccd98",
+            "label": "service-oriented modelling",
+            "score": 0.34
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.338
+          }
+        ]
+      }
+    },
+    {
+      "term": "ArchiMate modeling notations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the UML and ArchiMate modeling notations and their application in representing software architecture diagrams."
+        }
+      ],
+      "match": {
+        "original_term": "ArchiMate modeling notations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.316,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.316
+          },
+          {
+            "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+            "label": "unified modelling language",
+            "score": 0.278
+          },
+          {
+            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+            "label": "ICT architectural frameworks",
+            "score": 0.254
+          }
+        ]
+      }
+    },
+    {
+      "term": "cloud-native technologies like Docker",
+      "canonical": {
+        "id": "custom:docker",
+        "label": "Docker",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a software architecture for a distributed system using microservices patterns and cloud-native technologies like Docker and Kubernetes."
+        }
+      ],
+      "match": {
+        "original_term": "cloud-native technologies like Docker",
+        "canonical_id": "custom:docker",
+        "canonical_label": "Docker",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'cloud-native technologies like Docker' specifically mentions Docker, and the taxonomy entry for Docker matches this exact skill.",
+        "candidates": [
+          {
+            "id": "esco:bd14968e-e409-45af-b362-3495ed7b10e0",
+            "label": "cloud technologies",
+            "score": 0.567
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.455
+          },
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.363
+          }
+        ]
+      }
+    },
+    {
+      "term": "distributed system using microservices patterns",
+      "canonical": {
+        "id": "custom:microservices",
+        "label": "microservices architecture",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a software architecture for a distributed system using microservices patterns and cloud-native technologies like Docker and Kubernetes."
+        }
+      ],
+      "match": {
+        "original_term": "distributed system using microservices patterns",
+        "canonical_id": "custom:microservices",
+        "canonical_label": "microservices architecture",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'distributed system using microservices patterns' directly aligns with the definition of 'microservices architecture' which involves structuring an application as independently deployable services, matching the syllabus context.",
+        "candidates": [
+          {
+            "id": "custom:microservices",
+            "label": "microservices architecture",
+            "score": 0.615
+          },
+          {
+            "id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+            "label": "distributed computing",
+            "score": 0.402
+          },
+          {
+            "id": "esco:2180bd8c-86de-4889-8165-adac902eee9d",
+            "label": "embedded systems",
+            "score": 0.379
+          }
+        ]
+      }
+    },
+    {
+      "term": "maintainability",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply architectural evaluation techniques such as ATAM to analyze tradeoffs between system qualities like security and maintainability."
+        }
+      ],
+      "match": {
+        "original_term": "maintainability",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.286,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.286
+          },
+          {
+            "id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+            "label": "usability engineering",
+            "score": 0.285
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.278
+          }
+        ]
+      }
+    },
+    {
+      "term": "Node.js",
+      "canonical": {
+        "id": "custom:nodejs",
+        "label": "Node.js",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of service-oriented architecture (SOA) and how to implement RESTful APIs using frameworks like Spring Boot and Node.js."
+        }
+      ],
+      "match": {
+        "original_term": "Node.js",
+        "canonical_id": "custom:nodejs",
+        "canonical_label": "Node.js",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "principles of service-oriented architecture",
+      "canonical": {
+        "id": "custom:microservices",
+        "label": "microservices architecture",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of service-oriented architecture (SOA) and how to implement RESTful APIs using frameworks like Spring Boot and Node.js."
+        }
+      ],
+      "match": {
+        "original_term": "principles of service-oriented architecture",
+        "canonical_id": "custom:microservices",
+        "canonical_label": "microservices architecture",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.789,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.24",
+        "candidates": [
+          {
+            "id": "custom:microservices",
+            "label": "microservices architecture",
+            "score": 0.789
+          },
+          {
+            "id": "esco:83218cac-3599-417e-93d2-26013cdccd98",
+            "label": "service-oriented modelling",
+            "score": 0.548
+          },
+          {
+            "id": "esco:eeca3780-8049-499f-a268-95a7ad26642c",
+            "label": "SaaS (service-oriented modelling)",
+            "score": 0.51
+          }
+        ]
+      }
+    },
+    {
+      "term": "ATAM",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Architectural Evaluation Techniques (ATAM)"
+        },
+        {
+          "source": "description",
+          "text": "ATAM"
+        }
+      ],
+      "match": {
+        "original_term": "ATAM",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.211,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+            "label": "ICT architectural frameworks",
+            "score": 0.211
+          },
+          {
+            "id": "esco:eb0e5615-1575-4a86-a1a2-7d39595033c5",
+            "label": "ABAP",
+            "score": 0.21
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.21
+          }
+        ]
+      }
+    },
+    {
+      "term": "ArchiMate Diagram",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "ArchiMate Diagram for a Layered System"
+        }
+      ],
+      "match": {
+        "original_term": "ArchiMate Diagram",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'ArchiMate Diagram' refers to a specific type of diagram used in enterprise architecture modeling, which is not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "esco:ed291aa0-8b2f-4179-b2f7-540ea6f63bf3",
+            "label": "electrical wiring diagrams",
+            "score": 0.455
+          },
+          {
+            "id": "esco:02c71cde-f513-43da-8952-0974763c7568",
+            "label": "circuit diagrams",
+            "score": 0.438
+          },
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.267
+          }
+        ]
+      }
+    },
+    {
+      "term": "ATAM Analysis of a Sample System",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "ATAM Analysis of a Sample System"
+        }
+      ],
+      "match": {
+        "original_term": "ATAM Analysis of a Sample System",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.38,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:8203b07a-8097-4383-aff6-603b7df7f0f4",
+            "label": "ATM systems",
+            "score": 0.38
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.376
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.372
+          }
+        ]
+      }
+    },
+    {
+      "term": "Creating Architectural Documentation Using Enterprise Architect",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Creating Architectural Documentation Using Enterprise Architect"
+        }
+      ],
+      "match": {
+        "original_term": "Creating Architectural Documentation Using Enterprise Architect",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Creating Architectural Documentation Using Enterprise Architect' directly relates to writing technical documentation, which is explicitly covered by the 'technical documentation' entry.",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.436
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.359
+          },
+          {
+            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+            "label": "ICT architectural frameworks",
+            "score": 0.332
+          }
+        ]
+      }
+    },
+    {
+      "term": "Designing a Cloud-Native Microservices Architecture",
+      "canonical": {
+        "id": "custom:microservices",
+        "label": "microservices architecture",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Designing a Cloud-Native Microservices Architecture"
+        }
+      ],
+      "match": {
+        "original_term": "Designing a Cloud-Native Microservices Architecture",
+        "canonical_id": "custom:microservices",
+        "canonical_label": "microservices architecture",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.633,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.12",
+        "candidates": [
+          {
+            "id": "custom:microservices",
+            "label": "microservices architecture",
+            "score": 0.633
+          },
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.516
+          },
+          {
+            "id": "esco:bd14968e-e409-45af-b362-3495ed7b10e0",
+            "label": "cloud technologies",
+            "score": 0.339
+          }
+        ]
+      }
+    },
+    {
+      "term": "Docker Containerization of a Microservice",
+      "canonical": {
+        "id": "custom:docker",
+        "label": "Docker",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Docker Containerization of a Microservice"
+        }
+      ],
+      "match": {
+        "original_term": "Docker Containerization of a Microservice",
+        "canonical_id": "custom:docker",
+        "canonical_label": "Docker",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Docker Containerization of a Microservice' directly refers to the use of Docker for containerization, which is explicitly covered by the 'Docker' entry in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.59
+          },
+          {
+            "id": "custom:microservices",
+            "label": "microservices architecture",
+            "score": 0.467
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.263
+          }
+        ]
+      }
+    },
+    {
+      "term": "Implementing Security in a RESTful API",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Implementing Security in a RESTful API"
+        }
+      ],
+      "match": {
+        "original_term": "Implementing Security in a RESTful API",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.635,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.25",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.635
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.382
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.377
+          }
+        ]
+      }
+    },
+    {
+      "term": "Integrating Microservices with Message Brokers",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Integrating Microservices with Message Brokers"
+        }
+      ],
+      "match": {
+        "original_term": "Integrating Microservices with Message Brokers",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries exactly match the skill described in the extracted phrase 'Integrating Microservices with Message Brokers'. The closest candidate, 'microservices architecture', is related but does not specifically address the integration of microservices with message brokers.",
+        "candidates": [
+          {
+            "id": "custom:microservices",
+            "label": "microservices architecture",
+            "score": 0.479
+          },
+          {
+            "id": "esco:6f7512ab-d46d-402a-8c30-a8878d7c1f88",
+            "label": "SQL Server Integration Services",
+            "score": 0.269
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "term": "Layered System",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "ArchiMate Diagram for a Layered System"
+        }
+      ],
+      "match": {
+        "original_term": "Layered System",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'Layered System' or its related concept of 'ArchiMate Diagram for a Layered System'. The closest entries are about robotics architecture or electrical diagrams, which are not equivalent to a layered system.",
+        "candidates": [
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.4
+          },
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.393
+          },
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.231
+          }
+        ]
+      }
+    },
+    {
+      "term": "Performance Testing of a Microservice Architecture",
+      "canonical": {
+        "id": "custom:performance-testing",
+        "label": "performance testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Performance Testing of a Microservice Architecture"
+        }
+      ],
+      "match": {
+        "original_term": "Performance Testing of a Microservice Architecture",
+        "canonical_id": "custom:performance-testing",
+        "canonical_label": "performance testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Performance Testing of a Microservice Architecture' directly relates to performance testing, which is explicitly covered by the 'performance testing' entry, also known as load testing and stress testing.",
+        "candidates": [
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.626
+          },
+          {
+            "id": "custom:microservices",
+            "label": "microservices architecture",
+            "score": 0.58
+          },
+          {
+            "id": "esco:4cdbc76c-75d8-4e12-8653-4820c2d5446f",
+            "label": "microsystem test procedures",
+            "score": 0.384
+          }
+        ]
+      }
+    },
+    {
+      "term": "RESTful API Development Using Spring Boot",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "RESTful API Development Using Spring Boot"
+        }
+      ],
+      "match": {
+        "original_term": "RESTful API Development Using Spring Boot",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'RESTful API Development Using Spring Boot' directly aligns with the skill 'REST API development' as it involves designing and building HTTP interfaces between services, which is the core of the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.606
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.551
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.363
+          }
+        ]
+      }
+    },
+    {
+      "term": "Simple Application",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "UML Diagram Creation for a Simple Application"
+        }
+      ],
+      "match": {
+        "original_term": "Simple Application",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Simple Application' does not match any of the provided taxonomy entries, as none of the labels or descriptions directly refer to the concept of a simple application.",
+        "candidates": [
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.475
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.439
+          },
+          {
+            "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+            "label": "unified modelling language",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "UML Diagram Creation",
+      "canonical": {
+        "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "label": "unified modelling language",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "UML Diagram Creation for a Simple Application"
+        }
+      ],
+      "match": {
+        "original_term": "UML Diagram Creation",
+        "canonical_id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "canonical_label": "unified modelling language",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'UML Diagram Creation' directly refers to the creation of UML diagrams, which is exactly what the 'unified modelling language' entry describes as a general-purpose modelling language used in software development for visualising system designs.",
+        "candidates": [
+          {
+            "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+            "label": "unified modelling language",
+            "score": 0.495
+          },
+          {
+            "id": "esco:ed291aa0-8b2f-4179-b2f7-540ea6f63bf3",
+            "label": "electrical wiring diagrams",
+            "score": 0.41
+          },
+          {
+            "id": "esco:02c71cde-f513-43da-8952-0974763c7568",
+            "label": "circuit diagrams",
+            "score": 0.402
+          }
+        ]
+      }
+    },
+    {
+      "term": "microservices",
+      "canonical": {
+        "id": "custom:microservices",
+        "label": "microservices architecture",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 2,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "microservices"
+        },
+        {
+          "source": "description",
+          "text": "microservices"
+        }
+      ],
+      "match": {
+        "original_term": "microservices",
+        "canonical_id": "custom:microservices",
+        "canonical_label": "microservices architecture",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'microservices' directly matches the label 'microservices architecture' and is also listed in its 'also called' section.",
+        "candidates": [
+          {
+            "id": "custom:microservices",
+            "label": "microservices architecture",
+            "score": 0.892
+          },
+          {
+            "id": "esco:e763b5c3-cfb3-48d2-9b83-fff97553ad95",
+            "label": "microsensors",
+            "score": 0.271
+          },
+          {
+            "id": "esco:8a211052-4bec-49c2-9b4e-7914c37d21b4",
+            "label": "microprocessors",
+            "score": 0.259
+          }
+        ]
+      }
+    },
+    {
+      "term": "ArchiMate Notation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "ArchiMate Notation and Modeling"
+        }
+      ],
+      "match": {
+        "original_term": "ArchiMate Notation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.348,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.348
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.244
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.237
+          }
+        ]
+      }
+    },
+    {
+      "term": "Architectural Documentation",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Architectural Documentation and Standards"
+        }
+      ],
+      "match": {
+        "original_term": "Architectural Documentation",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.662,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.15",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.662
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.515
+          },
+          {
+            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+            "label": "ICT architectural frameworks",
+            "score": 0.454
+          }
+        ]
+      }
+    },
+    {
+      "term": "Architectural Tradeoffs",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Architectural Tradeoffs"
+        }
+      ],
+      "match": {
+        "original_term": "Architectural Tradeoffs",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Architectural Tradeoffs'. The closest entries are related to design patterns or engineering principles, but they do not specifically address the concept of tradeoffs in architectural decisions.",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.51
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.272
+          },
+          {
+            "id": "esco:2d63745d-3c4c-4da1-ad77-985f68768be9",
+            "label": "manufacturing of metal structures",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cloud-Native Architecture Patterns",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Cloud-Native Architecture Patterns"
+        }
+      ],
+      "match": {
+        "original_term": "Cloud-Native Architecture Patterns",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Cloud-Native Architecture Patterns' refers to specific architectural patterns used in cloud-native systems, which is more specific than the broader 'cloud computing' or 'software design patterns' entries provided. None of the shortlisted taxonomy entries precisely match this skill.",
+        "candidates": [
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.583
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.469
+          },
+          {
+            "id": "custom:gcp",
+            "label": "Google Cloud Platform",
+            "score": 0.356
+          }
+        ]
+      }
+    },
+    {
+      "term": "Containerization with Docker",
+      "canonical": {
+        "id": "custom:docker",
+        "label": "Docker",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Containerization with Docker and Kubernetes"
+        }
+      ],
+      "match": {
+        "original_term": "Containerization with Docker",
+        "canonical_id": "custom:docker",
+        "canonical_label": "Docker",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.708,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.29",
+        "candidates": [
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.708
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.418
+          },
+          {
+            "id": "esco:f3f29c39-4124-4a8c-a63c-878bfc487586",
+            "label": "types of containers",
+            "score": 0.268
+          }
+        ]
+      }
+    },
+    {
+      "term": "Impact on Architecture",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Quality Attributes and Their Impact on Architecture"
+        }
+      ],
+      "match": {
+        "original_term": "Impact on Architecture",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.397,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:c3bb5700-a94d-407a-8cd0-147727378f25",
+            "label": "urban pollution implications",
+            "score": 0.397
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.273
+          },
+          {
+            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+            "label": "ICT architectural frameworks",
+            "score": 0.262
+          }
+        ]
+      }
+    },
+    {
+      "term": "Implementation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "RESTful API Design and Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "Implementation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.375,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.375
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.342
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.277
+          }
+        ]
+      }
+    },
+    {
+      "term": "Integration of Architectural Components",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Integration of Architectural Components"
+        }
+      ],
+      "match": {
+        "original_term": "Integration of Architectural Components",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Integration of Architectural Components' does not clearly match any of the provided taxonomy entries, as none directly refer to the integration of components in an architectural context.",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.539
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.449
+          },
+          {
+            "id": "esco:3912401a-cccf-4995-9f5b-76302b26fff4",
+            "label": "optomechanical components",
+            "score": 0.423
+          }
+        ]
+      }
+    },
+    {
+      "term": "Microservices Architecture Fundamentals",
+      "canonical": {
+        "id": "custom:microservices",
+        "label": "microservices architecture",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Microservices Architecture Fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "Microservices Architecture Fundamentals",
+        "canonical_id": "custom:microservices",
+        "canonical_label": "microservices architecture",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.736,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.31",
+        "candidates": [
+          {
+            "id": "custom:microservices",
+            "label": "microservices architecture",
+            "score": 0.736
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.424
+          },
+          {
+            "id": "esco:2180bd8c-86de-4889-8165-adac902eee9d",
+            "label": "embedded systems",
+            "score": 0.358
+          }
+        ]
+      }
+    },
+    {
+      "term": "Modeling",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "ArchiMate Notation and Modeling"
+        }
+      ],
+      "match": {
+        "original_term": "Modeling",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.654,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.40",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.654
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.259
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.221
+          }
+        ]
+      }
+    },
+    {
+      "term": "RESTful API Design",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "RESTful API Design and Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "RESTful API Design",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.787,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.32",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.787
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.467
+          },
+          {
+            "id": "custom:responsive-design",
+            "label": "responsive web design",
+            "score": 0.46
+          }
+        ]
+      }
+    },
+    {
+      "term": "Scalability in Distributed Systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Performance and Scalability in Distributed Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Scalability in Distributed Systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically match the skill 'Scalability in Distributed Systems'. The closest entry, 'distributed computing', is broader and does not capture the specific focus on scalability.",
+        "candidates": [
+          {
+            "id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+            "label": "distributed computing",
+            "score": 0.427
+          },
+          {
+            "id": "esco:2180bd8c-86de-4889-8165-adac902eee9d",
+            "label": "embedded systems",
+            "score": 0.417
+          },
+          {
+            "id": "esco:cdd8b6b2-2fd9-453c-8d62-8a1dc6efcd49",
+            "label": "systems theory",
+            "score": 0.402
+          }
+        ]
+      }
+    },
+    {
+      "term": "Security Considerations in Software Architecture",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Security Considerations in Software Architecture"
+        }
+      ],
+      "match": {
+        "original_term": "Security Considerations in Software Architecture",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Security Considerations in Software Architecture'. The closest entries are 'secure coding practices' and 'assessment of risks and threats', but neither fully captures the specific focus on security considerations within software archite",
+        "candidates": [
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.535
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.404
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.391
+          }
+        ]
+      }
+    },
+    {
+      "term": "Service-Oriented Architecture Overview",
+      "canonical": {
+        "id": "custom:microservices",
+        "label": "microservices architecture",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Service-Oriented Architecture (SOA) Overview"
+        }
+      ],
+      "match": {
+        "original_term": "Service-Oriented Architecture Overview",
+        "canonical_id": "custom:microservices",
+        "canonical_label": "microservices architecture",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.908,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.35",
+        "candidates": [
+          {
+            "id": "custom:microservices",
+            "label": "microservices architecture",
+            "score": 0.908
+          },
+          {
+            "id": "esco:83218cac-3599-417e-93d2-26013cdccd98",
+            "label": "service-oriented modelling",
+            "score": 0.559
+          },
+          {
+            "id": "esco:eeca3780-8049-499f-a268-95a7ad26642c",
+            "label": "SaaS (service-oriented modelling)",
+            "score": 0.506
+          }
+        ]
+      }
+    },
+    {
+      "term": "Standards",
+      "canonical": {
+        "id": "esco:8696aff0-18c0-4ba6-a4d0-9a21861b3e5e",
+        "label": "World Wide Web Consortium standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Architectural Documentation and Standards"
+        }
+      ],
+      "match": {
+        "original_term": "Standards",
+        "canonical_id": "esco:8696aff0-18c0-4ba6-a4d0-9a21861b3e5e",
+        "canonical_label": "World Wide Web Consortium standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.663,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.13",
+        "candidates": [
+          {
+            "id": "esco:8696aff0-18c0-4ba6-a4d0-9a21861b3e5e",
+            "label": "World Wide Web Consortium standards",
+            "score": 0.663
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.532
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.247
+          }
+        ]
+      }
+    },
+    {
+      "term": "UML Modeling",
+      "canonical": {
+        "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "label": "unified modelling language",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "UML Modeling for Software Architecture"
+        }
+      ],
+      "match": {
+        "original_term": "UML Modeling",
+        "canonical_id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "canonical_label": "unified modelling language",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.675,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.30",
+        "candidates": [
+          {
+            "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+            "label": "unified modelling language",
+            "score": 0.675
+          },
+          {
+            "id": "esco:83218cac-3599-417e-93d2-26013cdccd98",
+            "label": "service-oriented modelling",
+            "score": 0.38
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.361
+          }
+        ]
+      }
+    },
+    {
+      "term": "4+1 view model",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "4+1 view model"
+        }
+      ],
+      "match": {
+        "original_term": "4+1 view model",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.37,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.37
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.192
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.176
+          }
+        ]
+      }
+    },
+    {
+      "term": "ArchiMate",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "ArchiMate"
+        }
+      ],
+      "match": {
+        "original_term": "ArchiMate",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.222,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.222
+          },
+          {
+            "id": "custom:vector-databases",
+            "label": "vector databases",
+            "score": 0.197
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.186
+          }
+        ]
+      }
+    },
+    {
+      "term": "architectural evaluation methods",
+      "canonical": {
+        "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+        "label": "ICT architectural frameworks",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "architectural evaluation methods"
+        }
+      ],
+      "match": {
+        "original_term": "architectural evaluation methods",
+        "canonical_id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+        "canonical_label": "ICT architectural frameworks",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'architectural evaluation methods' aligns with the description of 'ICT architectural frameworks' which refers to the set of requirements that describe an information system's architecture, matching the focus of the extracted phrase.",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.457
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.409
+          },
+          {
+            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+            "label": "ICT architectural frameworks",
+            "score": 0.398
+          }
+        ]
+      }
+    },
+    {
+      "term": "architectural patterns like MVC",
+      "canonical": {
+        "id": "custom:design-patterns",
+        "label": "software design patterns",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "architectural patterns like MVC"
+        }
+      ],
+      "match": {
+        "original_term": "architectural patterns like MVC",
+        "canonical_id": "custom:design-patterns",
+        "canonical_label": "software design patterns",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.695,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.33",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.695
+          },
+          {
+            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+            "label": "ICT architectural frameworks",
+            "score": 0.368
+          },
+          {
+            "id": "esco:2d63745d-3c4c-4da1-ad77-985f68768be9",
+            "label": "manufacturing of metal structures",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "Architecture Tradeoff Analysis Method",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Architecture Tradeoff Analysis Method"
+        }
+      ],
+      "match": {
+        "original_term": "Architecture Tradeoff Analysis Method",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.357,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.357
+          },
+          {
+            "id": "esco:209a5498-3449-4689-8ed9-bd08cab4fd78",
+            "label": "engineering principles",
+            "score": 0.331
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.322
+          }
+        ]
+      }
+    },
+    {
+      "term": "diagramming",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "diagramming"
+        }
+      ],
+      "match": {
+        "original_term": "diagramming",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.329,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ed291aa0-8b2f-4179-b2f7-540ea6f63bf3",
+            "label": "electrical wiring diagrams",
+            "score": 0.329
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.307
+          },
+          {
+            "id": "esco:02c71cde-f513-43da-8952-0974763c7568",
+            "label": "circuit diagrams",
+            "score": 0.291
+          }
+        ]
+      }
+    },
+    {
+      "term": "documentation",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "documentation"
+        }
+      ],
+      "match": {
+        "original_term": "documentation",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'documentation' directly matches the 'technical documentation' entry, which is explicitly listed as also called 'documentation'.",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.921
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.251
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.248
+          }
+        ]
+      }
+    },
+    {
+      "term": "event-driven systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "event-driven systems"
+        }
+      ],
+      "match": {
+        "original_term": "event-driven systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill phrase 'event-driven systems'. The closest entries are related to control systems or robotics, but none specifically refer to event-driven systems.",
+        "candidates": [
+          {
+            "id": "esco:69bece91-c806-42ad-bde4-db28c7f8fc4b",
+            "label": "mechanical systems",
+            "score": 0.435
+          },
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.43
+          },
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.425
+          }
+        ]
+      }
+    },
+    {
+      "term": "implementation using industry-standard frameworks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "implementation using industry-standard frameworks"
+        }
+      ],
+      "match": {
+        "original_term": "implementation using industry-standard frameworks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.356,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:24c200e5-be20-4370-a137-ab53797f3a17",
+            "label": "software frameworks",
+            "score": 0.356
+          },
+          {
+            "id": "esco:41ec47dd-08b3-464a-9c45-c706f3e74467",
+            "label": "industrial software",
+            "score": 0.348
+          },
+          {
+            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+            "label": "ICT architectural frameworks",
+            "score": 0.337
+          }
+        ]
+      }
+    },
+    {
+      "term": "implementation with RESTful APIs",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "implementation with RESTful APIs"
+        }
+      ],
+      "match": {
+        "original_term": "implementation with RESTful APIs",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'implementation with RESTful APIs' directly matches the skill 'REST API development', which is also called 'RESTful API' and aligns with the syllabus evidence.",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.532
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.254
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "layered",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "layered"
+        }
+      ],
+      "match": {
+        "original_term": "layered",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.264,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.264
+          },
+          {
+            "id": "custom:tableau",
+            "label": "Tableau",
+            "score": 0.177
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.176
+          }
+        ]
+      }
+    },
+    {
+      "term": "layered architectures",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "layered architectures"
+        }
+      ],
+      "match": {
+        "original_term": "layered architectures",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill phrase 'layered architectures'. The closest entries are related to specific technologies or broader concepts, but none precisely represent the skill described.",
+        "candidates": [
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.5
+          },
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.487
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.294
+          }
+        ]
+      }
+    },
+    {
+      "term": "Open Group Architecture Framework",
+      "canonical": {
+        "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+        "label": "ICT architectural frameworks",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Open Group Architecture Framework"
+        }
+      ],
+      "match": {
+        "original_term": "Open Group Architecture Framework",
+        "canonical_id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+        "canonical_label": "ICT architectural frameworks",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Open Group Architecture Framework' directly matches the label 'ICT architectural frameworks', which is the most specific entry in the shortlist that refers to an architectural framework, aligning precisely with the skill described.",
+        "candidates": [
+          {
+            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+            "label": "ICT architectural frameworks",
+            "score": 0.407
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.391
+          },
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.357
+          }
+        ]
+      }
+    },
+    {
+      "term": "security considerations in distributed systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "security considerations in distributed systems"
+        }
+      ],
+      "match": {
+        "original_term": "security considerations in distributed systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically address 'security considerations in distributed systems'. The closest entries are related to cybersecurity, distributed computing, and network security, but none directly capture the specific focus on security considerations within distributed syste",
+        "candidates": [
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.493
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.397
+          },
+          {
+            "id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+            "label": "distributed computing",
+            "score": 0.391
+          }
+        ]
+      }
+    },
+    {
+      "term": "service-oriented architecture",
+      "canonical": {
+        "id": "custom:microservices",
+        "label": "microservices architecture",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "service-oriented architecture"
+        }
+      ],
+      "match": {
+        "original_term": "service-oriented architecture",
+        "canonical_id": "custom:microservices",
+        "canonical_label": "microservices architecture",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "This course covers software architecture design",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "This course covers software architecture design"
+        }
+      ],
+      "match": {
+        "original_term": "This course covers software architecture design",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries precisely match the skill described in the extracted phrase 'software architecture design'. The closest entries are related but not exact matches.",
+        "candidates": [
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.498
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.461
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.447
+          }
+        ]
+      }
+    },
+    {
+      "term": "TOGAF",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "TOGAF"
+        }
+      ],
+      "match": {
+        "original_term": "TOGAF",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.185,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:pytorch",
+            "label": "PyTorch",
+            "score": 0.185
+          },
+          {
+            "id": "custom:tableau",
+            "label": "Tableau",
+            "score": 0.165
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.161
+          }
+        ]
+      }
+    },
+    {
+      "term": "tools like Enterprise Architect",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "tools like Enterprise Architect"
+        }
+      ],
+      "match": {
+        "original_term": "tools like Enterprise Architect",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.349,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.349
+          },
+          {
+            "id": "esco:82313e12-9d39-47d1-b7c9-78bbd6bb50e2",
+            "label": "CAE software",
+            "score": 0.324
+          },
+          {
+            "id": "esco:9d0d89be-bffa-4393-b6f6-8d05bea49051",
+            "label": "data extraction, transformation and loading tools",
+            "score": 0.285
+          }
+        ]
+      }
+    },
+    {
+      "term": "Topics include modeling techniques",
+      "canonical": {
+        "id": "esco:cb304338-3a44-4b6f-802b-dfc6c64de109",
+        "label": "scientific modelling",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Topics include modeling techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Topics include modeling techniques",
+        "canonical_id": "esco:cb304338-3a44-4b6f-802b-dfc6c64de109",
+        "canonical_label": "scientific modelling",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'modeling techniques' directly aligns with the label 'scientific modelling' and its also called entries, which include 'scientific models' and 'scientific simulation'.",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.438
+          },
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.405
+          },
+          {
+            "id": "esco:ebd90bfe-ab0f-4155-a77c-3de9267b27a1",
+            "label": "metal smoothing technologies",
+            "score": 0.394
+          }
+        ]
+      }
+    },
+    {
+      "term": "Visual Paradigm",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Visual Paradigm"
+        }
+      ],
+      "match": {
+        "original_term": "Visual Paradigm",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Visual Paradigm' does not match any of the provided taxonomy entries, which focus on UI design, data visualization, computer vision, or specific tools like Tableau and OpenCV. 'Visual Paradigm' refers to a specific UML modeling tool, which is not covered by any of the listed skills.",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.465
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.247
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.221
+          }
+        ]
+      }
+    }
+  ]
+}
