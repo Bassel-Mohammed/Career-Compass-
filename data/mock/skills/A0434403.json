@@ -1,0 +1,5342 @@
+{
+  "course_code": "A0434403",
+  "course_codes": [
+    "A0434403"
+  ],
+  "course_title": "Cybersecurity Operations Automation",
+  "credit_hours": 3,
+  "plans": [
+    "CYBER"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "accepted": 44,
+      "needs_review": 41,
+      "no_match": 30
+    },
+    "by_method": {
+      "exact_alias": 6,
+      "llm": 65,
+      "embedding_reranker": 44
+    }
+  },
+  "total_skills": 115,
+  "skills": [
+    {
+      "term": "ELK Stack",
+      "canonical": {
+        "id": "custom:monitoring-observability",
+        "label": "monitoring and observability",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and operation of SIEM tools such as Splunk and ELK Stack, including their role in log analysis and real-time threat detection."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "SIEM Systems: Splunk and ELK Stack"
+        },
+        {
+          "source": "description",
+          "text": "ELK Stack"
+        }
+      ],
+      "match": {
+        "original_term": "ELK Stack",
+        "canonical_id": "custom:monitoring-observability",
+        "canonical_label": "monitoring and observability",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Microsoft Sentinel",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement SOAR platforms such as Microsoft Sentinel and Palo Alto Prisma Access to orchestrate and automate security operations across heterogeneous systems."
+        },
+        {
+          "source": "description",
+          "text": "Microsoft Sentinel"
+        }
+      ],
+      "match": {
+        "original_term": "Microsoft Sentinel",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the extracted phrase 'Microsoft Sentinel' in terms of skill or specific tool.",
+        "candidates": [
+          {
+            "id": "esco:6f7512ab-d46d-402a-8c30-a8878d7c1f88",
+            "label": "SQL Server Integration Services",
+            "score": 0.513
+          },
+          {
+            "id": "esco:e79dab00-fe87-48f2-b8cc-f48b68bc7f35",
+            "label": "WhiteHat Sentinel",
+            "score": 0.512
+          },
+          {
+            "id": "esco:3d03c40c-1b83-4793-8902-2523f40af59e",
+            "label": "Microsoft Access",
+            "score": 0.487
+          }
+        ]
+      }
+    },
+    {
+      "term": "real-time threat detection",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and operation of SIEM tools such as Splunk and ELK Stack, including their role in log analysis and real-time threat detection."
+        },
+        {
+          "source": "description",
+          "text": "real-time threat detection"
+        }
+      ],
+      "match": {
+        "original_term": "real-time threat detection",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.693,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.35",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.693
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.339
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.333
+          }
+        ]
+      }
+    },
+    {
+      "term": "SIEM systems",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the core components of cybersecurity operations automation, including SIEM systems, SOAR platforms, and orchestration workflows."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "SIEM Systems: Splunk and ELK Stack"
+        }
+      ],
+      "match": {
+        "original_term": "SIEM systems",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.636,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.12",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.636
+          },
+          {
+            "id": "esco:2180bd8c-86de-4889-8165-adac902eee9d",
+            "label": "embedded systems",
+            "score": 0.515
+          },
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.432
+          }
+        ]
+      }
+    },
+    {
+      "term": "SOAR platforms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the core components of cybersecurity operations automation, including SIEM systems, SOAR platforms, and orchestration workflows."
+        },
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement SOAR platforms such as Microsoft Sentinel and Palo Alto Prisma Access to orchestrate and automate security operations across heterogeneous systems."
+        }
+      ],
+      "match": {
+        "original_term": "SOAR platforms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.292,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:microservices",
+            "label": "microservices architecture",
+            "score": 0.292
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.235
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "Splunk",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and operation of SIEM tools such as Splunk and ELK Stack, including their role in log analysis and real-time threat detection."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "SIEM Systems: Splunk and ELK Stack"
+        }
+      ],
+      "match": {
+        "original_term": "Splunk",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.21,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.21
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.204
+          },
+          {
+            "id": "esco:8a30eb28-eca0-4ab6-8c05-32c47d3e0dd6",
+            "label": "BlackArch",
+            "score": 0.196
+          }
+        ]
+      }
+    },
+    {
+      "term": "architecture",
+      "canonical": {
+        "id": "custom:monitoring-observability",
+        "label": "monitoring and observability",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and operation of SIEM tools such as Splunk and ELK Stack, including their role in log analysis and real-time threat detection."
+        }
+      ],
+      "match": {
+        "original_term": "architecture",
+        "canonical_id": "custom:monitoring-observability",
+        "canonical_label": "monitoring and observability",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'architecture' in the context of SIEM tools like ELK Stack aligns with 'monitoring and observability', which includes logging and system instrumentation.",
+        "candidates": [
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.658
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.637
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.57
+          }
+        ]
+      }
+    },
+    {
+      "term": "automate security operations across heterogeneous systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement SOAR platforms such as Microsoft Sentinel and Palo Alto Prisma Access to orchestrate and automate security operations across heterogeneous systems."
+        }
+      ],
+      "match": {
+        "original_term": "automate security operations across heterogeneous systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill of automating security operations across heterogeneous systems. The closest entries are related to security incident response or specific tools like Microsoft Sentinel, but none precisely capture the concept of automation across heteroge",
+        "candidates": [
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.432
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.412
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.383
+          }
+        ]
+      }
+    },
+    {
+      "term": "automation frameworks like Ansible",
+      "canonical": {
+        "id": "esco:6f8a40d6-f9ce-43ec-a72f-d4213a53f3ed",
+        "label": "Ansible",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply automation frameworks like Ansible and Python scripting to develop and implement incident response workflows in a simulated security environment."
+        }
+      ],
+      "match": {
+        "original_term": "automation frameworks like Ansible",
+        "canonical_id": "esco:6f8a40d6-f9ce-43ec-a72f-d4213a53f3ed",
+        "canonical_label": "Ansible",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'automation frameworks like Ansible' directly refers to the Ansible tool, which is explicitly named in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:6f8a40d6-f9ce-43ec-a72f-d4213a53f3ed",
+            "label": "Ansible",
+            "score": 0.493
+          },
+          {
+            "id": "custom:terraform",
+            "label": "Terraform",
+            "score": 0.459
+          },
+          {
+            "id": "esco:24c200e5-be20-4370-a137-ab53797f3a17",
+            "label": "software frameworks",
+            "score": 0.39
+          }
+        ]
+      }
+    },
+    {
+      "term": "core components of cybersecurity operations automation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the core components of cybersecurity operations automation, including SIEM systems, SOAR platforms, and orchestration workflows."
+        }
+      ],
+      "match": {
+        "original_term": "core components of cybersecurity operations automation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.15,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'core components of cybersecurity operations automation' refers to specific tools and processes like SIEM systems, SOAR platforms, and orchestration workflows, which are not directly captured by any of the provided taxonomy entries. None of the labels match the specific focus on automatio",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.471
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.405
+          },
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.391
+          }
+        ]
+      }
+    },
+    {
+      "term": "operation of SIEM tools",
+      "canonical": {
+        "id": "custom:monitoring-observability",
+        "label": "monitoring and observability",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and operation of SIEM tools such as Splunk and ELK Stack, including their role in log analysis and real-time threat detection."
+        }
+      ],
+      "match": {
+        "original_term": "operation of SIEM tools",
+        "canonical_id": "custom:monitoring-observability",
+        "canonical_label": "monitoring and observability",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'operation of SIEM tools' aligns with 'monitoring and observability' as SIEM tools like Splunk and ELK Stack are central to monitoring and observability in the context of log analysis and threat detection.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.543
+          },
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.409
+          },
+          {
+            "id": "esco:1a1a04b7-1d4c-414d-a791-7499ddb90a7f",
+            "label": "functions of vessel deck equipment",
+            "score": 0.349
+          }
+        ]
+      }
+    },
+    {
+      "term": "orchestration workflows",
+      "canonical": {
+        "id": "custom:airflow",
+        "label": "Apache Airflow",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the core components of cybersecurity operations automation, including SIEM systems, SOAR platforms, and orchestration workflows."
+        }
+      ],
+      "match": {
+        "original_term": "orchestration workflows",
+        "canonical_id": "custom:airflow",
+        "canonical_label": "Apache Airflow",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'orchestration workflows' directly matches the description of 'Workflow orchestration for data pipelines' under the label 'Apache Airflow'.",
+        "candidates": [
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.498
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.266
+          },
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.261
+          }
+        ]
+      }
+    },
+    {
+      "term": "Palo Alto Prisma Access to orchestrate",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement SOAR platforms such as Microsoft Sentinel and Palo Alto Prisma Access to orchestrate and automate security operations across heterogeneous systems."
+        }
+      ],
+      "match": {
+        "original_term": "Palo Alto Prisma Access to orchestrate",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.238,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.238
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.21
+          },
+          {
+            "id": "esco:b0a3bb25-a02f-43ed-ab1f-994fa66a424a",
+            "label": "online analytical processing",
+            "score": 0.198
+          }
+        ]
+      }
+    },
+    {
+      "term": "Python scripting to develop",
+      "canonical": {
+        "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "label": "Python",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply automation frameworks like Ansible and Python scripting to develop and implement incident response workflows in a simulated security environment."
+        }
+      ],
+      "match": {
+        "original_term": "Python scripting to develop",
+        "canonical_id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "canonical_label": "Python",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Python scripting to develop' directly refers to the skill of Python programming, which is explicitly named in the 'Python' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.542
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.516
+          },
+          {
+            "id": "esco:ed1d8bd4-cd2a-4c64-b665-56d70651026c",
+            "label": "Prototyping development",
+            "score": 0.252
+          }
+        ]
+      }
+    },
+    {
+      "term": "role in log analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and operation of SIEM tools such as Splunk and ELK Stack, including their role in log analysis and real-time threat detection."
+        }
+      ],
+      "match": {
+        "original_term": "role in log analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.234,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.234
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.216
+          },
+          {
+            "id": "esco:9d0d89be-bffa-4393-b6f6-8d05bea49051",
+            "label": "data extraction, transformation and loading tools",
+            "score": 0.195
+          }
+        ]
+      }
+    },
+    {
+      "term": "Anomaly Detection with Random Forests",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Anomaly Detection with Random Forests"
+        },
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Anomaly Detection with Random Forests"
+        }
+      ],
+      "match": {
+        "original_term": "Anomaly Detection with Random Forests",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.366,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.366
+          },
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.346
+          },
+          {
+            "id": "esco:ce7c9e97-40e4-497b-a85d-72573a8b9991",
+            "label": "hunting truck detector",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "Monitoring",
+      "canonical": {
+        "id": "custom:monitoring-observability",
+        "label": "monitoring and observability",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Monitoring and Logging Setup"
+        },
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Monitoring and Logging in SOAR"
+        }
+      ],
+      "match": {
+        "original_term": "Monitoring",
+        "canonical_id": "custom:monitoring-observability",
+        "canonical_label": "monitoring and observability",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Monitoring' directly matches the label 'monitoring and observability' and is also listed in the 'also called' section of that entry.",
+        "candidates": [
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.883
+          },
+          {
+            "id": "esco:20b1d521-3d18-4b59-aee5-aaf296170c1b",
+            "label": "electronic signals intelligence",
+            "score": 0.621
+          },
+          {
+            "id": "esco:0e8d16c9-e2db-4862-ac06-1567f01ef806",
+            "label": "building systems monitoring technology",
+            "score": 0.543
+          }
+        ]
+      }
+    },
+    {
+      "term": "Peer Review",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 15,
+          "text": "Peer Review and Feedback Session"
+        },
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Presentation and Peer Review"
+        }
+      ],
+      "match": {
+        "original_term": "Peer Review",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.226,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.226
+          },
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.205
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.199
+          }
+        ]
+      }
+    },
+    {
+      "term": "Log Management",
+      "canonical": {
+        "id": "custom:monitoring-observability",
+        "label": "monitoring and observability",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Log Management and Analysis"
+        },
+        {
+          "source": "description",
+          "text": "log management"
+        }
+      ],
+      "match": {
+        "original_term": "Log Management",
+        "canonical_id": "custom:monitoring-observability",
+        "canonical_label": "monitoring and observability",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Log Management' is directly related to 'monitoring and observability' as it is explicitly mentioned in the also called section of the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:0ab03c6c-281b-48f4-83e0-10eeb27a1bae",
+            "label": "network management system tools",
+            "score": 0.517
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.515
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.324
+          }
+        ]
+      }
+    },
+    {
+      "term": "Neural Networks",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Neural Networks for Threat Intelligence"
+        },
+        {
+          "source": "description",
+          "text": "neural networks"
+        }
+      ],
+      "match": {
+        "original_term": "Neural Networks",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Threat Intelligence",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Neural Networks for Threat Intelligence"
+        },
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Integration with SIEM and Threat Intelligence"
+        }
+      ],
+      "match": {
+        "original_term": "Threat Intelligence",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Threat Intelligence' does not match any of the provided taxonomy entries, as none specifically refer to the collection, analysis, or application of threat intelligence data.",
+        "candidates": [
+          {
+            "id": "esco:20b1d521-3d18-4b59-aee5-aaf296170c1b",
+            "label": "electronic signals intelligence",
+            "score": 0.502
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.488
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.412
+          }
+        ]
+      }
+    },
+    {
+      "term": "Alert Correlation Lab",
+      "canonical": {
+        "id": "custom:correlation-analysis",
+        "label": "correlation analysis",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Alert Correlation Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Alert Correlation Lab",
+        "canonical_id": "custom:correlation-analysis",
+        "canonical_label": "correlation analysis",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Alert Correlation Lab' directly relates to the analysis of correlations, which matches the definition of 'correlation analysis' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.584
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.225
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "Ansible Playbook Creation",
+      "canonical": {
+        "id": "esco:6f8a40d6-f9ce-43ec-a72f-d4213a53f3ed",
+        "label": "Ansible",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Basic Ansible Playbook Creation"
+        }
+      ],
+      "match": {
+        "original_term": "Ansible Playbook Creation",
+        "canonical_id": "esco:6f8a40d6-f9ce-43ec-a72f-d4213a53f3ed",
+        "canonical_label": "Ansible",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Ansible Playbook Creation' directly refers to the skill of using Ansible, which is explicitly named in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:6f8a40d6-f9ce-43ec-a72f-d4213a53f3ed",
+            "label": "Ansible",
+            "score": 0.512
+          },
+          {
+            "id": "custom:terraform",
+            "label": "Terraform",
+            "score": 0.505
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.273
+          }
+        ]
+      }
+    },
+    {
+      "term": "API Integration with Microsoft Sentinel",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "API Integration with Microsoft Sentinel"
+        }
+      ],
+      "match": {
+        "original_term": "API Integration with Microsoft Sentinel",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries exactly match the skill 'API Integration with Microsoft Sentinel'. The closest entries are related to API testing, REST API development, or Microsoft Azure, but none specifically refer to integration with Microsoft Sentinel.",
+        "candidates": [
+          {
+            "id": "esco:6f7512ab-d46d-402a-8c30-a8878d7c1f88",
+            "label": "SQL Server Integration Services",
+            "score": 0.462
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.403
+          },
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.362
+          }
+        ]
+      }
+    },
+    {
+      "term": "AWS Security Automation Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "AWS Security Automation Lab"
+        }
+      ],
+      "match": {
+        "original_term": "AWS Security Automation Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'AWS Security Automation Lab' refers to a specific lab activity involving AWS security automation, which is not captured by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:aws",
+            "label": "Amazon Web Services",
+            "score": 0.439
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.418
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.407
+          }
+        ]
+      }
+    },
+    {
+      "term": "Azure Security Compliance Setup",
+      "canonical": {
+        "id": "custom:azure",
+        "label": "Microsoft Azure",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Azure Security Compliance Setup"
+        }
+      ],
+      "match": {
+        "original_term": "Azure Security Compliance Setup",
+        "canonical_id": "custom:azure",
+        "canonical_label": "Microsoft Azure",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Azure Security Compliance Setup' directly refers to setting up security compliance on Microsoft Azure, which aligns with the 'Microsoft Azure' label as the specific skill.",
+        "candidates": [
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.541
+          },
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.482
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.478
+          }
+        ]
+      }
+    },
+    {
+      "term": "CK Mapping Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "MITRE ATT&CK Mapping Lab"
+        }
+      ],
+      "match": {
+        "original_term": "CK Mapping Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.214,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.214
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.208
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "Custom Rule Development Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Custom Rule Development Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Custom Rule Development Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Custom Rule Development Lab' does not match any of the provided taxonomy entries, as none of the labels or aliases refer to rule development or lab-based custom rule creation.",
+        "candidates": [
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.436
+          },
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.411
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.411
+          }
+        ]
+      }
+    },
+    {
+      "term": "Docker Containerization of Security Tools",
+      "canonical": {
+        "id": "custom:docker",
+        "label": "Docker",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Docker Containerization of Security Tools"
+        }
+      ],
+      "match": {
+        "original_term": "Docker Containerization of Security Tools",
+        "canonical_id": "custom:docker",
+        "canonical_label": "Docker",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Docker Containerization of Security Tools' directly refers to the use of Docker for containerization, which matches the 'Docker' entry in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.543
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.384
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.383
+          }
+        ]
+      }
+    },
+    {
+      "term": "ELK Stack Setup",
+      "canonical": {
+        "id": "custom:monitoring-observability",
+        "label": "monitoring and observability",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 2,
+          "text": "ELK Stack Setup for Log Aggregation"
+        }
+      ],
+      "match": {
+        "original_term": "ELK Stack Setup",
+        "canonical_id": "custom:monitoring-observability",
+        "canonical_label": "monitoring and observability",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.708,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.50",
+        "candidates": [
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.708
+          },
+          {
+            "id": "esco:69f0167e-75d9-46cf-847f-72a592880ebb",
+            "label": "STAF",
+            "score": 0.209
+          },
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "term": "Escalation Workflow Simulation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Escalation Workflow Simulation"
+        }
+      ],
+      "match": {
+        "original_term": "Escalation Workflow Simulation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill phrase 'Escalation Workflow Simulation'. The closest entries relate to workflow orchestration (Apache Airflow) or software development methodologies, but none specifically refer to simulation of escalation workflows.",
+        "candidates": [
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.448
+          },
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.243
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.226
+          }
+        ]
+      }
+    },
+    {
+      "term": "Feedback Session",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 15,
+          "text": "Peer Review and Feedback Session"
+        }
+      ],
+      "match": {
+        "original_term": "Feedback Session",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Feedback Session' does not match any of the provided taxonomy entries, which are focused on technical skills like control systems, documentation, or APIs, rather than peer review or feedback sessions.",
+        "candidates": [
+          {
+            "id": "custom:control-systems",
+            "label": "control systems engineering",
+            "score": 0.475
+          },
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.251
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "ISO 27001 Compliance Automation",
+      "canonical": {
+        "id": "esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694",
+        "label": "automation technology",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "ISO 27001 Compliance Automation"
+        }
+      ],
+      "match": {
+        "original_term": "ISO 27001 Compliance Automation",
+        "canonical_id": "esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694",
+        "canonical_label": "automation technology",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ISO 27001 Compliance Automation' directly relates to automation technology, as it involves applying automation to meet compliance standards like ISO 27001.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.619
+          },
+          {
+            "id": "esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694",
+            "label": "automation technology",
+            "score": 0.394
+          },
+          {
+            "id": "esco:6709e92c-7546-46a4-aa57-5e951bd4cb0f",
+            "label": "building automation",
+            "score": 0.389
+          }
+        ]
+      }
+    },
+    {
+      "term": "Kubernetes Deployment",
+      "canonical": {
+        "id": "custom:kubernetes",
+        "label": "Kubernetes",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Kubernetes Deployment for Security Services"
+        }
+      ],
+      "match": {
+        "original_term": "Kubernetes Deployment",
+        "canonical_id": "custom:kubernetes",
+        "canonical_label": "Kubernetes",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.656,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.39",
+        "candidates": [
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.656
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.266
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.249
+          }
+        ]
+      }
+    },
+    {
+      "term": "Log Aggregation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 2,
+          "text": "ELK Stack Setup for Log Aggregation"
+        }
+      ],
+      "match": {
+        "original_term": "Log Aggregation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.295,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.295
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.222
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "Log Parsing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Python Script for Log Parsing"
+        }
+      ],
+      "match": {
+        "original_term": "Log Parsing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.245,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.245
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.234
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "Logging Setup",
+      "canonical": {
+        "id": "custom:monitoring-observability",
+        "label": "monitoring and observability",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Monitoring and Logging Setup"
+        }
+      ],
+      "match": {
+        "original_term": "Logging Setup",
+        "canonical_id": "custom:monitoring-observability",
+        "canonical_label": "monitoring and observability",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.767,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.43",
+        "candidates": [
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.767
+          },
+          {
+            "id": "esco:0e8d16c9-e2db-4862-ac06-1567f01ef806",
+            "label": "building systems monitoring technology",
+            "score": 0.335
+          },
+          {
+            "id": "esco:e3f2c37f-e484-4b4c-ad82-f565a2b98f89",
+            "label": "environmental management monitors",
+            "score": 0.293
+          }
+        ]
+      }
+    },
+    {
+      "term": "Microsoft Sentinel Configuration Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Microsoft Sentinel Configuration Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Microsoft Sentinel Configuration Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.378,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:e79dab00-fe87-48f2-b8cc-f48b68bc7f35",
+            "label": "WhiteHat Sentinel",
+            "score": 0.378
+          },
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.366
+          },
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.353
+          }
+        ]
+      }
+    },
+    {
+      "term": "MITRE ATT",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "MITRE ATT&CK Mapping Lab"
+        }
+      ],
+      "match": {
+        "original_term": "MITRE ATT",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.178,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:message-queues",
+            "label": "message queues",
+            "score": 0.178
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.178
+          },
+          {
+            "id": "custom:tableau",
+            "label": "Tableau",
+            "score": 0.165
+          }
+        ]
+      }
+    },
+    {
+      "term": "Neural Network Model",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Neural Network Model for Threat Classification"
+        }
+      ],
+      "match": {
+        "original_term": "Neural Network Model",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.653,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.23",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.653
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.42
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.416
+          }
+        ]
+      }
+    },
+    {
+      "term": "NIST SP 800-171 Audit Setup",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "NIST SP 800-171 Audit Setup"
+        }
+      ],
+      "match": {
+        "original_term": "NIST SP 800-171 Audit Setup",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.162,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:69f0167e-75d9-46cf-847f-72a592880ebb",
+            "label": "STAF",
+            "score": 0.162
+          },
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.16
+          },
+          {
+            "id": "esco:bb99af26-71ff-4dca-bde7-1eb1f6194426",
+            "label": "SAP R3",
+            "score": 0.155
+          }
+        ]
+      }
+    },
+    {
+      "term": "Prisma Access Deployment Setup",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Prisma Access Deployment Setup"
+        }
+      ],
+      "match": {
+        "original_term": "Prisma Access Deployment Setup",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.382,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:1d86f05e-e9cc-40ce-99d8-2b21cc71b16b",
+            "label": "solution deployment",
+            "score": 0.382
+          },
+          {
+            "id": "esco:2f04bb71-d476-43b3-a60b-5df1d05f5681",
+            "label": "Octopus Deploy",
+            "score": 0.218
+          },
+          {
+            "id": "custom:android-development",
+            "label": "Android development",
+            "score": 0.193
+          }
+        ]
+      }
+    },
+    {
+      "term": "Python Script",
+      "canonical": {
+        "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "label": "Python",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Python Script for Log Parsing"
+        }
+      ],
+      "match": {
+        "original_term": "Python Script",
+        "canonical_id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "canonical_label": "Python",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Python Script' directly matches the label 'Python' and is a specific form of the skill described in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.606
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.459
+          },
+          {
+            "id": "custom:linux",
+            "label": "Linux",
+            "score": 0.232
+          }
+        ]
+      }
+    },
+    {
+      "term": "Querying",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 2,
+          "text": "Splunk Installation and Basic Querying"
+        }
+      ],
+      "match": {
+        "original_term": "Querying",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.233,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.233
+          },
+          {
+            "id": "esco:99207709-d076-4cce-ba38-e90d3bb28806",
+            "label": "resource description framework query language",
+            "score": 0.217
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "Security Services",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Kubernetes Deployment for Security Services"
+        }
+      ],
+      "match": {
+        "original_term": "Security Services",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Security Services' does not match any of the provided taxonomy entries, which focus on specific areas like cybersecurity, network security, or incident response, but none directly refer to 'Security Services' as a skill.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.502
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.485
+          },
+          {
+            "id": "esco:d1e954cd-d290-4d80-97c0-7969960d2928",
+            "label": "distributed directory information services",
+            "score": 0.466
+          }
+        ]
+      }
+    },
+    {
+      "term": "SOAR",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "SOAR and TI Integration Lab"
+        }
+      ],
+      "match": {
+        "original_term": "SOAR",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.2,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ci-cd",
+            "label": "CI/CD pipelines",
+            "score": 0.2
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.177
+          },
+          {
+            "id": "custom:pytorch",
+            "label": "PyTorch",
+            "score": 0.171
+          }
+        ]
+      }
+    },
+    {
+      "term": "SOAR Performance Optimization Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "SOAR Performance Optimization Lab"
+        }
+      ],
+      "match": {
+        "original_term": "SOAR Performance Optimization Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.394,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.394
+          },
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.232
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.207
+          }
+        ]
+      }
+    },
+    {
+      "term": "SOAR Workflow Automation Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "SOAR Workflow Automation Lab"
+        }
+      ],
+      "match": {
+        "original_term": "SOAR Workflow Automation Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.393,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.393
+          },
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.234
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.209
+          }
+        ]
+      }
+    },
+    {
+      "term": "SOC Playbook Automation Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "SOC Playbook Automation Lab"
+        }
+      ],
+      "match": {
+        "original_term": "SOC Playbook Automation Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'SOC Playbook Automation Lab' does not match any of the provided taxonomy entries, as none of the labels or descriptions refer to SOC playbook automation or related skills.",
+        "candidates": [
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.406
+          },
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.362
+          },
+          {
+            "id": "esco:c3a03c5a-c260-4c26-9b9a-873abb396f4d",
+            "label": "MATLAB",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "Splunk Installation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 2,
+          "text": "Splunk Installation and Basic Querying"
+        }
+      ],
+      "match": {
+        "original_term": "Splunk Installation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.211,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:linux",
+            "label": "Linux",
+            "score": 0.211
+          },
+          {
+            "id": "esco:204cd81a-b1f0-467c-8c5c-17e723eb62fd",
+            "label": "operation of different engines",
+            "score": 0.206
+          },
+          {
+            "id": "custom:apache-spark",
+            "label": "Apache Spark",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "Threat Classification",
+      "canonical": {
+        "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "label": "assessment of risks and threats",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Neural Network Model for Threat Classification"
+        }
+      ],
+      "match": {
+        "original_term": "Threat Classification",
+        "canonical_id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "canonical_label": "assessment of risks and threats",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Threat Classification' aligns with 'assessment of risks and threats' as both involve identifying and categorizing potential threats.",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.434
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.289
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.274
+          }
+        ]
+      }
+    },
+    {
+      "term": "Threat Hunting with SIEM",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Threat Hunting with SIEM and ML"
+        }
+      ],
+      "match": {
+        "original_term": "Threat Hunting with SIEM",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Threat Hunting with SIEM' is directly related to 'SIEM' which is listed as an alias for 'security incident response' in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.505
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.341
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.299
+          }
+        ]
+      }
+    },
+    {
+      "term": "Threat Intelligence Feed Integration",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Threat Intelligence Feed Integration"
+        }
+      ],
+      "match": {
+        "original_term": "Threat Intelligence Feed Integration",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.386,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.386
+          },
+          {
+            "id": "esco:756e7f39-d48d-4f42-a900-b09e0c34aa8c",
+            "label": "infections in food",
+            "score": 0.21
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "term": "TI Integration Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "SOAR and TI Integration Lab"
+        }
+      ],
+      "match": {
+        "original_term": "TI Integration Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'TI Integration Lab' does not match any of the provided taxonomy entries, which focus on specific tools or technologies like API testing, CI/CD, SQL Server Integration Services, etc., while 'TI Integration Lab' appears to refer to a specific lab or project rather than a standardized skill",
+        "candidates": [
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.452
+          },
+          {
+            "id": "custom:ci-cd",
+            "label": "CI/CD pipelines",
+            "score": 0.442
+          },
+          {
+            "id": "esco:6f7512ab-d46d-402a-8c30-a8878d7c1f88",
+            "label": "SQL Server Integration Services",
+            "score": 0.385
+          }
+        ]
+      }
+    },
+    {
+      "term": "Advanced SOAR Capabilities",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Advanced SOAR Capabilities"
+        }
+      ],
+      "match": {
+        "original_term": "Advanced SOAR Capabilities",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.187,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:f6f22c8e-249e-4e82-9528-6779a947b265",
+            "label": "surveillance radars",
+            "score": 0.187
+          },
+          {
+            "id": "esco:fed2fe77-623b-42f7-9d46-a2e5454f069a",
+            "label": "lasers",
+            "score": 0.181
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.174
+          }
+        ]
+      }
+    },
+    {
+      "term": "API Integration in SOAR",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "API Integration in SOAR"
+        }
+      ],
+      "match": {
+        "original_term": "API Integration in SOAR",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'API Integration in SOAR' refers to integrating APIs within a Service-Oriented Architecture (SOA) context, which is not explicitly covered by any of the provided taxonomy entries. None of the candidates directly match the specific skill described.",
+        "candidates": [
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.447
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.399
+          },
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.38
+          }
+        ]
+      }
+    },
+    {
+      "term": "Auditing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Automated Compliance and Auditing"
+        }
+      ],
+      "match": {
+        "original_term": "Auditing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.311,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.311
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.271
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.238
+          }
+        ]
+      }
+    },
+    {
+      "term": "Automated Compliance",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Automated Compliance and Auditing"
+        }
+      ],
+      "match": {
+        "original_term": "Automated Compliance",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Automated Compliance' does not match any of the provided taxonomy entries, as none of the labels or also called terms directly refer to automated compliance or auditing.",
+        "candidates": [
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.488
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.432
+          },
+          {
+            "id": "esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694",
+            "label": "automation technology",
+            "score": 0.254
+          }
+        ]
+      }
+    },
+    {
+      "term": "Automated Escalation Workflows",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Automated Escalation Workflows"
+        }
+      ],
+      "match": {
+        "original_term": "Automated Escalation Workflows",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.234,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.234
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.221
+          },
+          {
+            "id": "esco:7482a123-e801-48de-9733-262125671410",
+            "label": "task algorithmisation",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "Automated Security Operations Dashboard",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Automated Security Operations Dashboard"
+        }
+      ],
+      "match": {
+        "original_term": "Automated Security Operations Dashboard",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.382,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.382
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.38
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.368
+          }
+        ]
+      }
+    },
+    {
+      "term": "Automated Threat Hunting Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Automated Threat Hunting Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Automated Threat Hunting Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Automated Threat Hunting Techniques'. The closest entries are related to risk assessment, automation technology, or computer technology, but none specifically refer to threat hunting techniques.",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.464
+          },
+          {
+            "id": "esco:8203b07a-8097-4383-aff6-603b7df7f0f4",
+            "label": "ATM systems",
+            "score": 0.368
+          },
+          {
+            "id": "esco:2973b3bc-5893-4b3d-8953-22ef677a162f",
+            "label": "cutting technologies",
+            "score": 0.264
+          }
+        ]
+      }
+    },
+    {
+      "term": "Automated Threat Intelligence Feeds",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Automated Threat Intelligence Feeds"
+        }
+      ],
+      "match": {
+        "original_term": "Automated Threat Intelligence Feeds",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.395,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.395
+          },
+          {
+            "id": "esco:20b1d521-3d18-4b59-aee5-aaf296170c1b",
+            "label": "electronic signals intelligence",
+            "score": 0.391
+          },
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.35
+          }
+        ]
+      }
+    },
+    {
+      "term": "Automating AWS Security Compliance",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Automating AWS Security Compliance"
+        }
+      ],
+      "match": {
+        "original_term": "Automating AWS Security Compliance",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically match the skill 'Automating AWS Security Compliance'. The closest entries are related to AWS (custom:aws) and automation technology (esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694), but neither captures the specific focus on security compliance automatio",
+        "candidates": [
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.532
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.474
+          },
+          {
+            "id": "custom:aws",
+            "label": "Amazon Web Services",
+            "score": 0.422
+          }
+        ]
+      }
+    },
+    {
+      "term": "Automating Incident Response with Ansible",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Automating Incident Response with Ansible"
+        }
+      ],
+      "match": {
+        "original_term": "Automating Incident Response with Ansible",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Automating Incident Response with Ansible' directly relates to incident response, which is the core of the 'security incident response' skill, even though Ansible is a tool used in the process.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.6
+          },
+          {
+            "id": "esco:6f8a40d6-f9ce-43ec-a72f-d4213a53f3ed",
+            "label": "Ansible",
+            "score": 0.459
+          },
+          {
+            "id": "custom:terraform",
+            "label": "Terraform",
+            "score": 0.428
+          }
+        ]
+      }
+    },
+    {
+      "term": "Azure Security Automation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Azure Security Automation"
+        }
+      ],
+      "match": {
+        "original_term": "Azure Security Automation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically match 'Azure Security Automation'. The closest is 'Microsoft Azure' (custom:azure), but that is a broader cloud platform and does not capture the security automation aspect.",
+        "candidates": [
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.537
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.445
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.433
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cloud Security Automation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Cloud Security Automation"
+        }
+      ],
+      "match": {
+        "original_term": "Cloud Security Automation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically match 'Cloud Security Automation'. The closest entries are related to cybersecurity, cloud computing, or automation technology, but none directly capture the specific skill of automating cloud security tasks.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.46
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.444
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.443
+          }
+        ]
+      }
+    },
+    {
+      "term": "Containerization",
+      "canonical": {
+        "id": "custom:docker",
+        "label": "Docker",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Containerization and Security Tools"
+        }
+      ],
+      "match": {
+        "original_term": "Containerization",
+        "canonical_id": "custom:docker",
+        "canonical_label": "Docker",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Containerization' is explicitly listed as an alias for 'Docker' in the taxonomy entry, confirming it matches the same skill.",
+        "candidates": [
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.91
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.329
+          },
+          {
+            "id": "esco:7a273f33-016a-47cc-b4b7-5ebeea768816",
+            "label": "manufacturing of metal containers",
+            "score": 0.302
+          }
+        ]
+      }
+    },
+    {
+      "term": "Custom Playbook Development",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Custom Playbook Development"
+        }
+      ],
+      "match": {
+        "original_term": "Custom Playbook Development",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Custom Playbook Development' does not match any of the provided taxonomy entries, which are focused on specific development areas or methodologies, not playbook development.",
+        "candidates": [
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.451
+          },
+          {
+            "id": "custom:android-development",
+            "label": "Android development",
+            "score": 0.436
+          },
+          {
+            "id": "custom:ios-development",
+            "label": "iOS development",
+            "score": 0.434
+          }
+        ]
+      }
+    },
+    {
+      "term": "Custom Rule Development",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Custom Rule Development"
+        }
+      ],
+      "match": {
+        "original_term": "Custom Rule Development",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Custom Rule Development'. The closest entries are related to development methodologies or specific technologies, but none capture the specific skill of creating custom rules.",
+        "candidates": [
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.482
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.458
+          },
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.455
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cybersecurity Operations Automation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Cybersecurity Operations Automation"
+        }
+      ],
+      "match": {
+        "original_term": "Cybersecurity Operations Automation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically match the skill 'Cybersecurity Operations Automation'. The closest entries are 'cybersecurity' and 'security incident response', but neither captures the automation aspect of the skill.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.572
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.426
+          },
+          {
+            "id": "esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694",
+            "label": "automation technology",
+            "score": 0.422
+          }
+        ]
+      }
+    },
+    {
+      "term": "Docker",
+      "canonical": {
+        "id": "custom:docker",
+        "label": "Docker",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Docker for Security Applications"
+        }
+      ],
+      "match": {
+        "original_term": "Docker",
+        "canonical_id": "custom:docker",
+        "canonical_label": "Docker",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Fundamentals of Automation in Cybersecurity",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Fundamentals of Automation in Cybersecurity"
+        }
+      ],
+      "match": {
+        "original_term": "Fundamentals of Automation in Cybersecurity",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Fundamentals of Automation in Cybersecurity' combines two distinct domains: automation and cybersecurity. None of the provided taxonomy entries precisely capture this intersection. The closest entries are 'cybersecurity' and 'automation technology', but neither fully represents the combi",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.544
+          },
+          {
+            "id": "esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694",
+            "label": "automation technology",
+            "score": 0.433
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "term": "Incident Response Automation",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Incident Response Automation"
+        }
+      ],
+      "match": {
+        "original_term": "Incident Response Automation",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.713,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.29",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.713
+          },
+          {
+            "id": "esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694",
+            "label": "automation technology",
+            "score": 0.419
+          },
+          {
+            "id": "esco:e13b734a-218c-434a-a7cc-febac6d24ef3",
+            "label": "call-centre technologies",
+            "score": 0.411
+          }
+        ]
+      }
+    },
+    {
+      "term": "Integration",
+      "canonical": {
+        "id": "esco:0f9958d2-f700-4f62-b90b-a5873cb5ae4c",
+        "label": "systems thinking",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Final Project and Integration"
+        }
+      ],
+      "match": {
+        "original_term": "Integration",
+        "canonical_id": "esco:0f9958d2-f700-4f62-b90b-a5873cb5ae4c",
+        "canonical_label": "systems thinking",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Integration' directly matches the label 'systems thinking' which is also called 'integrate thinking' and 'integration of thinking', making it the most precise match.",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.889
+          },
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.653
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.646
+          }
+        ]
+      }
+    },
+    {
+      "term": "Integration of Python in Security Workflows",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Integration of Python in Security Workflows"
+        }
+      ],
+      "match": {
+        "original_term": "Integration of Python in Security Workflows",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to the integration of Python in security workflows. The closest entries are general Python or security-related terms, but none capture the specific skill described in the phrase.",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.463
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.363
+          },
+          {
+            "id": "esco:42c3287f-5e50-4559-a2d1-2000c70e0aab",
+            "label": "Pentaho Data Integration",
+            "score": 0.351
+          }
+        ]
+      }
+    },
+    {
+      "term": "Integration with MITRE ATT",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Integration with MITRE ATT&CK"
+        }
+      ],
+      "match": {
+        "original_term": "Integration with MITRE ATT",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Integration with MITRE ATT&CK' refers to integrating with a specific cybersecurity framework, while none of the provided taxonomy entries directly match this skill.",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.534
+          },
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.433
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.425
+          }
+        ]
+      }
+    },
+    {
+      "term": "Integration with SIEM",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Integration with SIEM and Threat Intelligence"
+        }
+      ],
+      "match": {
+        "original_term": "Integration with SIEM",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.635,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.14",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.635
+          },
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.499
+          },
+          {
+            "id": "esco:0f9958d2-f700-4f62-b90b-a5873cb5ae4c",
+            "label": "systems thinking",
+            "score": 0.468
+          }
+        ]
+      }
+    },
+    {
+      "term": "ISO 27001 Implementation",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "ISO 27001 Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "ISO 27001 Implementation",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.681,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.42",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.681
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.26
+          },
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.211
+          }
+        ]
+      }
+    },
+    {
+      "term": "Kubernetes in Cybersecurity",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Kubernetes in Cybersecurity"
+        }
+      ],
+      "match": {
+        "original_term": "Kubernetes in Cybersecurity",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Kubernetes in Cybersecurity' refers to a specific application of Kubernetes within the cybersecurity domain, which is not captured by any of the provided taxonomy entries. None of the candidates directly name this skill.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.646
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.625
+          },
+          {
+            "id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+            "label": "computer technology",
+            "score": 0.263
+          }
+        ]
+      }
+    },
+    {
+      "term": "Logging in SOAR",
+      "canonical": {
+        "id": "custom:monitoring-observability",
+        "label": "monitoring and observability",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Monitoring and Logging in SOAR"
+        }
+      ],
+      "match": {
+        "original_term": "Logging in SOAR",
+        "canonical_id": "custom:monitoring-observability",
+        "canonical_label": "monitoring and observability",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.737,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.43",
+        "candidates": [
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.737
+          },
+          {
+            "id": "esco:20b1d521-3d18-4b59-aee5-aaf296170c1b",
+            "label": "electronic signals intelligence",
+            "score": 0.309
+          },
+          {
+            "id": "custom:robot-troubleshooting",
+            "label": "robot system troubleshooting",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "Machine Learning in Cybersecurity",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Machine Learning in Cybersecurity"
+        }
+      ],
+      "match": {
+        "original_term": "Machine Learning in Cybersecurity",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.7,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.14",
+        "candidates": [
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.7
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.559
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.417
+          }
+        ]
+      }
+    },
+    {
+      "term": "Microsoft Sentinel Architecture",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Microsoft Sentinel Architecture"
+        }
+      ],
+      "match": {
+        "original_term": "Microsoft Sentinel Architecture",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the extracted phrase 'Microsoft Sentinel Architecture' in terms of skill or specific terminology.",
+        "candidates": [
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.443
+          },
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.432
+          },
+          {
+            "id": "esco:e79dab00-fe87-48f2-b8cc-f48b68bc7f35",
+            "label": "WhiteHat Sentinel",
+            "score": 0.422
+          }
+        ]
+      }
+    },
+    {
+      "term": "NIST SP 800-171 Compliance",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "NIST SP 800-171 Compliance"
+        }
+      ],
+      "match": {
+        "original_term": "NIST SP 800-171 Compliance",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.332,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.332
+          },
+          {
+            "id": "esco:76526bf6-bada-4ca1-8e79-6b9d4228b607",
+            "label": "electrical safety regulations",
+            "score": 0.172
+          },
+          {
+            "id": "esco:19ec88aa-c0b1-4515-ba10-56b6cf27369e",
+            "label": "electronic equipment standards",
+            "score": 0.164
+          }
+        ]
+      }
+    },
+    {
+      "term": "Orchestration",
+      "canonical": {
+        "id": "custom:kubernetes",
+        "label": "Kubernetes",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Orchestration and Workflow Automation"
+        }
+      ],
+      "match": {
+        "original_term": "Orchestration",
+        "canonical_id": "custom:kubernetes",
+        "canonical_label": "Kubernetes",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.658,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.36",
+        "candidates": [
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.658
+          },
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.295
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.251
+          }
+        ]
+      }
+    },
+    {
+      "term": "Overview of SIEM Systems",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Overview of SIEM Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Overview of SIEM Systems",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Overview of SIEM Systems' is directly associated with 'SIEM' in the also called list of the 'security incident response' entry, indicating it refers to the same skill.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.494
+          },
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.401
+          },
+          {
+            "id": "esco:2180bd8c-86de-4889-8165-adac902eee9d",
+            "label": "embedded systems",
+            "score": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "term": "Palo Alto Prisma Access Integration",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Palo Alto Prisma Access Integration"
+        }
+      ],
+      "match": {
+        "original_term": "Palo Alto Prisma Access Integration",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the extracted phrase 'Palo Alto Prisma Access Integration' in terms of skill or specific technology.",
+        "candidates": [
+          {
+            "id": "esco:3d03c40c-1b83-4793-8902-2523f40af59e",
+            "label": "Microsoft Access",
+            "score": 0.406
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.354
+          },
+          {
+            "id": "esco:42c3287f-5e50-4559-a2d1-2000c70e0aab",
+            "label": "Pentaho Data Integration",
+            "score": 0.334
+          }
+        ]
+      }
+    },
+    {
+      "term": "Performance Optimization in Automation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Performance Optimization in Automation"
+        }
+      ],
+      "match": {
+        "original_term": "Performance Optimization in Automation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill phrase 'Performance Optimization in Automation'. The closest entries are related to automation technology or control systems, but none specifically address performance optimization.",
+        "candidates": [
+          {
+            "id": "esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694",
+            "label": "automation technology",
+            "score": 0.431
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.229
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.224
+          }
+        ]
+      }
+    },
+    {
+      "term": "Playbook Development",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Playbook Development for SOC"
+        }
+      ],
+      "match": {
+        "original_term": "Playbook Development",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Playbook Development' as it is not related to mobile development, frontend development, software design patterns, or any other listed skill.",
+        "candidates": [
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.51
+          },
+          {
+            "id": "custom:ios-development",
+            "label": "iOS development",
+            "score": 0.501
+          },
+          {
+            "id": "custom:android-development",
+            "label": "Android development",
+            "score": 0.496
+          }
+        ]
+      }
+    },
+    {
+      "term": "Real-Time Alert Correlation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Real-Time Alert Correlation"
+        }
+      ],
+      "match": {
+        "original_term": "Real-Time Alert Correlation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Real-Time Alert Correlation' in meaning, wording, or scope.",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.51
+          },
+          {
+            "id": "esco:5fb469fc-65e4-4bc5-a512-e55281e3500a",
+            "label": "time-display methods",
+            "score": 0.298
+          },
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.206
+          }
+        ]
+      }
+    },
+    {
+      "term": "Real-Time Threat Detection with SIEM",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Real-Time Threat Detection with SIEM"
+        }
+      ],
+      "match": {
+        "original_term": "Real-Time Threat Detection with SIEM",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Real-Time Threat Detection with SIEM' directly aligns with the skill 'security incident response' as it involves detecting threats using SIEM tools, which is a core part of incident response.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.618
+          },
+          {
+            "id": "esco:d4a970f6-134b-4d0c-8ddd-1252cda86506",
+            "label": "hot wheel detection system",
+            "score": 0.323
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.307
+          }
+        ]
+      }
+    },
+    {
+      "term": "Reliability",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Scalability and Reliability"
+        }
+      ],
+      "match": {
+        "original_term": "Reliability",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Reliability' does not match any of the provided taxonomy entries, as none of the labels or descriptions specifically refer to reliability as a skill.",
+        "candidates": [
+          {
+            "id": "custom:devops",
+            "label": "DevOps practices",
+            "score": 0.552
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.285
+          },
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.282
+          }
+        ]
+      }
+    },
+    {
+      "term": "Scalability",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Scalability and Reliability"
+        }
+      ],
+      "match": {
+        "original_term": "Scalability",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.357,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ffddfc7c-a9dd-449f-9e96-882dc447c8b6",
+            "label": "Scala",
+            "score": 0.357
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.293
+          },
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.283
+          }
+        ]
+      }
+    },
+    {
+      "term": "Scripting",
+      "canonical": {
+        "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+        "label": "ICT system programming",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Scripting for Security Automation"
+        }
+      ],
+      "match": {
+        "original_term": "Scripting",
+        "canonical_id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+        "canonical_label": "ICT system programming",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Scripting' is explicitly listed as an alias for 'ICT system programming' in the taxonomy entry, making it a direct match.",
+        "candidates": [
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.874
+          },
+          {
+            "id": "custom:linux",
+            "label": "Linux",
+            "score": 0.651
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.284
+          }
+        ]
+      }
+    },
+    {
+      "term": "Security Applications",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Docker for Security Applications"
+        }
+      ],
+      "match": {
+        "original_term": "Security Applications",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.763,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.17",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.763
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.595
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.489
+          }
+        ]
+      }
+    },
+    {
+      "term": "Security Automation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Scripting for Security Automation"
+        }
+      ],
+      "match": {
+        "original_term": "Security Automation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Security Automation' refers to automating security tasks, which is not directly captured by any of the provided taxonomy entries. The closest entries are 'cybersecurity' and 'automation technology', but neither specifically addresses the automation of security processes.",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.523
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.515
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.506
+          }
+        ]
+      }
+    },
+    {
+      "term": "Security Information Sharing",
+      "canonical": {
+        "id": "custom:cybersecurity",
+        "label": "cybersecurity",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Security Information Sharing"
+        }
+      ],
+      "match": {
+        "original_term": "Security Information Sharing",
+        "canonical_id": "custom:cybersecurity",
+        "canonical_label": "cybersecurity",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.686,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.23",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.686
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.454
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.424
+          }
+        ]
+      }
+    },
+    {
+      "term": "Security Tools",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Containerization and Security Tools"
+        }
+      ],
+      "match": {
+        "original_term": "Security Tools",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Security Tools' is not clearly matched to any of the provided taxonomy entries, as none specifically refer to tools used in security contexts.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.519
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.512
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.496
+          }
+        ]
+      }
+    },
+    {
+      "term": "SIEM Integration with ML Models",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "SIEM Integration with ML Models"
+        }
+      ],
+      "match": {
+        "original_term": "SIEM Integration with ML Models",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'SIEM Integration with ML Models' directly relates to security incident response, as SIEM (Security Information and Event Management) is explicitly listed as an alias for incident response in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.428
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.405
+          },
+          {
+            "id": "esco:a4d336a6-9ffd-402a-91cc-f359716ba4e0",
+            "label": "ML (computer programming)",
+            "score": 0.401
+          }
+        ]
+      }
+    },
+    {
+      "term": "SOAR Platforms Overview",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "SOAR Platforms Overview"
+        }
+      ],
+      "match": {
+        "original_term": "SOAR Platforms Overview",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'SOAR Platforms Overview' does not match any of the provided taxonomy entries, as none of the labels or descriptions refer to a 'SOAR platform' or a similar concept.",
+        "candidates": [
+          {
+            "id": "esco:778ca7ad-6c5d-4868-9b96-a7777dca799c",
+            "label": "ICT help platforms",
+            "score": 0.404
+          },
+          {
+            "id": "custom:gcp",
+            "label": "Google Cloud Platform",
+            "score": 0.374
+          },
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.193
+          }
+        ]
+      }
+    },
+    {
+      "term": "SOC",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Playbook Development for SOC"
+        }
+      ],
+      "match": {
+        "original_term": "SOC",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.233,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.233
+          },
+          {
+            "id": "custom:android-development",
+            "label": "Android development",
+            "score": 0.215
+          },
+          {
+            "id": "esco:def007fa-5fed-4a5f-91a2-b0d7e3db1be1",
+            "label": "COBOL",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "Workflow Automation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Orchestration and Workflow Automation"
+        }
+      ],
+      "match": {
+        "original_term": "Workflow Automation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.381,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.381
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.334
+          },
+          {
+            "id": "esco:7482a123-e801-48de-9733-262125671410",
+            "label": "task algorithmisation",
+            "score": 0.232
+          }
+        ]
+      }
+    },
+    {
+      "term": "adherence to standards",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "adherence to standards"
+        }
+      ],
+      "match": {
+        "original_term": "adherence to standards",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill phrase 'adherence to standards'. The closest entries relate to specific standards in fields like ICT security, database quality, or electrical safety, but none capture the general concept of adherence to standards as presented in the syl",
+        "candidates": [
+          {
+            "id": "custom:standard-deviation",
+            "label": "standard deviation",
+            "score": 0.446
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.432
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.41
+          }
+        ]
+      }
+    },
+    {
+      "term": "advanced techniques of cybersecurity operations automation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "advanced techniques of cybersecurity operations automation"
+        }
+      ],
+      "match": {
+        "original_term": "advanced techniques of cybersecurity operations automation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically match the skill 'advanced techniques of cybersecurity operations automation'. The closest entries are related to cybersecurity or automation, but none capture the specific combination of advanced techniques in cybersecurity operations automation.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.458
+          },
+          {
+            "id": "esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694",
+            "label": "automation technology",
+            "score": 0.402
+          },
+          {
+            "id": "esco:2973b3bc-5893-4b3d-8953-22ef677a162f",
+            "label": "cutting technologies",
+            "score": 0.371
+          }
+        ]
+      }
+    },
+    {
+      "term": "anomaly detection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "anomaly detection"
+        }
+      ],
+      "match": {
+        "original_term": "anomaly detection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'anomaly detection'. The closest is 'software anomalies' (esco:438ff259-d086-4004-acda-1ec3e1631bc6), but it refers specifically to software system deviations, not the broader concept of anomaly detection.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.496
+          },
+          {
+            "id": "esco:c199731b-1c17-47be-8f5d-296b9892a1b4",
+            "label": "smoke sensors",
+            "score": 0.232
+          },
+          {
+            "id": "esco:ce7c9e97-40e4-497b-a85d-72573a8b9991",
+            "label": "hunting truck detector",
+            "score": 0.226
+          }
+        ]
+      }
+    },
+    {
+      "term": "Ansible",
+      "canonical": {
+        "id": "esco:6f8a40d6-f9ce-43ec-a72f-d4213a53f3ed",
+        "label": "Ansible",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Ansible"
+        }
+      ],
+      "match": {
+        "original_term": "Ansible",
+        "canonical_id": "esco:6f8a40d6-f9ce-43ec-a72f-d4213a53f3ed",
+        "canonical_label": "Ansible",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "compliance",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "compliance"
+        }
+      ],
+      "match": {
+        "original_term": "compliance",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'compliance' is explicitly listed in the also called section of the 'security risk management' entry, indicating it is the same skill.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.872
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.536
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "implementation of SOAR platforms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "implementation of SOAR platforms"
+        }
+      ],
+      "match": {
+        "original_term": "implementation of SOAR platforms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'implementation of SOAR platforms' does not match any of the provided taxonomy entries, as none specifically refer to the implementation of SOAR (Software Organized for Autonomy or similar) platforms.",
+        "candidates": [
+          {
+            "id": "esco:117373c8-f04b-4fff-8683-aebe36edac81",
+            "label": "hardware platforms",
+            "score": 0.406
+          },
+          {
+            "id": "custom:devops",
+            "label": "DevOps practices",
+            "score": 0.386
+          },
+          {
+            "id": "esco:778ca7ad-6c5d-4868-9b96-a7777dca799c",
+            "label": "ICT help platforms",
+            "score": 0.384
+          }
+        ]
+      }
+    },
+    {
+      "term": "ISO 27001",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "ISO 27001"
+        }
+      ],
+      "match": {
+        "original_term": "ISO 27001",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Kubernetes",
+      "canonical": {
+        "id": "custom:kubernetes",
+        "label": "Kubernetes",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Kubernetes"
+        }
+      ],
+      "match": {
+        "original_term": "Kubernetes",
+        "canonical_id": "custom:kubernetes",
+        "canonical_label": "Kubernetes",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "NIST SP 800-171",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "NIST SP 800-171"
+        }
+      ],
+      "match": {
+        "original_term": "NIST SP 800-171",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.155,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:d09ea154-1549-4ad0-a0e4-c8ca8fca8e52",
+            "label": "types of straightening machine",
+            "score": 0.155
+          },
+          {
+            "id": "esco:fa7d581b-da0e-47cf-bae8-4d07f267a225",
+            "label": "infrared sensors",
+            "score": 0.154
+          },
+          {
+            "id": "esco:fbf3b986-7eeb-415f-8abd-5a96785b20cc",
+            "label": "types of planing cutters",
+            "score": 0.151
+          }
+        ]
+      }
+    },
+    {
+      "term": "operational efficiency",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "operational efficiency"
+        }
+      ],
+      "match": {
+        "original_term": "operational efficiency",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill phrase 'operational efficiency'. The closest entries are related to airports or electricity consumption, which are not equivalent to operational efficiency.",
+        "candidates": [
+          {
+            "id": "esco:e7f7ceb9-6b2e-4a9f-9bc3-34613fd984c7",
+            "label": "airport operating environment",
+            "score": 0.436
+          },
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.422
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.27
+          }
+        ]
+      }
+    },
+    {
+      "term": "orchestrating security operations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "orchestrating security operations"
+        }
+      ],
+      "match": {
+        "original_term": "orchestrating security operations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill phrase 'orchestrating security operations'. The closest entries are related to incident response, cybersecurity, or information security strategy, but none specifically refer to orchestrating security operations.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.448
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.435
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.424
+          }
+        ]
+      }
+    },
+    {
+      "term": "Palo Alto Prisma Access",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Palo Alto Prisma Access"
+        }
+      ],
+      "match": {
+        "original_term": "Palo Alto Prisma Access",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'Palo Alto Prisma Access' does not match any of the provided taxonomy entries, which refer to Microsoft Access, Azure, or other unrelated technologies.",
+        "candidates": [
+          {
+            "id": "esco:3d03c40c-1b83-4793-8902-2523f40af59e",
+            "label": "Microsoft Access",
+            "score": 0.462
+          },
+          {
+            "id": "esco:70b0bc44-6751-4530-ac5c-a893d4241aeb",
+            "label": "building's electronic access equipment",
+            "score": 0.297
+          },
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.173
+          }
+        ]
+      }
+    },
+    {
+      "term": "SIEM systems like Splunk",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "SIEM systems like Splunk"
+        }
+      ],
+      "match": {
+        "original_term": "SIEM systems like Splunk",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'SIEM systems like Splunk' is directly associated with SIEM, which is listed as an alias for 'security incident response' in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.448
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.385
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.374
+          }
+        ]
+      }
+    },
+    {
+      "term": "This course covers the foundational principles",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "This course covers the foundational principles"
+        }
+      ],
+      "match": {
+        "original_term": "This course covers the foundational principles",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.369,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:c8ac1986-38fa-43b2-89dc-50a4beeb420e",
+            "label": "electricity",
+            "score": 0.369
+          },
+          {
+            "id": "esco:be99117b-49a1-4ec2-a670-e9baac66c1bd",
+            "label": "principles of combustion engines",
+            "score": 0.359
+          },
+          {
+            "id": "esco:209a5498-3449-4689-8ed9-bd08cab4fd78",
+            "label": "engineering principles",
+            "score": 0.35
+          }
+        ]
+      }
+    }
+  ]
+}

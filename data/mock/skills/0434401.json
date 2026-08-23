@@ -1,0 +1,3161 @@
+{
+  "course_code": "0434401",
+  "course_codes": [
+    "0434401"
+  ],
+  "course_title": "Natural Language Processing",
+  "credit_hours": 3,
+  "plans": [
+    "CS/AI"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "accepted": 32,
+      "no_match": 21,
+      "needs_review": 15
+    },
+    "by_method": {
+      "llm": 35,
+      "embedding_reranker": 27,
+      "exact_alias": 6
+    }
+  },
+  "total_skills": 68,
+  "skills": [
+    {
+      "term": "named entity recognition",
+      "canonical": {
+        "id": "custom:natural-language-processing",
+        "label": "natural language processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of part-of-speech tagging, named entity recognition, and dependency parsing using probabilistic models and rule-based systems."
+        },
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Part-of-speech tagging and named entity recognition"
+        },
+        {
+          "source": "description",
+          "text": "named entity recognition"
+        }
+      ],
+      "match": {
+        "original_term": "named entity recognition",
+        "canonical_id": "custom:natural-language-processing",
+        "canonical_label": "natural language processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'named entity recognition' is a specific task within natural language processing, and the taxonomy entry for natural language processing includes it as an also-called term.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.409
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.239
+          },
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.237
+          }
+        ]
+      }
+    },
+    {
+      "term": "tokenization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define tokenization, stemming, lemmatization, and stopword removal techniques for preprocessing text data."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Text preprocessing techniques: tokenization, stemming, and lemmatization"
+        },
+        {
+          "source": "description",
+          "text": "tokenization"
+        }
+      ],
+      "match": {
+        "original_term": "tokenization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.252,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.252
+          },
+          {
+            "id": "esco:7482a123-e801-48de-9733-262125671410",
+            "label": "task algorithmisation",
+            "score": 0.246
+          },
+          {
+            "id": "esco:6055f185-3214-491e-975a-cfcc1756fe1d",
+            "label": "metal forming technologies",
+            "score": 0.246
+          }
+        ]
+      }
+    },
+    {
+      "term": "lemmatization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define tokenization, stemming, lemmatization, and stopword removal techniques for preprocessing text data."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Text preprocessing techniques: tokenization, stemming, and lemmatization"
+        }
+      ],
+      "match": {
+        "original_term": "lemmatization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.258,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:6055f185-3214-491e-975a-cfcc1756fe1d",
+            "label": "metal forming technologies",
+            "score": 0.258
+          },
+          {
+            "id": "esco:2973b3bc-5893-4b3d-8953-22ef677a162f",
+            "label": "cutting technologies",
+            "score": 0.253
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "sentiment analysis",
+      "canonical": {
+        "id": "custom:natural-language-processing",
+        "label": "natural language processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply sentiment analysis and text classification algorithms using pre-trained models like BERT and RoBERTa for real-world datasets."
+        },
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Deep learning for text classification and sentiment analysis"
+        }
+      ],
+      "match": {
+        "original_term": "sentiment analysis",
+        "canonical_id": "custom:natural-language-processing",
+        "canonical_label": "natural language processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Sentiment analysis is a specific task within natural language processing, and the syllabus explicitly mentions it as part of text classification and deep learning for NLP.",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.483
+          },
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.462
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.458
+          }
+        ]
+      }
+    },
+    {
+      "term": "stemming",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define tokenization, stemming, lemmatization, and stopword removal techniques for preprocessing text data."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Text preprocessing techniques: tokenization, stemming, and lemmatization"
+        }
+      ],
+      "match": {
+        "original_term": "stemming",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.263,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.263
+          },
+          {
+            "id": "esco:959637fa-7505-4497-8c71-f3b6f4bbe389",
+            "label": "typesetting machines",
+            "score": 0.253
+          },
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.246
+          }
+        ]
+      }
+    },
+    {
+      "term": "architecture",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and training process of recurrent neural networks and transformer models for sequence modeling."
+        }
+      ],
+      "match": {
+        "original_term": "architecture",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'architecture' in the context of neural networks and sequence modeling refers to the structural design of models, which is not directly captured by any of the provided taxonomy entries. None of the candidates specifically address model architecture in machine learning.",
+        "candidates": [
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.677
+          },
+          {
+            "id": "esco:1bba98a7-92b9-450b-9235-e0c905f8f3c4",
+            "label": "information architecture",
+            "score": 0.657
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.653
+          }
+        ]
+      }
+    },
+    {
+      "term": "chatbot",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design and implement a chatbot or dialogue system using NLP techniques and evaluate its performance using metrics like BLEU and ROUGE."
+        }
+      ],
+      "match": {
+        "original_term": "chatbot",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.233,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-troubleshooting",
+            "label": "robot system troubleshooting",
+            "score": 0.233
+          },
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.224
+          },
+          {
+            "id": "custom:human-robot-interaction",
+            "label": "human-robot interaction",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "dependency parsing using probabilistic models",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of part-of-speech tagging, named entity recognition, and dependency parsing using probabilistic models and rule-based systems."
+        }
+      ],
+      "match": {
+        "original_term": "dependency parsing using probabilistic models",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.35,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.35
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.343
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.33
+          }
+        ]
+      }
+    },
+    {
+      "term": "dialogue system using NLP techniques",
+      "canonical": {
+        "id": "custom:natural-language-processing",
+        "label": "natural language processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design and implement a chatbot or dialogue system using NLP techniques and evaluate its performance using metrics like BLEU and ROUGE."
+        }
+      ],
+      "match": {
+        "original_term": "dialogue system using NLP techniques",
+        "canonical_id": "custom:natural-language-processing",
+        "canonical_label": "natural language processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'dialogue system using NLP techniques' directly relates to natural language processing, which is explicitly defined as 'Processing and generating human language with computers.'",
+        "candidates": [
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.401
+          },
+          {
+            "id": "custom:control-systems",
+            "label": "control systems engineering",
+            "score": 0.341
+          },
+          {
+            "id": "custom:robot-troubleshooting",
+            "label": "robot system troubleshooting",
+            "score": 0.325
+          }
+        ]
+      }
+    },
+    {
+      "term": "performance using metrics like BLEU",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design and implement a chatbot or dialogue system using NLP techniques and evaluate its performance using metrics like BLEU and ROUGE."
+        }
+      ],
+      "match": {
+        "original_term": "performance using metrics like BLEU",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.399,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.399
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.388
+          },
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.37
+          }
+        ]
+      }
+    },
+    {
+      "term": "preprocessing text data",
+      "canonical": {
+        "id": "custom:natural-language-processing",
+        "label": "natural language processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define tokenization, stemming, lemmatization, and stopword removal techniques for preprocessing text data."
+        }
+      ],
+      "match": {
+        "original_term": "preprocessing text data",
+        "canonical_id": "custom:natural-language-processing",
+        "canonical_label": "natural language processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'preprocessing text data' directly relates to techniques like tokenization, stemming, lemmatization, and stopword removal, which are core components of natural language processing (NLP).",
+        "candidates": [
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.428
+          },
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.413
+          },
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.399
+          }
+        ]
+      }
+    },
+    {
+      "term": "principles of part-of-speech tagging",
+      "canonical": {
+        "id": "custom:natural-language-processing",
+        "label": "natural language processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of part-of-speech tagging, named entity recognition, and dependency parsing using probabilistic models and rule-based systems."
+        }
+      ],
+      "match": {
+        "original_term": "principles of part-of-speech tagging",
+        "canonical_id": "custom:natural-language-processing",
+        "canonical_label": "natural language processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'principles of part-of-speech tagging' is a specific component of natural language processing, which is explicitly covered in the syllabus.",
+        "candidates": [
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.448
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.383
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "real-world datasets",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply sentiment analysis and text classification algorithms using pre-trained models like BERT and RoBERTa for real-world datasets."
+        }
+      ],
+      "match": {
+        "original_term": "real-world datasets",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.34,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:bf6c5ed4-84af-440f-abcc-7fa5ba19c738",
+            "label": "real-time computing",
+            "score": 0.34
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.223
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "RoBERTa",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply sentiment analysis and text classification algorithms using pre-trained models like BERT and RoBERTa for real-world datasets."
+        }
+      ],
+      "match": {
+        "original_term": "RoBERTa",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.224,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.224
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.199
+          },
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.196
+          }
+        ]
+      }
+    },
+    {
+      "term": "ROUGE",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design and implement a chatbot or dialogue system using NLP techniques and evaluate its performance using metrics like BLEU and ROUGE."
+        }
+      ],
+      "match": {
+        "original_term": "ROUGE",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.212,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-troubleshooting",
+            "label": "robot system troubleshooting",
+            "score": 0.212
+          },
+          {
+            "id": "custom:human-robot-interaction",
+            "label": "human-robot interaction",
+            "score": 0.201
+          },
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "term": "rule-based systems",
+      "canonical": {
+        "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+        "label": "principles of artificial intelligence",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of part-of-speech tagging, named entity recognition, and dependency parsing using probabilistic models and rule-based systems."
+        }
+      ],
+      "match": {
+        "original_term": "rule-based systems",
+        "canonical_id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+        "canonical_label": "principles of artificial intelligence",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'rule-based systems' is explicitly mentioned in the description of 'principles of artificial intelligence' as one of the included systems, making it a direct match.",
+        "candidates": [
+          {
+            "id": "esco:cdd8b6b2-2fd9-453c-8d62-8a1dc6efcd49",
+            "label": "systems theory",
+            "score": 0.44
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.423
+          },
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.418
+          }
+        ]
+      }
+    },
+    {
+      "term": "sequence modeling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and training process of recurrent neural networks and transformer models for sequence modeling."
+        }
+      ],
+      "match": {
+        "original_term": "sequence modeling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'sequence modeling' or its related concepts such as recurrent neural networks or transformer models.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.51
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.288
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.282
+          }
+        ]
+      }
+    },
+    {
+      "term": "stopword removal techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define tokenization, stemming, lemmatization, and stopword removal techniques for preprocessing text data."
+        }
+      ],
+      "match": {
+        "original_term": "stopword removal techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'stopword removal techniques' refers to a text preprocessing technique in natural language processing, but none of the provided taxonomy entries specifically address this skill. The closest match is 'natural language processing' (custom:natural-language-processing), but it is to",
+        "candidates": [
+          {
+            "id": "esco:ebd90bfe-ab0f-4155-a77c-3de9267b27a1",
+            "label": "metal smoothing technologies",
+            "score": 0.404
+          },
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.402
+          },
+          {
+            "id": "esco:8c454cb2-09b2-4b1c-b556-f57c9d90952c",
+            "label": "deburring processes",
+            "score": 0.36
+          }
+        ]
+      }
+    },
+    {
+      "term": "training process of recurrent neural networks",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and training process of recurrent neural networks and transformer models for sequence modeling."
+        }
+      ],
+      "match": {
+        "original_term": "training process of recurrent neural networks",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'training process of recurrent neural networks' is a specific part of deep learning, which is explicitly covered in the syllabus description.",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.576
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.369
+          },
+          {
+            "id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+            "label": "reverse engineering",
+            "score": 0.255
+          }
+        ]
+      }
+    },
+    {
+      "term": "transformer models",
+      "canonical": {
+        "id": "custom:large-language-models",
+        "label": "large language models",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and training process of recurrent neural networks and transformer models for sequence modeling."
+        }
+      ],
+      "match": {
+        "original_term": "transformer models",
+        "canonical_id": "custom:large-language-models",
+        "canonical_label": "large language models",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'transformer models' directly relates to large language models, which are a type of transformer-based model used for generation and reasoning tasks, matching the description of the custom:large-language-models entry.",
+        "candidates": [
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.498
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.474
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.463
+          }
+        ]
+      }
+    },
+    {
+      "term": "Dialogue systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Dialogue systems and chatbot design principles"
+        },
+        {
+          "source": "description",
+          "text": "dialogue systems"
+        }
+      ],
+      "match": {
+        "original_term": "Dialogue systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Dialogue systems' from the syllabus. The closest related entries are 'call-centre technologies' and 'software interaction design', but they are not exact matches.",
+        "candidates": [
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.459
+          },
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.419
+          },
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.414
+          }
+        ]
+      }
+    },
+    {
+      "term": "Part-of-speech tagging",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Part-of-speech tagging and named entity recognition"
+        },
+        {
+          "source": "description",
+          "text": "part-of-speech tagging"
+        }
+      ],
+      "match": {
+        "original_term": "Part-of-speech tagging",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.365,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:05e432cf-ac9d-4596-8b1b-2cea064e801e",
+            "label": "typology of meat parts",
+            "score": 0.365
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.222
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "Sequence-to-sequence models",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Sequence-to-sequence models and attention mechanisms"
+        },
+        {
+          "source": "description",
+          "text": "sequence-to-sequence models"
+        }
+      ],
+      "match": {
+        "original_term": "Sequence-to-sequence models",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'Sequence-to-sequence models' or related concepts. The closest entries are about data models, software architecture, and database design, which are broader or unrelated to sequence-to-sequence modeling.",
+        "candidates": [
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.464
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.433
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "term": "Text generation",
+      "canonical": {
+        "id": "custom:natural-language-processing",
+        "label": "natural language processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Text generation and sequence modeling techniques"
+        },
+        {
+          "source": "description",
+          "text": "text generation"
+        }
+      ],
+      "match": {
+        "original_term": "Text generation",
+        "canonical_id": "custom:natural-language-processing",
+        "canonical_label": "natural language processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'text generation' is a core component of natural language processing (NLP), which involves generating human language with computers.",
+        "candidates": [
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.464
+          },
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.449
+          },
+          {
+            "id": "esco:a929f335-e5b9-4f8f-a052-0a8b166d595c",
+            "label": "geothermal power generation methods",
+            "score": 0.432
+          }
+        ]
+      }
+    },
+    {
+      "term": "attention mechanisms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Sequence-to-sequence models and attention mechanisms"
+        }
+      ],
+      "match": {
+        "original_term": "attention mechanisms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'attention mechanisms' from the syllabus.",
+        "candidates": [
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.495
+          },
+          {
+            "id": "esco:ff8bd17c-77e9-4d4e-929a-a0cf86f3ed34",
+            "label": "surveillance methods",
+            "score": 0.435
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.251
+          }
+        ]
+      }
+    },
+    {
+      "term": "BERT models",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Introduction to transformer architectures and BERT models"
+        }
+      ],
+      "match": {
+        "original_term": "BERT models",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to BERT models or transformer architectures, which are types of natural language processing models.",
+        "candidates": [
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.487
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.438
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "term": "bias mitigation strategies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Ethical considerations in NLP and bias mitigation strategies"
+        }
+      ],
+      "match": {
+        "original_term": "bias mitigation strategies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.385,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:4600e453-d1cf-4567-96ff-5e9b4b26c030",
+            "label": "mining sector policies",
+            "score": 0.385
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.245
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.243
+          }
+        ]
+      }
+    },
+    {
+      "term": "chatbot design principles",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Dialogue systems and chatbot design principles"
+        }
+      ],
+      "match": {
+        "original_term": "chatbot design principles",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill described by 'chatbot design principles'. The closest candidate, 'software interaction design', is broader and does not specifically address chatbot design.",
+        "candidates": [
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.5
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.413
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.398
+          }
+        ]
+      }
+    },
+    {
+      "term": "CRF",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Introduction to statistical NLP models: HMM and CRF"
+        }
+      ],
+      "match": {
+        "original_term": "CRF",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.2,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.2
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.196
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.183
+          }
+        ]
+      }
+    },
+    {
+      "term": "Deep learning",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Deep learning for text classification and sentiment analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Deep learning",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "distributed representations",
+      "canonical": {
+        "id": "custom:embeddings",
+        "label": "text embeddings",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Word embeddings and distributed representations"
+        }
+      ],
+      "match": {
+        "original_term": "distributed representations",
+        "canonical_id": "custom:embeddings",
+        "canonical_label": "text embeddings",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'distributed representations' is directly related to 'text embeddings' as described in the syllabus, and the term 'distributed representations' is explicitly mentioned as part of the definition of text embeddings.",
+        "candidates": [
+          {
+            "id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+            "label": "distributed computing",
+            "score": 0.469
+          },
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.346
+          },
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.324
+          }
+        ]
+      }
+    },
+    {
+      "term": "Ethical considerations in NLP",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Ethical considerations in NLP and bias mitigation strategies"
+        }
+      ],
+      "match": {
+        "original_term": "Ethical considerations in NLP",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly address 'Ethical considerations in NLP' or its related concepts such as bias mitigation strategies. The closest entries are related to data protection or problem-solving, but they do not specifically capture the ethical and bias-related aspects of NLP.",
+        "candidates": [
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.466
+          },
+          {
+            "id": "esco:0f9958d2-f700-4f62-b90b-a5873cb5ae4c",
+            "label": "systems thinking",
+            "score": 0.205
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.199
+          }
+        ]
+      }
+    },
+    {
+      "term": "Evaluation metrics",
+      "canonical": {
+        "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+        "label": "software metrics",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Evaluation metrics and performance analysis for NLP systems"
+        }
+      ],
+      "match": {
+        "original_term": "Evaluation metrics",
+        "canonical_id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+        "canonical_label": "software metrics",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Evaluation metrics' directly relates to 'software metrics', which are metrics used to evaluate software systems, matching the syllabus context of NLP systems.",
+        "candidates": [
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.528
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.282
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.264
+          }
+        ]
+      }
+    },
+    {
+      "term": "HMM",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Introduction to statistical NLP models: HMM and CRF"
+        }
+      ],
+      "match": {
+        "original_term": "HMM",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.196,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.196
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.196
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.186
+          }
+        ]
+      }
+    },
+    {
+      "term": "Information retrieval",
+      "canonical": {
+        "id": "esco:06f33d6a-f7a7-4a2b-baa5-8c3c53bd1a9c",
+        "label": "keywords in digital content",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Information retrieval and query processing techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Information retrieval",
+        "canonical_id": "esco:06f33d6a-f7a7-4a2b-baa5-8c3c53bd1a9c",
+        "canonical_label": "keywords in digital content",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Information retrieval' directly aligns with the label 'keywords in digital content' which specifically refers to information retrieval systems using keywords and metadata.",
+        "candidates": [
+          {
+            "id": "esco:696e3b5b-8b61-45af-ae4c-3ab700f197ec",
+            "label": "information extraction",
+            "score": 0.553
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.415
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.259
+          }
+        ]
+      }
+    },
+    {
+      "term": "Machine translation",
+      "canonical": {
+        "id": "esco:32a2c63d-2d13-4784-abb8-678ef2cd8a46",
+        "label": "machine translation",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Machine translation and neural machine translation models"
+        }
+      ],
+      "match": {
+        "original_term": "Machine translation",
+        "canonical_id": "esco:32a2c63d-2d13-4784-abb8-678ef2cd8a46",
+        "canonical_label": "machine translation",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "neural machine translation models",
+      "canonical": {
+        "id": "esco:32a2c63d-2d13-4784-abb8-678ef2cd8a46",
+        "label": "machine translation",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Machine translation and neural machine translation models"
+        }
+      ],
+      "match": {
+        "original_term": "neural machine translation models",
+        "canonical_id": "esco:32a2c63d-2d13-4784-abb8-678ef2cd8a46",
+        "canonical_label": "machine translation",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.666,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.24",
+        "candidates": [
+          {
+            "id": "esco:32a2c63d-2d13-4784-abb8-678ef2cd8a46",
+            "label": "machine translation",
+            "score": 0.666
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.426
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.409
+          }
+        ]
+      }
+    },
+    {
+      "term": "NLP",
+      "canonical": {
+        "id": "custom:natural-language-processing",
+        "label": "natural language processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to NLP and its applications"
+        }
+      ],
+      "match": {
+        "original_term": "NLP",
+        "canonical_id": "custom:natural-language-processing",
+        "canonical_label": "natural language processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "NLP systems",
+      "canonical": {
+        "id": "custom:natural-language-processing",
+        "label": "natural language processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Evaluation metrics and performance analysis for NLP systems"
+        }
+      ],
+      "match": {
+        "original_term": "NLP systems",
+        "canonical_id": "custom:natural-language-processing",
+        "canonical_label": "natural language processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'NLP systems' directly refers to natural language processing, which is explicitly named in the custom taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.6
+          },
+          {
+            "id": "esco:cdd8b6b2-2fd9-453c-8d62-8a1dc6efcd49",
+            "label": "systems theory",
+            "score": 0.517
+          },
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.428
+          }
+        ]
+      }
+    },
+    {
+      "term": "performance analysis",
+      "canonical": {
+        "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+        "label": "ICT performance analysis methods",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Evaluation metrics and performance analysis for NLP systems"
+        }
+      ],
+      "match": {
+        "original_term": "performance analysis",
+        "canonical_id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+        "canonical_label": "ICT performance analysis methods",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.763,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.23",
+        "candidates": [
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.763
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.534
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.467
+          }
+        ]
+      }
+    },
+    {
+      "term": "query processing techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Information retrieval and query processing techniques"
+        }
+      ],
+      "match": {
+        "original_term": "query processing techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'query processing techniques' from the syllabus. The closest entry is 'query languages' (esco:9cf681c7-89ec-470c-b651-7fe03786f586), but it refers to languages for information retrieval, not the techniques for processing queries.",
+        "candidates": [
+          {
+            "id": "esco:9cf681c7-89ec-470c-b651-7fe03786f586",
+            "label": "query languages",
+            "score": 0.524
+          },
+          {
+            "id": "esco:5eeac647-dc4b-496d-b109-c90b58006021",
+            "label": "mining engineering",
+            "score": 0.479
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.453
+          }
+        ]
+      }
+    },
+    {
+      "term": "sequence modeling techniques",
+      "canonical": {
+        "id": "custom:large-language-models",
+        "label": "large language models",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Text generation and sequence modeling techniques"
+        }
+      ],
+      "match": {
+        "original_term": "sequence modeling techniques",
+        "canonical_id": "custom:large-language-models",
+        "canonical_label": "large language models",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'sequence modeling techniques' is closely related to text generation, which is a key application of large language models. The term 'sequence modeling' is a core component of the techniques used in large language models for tasks like text generation.",
+        "candidates": [
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.429
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.423
+          },
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.303
+          }
+        ]
+      }
+    },
+    {
+      "term": "statistical NLP models",
+      "canonical": {
+        "id": "custom:natural-language-processing",
+        "label": "natural language processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Introduction to statistical NLP models: HMM and CRF"
+        }
+      ],
+      "match": {
+        "original_term": "statistical NLP models",
+        "canonical_id": "custom:natural-language-processing",
+        "canonical_label": "natural language processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'statistical NLP models' directly relates to natural language processing, which is explicitly listed as a taxonomy entry with related terms like NLP.",
+        "candidates": [
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.485
+          },
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.482
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.434
+          }
+        ]
+      }
+    },
+    {
+      "term": "text classification",
+      "canonical": {
+        "id": "custom:natural-language-processing",
+        "label": "natural language processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Deep learning for text classification and sentiment analysis"
+        }
+      ],
+      "match": {
+        "original_term": "text classification",
+        "canonical_id": "custom:natural-language-processing",
+        "canonical_label": "natural language processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'text classification' is a specific task within the broader field of natural language processing (NLP), and the syllabus explicitly mentions 'deep learning for text classification and sentiment analysis', which aligns with NLP tasks.",
+        "candidates": [
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.456
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.439
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.266
+          }
+        ]
+      }
+    },
+    {
+      "term": "Text preprocessing techniques",
+      "canonical": {
+        "id": "custom:natural-language-processing",
+        "label": "natural language processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Text preprocessing techniques: tokenization, stemming, and lemmatization"
+        }
+      ],
+      "match": {
+        "original_term": "Text preprocessing techniques",
+        "canonical_id": "custom:natural-language-processing",
+        "canonical_label": "natural language processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Text preprocessing techniques' directly relates to natural language processing (NLP), which includes tasks like tokenization, stemming, and lemmatization.",
+        "candidates": [
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.421
+          },
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.41
+          },
+          {
+            "id": "esco:ebd90bfe-ab0f-4155-a77c-3de9267b27a1",
+            "label": "metal smoothing technologies",
+            "score": 0.407
+          }
+        ]
+      }
+    },
+    {
+      "term": "transformer architectures",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Introduction to transformer architectures and BERT models"
+        }
+      ],
+      "match": {
+        "original_term": "transformer architectures",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'transformer architectures' or related concepts. The closest entries are about hardware architectures, software architecture models, or coordinate frame transforms, which are distinct from transformer architectures in machine learning.",
+        "candidates": [
+          {
+            "id": "esco:f0ab5d57-4be7-411b-afce-b4a76a142302",
+            "label": "electrical machines",
+            "score": 0.555
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.504
+          },
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.489
+          }
+        ]
+      }
+    },
+    {
+      "term": "Word embeddings",
+      "canonical": {
+        "id": "custom:embeddings",
+        "label": "text embeddings",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Word embeddings and distributed representations"
+        }
+      ],
+      "match": {
+        "original_term": "Word embeddings",
+        "canonical_id": "custom:embeddings",
+        "canonical_label": "text embeddings",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "advanced topics in Natural Language Processing",
+      "canonical": {
+        "id": "custom:natural-language-processing",
+        "label": "natural language processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "advanced topics in Natural Language Processing"
+        }
+      ],
+      "match": {
+        "original_term": "advanced topics in Natural Language Processing",
+        "canonical_id": "custom:natural-language-processing",
+        "canonical_label": "natural language processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.711,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.26",
+        "candidates": [
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.711
+          },
+          {
+            "id": "esco:300d432b-f457-4cd3-9cb1-1858c7d14954",
+            "label": "OpenEdge Advanced Business Language",
+            "score": 0.453
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.381
+          }
+        ]
+      }
+    },
+    {
+      "term": "BERT",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "BERT"
+        }
+      ],
+      "match": {
+        "original_term": "BERT",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.181,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.181
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.154
+          },
+          {
+            "id": "esco:5ecff5a2-d496-4460-b766-1380959cafcb",
+            "label": "wort boiling process",
+            "score": 0.145
+          }
+        ]
+      }
+    },
+    {
+      "term": "Conditional Random Fields",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Conditional Random Fields"
+        }
+      ],
+      "match": {
+        "original_term": "Conditional Random Fields",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Conditional Random Fields'.",
+        "candidates": [
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.428
+          },
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.401
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "course also explores language models",
+      "canonical": {
+        "id": "custom:large-language-models",
+        "label": "large language models",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "course also explores language models"
+        }
+      ],
+      "match": {
+        "original_term": "course also explores language models",
+        "canonical_id": "custom:large-language-models",
+        "canonical_label": "large language models",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'language models' directly matches the skill 'large language models' (LLMs), which is explicitly listed in the taxonomy with alternative names including 'generative AI' and 'foundation models'.",
+        "candidates": [
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.488
+          },
+          {
+            "id": "esco:04f1b938-d4d4-4cb1-a863-982af76b9d93",
+            "label": "SAS language",
+            "score": 0.361
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.325
+          }
+        ]
+      }
+    },
+    {
+      "term": "deep learning models",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "deep learning models"
+        }
+      ],
+      "match": {
+        "original_term": "deep learning models",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.743,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.32",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.743
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.426
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.407
+          }
+        ]
+      }
+    },
+    {
+      "term": "frameworks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "frameworks"
+        }
+      ],
+      "match": {
+        "original_term": "frameworks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'frameworks' is too generic and does not match any specific framework listed in the taxonomy candidates.",
+        "candidates": [
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.573
+          },
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.483
+          },
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.247
+          }
+        ]
+      }
+    },
+    {
+      "term": "Hidden Markov Models",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Hidden Markov Models"
+        }
+      ],
+      "match": {
+        "original_term": "Hidden Markov Models",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.222,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-dynamics",
+            "label": "robot dynamics",
+            "score": 0.222
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.194
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.186
+          }
+        ]
+      }
+    },
+    {
+      "term": "Hugging Face Transformers",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Hugging Face Transformers"
+        }
+      ],
+      "match": {
+        "original_term": "Hugging Face Transformers",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.274,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:tf-transforms",
+            "label": "coordinate frame transforms",
+            "score": 0.274
+          },
+          {
+            "id": "esco:090b7d62-bd5b-48c8-a339-d33e7992a9ca",
+            "label": "swaging machine types",
+            "score": 0.212
+          },
+          {
+            "id": "esco:0be7c835-a562-416f-8c35-67abd0995b4d",
+            "label": "swaging processes",
+            "score": 0.206
+          }
+        ]
+      }
+    },
+    {
+      "term": "information retrieval using standards like Unicode",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "information retrieval using standards like Unicode"
+        }
+      ],
+      "match": {
+        "original_term": "information retrieval using standards like Unicode",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.34,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:696e3b5b-8b61-45af-ae4c-3ab700f197ec",
+            "label": "information extraction",
+            "score": 0.34
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.321
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.319
+          }
+        ]
+      }
+    },
+    {
+      "term": "NLP systems using Python",
+      "canonical": {
+        "id": "custom:natural-language-processing",
+        "label": "natural language processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "NLP systems using Python"
+        }
+      ],
+      "match": {
+        "original_term": "NLP systems using Python",
+        "canonical_id": "custom:natural-language-processing",
+        "canonical_label": "natural language processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'NLP systems using Python' directly refers to natural language processing, with Python being the implementation tool, which matches the label 'natural language processing'.",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.483
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.451
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.386
+          }
+        ]
+      }
+    },
+    {
+      "term": "PyTorch",
+      "canonical": {
+        "id": "custom:pytorch",
+        "label": "PyTorch",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "PyTorch"
+        }
+      ],
+      "match": {
+        "original_term": "PyTorch",
+        "canonical_id": "custom:pytorch",
+        "canonical_label": "PyTorch",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "sentiment analysis using libraries like NLTK",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "sentiment analysis using libraries like NLTK"
+        }
+      ],
+      "match": {
+        "original_term": "sentiment analysis using libraries like NLTK",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.318,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.318
+          },
+          {
+            "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+            "label": "software components libraries",
+            "score": 0.314
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.302
+          }
+        ]
+      }
+    },
+    {
+      "term": "spaCy",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "spaCy"
+        }
+      ],
+      "match": {
+        "original_term": "spaCy",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.241,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:apache-spark",
+            "label": "Apache Spark",
+            "score": 0.241
+          },
+          {
+            "id": "custom:message-queues",
+            "label": "message queues",
+            "score": 0.187
+          },
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.18
+          }
+        ]
+      }
+    },
+    {
+      "term": "Students will implement",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Students will implement"
+        }
+      ],
+      "match": {
+        "original_term": "Students will implement",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.205,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.205
+          },
+          {
+            "id": "esco:0189f448-179e-47cc-9716-c5c3ac4b1aec",
+            "label": "Absorb (learning management systems)",
+            "score": 0.181
+          },
+          {
+            "id": "esco:54971fec-1c2f-49c0-9396-2f0c9fa5c8c0",
+            "label": "LAMS",
+            "score": 0.174
+          }
+        ]
+      }
+    },
+    {
+      "term": "Students will study statistical",
+      "canonical": {
+        "id": "custom:descriptive-statistics",
+        "label": "descriptive statistics",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Students will study statistical"
+        }
+      ],
+      "match": {
+        "original_term": "Students will study statistical",
+        "canonical_id": "custom:descriptive-statistics",
+        "canonical_label": "descriptive statistics",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Students will study statistical' aligns with 'descriptive statistics' as it refers to summarizing data, which is a core aspect of descriptive statistics.",
+        "candidates": [
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.406
+          },
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.406
+          },
+          {
+            "id": "custom:inferential-statistics",
+            "label": "inferential statistics",
+            "score": 0.401
+          }
+        ]
+      }
+    },
+    {
+      "term": "tasks like machine translation",
+      "canonical": {
+        "id": "esco:32a2c63d-2d13-4784-abb8-678ef2cd8a46",
+        "label": "machine translation",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "tasks like machine translation"
+        }
+      ],
+      "match": {
+        "original_term": "tasks like machine translation",
+        "canonical_id": "esco:32a2c63d-2d13-4784-abb8-678ef2cd8a46",
+        "canonical_label": "machine translation",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.674,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.28",
+        "candidates": [
+          {
+            "id": "esco:32a2c63d-2d13-4784-abb8-678ef2cd8a46",
+            "label": "machine translation",
+            "score": 0.674
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.397
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.373
+          }
+        ]
+      }
+    },
+    {
+      "term": "TensorFlow",
+      "canonical": {
+        "id": "custom:tensorflow",
+        "label": "TensorFlow",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "TensorFlow"
+        }
+      ],
+      "match": {
+        "original_term": "TensorFlow",
+        "canonical_id": "custom:tensorflow",
+        "canonical_label": "TensorFlow",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "This course covers foundational",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "This course covers foundational"
+        }
+      ],
+      "match": {
+        "original_term": "This course covers foundational",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.248,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:be99117b-49a1-4ec2-a670-e9baac66c1bd",
+            "label": "principles of combustion engines",
+            "score": 0.248
+          },
+          {
+            "id": "esco:54804209-6aac-4ca4-bf3c-aef4fbe18f8c",
+            "label": "principles of mechanical engineering",
+            "score": 0.231
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "Topics include word embeddings",
+      "canonical": {
+        "id": "custom:embeddings",
+        "label": "text embeddings",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Topics include word embeddings"
+        }
+      ],
+      "match": {
+        "original_term": "Topics include word embeddings",
+        "canonical_id": "custom:embeddings",
+        "canonical_label": "text embeddings",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.664,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.45",
+        "candidates": [
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.664
+          },
+          {
+            "id": "esco:f049d050-12da-4e40-813a-2b5eb6df6b51",
+            "label": "Internet of Things",
+            "score": 0.214
+          },
+          {
+            "id": "esco:06f33d6a-f7a7-4a2b-baa5-8c3c53bd1a9c",
+            "label": "keywords in digital content",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "transformer-based architectures",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "transformer-based architectures"
+        }
+      ],
+      "match": {
+        "original_term": "transformer-based architectures",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'transformer-based architectures'.",
+        "candidates": [
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.435
+          },
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.422
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.264
+          }
+        ]
+      }
+    },
+    {
+      "term": "XML",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "XML"
+        }
+      ],
+      "match": {
+        "original_term": "XML",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to the skill 'XML'. The closest entry is 'AJAX', which includes XML as part of its technology but is not the same skill.",
+        "candidates": [
+          {
+            "id": "esco:b4dc6e4f-dc7d-445f-8ce2-d7b9d225e282",
+            "label": "AJAX",
+            "score": 0.45
+          },
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.173
+          },
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.171
+          }
+        ]
+      }
+    }
+  ]
+}

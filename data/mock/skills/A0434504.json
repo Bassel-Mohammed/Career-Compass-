@@ -1,0 +1,3103 @@
+{
+  "course_code": "A0434504",
+  "course_codes": [
+    "A0434504"
+  ],
+  "course_title": "Professional Certificate in Cybersecurity (1)",
+  "credit_hours": 3,
+  "plans": [
+    "CYBER"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "accepted": 34,
+      "no_match": 21,
+      "needs_review": 11
+    },
+    "by_method": {
+      "llm": 26,
+      "embedding_reranker": 35,
+      "exact_alias": 5
+    }
+  },
+  "total_skills": 66,
+  "skills": [
+    {
+      "term": "access control models",
+      "canonical": {
+        "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+        "label": "information confidentiality",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain access control models such as RBAC, ABAC, and DAC, and their implementation in enterprise environments."
+        },
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Access Control Models and Implementation"
+        },
+        {
+          "source": "description",
+          "text": "access control models"
+        }
+      ],
+      "match": {
+        "original_term": "access control models",
+        "canonical_id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+        "canonical_label": "information confidentiality",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'access control models' directly relates to 'information confidentiality', which includes mechanisms for selective access control and aligns with the syllabus content on RBAC, ABAC, and DAC.",
+        "candidates": [
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.603
+          },
+          {
+            "id": "esco:70b0bc44-6751-4530-ac5c-a893d4241aeb",
+            "label": "building's electronic access equipment",
+            "score": 0.476
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.421
+          }
+        ]
+      }
+    },
+    {
+      "term": "cryptographic algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define cryptographic algorithms such as AES, RSA, and ECC, and explain their mathematical foundations and use cases."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Cryptographic Algorithms and Protocols"
+        },
+        {
+          "source": "description",
+          "text": "cryptographic algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "cryptographic algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.643,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.08",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.643
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.561
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.479
+          }
+        ]
+      }
+    },
+    {
+      "term": "ABAC",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain access control models such as RBAC, ABAC, and DAC, and their implementation in enterprise environments."
+        },
+        {
+          "source": "description",
+          "text": "ABAC"
+        }
+      ],
+      "match": {
+        "original_term": "ABAC",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.305,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:eb0e5615-1575-4a86-a1a2-7d39595033c5",
+            "label": "ABAP",
+            "score": 0.305
+          },
+          {
+            "id": "esco:70b0bc44-6751-4530-ac5c-a893d4241aeb",
+            "label": "building's electronic access equipment",
+            "score": 0.227
+          },
+          {
+            "id": "esco:83218cac-3599-417e-93d2-26013cdccd98",
+            "label": "service-oriented modelling",
+            "score": 0.22
+          }
+        ]
+      }
+    },
+    {
+      "term": "AES",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define cryptographic algorithms such as AES, RSA, and ECC, and explain their mathematical foundations and use cases."
+        },
+        {
+          "source": "description",
+          "text": "AES"
+        }
+      ],
+      "match": {
+        "original_term": "AES",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.245,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.245
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.236
+          },
+          {
+            "id": "esco:7b5cce4d-c7fe-4119-b48f-70aa05391787",
+            "label": "computer science",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "RBAC",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain access control models such as RBAC, ABAC, and DAC, and their implementation in enterprise environments."
+        },
+        {
+          "source": "description",
+          "text": "RBAC"
+        }
+      ],
+      "match": {
+        "original_term": "RBAC",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.225,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:70b0bc44-6751-4530-ac5c-a893d4241aeb",
+            "label": "building's electronic access equipment",
+            "score": 0.225
+          },
+          {
+            "id": "esco:83218cac-3599-417e-93d2-26013cdccd98",
+            "label": "service-oriented modelling",
+            "score": 0.216
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "RSA",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define cryptographic algorithms such as AES, RSA, and ECC, and explain their mathematical foundations and use cases."
+        },
+        {
+          "source": "description",
+          "text": "RSA"
+        }
+      ],
+      "match": {
+        "original_term": "RSA",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.241,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.241
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.234
+          },
+          {
+            "id": "esco:7b5cce4d-c7fe-4119-b48f-70aa05391787",
+            "label": "computer science",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "SSH",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe secure network protocols including TLS, SSH, and IKE, and explain their role in securing communications."
+        },
+        {
+          "source": "description",
+          "text": "SSH"
+        }
+      ],
+      "match": {
+        "original_term": "SSH",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.309,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.309
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.22
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "TLS",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe secure network protocols including TLS, SSH, and IKE, and explain their role in securing communications."
+        },
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Data Encryption with AES and TLS"
+        }
+      ],
+      "match": {
+        "original_term": "TLS",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "cases",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define cryptographic algorithms such as AES, RSA, and ECC, and explain their mathematical foundations and use cases."
+        }
+      ],
+      "match": {
+        "original_term": "cases",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.229,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:7b5cce4d-c7fe-4119-b48f-70aa05391787",
+            "label": "computer science",
+            "score": 0.229
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.227
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "code review techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement secure software development practices, including OWASP Top 10 mitigation strategies and code review techniques."
+        }
+      ],
+      "match": {
+        "original_term": "code review techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'code review techniques'. The closest entries are related to secure coding practices or risk assessment, but they do not match the exact skill described in the phrase.",
+        "candidates": [
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.417
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.372
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.321
+          }
+        ]
+      }
+    },
+    {
+      "term": "DAC",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain access control models such as RBAC, ABAC, and DAC, and their implementation in enterprise environments."
+        }
+      ],
+      "match": {
+        "original_term": "DAC",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.311,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.311
+          },
+          {
+            "id": "esco:70b0bc44-6751-4530-ac5c-a893d4241aeb",
+            "label": "building's electronic access equipment",
+            "score": 0.219
+          },
+          {
+            "id": "esco:83218cac-3599-417e-93d2-26013cdccd98",
+            "label": "service-oriented modelling",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "ECC",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define cryptographic algorithms such as AES, RSA, and ECC, and explain their mathematical foundations and use cases."
+        }
+      ],
+      "match": {
+        "original_term": "ECC",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.241,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+            "label": "JavaScript",
+            "score": 0.241
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.233
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.229
+          }
+        ]
+      }
+    },
+    {
+      "term": "IKE",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe secure network protocols including TLS, SSH, and IKE, and explain their role in securing communications."
+        }
+      ],
+      "match": {
+        "original_term": "IKE",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.232,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.232
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.211
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.211
+          }
+        ]
+      }
+    },
+    {
+      "term": "implementation in enterprise environments",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain access control models such as RBAC, ABAC, and DAC, and their implementation in enterprise environments."
+        }
+      ],
+      "match": {
+        "original_term": "implementation in enterprise environments",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.388,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:e7f7ceb9-6b2e-4a9f-9bc3-34613fd984c7",
+            "label": "airport operating environment",
+            "score": 0.388
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.239
+          },
+          {
+            "id": "esco:70b0bc44-6751-4530-ac5c-a893d4241aeb",
+            "label": "building's electronic access equipment",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "mathematical foundations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define cryptographic algorithms such as AES, RSA, and ECC, and explain their mathematical foundations and use cases."
+        }
+      ],
+      "match": {
+        "original_term": "mathematical foundations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.264,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:discrete-mathematics",
+            "label": "discrete mathematics",
+            "score": 0.264
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.256
+          },
+          {
+            "id": "esco:7b5cce4d-c7fe-4119-b48f-70aa05391787",
+            "label": "computer science",
+            "score": 0.247
+          }
+        ]
+      }
+    },
+    {
+      "term": "OWASP Top 10 mitigation strategies",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement secure software development practices, including OWASP Top 10 mitigation strategies and code review techniques."
+        }
+      ],
+      "match": {
+        "original_term": "OWASP Top 10 mitigation strategies",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.727,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.29",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.727
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.433
+          },
+          {
+            "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+            "label": "OWASP ZAP",
+            "score": 0.359
+          }
+        ]
+      }
+    },
+    {
+      "term": "Qualys to identify",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply vulnerability scanning techniques using tools like Nessus and Qualys to identify and remediate system weaknesses."
+        }
+      ],
+      "match": {
+        "original_term": "Qualys to identify",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.256,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+            "label": "Nessus",
+            "score": 0.256
+          },
+          {
+            "id": "esco:625b57ee-29d4-425b-bf99-9fd54dd021fe",
+            "label": "Kali Linux",
+            "score": 0.235
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.224
+          }
+        ]
+      }
+    },
+    {
+      "term": "remediate system weaknesses",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply vulnerability scanning techniques using tools like Nessus and Qualys to identify and remediate system weaknesses."
+        }
+      ],
+      "match": {
+        "original_term": "remediate system weaknesses",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.357,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-troubleshooting",
+            "label": "robot system troubleshooting",
+            "score": 0.357
+          },
+          {
+            "id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+            "label": "Nessus",
+            "score": 0.26
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.232
+          }
+        ]
+      }
+    },
+    {
+      "term": "role in securing communications",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe secure network protocols including TLS, SSH, and IKE, and explain their role in securing communications."
+        }
+      ],
+      "match": {
+        "original_term": "role in securing communications",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'role in securing communications' refers to the function and purpose of security protocols in communication, which is not directly captured by any of the provided taxonomy entries. None of the entries specifically address the 'role' aspect of securing communications.",
+        "candidates": [
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.427
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.277
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.273
+          }
+        ]
+      }
+    },
+    {
+      "term": "secure network protocols",
+      "canonical": {
+        "id": "custom:computer-networks",
+        "label": "computer networks",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe secure network protocols including TLS, SSH, and IKE, and explain their role in securing communications."
+        }
+      ],
+      "match": {
+        "original_term": "secure network protocols",
+        "canonical_id": "custom:computer-networks",
+        "canonical_label": "computer networks",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.742,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.26",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.742
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.48
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.447
+          }
+        ]
+      }
+    },
+    {
+      "term": "secure software development practices",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement secure software development practices, including OWASP Top 10 mitigation strategies and code review techniques."
+        }
+      ],
+      "match": {
+        "original_term": "secure software development practices",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'secure software development practices' directly aligns with 'secure coding practices' as it includes OWASP Top 10 mitigation strategies and code review techniques, which are explicitly mentioned in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.659
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.612
+          },
+          {
+            "id": "custom:devops",
+            "label": "DevOps practices",
+            "score": 0.418
+          }
+        ]
+      }
+    },
+    {
+      "term": "Vulnerability Scanning with Nessus",
+      "canonical": {
+        "id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+        "label": "Nessus",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Vulnerability Scanning with Nessus"
+        },
+        {
+          "source": "description",
+          "text": "vulnerability scanning with Nessus"
+        }
+      ],
+      "match": {
+        "original_term": "Vulnerability Scanning with Nessus",
+        "canonical_id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+        "canonical_label": "Nessus",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.706,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.27",
+        "candidates": [
+          {
+            "id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+            "label": "Nessus",
+            "score": 0.706
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.433
+          },
+          {
+            "id": "esco:ff6904ef-36e7-4890-8fb1-8353b299f047",
+            "label": "microchip scanners",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Encryption with AES",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Data Encryption with AES and TLS"
+        }
+      ],
+      "match": {
+        "original_term": "Data Encryption with AES",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Data Encryption with AES' directly relates to symmetric-key algorithms, which are explicitly listed in the 'ICT encryption' entry under 'also called'.",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.567
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.566
+          },
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.409
+          }
+        ]
+      }
+    },
+    {
+      "term": "Firewall Configuration with pfSense",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Firewall Configuration with pfSense"
+        }
+      ],
+      "match": {
+        "original_term": "Firewall Configuration with pfSense",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Firewall Configuration with pfSense' directly relates to configuring firewalls, which is a core component of network security as defined by the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.439
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.195
+          },
+          {
+            "id": "custom:linux",
+            "label": "Linux",
+            "score": 0.193
+          }
+        ]
+      }
+    },
+    {
+      "term": "Forensic Analysis with EnCase",
+      "canonical": {
+        "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "label": "computer forensics",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Basic Forensic Analysis with EnCase"
+        }
+      ],
+      "match": {
+        "original_term": "Forensic Analysis with EnCase",
+        "canonical_id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "canonical_label": "computer forensics",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Forensic Analysis with EnCase' directly relates to the process of examining and recovering digital data for legal evidence, which matches the definition of 'computer forensics' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.401
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.399
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.392
+          }
+        ]
+      }
+    },
+    {
+      "term": "IDS/IPS Configuration with Snort",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "IDS/IPS Configuration with Snort"
+        }
+      ],
+      "match": {
+        "original_term": "IDS/IPS Configuration with Snort",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'IDS/IPS Configuration with Snort' directly relates to network security, specifically intrusion detection and prevention systems, which are covered under the 'network security' label.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.43
+          },
+          {
+            "id": "esco:6c2dab43-b56a-4879-ae5f-75ae50e193c3",
+            "label": "dredging consoles",
+            "score": 0.19
+          },
+          {
+            "id": "esco:3497ebe1-d417-4105-a68f-f7bbcac7ee5f",
+            "label": "ICT hardware specifications",
+            "score": 0.19
+          }
+        ]
+      }
+    },
+    {
+      "term": "ISO 27001 Compliance Assessment",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "ISO 27001 Compliance Assessment"
+        }
+      ],
+      "match": {
+        "original_term": "ISO 27001 Compliance Assessment",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.634,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.26",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.634
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.371
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.347
+          }
+        ]
+      }
+    },
+    {
+      "term": "Network Segmentation with Cisco ASA",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Network Segmentation with Cisco ASA"
+        }
+      ],
+      "match": {
+        "original_term": "Network Segmentation with Cisco ASA",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Network Segmentation with Cisco ASA', which is a specific networking skill involving Cisco ASA devices. The closest entries are too broad or unrelated.",
+        "candidates": [
+          {
+            "id": "esco:709ef32a-7435-48e2-8fa2-16e389ecab8a",
+            "label": "Cisco",
+            "score": 0.458
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.368
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.356
+          }
+        ]
+      }
+    },
+    {
+      "term": "OWASP Top 10 Code Review Exercise",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "OWASP Top 10 Code Review Exercise"
+        }
+      ],
+      "match": {
+        "original_term": "OWASP Top 10 Code Review Exercise",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.642,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.25",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.642
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.397
+          },
+          {
+            "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+            "label": "OWASP ZAP",
+            "score": 0.316
+          }
+        ]
+      }
+    },
+    {
+      "term": "Securing AWS Resources",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Securing AWS Resources"
+        }
+      ],
+      "match": {
+        "original_term": "Securing AWS Resources",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Securing AWS Resources' specifically refers to securing resources within the AWS cloud platform, which is not captured by any of the provided taxonomy entries. None of the candidates directly address the skill of securing AWS resources.",
+        "candidates": [
+          {
+            "id": "custom:aws",
+            "label": "Amazon Web Services",
+            "score": 0.493
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.258
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.247
+          }
+        ]
+      }
+    },
+    {
+      "term": "Threat Modeling with Microsoft STRIDE",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Threat Modeling with Microsoft STRIDE"
+        }
+      ],
+      "match": {
+        "original_term": "Threat Modeling with Microsoft STRIDE",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.357,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.357
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.306
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.191
+          }
+        ]
+      }
+    },
+    {
+      "term": "Architecture",
+      "canonical": {
+        "id": "custom:cloud-computing",
+        "label": "cloud computing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Cloud Security and Architecture"
+        }
+      ],
+      "match": {
+        "original_term": "Architecture",
+        "canonical_id": "custom:cloud-computing",
+        "canonical_label": "cloud computing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.735,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.40",
+        "candidates": [
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.735
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.331
+          },
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.297
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cloud Security",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Cloud Security and Architecture"
+        }
+      ],
+      "match": {
+        "original_term": "Cloud Security",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.6,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Cloud Security' refers specifically to securing cloud environments, which is not exactly captured by any of the provided taxonomy entries. While 'cloud computing' (custom:cloud-computing) is related, it does not specifically address security. 'Cybersecurity' (custom:cybersecurity) is bro",
+        "candidates": [
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.578
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.528
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.508
+          }
+        ]
+      }
+    },
+    {
+      "term": "Compliance",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Compliance and Regulatory Standards"
+        }
+      ],
+      "match": {
+        "original_term": "Compliance",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Compliance' directly matches the 'also called' entry for 'security risk management', which explicitly lists 'compliance' as an alternative term.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.884
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.607
+          },
+          {
+            "id": "esco:a031363f-f190-4449-96ee-4b347b077324",
+            "label": "electrical household appliances products",
+            "score": 0.289
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cybersecurity Principles",
+      "canonical": {
+        "id": "custom:cybersecurity",
+        "label": "cybersecurity",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Cybersecurity Principles"
+        }
+      ],
+      "match": {
+        "original_term": "Cybersecurity Principles",
+        "canonical_id": "custom:cybersecurity",
+        "canonical_label": "cybersecurity",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.677,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.17",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.677
+          },
+          {
+            "id": "esco:c8ac1986-38fa-43b2-89dc-50a4beeb420e",
+            "label": "electricity",
+            "score": 0.509
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.458
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Protection",
+      "canonical": {
+        "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+        "label": "data protection",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Data Protection and Privacy"
+        }
+      ],
+      "match": {
+        "original_term": "Data Protection",
+        "canonical_id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+        "canonical_label": "data protection",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Final Project Integration",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Final Project Integration and Presentation"
+        }
+      ],
+      "match": {
+        "original_term": "Final Project Integration",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Final Project Integration' does not match any of the provided taxonomy entries, as none of the labels or also called terms directly refer to project integration or its equivalent.",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.562
+          },
+          {
+            "id": "esco:0f9958d2-f700-4f62-b90b-a5873cb5ae4c",
+            "label": "systems thinking",
+            "score": 0.43
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.223
+          }
+        ]
+      }
+    },
+    {
+      "term": "Firewall Configuration",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Firewall Configuration and Management"
+        }
+      ],
+      "match": {
+        "original_term": "Firewall Configuration",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Firewall Configuration' is directly related to 'network security' as it involves configuring firewalls, which is a key aspect of protecting network infrastructure and traffic.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.558
+          },
+          {
+            "id": "esco:b3a186be-5f1b-45d3-a468-41183e9780f3",
+            "label": "configuration of the tote room hardware",
+            "score": 0.409
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.32
+          }
+        ]
+      }
+    },
+    {
+      "term": "Forensics",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Incident Response and Forensics"
+        }
+      ],
+      "match": {
+        "original_term": "Forensics",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.773,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.13",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.773
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.642
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "Implementation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Access Control Models and Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "Implementation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.306,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.306
+          },
+          {
+            "id": "esco:70b0bc44-6751-4530-ac5c-a893d4241aeb",
+            "label": "building's electronic access equipment",
+            "score": 0.269
+          },
+          {
+            "id": "esco:1d86f05e-e9cc-40ce-99d8-2b21cc71b16b",
+            "label": "solution deployment",
+            "score": 0.244
+          }
+        ]
+      }
+    },
+    {
+      "term": "Incident Response",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Incident Response and Forensics"
+        }
+      ],
+      "match": {
+        "original_term": "Incident Response",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Intrusion Detection",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Intrusion Detection and Prevention Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Intrusion Detection",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Intrusion Detection' aligns with 'security incident response' as both involve detecting security incidents, which is a core part of the description for the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.502
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.499
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "term": "Management",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Firewall Configuration and Management"
+        }
+      ],
+      "match": {
+        "original_term": "Management",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Management' in the context of 'Firewall Configuration and Management' refers to the management of network security systems, which is not explicitly covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.651
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.611
+          },
+          {
+            "id": "esco:0ab03c6c-281b-48f4-83e0-10eeb27a1bae",
+            "label": "network management system tools",
+            "score": 0.488
+          }
+        ]
+      }
+    },
+    {
+      "term": "Microsegmentation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Network Segmentation and Microsegmentation"
+        }
+      ],
+      "match": {
+        "original_term": "Microsegmentation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.282,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+            "label": "computer technology",
+            "score": 0.282
+          },
+          {
+            "id": "esco:8a211052-4bec-49c2-9b4e-7914c37d21b4",
+            "label": "microprocessors",
+            "score": 0.246
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.244
+          }
+        ]
+      }
+    },
+    {
+      "term": "Network Segmentation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Network Segmentation and Microsegmentation"
+        }
+      ],
+      "match": {
+        "original_term": "Network Segmentation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Network Segmentation' does not match any of the provided taxonomy entries, which cover topics like network security, computer networks, and data mining, but none specifically refer to network segmentation.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.491
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.479
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.463
+          }
+        ]
+      }
+    },
+    {
+      "term": "Prevention Systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Intrusion Detection and Prevention Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Prevention Systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Prevention Systems' refers to a specific type of security technology, but none of the provided taxonomy entries directly match this term. The closest entries are related to security systems or cybersecurity, but they do not specifically capture the concept of 'Prevention Systems' as desc",
+        "candidates": [
+          {
+            "id": "esco:0e8d16c9-e2db-4862-ac06-1567f01ef806",
+            "label": "building systems monitoring technology",
+            "score": 0.487
+          },
+          {
+            "id": "esco:8203b07a-8097-4383-aff6-603b7df7f0f4",
+            "label": "ATM systems",
+            "score": 0.482
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.463
+          }
+        ]
+      }
+    },
+    {
+      "term": "Privacy",
+      "canonical": {
+        "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+        "label": "data protection",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Data Protection and Privacy"
+        }
+      ],
+      "match": {
+        "original_term": "Privacy",
+        "canonical_id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+        "canonical_label": "data protection",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.804,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.19",
+        "candidates": [
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.804
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.612
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.248
+          }
+        ]
+      }
+    },
+    {
+      "term": "Protocols",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Cryptographic Algorithms and Protocols"
+        }
+      ],
+      "match": {
+        "original_term": "Protocols",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.697,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.05",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.697
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.645
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.244
+          }
+        ]
+      }
+    },
+    {
+      "term": "Regulatory Standards",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Compliance and Regulatory Standards"
+        }
+      ],
+      "match": {
+        "original_term": "Regulatory Standards",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Regulatory Standards' from the syllabus. The closest entries are related to specific standards (e.g., ICT security, IPC, GLP, emission standards) but do not broadly capture the concept of 'Regulatory Standards' as presented.",
+        "candidates": [
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.55
+          },
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.499
+          },
+          {
+            "id": "esco:1618ee1c-6753-456e-a171-3d7e5f75404a",
+            "label": "good laboratory practice",
+            "score": 0.486
+          }
+        ]
+      }
+    },
+    {
+      "term": "Risk Assessment",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Threat Modeling and Risk Assessment"
+        }
+      ],
+      "match": {
+        "original_term": "Risk Assessment",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Scanning",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Vulnerability Assessment and Scanning"
+        }
+      ],
+      "match": {
+        "original_term": "Scanning",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.35,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.35
+          },
+          {
+            "id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+            "label": "Nessus",
+            "score": 0.288
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.27
+          }
+        ]
+      }
+    },
+    {
+      "term": "Secure Network Communication Protocols",
+      "canonical": {
+        "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+        "label": "ICT communications protocols",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Secure Network Communication Protocols"
+        }
+      ],
+      "match": {
+        "original_term": "Secure Network Communication Protocols",
+        "canonical_id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+        "canonical_label": "ICT communications protocols",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Secure Network Communication Protocols' directly aligns with the definition of 'ICT communications protocols' which involves the system of rules for exchanging information between devices via networks.",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.584
+          },
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.553
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.42
+          }
+        ]
+      }
+    },
+    {
+      "term": "Secure Software Development Lifecycle",
+      "canonical": {
+        "id": "custom:software-engineering",
+        "label": "software engineering",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Secure Software Development Lifecycle"
+        }
+      ],
+      "match": {
+        "original_term": "Secure Software Development Lifecycle",
+        "canonical_id": "custom:software-engineering",
+        "canonical_label": "software engineering",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.79,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.35",
+        "candidates": [
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.79
+          },
+          {
+            "id": "esco:09f2f811-a3fb-4de3-a70f-6420a6935575",
+            "label": "systems development life-cycle",
+            "score": 0.44
+          },
+          {
+            "id": "custom:backend-development",
+            "label": "back-end development",
+            "score": 0.415
+          }
+        ]
+      }
+    },
+    {
+      "term": "Threat Modeling",
+      "canonical": {
+        "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "label": "assessment of risks and threats",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Threat Modeling and Risk Assessment"
+        }
+      ],
+      "match": {
+        "original_term": "Threat Modeling",
+        "canonical_id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "canonical_label": "assessment of risks and threats",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Threat Modeling' is directly related to 'assessment of risks and threats' and matches the label and also called entries of the candidate.",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.519
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.509
+          },
+          {
+            "id": "esco:2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80",
+            "label": "ICT network security risks",
+            "score": 0.294
+          }
+        ]
+      }
+    },
+    {
+      "term": "Vulnerability Assessment",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Vulnerability Assessment and Scanning"
+        }
+      ],
+      "match": {
+        "original_term": "Vulnerability Assessment",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "compliance standards like ISO 27001",
+      "canonical": {
+        "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "label": "ICT security standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "compliance standards like ISO 27001"
+        }
+      ],
+      "match": {
+        "original_term": "compliance standards like ISO 27001",
+        "canonical_id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "canonical_label": "ICT security standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'compliance standards like ISO 27001' directly matches the 'ICT security standards' entry, which explicitly mentions ISO and compliance as part of its description.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.582
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.372
+          },
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.366
+          }
+        ]
+      }
+    },
+    {
+      "term": "incident response frameworks",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "incident response frameworks"
+        }
+      ],
+      "match": {
+        "original_term": "incident response frameworks",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.711,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.30",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.711
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.414
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.226
+          }
+        ]
+      }
+    },
+    {
+      "term": "intrusion detection systems using Snort",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "intrusion detection systems using Snort"
+        }
+      ],
+      "match": {
+        "original_term": "intrusion detection systems using Snort",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.216,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:fa7d581b-da0e-47cf-bae8-4d07f267a225",
+            "label": "infrared sensors",
+            "score": 0.216
+          },
+          {
+            "id": "esco:c199731b-1c17-47be-8f5d-296b9892a1b4",
+            "label": "smoke sensors",
+            "score": 0.202
+          },
+          {
+            "id": "esco:20b1d521-3d18-4b59-aee5-aaf296170c1b",
+            "label": "electronic signals intelligence",
+            "score": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "term": "network segmentation strategies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "network segmentation strategies"
+        }
+      ],
+      "match": {
+        "original_term": "network segmentation strategies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'network segmentation strategies', which involves dividing a network into segments for security or management purposes. The closest entries are related to network security and routing, but none match the exact skill.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.417
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.399
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.388
+          }
+        ]
+      }
+    },
+    {
+      "term": "NIST CSF",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "NIST CSF"
+        }
+      ],
+      "match": {
+        "original_term": "NIST CSF",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.213,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.213
+          },
+          {
+            "id": "custom:rust",
+            "label": "Rust",
+            "score": 0.192
+          },
+          {
+            "id": "custom:opencv",
+            "label": "OpenCV",
+            "score": 0.161
+          }
+        ]
+      }
+    },
+    {
+      "term": "NIST SP 800-53",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "NIST SP 800-53"
+        }
+      ],
+      "match": {
+        "original_term": "NIST SP 800-53",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.151,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:d09ea154-1549-4ad0-a0e4-c8ca8fca8e52",
+            "label": "types of straightening machine",
+            "score": 0.151
+          },
+          {
+            "id": "esco:fbf3b986-7eeb-415f-8abd-5a96785b20cc",
+            "label": "types of planing cutters",
+            "score": 0.148
+          },
+          {
+            "id": "esco:09637f9c-ad8c-42ff-94d8-6a5a81d1dfd1",
+            "label": "types of sanders",
+            "score": 0.147
+          }
+        ]
+      }
+    },
+    {
+      "term": "real-world implementation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "real-world implementation"
+        }
+      ],
+      "match": {
+        "original_term": "real-world implementation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.332,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:bf6c5ed4-84af-440f-abcc-7fa5ba19c738",
+            "label": "real-time computing",
+            "score": 0.332
+          },
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.256
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "secure network protocols like TLS",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "secure network protocols like TLS"
+        }
+      ],
+      "match": {
+        "original_term": "secure network protocols like TLS",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'secure network protocols like TLS' directly matches the entry 'ICT encryption' which includes TLS as one of its also-called terms.",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.614
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.431
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.409
+          }
+        ]
+      }
+    },
+    {
+      "term": "SIEM tools",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "SIEM tools"
+        }
+      ],
+      "match": {
+        "original_term": "SIEM tools",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.63,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.63
+          },
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.45
+          },
+          {
+            "id": "custom:rqt",
+            "label": "RQT",
+            "score": 0.44
+          }
+        ]
+      }
+    },
+    {
+      "term": "Students will explore threat modeling techniques",
+      "canonical": {
+        "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "label": "assessment of risks and threats",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Students will explore threat modeling techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Students will explore threat modeling techniques",
+        "canonical_id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "canonical_label": "assessment of risks and threats",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'threat modeling techniques' directly aligns with the label 'assessment of risks and threats' and its also called entries, which include 'techniques for assessment of risks and threats'.",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.416
+          },
+          {
+            "id": "esco:1e3e0736-6d4a-4a65-8787-1fa16bff5660",
+            "label": "explosives",
+            "score": 0.344
+          },
+          {
+            "id": "esco:cb304338-3a44-4b6f-802b-dfc6c64de109",
+            "label": "scientific modelling",
+            "score": 0.22
+          }
+        ]
+      }
+    },
+    {
+      "term": "This course covers fundamentals of cybersecurity",
+      "canonical": {
+        "id": "custom:cybersecurity",
+        "label": "cybersecurity",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "This course covers fundamentals of cybersecurity"
+        }
+      ],
+      "match": {
+        "original_term": "This course covers fundamentals of cybersecurity",
+        "canonical_id": "custom:cybersecurity",
+        "canonical_label": "cybersecurity",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'fundamentals of cybersecurity' directly matches the label 'cybersecurity' and aligns with the description of protecting systems and data from unauthorized access and attack.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.48
+          },
+          {
+            "id": "esco:c8ac1986-38fa-43b2-89dc-50a4beeb420e",
+            "label": "electricity",
+            "score": 0.395
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.242
+          }
+        ]
+      }
+    }
+  ]
+}

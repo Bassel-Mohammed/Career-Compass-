@@ -1,0 +1,2867 @@
+{
+  "course_code": "0442401",
+  "course_codes": [
+    "0442401"
+  ],
+  "course_title": "Software Engineering Fundamentals",
+  "credit_hours": 3,
+  "plans": [
+    "SE"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "accepted": 44,
+      "no_match": 9,
+      "needs_review": 7
+    },
+    "by_method": {
+      "embedding_reranker": 31,
+      "llm": 24,
+      "exact_alias": 5
+    }
+  },
+  "total_skills": 60,
+  "skills": [
+    {
+      "term": "Agile Scrum",
+      "canonical": {
+        "id": "custom:agile-methodology",
+        "label": "agile methodology",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a software project from requirements gathering to deployment using Git version control, Agile Scrum, and ISO/IEC 2,5010 quality assurance standards."
+        },
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Agile Scrum and Project Management with Jira"
+        }
+      ],
+      "match": {
+        "original_term": "Agile Scrum",
+        "canonical_id": "custom:agile-methodology",
+        "canonical_label": "agile methodology",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.661,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.661
+          },
+          {
+            "id": "esco:dba46f87-0831-49cd-a1c7-340a653c0221",
+            "label": "Agile development",
+            "score": 0.477
+          },
+          {
+            "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+            "label": "tools for software configuration management",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "software development lifecycle models",
+      "canonical": {
+        "id": "custom:software-engineering",
+        "label": "software engineering",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the software development lifecycle models, including Waterfall, Spiral, and V-model, and evaluate their suitability for different project contexts."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Software Development Lifecycle Models"
+        }
+      ],
+      "match": {
+        "original_term": "software development lifecycle models",
+        "canonical_id": "custom:software-engineering",
+        "canonical_label": "software engineering",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.782,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.24",
+        "candidates": [
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.782
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.539
+          },
+          {
+            "id": "esco:6a876489-7ad8-4a13-b09c-c9b8e97a302e",
+            "label": "Waterfall development",
+            "score": 0.458
+          }
+        ]
+      }
+    },
+    {
+      "term": "Spiral",
+      "canonical": {
+        "id": "esco:4840338b-ac6c-486a-be1d-9ddfe00b8bdf",
+        "label": "Spiral development",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the software development lifecycle models, including Waterfall, Spiral, and V-model, and evaluate their suitability for different project contexts."
+        },
+        {
+          "source": "description",
+          "text": "Spiral"
+        }
+      ],
+      "match": {
+        "original_term": "Spiral",
+        "canonical_id": "esco:4840338b-ac6c-486a-be1d-9ddfe00b8bdf",
+        "canonical_label": "Spiral development",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.678,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.40",
+        "candidates": [
+          {
+            "id": "esco:4840338b-ac6c-486a-be1d-9ddfe00b8bdf",
+            "label": "Spiral development",
+            "score": 0.678
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.282
+          },
+          {
+            "id": "esco:6a876489-7ad8-4a13-b09c-c9b8e97a302e",
+            "label": "Waterfall development",
+            "score": 0.266
+          }
+        ]
+      }
+    },
+    {
+      "term": "V-model",
+      "canonical": {
+        "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+        "label": "software design methodologies",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the software development lifecycle models, including Waterfall, Spiral, and V-model, and evaluate their suitability for different project contexts."
+        },
+        {
+          "source": "description",
+          "text": "V-model"
+        }
+      ],
+      "match": {
+        "original_term": "V-model",
+        "canonical_id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+        "canonical_label": "software design methodologies",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'V-model' is explicitly mentioned in the taxonomy entry for 'software design methodologies', which directly matches the skill.",
+        "candidates": [
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.421
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.271
+          },
+          {
+            "id": "esco:6a876489-7ad8-4a13-b09c-c9b8e97a302e",
+            "label": "Waterfall development",
+            "score": 0.259
+          }
+        ]
+      }
+    },
+    {
+      "term": "Waterfall",
+      "canonical": {
+        "id": "esco:6a876489-7ad8-4a13-b09c-c9b8e97a302e",
+        "label": "Waterfall development",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the software development lifecycle models, including Waterfall, Spiral, and V-model, and evaluate their suitability for different project contexts."
+        },
+        {
+          "source": "description",
+          "text": "Waterfall"
+        }
+      ],
+      "match": {
+        "original_term": "Waterfall",
+        "canonical_id": "esco:6a876489-7ad8-4a13-b09c-c9b8e97a302e",
+        "canonical_label": "Waterfall development",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.712,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.43",
+        "candidates": [
+          {
+            "id": "esco:6a876489-7ad8-4a13-b09c-c9b8e97a302e",
+            "label": "Waterfall development",
+            "score": 0.712
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.279
+          },
+          {
+            "id": "esco:4840338b-ac6c-486a-be1d-9ddfe00b8bdf",
+            "label": "Spiral development",
+            "score": 0.249
+          }
+        ]
+      }
+    },
+    {
+      "term": "5010 quality assurance standards",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a software project from requirements gathering to deployment using Git version control, Agile Scrum, and ISO/IEC 2,5010 quality assurance standards."
+        }
+      ],
+      "match": {
+        "original_term": "5010 quality assurance standards",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.649,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.11",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.649
+          },
+          {
+            "id": "esco:d56358e4-3bcc-4b5d-981d-ea15b2743e9e",
+            "label": "quality control systems",
+            "score": 0.541
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.515
+          }
+        ]
+      }
+    },
+    {
+      "term": "Agile Scrum methodologies",
+      "canonical": {
+        "id": "custom:agile-methodology",
+        "label": "agile methodology",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the key principles of software engineering and explain how they apply to real-world system development using UML 2.5 and Agile Scrum methodologies."
+        }
+      ],
+      "match": {
+        "original_term": "Agile Scrum methodologies",
+        "canonical_id": "custom:agile-methodology",
+        "canonical_label": "agile methodology",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'Agile Scrum methodologies' directly matches the label 'agile methodology' which also explicitly lists 'Scrum' as an alternative name.",
+        "candidates": [
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.61
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.471
+          },
+          {
+            "id": "esco:dba46f87-0831-49cd-a1c7-340a653c0221",
+            "label": "Agile development",
+            "score": 0.454
+          }
+        ]
+      }
+    },
+    {
+      "term": "different project contexts",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the software development lifecycle models, including Waterfall, Spiral, and V-model, and evaluate their suitability for different project contexts."
+        }
+      ],
+      "match": {
+        "original_term": "different project contexts",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.277,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.277
+          },
+          {
+            "id": "esco:6a876489-7ad8-4a13-b09c-c9b8e97a302e",
+            "label": "Waterfall development",
+            "score": 0.275
+          },
+          {
+            "id": "esco:4840338b-ac6c-486a-be1d-9ddfe00b8bdf",
+            "label": "Spiral development",
+            "score": 0.258
+          }
+        ]
+      }
+    },
+    {
+      "term": "Factory",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the role of software design patterns such as Factory, Singleton, and Observer in solving common software architecture problems."
+        }
+      ],
+      "match": {
+        "original_term": "Factory",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.242,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.242
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.231
+          },
+          {
+            "id": "esco:b16200f4-4f39-4b8b-aa9d-3568054d6bdb",
+            "label": "Open source model",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "integration testing techniques using JUnit 5",
+      "canonical": {
+        "id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+        "label": "levels of software testing",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply unit testing and integration testing techniques using JUnit 5 and TestNG to ensure software quality and reliability."
+        }
+      ],
+      "match": {
+        "original_term": "integration testing techniques using JUnit 5",
+        "canonical_id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+        "canonical_label": "levels of software testing",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'integration testing techniques using JUnit 5' directly refers to integration testing, which is explicitly listed as a level of software testing in the 'levels of software testing' entry.",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.459
+          },
+          {
+            "id": "esco:53456d90-8c0d-4bd2-9f1b-312619b6e2a6",
+            "label": "hardware testing methods",
+            "score": 0.386
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.367
+          }
+        ]
+      }
+    },
+    {
+      "term": "ISO/IEC 2",
+      "canonical": {
+        "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "label": "ICT security standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a software project from requirements gathering to deployment using Git version control, Agile Scrum, and ISO/IEC 2,5010 quality assurance standards."
+        }
+      ],
+      "match": {
+        "original_term": "ISO/IEC 2",
+        "canonical_id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "canonical_label": "ICT security standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ISO/IEC 2' refers to ISO/IEC 25010 quality assurance standards, which aligns with the 'ICT security standards' entry that mentions ISO standards for compliance.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.42
+          },
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.37
+          },
+          {
+            "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+            "label": "tools for software configuration management",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "Observer in solving common software architecture",
+      "canonical": {
+        "id": "custom:design-patterns",
+        "label": "software design patterns",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the role of software design patterns such as Factory, Singleton, and Observer in solving common software architecture problems."
+        }
+      ],
+      "match": {
+        "original_term": "Observer in solving common software architecture",
+        "canonical_id": "custom:design-patterns",
+        "canonical_label": "software design patterns",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Observer in solving common software architecture' refers to the use of the Observer design pattern, which is a specific type of software design pattern. The taxonomy entry 'software design patterns' directly matches this skill.",
+        "candidates": [
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.495
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.396
+          },
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.357
+          }
+        ]
+      }
+    },
+    {
+      "term": "principles of software engineering",
+      "canonical": {
+        "id": "custom:software-engineering",
+        "label": "software engineering",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the key principles of software engineering and explain how they apply to real-world system development using UML 2.5 and Agile Scrum methodologies."
+        }
+      ],
+      "match": {
+        "original_term": "principles of software engineering",
+        "canonical_id": "custom:software-engineering",
+        "canonical_label": "software engineering",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.74,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.05",
+        "candidates": [
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.74
+          },
+          {
+            "id": "esco:209a5498-3449-4689-8ed9-bd08cab4fd78",
+            "label": "engineering principles",
+            "score": 0.689
+          },
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.442
+          }
+        ]
+      }
+    },
+    {
+      "term": "reliability",
+      "canonical": {
+        "id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+        "label": "levels of software testing",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply unit testing and integration testing techniques using JUnit 5 and TestNG to ensure software quality and reliability."
+        }
+      ],
+      "match": {
+        "original_term": "reliability",
+        "canonical_id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+        "canonical_label": "levels of software testing",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'reliability' is directly mentioned in the context of ensuring software quality through testing, which aligns with the 'levels of software testing' taxonomy entry that includes unit testing and integration testing.",
+        "candidates": [
+          {
+            "id": "esco:53456d90-8c0d-4bd2-9f1b-312619b6e2a6",
+            "label": "hardware testing methods",
+            "score": 0.591
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.282
+          },
+          {
+            "id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+            "label": "usability engineering",
+            "score": 0.282
+          }
+        ]
+      }
+    },
+    {
+      "term": "role of software design patterns",
+      "canonical": {
+        "id": "custom:design-patterns",
+        "label": "software design patterns",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the role of software design patterns such as Factory, Singleton, and Observer in solving common software architecture problems."
+        }
+      ],
+      "match": {
+        "original_term": "role of software design patterns",
+        "canonical_id": "custom:design-patterns",
+        "canonical_label": "software design patterns",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.801,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.13",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.801
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.676
+          },
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.53
+          }
+        ]
+      }
+    },
+    {
+      "term": "Singleton",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the role of software design patterns such as Factory, Singleton, and Observer in solving common software architecture problems."
+        }
+      ],
+      "match": {
+        "original_term": "Singleton",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.241,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.241
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.228
+          },
+          {
+            "id": "esco:83218cac-3599-417e-93d2-26013cdccd98",
+            "label": "service-oriented modelling",
+            "score": 0.223
+          }
+        ]
+      }
+    },
+    {
+      "term": "suitability",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the software development lifecycle models, including Waterfall, Spiral, and V-model, and evaluate their suitability for different project contexts."
+        }
+      ],
+      "match": {
+        "original_term": "suitability",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.302,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.302
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.281
+          },
+          {
+            "id": "esco:6a876489-7ad8-4a13-b09c-c9b8e97a302e",
+            "label": "Waterfall development",
+            "score": 0.26
+          }
+        ]
+      }
+    },
+    {
+      "term": "TestNG to ensure software quality",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply unit testing and integration testing techniques using JUnit 5 and TestNG to ensure software quality and reliability."
+        }
+      ],
+      "match": {
+        "original_term": "TestNG to ensure software quality",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'TestNG to ensure software quality' directly relates to software testing, which is explicitly defined in the 'software testing' entry as 'Verifying software behaves as specified.'",
+        "candidates": [
+          {
+            "id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+            "label": "levels of software testing",
+            "score": 0.441
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.438
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.361
+          }
+        ]
+      }
+    },
+    {
+      "term": "unit testing",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply unit testing and integration testing techniques using JUnit 5 and TestNG to ensure software quality and reliability."
+        }
+      ],
+      "match": {
+        "original_term": "unit testing",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Gang of Four Patterns",
+      "canonical": {
+        "id": "custom:design-patterns",
+        "label": "software design patterns",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Software Design Patterns: Gang of Four Patterns"
+        },
+        {
+          "source": "description",
+          "text": "Gang of Four patterns"
+        }
+      ],
+      "match": {
+        "original_term": "Gang of Four Patterns",
+        "canonical_id": "custom:design-patterns",
+        "canonical_label": "software design patterns",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Gang of Four Patterns' directly refers to software design patterns, which is explicitly named in the 'custom:design-patterns' entry.",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.565
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.476
+          },
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.289
+          }
+        ]
+      }
+    },
+    {
+      "term": "Integration Testing with TestNG",
+      "canonical": {
+        "id": "custom:api-testing",
+        "label": "API testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Integration Testing with TestNG"
+        },
+        {
+          "source": "description",
+          "text": "integration testing with TestNG"
+        }
+      ],
+      "match": {
+        "original_term": "Integration Testing with TestNG",
+        "canonical_id": "custom:api-testing",
+        "canonical_label": "API testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.725,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.31",
+        "candidates": [
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.725
+          },
+          {
+            "id": "esco:53456d90-8c0d-4bd2-9f1b-312619b6e2a6",
+            "label": "hardware testing methods",
+            "score": 0.415
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.408
+          }
+        ]
+      }
+    },
+    {
+      "term": "Microservices",
+      "canonical": {
+        "id": "custom:microservices",
+        "label": "microservices architecture",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Architectural Design Patterns: MVC and Microservices"
+        },
+        {
+          "source": "description",
+          "text": "microservices"
+        }
+      ],
+      "match": {
+        "original_term": "Microservices",
+        "canonical_id": "custom:microservices",
+        "canonical_label": "microservices architecture",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Microservices' directly matches the label 'microservices architecture' and is also listed as an alternative name in the entry's 'also called' field.",
+        "candidates": [
+          {
+            "id": "custom:microservices",
+            "label": "microservices architecture",
+            "score": 0.915
+          },
+          {
+            "id": "esco:83218cac-3599-417e-93d2-26013cdccd98",
+            "label": "service-oriented modelling",
+            "score": 0.318
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.289
+          }
+        ]
+      }
+    },
+    {
+      "term": "Refactoring Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Software Maintenance and Refactoring Techniques"
+        },
+        {
+          "source": "description",
+          "text": "refactoring techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Refactoring Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Refactoring Techniques'. The closest entries are related to software development or maintenance but do not specifically address refactoring as a skill.",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.518
+          },
+          {
+            "id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+            "label": "ICT recovery techniques",
+            "score": 0.508
+          },
+          {
+            "id": "esco:51586df8-1c46-4b47-8583-773cb63bf00b",
+            "label": "R",
+            "score": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "term": "Version Control with Git",
+      "canonical": {
+        "id": "custom:git",
+        "label": "Git",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Version Control with Git and GitHub"
+        },
+        {
+          "source": "description",
+          "text": "version control with Git"
+        }
+      ],
+      "match": {
+        "original_term": "Version Control with Git",
+        "canonical_id": "custom:git",
+        "canonical_label": "Git",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.887,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.36",
+        "candidates": [
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.887
+          },
+          {
+            "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+            "label": "tools for software configuration management",
+            "score": 0.523
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.417
+          }
+        ]
+      }
+    },
+    {
+      "term": "Final Project Deployment",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 15,
+          "text": "Final Project Deployment and Presentation Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Final Project Deployment",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.215,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.215
+          },
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.213
+          },
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "Git",
+      "canonical": {
+        "id": "custom:git",
+        "label": "Git",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Git and GitHub Setup Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Git",
+        "canonical_id": "custom:git",
+        "canonical_label": "Git",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "GitHub Setup Lab",
+      "canonical": {
+        "id": "custom:git",
+        "label": "Git",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Git and GitHub Setup Lab"
+        }
+      ],
+      "match": {
+        "original_term": "GitHub Setup Lab",
+        "canonical_id": "custom:git",
+        "canonical_label": "Git",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.689,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.27",
+        "candidates": [
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.689
+          },
+          {
+            "id": "custom:ci-cd",
+            "label": "CI/CD pipelines",
+            "score": 0.415
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.194
+          }
+        ]
+      }
+    },
+    {
+      "term": "Jira Agile Project Setup Lab",
+      "canonical": {
+        "id": "custom:agile-methodology",
+        "label": "agile methodology",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Jira Agile Project Setup Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Jira Agile Project Setup Lab",
+        "canonical_id": "custom:agile-methodology",
+        "canonical_label": "agile methodology",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Jira Agile Project Setup Lab' directly relates to Agile methodology, as Jira is a tool used in Agile practices, and the lab involves setting up projects in an Agile framework.",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.425
+          },
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.424
+          },
+          {
+            "id": "esco:dba46f87-0831-49cd-a1c7-340a653c0221",
+            "label": "Agile development",
+            "score": 0.337
+          }
+        ]
+      }
+    },
+    {
+      "term": "JUnit 5 Unit Testing Lab",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "JUnit 5 Unit Testing Lab"
+        }
+      ],
+      "match": {
+        "original_term": "JUnit 5 Unit Testing Lab",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'JUnit 5 Unit Testing Lab' directly refers to unit testing, which is explicitly listed as 'unit testing' in the taxonomy entry with also called terms including 'JUnit'.",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.615
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.45
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.376
+          }
+        ]
+      }
+    },
+    {
+      "term": "Presentation Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 15,
+          "text": "Final Project Deployment and Presentation Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Presentation Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.241,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.241
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.237
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.231
+          }
+        ]
+      }
+    },
+    {
+      "term": "TestNG Integration Testing Lab",
+      "canonical": {
+        "id": "custom:api-testing",
+        "label": "API testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "TestNG Integration Testing Lab"
+        }
+      ],
+      "match": {
+        "original_term": "TestNG Integration Testing Lab",
+        "canonical_id": "custom:api-testing",
+        "canonical_label": "API testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.665,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.29",
+        "candidates": [
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.665
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.371
+          },
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.369
+          }
+        ]
+      }
+    },
+    {
+      "term": "Architectural Design Patterns",
+      "canonical": {
+        "id": "custom:design-patterns",
+        "label": "software design patterns",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Architectural Design Patterns: MVC and Microservices"
+        }
+      ],
+      "match": {
+        "original_term": "Architectural Design Patterns",
+        "canonical_id": "custom:design-patterns",
+        "canonical_label": "software design patterns",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.759,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.23",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.759
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.531
+          },
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.404
+          }
+        ]
+      }
+    },
+    {
+      "term": "Deployment",
+      "canonical": {
+        "id": "esco:1d86f05e-e9cc-40ce-99d8-2b21cc71b16b",
+        "label": "solution deployment",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Final Project Implementation and Deployment"
+        }
+      ],
+      "match": {
+        "original_term": "Deployment",
+        "canonical_id": "esco:1d86f05e-e9cc-40ce-99d8-2b21cc71b16b",
+        "canonical_label": "solution deployment",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.655,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.39",
+        "candidates": [
+          {
+            "id": "esco:1d86f05e-e9cc-40ce-99d8-2b21cc71b16b",
+            "label": "solution deployment",
+            "score": 0.655
+          },
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.262
+          },
+          {
+            "id": "esco:2f04bb71-d476-43b3-a60b-5df1d05f5681",
+            "label": "Octopus Deploy",
+            "score": 0.261
+          }
+        ]
+      }
+    },
+    {
+      "term": "GitHub",
+      "canonical": {
+        "id": "custom:git",
+        "label": "Git",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Version Control with Git and GitHub"
+        }
+      ],
+      "match": {
+        "original_term": "GitHub",
+        "canonical_id": "custom:git",
+        "canonical_label": "Git",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "ISO/IEC 25010",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Software Quality Assurance and ISO/IEC 25010"
+        }
+      ],
+      "match": {
+        "original_term": "ISO/IEC 25010",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.38,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.38
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.287
+          },
+          {
+            "id": "esco:d56358e4-3bcc-4b5d-981d-ea15b2743e9e",
+            "label": "quality control systems",
+            "score": 0.241
+          }
+        ]
+      }
+    },
+    {
+      "term": "JUnit 5",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Software Testing Strategies and JUnit 5"
+        }
+      ],
+      "match": {
+        "original_term": "JUnit 5",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.709,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.44",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.709
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.269
+          },
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.266
+          }
+        ]
+      }
+    },
+    {
+      "term": "MVC",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Architectural Design Patterns: MVC and Microservices"
+        }
+      ],
+      "match": {
+        "original_term": "MVC",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.28,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.28
+          },
+          {
+            "id": "esco:83218cac-3599-417e-93d2-26013cdccd98",
+            "label": "service-oriented modelling",
+            "score": 0.238
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.236
+          }
+        ]
+      }
+    },
+    {
+      "term": "Object-Oriented Design",
+      "canonical": {
+        "id": "custom:object-oriented-programming",
+        "label": "object-oriented programming",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Software Design Principles and Object-Oriented Design"
+        }
+      ],
+      "match": {
+        "original_term": "Object-Oriented Design",
+        "canonical_id": "custom:object-oriented-programming",
+        "canonical_label": "object-oriented programming",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Project Management with Jira",
+      "canonical": {
+        "id": "custom:project-management",
+        "label": "project management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Agile Scrum and Project Management with Jira"
+        }
+      ],
+      "match": {
+        "original_term": "Project Management with Jira",
+        "canonical_id": "custom:project-management",
+        "canonical_label": "project management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.732,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.30",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.732
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.432
+          },
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "term": "Requirements Analysis",
+      "canonical": {
+        "id": "esco:ca73ac82-867a-4afa-9732-834aebe896ff",
+        "label": "ICT system user requirements",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Final Project Planning and Requirements Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Requirements Analysis",
+        "canonical_id": "esco:ca73ac82-867a-4afa-9732-834aebe896ff",
+        "canonical_label": "ICT system user requirements",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Requirements Analysis' directly aligns with the description of 'ICT system user requirements' which involves eliciting and specifying requirements, matching user needs with system components.",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.461
+          },
+          {
+            "id": "esco:ca73ac82-867a-4afa-9732-834aebe896ff",
+            "label": "ICT system user requirements",
+            "score": 0.418
+          },
+          {
+            "id": "esco:2d7bf28a-2487-4443-9115-47478080b1a4",
+            "label": "hazard analysis and critical control points",
+            "score": 0.369
+          }
+        ]
+      }
+    },
+    {
+      "term": "Requirements Engineering",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Requirements Engineering and UML 2.5"
+        }
+      ],
+      "match": {
+        "original_term": "Requirements Engineering",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Requirements Engineering'.",
+        "candidates": [
+          {
+            "id": "esco:722be5b6-9492-46da-aeef-ddd880fdceb1",
+            "label": "electrical instrumentation engineering",
+            "score": 0.473
+          },
+          {
+            "id": "esco:b1b118c4-3291-484e-b64d-6d51fd5da8b3",
+            "label": "environmental engineering",
+            "score": 0.471
+          },
+          {
+            "id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+            "label": "usability engineering",
+            "score": 0.463
+          }
+        ]
+      }
+    },
+    {
+      "term": "Software Design Patterns",
+      "canonical": {
+        "id": "custom:design-patterns",
+        "label": "software design patterns",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Software Design Patterns: Gang of Four Patterns"
+        }
+      ],
+      "match": {
+        "original_term": "Software Design Patterns",
+        "canonical_id": "custom:design-patterns",
+        "canonical_label": "software design patterns",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Software Design Principles",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Software Design Principles and Object-Oriented Design"
+        }
+      ],
+      "match": {
+        "original_term": "Software Design Principles",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Software Design Principles' does not match any of the provided taxonomy entries, which focus on design patterns, methodologies, or specific programming paradigms, rather than general design principles.",
+        "candidates": [
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.64
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.616
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.593
+          }
+        ]
+      }
+    },
+    {
+      "term": "Software Engineering Case Studies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Software Engineering Case Studies"
+        }
+      ],
+      "match": {
+        "original_term": "Software Engineering Case Studies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Software Engineering Case Studies' does not match any of the provided taxonomy entries, as none of the labels or descriptions refer to case studies in software engineering.",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.416
+          },
+          {
+            "id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+            "label": "usability engineering",
+            "score": 0.411
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.39
+          }
+        ]
+      }
+    },
+    {
+      "term": "Software Engineering Fundamentals",
+      "canonical": {
+        "id": "custom:software-engineering",
+        "label": "software engineering",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Software Engineering Fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "Software Engineering Fundamentals",
+        "canonical_id": "custom:software-engineering",
+        "canonical_label": "software engineering",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.726,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.12",
+        "candidates": [
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.726
+          },
+          {
+            "id": "esco:54804209-6aac-4ca4-bf3c-aef4fbe18f8c",
+            "label": "principles of mechanical engineering",
+            "score": 0.603
+          },
+          {
+            "id": "esco:89f6560b-2194-45c9-9ece-d33049a73eef",
+            "label": "computer engineering",
+            "score": 0.444
+          }
+        ]
+      }
+    },
+    {
+      "term": "Software Maintenance",
+      "canonical": {
+        "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+        "label": "maintenance and repair",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Software Maintenance and Refactoring Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Software Maintenance",
+        "canonical_id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+        "canonical_label": "maintenance and repair",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Software Maintenance' directly aligns with the taxonomy entry 'maintenance and repair', which includes the preservation and restoration of products and systems, matching the syllabus mention of 'Software Maintenance and Refactoring Techniques'.",
+        "candidates": [
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.558
+          },
+          {
+            "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+            "label": "maintenance and repair",
+            "score": 0.506
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.483
+          }
+        ]
+      }
+    },
+    {
+      "term": "Software Quality Assurance",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Software Quality Assurance and ISO/IEC 25010"
+        }
+      ],
+      "match": {
+        "original_term": "Software Quality Assurance",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.731,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.14",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.731
+          },
+          {
+            "id": "esco:d56358e4-3bcc-4b5d-981d-ea15b2743e9e",
+            "label": "quality control systems",
+            "score": 0.587
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.438
+          }
+        ]
+      }
+    },
+    {
+      "term": "Software Testing Strategies",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Software Testing Strategies and JUnit 5"
+        }
+      ],
+      "match": {
+        "original_term": "Software Testing Strategies",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.701,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.12",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.701
+          },
+          {
+            "id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+            "label": "levels of software testing",
+            "score": 0.58
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.573
+          }
+        ]
+      }
+    },
+    {
+      "term": "UML 2.5",
+      "canonical": {
+        "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "label": "unified modelling language",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Requirements Engineering and UML 2.5"
+        }
+      ],
+      "match": {
+        "original_term": "UML 2.5",
+        "canonical_id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "canonical_label": "unified modelling language",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'UML 2.5' directly refers to the Unified Modelling Language, which is exactly what the entry 'unified modelling language' describes.",
+        "candidates": [
+          {
+            "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+            "label": "unified modelling language",
+            "score": 0.608
+          },
+          {
+            "id": "esco:a4d336a6-9ffd-402a-91cc-f359716ba4e0",
+            "label": "ML (computer programming)",
+            "score": 0.273
+          },
+          {
+            "id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+            "label": "usability engineering",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "case studies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "case studies"
+        }
+      ],
+      "match": {
+        "original_term": "case studies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'case studies' does not match any of the provided taxonomy entries, which are focused on specific technical skills or subjects, not on the method of learning through case studies.",
+        "candidates": [
+          {
+            "id": "esco:7b5cce4d-c7fe-4119-b48f-70aa05391787",
+            "label": "computer science",
+            "score": 0.455
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.435
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.191
+          }
+        ]
+      }
+    },
+    {
+      "term": "GitHub workflows",
+      "canonical": {
+        "id": "custom:git",
+        "label": "Git",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "GitHub workflows"
+        }
+      ],
+      "match": {
+        "original_term": "GitHub workflows",
+        "canonical_id": "custom:git",
+        "canonical_label": "Git",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.632,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.17",
+        "candidates": [
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.632
+          },
+          {
+            "id": "custom:ci-cd",
+            "label": "CI/CD pipelines",
+            "score": 0.463
+          },
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.235
+          }
+        ]
+      }
+    },
+    {
+      "term": "Java Design Patterns",
+      "canonical": {
+        "id": "custom:design-patterns",
+        "label": "software design patterns",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Java Design Patterns"
+        }
+      ],
+      "match": {
+        "original_term": "Java Design Patterns",
+        "canonical_id": "custom:design-patterns",
+        "canonical_label": "software design patterns",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.759,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.22",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.759
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.54
+          },
+          {
+            "id": "esco:19a8293b-8e95-4de3-983f-77484079c389",
+            "label": "Java",
+            "score": 0.504
+          }
+        ]
+      }
+    },
+    {
+      "term": "modeling",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "modeling"
+        }
+      ],
+      "match": {
+        "original_term": "modeling",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.659,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.38",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.659
+          },
+          {
+            "id": "esco:cb304338-3a44-4b6f-802b-dfc6c64de109",
+            "label": "scientific modelling",
+            "score": 0.282
+          },
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.232
+          }
+        ]
+      }
+    },
+    {
+      "term": "patterns to real-world systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "patterns to real-world systems"
+        }
+      ],
+      "match": {
+        "original_term": "patterns to real-world systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the extracted phrase 'patterns to real-world systems'. The closest entries are about design patterns, pattern grading, and similitude, but none specifically refer to applying patterns to real-world systems.",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.408
+          },
+          {
+            "id": "esco:5a9a6d45-f4e5-437a-8f2d-2671061917ea",
+            "label": "pattern grading",
+            "score": 0.376
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.373
+          }
+        ]
+      }
+    },
+    {
+      "term": "requirements engineering using UML 2.5",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "requirements engineering using UML 2.5"
+        }
+      ],
+      "match": {
+        "original_term": "requirements engineering using UML 2.5",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.395,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+            "label": "unified modelling language",
+            "score": 0.395
+          },
+          {
+            "id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+            "label": "usability engineering",
+            "score": 0.378
+          },
+          {
+            "id": "esco:a4d336a6-9ffd-402a-91cc-f359716ba4e0",
+            "label": "ML (computer programming)",
+            "score": 0.248
+          }
+        ]
+      }
+    },
+    {
+      "term": "software design with object-oriented methodologies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "software design with object-oriented methodologies"
+        }
+      ],
+      "match": {
+        "original_term": "software design with object-oriented methodologies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.15,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'software design with object-oriented methodologies' combines both software design methodologies and object-oriented programming, but none of the taxonomy entries precisely capture this combination. The closest entries are 'software design methodologies' and 'object-oriented programming',",
+        "candidates": [
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.659
+          },
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.652
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.512
+          }
+        ]
+      }
+    },
+    {
+      "term": "software lifecycle models",
+      "canonical": {
+        "id": "esco:6a876489-7ad8-4a13-b09c-c9b8e97a302e",
+        "label": "Waterfall development",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "software lifecycle models"
+        }
+      ],
+      "match": {
+        "original_term": "software lifecycle models",
+        "canonical_id": "esco:6a876489-7ad8-4a13-b09c-c9b8e97a302e",
+        "canonical_label": "Waterfall development",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'software lifecycle models' directly refers to the 'Waterfall development' model, which is a specific type of software lifecycle model.",
+        "candidates": [
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.587
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.576
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.411
+          }
+        ]
+      }
+    },
+    {
+      "term": "testing strategies",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "testing strategies"
+        }
+      ],
+      "match": {
+        "original_term": "testing strategies",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'testing strategies' directly aligns with the skill 'software testing', which encompasses verifying software behaves as specified and includes various testing strategies.",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.611
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.495
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.481
+          }
+        ]
+      }
+    },
+    {
+      "term": "Topics include software maintenance",
+      "canonical": {
+        "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+        "label": "maintenance and repair",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Topics include software maintenance"
+        }
+      ],
+      "match": {
+        "original_term": "Topics include software maintenance",
+        "canonical_id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+        "canonical_label": "maintenance and repair",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'software maintenance' directly matches the label 'maintenance and repair' and is a specific instance of the broader category.",
+        "candidates": [
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.413
+          },
+          {
+            "id": "esco:cf310cff-0d28-4dbc-9dbb-cc500a3196c2",
+            "label": "office software",
+            "score": 0.404
+          },
+          {
+            "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+            "label": "maintenance and repair",
+            "score": 0.399
+          }
+        ]
+      }
+    },
+    {
+      "term": "unit testing with JUnit 5",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "unit testing with JUnit 5"
+        }
+      ],
+      "match": {
+        "original_term": "unit testing with JUnit 5",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.654,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.26",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.654
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.39
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.376
+          }
+        ]
+      }
+    }
+  ]
+}

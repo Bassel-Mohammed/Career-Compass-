@@ -1,0 +1,3817 @@
+{
+  "course_code": "0413204",
+  "course_codes": [
+    "0413204"
+  ],
+  "course_title": "Visual Programming Lab",
+  "credit_hours": 1,
+  "plans": [
+    "CS",
+    "CS/AI",
+    "SE"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "needs_review": 19,
+      "no_match": 32,
+      "accepted": 31
+    },
+    "by_method": {
+      "llm": 44,
+      "embedding_reranker": 35,
+      "exact_alias": 3
+    }
+  },
+  "total_skills": 82,
+  "skills": [
+    {
+      "term": "controls",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the core components of a Windows Forms application, including forms, controls, and event handlers."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Form Layout and Controls"
+        }
+      ],
+      "match": {
+        "original_term": "controls",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'controls' refers to user interface elements in a Windows Forms application, which is not the same as the skills related to robotics control systems or industrial control systems listed in the taxonomy candidates.",
+        "candidates": [
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.577
+          },
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.572
+          },
+          {
+            "id": "esco:fc72d86f-7e69-4bf8-b407-23303a798a0b",
+            "label": "control panel components",
+            "score": 0.499
+          }
+        ]
+      }
+    },
+    {
+      "term": "service locators",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a modular Windows application using dependency injection and service locators."
+        },
+        {
+          "source": "description",
+          "text": "service locators"
+        }
+      ],
+      "match": {
+        "original_term": "service locators",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'service locators' as a specific skill. The closest entries are related to service-oriented modeling, microservices, and directory services, but none match the exact concept of service locators.",
+        "candidates": [
+          {
+            "id": "esco:d1e954cd-d290-4d80-97c0-7969960d2928",
+            "label": "distributed directory information services",
+            "score": 0.485
+          },
+          {
+            "id": "esco:83218cac-3599-417e-93d2-26013cdccd98",
+            "label": "service-oriented modelling",
+            "score": 0.469
+          },
+          {
+            "id": "custom:microservices",
+            "label": "microservices architecture",
+            "score": 0.427
+          }
+        ]
+      }
+    },
+    {
+      "term": "event handlers",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the core components of a Windows Forms application, including forms, controls, and event handlers."
+        }
+      ],
+      "match": {
+        "original_term": "event handlers",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.245,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.245
+          },
+          {
+            "id": "esco:e6b8f934-7f35-4dc6-9a64-f6c43acdc00b",
+            "label": "software components suppliers",
+            "score": 0.239
+          },
+          {
+            "id": "esco:fc72d86f-7e69-4bf8-b407-23303a798a0b",
+            "label": "control panel components",
+            "score": 0.22
+          }
+        ]
+      }
+    },
+    {
+      "term": "event-driven programming model",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the event-driven programming model and its implementation using delegates and events in C#."
+        }
+      ],
+      "match": {
+        "original_term": "event-driven programming model",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'event-driven programming model' or its implementation using delegates and events in C#.",
+        "candidates": [
+          {
+            "id": "esco:69bbd53f-fbb0-4476-b4b2-ef7844464e28",
+            "label": "web programming",
+            "score": 0.402
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.393
+          },
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.368
+          }
+        ]
+      }
+    },
+    {
+      "term": "events in C#",
+      "canonical": {
+        "id": "esco:4c016b68-4116-468c-9dc6-42710c239e4a",
+        "label": "C#",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the event-driven programming model and its implementation using delegates and events in C#."
+        }
+      ],
+      "match": {
+        "original_term": "events in C#",
+        "canonical_id": "esco:4c016b68-4116-468c-9dc6-42710c239e4a",
+        "canonical_label": "C#",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'events in C#' directly relates to C# programming, and the taxonomy entry for C# specifically covers programming paradigms in C#, which matches the skill described.",
+        "candidates": [
+          {
+            "id": "esco:4c016b68-4116-468c-9dc6-42710c239e4a",
+            "label": "C#",
+            "score": 0.578
+          },
+          {
+            "id": "esco:00c04e40-35ea-4ed1-824c-82f936c8f876",
+            "label": "Incremental development",
+            "score": 0.211
+          },
+          {
+            "id": "esco:33d49d4f-31ec-473f-9b8a-b555aa5116bb",
+            "label": "Iterative development",
+            "score": 0.198
+          }
+        ]
+      }
+    },
+    {
+      "term": "forms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the core components of a Windows Forms application, including forms, controls, and event handlers."
+        }
+      ],
+      "match": {
+        "original_term": "forms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.333,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:117373c8-f04b-4fff-8683-aebe36edac81",
+            "label": "hardware platforms",
+            "score": 0.333
+          },
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.265
+          },
+          {
+            "id": "esco:968ea96d-42d0-44fe-94b0-f11d84a8234d",
+            "label": "Windows Phone",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "implementation using delegates",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the event-driven programming model and its implementation using delegates and events in C#."
+        }
+      ],
+      "match": {
+        "original_term": "implementation using delegates",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.226,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ed1d8bd4-cd2a-4c64-b665-56d70651026c",
+            "label": "Prototyping development",
+            "score": 0.226
+          },
+          {
+            "id": "esco:00c04e40-35ea-4ed1-824c-82f936c8f876",
+            "label": "Incremental development",
+            "score": 0.224
+          },
+          {
+            "id": "esco:33d49d4f-31ec-473f-9b8a-b555aa5116bb",
+            "label": "Iterative development",
+            "score": 0.219
+          }
+        ]
+      }
+    },
+    {
+      "term": "modular Windows application using dependency injection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a modular Windows application using dependency injection and service locators."
+        }
+      ],
+      "match": {
+        "original_term": "modular Windows application using dependency injection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.249,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:d1e954cd-d290-4d80-97c0-7969960d2928",
+            "label": "distributed directory information services",
+            "score": 0.249
+          },
+          {
+            "id": "esco:6f7512ab-d46d-402a-8c30-a8878d7c1f88",
+            "label": "SQL Server Integration Services",
+            "score": 0.238
+          },
+          {
+            "id": "custom:microservices",
+            "label": "microservices architecture",
+            "score": 0.225
+          }
+        ]
+      }
+    },
+    {
+      "term": "structure",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the structure and functionality of XAML-based user interfaces in WPF applications."
+        }
+      ],
+      "match": {
+        "original_term": "structure",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'structure' in the context of XAML-based user interfaces refers to the organization and layout of UI elements, which is not directly captured by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.662
+          },
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.626
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.254
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Templates",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Data Templates"
+        },
+        {
+          "source": "description",
+          "text": "data templates"
+        }
+      ],
+      "match": {
+        "original_term": "Data Templates",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "no_match",
+        "reason": "The phrase 'Data Templates' does not clearly match any of the provided taxonomy entries, which cover data structures, data models, database design, and related topics, but none specifically refer to 'Data Templates' as a skill.",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.479
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.451
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.448
+          }
+        ]
+      }
+    },
+    {
+      "term": "Singleton",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Singleton and Factory Patterns"
+        },
+        {
+          "source": "description",
+          "text": "Singleton"
+        }
+      ],
+      "match": {
+        "original_term": "Singleton",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.235,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.235
+          },
+          {
+            "id": "esco:2d63745d-3c4c-4da1-ad77-985f68768be9",
+            "label": "manufacturing of metal structures",
+            "score": 0.209
+          },
+          {
+            "id": "esco:7b969ac9-f085-4afb-a480-c5210fb4da7d",
+            "label": "milling machines",
+            "score": 0.199
+          }
+        ]
+      }
+    },
+    {
+      "term": "Windows Applications",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Security Best Practices for Windows Applications"
+        },
+        {
+          "source": "description",
+          "text": "Windows applications"
+        }
+      ],
+      "match": {
+        "original_term": "Windows Applications",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries directly match the skill 'Windows Applications' as described in the syllabus. The closest entries are related to office software, application usability, or mobile development, but none specifically refer to Windows applications as a skill.",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.573
+          },
+          {
+            "id": "esco:cf310cff-0d28-4dbc-9dbb-cc500a3196c2",
+            "label": "office software",
+            "score": 0.495
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.486
+          }
+        ]
+      }
+    },
+    {
+      "term": "GUI applications",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 2,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "GUI applications"
+        },
+        {
+          "source": "description",
+          "text": "GUI applications"
+        }
+      ],
+      "match": {
+        "original_term": "GUI applications",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'GUI applications' refers to the development or use of graphical user interfaces in software, which is not explicitly covered by any of the provided taxonomy entries. None of the candidates directly match the skill described.",
+        "candidates": [
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.449
+          },
+          {
+            "id": "custom:linux",
+            "label": "Linux",
+            "score": 0.227
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.226
+          }
+        ]
+      }
+    },
+    {
+      "term": "UI components",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 2,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "UI components"
+        },
+        {
+          "source": "description",
+          "text": "UI components"
+        }
+      ],
+      "match": {
+        "original_term": "UI components",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'UI components' refers to user interface components, which is not explicitly covered by any of the provided taxonomy entries. None of the candidates directly match the specific skill described.",
+        "candidates": [
+          {
+            "id": "esco:f5db895c-533b-421b-8e7a-0ea39aadf3e5",
+            "label": "components of clocks",
+            "score": 0.529
+          },
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.509
+          },
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.491
+          }
+        ]
+      }
+    },
+    {
+      "term": "WPF",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 2,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "WPF"
+        },
+        {
+          "source": "description",
+          "text": "WPF"
+        }
+      ],
+      "match": {
+        "original_term": "WPF",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.174,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:flask",
+            "label": "Flask",
+            "score": 0.174
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.168
+          },
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.164
+          }
+        ]
+      }
+    },
+    {
+      "term": "Accessibility",
+      "canonical": {
+        "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "label": "ICT accessibility standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Accessibility and Usability Standards"
+        }
+      ],
+      "match": {
+        "original_term": "Accessibility",
+        "canonical_id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "canonical_label": "ICT accessibility standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Accessibility' directly matches the 'ICT accessibility standards' entry, which explicitly includes accessibility standards and guidelines.",
+        "candidates": [
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.891
+          },
+          {
+            "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+            "label": "ICT accessibility standards",
+            "score": 0.656
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.311
+          }
+        ]
+      }
+    },
+    {
+      "term": "ADO.NET Fundamentals",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "ADO.NET Fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "ADO.NET Fundamentals",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.226,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:56a7f561-1d55-43c9-9cd7-36a0a9bc6c50",
+            "label": "ASP.NET",
+            "score": 0.226
+          },
+          {
+            "id": "esco:13bdd41a-2a18-441f-96db-41252c519413",
+            "label": "Visual Studio .NET",
+            "score": 0.214
+          },
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.192
+          }
+        ]
+      }
+    },
+    {
+      "term": "Advanced WPF Controls",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Advanced WPF Controls"
+        }
+      ],
+      "match": {
+        "original_term": "Advanced WPF Controls",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries match the skill 'Advanced WPF Controls' as they are unrelated to software development with WPF.",
+        "candidates": [
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.41
+          },
+          {
+            "id": "esco:6c2dab43-b56a-4879-ae5f-75ae50e193c3",
+            "label": "dredging consoles",
+            "score": 0.41
+          },
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.402
+          }
+        ]
+      }
+    },
+    {
+      "term": "Authentication",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Authentication and Authorization"
+        }
+      ],
+      "match": {
+        "original_term": "Authentication",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.249,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.249
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.245
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.241
+          }
+        ]
+      }
+    },
+    {
+      "term": "Authorization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Authentication and Authorization"
+        }
+      ],
+      "match": {
+        "original_term": "Authorization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.238,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.238
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.234
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.228
+          }
+        ]
+      }
+    },
+    {
+      "term": "Azure App Services",
+      "canonical": {
+        "id": "custom:azure",
+        "label": "Microsoft Azure",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Azure App Services"
+        }
+      ],
+      "match": {
+        "original_term": "Azure App Services",
+        "canonical_id": "custom:azure",
+        "canonical_label": "Microsoft Azure",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Azure App Services' is a specific service within the Microsoft Azure cloud platform, and the taxonomy entry 'Microsoft Azure' directly matches this skill.",
+        "candidates": [
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.576
+          },
+          {
+            "id": "custom:aws",
+            "label": "Amazon Web Services",
+            "score": 0.398
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.368
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cloud Integration with Azure Services",
+      "canonical": {
+        "id": "custom:cloud-computing",
+        "label": "cloud computing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Cloud Integration with Azure Services"
+        }
+      ],
+      "match": {
+        "original_term": "Cloud Integration with Azure Services",
+        "canonical_id": "custom:cloud-computing",
+        "canonical_label": "cloud computing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Cloud Integration with Azure Services' specifically refers to integrating cloud services, and 'cloud computing' is the most specific matching entry in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.495
+          },
+          {
+            "id": "esco:6f7512ab-d46d-402a-8c30-a8878d7c1f88",
+            "label": "SQL Server Integration Services",
+            "score": 0.492
+          },
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.383
+          }
+        ]
+      }
+    },
+    {
+      "term": "Code Quality",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Code Quality and Testing"
+        }
+      ],
+      "match": {
+        "original_term": "Code Quality",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Code Quality' does not match any of the provided taxonomy entries, as none specifically refer to code quality practices or standards.",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.603
+          },
+          {
+            "id": "esco:d56358e4-3bcc-4b5d-981d-ea15b2743e9e",
+            "label": "quality control systems",
+            "score": 0.49
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.454
+          }
+        ]
+      }
+    },
+    {
+      "term": "Commands",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Commands and Event Triggers"
+        }
+      ],
+      "match": {
+        "original_term": "Commands",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.207,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:message-queues",
+            "label": "message queues",
+            "score": 0.207
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.193
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.186
+          }
+        ]
+      }
+    },
+    {
+      "term": "Connecting to SQL Server",
+      "canonical": {
+        "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+        "label": "SQL Server",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Connecting to SQL Server"
+        }
+      ],
+      "match": {
+        "original_term": "Connecting to SQL Server",
+        "canonical_id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+        "canonical_label": "SQL Server",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.694,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.21",
+        "candidates": [
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.694
+          },
+          {
+            "id": "esco:6f7512ab-d46d-402a-8c30-a8878d7c1f88",
+            "label": "SQL Server Integration Services",
+            "score": 0.487
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.486
+          }
+        ]
+      }
+    },
+    {
+      "term": "Control Fundamentals",
+      "canonical": {
+        "id": "custom:control-systems",
+        "label": "control systems engineering",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Control Fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "Control Fundamentals",
+        "canonical_id": "custom:control-systems",
+        "canonical_label": "control systems engineering",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Control Fundamentals' aligns with the broader concept of 'control systems engineering' which encompasses the analysis and design of systems that regulate their own behavior through feedback, matching the syllabus evidence.",
+        "candidates": [
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.489
+          },
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.474
+          },
+          {
+            "id": "custom:control-systems",
+            "label": "control systems engineering",
+            "score": 0.468
+          }
+        ]
+      }
+    },
+    {
+      "term": "Custom Controls Development",
+      "canonical": {
+        "id": "custom:robot-control",
+        "label": "robot control",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Custom Controls Development"
+        }
+      ],
+      "match": {
+        "original_term": "Custom Controls Development",
+        "canonical_id": "custom:robot-control",
+        "canonical_label": "robot control",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Custom Controls Development' aligns closely with 'robot control' as both involve designing and implementing control systems tailored to specific applications, particularly in robotics.",
+        "candidates": [
+          {
+            "id": "esco:d56358e4-3bcc-4b5d-981d-ea15b2743e9e",
+            "label": "quality control systems",
+            "score": 0.484
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.463
+          },
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.426
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Access Patterns",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Data Access Patterns"
+        }
+      ],
+      "match": {
+        "original_term": "Data Access Patterns",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill phrase 'Data Access Patterns'. The closest entries are related to data structures, design patterns, or data models, but none specifically refer to 'Data Access Patterns' as a skill.",
+        "candidates": [
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.558
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.446
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.421
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Binding",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Data Binding and Validation"
+        }
+      ],
+      "match": {
+        "original_term": "Data Binding",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Data Binding' as described in the syllabus. The closest entries relate to data analysis, data modeling, or data visualization, but none specifically refer to data binding.",
+        "candidates": [
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.491
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.48
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.471
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Binding in WPF",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Data Binding in WPF"
+        }
+      ],
+      "match": {
+        "original_term": "Data Binding in WPF",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.39,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.39
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.373
+          },
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.37
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Binding with Windows Forms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Data Binding with Windows Forms"
+        }
+      ],
+      "match": {
+        "original_term": "Data Binding with Windows Forms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.361,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.361
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.356
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.355
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Protection",
+      "canonical": {
+        "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+        "label": "data protection",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Data Protection"
+        }
+      ],
+      "match": {
+        "original_term": "Data Protection",
+        "canonical_id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+        "canonical_label": "data protection",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Data Sync with Azure",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Data Sync with Azure"
+        }
+      ],
+      "match": {
+        "original_term": "Data Sync with Azure",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Data Sync with Azure' as a skill. The closest is 'Microsoft Azure' (custom:azure), but it is a broader cloud computing platform and does not specifically capture the data synchronization aspect.",
+        "candidates": [
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.541
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.402
+          },
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.376
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Visualization with Charts",
+      "canonical": {
+        "id": "custom:data-visualization",
+        "label": "data visualization",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Data Visualization with Charts"
+        }
+      ],
+      "match": {
+        "original_term": "Data Visualization with Charts",
+        "canonical_id": "custom:data-visualization",
+        "canonical_label": "data visualization",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.757,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.34",
+        "candidates": [
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.757
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.418
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.378
+          }
+        ]
+      }
+    },
+    {
+      "term": "Database Integration with Windows Forms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Database Integration with Windows Forms"
+        }
+      ],
+      "match": {
+        "original_term": "Database Integration with Windows Forms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically match the skill 'Database Integration with Windows Forms'. The closest entries are related to database management systems or integration tools, but none directly refer to integrating databases with Windows Forms.",
+        "candidates": [
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.474
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.402
+          },
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.391
+          }
+        ]
+      }
+    },
+    {
+      "term": "Dependency Injection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Dependency Injection"
+        }
+      ],
+      "match": {
+        "original_term": "Dependency Injection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.232,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.232
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.206
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "Dynamic UI Updates",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Dynamic UI Updates"
+        }
+      ],
+      "match": {
+        "original_term": "Dynamic UI Updates",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.366,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.366
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.303
+          },
+          {
+            "id": "custom:ios-development",
+            "label": "iOS development",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "Error Handling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Error Handling"
+        }
+      ],
+      "match": {
+        "original_term": "Error Handling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.222,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.222
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.221
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "Evaluation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Presentation and Evaluation"
+        }
+      ],
+      "match": {
+        "original_term": "Evaluation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.369,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.369
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.268
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.239
+          }
+        ]
+      }
+    },
+    {
+      "term": "Event Handling in Windows Forms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Event Handling in Windows Forms"
+        }
+      ],
+      "match": {
+        "original_term": "Event Handling in Windows Forms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.355,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:968ea96d-42d0-44fe-94b0-f11d84a8234d",
+            "label": "Windows Phone",
+            "score": 0.355
+          },
+          {
+            "id": "esco:778ca7ad-6c5d-4868-9b96-a7777dca799c",
+            "label": "ICT help platforms",
+            "score": 0.208
+          },
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.193
+          }
+        ]
+      }
+    },
+    {
+      "term": "Event Triggers",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Commands and Event Triggers"
+        }
+      ],
+      "match": {
+        "original_term": "Event Triggers",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.276,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:linux",
+            "label": "Linux",
+            "score": 0.276
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.206
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.196
+          }
+        ]
+      }
+    },
+    {
+      "term": "Factory Patterns",
+      "canonical": {
+        "id": "custom:design-patterns",
+        "label": "software design patterns",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Singleton and Factory Patterns"
+        }
+      ],
+      "match": {
+        "original_term": "Factory Patterns",
+        "canonical_id": "custom:design-patterns",
+        "canonical_label": "software design patterns",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Factory Patterns' is a specific type of software design pattern, and the taxonomy entry 'software design patterns' explicitly includes such patterns.",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.499
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.217
+          },
+          {
+            "id": "esco:d1f607d0-48bb-4d08-a0c8-c6ee1c888b8d",
+            "label": "manufacturing plant equipment",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "Form Layout",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Form Layout and Controls"
+        }
+      ],
+      "match": {
+        "original_term": "Form Layout",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.324,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.324
+          },
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.292
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "term": "Graphical Data Representation",
+      "canonical": {
+        "id": "custom:data-visualization",
+        "label": "data visualization",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Graphical Data Representation"
+        }
+      ],
+      "match": {
+        "original_term": "Graphical Data Representation",
+        "canonical_id": "custom:data-visualization",
+        "canonical_label": "data visualization",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Graphical Data Representation' directly aligns with 'data visualization' as both involve presenting data graphically to make patterns readable.",
+        "candidates": [
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.433
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.384
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.256
+          }
+        ]
+      }
+    },
+    {
+      "term": "Inter-Service Communication",
+      "canonical": {
+        "id": "custom:message-queues",
+        "label": "message queues",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Inter-Service Communication"
+        }
+      ],
+      "match": {
+        "original_term": "Inter-Service Communication",
+        "canonical_id": "custom:message-queues",
+        "canonical_label": "message queues",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Inter-Service Communication' aligns with 'message queues' as both refer to asynchronous communication between services, which is a key aspect of inter-service communication.",
+        "candidates": [
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.591
+          },
+          {
+            "id": "esco:debef2fc-7af4-4bff-ac92-4d0317915a84",
+            "label": "electronic communication",
+            "score": 0.463
+          },
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.41
+          }
+        ]
+      }
+    },
+    {
+      "term": "Layout Panels",
+      "canonical": {
+        "id": "custom:ui-design",
+        "label": "user interface design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "UI Elements and Layout Panels"
+        }
+      ],
+      "match": {
+        "original_term": "Layout Panels",
+        "canonical_id": "custom:ui-design",
+        "canonical_label": "user interface design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Layout Panels' is part of 'UI Elements and Layout Panels' in the syllabus, which directly relates to user interface design, matching the label 'user interface design' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:fc72d86f-7e69-4bf8-b407-23303a798a0b",
+            "label": "control panel components",
+            "score": 0.445
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.266
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.252
+          }
+        ]
+      }
+    },
+    {
+      "term": "Memory Management",
+      "canonical": {
+        "id": "custom:operating-systems",
+        "label": "operating systems",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Memory Management"
+        }
+      ],
+      "match": {
+        "original_term": "Memory Management",
+        "canonical_id": "custom:operating-systems",
+        "canonical_label": "operating systems",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Memory Management is a core component of operating systems, which manage hardware resources and process execution, aligning directly with the phrase.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.516
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.437
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "MVVM Architecture in WPF",
+      "canonical": {
+        "id": "custom:design-patterns",
+        "label": "software design patterns",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "MVVM Architecture in WPF"
+        }
+      ],
+      "match": {
+        "original_term": "MVVM Architecture in WPF",
+        "canonical_id": "custom:design-patterns",
+        "canonical_label": "software design patterns",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'MVVM Architecture in WPF' refers to a specific software architecture pattern, which aligns with the 'software design patterns' category.",
+        "candidates": [
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.421
+          },
+          {
+            "id": "esco:2180bd8c-86de-4889-8165-adac902eee9d",
+            "label": "embedded systems",
+            "score": 0.348
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.254
+          }
+        ]
+      }
+    },
+    {
+      "term": "Patterns in GUI Development",
+      "canonical": {
+        "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+        "label": "software UI design patterns",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Design Patterns in GUI Development"
+        }
+      ],
+      "match": {
+        "original_term": "Patterns in GUI Development",
+        "canonical_id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+        "canonical_label": "software UI design patterns",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Patterns in GUI Development' directly aligns with 'software UI design patterns' as both refer to reusable solutions for common user interface tasks in software development.",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.571
+          },
+          {
+            "id": "esco:33d49d4f-31ec-473f-9b8a-b555aa5116bb",
+            "label": "Iterative development",
+            "score": 0.569
+          },
+          {
+            "id": "esco:ed1d8bd4-cd2a-4c64-b665-56d70651026c",
+            "label": "Prototyping development",
+            "score": 0.567
+          }
+        ]
+      }
+    },
+    {
+      "term": "Performance Optimization Techniques",
+      "canonical": {
+        "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+        "label": "ICT performance analysis methods",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Performance Optimization Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Performance Optimization Techniques",
+        "canonical_id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+        "canonical_label": "ICT performance analysis methods",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Performance Optimization Techniques' directly aligns with the label 'ICT performance analysis methods' and its also called entry 'performance analysis techniques', which are explicitly about methods used to analyze and optimize performance.",
+        "candidates": [
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.592
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.429
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.233
+          }
+        ]
+      }
+    },
+    {
+      "term": "Scalable Application Design with WCF",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Scalable Application Design with WCF"
+        }
+      ],
+      "match": {
+        "original_term": "Scalable Application Design with WCF",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.385,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.385
+          },
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.383
+          },
+          {
+            "id": "esco:96eb286a-58b7-45ff-a916-5578d0b79b8c",
+            "label": "Rapid application development",
+            "score": 0.37
+          }
+        ]
+      }
+    },
+    {
+      "term": "Security Best Practices",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Security Best Practices for Windows Applications"
+        }
+      ],
+      "match": {
+        "original_term": "Security Best Practices",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Security Best Practices' aligns with 'secure coding practices' as both focus on writing secure software and resisting common attacks, which is explicitly mentioned in the description of the custom:secure-coding entry.",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.533
+          },
+          {
+            "id": "esco:47ca0da1-cae5-4395-ae6b-fd97b9ff48d3",
+            "label": "system backup best practice",
+            "score": 0.504
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.424
+          }
+        ]
+      }
+    },
+    {
+      "term": "Service-Oriented Architecture",
+      "canonical": {
+        "id": "custom:microservices",
+        "label": "microservices architecture",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Service-Oriented Architecture"
+        }
+      ],
+      "match": {
+        "original_term": "Service-Oriented Architecture",
+        "canonical_id": "custom:microservices",
+        "canonical_label": "microservices architecture",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Styling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Styling and Templating"
+        }
+      ],
+      "match": {
+        "original_term": "Styling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.247,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.247
+          },
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.246
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.239
+          }
+        ]
+      }
+    },
+    {
+      "term": "Templating",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Styling and Templating"
+        }
+      ],
+      "match": {
+        "original_term": "Templating",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.284,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:html-css",
+            "label": "HTML and CSS",
+            "score": 0.284
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.244
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.225
+          }
+        ]
+      }
+    },
+    {
+      "term": "Testing",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Code Quality and Testing"
+        }
+      ],
+      "match": {
+        "original_term": "Testing",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Testing' directly matches the label 'software testing' and is listed as an alias in the also called field.",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.904
+          },
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.706
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.659
+          }
+        ]
+      }
+    },
+    {
+      "term": "UI Elements",
+      "canonical": {
+        "id": "custom:ui-design",
+        "label": "user interface design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "UI Elements and Layout Panels"
+        }
+      ],
+      "match": {
+        "original_term": "UI Elements",
+        "canonical_id": "custom:ui-design",
+        "canonical_label": "user interface design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'UI Elements' directly relates to user interface design, which is explicitly covered by the 'user interface design' label in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.43
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.337
+          },
+          {
+            "id": "esco:fc72d86f-7e69-4bf8-b407-23303a798a0b",
+            "label": "control panel components",
+            "score": 0.27
+          }
+        ]
+      }
+    },
+    {
+      "term": "UI Responsiveness",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "UI Responsiveness"
+        }
+      ],
+      "match": {
+        "original_term": "UI Responsiveness",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'UI Responsiveness' refers to the performance and adaptability of a user interface, which is not captured by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.429
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.336
+          },
+          {
+            "id": "custom:responsive-design",
+            "label": "responsive web design",
+            "score": 0.329
+          }
+        ]
+      }
+    },
+    {
+      "term": "UI Testing Frameworks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "UI Testing Frameworks"
+        }
+      ],
+      "match": {
+        "original_term": "UI Testing Frameworks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries specifically refer to 'UI Testing Frameworks'. The closest is 'software testing', but that is too broad and does not capture the specific focus on UI testing frameworks.",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.537
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.448
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.429
+          }
+        ]
+      }
+    },
+    {
+      "term": "Usability Standards",
+      "canonical": {
+        "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "label": "ICT accessibility standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Accessibility and Usability Standards"
+        }
+      ],
+      "match": {
+        "original_term": "Usability Standards",
+        "canonical_id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "canonical_label": "ICT accessibility standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Usability Standards' directly relates to 'ICT accessibility standards' as both focus on standards for usability and accessibility, with the latter explicitly mentioning usability as part of its scope.",
+        "candidates": [
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.646
+          },
+          {
+            "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+            "label": "ICT accessibility standards",
+            "score": 0.617
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.504
+          }
+        ]
+      }
+    },
+    {
+      "term": "Validation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Data Binding and Validation"
+        }
+      ],
+      "match": {
+        "original_term": "Validation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.328,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.328
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.262
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.258
+          }
+        ]
+      }
+    },
+    {
+      "term": "Visual Studio",
+      "canonical": {
+        "id": "esco:13bdd41a-2a18-441f-96db-41252c519413",
+        "label": "Visual Studio .NET",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Visual Studio and C#"
+        }
+      ],
+      "match": {
+        "original_term": "Visual Studio",
+        "canonical_id": "esco:13bdd41a-2a18-441f-96db-41252c519413",
+        "canonical_label": "Visual Studio .NET",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.738,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.25",
+        "candidates": [
+          {
+            "id": "esco:13bdd41a-2a18-441f-96db-41252c519413",
+            "label": "Visual Studio .NET",
+            "score": 0.738
+          },
+          {
+            "id": "esco:8369ede5-4200-4a44-be2e-bc60ef959259",
+            "label": "Microsoft Visual C++",
+            "score": 0.489
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.453
+          }
+        ]
+      }
+    },
+    {
+      "term": "WCAG Compliance",
+      "canonical": {
+        "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "label": "ICT accessibility standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "WCAG Compliance"
+        }
+      ],
+      "match": {
+        "original_term": "WCAG Compliance",
+        "canonical_id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "canonical_label": "ICT accessibility standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'WCAG Compliance' directly matches the 'ICT accessibility standards' entry, which explicitly includes standards like Web Content Accessibility Guidelines (WCAG).",
+        "candidates": [
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.614
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.419
+          },
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "Windows Forms Basics",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Windows Forms Basics"
+        }
+      ],
+      "match": {
+        "original_term": "Windows Forms Basics",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.222,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.222
+          },
+          {
+            "id": "esco:3d03c40c-1b83-4793-8902-2523f40af59e",
+            "label": "Microsoft Access",
+            "score": 0.174
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.174
+          }
+        ]
+      }
+    },
+    {
+      "term": "WPF Overview",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "WPF Overview and XAML Basics"
+        }
+      ],
+      "match": {
+        "original_term": "WPF Overview",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.177,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:4350c38d-0fe9-4ca7-bab9-40ed7f72b04f",
+            "label": "PHP",
+            "score": 0.177
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.17
+          },
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.168
+          }
+        ]
+      }
+    },
+    {
+      "term": "XAML Basics",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "WPF Overview and XAML Basics"
+        }
+      ],
+      "match": {
+        "original_term": "XAML Basics",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.202,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:4350c38d-0fe9-4ca7-bab9-40ed7f72b04f",
+            "label": "PHP",
+            "score": 0.202
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.192
+          },
+          {
+            "id": "esco:b4dc6e4f-dc7d-445f-8ce2-d7b9d225e282",
+            "label": "AJAX",
+            "score": 0.178
+          }
+        ]
+      }
+    },
+    {
+      "term": "analyzes accessibility standards",
+      "canonical": {
+        "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "label": "ICT accessibility standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "analyzes accessibility standards"
+        }
+      ],
+      "match": {
+        "original_term": "analyzes accessibility standards",
+        "canonical_id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+        "canonical_label": "ICT accessibility standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'analyzes accessibility standards' directly aligns with the label 'ICT accessibility standards' and its description, which focuses on making ICT content and applications accessible to people with disabilities.",
+        "candidates": [
+          {
+            "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+            "label": "ICT accessibility standards",
+            "score": 0.615
+          },
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.545
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "applies design patterns",
+      "canonical": {
+        "id": "custom:design-patterns",
+        "label": "software design patterns",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "applies design patterns"
+        }
+      ],
+      "match": {
+        "original_term": "applies design patterns",
+        "canonical_id": "custom:design-patterns",
+        "canonical_label": "software design patterns",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.743,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.22",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.743
+          },
+          {
+            "id": "esco:86ed2a45-eae9-4ab7-b0e6-d7508d33df4f",
+            "label": "dies",
+            "score": 0.527
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.519
+          }
+        ]
+      }
+    },
+    {
+      "term": "constructs scalable applications using WCF",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "constructs scalable applications using WCF"
+        }
+      ],
+      "match": {
+        "original_term": "constructs scalable applications using WCF",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.351,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.351
+          },
+          {
+            "id": "esco:ffddfc7c-a9dd-449f-9e96-882dc447c8b6",
+            "label": "Scala",
+            "score": 0.263
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.211
+          }
+        ]
+      }
+    },
+    {
+      "term": "designs modular applications with dependency injection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "designs modular applications with dependency injection"
+        }
+      ],
+      "match": {
+        "original_term": "designs modular applications with dependency injection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.371,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.371
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.364
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.356
+          }
+        ]
+      }
+    },
+    {
+      "term": "develops graphical user interfaces using XAML",
+      "canonical": {
+        "id": "custom:ui-design",
+        "label": "user interface design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "develops graphical user interfaces using XAML"
+        }
+      ],
+      "match": {
+        "original_term": "develops graphical user interfaces using XAML",
+        "canonical_id": "custom:ui-design",
+        "canonical_label": "user interface design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'develops graphical user interfaces using XAML' directly relates to user interface design, which is explicitly covered by the 'custom:ui-design' entry.",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.467
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.309
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.237
+          }
+        ]
+      }
+    },
+    {
+      "term": "evaluates performance optimization strategies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "evaluates performance optimization strategies"
+        }
+      ],
+      "match": {
+        "original_term": "evaluates performance optimization strategies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.382,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.382
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.364
+          },
+          {
+            "id": "esco:4e09e2d2-e317-47d2-bf5e-1d6c66be3efc",
+            "label": "energy performance of buildings",
+            "score": 0.35
+          }
+        ]
+      }
+    },
+    {
+      "term": "evaluates security best practices",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "evaluates security best practices"
+        }
+      ],
+      "match": {
+        "original_term": "evaluates security best practices",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill described by 'evaluates security best practices'. The closest entries relate to secure coding, network security, risk management, and incident response, but none specifically address the evaluation of security best practices.",
+        "candidates": [
+          {
+            "id": "esco:47ca0da1-cae5-4395-ae6b-fd97b9ff48d3",
+            "label": "system backup best practice",
+            "score": 0.452
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.407
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.367
+          }
+        ]
+      }
+    },
+    {
+      "term": "events",
+      "canonical": {
+        "id": "custom:poisson-distribution",
+        "label": "Poisson distribution",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "events"
+        }
+      ],
+      "match": {
+        "original_term": "events",
+        "canonical_id": "custom:poisson-distribution",
+        "canonical_label": "Poisson distribution",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'events' matches the 'Poisson distribution' entry, which specifically refers to the distribution of event counts in a fixed interval.",
+        "candidates": [
+          {
+            "id": "custom:message-queues",
+            "label": "message queues",
+            "score": 0.506
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.202
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.187
+          }
+        ]
+      }
+    },
+    {
+      "term": "explores event-driven programming with delegates",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "explores event-driven programming with delegates"
+        }
+      ],
+      "match": {
+        "original_term": "explores event-driven programming with delegates",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.351,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.351
+          },
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.338
+          },
+          {
+            "id": "esco:47b9bbcf-356c-4782-83a4-7f5a1b2b51a3",
+            "label": "Assembly (computer programming)",
+            "score": 0.33
+          }
+        ]
+      }
+    },
+    {
+      "term": "Factory in GUI development",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Factory in GUI development"
+        }
+      ],
+      "match": {
+        "original_term": "Factory in GUI development",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Factory in GUI development' does not clearly match any of the provided taxonomy entries, as none of the labels or also called terms directly refer to GUI development in a factory context.",
+        "candidates": [
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.46
+          },
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.452
+          },
+          {
+            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
+            "label": "packaging processes",
+            "score": 0.436
+          }
+        ]
+      }
+    },
+    {
+      "term": "graphs",
+      "canonical": {
+        "id": "custom:data-visualization",
+        "label": "data visualization",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "graphs"
+        }
+      ],
+      "match": {
+        "original_term": "graphs",
+        "canonical_id": "custom:data-visualization",
+        "canonical_label": "data visualization",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'graphs' directly aligns with 'data visualization' as it refers to presenting data graphically.",
+        "candidates": [
+          {
+            "id": "custom:discrete-mathematics",
+            "label": "discrete mathematics",
+            "score": 0.516
+          },
+          {
+            "id": "custom:graphql",
+            "label": "GraphQL",
+            "score": 0.306
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.196
+          }
+        ]
+      }
+    },
+    {
+      "term": "implements cloud integration with Azure services",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "implements cloud integration with Azure services"
+        }
+      ],
+      "match": {
+        "original_term": "implements cloud integration with Azure services",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'implements cloud integration with Azure services' refers to a specific skill involving Azure cloud integration, which is not captured by any of the provided taxonomy entries. None of the candidates directly match the skill described.",
+        "candidates": [
+          {
+            "id": "esco:6f7512ab-d46d-402a-8c30-a8878d7c1f88",
+            "label": "SQL Server Integration Services",
+            "score": 0.446
+          },
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.444
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.347
+          }
+        ]
+      }
+    },
+    {
+      "term": "implements data binding techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "implements data binding techniques"
+        }
+      ],
+      "match": {
+        "original_term": "implements data binding techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.396,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.396
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.362
+          },
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.351
+          }
+        ]
+      }
+    },
+    {
+      "term": "implements real-time data visualization using charts",
+      "canonical": {
+        "id": "custom:data-visualization",
+        "label": "data visualization",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "implements real-time data visualization using charts"
+        }
+      ],
+      "match": {
+        "original_term": "implements real-time data visualization using charts",
+        "canonical_id": "custom:data-visualization",
+        "canonical_label": "data visualization",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'implements real-time data visualization using charts' directly aligns with the skill 'data visualization', which includes charting and dashboards as alternative terms.",
+        "candidates": [
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.545
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.3
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.277
+          }
+        ]
+      }
+    },
+    {
+      "term": "MVVM architecture",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "MVVM architecture"
+        }
+      ],
+      "match": {
+        "original_term": "MVVM architecture",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'MVVM architecture' or a closely related skill. The closest match is 'software design patterns', but MVVM architecture is a specific implementation of a design pattern and not equivalent to the broader category of design patterns.",
+        "candidates": [
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.503
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.495
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.28
+          }
+        ]
+      }
+    },
+    {
+      "term": "SQL Server",
+      "canonical": {
+        "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+        "label": "SQL Server",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "SQL Server"
+        }
+      ],
+      "match": {
+        "original_term": "SQL Server",
+        "canonical_id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+        "canonical_label": "SQL Server",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    }
+  ]
+}

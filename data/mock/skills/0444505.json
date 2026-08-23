@@ -1,0 +1,3118 @@
+{
+  "course_code": "0444505",
+  "course_codes": [
+    "0444505"
+  ],
+  "course_title": "Certified Software Tester Engineer (CSTE)",
+  "credit_hours": 3,
+  "plans": [
+    "SE"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "needs_review": 10,
+      "no_match": 14,
+      "accepted": 42
+    },
+    "by_method": {
+      "llm": 32,
+      "embedding_reranker": 30,
+      "exact_alias": 4
+    }
+  },
+  "total_skills": 66,
+  "skills": [
+    {
+      "term": "boundary value analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define test case design techniques such as equivalence partitioning and boundary value analysis."
+        },
+        {
+          "source": "description",
+          "text": "boundary value analysis"
+        }
+      ],
+      "match": {
+        "original_term": "boundary value analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'boundary value analysis', which is a test case design technique in software testing. The closest entry is 'levels of software testing', but it does not directly name the skill.",
+        "candidates": [
+          {
+            "id": "esco:d512d178-37a6-4eab-a660-412d2bb0824a",
+            "label": "test procedures",
+            "score": 0.441
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.44
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.432
+          }
+        ]
+      }
+    },
+    {
+      "term": "equivalence partitioning",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define test case design techniques such as equivalence partitioning and boundary value analysis."
+        },
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Black-box Testing Lab: Equivalence Partitioning"
+        }
+      ],
+      "match": {
+        "original_term": "equivalence partitioning",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.248,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:hypothesis-testing",
+            "label": "hypothesis testing",
+            "score": 0.248
+          },
+          {
+            "id": "esco:d512d178-37a6-4eab-a660-412d2bb0824a",
+            "label": "test procedures",
+            "score": 0.242
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.239
+          }
+        ]
+      }
+    },
+    {
+      "term": "JUnit",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of automated testing using Selenium and JUnit."
+        },
+        {
+          "source": "description",
+          "text": "JUnit"
+        }
+      ],
+      "match": {
+        "original_term": "JUnit",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "JUnit is explicitly listed as an example of unit testing in the taxonomy entry, confirming it matches the skill.",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.905
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.262
+          },
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.242
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cucumber to real-world software projects",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply test automation frameworks like TestNG and Cucumber to real-world software projects."
+        }
+      ],
+      "match": {
+        "original_term": "Cucumber to real-world software projects",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.366,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.366
+          },
+          {
+            "id": "esco:24c200e5-be20-4370-a137-ab53797f3a17",
+            "label": "software frameworks",
+            "score": 0.365
+          },
+          {
+            "id": "esco:27065048-bca8-4b0a-891a-b192b9ceadfd",
+            "label": "CAM software",
+            "score": 0.351
+          }
+        ]
+      }
+    },
+    {
+      "term": "effectiveness of defect management systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Evaluate the effectiveness of defect management systems such as JIRA in software testing workflows."
+        }
+      ],
+      "match": {
+        "original_term": "effectiveness of defect management systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'effectiveness of defect management systems' focuses on evaluating how well defect management systems function, which is not directly covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.407
+          },
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.361
+          },
+          {
+            "id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+            "label": "levels of software testing",
+            "score": 0.253
+          }
+        ]
+      }
+    },
+    {
+      "term": "JIRA in software testing workflows",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Evaluate the effectiveness of defect management systems such as JIRA in software testing workflows."
+        }
+      ],
+      "match": {
+        "original_term": "JIRA in software testing workflows",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.632,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.07",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.632
+          },
+          {
+            "id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+            "label": "levels of software testing",
+            "score": 0.557
+          },
+          {
+            "id": "esco:41ec47dd-08b3-464a-9c45-c706f3e74467",
+            "label": "industrial software",
+            "score": 0.424
+          }
+        ]
+      }
+    },
+    {
+      "term": "principles of automated testing using Selenium",
+      "canonical": {
+        "id": "custom:test-automation",
+        "label": "test automation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of automated testing using Selenium and JUnit."
+        }
+      ],
+      "match": {
+        "original_term": "principles of automated testing using Selenium",
+        "canonical_id": "custom:test-automation",
+        "canonical_label": "test automation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'principles of automated testing using Selenium' directly aligns with the skill 'test automation' which is also called 'automated testing' and explicitly mentions Selenium as a tool.",
+        "candidates": [
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.615
+          },
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.47
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.423
+          }
+        ]
+      }
+    },
+    {
+      "term": "test automation frameworks like TestNG",
+      "canonical": {
+        "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+        "label": "tools for ICT test automation",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply test automation frameworks like TestNG and Cucumber to real-world software projects."
+        }
+      ],
+      "match": {
+        "original_term": "test automation frameworks like TestNG",
+        "canonical_id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+        "canonical_label": "tools for ICT test automation",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'test automation frameworks like TestNG' directly refers to tools for test automation, which is explicitly named in the 'tools for ICT test automation' entry.",
+        "candidates": [
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.6
+          },
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.527
+          },
+          {
+            "id": "esco:24c200e5-be20-4370-a137-ab53797f3a17",
+            "label": "software frameworks",
+            "score": 0.387
+          }
+        ]
+      }
+    },
+    {
+      "term": "test case design techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define test case design techniques such as equivalence partitioning and boundary value analysis."
+        }
+      ],
+      "match": {
+        "original_term": "test case design techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.388,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:d512d178-37a6-4eab-a660-412d2bb0824a",
+            "label": "test procedures",
+            "score": 0.388
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.376
+          },
+          {
+            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
+            "label": "packaging processes",
+            "score": 0.373
+          }
+        ]
+      }
+    },
+    {
+      "term": "Test Automation Frameworks",
+      "canonical": {
+        "id": "custom:test-automation",
+        "label": "test automation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Test Automation Frameworks"
+        },
+        {
+          "source": "description",
+          "text": "test automation frameworks"
+        }
+      ],
+      "match": {
+        "original_term": "Test Automation Frameworks",
+        "canonical_id": "custom:test-automation",
+        "canonical_label": "test automation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.719,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.13",
+        "candidates": [
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.719
+          },
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.588
+          },
+          {
+            "id": "esco:24c200e5-be20-4370-a137-ab53797f3a17",
+            "label": "software frameworks",
+            "score": 0.439
+          }
+        ]
+      }
+    },
+    {
+      "term": "Test Planning",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Test Planning and Test Strategies"
+        },
+        {
+          "source": "description",
+          "text": "test planning"
+        }
+      ],
+      "match": {
+        "original_term": "Test Planning",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Test Planning' is directly related to the broader concept of 'software testing', which includes planning and strategies for testing software.",
+        "candidates": [
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.514
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.492
+          },
+          {
+            "id": "esco:d512d178-37a6-4eab-a660-412d2bb0824a",
+            "label": "test procedures",
+            "score": 0.47
+          }
+        ]
+      }
+    },
+    {
+      "term": "White-box Testing Methods",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "White-box Testing Methods"
+        },
+        {
+          "source": "description",
+          "text": "white-box testing methods"
+        }
+      ],
+      "match": {
+        "original_term": "White-box Testing Methods",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'White-box Testing Methods' or equivalent terms. The closest entries are related to testing procedures or hardware testing, but none match the specific concept of white-box testing.",
+        "candidates": [
+          {
+            "id": "esco:53456d90-8c0d-4bd2-9f1b-312619b6e2a6",
+            "label": "hardware testing methods",
+            "score": 0.585
+          },
+          {
+            "id": "esco:c8bd9f9f-0ec6-447a-ab78-ad6eeeed9aa8",
+            "label": "electrical testing methods",
+            "score": 0.537
+          },
+          {
+            "id": "esco:d512d178-37a6-4eab-a660-412d2bb0824a",
+            "label": "test procedures",
+            "score": 0.384
+          }
+        ]
+      }
+    },
+    {
+      "term": "Agile Test Planning",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Test Management Lab: Agile Test Planning"
+        }
+      ],
+      "match": {
+        "original_term": "Agile Test Planning",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Agile Test Planning' refers to the process of planning tests within an Agile framework, which is not directly captured by any of the provided taxonomy entries. None of the candidates specifically address the combination of Agile methodology and test planning.",
+        "candidates": [
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.563
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.425
+          },
+          {
+            "id": "esco:dba46f87-0831-49cd-a1c7-340a653c0221",
+            "label": "Agile development",
+            "score": 0.412
+          }
+        ]
+      }
+    },
+    {
+      "term": "Automated Testing Lab",
+      "canonical": {
+        "id": "custom:test-automation",
+        "label": "test automation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Automated Testing Lab: Selenium Setup"
+        }
+      ],
+      "match": {
+        "original_term": "Automated Testing Lab",
+        "canonical_id": "custom:test-automation",
+        "canonical_label": "test automation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.82,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.30",
+        "candidates": [
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.82
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.523
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.419
+          }
+        ]
+      }
+    },
+    {
+      "term": "Black-box Testing Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Black-box Testing Lab: Equivalence Partitioning"
+        }
+      ],
+      "match": {
+        "original_term": "Black-box Testing Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.398,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.398
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.384
+          },
+          {
+            "id": "custom:hypothesis-testing",
+            "label": "hypothesis testing",
+            "score": 0.38
+          }
+        ]
+      }
+    },
+    {
+      "term": "CI/CD Lab",
+      "canonical": {
+        "id": "custom:ci-cd",
+        "label": "CI/CD pipelines",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "CI/CD Lab: Jenkins Integration"
+        }
+      ],
+      "match": {
+        "original_term": "CI/CD Lab",
+        "canonical_id": "custom:ci-cd",
+        "canonical_label": "CI/CD pipelines",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.846,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.34",
+        "candidates": [
+          {
+            "id": "custom:ci-cd",
+            "label": "CI/CD pipelines",
+            "score": 0.846
+          },
+          {
+            "id": "esco:f47a1998-0beb-43be-9f46-380aa4d183da",
+            "label": "Jenkins (tools for software configuration management)",
+            "score": 0.508
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "Control Flow Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "White-box Testing Lab: Control Flow Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Control Flow Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Control Flow Analysis' from the syllabus. The closest entries are related to control systems or analysis but do not specifically refer to control flow analysis as a skill.",
+        "candidates": [
+          {
+            "id": "esco:2d7bf28a-2487-4443-9115-47478080b1a4",
+            "label": "hazard analysis and critical control points",
+            "score": 0.473
+          },
+          {
+            "id": "custom:control-systems",
+            "label": "control systems engineering",
+            "score": 0.427
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.424
+          }
+        ]
+      }
+    },
+    {
+      "term": "CSTE Capstone Project",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 15,
+          "text": "Final Project Lab: CSTE Capstone Project"
+        }
+      ],
+      "match": {
+        "original_term": "CSTE Capstone Project",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.185,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:82313e12-9d39-47d1-b7c9-78bbd6bb50e2",
+            "label": "CAE software",
+            "score": 0.185
+          },
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.184
+          },
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.184
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cucumber BDD",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Test Automation Lab: Cucumber BDD"
+        }
+      ],
+      "match": {
+        "original_term": "Cucumber BDD",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.232,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.232
+          },
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.229
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.184
+          }
+        ]
+      }
+    },
+    {
+      "term": "Defect Management Lab",
+      "canonical": {
+        "id": "custom:project-management",
+        "label": "project management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Defect Management Lab: JIRA Integration"
+        }
+      ],
+      "match": {
+        "original_term": "Defect Management Lab",
+        "canonical_id": "custom:project-management",
+        "canonical_label": "project management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Defect Management Lab: JIRA Integration' directly relates to project management tools like JIRA, which is explicitly listed under the 'project management' entry.",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.508
+          },
+          {
+            "id": "custom:ci-cd",
+            "label": "CI/CD pipelines",
+            "score": 0.254
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.227
+          }
+        ]
+      }
+    },
+    {
+      "term": "Jenkins Integration",
+      "canonical": {
+        "id": "esco:f47a1998-0beb-43be-9f46-380aa4d183da",
+        "label": "Jenkins (tools for software configuration management)",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "CI/CD Lab: Jenkins Integration"
+        }
+      ],
+      "match": {
+        "original_term": "Jenkins Integration",
+        "canonical_id": "esco:f47a1998-0beb-43be-9f46-380aa4d183da",
+        "canonical_label": "Jenkins (tools for software configuration management)",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Jenkins Integration' directly matches the label 'Jenkins (tools for software configuration management)' and is also listed in its 'also called' section.",
+        "candidates": [
+          {
+            "id": "custom:ci-cd",
+            "label": "CI/CD pipelines",
+            "score": 0.726
+          },
+          {
+            "id": "esco:f47a1998-0beb-43be-9f46-380aa4d183da",
+            "label": "Jenkins (tools for software configuration management)",
+            "score": 0.704
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.485
+          }
+        ]
+      }
+    },
+    {
+      "term": "JIRA Integration",
+      "canonical": {
+        "id": "custom:project-management",
+        "label": "project management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Defect Management Lab: JIRA Integration"
+        }
+      ],
+      "match": {
+        "original_term": "JIRA Integration",
+        "canonical_id": "custom:project-management",
+        "canonical_label": "project management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'JIRA Integration' is explicitly linked to 'project management' in the taxonomy, as Jira is also called 'project management' and the context involves defect management and integration.",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.652
+          },
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.606
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.493
+          }
+        ]
+      }
+    },
+    {
+      "term": "JMeter Basics",
+      "canonical": {
+        "id": "custom:performance-testing",
+        "label": "performance testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Performance Testing Lab: JMeter Basics"
+        }
+      ],
+      "match": {
+        "original_term": "JMeter Basics",
+        "canonical_id": "custom:performance-testing",
+        "canonical_label": "performance testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.735,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.44",
+        "candidates": [
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.735
+          },
+          {
+            "id": "esco:ad329eb4-463d-40ac-bf03-60e00538bb49",
+            "label": "battery testers",
+            "score": 0.292
+          },
+          {
+            "id": "esco:4cdbc76c-75d8-4e12-8653-4820c2d5446f",
+            "label": "microsystem test procedures",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "JUnit Reports",
+      "canonical": {
+        "id": "custom:unit-testing",
+        "label": "unit testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Test Reporting Lab: JUnit Reports"
+        }
+      ],
+      "match": {
+        "original_term": "JUnit Reports",
+        "canonical_id": "custom:unit-testing",
+        "canonical_label": "unit testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.665,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.45",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.665
+          },
+          {
+            "id": "custom:jupyter",
+            "label": "Jupyter Notebook",
+            "score": 0.215
+          },
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.211
+          }
+        ]
+      }
+    },
+    {
+      "term": "OWASP ZAP",
+      "canonical": {
+        "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+        "label": "OWASP ZAP",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Security Testing Lab: OWASP ZAP"
+        }
+      ],
+      "match": {
+        "original_term": "OWASP ZAP",
+        "canonical_id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+        "canonical_label": "OWASP ZAP",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Performance Testing Lab",
+      "canonical": {
+        "id": "custom:performance-testing",
+        "label": "performance testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Performance Testing Lab: JMeter Basics"
+        }
+      ],
+      "match": {
+        "original_term": "Performance Testing Lab",
+        "canonical_id": "custom:performance-testing",
+        "canonical_label": "performance testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.835,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.43",
+        "candidates": [
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.835
+          },
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.4
+          },
+          {
+            "id": "esco:d512d178-37a6-4eab-a660-412d2bb0824a",
+            "label": "test procedures",
+            "score": 0.391
+          }
+        ]
+      }
+    },
+    {
+      "term": "Security Testing Lab",
+      "canonical": {
+        "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+        "label": "OWASP ZAP",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Security Testing Lab: OWASP ZAP"
+        }
+      ],
+      "match": {
+        "original_term": "Security Testing Lab",
+        "canonical_id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+        "canonical_label": "OWASP ZAP",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Security Testing Lab: OWASP ZAP' directly references OWASP ZAP, which is explicitly named in the taxonomy entry for 'OWASP ZAP'.",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.522
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.481
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.422
+          }
+        ]
+      }
+    },
+    {
+      "term": "Selenium Setup",
+      "canonical": {
+        "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+        "label": "tools for ICT test automation",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Automated Testing Lab: Selenium Setup"
+        }
+      ],
+      "match": {
+        "original_term": "Selenium Setup",
+        "canonical_id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+        "canonical_label": "tools for ICT test automation",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Selenium Setup' directly refers to the use of Selenium, which is explicitly listed in the 'tools for ICT test automation' entry.",
+        "candidates": [
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.753
+          },
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.713
+          },
+          {
+            "id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+            "label": "levels of software testing",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "Static Code Analysis",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Test Coverage Lab: Static Code Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Static Code Analysis",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Static Code Analysis is a specific technique used in software testing to analyze code without executing it, which aligns with the broader category of software testing.",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.439
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.414
+          },
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.227
+          }
+        ]
+      }
+    },
+    {
+      "term": "Test Automation Lab",
+      "canonical": {
+        "id": "custom:test-automation",
+        "label": "test automation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Test Automation Lab: Cucumber BDD"
+        }
+      ],
+      "match": {
+        "original_term": "Test Automation Lab",
+        "canonical_id": "custom:test-automation",
+        "canonical_label": "test automation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.723,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.14",
+        "candidates": [
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.723
+          },
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.582
+          },
+          {
+            "id": "esco:3e75d405-c3d1-4a66-9963-05a9397d68fb",
+            "label": "printed circuit boards testing methods",
+            "score": 0.389
+          }
+        ]
+      }
+    },
+    {
+      "term": "Test Coverage Lab",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Test Coverage Lab: Static Code Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Test Coverage Lab",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Test Coverage Lab' is directly related to software testing, as it involves assessing code coverage through testing, which aligns with the definition of 'software testing' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.405
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.243
+          },
+          {
+            "id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+            "label": "levels of software testing",
+            "score": 0.237
+          }
+        ]
+      }
+    },
+    {
+      "term": "Test Management Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Test Management Lab: Agile Test Planning"
+        }
+      ],
+      "match": {
+        "original_term": "Test Management Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Test Management Lab' refers to a lab course focused on test management practices, which is not directly captured by any of the provided taxonomy entries. None of the candidates specifically address test management as a skill.",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.413
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.404
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.39
+          }
+        ]
+      }
+    },
+    {
+      "term": "Test Reporting Lab",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Test Reporting Lab: JUnit Reports"
+        }
+      ],
+      "match": {
+        "original_term": "Test Reporting Lab",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Test Reporting Lab: JUnit Reports' directly relates to software testing, as it involves generating reports from test cases, which is a core part of verifying software behavior.",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.49
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.433
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.402
+          }
+        ]
+      }
+    },
+    {
+      "term": "White-box Testing Lab",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "White-box Testing Lab: Control Flow Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "White-box Testing Lab",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'White-box Testing Lab' directly relates to software testing, specifically white-box testing, which is a subset of software testing.",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.491
+          },
+          {
+            "id": "esco:3e5c6279-457f-429a-a53a-d27d4d38a10a",
+            "label": "well testing operations",
+            "score": 0.391
+          },
+          {
+            "id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+            "label": "levels of software testing",
+            "score": 0.388
+          }
+        ]
+      }
+    },
+    {
+      "term": "Automated Testing Tools",
+      "canonical": {
+        "id": "custom:test-automation",
+        "label": "test automation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Automated Testing Tools"
+        }
+      ],
+      "match": {
+        "original_term": "Automated Testing Tools",
+        "canonical_id": "custom:test-automation",
+        "canonical_label": "test automation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.746,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.20",
+        "candidates": [
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.746
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.541
+          },
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.463
+          }
+        ]
+      }
+    },
+    {
+      "term": "Black-box Testing Techniques",
+      "canonical": {
+        "id": "esco:d512d178-37a6-4eab-a660-412d2bb0824a",
+        "label": "test procedures",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Black-box Testing Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Black-box Testing Techniques",
+        "canonical_id": "esco:d512d178-37a6-4eab-a660-412d2bb0824a",
+        "canonical_label": "test procedures",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Black-box Testing Techniques' refers to testing methods that do not require internal structure knowledge, which aligns with the broader category of 'test procedures' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:53456d90-8c0d-4bd2-9f1b-312619b6e2a6",
+            "label": "hardware testing methods",
+            "score": 0.401
+          },
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.397
+          },
+          {
+            "id": "esco:ebd90bfe-ab0f-4155-a77c-3de9267b27a1",
+            "label": "metal smoothing technologies",
+            "score": 0.39
+          }
+        ]
+      }
+    },
+    {
+      "term": "Continuous Integration",
+      "canonical": {
+        "id": "custom:ci-cd",
+        "label": "CI/CD pipelines",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Continuous Integration and DevOps"
+        }
+      ],
+      "match": {
+        "original_term": "Continuous Integration",
+        "canonical_id": "custom:ci-cd",
+        "canonical_label": "CI/CD pipelines",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Coverage Analysis",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Test Case Prioritization and Coverage Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Coverage Analysis",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Coverage Analysis' is directly related to software testing, as it is part of the syllabus text 'Test Case Prioritization and Coverage Analysis'. Coverage Analysis is a specific technique used in software testing to evaluate the completeness of test cases.",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.511
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.482
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.481
+          }
+        ]
+      }
+    },
+    {
+      "term": "Defect Management Systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Defect Management Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Defect Management Systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Defect Management Systems'. The closest entries are related to databases, operating systems, or specific mechanical systems, but none specifically refer to defect management systems.",
+        "candidates": [
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.585
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.439
+          },
+          {
+            "id": "esco:69bece91-c806-42ad-bde4-db28c7f8fc4b",
+            "label": "mechanical systems",
+            "score": 0.417
+          }
+        ]
+      }
+    },
+    {
+      "term": "DevOps",
+      "canonical": {
+        "id": "esco:f0de4973-0a70-4644-8fd4-3a97080476f4",
+        "label": "DevOps",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Continuous Integration and DevOps"
+        }
+      ],
+      "match": {
+        "original_term": "DevOps",
+        "canonical_id": "esco:f0de4973-0a70-4644-8fd4-3a97080476f4",
+        "canonical_label": "DevOps",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Performance Testing Overview",
+      "canonical": {
+        "id": "custom:performance-testing",
+        "label": "performance testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Performance Testing Overview"
+        }
+      ],
+      "match": {
+        "original_term": "Performance Testing Overview",
+        "canonical_id": "custom:performance-testing",
+        "canonical_label": "performance testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.739,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.22",
+        "candidates": [
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.739
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.515
+          },
+          {
+            "id": "esco:d512d178-37a6-4eab-a660-412d2bb0824a",
+            "label": "test procedures",
+            "score": 0.403
+          }
+        ]
+      }
+    },
+    {
+      "term": "Reporting",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Test Metrics and Reporting"
+        }
+      ],
+      "match": {
+        "original_term": "Reporting",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.308,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.308
+          },
+          {
+            "id": "esco:d512d178-37a6-4eab-a660-412d2bb0824a",
+            "label": "test procedures",
+            "score": 0.28
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.26
+          }
+        ]
+      }
+    },
+    {
+      "term": "Security Testing",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Security Testing Concepts"
+        }
+      ],
+      "match": {
+        "original_term": "Security Testing",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.639,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.13",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.639
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.505
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.486
+          }
+        ]
+      }
+    },
+    {
+      "term": "Software Quality Assurance Practices",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Software Quality Assurance Practices"
+        }
+      ],
+      "match": {
+        "original_term": "Software Quality Assurance Practices",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.665,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.14",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.665
+          },
+          {
+            "id": "esco:d56358e4-3bcc-4b5d-981d-ea15b2743e9e",
+            "label": "quality control systems",
+            "score": 0.529
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.404
+          }
+        ]
+      }
+    },
+    {
+      "term": "Software Testing",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Software Testing"
+        }
+      ],
+      "match": {
+        "original_term": "Software Testing",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Test Case Prioritization",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Test Case Prioritization and Coverage Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Test Case Prioritization",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Test Case Prioritization' is a specific aspect of software testing, which is directly covered under the 'software testing' label in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.592
+          },
+          {
+            "id": "custom:hypothesis-testing",
+            "label": "hypothesis testing",
+            "score": 0.392
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.281
+          }
+        ]
+      }
+    },
+    {
+      "term": "Test Management Methodologies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Test Management Methodologies"
+        }
+      ],
+      "match": {
+        "original_term": "Test Management Methodologies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries precisely match the skill 'Test Management Methodologies'. The closest entries are related to testing procedures or software testing, but none specifically address test management methodologies.",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.406
+          },
+          {
+            "id": "esco:d512d178-37a6-4eab-a660-412d2bb0824a",
+            "label": "test procedures",
+            "score": 0.402
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.384
+          }
+        ]
+      }
+    },
+    {
+      "term": "Test Metrics",
+      "canonical": {
+        "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+        "label": "software metrics",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Test Metrics and Reporting"
+        }
+      ],
+      "match": {
+        "original_term": "Test Metrics",
+        "canonical_id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+        "canonical_label": "software metrics",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Test Metrics' directly relates to 'software metrics', which specifically refers to metrics used to evaluate software systems, matching the syllabus term.",
+        "candidates": [
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.491
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.458
+          },
+          {
+            "id": "esco:d512d178-37a6-4eab-a660-412d2bb0824a",
+            "label": "test procedures",
+            "score": 0.442
+          }
+        ]
+      }
+    },
+    {
+      "term": "Test Strategies",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Test Planning and Test Strategies"
+        }
+      ],
+      "match": {
+        "original_term": "Test Strategies",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Test Strategies' is closely related to 'software testing' as both involve planning and executing tests to verify software behavior.",
+        "candidates": [
+          {
+            "id": "esco:d512d178-37a6-4eab-a660-412d2bb0824a",
+            "label": "test procedures",
+            "score": 0.47
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.468
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.441
+          }
+        ]
+      }
+    },
+    {
+      "term": "advanced concepts in software testing",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "advanced concepts in software testing"
+        }
+      ],
+      "match": {
+        "original_term": "advanced concepts in software testing",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.652,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.10",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.652
+          },
+          {
+            "id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+            "label": "levels of software testing",
+            "score": 0.552
+          },
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.39
+          }
+        ]
+      }
+    },
+    {
+      "term": "automated testing tools like Selenium",
+      "canonical": {
+        "id": "custom:test-automation",
+        "label": "test automation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "automated testing tools like Selenium"
+        }
+      ],
+      "match": {
+        "original_term": "automated testing tools like Selenium",
+        "canonical_id": "custom:test-automation",
+        "canonical_label": "test automation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.631,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.11",
+        "candidates": [
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.631
+          },
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.525
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.436
+          }
+        ]
+      }
+    },
+    {
+      "term": "control flow",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "control flow"
+        }
+      ],
+      "match": {
+        "original_term": "control flow",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'control flow' refers to the structure and order of execution in programming, which is distinct from the broader concepts of control systems or robotics control covered by the taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.502
+          },
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.497
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.486
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cucumber",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Cucumber"
+        }
+      ],
+      "match": {
+        "original_term": "Cucumber",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.185,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.185
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.182
+          },
+          {
+            "id": "esco:cfb217bd-674c-4728-a8d7-f35fccc4d173",
+            "label": "kosher meat",
+            "score": 0.177
+          }
+        ]
+      }
+    },
+    {
+      "term": "data flow analysis",
+      "canonical": {
+        "id": "custom:data-analysis",
+        "label": "data analysis",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "data flow analysis"
+        }
+      ],
+      "match": {
+        "original_term": "data flow analysis",
+        "canonical_id": "custom:data-analysis",
+        "canonical_label": "data analysis",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.662,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.23",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.662
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.43
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.417
+          }
+        ]
+      }
+    },
+    {
+      "term": "decision table testing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "decision table testing"
+        }
+      ],
+      "match": {
+        "original_term": "decision table testing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'decision table testing' does not match any of the provided taxonomy entries, which cover topics like software testing, penetration testing, performance testing, etc., but none specifically refer to decision table testing.",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.526
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.432
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.427
+          }
+        ]
+      }
+    },
+    {
+      "term": "defect management systems like JIRA",
+      "canonical": {
+        "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+        "label": "tools for software configuration management",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "defect management systems like JIRA"
+        }
+      ],
+      "match": {
+        "original_term": "defect management systems like JIRA",
+        "canonical_id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+        "canonical_label": "tools for software configuration management",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'defect management systems like JIRA' directly relates to tools for software configuration management, which includes systems like JIRA.",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.447
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.347
+          },
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.313
+          }
+        ]
+      }
+    },
+    {
+      "term": "IEEE 829",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "IEEE 829"
+        }
+      ],
+      "match": {
+        "original_term": "IEEE 829",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.162,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.162
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.16
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.159
+          }
+        ]
+      }
+    },
+    {
+      "term": "ISO/IEC 25010",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "ISO/IEC 25010"
+        }
+      ],
+      "match": {
+        "original_term": "ISO/IEC 25010",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.358,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.358
+          },
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.201
+          },
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.166
+          }
+        ]
+      }
+    },
+    {
+      "term": "performance testing with JMeter",
+      "canonical": {
+        "id": "custom:performance-testing",
+        "label": "performance testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "performance testing with JMeter"
+        }
+      ],
+      "match": {
+        "original_term": "performance testing with JMeter",
+        "canonical_id": "custom:performance-testing",
+        "canonical_label": "performance testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.769,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.38",
+        "candidates": [
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.769
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.392
+          },
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.387
+          }
+        ]
+      }
+    },
+    {
+      "term": "SQA",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "SQA"
+        }
+      ],
+      "match": {
+        "original_term": "SQA",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.321,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.321
+          },
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.229
+          },
+          {
+            "id": "custom:graphql",
+            "label": "GraphQL",
+            "score": 0.172
+          }
+        ]
+      }
+    },
+    {
+      "term": "test case design",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "test case design"
+        }
+      ],
+      "match": {
+        "original_term": "test case design",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'test case design' is directly mentioned in the also called list of 'software testing', indicating it refers to the same skill.",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.609
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.425
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.424
+          }
+        ]
+      }
+    },
+    {
+      "term": "test execution using industry standards",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "test execution using industry standards"
+        }
+      ],
+      "match": {
+        "original_term": "test execution using industry standards",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.367,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.367
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.34
+          },
+          {
+            "id": "esco:19ec88aa-c0b1-4515-ba10-56b6cf27369e",
+            "label": "electronic equipment standards",
+            "score": 0.339
+          }
+        ]
+      }
+    },
+    {
+      "term": "test management methodologies like Agile",
+      "canonical": {
+        "id": "custom:agile-methodology",
+        "label": "agile methodology",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "test management methodologies like Agile"
+        }
+      ],
+      "match": {
+        "original_term": "test management methodologies like Agile",
+        "canonical_id": "custom:agile-methodology",
+        "canonical_label": "agile methodology",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'test management methodologies like Agile' directly refers to Agile methodology, which is explicitly listed in the custom:agile-methodology entry.",
+        "candidates": [
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.488
+          },
+          {
+            "id": "esco:dba46f87-0831-49cd-a1c7-340a653c0221",
+            "label": "Agile development",
+            "score": 0.377
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.359
+          }
+        ]
+      }
+    },
+    {
+      "term": "TestNG",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "TestNG"
+        }
+      ],
+      "match": {
+        "original_term": "TestNG",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.261,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.261
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.261
+          },
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.254
+          }
+        ]
+      }
+    },
+    {
+      "term": "This course covers foundational",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "This course covers foundational"
+        }
+      ],
+      "match": {
+        "original_term": "This course covers foundational",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.248,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:be99117b-49a1-4ec2-a670-e9baac66c1bd",
+            "label": "principles of combustion engines",
+            "score": 0.248
+          },
+          {
+            "id": "esco:54804209-6aac-4ca4-bf3c-aef4fbe18f8c",
+            "label": "principles of mechanical engineering",
+            "score": 0.231
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "Waterfall",
+      "canonical": {
+        "id": "esco:6a876489-7ad8-4a13-b09c-c9b8e97a302e",
+        "label": "Waterfall development",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Waterfall"
+        }
+      ],
+      "match": {
+        "original_term": "Waterfall",
+        "canonical_id": "esco:6a876489-7ad8-4a13-b09c-c9b8e97a302e",
+        "canonical_label": "Waterfall development",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Waterfall' directly matches the label 'Waterfall development' which refers to the waterfall development model, a specific methodology in software development.",
+        "candidates": [
+          {
+            "id": "esco:6a876489-7ad8-4a13-b09c-c9b8e97a302e",
+            "label": "Waterfall development",
+            "score": 0.619
+          },
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.186
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.179
+          }
+        ]
+      }
+    }
+  ]
+}

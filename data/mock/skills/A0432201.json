@@ -1,0 +1,3198 @@
+{
+  "course_code": "A0432201",
+  "course_codes": [
+    "A0432201"
+  ],
+  "course_title": "Programming for Cybersecurity (2)",
+  "credit_hours": 3,
+  "plans": [
+    "CYBER"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "no_match": 17,
+      "accepted": 47,
+      "needs_review": 4
+    },
+    "by_method": {
+      "embedding_reranker": 33,
+      "llm": 27,
+      "exact_alias": 8
+    }
+  },
+  "total_skills": 68,
+  "skills": [
+    {
+      "term": "buffer overflows",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define secure coding practices and their role in preventing common software vulnerabilities such as buffer overflows and SQL injection."
+        },
+        {
+          "source": "description",
+          "text": "buffer overflows"
+        }
+      ],
+      "match": {
+        "original_term": "buffer overflows",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.256,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.256
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.213
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "RSA",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the principles of cryptographic algorithms like AES and RSA, and their application in securing data transmission and storage."
+        },
+        {
+          "source": "description",
+          "text": "RSA"
+        }
+      ],
+      "match": {
+        "original_term": "RSA",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.282,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:51586df8-1c46-4b47-8583-773cb63bf00b",
+            "label": "R",
+            "score": 0.282
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.234
+          },
+          {
+            "id": "esco:04f1b938-d4d4-4cb1-a863-982af76b9d93",
+            "label": "SAS language",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "security testing tools",
+      "canonical": {
+        "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+        "label": "penetration testing tool",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement security testing tools such as OWASP ZAP to perform penetration testing and identify vulnerabilities in web applications."
+        },
+        {
+          "source": "description",
+          "text": "security testing tools"
+        }
+      ],
+      "match": {
+        "original_term": "security testing tools",
+        "canonical_id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+        "canonical_label": "penetration testing tool",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'security testing tools' directly matches the label 'penetration testing tool' and is explicitly listed as an alias for this entry.",
+        "candidates": [
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.602
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.461
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.451
+          }
+        ]
+      }
+    },
+    {
+      "term": "SQL injection",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define secure coding practices and their role in preventing common software vulnerabilities such as buffer overflows and SQL injection."
+        },
+        {
+          "source": "description",
+          "text": "SQL injection"
+        }
+      ],
+      "match": {
+        "original_term": "SQL injection",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'SQL injection' is explicitly mentioned in the context of secure coding practices, which aligns directly with the 'secure coding practices' label.",
+        "candidates": [
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.594
+          },
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.468
+          },
+          {
+            "id": "esco:6f7512ab-d46d-402a-8c30-a8878d7c1f88",
+            "label": "SQL Server Integration Services",
+            "score": 0.413
+          }
+        ]
+      }
+    },
+    {
+      "term": "TLS",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the operation of secure communication protocols such as TLS and their importance in ensuring data integrity and confidentiality."
+        },
+        {
+          "source": "description",
+          "text": "TLS"
+        }
+      ],
+      "match": {
+        "original_term": "TLS",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "adheres to OWASP guidelines",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply secure programming techniques in Python and C to develop code that mitigates vulnerabilities and adheres to OWASP guidelines."
+        }
+      ],
+      "match": {
+        "original_term": "adheres to OWASP guidelines",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'adheres to OWASP guidelines' directly aligns with the 'secure coding practices' entry, which explicitly mentions OWASP as an alias and focuses on writing secure code.",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.554
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.513
+          },
+          {
+            "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+            "label": "ICT accessibility standards",
+            "score": 0.371
+          }
+        ]
+      }
+    },
+    {
+      "term": "application in securing data transmission",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the principles of cryptographic algorithms like AES and RSA, and their application in securing data transmission and storage."
+        }
+      ],
+      "match": {
+        "original_term": "application in securing data transmission",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.399,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:71f81e1a-e2ca-48d6-b7b8-7a34c56c51f8",
+            "label": "transmission technology",
+            "score": 0.399
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.39
+          },
+          {
+            "id": "esco:cfa2be0d-96d5-4017-a866-962efb9c5070",
+            "label": "signal processing",
+            "score": 0.381
+          }
+        ]
+      }
+    },
+    {
+      "term": "confidentiality",
+      "canonical": {
+        "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+        "label": "information confidentiality",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the operation of secure communication protocols such as TLS and their importance in ensuring data integrity and confidentiality."
+        }
+      ],
+      "match": {
+        "original_term": "confidentiality",
+        "canonical_id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+        "canonical_label": "information confidentiality",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.699,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.44",
+        "candidates": [
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.699
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.262
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.247
+          }
+        ]
+      }
+    },
+    {
+      "term": "importance in ensuring data integrity",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the operation of secure communication protocols such as TLS and their importance in ensuring data integrity and confidentiality."
+        }
+      ],
+      "match": {
+        "original_term": "importance in ensuring data integrity",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.373,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.373
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.351
+          },
+          {
+            "id": "esco:9d0d89be-bffa-4393-b6f6-8d05bea49051",
+            "label": "data extraction, transformation and loading tools",
+            "score": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "term": "operation of secure communication protocols",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the operation of secure communication protocols such as TLS and their importance in ensuring data integrity and confidentiality."
+        }
+      ],
+      "match": {
+        "original_term": "operation of secure communication protocols",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'operation of secure communication protocols' directly relates to TLS, which is explicitly listed in the description of 'ICT encryption' as part of its also-called names.",
+        "candidates": [
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.546
+          },
+          {
+            "id": "esco:9156104b-9bcb-4c22-aaa8-02e3e990ebc7",
+            "label": "maritime telecommunications",
+            "score": 0.404
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.398
+          }
+        ]
+      }
+    },
+    {
+      "term": "OWASP ZAP to perform penetration testing",
+      "canonical": {
+        "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+        "label": "OWASP ZAP",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement security testing tools such as OWASP ZAP to perform penetration testing and identify vulnerabilities in web applications."
+        }
+      ],
+      "match": {
+        "original_term": "OWASP ZAP to perform penetration testing",
+        "canonical_id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+        "canonical_label": "OWASP ZAP",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase specifically mentions OWASP ZAP, which is directly named in the taxonomy entry as the tool.",
+        "candidates": [
+          {
+            "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+            "label": "OWASP ZAP",
+            "score": 0.642
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.613
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.577
+          }
+        ]
+      }
+    },
+    {
+      "term": "principles of cryptographic algorithms like AES",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the principles of cryptographic algorithms like AES and RSA, and their application in securing data transmission and storage."
+        }
+      ],
+      "match": {
+        "original_term": "principles of cryptographic algorithms like AES",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'principles of cryptographic algorithms like AES' directly relates to encryption techniques, which is covered under 'ICT encryption' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.418
+          },
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.392
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.391
+          }
+        ]
+      }
+    },
+    {
+      "term": "role in preventing common software vulnerabilities",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define secure coding practices and their role in preventing common software vulnerabilities such as buffer overflows and SQL injection."
+        }
+      ],
+      "match": {
+        "original_term": "role in preventing common software vulnerabilities",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.362,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:0cd6dcf1-5778-42a5-b685-4d01ae4a4871",
+            "label": "Common Lisp",
+            "score": 0.362
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.328
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.321
+          }
+        ]
+      }
+    },
+    {
+      "term": "secure coding practices",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define secure coding practices and their role in preventing common software vulnerabilities such as buffer overflows and SQL injection."
+        }
+      ],
+      "match": {
+        "original_term": "secure coding practices",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "secure programming techniques in Python",
+      "canonical": {
+        "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "label": "Python",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply secure programming techniques in Python and C to develop code that mitigates vulnerabilities and adheres to OWASP guidelines."
+        }
+      ],
+      "match": {
+        "original_term": "secure programming techniques in Python",
+        "canonical_id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "canonical_label": "Python",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.654,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.22",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.654
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.436
+          },
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.414
+          }
+        ]
+      }
+    },
+    {
+      "term": "storage",
+      "canonical": {
+        "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+        "label": "data storage",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the principles of cryptographic algorithms like AES and RSA, and their application in securing data transmission and storage."
+        }
+      ],
+      "match": {
+        "original_term": "storage",
+        "canonical_id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+        "canonical_label": "data storage",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.686,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.14",
+        "candidates": [
+          {
+            "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+            "label": "data storage",
+            "score": 0.686
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.545
+          },
+          {
+            "id": "esco:7b5cce4d-c7fe-4119-b48f-70aa05391787",
+            "label": "computer science",
+            "score": 0.232
+          }
+        ]
+      }
+    },
+    {
+      "term": "vulnerabilities in web applications",
+      "canonical": {
+        "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+        "label": "web application security threats",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement security testing tools such as OWASP ZAP to perform penetration testing and identify vulnerabilities in web applications."
+        }
+      ],
+      "match": {
+        "original_term": "vulnerabilities in web applications",
+        "canonical_id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+        "canonical_label": "web application security threats",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'vulnerabilities in web applications' directly relates to identifying security threats in web applications, which is exactly what the 'web application security threats' entry describes, including references to OWASP.",
+        "candidates": [
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.571
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.456
+          },
+          {
+            "id": "esco:baf1fadb-975a-42be-9744-d8ba02304d09",
+            "label": "Samurai Web Testing Framework",
+            "score": 0.372
+          }
+        ]
+      }
+    },
+    {
+      "term": "OWASP ZAP",
+      "canonical": {
+        "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+        "label": "OWASP ZAP",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Vulnerability scan lab: Using OWASP ZAP for web app scanning"
+        },
+        {
+          "source": "description",
+          "text": "OWASP ZAP"
+        }
+      ],
+      "match": {
+        "original_term": "OWASP ZAP",
+        "canonical_id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+        "canonical_label": "OWASP ZAP",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Secure coding lab",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Secure coding lab: Python script for input validation"
+        },
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Secure coding lab: C program for buffer overflow prevention"
+        }
+      ],
+      "match": {
+        "original_term": "Secure coding lab",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.751,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.52",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.751
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.23
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "Incident response",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Incident response and mitigation strategies"
+        },
+        {
+          "source": "description",
+          "text": "incident response"
+        }
+      ],
+      "match": {
+        "original_term": "Incident response",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "penetration testing",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Security testing and penetration testing"
+        },
+        {
+          "source": "description",
+          "text": "penetration testing"
+        }
+      ],
+      "match": {
+        "original_term": "penetration testing",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Secure communication protocols",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Secure communication protocols"
+        },
+        {
+          "source": "description",
+          "text": "secure communication protocols"
+        }
+      ],
+      "match": {
+        "original_term": "Secure communication protocols",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries precisely match 'Secure communication protocols'. The closest entries are 'secure coding practices' and 'network security', but neither directly refers to secure communication protocols.",
+        "candidates": [
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.617
+          },
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.572
+          },
+          {
+            "id": "esco:debef2fc-7af4-4bff-ac92-4d0317915a84",
+            "label": "electronic communication",
+            "score": 0.451
+          }
+        ]
+      }
+    },
+    {
+      "term": "software vulnerabilities",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Common software vulnerabilities and their exploitation"
+        },
+        {
+          "source": "description",
+          "text": "software vulnerabilities"
+        }
+      ],
+      "match": {
+        "original_term": "software vulnerabilities",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'software vulnerabilities' as a skill. The closest entries are related to software anomalies or software components, but none specifically address vulnerabilities or their exploitation.",
+        "candidates": [
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.52
+          },
+          {
+            "id": "esco:438ff259-d086-4004-acda-1ec3e1631bc6",
+            "label": "software anomalies",
+            "score": 0.494
+          },
+          {
+            "id": "esco:cf310cff-0d28-4dbc-9dbb-cc500a3196c2",
+            "label": "office software",
+            "score": 0.486
+          }
+        ]
+      }
+    },
+    {
+      "term": "Analyzing attack vectors in a network",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Threat modeling lab: Analyzing attack vectors in a network"
+        }
+      ],
+      "match": {
+        "original_term": "Analyzing attack vectors in a network",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.39,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.39
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.369
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.369
+          }
+        ]
+      }
+    },
+    {
+      "term": "Analyzing TLS handshake",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Protocol analysis lab: Analyzing TLS handshake"
+        }
+      ],
+      "match": {
+        "original_term": "Analyzing TLS handshake",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Analyzing TLS handshake' directly relates to the analysis of TLS (Transport Layer Security), which is explicitly listed in the 'ICT encryption' entry under also called.",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.466
+          },
+          {
+            "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+            "label": "Wireshark",
+            "score": 0.256
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "term": "buffer overflow prevention",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Secure coding lab: C program for buffer overflow prevention"
+        }
+      ],
+      "match": {
+        "original_term": "buffer overflow prevention",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'buffer overflow prevention' is directly related to secure coding practices, as it involves writing code that resists common classes of attacks, which aligns with the description of 'secure coding practices'.",
+        "candidates": [
+          {
+            "id": "esco:75f312e1-622b-4751-8d93-815b32feaf8d",
+            "label": "pollution prevention",
+            "score": 0.422
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.261
+          },
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "C program",
+      "canonical": {
+        "id": "custom:c-language",
+        "label": "C",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Secure coding lab: C program for buffer overflow prevention"
+        }
+      ],
+      "match": {
+        "original_term": "C program",
+        "canonical_id": "custom:c-language",
+        "canonical_label": "C",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.656,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.22",
+        "candidates": [
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.656
+          },
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.435
+          },
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.401
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cryptography lab",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Cryptography lab: Implementing AES encryption in Python"
+        }
+      ],
+      "match": {
+        "original_term": "Cryptography lab",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.701,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.19",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.701
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.514
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.229
+          }
+        ]
+      }
+    },
+    {
+      "term": "Ethical hacking lab",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Ethical hacking lab: Simulating a phishing attack and response"
+        }
+      ],
+      "match": {
+        "original_term": "Ethical hacking lab",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.786,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.57",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.786
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.215
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "Exploiting",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Penetration testing lab: Exploiting and mitigating vulnerabilities"
+        }
+      ],
+      "match": {
+        "original_term": "Exploiting",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.313,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.313
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.31
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.298
+          }
+        ]
+      }
+    },
+    {
+      "term": "Implementing AES encryption in Python",
+      "canonical": {
+        "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "label": "Python",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Cryptography lab: Implementing AES encryption in Python"
+        }
+      ],
+      "match": {
+        "original_term": "Implementing AES encryption in Python",
+        "canonical_id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "canonical_label": "Python",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Implementing AES encryption in Python' directly relates to cryptographic techniques implemented in Python, which matches the 'Python' taxonomy entry as it covers software development in Python, including cryptographic implementations.",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.535
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.475
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.43
+          }
+        ]
+      }
+    },
+    {
+      "term": "input validation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Secure coding lab: Python script for input validation"
+        }
+      ],
+      "match": {
+        "original_term": "input validation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.263,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.263
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.236
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.232
+          }
+        ]
+      }
+    },
+    {
+      "term": "mitigating vulnerabilities",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Penetration testing lab: Exploiting and mitigating vulnerabilities"
+        }
+      ],
+      "match": {
+        "original_term": "mitigating vulnerabilities",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.356,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.356
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.289
+          },
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.261
+          }
+        ]
+      }
+    },
+    {
+      "term": "OAuth 2.0 implementation lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "OAuth 2.0 implementation lab: Token-based authentication"
+        }
+      ],
+      "match": {
+        "original_term": "OAuth 2.0 implementation lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.211,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.211
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.21
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.206
+          }
+        ]
+      }
+    },
+    {
+      "term": "Penetration testing lab",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Penetration testing lab: Exploiting and mitigating vulnerabilities"
+        }
+      ],
+      "match": {
+        "original_term": "Penetration testing lab",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.768,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.14",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.768
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.63
+          },
+          {
+            "id": "esco:58783f72-5098-4807-b1d1-954ec2ae94c4",
+            "label": "Backbox (penetration testing tool)",
+            "score": 0.55
+          }
+        ]
+      }
+    },
+    {
+      "term": "Protocol analysis lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Protocol analysis lab: Analyzing TLS handshake"
+        }
+      ],
+      "match": {
+        "original_term": "Protocol analysis lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "no_match",
+        "reason": "The phrase 'Protocol analysis lab' refers to analyzing network protocols, which aligns with 'computer networks' as it involves understanding and analyzing how data is exchanged across networks and protocols.",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.409
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.401
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.387
+          }
+        ]
+      }
+    },
+    {
+      "term": "Python script",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Secure coding lab: Python script for input validation"
+        }
+      ],
+      "match": {
+        "original_term": "Python script",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Python script for input validation' directly relates to secure coding practices, specifically implementing input validation to prevent security vulnerabilities.",
+        "candidates": [
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.46
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.453
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.235
+          }
+        ]
+      }
+    },
+    {
+      "term": "response",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Ethical hacking lab: Simulating a phishing attack and response"
+        }
+      ],
+      "match": {
+        "original_term": "response",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.621,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.34",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.621
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.282
+          },
+          {
+            "id": "custom:react",
+            "label": "React",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "SDLC lab",
+      "canonical": {
+        "id": "custom:software-engineering",
+        "label": "software engineering",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "SDLC lab: Implementing secure coding standards in a project"
+        }
+      ],
+      "match": {
+        "original_term": "SDLC lab",
+        "canonical_id": "custom:software-engineering",
+        "canonical_label": "software engineering",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.657,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.39",
+        "candidates": [
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.657
+          },
+          {
+            "id": "esco:c3a03c5a-c260-4c26-9b9a-873abb396f4d",
+            "label": "MATLAB",
+            "score": 0.272
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.251
+          }
+        ]
+      }
+    },
+    {
+      "term": "Simulating a phishing attack",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Ethical hacking lab: Simulating a phishing attack and response"
+        }
+      ],
+      "match": {
+        "original_term": "Simulating a phishing attack",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Simulating a phishing attack' directly aligns with 'penetration testing' as it involves authorized simulated attacks to find exploitable weaknesses, which matches the description of penetration testing.",
+        "candidates": [
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.424
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.299
+          },
+          {
+            "id": "esco:cb304338-3a44-4b6f-802b-dfc6c64de109",
+            "label": "scientific modelling",
+            "score": 0.237
+          }
+        ]
+      }
+    },
+    {
+      "term": "Threat modeling lab",
+      "canonical": {
+        "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "label": "assessment of risks and threats",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Threat modeling lab: Analyzing attack vectors in a network"
+        }
+      ],
+      "match": {
+        "original_term": "Threat modeling lab",
+        "canonical_id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "canonical_label": "assessment of risks and threats",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Threat modeling lab: Analyzing attack vectors in a network' directly relates to assessing risks and threats, which is exactly what the entry 'assessment of risks and threats' describes.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.44
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.388
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.379
+          }
+        ]
+      }
+    },
+    {
+      "term": "Token-based authentication",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "OAuth 2.0 implementation lab: Token-based authentication"
+        }
+      ],
+      "match": {
+        "original_term": "Token-based authentication",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.225,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.225
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.224
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "Vulnerability scan lab",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Vulnerability scan lab: Using OWASP ZAP for web app scanning"
+        }
+      ],
+      "match": {
+        "original_term": "Vulnerability scan lab",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Vulnerability scan lab' refers to using tools like OWASP ZAP for web app scanning, which is a core part of penetration testing, as defined by the 'penetration testing' entry.",
+        "candidates": [
+          {
+            "id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+            "label": "Nessus",
+            "score": 0.441
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.44
+          },
+          {
+            "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+            "label": "OWASP ZAP",
+            "score": 0.283
+          }
+        ]
+      }
+    },
+    {
+      "term": "web app scanning",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Vulnerability scan lab: Using OWASP ZAP for web app scanning"
+        }
+      ],
+      "match": {
+        "original_term": "web app scanning",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'web app scanning' refers to the process of scanning web applications for vulnerabilities, which is closely related to the use of OWASP ZAP as described in the syllabus. However, none of the provided taxonomy entries directly name 'web app scanning' or its equivalent. The closest match is",
+        "candidates": [
+          {
+            "id": "custom:web-scraping",
+            "label": "web scraping",
+            "score": 0.418
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.387
+          },
+          {
+            "id": "esco:baf1fadb-975a-42be-9744-d8ba02304d09",
+            "label": "Samurai Web Testing Framework",
+            "score": 0.328
+          }
+        ]
+      }
+    },
+    {
+      "term": "Advanced threat modeling techniques",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Advanced threat modeling techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Advanced threat modeling techniques",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Advanced threat modeling techniques' directly relates to 'penetration testing' as both involve identifying and mitigating security threats through structured techniques.",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.47
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.397
+          },
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.374
+          }
+        ]
+      }
+    },
+    {
+      "term": "asymmetric encryption",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Symmetric and asymmetric encryption"
+        }
+      ],
+      "match": {
+        "original_term": "asymmetric encryption",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'asymmetric encryption' is explicitly listed as an 'also called' term for 'ICT encryption' in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.639
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.605
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "Authentication",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Authentication and authorization mechanisms"
+        }
+      ],
+      "match": {
+        "original_term": "Authentication",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.302,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.302
+          },
+          {
+            "id": "esco:ff8bd17c-77e9-4d4e-929a-a0cf86f3ed34",
+            "label": "surveillance methods",
+            "score": 0.246
+          },
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.245
+          }
+        ]
+      }
+    },
+    {
+      "term": "authorization mechanisms",
+      "canonical": {
+        "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+        "label": "information confidentiality",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Authentication and authorization mechanisms"
+        }
+      ],
+      "match": {
+        "original_term": "authorization mechanisms",
+        "canonical_id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+        "canonical_label": "information confidentiality",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'authorization mechanisms' directly relates to 'information confidentiality' as both involve mechanisms for controlling access and ensuring only authorized parties can access data.",
+        "candidates": [
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.487
+          },
+          {
+            "id": "esco:ff8bd17c-77e9-4d4e-929a-a0cf86f3ed34",
+            "label": "surveillance methods",
+            "score": 0.42
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.225
+          }
+        ]
+      }
+    },
+    {
+      "term": "cryptographic algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Introduction to cryptographic algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "cryptographic algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.629,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.10",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.629
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.525
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.205
+          }
+        ]
+      }
+    },
+    {
+      "term": "Ethical hacking",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Ethical hacking and legal considerations"
+        }
+      ],
+      "match": {
+        "original_term": "Ethical hacking",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "exploitation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Common software vulnerabilities and their exploitation"
+        }
+      ],
+      "match": {
+        "original_term": "exploitation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.295,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.295
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.281
+          },
+          {
+            "id": "esco:cf310cff-0d28-4dbc-9dbb-cc500a3196c2",
+            "label": "office software",
+            "score": 0.281
+          }
+        ]
+      }
+    },
+    {
+      "term": "legal considerations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Ethical hacking and legal considerations"
+        }
+      ],
+      "match": {
+        "original_term": "legal considerations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.341,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.341
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.273
+          },
+          {
+            "id": "esco:4064716d-6714-48ea-95a0-ef81c2b31672",
+            "label": "mine safety legislation",
+            "score": 0.229
+          }
+        ]
+      }
+    },
+    {
+      "term": "mitigation strategies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Incident response and mitigation strategies"
+        }
+      ],
+      "match": {
+        "original_term": "mitigation strategies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.348,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.348
+          },
+          {
+            "id": "esco:11eebd42-44ab-401d-8a2c-bdb9fc9beb50",
+            "label": "information security strategy",
+            "score": 0.281
+          },
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.237
+          }
+        ]
+      }
+    },
+    {
+      "term": "risk analysis",
+      "canonical": {
+        "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "label": "assessment of risks and threats",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Vulnerability assessment and risk analysis"
+        }
+      ],
+      "match": {
+        "original_term": "risk analysis",
+        "canonical_id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "canonical_label": "assessment of risks and threats",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'risk analysis' directly matches the label 'assessment of risks and threats' and is also listed as an 'also called' term for that entry.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.528
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.51
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.507
+          }
+        ]
+      }
+    },
+    {
+      "term": "Secure coding in C",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Secure coding in C"
+        }
+      ],
+      "match": {
+        "original_term": "Secure coding in C",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.737,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.26",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.737
+          },
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.479
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.353
+          }
+        ]
+      }
+    },
+    {
+      "term": "Secure coding in Python",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Secure coding in Python"
+        }
+      ],
+      "match": {
+        "original_term": "Secure coding in Python",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.709,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.17",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.709
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.538
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.396
+          }
+        ]
+      }
+    },
+    {
+      "term": "secure programming practices",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to secure programming practices"
+        }
+      ],
+      "match": {
+        "original_term": "secure programming practices",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.636,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.19",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.636
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.449
+          },
+          {
+            "id": "custom:devops",
+            "label": "DevOps practices",
+            "score": 0.431
+          }
+        ]
+      }
+    },
+    {
+      "term": "Secure software development lifecycle",
+      "canonical": {
+        "id": "custom:software-engineering",
+        "label": "software engineering",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Secure software development lifecycle"
+        }
+      ],
+      "match": {
+        "original_term": "Secure software development lifecycle",
+        "canonical_id": "custom:software-engineering",
+        "canonical_label": "software engineering",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.79,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.35",
+        "candidates": [
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.79
+          },
+          {
+            "id": "esco:09f2f811-a3fb-4de3-a70f-6420a6935575",
+            "label": "systems development life-cycle",
+            "score": 0.439
+          },
+          {
+            "id": "custom:backend-development",
+            "label": "back-end development",
+            "score": 0.415
+          }
+        ]
+      }
+    },
+    {
+      "term": "Security testing",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Security testing and penetration testing"
+        }
+      ],
+      "match": {
+        "original_term": "Security testing",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Security testing' is closely related to 'penetration testing' as both involve testing for security vulnerabilities, with penetration testing being a specific type of security testing.",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.654
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.627
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.538
+          }
+        ]
+      }
+    },
+    {
+      "term": "Symmetric",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Symmetric and asymmetric encryption"
+        }
+      ],
+      "match": {
+        "original_term": "Symmetric",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.65,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.41",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.65
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.244
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.181
+          }
+        ]
+      }
+    },
+    {
+      "term": "Vulnerability assessment",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Vulnerability assessment and risk analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Vulnerability assessment",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "cybersecurity",
+      "canonical": {
+        "id": "custom:cybersecurity",
+        "label": "cybersecurity",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "cybersecurity"
+        }
+      ],
+      "match": {
+        "original_term": "cybersecurity",
+        "canonical_id": "custom:cybersecurity",
+        "canonical_label": "cybersecurity",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "focusing on secure coding practices",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "focusing on secure coding practices"
+        }
+      ],
+      "match": {
+        "original_term": "focusing on secure coding practices",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.79,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.40",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.79
+          },
+          {
+            "id": "custom:devops",
+            "label": "DevOps practices",
+            "score": 0.391
+          },
+          {
+            "id": "esco:4064716d-6714-48ea-95a0-ef81c2b31672",
+            "label": "mine safety legislation",
+            "score": 0.368
+          }
+        ]
+      }
+    },
+    {
+      "term": "mitigate security risks in code",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "mitigate security risks in code"
+        }
+      ],
+      "match": {
+        "original_term": "mitigate security risks in code",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'mitigate security risks in code' directly aligns with 'secure coding practices' as both focus on writing code that resists security threats.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.48
+          },
+          {
+            "id": "esco:2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80",
+            "label": "ICT network security risks",
+            "score": 0.461
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.377
+          }
+        ]
+      }
+    },
+    {
+      "term": "real-world applications",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "real-world applications"
+        }
+      ],
+      "match": {
+        "original_term": "real-world applications",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill phrase 'real-world applications'. The closest entry is 'real-time computing', which is a distinct concept.",
+        "candidates": [
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.405
+          },
+          {
+            "id": "esco:96eb286a-58b7-45ff-a916-5578d0b79b8c",
+            "label": "Rapid application development",
+            "score": 0.4
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.375
+          }
+        ]
+      }
+    },
+    {
+      "term": "secure systems using secure coding standards",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "secure systems using secure coding standards"
+        }
+      ],
+      "match": {
+        "original_term": "secure systems using secure coding standards",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'secure systems using secure coding standards' directly aligns with 'secure coding practices' which includes writing software that resists common classes of attack, matching the focus on secure coding standards.",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.603
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.389
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.341
+          }
+        ]
+      }
+    },
+    {
+      "term": "Students will learn to analyze",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Students will learn to analyze"
+        }
+      ],
+      "match": {
+        "original_term": "Students will learn to analyze",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.229,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.229
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.227
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.211
+          }
+        ]
+      }
+    },
+    {
+      "term": "vulnerability analysis",
+      "canonical": {
+        "id": "esco:625b57ee-29d4-425b-bf99-9fd54dd021fe",
+        "label": "Kali Linux",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "vulnerability analysis"
+        }
+      ],
+      "match": {
+        "original_term": "vulnerability analysis",
+        "canonical_id": "esco:625b57ee-29d4-425b-bf99-9fd54dd021fe",
+        "canonical_label": "Kali Linux",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'vulnerability analysis' is explicitly mentioned in the description of 'Kali Linux' as part of its functionality, making it a direct match.",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.511
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.464
+          },
+          {
+            "id": "esco:2d7bf28a-2487-4443-9115-47478080b1a4",
+            "label": "hazard analysis and critical control points",
+            "score": 0.344
+          }
+        ]
+      }
+    }
+  ]
+}

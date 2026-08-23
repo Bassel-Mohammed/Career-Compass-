@@ -1,0 +1,2512 @@
+{
+  "course_code": "A0432401",
+  "course_codes": [
+    "A0432401"
+  ],
+  "course_title": "Cryptography Fundamentals",
+  "credit_hours": 3,
+  "plans": [
+    "CYBER"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "accepted": 21,
+      "no_match": 26,
+      "needs_review": 4
+    },
+    "by_method": {
+      "llm": 19,
+      "embedding_reranker": 31,
+      "exact_alias": 1
+    }
+  },
+  "total_skills": 51,
+  "skills": [
+    {
+      "term": "asymmetric encryption algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define symmetric and asymmetric encryption algorithms such as AES, RSA, and ECC."
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Asymmetric Encryption Algorithms"
+        },
+        {
+          "source": "description",
+          "text": "asymmetric encryption algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "asymmetric encryption algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'asymmetric encryption algorithms' is a specific type of algorithm, and the 'algorithms' entry in the taxonomy includes all such algorithmic constructs, including cryptographic ones.",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.555
+          },
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.538
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.521
+          }
+        ]
+      }
+    },
+    {
+      "term": "cryptographic standards",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply cryptographic standards such as PKCS #1 and RFC 5246 in designing secure communication protocols."
+        },
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Cryptographic Standards"
+        },
+        {
+          "source": "description",
+          "text": "cryptographic standards"
+        }
+      ],
+      "match": {
+        "original_term": "cryptographic standards",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'cryptographic standards' directly relates to cryptographic protocols and standards like PKCS #1 and RFC 5246, which are explicitly mentioned in the syllabus. The 'custom:cryptography' entry includes cryptographic protocols and standards in its also-called list, making it the most specifi",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.525
+          },
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.507
+          },
+          {
+            "id": "esco:8696aff0-18c0-4ba6-a4d0-9a21861b3e5e",
+            "label": "World Wide Web Consortium standards",
+            "score": 0.489
+          }
+        ]
+      }
+    },
+    {
+      "term": "ECC",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define symmetric and asymmetric encryption algorithms such as AES, RSA, and ECC."
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "RSA and ECC"
+        },
+        {
+          "source": "description",
+          "text": "ECC"
+        }
+      ],
+      "match": {
+        "original_term": "ECC",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.27,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.27
+          },
+          {
+            "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+            "label": "JavaScript",
+            "score": 0.238
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "OpenSSL",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement cryptographic algorithms using libraries such as OpenSSL and Bouncy Castle in a practical setting."
+        },
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "OpenSSL and Bouncy Castle"
+        },
+        {
+          "source": "description",
+          "text": "OpenSSL"
+        }
+      ],
+      "match": {
+        "original_term": "OpenSSL",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.354,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.354
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.217
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.201
+          }
+        ]
+      }
+    },
+    {
+      "term": "PKCS #1",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply cryptographic standards such as PKCS #1 and RFC 5246 in designing secure communication protocols."
+        },
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "PKCS #1 and RFC 5246"
+        },
+        {
+          "source": "description",
+          "text": "PKCS #1"
+        }
+      ],
+      "match": {
+        "original_term": "PKCS #1",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.249,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.249
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.202
+          },
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.201
+          }
+        ]
+      }
+    },
+    {
+      "term": "RSA",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define symmetric and asymmetric encryption algorithms such as AES, RSA, and ECC."
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "RSA and ECC"
+        },
+        {
+          "source": "description",
+          "text": "RSA"
+        }
+      ],
+      "match": {
+        "original_term": "RSA",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.27,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.27
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.219
+          },
+          {
+            "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+            "label": "JavaScript",
+            "score": 0.21
+          }
+        ]
+      }
+    },
+    {
+      "term": "SHA-3",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe cryptographic hash functions including SHA-256 and SHA-3, and their applications in data integrity."
+        },
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "SHA-256 and SHA-3"
+        },
+        {
+          "source": "description",
+          "text": "SHA-3"
+        }
+      ],
+      "match": {
+        "original_term": "SHA-3",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.368,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:bb99af26-71ff-4dca-bde7-1eb1f6194426",
+            "label": "SAP R3",
+            "score": 0.368
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.207
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.192
+          }
+        ]
+      }
+    },
+    {
+      "term": "AES",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define symmetric and asymmetric encryption algorithms such as AES, RSA, and ECC."
+        },
+        {
+          "source": "description",
+          "text": "AES"
+        }
+      ],
+      "match": {
+        "original_term": "AES",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.279,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.279
+          },
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.245
+          },
+          {
+            "id": "esco:61c81161-b732-4c47-aba5-9e554d9a853f",
+            "label": "integrated circuit types",
+            "score": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "term": "cryptographic hash functions",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe cryptographic hash functions including SHA-256 and SHA-3, and their applications in data integrity."
+        },
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Cryptographic Hash Functions"
+        }
+      ],
+      "match": {
+        "original_term": "cryptographic hash functions",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'cryptographic hash functions' directly relates to the concept of cryptographic hashing, which is a subset of cryptography and is explicitly mentioned in the 'custom:cryptography' entry.",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.463
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.363
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.282
+          }
+        ]
+      }
+    },
+    {
+      "term": "SHA-256",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe cryptographic hash functions including SHA-256 and SHA-3, and their applications in data integrity."
+        },
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "SHA-256 and SHA-3"
+        }
+      ],
+      "match": {
+        "original_term": "SHA-256",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.209,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.209
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.195
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.183
+          }
+        ]
+      }
+    },
+    {
+      "term": "applications in data integrity",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe cryptographic hash functions including SHA-256 and SHA-3, and their applications in data integrity."
+        }
+      ],
+      "match": {
+        "original_term": "applications in data integrity",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'applications in data integrity' directly relates to cryptographic hash functions like SHA-256 and SHA-3, which are part of the 'cryptography' skill as defined in the custom taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.412
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.369
+          },
+          {
+            "id": "esco:f8e3425c-fe44-4ffb-bafe-0e20d91dadf4",
+            "label": "SAP Data Services",
+            "score": 0.324
+          }
+        ]
+      }
+    },
+    {
+      "term": "Bouncy Castle in a practical setting",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement cryptographic algorithms using libraries such as OpenSSL and Bouncy Castle in a practical setting."
+        }
+      ],
+      "match": {
+        "original_term": "Bouncy Castle in a practical setting",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.233,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.233
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.21
+          },
+          {
+            "id": "esco:09cf2c34-6f93-4a19-a9f1-c0d866414bcc",
+            "label": "Cain and Abel (penetration testing tool)",
+            "score": 0.21
+          }
+        ]
+      }
+    },
+    {
+      "term": "cryptographic algorithms using libraries",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement cryptographic algorithms using libraries such as OpenSSL and Bouncy Castle in a practical setting."
+        }
+      ],
+      "match": {
+        "original_term": "cryptographic algorithms using libraries",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'cryptographic algorithms using libraries' directly relates to the implementation of cryptographic techniques, which aligns with the definition of 'cryptography' in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.409
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.383
+          },
+          {
+            "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+            "label": "software components libraries",
+            "score": 0.344
+          }
+        ]
+      }
+    },
+    {
+      "term": "exchange protocols like Diffie-Hellman",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain key exchange protocols like Diffie-Hellman and their role in secure communication."
+        }
+      ],
+      "match": {
+        "original_term": "exchange protocols like Diffie-Hellman",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.368,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.368
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.344
+          },
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.337
+          }
+        ]
+      }
+    },
+    {
+      "term": "role in secure communication",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain key exchange protocols like Diffie-Hellman and their role in secure communication."
+        }
+      ],
+      "match": {
+        "original_term": "role in secure communication",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.15,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'role in secure communication' refers to the function or contribution of a specific element in secure communication, which is not directly captured by any of the provided taxonomy entries. None of the entries specifically address the 'role' aspect of secure communication.",
+        "candidates": [
+          {
+            "id": "esco:71f81e1a-e2ca-48d6-b7b8-7a34c56c51f8",
+            "label": "transmission technology",
+            "score": 0.427
+          },
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.417
+          },
+          {
+            "id": "esco:f1a56786-e6d7-4b2e-a39c-23e09024d473",
+            "label": "concepts of telecommunications",
+            "score": 0.278
+          }
+        ]
+      }
+    },
+    {
+      "term": "symmetric",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define symmetric and asymmetric encryption algorithms such as AES, RSA, and ECC."
+        }
+      ],
+      "match": {
+        "original_term": "symmetric",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.629,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.40",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.629
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.227
+          },
+          {
+            "id": "esco:61c81161-b732-4c47-aba5-9e554d9a853f",
+            "label": "integrated circuit types",
+            "score": 0.22
+          }
+        ]
+      }
+    },
+    {
+      "term": "Brute-force",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Brute-force and Side-channel Attacks"
+        },
+        {
+          "source": "description",
+          "text": "brute-force"
+        }
+      ],
+      "match": {
+        "original_term": "Brute-force",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.199,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.199
+          },
+          {
+            "id": "esco:ff8bd17c-77e9-4d4e-929a-a0cf86f3ed34",
+            "label": "surveillance methods",
+            "score": 0.185
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.184
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cryptographic Attacks",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Cryptographic Attacks"
+        },
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Cryptographic Attacks"
+        }
+      ],
+      "match": {
+        "original_term": "Cryptographic Attacks",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Cryptographic Attacks' directly relates to the study of cryptographic techniques and their vulnerabilities, which aligns with the 'cryptography' skill entry.",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.525
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.195
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.194
+          }
+        ]
+      }
+    },
+    {
+      "term": "Diffie-Hellman",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Diffie-Hellman"
+        },
+        {
+          "source": "description",
+          "text": "Diffie-Hellman"
+        }
+      ],
+      "match": {
+        "original_term": "Diffie-Hellman",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.206,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.206
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.197
+          },
+          {
+            "id": "custom:normal-distribution",
+            "label": "normal distribution",
+            "score": 0.18
+          }
+        ]
+      }
+    },
+    {
+      "term": "ECDSA",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "DSA and ECDSA"
+        },
+        {
+          "source": "description",
+          "text": "ECDSA"
+        }
+      ],
+      "match": {
+        "original_term": "ECDSA",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.165,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:76526bf6-bada-4ca1-8e79-6b9d4228b607",
+            "label": "electrical safety regulations",
+            "score": 0.165
+          },
+          {
+            "id": "esco:56a13f47-ad7c-451f-81cf-e550107abc03",
+            "label": "electrical discharge",
+            "score": 0.161
+          },
+          {
+            "id": "esco:c8ac1986-38fa-43b2-89dc-50a4beeb420e",
+            "label": "electricity",
+            "score": 0.16
+          }
+        ]
+      }
+    },
+    {
+      "term": "Exchange Protocols",
+      "canonical": {
+        "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+        "label": "ICT communications protocols",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Key Exchange Protocols"
+        },
+        {
+          "source": "description",
+          "text": "exchange protocols"
+        }
+      ],
+      "match": {
+        "original_term": "Exchange Protocols",
+        "canonical_id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+        "canonical_label": "ICT communications protocols",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Exchange Protocols' directly matches the description and also called entry of 'ICT communications protocols', which specifically refers to the system of rules for exchanging information between devices via computer networks.",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.503
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.478
+          },
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.437
+          }
+        ]
+      }
+    },
+    {
+      "term": "RFC 5246",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "PKCS #1 and RFC 5246"
+        },
+        {
+          "source": "description",
+          "text": "RFC 5246"
+        }
+      ],
+      "match": {
+        "original_term": "RFC 5246",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.159,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.159
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.155
+          },
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.154
+          }
+        ]
+      }
+    },
+    {
+      "term": "Secure Communication Protocols",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Secure Communication Protocols"
+        },
+        {
+          "source": "description",
+          "text": "secure communication protocols"
+        }
+      ],
+      "match": {
+        "original_term": "Secure Communication Protocols",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries precisely match 'Secure Communication Protocols'. The closest entries are related to cybersecurity, cryptography, or network security, but none specifically address secure communication protocols as a distinct skill.",
+        "candidates": [
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.618
+          },
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.57
+          },
+          {
+            "id": "esco:debef2fc-7af4-4bff-ac92-4d0317915a84",
+            "label": "electronic communication",
+            "score": 0.451
+          }
+        ]
+      }
+    },
+    {
+      "term": "Advanced Cryptographic Techniques",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Advanced Cryptographic Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Advanced Cryptographic Techniques",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Advanced Cryptographic Techniques' directly aligns with the skill 'cryptography' and is explicitly mentioned in the syllabus.",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.454
+          },
+          {
+            "id": "esco:8203b07a-8097-4383-aff6-603b7df7f0f4",
+            "label": "ATM systems",
+            "score": 0.192
+          },
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.183
+          }
+        ]
+      }
+    },
+    {
+      "term": "AES Overview",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "AES Overview"
+        }
+      ],
+      "match": {
+        "original_term": "AES Overview",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.203,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:aws",
+            "label": "Amazon Web Services",
+            "score": 0.203
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.174
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.174
+          }
+        ]
+      }
+    },
+    {
+      "term": "Bouncy Castle",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "OpenSSL and Bouncy Castle"
+        }
+      ],
+      "match": {
+        "original_term": "Bouncy Castle",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.174,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.174
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.17
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.161
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cryptographic Best Practices",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Cryptographic Best Practices"
+        }
+      ],
+      "match": {
+        "original_term": "Cryptographic Best Practices",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Cryptographic Best Practices' directly relates to cryptography, which is explicitly covered by the 'cryptography' entry, including its also called terms like encryption and cryptographic protocols.",
+        "candidates": [
+          {
+            "id": "esco:47ca0da1-cae5-4395-ae6b-fd97b9ff48d3",
+            "label": "system backup best practice",
+            "score": 0.479
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.47
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.385
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cryptographic Libraries",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Cryptographic Libraries"
+        }
+      ],
+      "match": {
+        "original_term": "Cryptographic Libraries",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Cryptographic Libraries' directly relates to the skill 'cryptography', which includes cryptographic protocols, encryption, and related concepts.",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.509
+          },
+          {
+            "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+            "label": "software components libraries",
+            "score": 0.404
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cryptography",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Cryptography"
+        }
+      ],
+      "match": {
+        "original_term": "Cryptography",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Cryptography in Cloud Computing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Cryptography in Cloud Computing"
+        }
+      ],
+      "match": {
+        "original_term": "Cryptography in Cloud Computing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically name 'Cryptography in Cloud Computing' or a closely related skill with the same precise meaning.",
+        "candidates": [
+          {
+            "id": "esco:bd14968e-e409-45af-b362-3495ed7b10e0",
+            "label": "cloud technologies",
+            "score": 0.677
+          },
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.676
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.57
+          }
+        ]
+      }
+    },
+    {
+      "term": "Digital Signatures",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Digital Signatures"
+        }
+      ],
+      "match": {
+        "original_term": "Digital Signatures",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Digital Signatures are a cryptographic technique used to verify the authenticity and integrity of digital information, aligning directly with the 'cryptography' skill.",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.404
+          },
+          {
+            "id": "esco:06f33d6a-f7a7-4a2b-baa5-8c3c53bd1a9c",
+            "label": "keywords in digital content",
+            "score": 0.395
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.254
+          }
+        ]
+      }
+    },
+    {
+      "term": "DSA",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "DSA and ECDSA"
+        }
+      ],
+      "match": {
+        "original_term": "DSA",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.158,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.158
+          },
+          {
+            "id": "esco:76526bf6-bada-4ca1-8e79-6b9d4228b607",
+            "label": "electrical safety regulations",
+            "score": 0.156
+          },
+          {
+            "id": "esco:49fed129-e32b-4f67-b80a-609d79e45b20",
+            "label": "electronic and telecommunication equipment",
+            "score": 0.151
+          }
+        ]
+      }
+    },
+    {
+      "term": "Fundamentals of Information Security",
+      "canonical": {
+        "id": "custom:cybersecurity",
+        "label": "cybersecurity",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Fundamentals of Information Security"
+        }
+      ],
+      "match": {
+        "original_term": "Fundamentals of Information Security",
+        "canonical_id": "custom:cybersecurity",
+        "canonical_label": "cybersecurity",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.739,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.25",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.739
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.492
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.455
+          }
+        ]
+      }
+    },
+    {
+      "term": "Homomorphic Encryption",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Homomorphic Encryption"
+        }
+      ],
+      "match": {
+        "original_term": "Homomorphic Encryption",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.64,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.16",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.64
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.478
+          },
+          {
+            "id": "custom:tf-transforms",
+            "label": "coordinate frame transforms",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "Man-in-the-Middle",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Man-in-the-Middle and Quantum Attacks"
+        }
+      ],
+      "match": {
+        "original_term": "Man-in-the-Middle",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.167,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:7b969ac9-f085-4afb-a480-c5210fb4da7d",
+            "label": "milling machines",
+            "score": 0.167
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.163
+          },
+          {
+            "id": "custom:message-queues",
+            "label": "message queues",
+            "score": 0.159
+          }
+        ]
+      }
+    },
+    {
+      "term": "Quantum Attacks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Man-in-the-Middle and Quantum Attacks"
+        }
+      ],
+      "match": {
+        "original_term": "Quantum Attacks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.171,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:message-queues",
+            "label": "message queues",
+            "score": 0.171
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.162
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.159
+          }
+        ]
+      }
+    },
+    {
+      "term": "Secure Data Storage",
+      "canonical": {
+        "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+        "label": "data storage",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Secure Data Storage"
+        }
+      ],
+      "match": {
+        "original_term": "Secure Data Storage",
+        "canonical_id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+        "canonical_label": "data storage",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.713,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.29",
+        "candidates": [
+          {
+            "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+            "label": "data storage",
+            "score": 0.713
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.42
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.381
+          }
+        ]
+      }
+    },
+    {
+      "term": "Secure Software Development",
+      "canonical": {
+        "id": "custom:software-engineering",
+        "label": "software engineering",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Secure Software Development"
+        }
+      ],
+      "match": {
+        "original_term": "Secure Software Development",
+        "canonical_id": "custom:software-engineering",
+        "canonical_label": "software engineering",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.747,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.27",
+        "candidates": [
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.747
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.473
+          },
+          {
+            "id": "custom:backend-development",
+            "label": "back-end development",
+            "score": 0.464
+          }
+        ]
+      }
+    },
+    {
+      "term": "Side-channel Attacks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Brute-force and Side-channel Attacks"
+        }
+      ],
+      "match": {
+        "original_term": "Side-channel Attacks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.328,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.328
+          },
+          {
+            "id": "esco:1e3e0736-6d4a-4a65-8787-1fa16bff5660",
+            "label": "explosives",
+            "score": 0.192
+          },
+          {
+            "id": "esco:ff8bd17c-77e9-4d4e-929a-a0cf86f3ed34",
+            "label": "surveillance methods",
+            "score": 0.179
+          }
+        ]
+      }
+    },
+    {
+      "term": "Symmetric Encryption Algorithms",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Symmetric Encryption Algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "Symmetric Encryption Algorithms",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Symmetric Encryption Algorithms' directly matches the 'ICT encryption' entry, which explicitly includes 'symmetric-key algorithm' as an alternative term.",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.569
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.544
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "TLS/SSL Implementation",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "TLS/SSL Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "TLS/SSL Implementation",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'TLS/SSL Implementation' directly matches the 'ICT encryption' entry, which includes TLS and SSL as also called terms.",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.482
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.216
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.209
+          }
+        ]
+      }
+    },
+    {
+      "term": "Bouncy Castle in implementing secure systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Bouncy Castle in implementing secure systems"
+        }
+      ],
+      "match": {
+        "original_term": "Bouncy Castle in implementing secure systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.338,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:8203b07a-8097-4383-aff6-603b7df7f0f4",
+            "label": "ATM systems",
+            "score": 0.338
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.328
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "cryptographic hash functions like SHA-256",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "cryptographic hash functions like SHA-256"
+        }
+      ],
+      "match": {
+        "original_term": "cryptographic hash functions like SHA-256",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.371,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.371
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.289
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.231
+          }
+        ]
+      }
+    },
+    {
+      "term": "data",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "data"
+        }
+      ],
+      "match": {
+        "original_term": "data",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'data' is too generic and does not match any specific skill in the taxonomy candidates.",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.592
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.589
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.589
+          }
+        ]
+      }
+    },
+    {
+      "term": "digital signatures using DSA",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "digital signatures using DSA"
+        }
+      ],
+      "match": {
+        "original_term": "digital signatures using DSA",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.393,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:cfa2be0d-96d5-4017-a866-962efb9c5070",
+            "label": "signal processing",
+            "score": 0.393
+          },
+          {
+            "id": "esco:20b1d521-3d18-4b59-aee5-aaf296170c1b",
+            "label": "electronic signals intelligence",
+            "score": 0.194
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.188
+          }
+        ]
+      }
+    },
+    {
+      "term": "man-in-the-middle attacks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "man-in-the-middle attacks"
+        }
+      ],
+      "match": {
+        "original_term": "man-in-the-middle attacks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.16,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.16
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.155
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.154
+          }
+        ]
+      }
+    },
+    {
+      "term": "role of cryptographic libraries",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "role of cryptographic libraries"
+        }
+      ],
+      "match": {
+        "original_term": "role of cryptographic libraries",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'role of cryptographic libraries' directly relates to the use of cryptographic techniques for securing data, which is explicitly covered by 'ICT encryption' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.438
+          },
+          {
+            "id": "custom:design-systems",
+            "label": "design systems",
+            "score": 0.391
+          },
+          {
+            "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+            "label": "software components libraries",
+            "score": 0.36
+          }
+        ]
+      }
+    },
+    {
+      "term": "side-channel",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "side-channel"
+        }
+      ],
+      "match": {
+        "original_term": "side-channel",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.363,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.363
+          },
+          {
+            "id": "custom:tableau",
+            "label": "Tableau",
+            "score": 0.17
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.163
+          }
+        ]
+      }
+    },
+    {
+      "term": "Students will also explore cryptographic attacks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Students will also explore cryptographic attacks"
+        }
+      ],
+      "match": {
+        "original_term": "Students will also explore cryptographic attacks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.354,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.354
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.228
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.187
+          }
+        ]
+      }
+    },
+    {
+      "term": "TLS/SSL",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "TLS/SSL"
+        }
+      ],
+      "match": {
+        "original_term": "TLS/SSL",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'TLS/SSL' is explicitly listed in the also called section of the 'ICT encryption' entry, confirming it is the same skill.",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.617
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.198
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.18
+          }
+        ]
+      }
+    },
+    {
+      "term": "Topics include symmetric",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Topics include symmetric"
+        }
+      ],
+      "match": {
+        "original_term": "Topics include symmetric",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.222,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.222
+          },
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.201
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.2
+          }
+        ]
+      }
+    }
+  ]
+}

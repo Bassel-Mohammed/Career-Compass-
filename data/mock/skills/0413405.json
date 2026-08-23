@@ -1,0 +1,2812 @@
+{
+  "course_code": "0413405",
+  "course_codes": [
+    "0413405"
+  ],
+  "course_title": "Computer and Network Security",
+  "credit_hours": 3,
+  "plans": [
+    "CS",
+    "CS/AI"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "no_match": 14,
+      "accepted": 41,
+      "needs_review": 4
+    },
+    "by_method": {
+      "embedding_reranker": 25,
+      "exact_alias": 9,
+      "llm": 25
+    }
+  },
+  "total_skills": 59,
+  "skills": [
+    {
+      "term": "AES",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define cryptographic algorithms such as AES, RSA, and ECC, and their applications in secure communication."
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Cryptographic Algorithms: AES, RSA, and ECC"
+        },
+        {
+          "source": "description",
+          "text": "AES"
+        }
+      ],
+      "match": {
+        "original_term": "AES",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.252,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.252
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.241
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.239
+          }
+        ]
+      }
+    },
+    {
+      "term": "ECC",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define cryptographic algorithms such as AES, RSA, and ECC, and their applications in secure communication."
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Cryptographic Algorithms: AES, RSA, and ECC"
+        },
+        {
+          "source": "description",
+          "text": "ECC"
+        }
+      ],
+      "match": {
+        "original_term": "ECC",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.261,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+            "label": "JavaScript",
+            "score": 0.261
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.251
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.233
+          }
+        ]
+      }
+    },
+    {
+      "term": "IDS",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and operation of intrusion detection systems (IDS) like Snort and firewall technologies such as packet filtering and stateful inspection."
+        },
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Intrusion Detection Systems (IDS) and Signature Analysis"
+        },
+        {
+          "source": "description",
+          "text": "IDS"
+        }
+      ],
+      "match": {
+        "original_term": "IDS",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Kerberos",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of secure authentication mechanisms, including OAuth 2.0 and Kerberos, and their role in network security."
+        },
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Authentication Mechanisms: OAuth 2.0 and Kerberos"
+        },
+        {
+          "source": "description",
+          "text": "Kerberos"
+        }
+      ],
+      "match": {
+        "original_term": "Kerberos",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.309,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ros2",
+            "label": "ROS 2",
+            "score": 0.309
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.202
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "term": "OAuth 2.0",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of secure authentication mechanisms, including OAuth 2.0 and Kerberos, and their role in network security."
+        },
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Authentication Mechanisms: OAuth 2.0 and Kerberos"
+        },
+        {
+          "source": "description",
+          "text": "OAuth 2.0"
+        }
+      ],
+      "match": {
+        "original_term": "OAuth 2.0",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.197,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.197
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.193
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.193
+          }
+        ]
+      }
+    },
+    {
+      "term": "packet filtering",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and operation of intrusion detection systems (IDS) like Snort and firewall technologies such as packet filtering and stateful inspection."
+        },
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Firewall Technologies and Packet Filtering"
+        },
+        {
+          "source": "description",
+          "text": "packet filtering"
+        }
+      ],
+      "match": {
+        "original_term": "packet filtering",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.256,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b2b970ad-0276-4069-ba31-899a53191b95",
+            "label": "biofilter systems",
+            "score": 0.256
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.247
+          },
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "RSA",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define cryptographic algorithms such as AES, RSA, and ECC, and their applications in secure communication."
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Cryptographic Algorithms: AES, RSA, and ECC"
+        },
+        {
+          "source": "description",
+          "text": "RSA"
+        }
+      ],
+      "match": {
+        "original_term": "RSA",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.279,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:debef2fc-7af4-4bff-ac92-4d0317915a84",
+            "label": "electronic communication",
+            "score": 0.279
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.25
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.237
+          }
+        ]
+      }
+    },
+    {
+      "term": "cryptographic algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define cryptographic algorithms such as AES, RSA, and ECC, and their applications in secure communication."
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Cryptographic Algorithms: AES, RSA, and ECC"
+        }
+      ],
+      "match": {
+        "original_term": "cryptographic algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.637,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.10",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.637
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.541
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.494
+          }
+        ]
+      }
+    },
+    {
+      "term": "cryptographic libraries",
+      "canonical": {
+        "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+        "label": "software components libraries",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply cryptographic libraries such as OpenSSL to implement secure data transmission protocols in programming projects."
+        },
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Secure Programming Practices and Cryptographic Libraries"
+        }
+      ],
+      "match": {
+        "original_term": "cryptographic libraries",
+        "canonical_id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+        "canonical_label": "software components libraries",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'cryptographic libraries' refers to software components like OpenSSL, which are specifically libraries used for cryptographic functions. This aligns with the definition of 'software components libraries' as a set of related functions provided by reusable components.",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.531
+          },
+          {
+            "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+            "label": "software components libraries",
+            "score": 0.419
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.334
+          }
+        ]
+      }
+    },
+    {
+      "term": "firewall technologies",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and operation of intrusion detection systems (IDS) like Snort and firewall technologies such as packet filtering and stateful inspection."
+        },
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Firewall Technologies and Packet Filtering"
+        }
+      ],
+      "match": {
+        "original_term": "firewall technologies",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'firewall technologies' is directly related to 'network security' as listed in the taxonomy, and the syllabus explicitly mentions firewall technologies as part of the course content.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.585
+          },
+          {
+            "id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+            "label": "computer technology",
+            "score": 0.276
+          },
+          {
+            "id": "esco:71f81e1a-e2ca-48d6-b7b8-7a34c56c51f8",
+            "label": "transmission technology",
+            "score": 0.271
+          }
+        ]
+      }
+    },
+    {
+      "term": "applications in secure communication",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define cryptographic algorithms such as AES, RSA, and ECC, and their applications in secure communication."
+        }
+      ],
+      "match": {
+        "original_term": "applications in secure communication",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'applications in secure communication' directly relates to the use of encryption techniques, which is the core of the 'ICT encryption' entry.",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.487
+          },
+          {
+            "id": "esco:debef2fc-7af4-4bff-ac92-4d0317915a84",
+            "label": "electronic communication",
+            "score": 0.466
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.422
+          }
+        ]
+      }
+    },
+    {
+      "term": "architecture",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and operation of intrusion detection systems (IDS) like Snort and firewall technologies such as packet filtering and stateful inspection."
+        }
+      ],
+      "match": {
+        "original_term": "architecture",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'architecture' in the context of intrusion detection systems (IDS) and firewall technologies directly relates to network security architecture, which is explicitly covered by the 'network security' entry.",
+        "candidates": [
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.68
+          },
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.669
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.652
+          }
+        ]
+      }
+    },
+    {
+      "term": "implementation of SSL/TLS",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design and evaluate secure network architectures, including the implementation of SSL/TLS for secure web communication."
+        }
+      ],
+      "match": {
+        "original_term": "implementation of SSL/TLS",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'implementation of SSL/TLS' directly relates to the encryption techniques described in the 'ICT encryption' entry, which includes SSL and TLS as listed in its also called section.",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.545
+          },
+          {
+            "id": "esco:1d86f05e-e9cc-40ce-99d8-2b21cc71b16b",
+            "label": "solution deployment",
+            "score": 0.267
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.253
+          }
+        ]
+      }
+    },
+    {
+      "term": "principles of secure authentication mechanisms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of secure authentication mechanisms, including OAuth 2.0 and Kerberos, and their role in network security."
+        }
+      ],
+      "match": {
+        "original_term": "principles of secure authentication mechanisms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.399,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.399
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.392
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.375
+          }
+        ]
+      }
+    },
+    {
+      "term": "role in network security",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of secure authentication mechanisms, including OAuth 2.0 and Kerberos, and their role in network security."
+        }
+      ],
+      "match": {
+        "original_term": "role in network security",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.702,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.702
+          },
+          {
+            "id": "esco:2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80",
+            "label": "ICT network security risks",
+            "score": 0.523
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.419
+          }
+        ]
+      }
+    },
+    {
+      "term": "secure network architectures",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design and evaluate secure network architectures, including the implementation of SSL/TLS for secure web communication."
+        }
+      ],
+      "match": {
+        "original_term": "secure network architectures",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'secure network architectures' directly relates to designing and evaluating secure network structures, which aligns with the definition of 'network security' that includes protecting network infrastructure and traffic.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.48
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.442
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.426
+          }
+        ]
+      }
+    },
+    {
+      "term": "secure web communication",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design and evaluate secure network architectures, including the implementation of SSL/TLS for secure web communication."
+        }
+      ],
+      "match": {
+        "original_term": "secure web communication",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'secure web communication' directly references SSL/TLS, which is explicitly listed in the description of 'ICT encryption' as part of its also-called terms.",
+        "candidates": [
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.594
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.46
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.448
+          }
+        ]
+      }
+    },
+    {
+      "term": "stateful inspection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and operation of intrusion detection systems (IDS) like Snort and firewall technologies such as packet filtering and stateful inspection."
+        }
+      ],
+      "match": {
+        "original_term": "stateful inspection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.269,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.269
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.253
+          },
+          {
+            "id": "esco:f6f22c8e-249e-4e82-9528-6779a947b265",
+            "label": "surveillance radars",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "Network Security",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 3,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Computer and Network Security"
+        },
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Network Security Concepts: Firewalls and Intrusion Detection Systems"
+        },
+        {
+          "source": "description",
+          "text": "network security"
+        }
+      ],
+      "match": {
+        "original_term": "Network Security",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Authentication Mechanisms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Authentication Mechanisms: OAuth 2.0 and Kerberos"
+        },
+        {
+          "source": "description",
+          "text": "authentication mechanisms"
+        }
+      ],
+      "match": {
+        "original_term": "Authentication Mechanisms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'Authentication Mechanisms' or its related concepts like OAuth 2.0 and Kerberos. The closest entries are related to cybersecurity or cryptography, but they do not specifically match the skill described.",
+        "candidates": [
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.458
+          },
+          {
+            "id": "esco:3912401a-cccf-4995-9f5b-76302b26fff4",
+            "label": "optomechanical components",
+            "score": 0.227
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.209
+          }
+        ]
+      }
+    },
+    {
+      "term": "Firewalls",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Network Security Concepts: Firewalls and Intrusion Detection Systems"
+        },
+        {
+          "source": "description",
+          "text": "firewalls"
+        }
+      ],
+      "match": {
+        "original_term": "Firewalls",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Firewalls' is explicitly listed in the 'network security' entry's 'also called' field, and the syllabus directly mentions 'Firewalls and Intrusion Detection Systems' as part of network security concepts.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.933
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.262
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.241
+          }
+        ]
+      }
+    },
+    {
+      "term": "Intrusion Detection Systems",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Network Security Concepts: Firewalls and Intrusion Detection Systems"
+        },
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Intrusion Detection Systems (IDS) and Signature Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Intrusion Detection Systems",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Intrusion Detection Systems' is explicitly mentioned in the syllabus alongside 'Firewalls' under 'Network Security Concepts', and the taxonomy entry 'network security' includes IDS as part of its also-called list.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.462
+          },
+          {
+            "id": "esco:f049d050-12da-4e40-813a-2b5eb6df6b51",
+            "label": "Internet of Things",
+            "score": 0.423
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.399
+          }
+        ]
+      }
+    },
+    {
+      "term": "Metasploit",
+      "canonical": {
+        "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+        "label": "Metasploit",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Perform vulnerability assessment using Nmap and Metasploit"
+        }
+      ],
+      "match": {
+        "original_term": "Metasploit",
+        "canonical_id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+        "canonical_label": "Metasploit",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "network traffic using Snort rules",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Analyze network traffic using Snort rules"
+        }
+      ],
+      "match": {
+        "original_term": "network traffic using Snort rules",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.37,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.37
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.35
+          },
+          {
+            "id": "esco:0da6cab1-0ee9-4391-a299-f71fbf21db56",
+            "label": "ICT network routing",
+            "score": 0.347
+          }
+        ]
+      }
+    },
+    {
+      "term": "secure data encryption using CRYPTO libraries",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Implement secure data encryption using CRYPTO libraries"
+        }
+      ],
+      "match": {
+        "original_term": "secure data encryption using CRYPTO libraries",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'secure data encryption using CRYPTO libraries' directly aligns with 'ICT encryption' which includes key encryption techniques like those used in CRYPTO libraries.",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.445
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.355
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.337
+          }
+        ]
+      }
+    },
+    {
+      "term": "simulate secure communication protocols using Wireshark",
+      "canonical": {
+        "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "label": "Wireshark",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Analyze and simulate secure communication protocols using Wireshark"
+        }
+      ],
+      "match": {
+        "original_term": "simulate secure communication protocols using Wireshark",
+        "canonical_id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+        "canonical_label": "Wireshark",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'simulate secure communication protocols using Wireshark' directly relates to using Wireshark for network protocol analysis, which matches the description of the 'Wireshark' entry in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+            "label": "Wireshark",
+            "score": 0.448
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.344
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.331
+          }
+        ]
+      }
+    },
+    {
+      "term": "SSL/TLS handshake using OpenSSL",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Implement SSL/TLS handshake using OpenSSL"
+        }
+      ],
+      "match": {
+        "original_term": "SSL/TLS handshake using OpenSSL",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.398,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.398
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.194
+          },
+          {
+            "id": "custom:html-css",
+            "label": "HTML and CSS",
+            "score": 0.178
+          }
+        ]
+      }
+    },
+    {
+      "term": "vulnerability assessment using Nmap",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Perform vulnerability assessment using Nmap and Metasploit"
+        }
+      ],
+      "match": {
+        "original_term": "vulnerability assessment using Nmap",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.664,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.28",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.664
+          },
+          {
+            "id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+            "label": "Nessus",
+            "score": 0.382
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.354
+          }
+        ]
+      }
+    },
+    {
+      "term": "Asymmetric Encryption",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Cryptography Fundamentals: Symmetric and Asymmetric Encryption"
+        }
+      ],
+      "match": {
+        "original_term": "Asymmetric Encryption",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.692,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.11",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.692
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.584
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "Computer",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Computer and Network Security"
+        }
+      ],
+      "match": {
+        "original_term": "Computer",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'Computer' is too generic and does not clearly align with any of the specific skills in the taxonomy shortlist. None of the candidates directly refer to the skill 'Computer' as a standalone concept.",
+        "candidates": [
+          {
+            "id": "esco:9983816d-cc78-4d3f-9e3c-c7baa9ebc77a",
+            "label": "computer equipment",
+            "score": 0.89
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.671
+          },
+          {
+            "id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+            "label": "computer technology",
+            "score": 0.662
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cryptography Fundamentals",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Cryptography Fundamentals: Symmetric and Asymmetric Encryption"
+        }
+      ],
+      "match": {
+        "original_term": "Cryptography Fundamentals",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.695,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.09",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.695
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.601
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.196
+          }
+        ]
+      }
+    },
+    {
+      "term": "Designing Secure Network Architectures",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Designing Secure Network Architectures"
+        }
+      ],
+      "match": {
+        "original_term": "Designing Secure Network Architectures",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Designing Secure Network Architectures' directly relates to protecting network infrastructure, which aligns with the definition of 'network security' and its associated terms like firewalls and network defense.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.423
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.419
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "term": "Implementation of a Secure Network System",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Final Project: Design and Implementation of a Secure Network System"
+        }
+      ],
+      "match": {
+        "original_term": "Implementation of a Secure Network System",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Implementation of a Secure Network System' directly relates to protecting network infrastructure and traffic, which matches the description of 'network security' in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.419
+          },
+          {
+            "id": "esco:2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80",
+            "label": "ICT network security risks",
+            "score": 0.396
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.373
+          }
+        ]
+      }
+    },
+    {
+      "term": "Network Security Assessment",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Network Security Assessment and Risk Management"
+        }
+      ],
+      "match": {
+        "original_term": "Network Security Assessment",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.733,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.11",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.733
+          },
+          {
+            "id": "esco:2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80",
+            "label": "ICT network security risks",
+            "score": 0.618
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.569
+          }
+        ]
+      }
+    },
+    {
+      "term": "Penetration Testing",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Security Vulnerabilities and Penetration Testing"
+        }
+      ],
+      "match": {
+        "original_term": "Penetration Testing",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Risk Management",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Network Security Assessment and Risk Management"
+        }
+      ],
+      "match": {
+        "original_term": "Risk Management",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.823,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.27",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.823
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.556
+          },
+          {
+            "id": "esco:2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80",
+            "label": "ICT network security risks",
+            "score": 0.489
+          }
+        ]
+      }
+    },
+    {
+      "term": "SDLC",
+      "canonical": {
+        "id": "custom:software-engineering",
+        "label": "software engineering",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Secure Software Development Lifecycle (SDLC)"
+        }
+      ],
+      "match": {
+        "original_term": "SDLC",
+        "canonical_id": "custom:software-engineering",
+        "canonical_label": "software engineering",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Secure Communication Protocols",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Secure Communication Protocols: SSL/TLS Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "Secure Communication Protocols",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Secure Communication Protocols' specifically refers to SSL/TLS Implementation, which is directly listed in the also called section of the 'ICT encryption' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.6
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.453
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.433
+          }
+        ]
+      }
+    },
+    {
+      "term": "Secure Programming Practices",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Secure Programming Practices and Cryptographic Libraries"
+        }
+      ],
+      "match": {
+        "original_term": "Secure Programming Practices",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.624,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.20",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.624
+          },
+          {
+            "id": "custom:devops",
+            "label": "DevOps practices",
+            "score": 0.426
+          },
+          {
+            "id": "esco:4064716d-6714-48ea-95a0-ef81c2b31672",
+            "label": "mine safety legislation",
+            "score": 0.377
+          }
+        ]
+      }
+    },
+    {
+      "term": "Secure Software Development Lifecycle",
+      "canonical": {
+        "id": "custom:software-engineering",
+        "label": "software engineering",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Secure Software Development Lifecycle (SDLC)"
+        }
+      ],
+      "match": {
+        "original_term": "Secure Software Development Lifecycle",
+        "canonical_id": "custom:software-engineering",
+        "canonical_label": "software engineering",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.921,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.48",
+        "candidates": [
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.921
+          },
+          {
+            "id": "esco:09f2f811-a3fb-4de3-a70f-6420a6935575",
+            "label": "systems development life-cycle",
+            "score": 0.439
+          },
+          {
+            "id": "custom:backend-development",
+            "label": "back-end development",
+            "score": 0.409
+          }
+        ]
+      }
+    },
+    {
+      "term": "Security Protocols",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Security Protocols: Design and Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Security Protocols",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries directly match 'Security Protocols' in meaning or wording. The closest entries are related but not exact matches.",
+        "candidates": [
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.571
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.496
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.496
+          }
+        ]
+      }
+    },
+    {
+      "term": "Security Vulnerabilities",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Security Vulnerabilities and Penetration Testing"
+        }
+      ],
+      "match": {
+        "original_term": "Security Vulnerabilities",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Security Vulnerabilities' is directly related to 'penetration testing' as it involves identifying and analyzing security weaknesses, which is a core part of penetration testing.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.477
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.469
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.464
+          }
+        ]
+      }
+    },
+    {
+      "term": "Signature Analysis",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Intrusion Detection Systems (IDS) and Signature Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Signature Analysis",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Signature Analysis' is explicitly mentioned in the context of 'Intrusion Detection Systems (IDS)', which is a key component of network security as defined in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.521
+          },
+          {
+            "id": "esco:20b1d521-3d18-4b59-aee5-aaf296170c1b",
+            "label": "electronic signals intelligence",
+            "score": 0.251
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.229
+          }
+        ]
+      }
+    },
+    {
+      "term": "SSL/TLS Implementation",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Secure Communication Protocols: SSL/TLS Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "SSL/TLS Implementation",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'SSL/TLS Implementation' directly matches the 'ICT encryption' entry, which explicitly includes 'Secure Socket Layer (SSL)' and 'TLS' in its also-called list.",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.529
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.261
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.258
+          }
+        ]
+      }
+    },
+    {
+      "term": "Symmetric",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Cryptography Fundamentals: Symmetric and Asymmetric Encryption"
+        }
+      ],
+      "match": {
+        "original_term": "Symmetric",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.63,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.37",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.63
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.259
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.199
+          }
+        ]
+      }
+    },
+    {
+      "term": "analysis of security protocols",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "analysis of security protocols"
+        }
+      ],
+      "match": {
+        "original_term": "analysis of security protocols",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'analysis of security protocols'. The closest entries are related to cryptography, network security, and risk assessment, but none specifically refer to the analysis of security protocols.",
+        "candidates": [
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.443
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.423
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.413
+          }
+        ]
+      }
+    },
+    {
+      "term": "CRYPTO libraries",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "CRYPTO libraries"
+        }
+      ],
+      "match": {
+        "original_term": "CRYPTO libraries",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.247,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.247
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.21
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.189
+          }
+        ]
+      }
+    },
+    {
+      "term": "evaluation of vulnerabilities in networked systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "evaluation of vulnerabilities in networked systems"
+        }
+      ],
+      "match": {
+        "original_term": "evaluation of vulnerabilities in networked systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.373,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.373
+          },
+          {
+            "id": "custom:robot-troubleshooting",
+            "label": "robot system troubleshooting",
+            "score": 0.321
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.263
+          }
+        ]
+      }
+    },
+    {
+      "term": "implementation of secure communication channels",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "implementation of secure communication channels"
+        }
+      ],
+      "match": {
+        "original_term": "implementation of secure communication channels",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'implementation of secure communication channels' directly relates to secure coding practices, as it involves writing secure software for communication systems.",
+        "candidates": [
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.492
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.382
+          },
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.366
+          }
+        ]
+      }
+    },
+    {
+      "term": "intrusion detection systems like Snort",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "intrusion detection systems like Snort"
+        }
+      ],
+      "match": {
+        "original_term": "intrusion detection systems like Snort",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.224,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:fa7d581b-da0e-47cf-bae8-4d07f267a225",
+            "label": "infrared sensors",
+            "score": 0.224
+          },
+          {
+            "id": "esco:c199731b-1c17-47be-8f5d-296b9892a1b4",
+            "label": "smoke sensors",
+            "score": 0.22
+          },
+          {
+            "id": "esco:20b1d521-3d18-4b59-aee5-aaf296170c1b",
+            "label": "electronic signals intelligence",
+            "score": 0.206
+          }
+        ]
+      }
+    },
+    {
+      "term": "It also includes the design",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "It also includes the design"
+        }
+      ],
+      "match": {
+        "original_term": "It also includes the design",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.394,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.394
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.379
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.375
+          }
+        ]
+      }
+    },
+    {
+      "term": "secure programming practices using OpenSSL",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "secure programming practices using OpenSSL"
+        }
+      ],
+      "match": {
+        "original_term": "secure programming practices using OpenSSL",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'secure programming practices using OpenSSL' directly aligns with 'secure coding practices' as it involves writing secure code using cryptographic libraries like OpenSSL.",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.527
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.365
+          },
+          {
+            "id": "custom:devops",
+            "label": "DevOps practices",
+            "score": 0.357
+          }
+        ]
+      }
+    },
+    {
+      "term": "secure socket layer",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "secure socket layer"
+        }
+      ],
+      "match": {
+        "original_term": "secure socket layer",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "SSL",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "SSL"
+        }
+      ],
+      "match": {
+        "original_term": "SSL",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "This course covers cryptographic algorithms",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "This course covers cryptographic algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "This course covers cryptographic algorithms",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'cryptographic algorithms' directly matches the label 'cryptography' and its also called entry includes 'cryptographic protocols', which is closely related.",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.442
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.399
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.339
+          }
+        ]
+      }
+    },
+    {
+      "term": "TLS",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "TLS"
+        }
+      ],
+      "match": {
+        "original_term": "TLS",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "transport layer security protocols",
+      "canonical": {
+        "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "label": "ICT encryption",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "transport layer security protocols"
+        }
+      ],
+      "match": {
+        "original_term": "transport layer security protocols",
+        "canonical_id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+        "canonical_label": "ICT encryption",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.737,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.34",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.737
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.394
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.39
+          }
+        ]
+      }
+    },
+    {
+      "term": "virtual private networks",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "virtual private networks"
+        }
+      ],
+      "match": {
+        "original_term": "virtual private networks",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'virtual private networks' is explicitly listed in the 'network security' entry's also called section, confirming it matches the same skill.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.488
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.419
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.408
+          }
+        ]
+      }
+    },
+    {
+      "term": "VPN",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "VPN"
+        }
+      ],
+      "match": {
+        "original_term": "VPN",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    }
+  ]
+}

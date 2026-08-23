@@ -1,0 +1,2907 @@
+{
+  "course_code": "0433302",
+  "course_codes": [
+    "0433302"
+  ],
+  "course_title": "Operating Systems Lab",
+  "credit_hours": 1,
+  "plans": [
+    "CS",
+    "CS/AI",
+    "SE"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "no_match": 32,
+      "accepted": 13,
+      "needs_review": 17
+    },
+    "by_method": {
+      "embedding_reranker": 32,
+      "llm": 30
+    }
+  },
+  "total_skills": 62,
+  "skills": [
+    {
+      "term": "exec",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "lab",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define Linux system calls for process creation and termination, including fork(), exec(), and exit()."
+        },
+        {
+          "source": "lab",
+          "week": 2,
+          "text": "Implement process creation using fork() and exec()"
+        },
+        {
+          "source": "description",
+          "text": "exec"
+        }
+      ],
+      "match": {
+        "original_term": "exec",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.226,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.226
+          },
+          {
+            "id": "custom:linux",
+            "label": "Linux",
+            "score": 0.223
+          },
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "assembly language",
+      "canonical": {
+        "id": "esco:47b9bbcf-356c-4782-83a4-7f5a1b2b51a3",
+        "label": "Assembly (computer programming)",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a custom scheduling algorithm in kernel mode using Linux kernel modules and assembly language."
+        },
+        {
+          "source": "description",
+          "text": "assembly language"
+        }
+      ],
+      "match": {
+        "original_term": "assembly language",
+        "canonical_id": "esco:47b9bbcf-356c-4782-83a4-7f5a1b2b51a3",
+        "canonical_label": "Assembly (computer programming)",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'assembly language' directly matches the label 'Assembly (computer programming)' in the taxonomy, as both refer to the same programming skill.",
+        "candidates": [
+          {
+            "id": "esco:04f1b938-d4d4-4cb1-a863-982af76b9d93",
+            "label": "SAS language",
+            "score": 0.509
+          },
+          {
+            "id": "esco:47b9bbcf-356c-4782-83a4-7f5a1b2b51a3",
+            "label": "Assembly (computer programming)",
+            "score": 0.495
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.426
+          }
+        ]
+      }
+    },
+    {
+      "term": "fork",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define Linux system calls for process creation and termination, including fork(), exec(), and exit()."
+        },
+        {
+          "source": "description",
+          "text": "fork"
+        }
+      ],
+      "match": {
+        "original_term": "fork",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.229,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.229
+          },
+          {
+            "id": "custom:linux",
+            "label": "Linux",
+            "score": 0.22
+          },
+          {
+            "id": "esco:47b49f99-74a3-4b61-a9d5-3db6b841cab5",
+            "label": "coking process",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "process creation",
+      "canonical": {
+        "id": "custom:operating-systems",
+        "label": "operating systems",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define Linux system calls for process creation and termination, including fork(), exec(), and exit()."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Process creation and termination"
+        }
+      ],
+      "match": {
+        "original_term": "process creation",
+        "canonical_id": "custom:operating-systems",
+        "canonical_label": "operating systems",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'process creation' is directly related to operating system concepts like system calls for process creation (fork(), exec(), exit()), which aligns with the 'operating systems' label.",
+        "candidates": [
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.53
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.5
+          },
+          {
+            "id": "esco:47b49f99-74a3-4b61-a9d5-3db6b841cab5",
+            "label": "coking process",
+            "score": 0.488
+          }
+        ]
+      }
+    },
+    {
+      "term": "sockets",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply inter-process communication techniques including pipes, sockets, and shared memory in a distributed system simulation."
+        },
+        {
+          "source": "description",
+          "text": "sockets"
+        }
+      ],
+      "match": {
+        "original_term": "sockets",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.219,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:2180bd8c-86de-4889-8165-adac902eee9d",
+            "label": "embedded systems",
+            "score": 0.219
+          },
+          {
+            "id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+            "label": "distributed computing",
+            "score": 0.214
+          },
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "termination",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define Linux system calls for process creation and termination, including fork(), exec(), and exit()."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Process creation and termination"
+        }
+      ],
+      "match": {
+        "original_term": "termination",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.29,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:linux",
+            "label": "Linux",
+            "score": 0.29
+          },
+          {
+            "id": "esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694",
+            "label": "automation technology",
+            "score": 0.28
+          },
+          {
+            "id": "esco:47b49f99-74a3-4b61-a9d5-3db6b841cab5",
+            "label": "coking process",
+            "score": 0.253
+          }
+        ]
+      }
+    },
+    {
+      "term": "exit",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define Linux system calls for process creation and termination, including fork(), exec(), and exit()."
+        }
+      ],
+      "match": {
+        "original_term": "exit",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.252,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.252
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.227
+          },
+          {
+            "id": "custom:linux",
+            "label": "Linux",
+            "score": 0.22
+          }
+        ]
+      }
+    },
+    {
+      "term": "inter-process communication techniques",
+      "canonical": {
+        "id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+        "label": "distributed computing",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply inter-process communication techniques including pipes, sockets, and shared memory in a distributed system simulation."
+        }
+      ],
+      "match": {
+        "original_term": "inter-process communication techniques",
+        "canonical_id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+        "canonical_label": "distributed computing",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'inter-process communication techniques' is directly related to distributed computing, as it involves communication between processes in a distributed system simulation.",
+        "candidates": [
+          {
+            "id": "esco:71f81e1a-e2ca-48d6-b7b8-7a34c56c51f8",
+            "label": "transmission technology",
+            "score": 0.447
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.423
+          },
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.408
+          }
+        ]
+      }
+    },
+    {
+      "term": "Linux system calls",
+      "canonical": {
+        "id": "custom:operating-systems",
+        "label": "operating systems",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define Linux system calls for process creation and termination, including fork(), exec(), and exit()."
+        }
+      ],
+      "match": {
+        "original_term": "Linux system calls",
+        "canonical_id": "custom:operating-systems",
+        "canonical_label": "operating systems",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Linux system calls' specifically refers to the interface between a program and the Linux kernel, which is a core aspect of operating systems. The taxonomy entry 'operating systems' directly covers this concept.",
+        "candidates": [
+          {
+            "id": "custom:linux",
+            "label": "Linux",
+            "score": 0.546
+          },
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.447
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.432
+          }
+        ]
+      }
+    },
+    {
+      "term": "Linux virtual memory architecture",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the Linux virtual memory architecture and implement page table management using mmap() and munmap()."
+        }
+      ],
+      "match": {
+        "original_term": "Linux virtual memory architecture",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Linux virtual memory architecture' or related concepts. The closest entry is 'Linux' (custom:linux), but it is too broad and does not capture the specific skill of virtual memory architecture.",
+        "candidates": [
+          {
+            "id": "custom:linux",
+            "label": "Linux",
+            "score": 0.442
+          },
+          {
+            "id": "esco:1bba98a7-92b9-450b-9235-e0c905f8f3c4",
+            "label": "information architecture",
+            "score": 0.395
+          },
+          {
+            "id": "esco:54971fec-1c2f-49c0-9396-2f0c9fa5c8c0",
+            "label": "LAMS",
+            "score": 0.192
+          }
+        ]
+      }
+    },
+    {
+      "term": "munmap",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the Linux virtual memory architecture and implement page table management using mmap() and munmap()."
+        }
+      ],
+      "match": {
+        "original_term": "munmap",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.212,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b0a3bb25-a02f-43ed-ab1f-994fa66a424a",
+            "label": "online analytical processing",
+            "score": 0.212
+          },
+          {
+            "id": "esco:54971fec-1c2f-49c0-9396-2f0c9fa5c8c0",
+            "label": "LAMS",
+            "score": 0.183
+          },
+          {
+            "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+            "label": "data storage",
+            "score": 0.18
+          }
+        ]
+      }
+    },
+    {
+      "term": "mutexes",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain process synchronization mechanisms such as mutexes and semaphores using pthreads in C."
+        }
+      ],
+      "match": {
+        "original_term": "mutexes",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.205,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b8b2a035-38f0-4c0e-94ee-edefc266c643",
+            "label": "microelectromechanical systems",
+            "score": 0.205
+          },
+          {
+            "id": "esco:8a211052-4bec-49c2-9b4e-7914c37d21b4",
+            "label": "microprocessors",
+            "score": 0.186
+          },
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.184
+          }
+        ]
+      }
+    },
+    {
+      "term": "page table management using mmap",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the Linux virtual memory architecture and implement page table management using mmap() and munmap()."
+        }
+      ],
+      "match": {
+        "original_term": "page table management using mmap",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.358,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:cf532795-a1fd-43bd-8407-6e43f877e6e3",
+            "label": "mobile device management",
+            "score": 0.358
+          },
+          {
+            "id": "esco:54971fec-1c2f-49c0-9396-2f0c9fa5c8c0",
+            "label": "LAMS",
+            "score": 0.343
+          },
+          {
+            "id": "custom:tableau",
+            "label": "Tableau",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "pipes",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply inter-process communication techniques including pipes, sockets, and shared memory in a distributed system simulation."
+        }
+      ],
+      "match": {
+        "original_term": "pipes",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.285,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.285
+          },
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.214
+          },
+          {
+            "id": "esco:897b393f-e7e0-4248-a40d-d77119694e83",
+            "label": "distributed computing",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "process synchronization mechanisms",
+      "canonical": {
+        "id": "custom:operating-systems",
+        "label": "operating systems",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain process synchronization mechanisms such as mutexes and semaphores using pthreads in C."
+        }
+      ],
+      "match": {
+        "original_term": "process synchronization mechanisms",
+        "canonical_id": "custom:operating-systems",
+        "canonical_label": "operating systems",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'process synchronization mechanisms' refers to techniques like mutexes and semaphores used in operating systems for managing concurrent processes, which directly aligns with the 'operating systems' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:55d42108-1d7e-43db-9d05-696d4a33a8ac",
+            "label": "screw manufacturing processes",
+            "score": 0.41
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.386
+          },
+          {
+            "id": "esco:c01b4549-3bc2-4640-8ecb-ef335fc4445c",
+            "label": "types of metal manufacturing processes",
+            "score": 0.344
+          }
+        ]
+      }
+    },
+    {
+      "term": "semaphores using pthreads in C",
+      "canonical": {
+        "id": "custom:operating-systems",
+        "label": "operating systems",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain process synchronization mechanisms such as mutexes and semaphores using pthreads in C."
+        }
+      ],
+      "match": {
+        "original_term": "semaphores using pthreads in C",
+        "canonical_id": "custom:operating-systems",
+        "canonical_label": "operating systems",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'semaphores using pthreads in C' directly relates to process synchronization mechanisms, which are a core part of operating systems, specifically concurrency management.",
+        "candidates": [
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.404
+          },
+          {
+            "id": "esco:4cdbc76c-75d8-4e12-8653-4820c2d5446f",
+            "label": "microsystem test procedures",
+            "score": 0.204
+          },
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "Deadlock detection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Deadlock detection and avoidance"
+        },
+        {
+          "source": "description",
+          "text": "deadlock detection"
+        }
+      ],
+      "match": {
+        "original_term": "Deadlock detection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Deadlock detection' as it is specific to concurrent systems and not covered by any of the listed categories.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.502
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.486
+          },
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.265
+          }
+        ]
+      }
+    },
+    {
+      "term": "Memory management",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Memory management concepts"
+        },
+        {
+          "source": "description",
+          "text": "memory management"
+        }
+      ],
+      "match": {
+        "original_term": "Memory management",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Memory management' as a skill. The closest is 'operating systems', which is broader and does not directly match the phrase.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.508
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.489
+          },
+          {
+            "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+            "label": "data storage",
+            "score": 0.319
+          }
+        ]
+      }
+    },
+    {
+      "term": "Banker's algorithm",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Implement the Banker's algorithm for resource allocation"
+        }
+      ],
+      "match": {
+        "original_term": "Banker's algorithm",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Banker's algorithm' refers to a specific algorithm used in resource allocation, which aligns with the broader category of 'algorithms' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.563
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.413
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.41
+          }
+        ]
+      }
+    },
+    {
+      "term": "client-server application using sockets",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Create a client-server application using sockets"
+        }
+      ],
+      "match": {
+        "original_term": "client-server application using sockets",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.389,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.389
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.37
+          },
+          {
+            "id": "custom:frontend-development",
+            "label": "front-end development",
+            "score": 0.345
+          }
+        ]
+      }
+    },
+    {
+      "term": "custom interrupt handler in kernel mode",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Implement a custom interrupt handler in kernel mode"
+        }
+      ],
+      "match": {
+        "original_term": "custom interrupt handler in kernel mode",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.182,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.182
+          },
+          {
+            "id": "custom:jupyter",
+            "label": "Jupyter Notebook",
+            "score": 0.173
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.17
+          }
+        ]
+      }
+    },
+    {
+      "term": "custom operating system scheduler",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 15,
+          "text": "Design and implement a custom operating system scheduler"
+        }
+      ],
+      "match": {
+        "original_term": "custom operating system scheduler",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'custom operating system scheduler' or its design and implementation, which is a distinct skill within operating systems.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.579
+          },
+          {
+            "id": "esco:cf310cff-0d28-4dbc-9dbb-cc500a3196c2",
+            "label": "office software",
+            "score": 0.521
+          },
+          {
+            "id": "esco:976455eb-5bbe-4493-ae64-ed16c3b009ea",
+            "label": "mobile operating systems",
+            "score": 0.512
+          }
+        ]
+      }
+    },
+    {
+      "term": "custom system call in Linux kernel",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Develop a custom system call in Linux kernel"
+        }
+      ],
+      "match": {
+        "original_term": "custom system call in Linux kernel",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'custom system call in Linux kernel' or a closely related skill. The closest entries are about Linux in general or specific tools, but none match the precise skill described.",
+        "candidates": [
+          {
+            "id": "custom:linux",
+            "label": "Linux",
+            "score": 0.421
+          },
+          {
+            "id": "esco:625b57ee-29d4-425b-bf99-9fd54dd021fe",
+            "label": "Kali Linux",
+            "score": 0.324
+          },
+          {
+            "id": "custom:control-systems",
+            "label": "control systems engineering",
+            "score": 0.315
+          }
+        ]
+      }
+    },
+    {
+      "term": "file system utility using POSIX APIs",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Develop a file system utility using POSIX APIs"
+        }
+      ],
+      "match": {
+        "original_term": "file system utility using POSIX APIs",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.199,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.199
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.191
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.19
+          }
+        ]
+      }
+    },
+    {
+      "term": "LRU",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Simulate page replacement algorithms like FIFO and LRU"
+        }
+      ],
+      "match": {
+        "original_term": "LRU",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.167,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:rqt",
+            "label": "RQT",
+            "score": 0.167
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.166
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.164
+          }
+        ]
+      }
+    },
+    {
+      "term": "mutual exclusion with pthread mutexes",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Implement mutual exclusion with pthread mutexes"
+        }
+      ],
+      "match": {
+        "original_term": "mutual exclusion with pthread mutexes",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.203,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:05caf274-8edf-42d9-8de3-c350f6e3c703",
+            "label": "extrusion processes",
+            "score": 0.203
+          },
+          {
+            "id": "esco:db5d130a-b89e-4386-95b0-1d79d7a9b0f2",
+            "label": "types of thread",
+            "score": 0.196
+          },
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.182
+          }
+        ]
+      }
+    },
+    {
+      "term": "priority-based scheduler",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Design and implement a priority-based scheduler"
+        }
+      ],
+      "match": {
+        "original_term": "priority-based scheduler",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.258,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.258
+          },
+          {
+            "id": "esco:41ec47dd-08b3-464a-9c45-c706f3e74467",
+            "label": "industrial software",
+            "score": 0.251
+          },
+          {
+            "id": "esco:7482a123-e801-48de-9733-262125671410",
+            "label": "task algorithmisation",
+            "score": 0.249
+          }
+        ]
+      }
+    },
+    {
+      "term": "process creation using fork",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 2,
+          "text": "Implement process creation using fork() and exec()"
+        }
+      ],
+      "match": {
+        "original_term": "process creation using fork",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.397,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.397
+          },
+          {
+            "id": "esco:47b49f99-74a3-4b61-a9d5-3db6b841cab5",
+            "label": "coking process",
+            "score": 0.392
+          },
+          {
+            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
+            "label": "packaging processes",
+            "score": 0.389
+          }
+        ]
+      }
+    },
+    {
+      "term": "resource allocation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Implement the Banker's algorithm for resource allocation"
+        }
+      ],
+      "match": {
+        "original_term": "resource allocation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.25,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.25
+          },
+          {
+            "id": "esco:7482a123-e801-48de-9733-262125671410",
+            "label": "task algorithmisation",
+            "score": 0.223
+          },
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "simple file system with inode management",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Implement a simple file system with inode management"
+        }
+      ],
+      "match": {
+        "original_term": "simple file system with inode management",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.349,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.349
+          },
+          {
+            "id": "esco:b2b970ad-0276-4069-ba31-899a53191b95",
+            "label": "biofilter systems",
+            "score": 0.327
+          },
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.326
+          }
+        ]
+      }
+    },
+    {
+      "term": "Simulate page replacement algorithms like FIFO",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Simulate page replacement algorithms like FIFO and LRU"
+        }
+      ],
+      "match": {
+        "original_term": "Simulate page replacement algorithms like FIFO",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.215,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.215
+          },
+          {
+            "id": "custom:gazebo",
+            "label": "Gazebo simulator",
+            "score": 0.207
+          },
+          {
+            "id": "esco:f6424ebb-8401-446b-9f7e-10d7c854da02",
+            "label": "ICT network simulation",
+            "score": 0.198
+          }
+        ]
+      }
+    },
+    {
+      "term": "Simulate process scheduling with Round-Robin algorithm",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Simulate process scheduling with Round-Robin algorithm"
+        }
+      ],
+      "match": {
+        "original_term": "Simulate process scheduling with Round-Robin algorithm",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to simulating process scheduling with the Round-Robin algorithm. The closest entries are general categories like 'algorithms' or 'robot simulation', but they do not capture the specific skill described in the phrase.",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.406
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.333
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "term": "system call interception",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Write a simple kernel module for system call interception"
+        }
+      ],
+      "match": {
+        "original_term": "system call interception",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.386,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.386
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.367
+          },
+          {
+            "id": "custom:control-systems",
+            "label": "control systems engineering",
+            "score": 0.365
+          }
+        ]
+      }
+    },
+    {
+      "term": "virtual memory mapping using mmap",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Implement virtual memory mapping using mmap()"
+        }
+      ],
+      "match": {
+        "original_term": "virtual memory mapping using mmap",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.329,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:slam",
+            "label": "SLAM",
+            "score": 0.329
+          },
+          {
+            "id": "esco:2eb2fd88-0fde-49cd-9d9f-8ae823f52b3d",
+            "label": "laser marking processes",
+            "score": 0.197
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.194
+          }
+        ]
+      }
+    },
+    {
+      "term": "Write a simple kernel module",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Write a simple kernel module for system call interception"
+        }
+      ],
+      "match": {
+        "original_term": "Write a simple kernel module",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.218,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.218
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.202
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.192
+          }
+        ]
+      }
+    },
+    {
+      "term": "avoidance",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Deadlock detection and avoidance"
+        }
+      ],
+      "match": {
+        "original_term": "avoidance",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.231,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.231
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.228
+          },
+          {
+            "id": "esco:ff8bd17c-77e9-4d4e-929a-a0cf86f3ed34",
+            "label": "surveillance methods",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "File system design",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "File system design"
+        }
+      ],
+      "match": {
+        "original_term": "File system design",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'File system design'. The closest entries are 'database design' and 'data storage', but these are broader or unrelated concepts.",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.445
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.443
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.422
+          }
+        ]
+      }
+    },
+    {
+      "term": "File system operations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "File system operations"
+        }
+      ],
+      "match": {
+        "original_term": "File system operations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'file system operations' as a skill. The closest is 'operating systems', but that is broader and does not directly match the phrase.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.468
+          },
+          {
+            "id": "esco:cf310cff-0d28-4dbc-9dbb-cc500a3196c2",
+            "label": "office software",
+            "score": 0.417
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.404
+          }
+        ]
+      }
+    },
+    {
+      "term": "Inter-process communication",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Inter-process communication"
+        }
+      ],
+      "match": {
+        "original_term": "Inter-process communication",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Inter-process communication' refers to communication between processes, which is more specific than any of the provided taxonomy entries. None of the entries directly match this skill.",
+        "candidates": [
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.584
+          },
+          {
+            "id": "esco:debef2fc-7af4-4bff-ac92-4d0317915a84",
+            "label": "electronic communication",
+            "score": 0.463
+          },
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.442
+          }
+        ]
+      }
+    },
+    {
+      "term": "Interrupt handling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Interrupt handling"
+        }
+      ],
+      "match": {
+        "original_term": "Interrupt handling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Interrupt handling' as it relates to computer systems and hardware, while the shortlisted entries cover topics like dangerous goods, calculus, milling machines, and cybersecurity, none of which are directly related.",
+        "candidates": [
+          {
+            "id": "esco:e3b4b533-cc4d-4c70-adb6-128120f40c88",
+            "label": "handling of dangerous goods",
+            "score": 0.411
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.217
+          },
+          {
+            "id": "esco:7b969ac9-f085-4afb-a480-c5210fb4da7d",
+            "label": "milling machines",
+            "score": 0.21
+          }
+        ]
+      }
+    },
+    {
+      "term": "Linux kernel modules",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Linux kernel modules"
+        }
+      ],
+      "match": {
+        "original_term": "Linux kernel modules",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Linux kernel modules' refers to a specific skill related to developing and managing kernel-level modules in the Linux operating system. None of the provided taxonomy entries directly match this skill, and the closest entry, 'Linux', is too broad and does not capture the specific focus on",
+        "candidates": [
+          {
+            "id": "custom:linux",
+            "label": "Linux",
+            "score": 0.52
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.225
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "Linux system calls basics",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Linux system calls basics"
+        }
+      ],
+      "match": {
+        "original_term": "Linux system calls basics",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Linux system calls basics'. The closest entry is 'Linux', but it is too broad and does not capture the specific skill of system calls.",
+        "candidates": [
+          {
+            "id": "custom:linux",
+            "label": "Linux",
+            "score": 0.481
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.434
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.357
+          }
+        ]
+      }
+    },
+    {
+      "term": "Memory management algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Memory management algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "Memory management algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Memory management algorithms' directly refers to algorithms, which is the exact label of the entry.",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.554
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.45
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.437
+          }
+        ]
+      }
+    },
+    {
+      "term": "Process scheduling algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Process scheduling algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "Process scheduling algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Process scheduling algorithms' directly refers to algorithms, which is the exact match for the 'algorithms' entry in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.554
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.461
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.459
+          }
+        ]
+      }
+    },
+    {
+      "term": "Process states",
+      "canonical": {
+        "id": "custom:operating-systems",
+        "label": "operating systems",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Process states and scheduling"
+        }
+      ],
+      "match": {
+        "original_term": "Process states",
+        "canonical_id": "custom:operating-systems",
+        "canonical_label": "operating systems",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Process states' is directly related to operating systems, specifically process management, which is a core component of operating systems as described in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.488
+          },
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.485
+          },
+          {
+            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
+            "label": "packaging processes",
+            "score": 0.481
+          }
+        ]
+      }
+    },
+    {
+      "term": "Process synchronization",
+      "canonical": {
+        "id": "custom:operating-systems",
+        "label": "operating systems",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Process synchronization"
+        }
+      ],
+      "match": {
+        "original_term": "Process synchronization",
+        "canonical_id": "custom:operating-systems",
+        "canonical_label": "operating systems",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Process synchronization' is a specific concept within operating systems, which includes process management and concurrency.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.473
+          },
+          {
+            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
+            "label": "packaging processes",
+            "score": 0.452
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.253
+          }
+        ]
+      }
+    },
+    {
+      "term": "scheduling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Process states and scheduling"
+        }
+      ],
+      "match": {
+        "original_term": "scheduling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.279,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.279
+          },
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.272
+          },
+          {
+            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
+            "label": "packaging processes",
+            "score": 0.26
+          }
+        ]
+      }
+    },
+    {
+      "term": "System call implementation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "System call implementation"
+        }
+      ],
+      "match": {
+        "original_term": "System call implementation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.382,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.382
+          },
+          {
+            "id": "esco:e13b734a-218c-434a-a7cc-febac6d24ef3",
+            "label": "call-centre technologies",
+            "score": 0.378
+          },
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.355
+          }
+        ]
+      }
+    },
+    {
+      "term": "avoidance techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "avoidance techniques"
+        }
+      ],
+      "match": {
+        "original_term": "avoidance techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill phrase 'avoidance techniques'. The closest entries are related to surveillance, demining, or incident response, but none specifically refer to avoidance techniques.",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.463
+          },
+          {
+            "id": "esco:ff8bd17c-77e9-4d4e-929a-a0cf86f3ed34",
+            "label": "surveillance methods",
+            "score": 0.206
+          },
+          {
+            "id": "esco:2fd40b98-4b70-439a-981e-539b52d7f038",
+            "label": "demining operations",
+            "score": 0.205
+          }
+        ]
+      }
+    },
+    {
+      "term": "condition variables",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "condition variables"
+        }
+      ],
+      "match": {
+        "original_term": "condition variables",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'condition variables' does not match any of the provided taxonomy entries, which are related to probability distributions, Bayes theorem, or other unrelated topics.",
+        "candidates": [
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.476
+          },
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.261
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.231
+          }
+        ]
+      }
+    },
+    {
+      "term": "custom scheduler using C",
+      "canonical": {
+        "id": "custom:c-language",
+        "label": "C",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "custom scheduler using C"
+        }
+      ],
+      "match": {
+        "original_term": "custom scheduler using C",
+        "canonical_id": "custom:c-language",
+        "canonical_label": "C",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'custom scheduler using C' directly refers to the use of the C programming language, which matches the 'C' entry in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.404
+          },
+          {
+            "id": "esco:4c016b68-4116-468c-9dc6-42710c239e4a",
+            "label": "C#",
+            "score": 0.276
+          },
+          {
+            "id": "esco:8369ede5-4200-4a44-be2e-bc60ef959259",
+            "label": "Microsoft Visual C++",
+            "score": 0.242
+          }
+        ]
+      }
+    },
+    {
+      "term": "file system operations with POSIX APIs",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "file system operations with POSIX APIs"
+        }
+      ],
+      "match": {
+        "original_term": "file system operations with POSIX APIs",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'file system operations with POSIX APIs', which is a specific skill related to interacting with file systems using POSIX-compliant APIs.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.423
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.206
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.193
+          }
+        ]
+      }
+    },
+    {
+      "term": "inter-process communication via pipes",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "inter-process communication via pipes"
+        }
+      ],
+      "match": {
+        "original_term": "inter-process communication via pipes",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'inter-process communication via pipes', which is a specific technical skill related to data exchange between processes.",
+        "candidates": [
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.475
+          },
+          {
+            "id": "esco:debef2fc-7af4-4bff-ac92-4d0317915a84",
+            "label": "electronic communication",
+            "score": 0.393
+          },
+          {
+            "id": "esco:6e4f75b4-c60f-4623-a9ba-760c8245753b",
+            "label": "ICT communications protocols",
+            "score": 0.382
+          }
+        ]
+      }
+    },
+    {
+      "term": "memory management using virtual memory",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "memory management using virtual memory"
+        }
+      ],
+      "match": {
+        "original_term": "memory management using virtual memory",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.387,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.387
+          },
+          {
+            "id": "esco:cf532795-a1fd-43bd-8407-6e43f877e6e3",
+            "label": "mobile device management",
+            "score": 0.346
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.341
+          }
+        ]
+      }
+    },
+    {
+      "term": "page tables",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "page tables"
+        }
+      ],
+      "match": {
+        "original_term": "page tables",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.287,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:tableau",
+            "label": "Tableau",
+            "score": 0.287
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.201
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.19
+          }
+        ]
+      }
+    },
+    {
+      "term": "Priority-based scheduling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Priority-based scheduling"
+        }
+      ],
+      "match": {
+        "original_term": "Priority-based scheduling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.354,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.354
+          },
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.232
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "process scheduling",
+      "canonical": {
+        "id": "custom:operating-systems",
+        "label": "operating systems",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "process scheduling"
+        }
+      ],
+      "match": {
+        "original_term": "process scheduling",
+        "canonical_id": "custom:operating-systems",
+        "canonical_label": "operating systems",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'process scheduling' directly relates to 'process management' which is an alias for the 'operating systems' skill in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
+            "label": "packaging processes",
+            "score": 0.486
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.48
+          },
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.462
+          }
+        ]
+      }
+    },
+    {
+      "term": "process synchronization using mutexes",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "process synchronization using mutexes"
+        }
+      ],
+      "match": {
+        "original_term": "process synchronization using mutexes",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.35,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.35
+          },
+          {
+            "id": "esco:0f2cb38a-6e97-4f49-80f7-1da9e5835ed0",
+            "label": "buffing motions",
+            "score": 0.228
+          },
+          {
+            "id": "esco:8a211052-4bec-49c2-9b4e-7914c37d21b4",
+            "label": "microprocessors",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "scheduling algorithms like Round-Robin",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "scheduling algorithms like Round-Robin"
+        }
+      ],
+      "match": {
+        "original_term": "scheduling algorithms like Round-Robin",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'scheduling algorithms like Round-Robin' refers to a specific type of algorithm used in task scheduling, which is not captured by any of the provided taxonomy entries. None of the labels or also-called terms match this specific skill.",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.448
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.393
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "semaphores",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "semaphores"
+        }
+      ],
+      "match": {
+        "original_term": "semaphores",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.221,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.221
+          },
+          {
+            "id": "custom:message-queues",
+            "label": "message queues",
+            "score": 0.17
+          },
+          {
+            "id": "esco:02c71cde-f513-43da-8952-0974763c7568",
+            "label": "circuit diagrams",
+            "score": 0.167
+          }
+        ]
+      }
+    },
+    {
+      "term": "system call implementation in kernel modules",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "system call implementation in kernel modules"
+        }
+      ],
+      "match": {
+        "original_term": "system call implementation in kernel modules",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.312,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:8203b07a-8097-4383-aff6-603b7df7f0f4",
+            "label": "ATM systems",
+            "score": 0.312
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.307
+          },
+          {
+            "id": "esco:2180bd8c-86de-4889-8165-adac902eee9d",
+            "label": "embedded systems",
+            "score": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "term": "wait",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "wait"
+        }
+      ],
+      "match": {
+        "original_term": "wait",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.211,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.211
+          },
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.155
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.155
+          }
+        ]
+      }
+    }
+  ]
+}

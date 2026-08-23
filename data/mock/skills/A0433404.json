@@ -1,0 +1,3755 @@
+{
+  "course_code": "A0433404",
+  "course_codes": [
+    "A0433404"
+  ],
+  "course_title": "Ethical Hacking",
+  "credit_hours": 3,
+  "plans": [
+    "CYBER"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "no_match": 33,
+      "accepted": 40,
+      "needs_review": 8
+    },
+    "by_method": {
+      "embedding_reranker": 47,
+      "llm": 28,
+      "exact_alias": 6
+    }
+  },
+  "total_skills": 81,
+  "skills": [
+    {
+      "term": "Nmap",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and operation of network scanning tools such as Nmap and its use in reconnaissance."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Using Nmap for IP and Port Discovery"
+        }
+      ],
+      "match": {
+        "original_term": "Nmap",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.247,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:eb0e5615-1575-4a86-a1a2-7d39595033c5",
+            "label": "ABAP",
+            "score": 0.247
+          },
+          {
+            "id": "esco:0ab03c6c-281b-48f4-83e0-10eeb27a1bae",
+            "label": "network management system tools",
+            "score": 0.203
+          },
+          {
+            "id": "esco:f6424ebb-8401-446b-9f7e-10d7c854da02",
+            "label": "ICT network simulation",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "SQL injection",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement secure coding practices to prevent common vulnerabilities such as SQL injection and cross-site scripting (XSS)."
+        },
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "SQL Injection and Prevention"
+        }
+      ],
+      "match": {
+        "original_term": "SQL injection",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'SQL injection' is a specific type of vulnerability that falls under the broader category of secure coding practices, which is explicitly mentioned in the syllabus.",
+        "candidates": [
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.58
+          },
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.462
+          },
+          {
+            "id": "esco:6f7512ab-d46d-402a-8c30-a8878d7c1f88",
+            "label": "SQL Server Integration Services",
+            "score": 0.409
+          }
+        ]
+      }
+    },
+    {
+      "term": "architecture",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and operation of network scanning tools such as Nmap and its use in reconnaissance."
+        }
+      ],
+      "match": {
+        "original_term": "architecture",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'architecture' refers to the structure of network scanning tools like Nmap, which is not directly captured by any of the provided taxonomy entries. None of the candidates specifically address network or system architecture in the context of tools and reconnaissance.",
+        "candidates": [
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.678
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.658
+          },
+          {
+            "id": "esco:1bba98a7-92b9-450b-9235-e0c905f8f3c4",
+            "label": "information architecture",
+            "score": 0.655
+          }
+        ]
+      }
+    },
+    {
+      "term": "cross-site scripting",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement secure coding practices to prevent common vulnerabilities such as SQL injection and cross-site scripting (XSS)."
+        }
+      ],
+      "match": {
+        "original_term": "cross-site scripting",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'cross-site scripting' is explicitly mentioned in the context of secure coding practices to prevent vulnerabilities, which directly aligns with the 'secure coding practices' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.574
+          },
+          {
+            "id": "custom:devops",
+            "label": "DevOps practices",
+            "score": 0.386
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.286
+          }
+        ]
+      }
+    },
+    {
+      "term": "interpretation of its scan results",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the process of vulnerability assessment using Nessus and the interpretation of its scan results."
+        }
+      ],
+      "match": {
+        "original_term": "interpretation of its scan results",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.243,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+            "label": "Nessus",
+            "score": 0.243
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.239
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.224
+          }
+        ]
+      }
+    },
+    {
+      "term": "legal framework under Jordan's Cybersecurity Law",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the principles of ethical hacking and its legal framework under Jordan's Cybersecurity Law."
+        }
+      ],
+      "match": {
+        "original_term": "legal framework under Jordan's Cybersecurity Law",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.305,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:9b9de2a4-d8af-4a7b-933a-a8334ae60067",
+            "label": "JavaScript Framework",
+            "score": 0.305
+          },
+          {
+            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+            "label": "ICT architectural frameworks",
+            "score": 0.302
+          },
+          {
+            "id": "esco:8764d4b1-e069-44f2-8baa-fb1eee1850ec",
+            "label": "Oracle Application Development Framework",
+            "score": 0.273
+          }
+        ]
+      }
+    },
+    {
+      "term": "operation of network scanning tools",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and operation of network scanning tools such as Nmap and its use in reconnaissance."
+        }
+      ],
+      "match": {
+        "original_term": "operation of network scanning tools",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to the operation of network scanning tools. The closest entry is 'network management system tools,' but it refers to monitoring and supervision of network components rather than the operation of specific scanning tools like Nmap.",
+        "candidates": [
+          {
+            "id": "esco:0ab03c6c-281b-48f4-83e0-10eeb27a1bae",
+            "label": "network management system tools",
+            "score": 0.46
+          },
+          {
+            "id": "esco:1a163b43-9826-426f-9bda-05133a9f4bf3",
+            "label": "milking operations",
+            "score": 0.397
+          },
+          {
+            "id": "esco:44297bbb-306a-46fa-ab1b-fa3fb327ebda",
+            "label": "mechanical tools",
+            "score": 0.382
+          }
+        ]
+      }
+    },
+    {
+      "term": "principles of ethical hacking",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the principles of ethical hacking and its legal framework under Jordan's Cybersecurity Law."
+        }
+      ],
+      "match": {
+        "original_term": "principles of ethical hacking",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.677,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.26",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.677
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.42
+          },
+          {
+            "id": "esco:209a5498-3449-4689-8ed9-bd08cab4fd78",
+            "label": "engineering principles",
+            "score": 0.42
+          }
+        ]
+      }
+    },
+    {
+      "term": "process of vulnerability assessment using Nessus",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the process of vulnerability assessment using Nessus and the interpretation of its scan results."
+        }
+      ],
+      "match": {
+        "original_term": "process of vulnerability assessment using Nessus",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'process of vulnerability assessment using Nessus' directly relates to penetration testing, which is explicitly listed as including vulnerability assessment in its also called section.",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.605
+          },
+          {
+            "id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+            "label": "Nessus",
+            "score": 0.573
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.353
+          }
+        ]
+      }
+    },
+    {
+      "term": "reconnaissance",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and operation of network scanning tools such as Nmap and its use in reconnaissance."
+        }
+      ],
+      "match": {
+        "original_term": "reconnaissance",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.207,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:0ab03c6c-281b-48f4-83e0-10eeb27a1bae",
+            "label": "network management system tools",
+            "score": 0.207
+          },
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.194
+          },
+          {
+            "id": "esco:286d0e0d-48e9-4210-b110-b1fbf04c35f1",
+            "label": "radars",
+            "score": 0.193
+          }
+        ]
+      }
+    },
+    {
+      "term": "XSS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement secure coding practices to prevent common vulnerabilities such as SQL injection and cross-site scripting (XSS)."
+        }
+      ],
+      "match": {
+        "original_term": "XSS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.257,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:8785ccda-6f9f-4cf3-9033-fda10653d0be",
+            "label": "JSSS",
+            "score": 0.257
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.254
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "AES",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "AES and RSA Algorithms"
+        },
+        {
+          "source": "description",
+          "text": "AES"
+        }
+      ],
+      "match": {
+        "original_term": "AES",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.215,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.215
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.213
+          },
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.204
+          }
+        ]
+      }
+    },
+    {
+      "term": "IDS",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Intrusion Detection Systems (IDS)"
+        },
+        {
+          "source": "description",
+          "text": "IDS"
+        }
+      ],
+      "match": {
+        "original_term": "IDS",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "WEP",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "WEP and WPA Cracking Techniques"
+        },
+        {
+          "source": "description",
+          "text": "WEP"
+        }
+      ],
+      "match": {
+        "original_term": "WEP",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.252,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:557e9247-1a2d-4497-aa7f-0cded7768da1",
+            "label": "Aircrack (penetration testing tool)",
+            "score": 0.252
+          },
+          {
+            "id": "esco:ab04dd50-0bdd-4d51-8c06-9405a81612f3",
+            "label": "hydrocarbon cracking techniques",
+            "score": 0.243
+          },
+          {
+            "id": "esco:530cb489-d900-46ab-9350-4d50ccd49eea",
+            "label": "welding techniques",
+            "score": 0.22
+          }
+        ]
+      }
+    },
+    {
+      "term": "Wireless Network Attacks",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Wireless Network Attacks"
+        },
+        {
+          "source": "description",
+          "text": "wireless network attacks"
+        }
+      ],
+      "match": {
+        "original_term": "Wireless Network Attacks",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Wireless Network Attacks' is a specific type of network security threat, and the entry 'network security' includes related concepts like firewalls, IDS, IPS, and network defense, which aligns with the focus of the phrase.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.433
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.417
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.407
+          }
+        ]
+      }
+    },
+    {
+      "term": "Advanced Metasploit Lab",
+      "canonical": {
+        "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+        "label": "Metasploit",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Advanced Metasploit Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Advanced Metasploit Lab",
+        "canonical_id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+        "canonical_label": "Metasploit",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'Advanced Metasploit Lab' directly refers to the Metasploit framework, which is explicitly described in the taxonomy entry as a penetration testing tool.",
+        "candidates": [
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.555
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.201
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.192
+          }
+        ]
+      }
+    },
+    {
+      "term": "Buffer Overflow Exploitation Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Buffer Overflow Exploitation Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Buffer Overflow Exploitation Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.218,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.218
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.215
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.21
+          }
+        ]
+      }
+    },
+    {
+      "term": "Capstone Project Implementation Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 15,
+          "text": "Capstone Project Implementation Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Capstone Project Implementation Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.215,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.215
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.209
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cryptography",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Cryptography and Encryption Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Cryptography",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Digital Forensics Lab",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Digital Forensics Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Digital Forensics Lab",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.728,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.28",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.728
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.45
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.371
+          }
+        ]
+      }
+    },
+    {
+      "term": "Encryption Lab",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Cryptography and Encryption Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Encryption Lab",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.796,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.17",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.796
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.622
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.232
+          }
+        ]
+      }
+    },
+    {
+      "term": "Footprinting",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Footprinting and Scanning Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Footprinting",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.222,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.222
+          },
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.206
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.189
+          }
+        ]
+      }
+    },
+    {
+      "term": "IDS Configuration",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "IDS Configuration and Monitoring Lab"
+        }
+      ],
+      "match": {
+        "original_term": "IDS Configuration",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'IDS Configuration' directly relates to intrusion detection systems, which are a core component of network security as defined in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.562
+          },
+          {
+            "id": "esco:b3a186be-5f1b-45d3-a468-41183e9780f3",
+            "label": "configuration of the tote room hardware",
+            "score": 0.418
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.227
+          }
+        ]
+      }
+    },
+    {
+      "term": "Malware Analysis with IDA Pro Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Malware Analysis with IDA Pro Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Malware Analysis with IDA Pro Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.354,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.354
+          },
+          {
+            "id": "esco:c3a03c5a-c260-4c26-9b9a-873abb396f4d",
+            "label": "MATLAB",
+            "score": 0.204
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.189
+          }
+        ]
+      }
+    },
+    {
+      "term": "Monitoring Lab",
+      "canonical": {
+        "id": "custom:monitoring-observability",
+        "label": "monitoring and observability",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "IDS Configuration and Monitoring Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Monitoring Lab",
+        "canonical_id": "custom:monitoring-observability",
+        "canonical_label": "monitoring and observability",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.672,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.44",
+        "candidates": [
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.672
+          },
+          {
+            "id": "esco:e3f2c37f-e484-4b4c-ad82-f565a2b98f89",
+            "label": "environmental management monitors",
+            "score": 0.234
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "Nessus Scan Configuration Lab",
+      "canonical": {
+        "id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+        "label": "Nessus",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Nessus Scan Configuration Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Nessus Scan Configuration Lab",
+        "canonical_id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+        "canonical_label": "Nessus",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Nessus Scan Configuration Lab' directly refers to the Nessus tool, which is explicitly named in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+            "label": "Nessus",
+            "score": 0.464
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.207
+          },
+          {
+            "id": "custom:linux",
+            "label": "Linux",
+            "score": 0.204
+          }
+        ]
+      }
+    },
+    {
+      "term": "Nmap Scanning Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 2,
+          "text": "Basic Nmap Scanning Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Nmap Scanning Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.247,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:lidar",
+            "label": "LiDAR",
+            "score": 0.247
+          },
+          {
+            "id": "esco:ff6904ef-36e7-4890-8fb1-8353b299f047",
+            "label": "microchip scanners",
+            "score": 0.225
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "Scanning Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Footprinting and Scanning Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Scanning Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.277,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:lidar",
+            "label": "LiDAR",
+            "score": 0.277
+          },
+          {
+            "id": "esco:ff6904ef-36e7-4890-8fb1-8353b299f047",
+            "label": "microchip scanners",
+            "score": 0.239
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "Secure Code Review Lab",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Secure Code Review Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Secure Code Review Lab",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Secure Code Review Lab' directly relates to secure coding practices, which is explicitly covered by the 'secure coding practices' entry.",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.427
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.214
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.185
+          }
+        ]
+      }
+    },
+    {
+      "term": "Social Engineering Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Social Engineering Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Social Engineering Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.207,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.207
+          },
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.201
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.198
+          }
+        ]
+      }
+    },
+    {
+      "term": "SQL Injection Lab",
+      "canonical": {
+        "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "label": "SQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "SQL Injection Lab"
+        }
+      ],
+      "match": {
+        "original_term": "SQL Injection Lab",
+        "canonical_id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "canonical_label": "SQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'SQL Injection Lab' directly relates to SQL, which is explicitly listed in the 'SQL' entry.",
+        "candidates": [
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.49
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.48
+          },
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.401
+          }
+        ]
+      }
+    },
+    {
+      "term": "Wireless Network Attack Lab",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Wireless Network Attack Lab"
+        }
+      ],
+      "match": {
+        "original_term": "Wireless Network Attack Lab",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.368,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.368
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.363
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.36
+          }
+        ]
+      }
+    },
+    {
+      "term": "Buffer Overflow Exploitation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Buffer Overflow Exploitation"
+        }
+      ],
+      "match": {
+        "original_term": "Buffer Overflow Exploitation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.23,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.23
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.219
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "Countermeasures",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Countermeasures and Detection"
+        }
+      ],
+      "match": {
+        "original_term": "Countermeasures",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.29,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.29
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.28
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.254
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cryptography Fundamentals",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Cryptography Fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "Cryptography Fundamentals",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.666,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.19",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.666
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.475
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.19
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Recovery with EnCase",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Data Recovery with EnCase"
+        }
+      ],
+      "match": {
+        "original_term": "Data Recovery with EnCase",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.372,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+            "label": "ICT recovery techniques",
+            "score": 0.372
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.366
+          },
+          {
+            "id": "esco:24603607-640c-41a9-93a1-d2420399d55c",
+            "label": "sulphur recovery processes",
+            "score": 0.358
+          }
+        ]
+      }
+    },
+    {
+      "term": "Detection",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Countermeasures and Detection"
+        }
+      ],
+      "match": {
+        "original_term": "Detection",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Detection' is part of the syllabus text 'Countermeasures and Detection', which aligns with the skill 'security incident response' as it involves detecting security incidents.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.66
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.644
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.238
+          }
+        ]
+      }
+    },
+    {
+      "term": "Digital Forensics Overview",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Digital Forensics Overview"
+        }
+      ],
+      "match": {
+        "original_term": "Digital Forensics Overview",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.708,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.26",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.708
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.446
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.359
+          }
+        ]
+      }
+    },
+    {
+      "term": "Dynamic Analysis",
+      "canonical": {
+        "id": "custom:robot-dynamics",
+        "label": "robot dynamics",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Static and Dynamic Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Dynamic Analysis",
+        "canonical_id": "custom:robot-dynamics",
+        "canonical_label": "robot dynamics",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Dynamic Analysis' directly matches the skill 'robot dynamics', which is also called 'Dynamics' and involves the relationship between forces, torques, and robot motion, aligning with the syllabus mention of 'Static and Dynamic Analysis'.",
+        "candidates": [
+          {
+            "id": "custom:robot-dynamics",
+            "label": "robot dynamics",
+            "score": 0.553
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.504
+          },
+          {
+            "id": "custom:robot-kinematics",
+            "label": "robot kinematics",
+            "score": 0.503
+          }
+        ]
+      }
+    },
+    {
+      "term": "Ethical Hacking",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Ethical Hacking and Legal Framework"
+        }
+      ],
+      "match": {
+        "original_term": "Ethical Hacking",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Ethical Hacking Final Project",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Ethical Hacking Final Project"
+        }
+      ],
+      "match": {
+        "original_term": "Ethical Hacking Final Project",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.643,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.44",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.643
+          },
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.203
+          },
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "Ethical Hacking Tools",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Ethical Hacking Tools and Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Ethical Hacking Tools",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.741,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.32",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.741
+          },
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.417
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.307
+          }
+        ]
+      }
+    },
+    {
+      "term": "Exploit Development with Metasploit",
+      "canonical": {
+        "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+        "label": "Metasploit",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Exploit Development with Metasploit"
+        }
+      ],
+      "match": {
+        "original_term": "Exploit Development with Metasploit",
+        "canonical_id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+        "canonical_label": "Metasploit",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Exploit Development with Metasploit' directly refers to the use of Metasploit, which is explicitly described in the taxonomy entry as a penetration testing tool focused on exploit development.",
+        "candidates": [
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.555
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.434
+          },
+          {
+            "id": "custom:ios-development",
+            "label": "iOS development",
+            "score": 0.433
+          }
+        ]
+      }
+    },
+    {
+      "term": "Intrusion Detection Systems",
+      "canonical": {
+        "id": "custom:network-security",
+        "label": "network security",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Intrusion Detection Systems (IDS)"
+        }
+      ],
+      "match": {
+        "original_term": "Intrusion Detection Systems",
+        "canonical_id": "custom:network-security",
+        "canonical_label": "network security",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Intrusion Detection Systems' is explicitly listed in the also called section of the 'network security' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.462
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.44
+          },
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.433
+          }
+        ]
+      }
+    },
+    {
+      "term": "Legal Framework",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Ethical Hacking and Legal Framework"
+        }
+      ],
+      "match": {
+        "original_term": "Legal Framework",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Legal Framework' is part of the course title 'Introduction to Ethical Hacking and Legal Framework', which directly relates to 'penetration testing' as it involves understanding the legal aspects of ethical hacking.",
+        "candidates": [
+          {
+            "id": "esco:8c88d336-c249-4537-b26e-d679a85c4b9b",
+            "label": "Ajax Framework",
+            "score": 0.49
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.481
+          },
+          {
+            "id": "esco:9b9de2a4-d8af-4a7b-933a-a8334ae60067",
+            "label": "JavaScript Framework",
+            "score": 0.468
+          }
+        ]
+      }
+    },
+    {
+      "term": "Malware Analysis Fundamentals",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Malware Analysis Fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "Malware Analysis Fundamentals",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Malware Analysis Fundamentals'.",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.406
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.402
+          },
+          {
+            "id": "esco:61d6ef20-6cc7-40f8-919e-3360db6cf2b3",
+            "label": "hardware materials",
+            "score": 0.229
+          }
+        ]
+      }
+    },
+    {
+      "term": "Metasploit Exploit Development",
+      "canonical": {
+        "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+        "label": "Metasploit",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Metasploit Exploit Development"
+        }
+      ],
+      "match": {
+        "original_term": "Metasploit Exploit Development",
+        "canonical_id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+        "canonical_label": "Metasploit",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Metasploit Exploit Development' directly matches the label 'Metasploit' in the taxonomy, which refers to the same skill of using Metasploit for penetration testing.",
+        "candidates": [
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.574
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.532
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.448
+          }
+        ]
+      }
+    },
+    {
+      "term": "Nessus",
+      "canonical": {
+        "id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+        "label": "Nessus",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Introduction to Nessus"
+        }
+      ],
+      "match": {
+        "original_term": "Nessus",
+        "canonical_id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+        "canonical_label": "Nessus",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Network Scanning Fundamentals",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Network Scanning Fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "Network Scanning Fundamentals",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries exactly match the skill 'Network Scanning Fundamentals'. The closest is 'computer networks', but that is a broader topic and does not specifically refer to network scanning fundamentals.",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.424
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.413
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.388
+          }
+        ]
+      }
+    },
+    {
+      "term": "Overview of Cybersecurity Laws in Jordan",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Overview of Cybersecurity Laws in Jordan"
+        }
+      ],
+      "match": {
+        "original_term": "Overview of Cybersecurity Laws in Jordan",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Cybersecurity Laws in Jordan' or any related legal framework within cybersecurity. The closest entry is 'custom:cybersecurity', but it does not mention laws or jurisdiction-specific content.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.464
+          },
+          {
+            "id": "esco:4064716d-6714-48ea-95a0-ef81c2b31672",
+            "label": "mine safety legislation",
+            "score": 0.307
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "OWASP Top Ten Vulnerabilities",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "OWASP Top Ten Vulnerabilities"
+        }
+      ],
+      "match": {
+        "original_term": "OWASP Top Ten Vulnerabilities",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'OWASP Top Ten Vulnerabilities' is explicitly mentioned in the also called section of the 'secure coding practices' entry, indicating it refers to the same skill.",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.573
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.479
+          },
+          {
+            "id": "esco:1ce4cddd-4a74-458e-a2d4-152ca939475a",
+            "label": "OWASP ZAP",
+            "score": 0.356
+          }
+        ]
+      }
+    },
+    {
+      "term": "Penetration Testing Lifecycle",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Penetration Testing Lifecycle"
+        }
+      ],
+      "match": {
+        "original_term": "Penetration Testing Lifecycle",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.71,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.13",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.71
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.584
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.399
+          }
+        ]
+      }
+    },
+    {
+      "term": "Phishing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Social Engineering and Phishing"
+        }
+      ],
+      "match": {
+        "original_term": "Phishing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.3,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.3
+          },
+          {
+            "id": "esco:b8ac179c-4a29-4467-9177-031daf1321d6",
+            "label": "packaging engineering",
+            "score": 0.284
+          },
+          {
+            "id": "esco:5eeac647-dc4b-496d-b109-c90b58006021",
+            "label": "mining engineering",
+            "score": 0.269
+          }
+        ]
+      }
+    },
+    {
+      "term": "Port Discovery",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Using Nmap for IP and Port Discovery"
+        }
+      ],
+      "match": {
+        "original_term": "Port Discovery",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.197,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.197
+          },
+          {
+            "id": "esco:a57a54b6-2f2e-43e4-9621-b52f4a63cb08",
+            "label": "LDAP",
+            "score": 0.184
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.182
+          }
+        ]
+      }
+    },
+    {
+      "term": "Prevention",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "SQL Injection and Prevention"
+        }
+      ],
+      "match": {
+        "original_term": "Prevention",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.265,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.265
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.259
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "Reconnaissance Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Reconnaissance Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Reconnaissance Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Reconnaissance Techniques'. The closest related terms are in the domain of computer vision, image processing, or robot perception, but none specifically refer to reconnaissance techniques.",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.465
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.214
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "RSA Algorithms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "AES and RSA Algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "RSA Algorithms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.191,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.191
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.188
+          },
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.186
+          }
+        ]
+      }
+    },
+    {
+      "term": "Secure Coding Practices",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Secure Coding Practices"
+        }
+      ],
+      "match": {
+        "original_term": "Secure Coding Practices",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Snort Rule Configuration",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Snort Rule Configuration"
+        }
+      ],
+      "match": {
+        "original_term": "Snort Rule Configuration",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.367,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b3a186be-5f1b-45d3-a468-41183e9780f3",
+            "label": "configuration of the tote room hardware",
+            "score": 0.367
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.35
+          },
+          {
+            "id": "esco:6c2dab43-b56a-4879-ae5f-75ae50e193c3",
+            "label": "dredging consoles",
+            "score": 0.196
+          }
+        ]
+      }
+    },
+    {
+      "term": "Social Engineering",
+      "canonical": {
+        "id": "esco:b8ac179c-4a29-4467-9177-031daf1321d6",
+        "label": "packaging engineering",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Social Engineering and Phishing"
+        }
+      ],
+      "match": {
+        "original_term": "Social Engineering",
+        "canonical_id": "esco:b8ac179c-4a29-4467-9177-031daf1321d6",
+        "canonical_label": "packaging engineering",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.652,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.14",
+        "candidates": [
+          {
+            "id": "esco:b8ac179c-4a29-4467-9177-031daf1321d6",
+            "label": "packaging engineering",
+            "score": 0.652
+          },
+          {
+            "id": "esco:5eeac647-dc4b-496d-b109-c90b58006021",
+            "label": "mining engineering",
+            "score": 0.515
+          },
+          {
+            "id": "esco:209a5498-3449-4689-8ed9-bd08cab4fd78",
+            "label": "engineering principles",
+            "score": 0.497
+          }
+        ]
+      }
+    },
+    {
+      "term": "Static",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Static and Dynamic Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Static",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.284,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-kinematics",
+            "label": "robot kinematics",
+            "score": 0.284
+          },
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.282
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.266
+          }
+        ]
+      }
+    },
+    {
+      "term": "Techniques",
+      "canonical": {
+        "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+        "label": "interfacing techniques",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Ethical Hacking Tools and Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Techniques",
+        "canonical_id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+        "canonical_label": "interfacing techniques",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.621,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.14",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.621
+          },
+          {
+            "id": "esco:a3ce2bf7-5562-4639-9b52-fdb4850a3904",
+            "label": "ICT problem management techniques",
+            "score": 0.479
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.456
+          }
+        ]
+      }
+    },
+    {
+      "term": "Vulnerability Assessment",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Vulnerability Assessment Concepts"
+        }
+      ],
+      "match": {
+        "original_term": "Vulnerability Assessment",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Web Application Security",
+      "canonical": {
+        "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+        "label": "web application security threats",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Web Application Security"
+        }
+      ],
+      "match": {
+        "original_term": "Web Application Security",
+        "canonical_id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+        "canonical_label": "web application security threats",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Web Application Security' directly matches the label 'web application security threats' and is also referred to as OWASP, which aligns with the description of threats and vulnerabilities in web applications.",
+        "candidates": [
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.785
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.752
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.472
+          }
+        ]
+      }
+    },
+    {
+      "term": "WPA Cracking Techniques",
+      "canonical": {
+        "id": "esco:557e9247-1a2d-4497-aa7f-0cded7768da1",
+        "label": "Aircrack (penetration testing tool)",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "WEP and WPA Cracking Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "WPA Cracking Techniques",
+        "canonical_id": "esco:557e9247-1a2d-4497-aa7f-0cded7768da1",
+        "canonical_label": "Aircrack (penetration testing tool)",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'WPA Cracking Techniques' directly relates to the skill 'Aircrack (penetration testing tool)' which specifically involves recovering WEP and WPA-PSK keys, matching the syllabus evidence.",
+        "candidates": [
+          {
+            "id": "esco:ab04dd50-0bdd-4d51-8c06-9405a81612f3",
+            "label": "hydrocarbon cracking techniques",
+            "score": 0.583
+          },
+          {
+            "id": "esco:530cb489-d900-46ab-9350-4d50ccd49eea",
+            "label": "welding techniques",
+            "score": 0.466
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.459
+          }
+        ]
+      }
+    },
+    {
+      "term": "defenses",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "defenses"
+        }
+      ],
+      "match": {
+        "original_term": "defenses",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'defenses' does not clearly match any of the provided taxonomy entries, which focus on network security, cybersecurity, data protection, or incident response, none of which directly align with 'defenses' in the context of the syllabus.",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.552
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.202
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.186
+          }
+        ]
+      }
+    },
+    {
+      "term": "digital forensics tools",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "digital forensics tools"
+        }
+      ],
+      "match": {
+        "original_term": "digital forensics tools",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.726,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.27",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.726
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.46
+          },
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.38
+          }
+        ]
+      }
+    },
+    {
+      "term": "EnCase",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "EnCase"
+        }
+      ],
+      "match": {
+        "original_term": "EnCase",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.188,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:vector-databases",
+            "label": "vector databases",
+            "score": 0.188
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.178
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.17
+          }
+        ]
+      }
+    },
+    {
+      "term": "encryption algorithms",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "encryption algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "encryption algorithms",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'encryption algorithms' directly maps to the skill 'cryptography', which is also called 'encryption' in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.651
+          },
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.618
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.482
+          }
+        ]
+      }
+    },
+    {
+      "term": "ethical considerations under Jordan's Cybersecurity Law",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "ethical considerations under Jordan's Cybersecurity Law"
+        }
+      ],
+      "match": {
+        "original_term": "ethical considerations under Jordan's Cybersecurity Law",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.267,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:4064716d-6714-48ea-95a0-ef81c2b31672",
+            "label": "mine safety legislation",
+            "score": 0.267
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.21
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "FTK",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "FTK"
+        }
+      ],
+      "match": {
+        "original_term": "FTK",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.165,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:pytorch",
+            "label": "PyTorch",
+            "score": 0.165
+          },
+          {
+            "id": "custom:figma",
+            "label": "Figma",
+            "score": 0.157
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.155
+          }
+        ]
+      }
+    },
+    {
+      "term": "intrusion detection systems like Snort",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "intrusion detection systems like Snort"
+        }
+      ],
+      "match": {
+        "original_term": "intrusion detection systems like Snort",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.224,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:fa7d581b-da0e-47cf-bae8-4d07f267a225",
+            "label": "infrared sensors",
+            "score": 0.224
+          },
+          {
+            "id": "esco:c199731b-1c17-47be-8f5d-296b9892a1b4",
+            "label": "smoke sensors",
+            "score": 0.22
+          },
+          {
+            "id": "esco:20b1d521-3d18-4b59-aee5-aaf296170c1b",
+            "label": "electronic signals intelligence",
+            "score": 0.206
+          }
+        ]
+      }
+    },
+    {
+      "term": "It also introduces secure coding practices",
+      "canonical": {
+        "id": "custom:secure-coding",
+        "label": "secure coding practices",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "It also introduces secure coding practices"
+        }
+      ],
+      "match": {
+        "original_term": "It also introduces secure coding practices",
+        "canonical_id": "custom:secure-coding",
+        "canonical_label": "secure coding practices",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.673,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.35",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.673
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.323
+          },
+          {
+            "id": "esco:4064716d-6714-48ea-95a0-ef81c2b31672",
+            "label": "mine safety legislation",
+            "score": 0.32
+          }
+        ]
+      }
+    },
+    {
+      "term": "malware analysis with IDA Pro",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "malware analysis with IDA Pro"
+        }
+      ],
+      "match": {
+        "original_term": "malware analysis with IDA Pro",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.379,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.379
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.353
+          },
+          {
+            "id": "esco:2d7bf28a-2487-4443-9115-47478080b1a4",
+            "label": "hazard analysis and critical control points",
+            "score": 0.291
+          }
+        ]
+      }
+    },
+    {
+      "term": "network scanning using Nmap",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "network scanning using Nmap"
+        }
+      ],
+      "match": {
+        "original_term": "network scanning using Nmap",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.388,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.388
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.381
+          },
+          {
+            "id": "esco:0da6cab1-0ee9-4391-a299-f71fbf21db56",
+            "label": "ICT network routing",
+            "score": 0.357
+          }
+        ]
+      }
+    },
+    {
+      "term": "OllyDbg",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "OllyDbg"
+        }
+      ],
+      "match": {
+        "original_term": "OllyDbg",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.152,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:mongodb",
+            "label": "MongoDB",
+            "score": 0.152
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.148
+          },
+          {
+            "id": "custom:pytorch",
+            "label": "PyTorch",
+            "score": 0.147
+          }
+        ]
+      }
+    },
+    {
+      "term": "penetration testing frameworks like Metasploit",
+      "canonical": {
+        "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+        "label": "penetration testing tool",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "penetration testing frameworks like Metasploit"
+        }
+      ],
+      "match": {
+        "original_term": "penetration testing frameworks like Metasploit",
+        "canonical_id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+        "canonical_label": "penetration testing tool",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'penetration testing frameworks like Metasploit' directly refers to a penetration testing tool, which is explicitly named in the second candidate.",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.581
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.567
+          },
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.486
+          }
+        ]
+      }
+    },
+    {
+      "term": "RSA",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "RSA"
+        }
+      ],
+      "match": {
+        "original_term": "RSA",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.193,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:rust",
+            "label": "Rust",
+            "score": 0.193
+          },
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.173
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.165
+          }
+        ]
+      }
+    },
+    {
+      "term": "SQL injection techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "SQL injection techniques"
+        }
+      ],
+      "match": {
+        "original_term": "SQL injection techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'SQL injection techniques', which is a security-related skill involving exploiting vulnerabilities in SQL databases. The closest entries are related to SQL or database management systems, but they do not capture the specific skill of SQL in",
+        "candidates": [
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.493
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.486
+          },
+          {
+            "id": "esco:0bb4b474-da3a-45ce-9de3-0c964d84e73f",
+            "label": "soldering techniques",
+            "score": 0.433
+          }
+        ]
+      }
+    },
+    {
+      "term": "vulnerability assessment with Nessus",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "vulnerability assessment with Nessus"
+        }
+      ],
+      "match": {
+        "original_term": "vulnerability assessment with Nessus",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.716,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.06",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.716
+          },
+          {
+            "id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+            "label": "Nessus",
+            "score": 0.652
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.376
+          }
+        ]
+      }
+    },
+    {
+      "term": "WPA cracking",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "WPA cracking"
+        }
+      ],
+      "match": {
+        "original_term": "WPA cracking",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.231,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:557e9247-1a2d-4497-aa7f-0cded7768da1",
+            "label": "Aircrack (penetration testing tool)",
+            "score": 0.231
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.224
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.218
+          }
+        ]
+      }
+    }
+  ]
+}

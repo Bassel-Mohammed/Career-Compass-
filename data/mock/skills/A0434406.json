@@ -1,0 +1,4516 @@
+{
+  "course_code": "A0434406",
+  "course_codes": [
+    "A0434406"
+  ],
+  "course_title": "AI for Cybersecurity",
+  "credit_hours": 3,
+  "plans": [
+    "CYBER"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "accepted": 43,
+      "no_match": 31,
+      "needs_review": 25
+    },
+    "by_method": {
+      "llm": 45,
+      "embedding_reranker": 43,
+      "exact_alias": 11
+    }
+  },
+  "total_skills": 99,
+  "skills": [
+    {
+      "term": "compliance with NIST SP 800-171",
+      "canonical": {
+        "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "label": "ICT security standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of ethical AI in cybersecurity, including bias mitigation and compliance with NIST SP 800-171."
+        },
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Compliance with NIST SP 800-171"
+        }
+      ],
+      "match": {
+        "original_term": "compliance with NIST SP 800-171",
+        "canonical_id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "canonical_label": "ICT security standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'compliance with NIST SP 800-171' directly relates to ICT security standards and compliance, which is explicitly covered by the 'ICT security standards' entry.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.453
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.367
+          },
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.207
+          }
+        ]
+      }
+    },
+    {
+      "term": "Darktrace",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and functionality of AI-driven cybersecurity tools like IBM QRadar and Darktrace."
+        },
+        {
+          "source": "description",
+          "text": "Darktrace"
+        }
+      ],
+      "match": {
+        "original_term": "Darktrace",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.221,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:8fa510d0-a8a6-4932-a361-00f8442cfe23",
+            "label": "Wireshark",
+            "score": 0.221
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.2
+          },
+          {
+            "id": "esco:82313e12-9d39-47d1-b7c9-78bbd6bb50e2",
+            "label": "CAE software",
+            "score": 0.193
+          }
+        ]
+      }
+    },
+    {
+      "term": "ELK Stack",
+      "canonical": {
+        "id": "custom:monitoring-observability",
+        "label": "monitoring and observability",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement AI-based incident response workflows using tools like Splunk and ELK Stack for automated threat mitigation."
+        },
+        {
+          "source": "description",
+          "text": "ELK Stack"
+        }
+      ],
+      "match": {
+        "original_term": "ELK Stack",
+        "canonical_id": "custom:monitoring-observability",
+        "canonical_label": "monitoring and observability",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "natural language processing",
+      "canonical": {
+        "id": "custom:natural-language-processing",
+        "label": "natural language processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key AI concepts and their applications in cybersecurity, including machine learning models, neural networks, and natural language processing."
+        },
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Natural Language Processing for Cybersecurity"
+        }
+      ],
+      "match": {
+        "original_term": "natural language processing",
+        "canonical_id": "custom:natural-language-processing",
+        "canonical_label": "natural language processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Random Forests",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply AI algorithms such as Random Forests and CNNs to real-world cybersecurity datasets for threat detection and classification."
+        },
+        {
+          "source": "description",
+          "text": "Random Forests"
+        }
+      ],
+      "match": {
+        "original_term": "Random Forests",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.239,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.239
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.21
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.207
+          }
+        ]
+      }
+    },
+    {
+      "term": "threat detection",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply AI algorithms such as Random Forests and CNNs to real-world cybersecurity datasets for threat detection and classification."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Supervised Learning for Threat Detection"
+        }
+      ],
+      "match": {
+        "original_term": "threat detection",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "AI algorithms",
+      "canonical": {
+        "id": "custom:artificial-intelligence",
+        "label": "artificial intelligence",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply AI algorithms such as Random Forests and CNNs to real-world cybersecurity datasets for threat detection and classification."
+        }
+      ],
+      "match": {
+        "original_term": "AI algorithms",
+        "canonical_id": "custom:artificial-intelligence",
+        "canonical_label": "artificial intelligence",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'AI algorithms' directly refers to the broader category of artificial intelligence, which includes algorithms like Random Forests and CNNs mentioned in the syllabus.",
+        "candidates": [
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.56
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.51
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.507
+          }
+        ]
+      }
+    },
+    {
+      "term": "applications in cybersecurity",
+      "canonical": {
+        "id": "custom:cybersecurity",
+        "label": "cybersecurity",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key AI concepts and their applications in cybersecurity, including machine learning models, neural networks, and natural language processing."
+        }
+      ],
+      "match": {
+        "original_term": "applications in cybersecurity",
+        "canonical_id": "custom:cybersecurity",
+        "canonical_label": "cybersecurity",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.65,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.65
+          },
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.474
+          },
+          {
+            "id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+            "label": "computer technology",
+            "score": 0.308
+          }
+        ]
+      }
+    },
+    {
+      "term": "architecture",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the architecture and functionality of AI-driven cybersecurity tools like IBM QRadar and Darktrace."
+        }
+      ],
+      "match": {
+        "original_term": "architecture",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'architecture' in the context of AI-driven cybersecurity tools does not match any of the provided taxonomy entries, which focus on cloud computing, robotics, hardware, or specific tools like Wireshark and BlackArch.",
+        "candidates": [
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.651
+          },
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.649
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.629
+          }
+        ]
+      }
+    },
+    {
+      "term": "automated threat mitigation",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement AI-based incident response workflows using tools like Splunk and ELK Stack for automated threat mitigation."
+        }
+      ],
+      "match": {
+        "original_term": "automated threat mitigation",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'automated threat mitigation' aligns with 'security incident response' as both involve detecting and responding to security threats, with the added automation aspect matching the use of tools like Splunk and ELK Stack.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.431
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.354
+          },
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.273
+          }
+        ]
+      }
+    },
+    {
+      "term": "bias mitigation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of ethical AI in cybersecurity, including bias mitigation and compliance with NIST SP 800-171."
+        }
+      ],
+      "match": {
+        "original_term": "bias mitigation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.244,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.244
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.229
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.228
+          }
+        ]
+      }
+    },
+    {
+      "term": "classification",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply AI algorithms such as Random Forests and CNNs to real-world cybersecurity datasets for threat detection and classification."
+        }
+      ],
+      "match": {
+        "original_term": "classification",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.256,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.256
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.246
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.236
+          }
+        ]
+      }
+    },
+    {
+      "term": "CNNs to real-world cybersecurity datasets",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply AI algorithms such as Random Forests and CNNs to real-world cybersecurity datasets for threat detection and classification."
+        }
+      ],
+      "match": {
+        "original_term": "CNNs to real-world cybersecurity datasets",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.15,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'CNNs to real-world cybersecurity datasets' involves applying CNNs (a type of deep learning) to cybersecurity tasks, which is not directly captured by any of the provided taxonomy entries. The closest is 'deep learning' (id: custom:deep-learning), but it lacks the cybersecurity context. N",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.47
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.262
+          },
+          {
+            "id": "esco:902fb91c-3113-4004-9b4f-79aa86b638b7",
+            "label": "web application security threats",
+            "score": 0.255
+          }
+        ]
+      }
+    },
+    {
+      "term": "machine learning models",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key AI concepts and their applications in cybersecurity, including machine learning models, neural networks, and natural language processing."
+        }
+      ],
+      "match": {
+        "original_term": "machine learning models",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.739,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.27",
+        "candidates": [
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.739
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.467
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.461
+          }
+        ]
+      }
+    },
+    {
+      "term": "neural networks",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define key AI concepts and their applications in cybersecurity, including machine learning models, neural networks, and natural language processing."
+        }
+      ],
+      "match": {
+        "original_term": "neural networks",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "principles of ethical AI in cybersecurity",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of ethical AI in cybersecurity, including bias mitigation and compliance with NIST SP 800-171."
+        }
+      ],
+      "match": {
+        "original_term": "principles of ethical AI in cybersecurity",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically address the principles of ethical AI in cybersecurity, including bias mitigation and compliance with NIST SP 800-171.",
+        "candidates": [
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.557
+          },
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.479
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.377
+          }
+        ]
+      }
+    },
+    {
+      "term": "Incident Response",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "SOAR Playbook Creation for Incident Response"
+        },
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "AI for Incident Response"
+        }
+      ],
+      "match": {
+        "original_term": "Incident Response",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Intrusion Detection",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Deep Learning for Intrusion Detection"
+        },
+        {
+          "source": "description",
+          "text": "intrusion detection"
+        }
+      ],
+      "match": {
+        "original_term": "Intrusion Detection",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Intrusion Detection' is directly related to 'security incident response' as it is part of the also called list for that entry, indicating it is a synonym or closely related term.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.501
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.489
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.33
+          }
+        ]
+      }
+    },
+    {
+      "term": "Malware Metadata",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Topic Modeling for Malware Metadata"
+        },
+        {
+          "source": "description",
+          "text": "malware metadata"
+        }
+      ],
+      "match": {
+        "original_term": "Malware Metadata",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.276,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.276
+          },
+          {
+            "id": "esco:50597e96-9b6a-4736-ac79-dd80f36c0269",
+            "label": "Metasploit",
+            "score": 0.225
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.22
+          }
+        ]
+      }
+    },
+    {
+      "term": "Automated Forensic Analysis Using AI Tools",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Automated Forensic Analysis Using AI Tools"
+        }
+      ],
+      "match": {
+        "original_term": "Automated Forensic Analysis Using AI Tools",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.374,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.374
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.327
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.325
+          }
+        ]
+      }
+    },
+    {
+      "term": "Automated Vulnerability Scanning with AI Tools",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Automated Vulnerability Scanning with AI Tools"
+        }
+      ],
+      "match": {
+        "original_term": "Automated Vulnerability Scanning with AI Tools",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.381,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.381
+          },
+          {
+            "id": "esco:2891f0dc-4426-4a9a-8fbb-db4fb0a66f91",
+            "label": "Nessus",
+            "score": 0.377
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.367
+          }
+        ]
+      }
+    },
+    {
+      "term": "Bias Analysis in AI Cybersecurity Models",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Bias Analysis in AI Cybersecurity Models"
+        }
+      ],
+      "match": {
+        "original_term": "Bias Analysis in AI Cybersecurity Models",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically address 'Bias Analysis in AI Cybersecurity Models'. The closest entries are related to cybersecurity, risk assessment, and performance analysis, but none directly match the specific skill described.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.461
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.307
+          },
+          {
+            "id": "esco:83218cac-3599-417e-93d2-26013cdccd98",
+            "label": "service-oriented modelling",
+            "score": 0.305
+          }
+        ]
+      }
+    },
+    {
+      "term": "CNN Implementation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "CNN Implementation for Log Classification"
+        }
+      ],
+      "match": {
+        "original_term": "CNN Implementation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.22,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.22
+          },
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.216
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "Log Classification",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "CNN Implementation for Log Classification"
+        }
+      ],
+      "match": {
+        "original_term": "Log Classification",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.225,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.225
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.224
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "ML Model Training on Malware Dataset",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 2,
+          "text": "Basic ML Model Training on Malware Dataset"
+        }
+      ],
+      "match": {
+        "original_term": "ML Model Training on Malware Dataset",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.397,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.397
+          },
+          {
+            "id": "esco:a4d336a6-9ffd-402a-91cc-f359716ba4e0",
+            "label": "ML (computer programming)",
+            "score": 0.395
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.339
+          }
+        ]
+      }
+    },
+    {
+      "term": "NLP Analysis of Phishing Email Corpus",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "NLP Analysis of Phishing Email Corpus"
+        }
+      ],
+      "match": {
+        "original_term": "NLP Analysis of Phishing Email Corpus",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.391,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.391
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.325
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "term": "Post-Quantum Cryptography Implementation",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Post-Quantum Cryptography Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "Post-Quantum Cryptography Implementation",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Post-Quantum Cryptography Implementation' is a specific application of cryptographic techniques, which aligns directly with the broader 'cryptography' skill in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.492
+          },
+          {
+            "id": "esco:d32db06e-bd06-4415-a7ab-1b0ee68caa9a",
+            "label": "ICT encryption",
+            "score": 0.369
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "QRadar Dashboard Configuration",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "QRadar Dashboard Configuration and Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "QRadar Dashboard Configuration",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.379,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b3a186be-5f1b-45d3-a468-41183e9780f3",
+            "label": "configuration of the tote room hardware",
+            "score": 0.379
+          },
+          {
+            "id": "esco:6c2dab43-b56a-4879-ae5f-75ae50e193c3",
+            "label": "dredging consoles",
+            "score": 0.31
+          },
+          {
+            "id": "esco:117373c8-f04b-4fff-8683-aebe36edac81",
+            "label": "hardware platforms",
+            "score": 0.282
+          }
+        ]
+      }
+    },
+    {
+      "term": "Real-Time Threat Detection Pipeline Setup",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Real-Time Threat Detection Pipeline Setup"
+        }
+      ],
+      "match": {
+        "original_term": "Real-Time Threat Detection Pipeline Setup",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.322,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.322
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.297
+          },
+          {
+            "id": "esco:6c4b5031-2eaf-449e-af88-8304a66e4eb5",
+            "label": "fuel distribution systems",
+            "score": 0.194
+          }
+        ]
+      }
+    },
+    {
+      "term": "SOAR Playbook Creation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "SOAR Playbook Creation for Incident Response"
+        }
+      ],
+      "match": {
+        "original_term": "SOAR Playbook Creation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.34,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.34
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.228
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "UEBA Model Development",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "UEBA Model Development for User Behavior Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "UEBA Model Development",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'UEBA Model Development' refers to the creation of models for User Behavior Analysis, which is not covered by any of the provided taxonomy entries. None of the candidates accurately represent the specific skill described.",
+        "candidates": [
+          {
+            "id": "esco:00c04e40-35ea-4ed1-824c-82f936c8f876",
+            "label": "Incremental development",
+            "score": 0.491
+          },
+          {
+            "id": "esco:6a876489-7ad8-4a13-b09c-c9b8e97a302e",
+            "label": "Waterfall development",
+            "score": 0.491
+          },
+          {
+            "id": "esco:33d49d4f-31ec-473f-9b8a-b555aa5116bb",
+            "label": "Iterative development",
+            "score": 0.479
+          }
+        ]
+      }
+    },
+    {
+      "term": "User Behavior Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "UEBA Model Development for User Behavior Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "User Behavior Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'User Behavior Analysis' is not directly matched by any of the taxonomy entries, as none specifically refer to analyzing user behavior in the context of data or systems.",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.444
+          },
+          {
+            "id": "custom:user-research",
+            "label": "user research",
+            "score": 0.407
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.357
+          }
+        ]
+      }
+    },
+    {
+      "term": "Zero-Day Detection using Anomaly Detection Models",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Zero-Day Detection using Anomaly Detection Models"
+        }
+      ],
+      "match": {
+        "original_term": "Zero-Day Detection using Anomaly Detection Models",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.343,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.343
+          },
+          {
+            "id": "esco:286d0e0d-48e9-4210-b110-b1fbf04c35f1",
+            "label": "radars",
+            "score": 0.327
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.303
+          }
+        ]
+      }
+    },
+    {
+      "term": "Advanced Threat Hunting with AI",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Advanced Threat Hunting with AI"
+        }
+      ],
+      "match": {
+        "original_term": "Advanced Threat Hunting with AI",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries accurately represent the skill 'Advanced Threat Hunting with AI'. The closest entries are related to artificial intelligence or threat assessment, but none specifically capture the combination of advanced threat hunting and AI.",
+        "candidates": [
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.415
+          },
+          {
+            "id": "esco:ce7c9e97-40e4-497b-a85d-72573a8b9991",
+            "label": "hunting truck detector",
+            "score": 0.325
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.316
+          }
+        ]
+      }
+    },
+    {
+      "term": "AI Ethics",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "AI Ethics and Compliance"
+        }
+      ],
+      "match": {
+        "original_term": "AI Ethics",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically address 'AI Ethics' or its related concepts such as compliance, which are central to the extracted phrase.",
+        "candidates": [
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.579
+          },
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.42
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.279
+          }
+        ]
+      }
+    },
+    {
+      "term": "AI in Cybersecurity",
+      "canonical": {
+        "id": "custom:cybersecurity",
+        "label": "cybersecurity",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to AI in Cybersecurity"
+        }
+      ],
+      "match": {
+        "original_term": "AI in Cybersecurity",
+        "canonical_id": "custom:cybersecurity",
+        "canonical_label": "cybersecurity",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.69,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.15",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.69
+          },
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.539
+          },
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.387
+          }
+        ]
+      }
+    },
+    {
+      "term": "AI in Cybersecurity Incident Simulation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "AI in Cybersecurity Incident Simulation"
+        }
+      ],
+      "match": {
+        "original_term": "AI in Cybersecurity Incident Simulation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'AI in Cybersecurity Incident Simulation' combines elements of AI, cybersecurity, and incident simulation, but none of the provided taxonomy entries precisely capture this specific skill. The closest entries are 'cybersecurity' and 'security incident response', but neither explicitly incl",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.511
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.421
+          },
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.413
+          }
+        ]
+      }
+    },
+    {
+      "term": "AI-Driven Cybersecurity System Design",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "AI-Driven Cybersecurity System Design"
+        }
+      ],
+      "match": {
+        "original_term": "AI-Driven Cybersecurity System Design",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'AI-Driven Cybersecurity System Design' refers to a specific skill combining AI and cybersecurity system design, but none of the provided taxonomy entries capture this exact skill.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.486
+          },
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.392
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.355
+          }
+        ]
+      }
+    },
+    {
+      "term": "AI-Driven Security Tools Overview",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "AI-Driven Security Tools Overview"
+        }
+      ],
+      "match": {
+        "original_term": "AI-Driven Security Tools Overview",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.38,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.38
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.356
+          },
+          {
+            "id": "esco:f5084a43-42c9-4bbb-b47c-b3029cf8381d",
+            "label": "machine tools",
+            "score": 0.327
+          }
+        ]
+      }
+    },
+    {
+      "term": "AI-Driven Threat Intelligence Platforms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "AI-Driven Threat Intelligence Platforms"
+        }
+      ],
+      "match": {
+        "original_term": "AI-Driven Threat Intelligence Platforms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically match the skill 'AI-Driven Threat Intelligence Platforms'. The closest entries are related to artificial intelligence or risk assessment, but none capture the specific combination of AI-driven threat intelligence platforms.",
+        "candidates": [
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.452
+          },
+          {
+            "id": "esco:e465a154-93f7-4973-9ce1-31659fe16dd2",
+            "label": "principles of artificial intelligence",
+            "score": 0.362
+          },
+          {
+            "id": "esco:778ca7ad-6c5d-4868-9b96-a7777dca799c",
+            "label": "ICT help platforms",
+            "score": 0.342
+          }
+        ]
+      }
+    },
+    {
+      "term": "AI-Driven Vulnerability Assessment",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "AI-Driven Vulnerability Assessment"
+        }
+      ],
+      "match": {
+        "original_term": "AI-Driven Vulnerability Assessment",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.663,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.24",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.663
+          },
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.419
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.363
+          }
+        ]
+      }
+    },
+    {
+      "term": "Anomaly Detection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Unsupervised Learning for Anomaly Detection"
+        }
+      ],
+      "match": {
+        "original_term": "Anomaly Detection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'Anomaly Detection' or its related concepts. The closest is 'software anomalies' (esco:438ff259-d086-4004-acda-1ec3e1631bc6), but it focuses on software system performance rather than the machine learning technique of anomaly detection.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.493
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.259
+          },
+          {
+            "id": "esco:438ff259-d086-4004-acda-1ec3e1631bc6",
+            "label": "software anomalies",
+            "score": 0.232
+          }
+        ]
+      }
+    },
+    {
+      "term": "Automated Log Analysis",
+      "canonical": {
+        "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "label": "computer forensics",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Automated Log Analysis for Forensic Investigations"
+        }
+      ],
+      "match": {
+        "original_term": "Automated Log Analysis",
+        "canonical_id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "canonical_label": "computer forensics",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Automated Log Analysis' is directly related to 'computer forensics' as both involve analyzing digital data for investigative purposes.",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.438
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.427
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.427
+          }
+        ]
+      }
+    },
+    {
+      "term": "Automated Penetration Testing",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Automated Penetration Testing"
+        }
+      ],
+      "match": {
+        "original_term": "Automated Penetration Testing",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.724,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.07",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.724
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.658
+          },
+          {
+            "id": "esco:de586dcf-d7e5-4340-bf5b-d59026f1b436",
+            "label": "penetration testing tool",
+            "score": 0.586
+          }
+        ]
+      }
+    },
+    {
+      "term": "Automated Playbook Development",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Automated Playbook Development"
+        }
+      ],
+      "match": {
+        "original_term": "Automated Playbook Development",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Automated Playbook Development'. The closest entries relate to test automation or development methodologies, but none specifically refer to the creation of automated playbooks.",
+        "candidates": [
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.432
+          },
+          {
+            "id": "custom:android-development",
+            "label": "Android development",
+            "score": 0.422
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.42
+          }
+        ]
+      }
+    },
+    {
+      "term": "Behavioral Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Behavioral Analysis and User Entity Behavior Analytics (UEBA)"
+        }
+      ],
+      "match": {
+        "original_term": "Behavioral Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Behavioral Analysis' does not clearly match any of the provided taxonomy entries, which focus on data analysis, web analytics, or user research, but not specifically on behavioral analysis as a standalone skill.",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.528
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.466
+          },
+          {
+            "id": "esco:1605025e-a179-421f-8f35-5b07d182a6b2",
+            "label": "web analytics",
+            "score": 0.293
+          }
+        ]
+      }
+    },
+    {
+      "term": "Bias Mitigation Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Bias Mitigation Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Bias Mitigation Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Bias Mitigation Techniques'. The shortlisted candidates are all related to metalworking, cutting, or other technical processes, not bias mitigation.",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.429
+          },
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.41
+          },
+          {
+            "id": "esco:ebd90bfe-ab0f-4155-a77c-3de9267b27a1",
+            "label": "metal smoothing technologies",
+            "score": 0.402
+          }
+        ]
+      }
+    },
+    {
+      "term": "Clustering Algorithms",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Clustering Algorithms for Network Traffic Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Clustering Algorithms",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Clustering Algorithms are a type of machine learning algorithm used for data analysis, which aligns directly with the definition of machine learning as algorithms that improve performance from data.",
+        "candidates": [
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.517
+          },
+          {
+            "id": "esco:1605025e-a179-421f-8f35-5b07d182a6b2",
+            "label": "web analytics",
+            "score": 0.26
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.248
+          }
+        ]
+      }
+    },
+    {
+      "term": "Compliance",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "AI Ethics and Compliance"
+        }
+      ],
+      "match": {
+        "original_term": "Compliance",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Compliance' is explicitly listed in the 'risk-management' entry's 'also called' field, indicating it directly matches the skill.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.869
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.544
+          },
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.26
+          }
+        ]
+      }
+    },
+    {
+      "term": "Convolutional Neural Networks",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Convolutional Neural Networks for Log Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Convolutional Neural Networks",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.709,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.43",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.709
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.281
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.278
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cybersecurity",
+      "canonical": {
+        "id": "custom:cybersecurity",
+        "label": "cybersecurity",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Natural Language Processing for Cybersecurity"
+        }
+      ],
+      "match": {
+        "original_term": "Cybersecurity",
+        "canonical_id": "custom:cybersecurity",
+        "canonical_label": "cybersecurity",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Darktrace Architecture",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "IBM QRadar and Darktrace Architecture"
+        }
+      ],
+      "match": {
+        "original_term": "Darktrace Architecture",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Darktrace Architecture' does not match any of the provided taxonomy entries, as none of the labels or descriptions refer to Darktrace or its architecture.",
+        "candidates": [
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.49
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.28
+          },
+          {
+            "id": "esco:a4e31589-3632-4926-91d0-15b889c90b9b",
+            "label": "IBM WebSphere",
+            "score": 0.232
+          }
+        ]
+      }
+    },
+    {
+      "term": "Deep Learning",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Deep Learning for Intrusion Detection"
+        }
+      ],
+      "match": {
+        "original_term": "Deep Learning",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Digital Forensics with AI",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Digital Forensics with AI"
+        }
+      ],
+      "match": {
+        "original_term": "Digital Forensics with AI",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.708,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.25",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.708
+          },
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.462
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.443
+          }
+        ]
+      }
+    },
+    {
+      "term": "Dimensionality Reduction Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Dimensionality Reduction Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Dimensionality Reduction Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.389,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.389
+          },
+          {
+            "id": "esco:f26fa635-1f5e-469c-a1fc-3dea4ab39fc1",
+            "label": "metal eroding technology",
+            "score": 0.225
+          },
+          {
+            "id": "esco:f12d412a-04e3-49a8-a4f6-2e32a67c12a2",
+            "label": "metal drawing processes",
+            "score": 0.221
+          }
+        ]
+      }
+    },
+    {
+      "term": "Dynamic Threat Intelligence Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Dynamic Threat Intelligence Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Dynamic Threat Intelligence Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.385,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.385
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.354
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.344
+          }
+        ]
+      }
+    },
+    {
+      "term": "Emerging Threats",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Machine Learning for Emerging Threats"
+        }
+      ],
+      "match": {
+        "original_term": "Emerging Threats",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.325,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.325
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.317
+          },
+          {
+            "id": "esco:42cb7669-c371-4903-9c0b-13db67b2e4bb",
+            "label": "emergent technologies",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "Entity Relationship Modeling",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Entity Relationship Modeling"
+        }
+      ],
+      "match": {
+        "original_term": "Entity Relationship Modeling",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.712,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.47",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.712
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.238
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "Ethical AI in Cybersecurity",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Ethical AI in Cybersecurity"
+        }
+      ],
+      "match": {
+        "original_term": "Ethical AI in Cybersecurity",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically address the concept of 'Ethical AI in Cybersecurity'. The closest entries are 'cybersecurity' and 'artificial intelligence', but neither captures the ethical dimension of AI within cybersecurity.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.561
+          },
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.452
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "term": "Event Correlation in SIEM Platforms",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Event Correlation in SIEM Platforms"
+        }
+      ],
+      "match": {
+        "original_term": "Event Correlation in SIEM Platforms",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Event Correlation in SIEM Platforms' is directly related to security incident response, as SIEM (Security Information and Event Management) platforms are central to threat detection and incident response processes.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.438
+          },
+          {
+            "id": "custom:devops",
+            "label": "DevOps practices",
+            "score": 0.345
+          },
+          {
+            "id": "esco:778ca7ad-6c5d-4868-9b96-a7777dca799c",
+            "label": "ICT help platforms",
+            "score": 0.342
+          }
+        ]
+      }
+    },
+    {
+      "term": "Feature Engineering in Cybersecurity Datasets",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Feature Engineering in Cybersecurity Datasets"
+        }
+      ],
+      "match": {
+        "original_term": "Feature Engineering in Cybersecurity Datasets",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Feature Engineering in Cybersecurity Datasets'. The closest match is 'custom:cybersecurity', but it is too broad and does not capture the specific skill of feature engineering in datasets.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.493
+          },
+          {
+            "id": "esco:89f6560b-2194-45c9-9ece-d33049a73eef",
+            "label": "computer engineering",
+            "score": 0.374
+          },
+          {
+            "id": "esco:4107d971-baf4-4118-a217-4025810d6256",
+            "label": "micromechatronic engineering",
+            "score": 0.365
+          }
+        ]
+      }
+    },
+    {
+      "term": "Forensic Investigations",
+      "canonical": {
+        "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "label": "computer forensics",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Automated Log Analysis for Forensic Investigations"
+        }
+      ],
+      "match": {
+        "original_term": "Forensic Investigations",
+        "canonical_id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+        "canonical_label": "computer forensics",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Forensic Investigations' directly relates to the process of examining and recovering digital data for legal evidence, which matches the description of 'computer forensics' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.45
+          },
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.265
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.242
+          }
+        ]
+      }
+    },
+    {
+      "term": "IBM QRadar",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "IBM QRadar and Darktrace Architecture"
+        }
+      ],
+      "match": {
+        "original_term": "IBM QRadar",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the extracted phrase 'IBM QRadar' in terms of skill or specific technology.",
+        "candidates": [
+          {
+            "id": "esco:a4e31589-3632-4926-91d0-15b889c90b9b",
+            "label": "IBM WebSphere",
+            "score": 0.411
+          },
+          {
+            "id": "esco:81b082fb-9a00-4660-976a-10c985979100",
+            "label": "IBM InfoSphere Information Server",
+            "score": 0.326
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "Integration with SIEM Systems",
+      "canonical": {
+        "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+        "label": "ICT system integration",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Integration with SIEM Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Integration with SIEM Systems",
+        "canonical_id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+        "canonical_label": "ICT system integration",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.639,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.15",
+        "candidates": [
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.639
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.493
+          },
+          {
+            "id": "esco:0f9958d2-f700-4f62-b90b-a5873cb5ae4c",
+            "label": "systems thinking",
+            "score": 0.418
+          }
+        ]
+      }
+    },
+    {
+      "term": "Integration with SOAR Platforms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Integration with SOAR Platforms"
+        }
+      ],
+      "match": {
+        "original_term": "Integration with SOAR Platforms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Integration with SOAR Platforms'.",
+        "candidates": [
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.425
+          },
+          {
+            "id": "custom:devops",
+            "label": "DevOps practices",
+            "score": 0.387
+          },
+          {
+            "id": "esco:778ca7ad-6c5d-4868-9b96-a7777dca799c",
+            "label": "ICT help platforms",
+            "score": 0.384
+          }
+        ]
+      }
+    },
+    {
+      "term": "Log Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Convolutional Neural Networks for Log Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Log Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Log Analysis' refers to analyzing log data, which is not covered by any of the provided taxonomy entries. None of the candidates directly relate to log analysis.",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.515
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.497
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.488
+          }
+        ]
+      }
+    },
+    {
+      "term": "Machine Learning",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Machine Learning for Emerging Threats"
+        }
+      ],
+      "match": {
+        "original_term": "Machine Learning",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Network Traffic Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Clustering Algorithms for Network Traffic Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Network Traffic Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Network Traffic Analysis'. The closest entries are related to networking, security, or simulation, but none specifically address the analysis of network traffic.",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.481
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.43
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.417
+          }
+        ]
+      }
+    },
+    {
+      "term": "Overview of Machine Learning in Security",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Overview of Machine Learning in Security"
+        }
+      ],
+      "match": {
+        "original_term": "Overview of Machine Learning in Security",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.628,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.25",
+        "candidates": [
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.628
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.373
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.368
+          }
+        ]
+      }
+    },
+    {
+      "term": "Post-Quantum Cryptography",
+      "canonical": {
+        "id": "custom:cryptography",
+        "label": "cryptography",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Post-Quantum Cryptography"
+        }
+      ],
+      "match": {
+        "original_term": "Post-Quantum Cryptography",
+        "canonical_id": "custom:cryptography",
+        "canonical_label": "cryptography",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Post-Quantum Cryptography' is a specific type of cryptography, and the taxonomy entry 'cryptography' includes related terms like encryption and cryptographic protocols, which aligns with the skill described.",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.58
+          },
+          {
+            "id": "esco:0b472dad-1a3f-456e-99ba-de5ffe8665c2",
+            "label": "non-ferrous metal processing",
+            "score": 0.172
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.167
+          }
+        ]
+      }
+    },
+    {
+      "term": "PyTorch",
+      "canonical": {
+        "id": "custom:pytorch",
+        "label": "PyTorch",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Introduction to TensorFlow and PyTorch"
+        }
+      ],
+      "match": {
+        "original_term": "PyTorch",
+        "canonical_id": "custom:pytorch",
+        "canonical_label": "PyTorch",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Quantum Computing in Cybersecurity",
+      "canonical": {
+        "id": "custom:cybersecurity",
+        "label": "cybersecurity",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "AI and Quantum Computing in Cybersecurity"
+        }
+      ],
+      "match": {
+        "original_term": "Quantum Computing in Cybersecurity",
+        "canonical_id": "custom:cybersecurity",
+        "canonical_label": "cybersecurity",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Quantum Computing in Cybersecurity' is directly related to cybersecurity, and the taxonomy entry 'cybersecurity' encompasses protecting systems and data from unauthorized access and attack, which aligns with the syllabus topic.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.557
+          },
+          {
+            "id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+            "label": "computer technology",
+            "score": 0.474
+          },
+          {
+            "id": "custom:cloud-computing",
+            "label": "cloud computing",
+            "score": 0.405
+          }
+        ]
+      }
+    },
+    {
+      "term": "Real-Time Threat Detection with AI",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Real-Time Threat Detection with AI"
+        }
+      ],
+      "match": {
+        "original_term": "Real-Time Threat Detection with AI",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Real-Time Threat Detection with AI' directly aligns with 'security incident response' as it involves detecting threats in real-time, which is a core part of incident response.",
+        "candidates": [
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.587
+          },
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.392
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.367
+          }
+        ]
+      }
+    },
+    {
+      "term": "Recurrent Neural Networks",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Recurrent Neural Networks for Time-Series Data"
+        }
+      ],
+      "match": {
+        "original_term": "Recurrent Neural Networks",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.71,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.27",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.71
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.443
+          },
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.225
+          }
+        ]
+      }
+    },
+    {
+      "term": "Risk Scoring Models",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Risk Scoring Models"
+        }
+      ],
+      "match": {
+        "original_term": "Risk Scoring Models",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.381,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.381
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.376
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.345
+          }
+        ]
+      }
+    },
+    {
+      "term": "Sentiment Analysis of Phishing Emails",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Sentiment Analysis of Phishing Emails"
+        }
+      ],
+      "match": {
+        "original_term": "Sentiment Analysis of Phishing Emails",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.201,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.201
+          },
+          {
+            "id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+            "label": "levels of software testing",
+            "score": 0.192
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.189
+          }
+        ]
+      }
+    },
+    {
+      "term": "Stream Processing with Apache Kafka",
+      "canonical": {
+        "id": "custom:message-queues",
+        "label": "message queues",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Stream Processing with Apache Kafka"
+        }
+      ],
+      "match": {
+        "original_term": "Stream Processing with Apache Kafka",
+        "canonical_id": "custom:message-queues",
+        "canonical_label": "message queues",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Stream Processing with Apache Kafka' directly refers to message queues, specifically Apache Kafka, which is explicitly listed in the also called section of the candidate.",
+        "candidates": [
+          {
+            "id": "custom:message-queues",
+            "label": "message queues",
+            "score": 0.615
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.372
+          },
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.366
+          }
+        ]
+      }
+    },
+    {
+      "term": "Supervised Learning",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Supervised Learning for Threat Detection"
+        }
+      ],
+      "match": {
+        "original_term": "Supervised Learning",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Supervised Learning is a subset of machine learning, and the phrase 'Supervised Learning for Threat Detection' clearly refers to a machine learning technique, making 'machine learning' the most specific matching skill in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.494
+          },
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.487
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.474
+          }
+        ]
+      }
+    },
+    {
+      "term": "TensorFlow",
+      "canonical": {
+        "id": "custom:tensorflow",
+        "label": "TensorFlow",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Introduction to TensorFlow and PyTorch"
+        }
+      ],
+      "match": {
+        "original_term": "TensorFlow",
+        "canonical_id": "custom:tensorflow",
+        "canonical_label": "TensorFlow",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Time-Series Data",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Recurrent Neural Networks for Time-Series Data"
+        }
+      ],
+      "match": {
+        "original_term": "Time-Series Data",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Time-Series Data' refers to a type of data, not a skill. None of the taxonomy entries specifically match this concept as a skill.",
+        "candidates": [
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.415
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.381
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.377
+          }
+        ]
+      }
+    },
+    {
+      "term": "Topic Modeling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Topic Modeling for Malware Metadata"
+        }
+      ],
+      "match": {
+        "original_term": "Topic Modeling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Topic Modeling' as described in the syllabus. The closest entries are related to data modeling or scientific modeling, but they do not specifically refer to topic modeling as a skill.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.495
+          },
+          {
+            "id": "esco:cb304338-3a44-4b6f-802b-dfc6c64de109",
+            "label": "scientific modelling",
+            "score": 0.279
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.235
+          }
+        ]
+      }
+    },
+    {
+      "term": "UEBA",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Behavioral Analysis and User Entity Behavior Analytics (UEBA)"
+        }
+      ],
+      "match": {
+        "original_term": "UEBA",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.242,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:1605025e-a179-421f-8f35-5b07d182a6b2",
+            "label": "web analytics",
+            "score": 0.242
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.231
+          },
+          {
+            "id": "esco:95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+            "label": "usability engineering",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "Unsupervised Learning",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Unsupervised Learning for Anomaly Detection"
+        }
+      ],
+      "match": {
+        "original_term": "Unsupervised Learning",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Unsupervised Learning is a subset of machine learning, and the phrase specifically refers to a type of machine learning algorithm, making it a direct match.",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.489
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.463
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.231
+          }
+        ]
+      }
+    },
+    {
+      "term": "User Entity Behavior Analytics",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Behavioral Analysis and User Entity Behavior Analytics (UEBA)"
+        }
+      ],
+      "match": {
+        "original_term": "User Entity Behavior Analytics",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'User Entity Behavior Analytics' is not clearly matched by any of the provided taxonomy entries, which focus on broader areas like data analysis, web analytics, or usability engineering, but none specifically address user entity behavior analytics.",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.547
+          },
+          {
+            "id": "esco:1605025e-a179-421f-8f35-5b07d182a6b2",
+            "label": "web analytics",
+            "score": 0.452
+          },
+          {
+            "id": "custom:user-research",
+            "label": "user research",
+            "score": 0.363
+          }
+        ]
+      }
+    },
+    {
+      "term": "Zero-Day Attack Detection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "AI for Zero-Day Attack Detection"
+        }
+      ],
+      "match": {
+        "original_term": "Zero-Day Attack Detection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.39,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.39
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.388
+          },
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.269
+          }
+        ]
+      }
+    },
+    {
+      "term": "AI-driven security tools like IBM QRadar",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "AI-driven security tools like IBM QRadar"
+        }
+      ],
+      "match": {
+        "original_term": "AI-driven security tools like IBM QRadar",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.29,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:82313e12-9d39-47d1-b7c9-78bbd6bb50e2",
+            "label": "CAE software",
+            "score": 0.29
+          },
+          {
+            "id": "esco:6014921e-1d25-4039-adc2-04852d61880e",
+            "label": "ICT debugging tools",
+            "score": 0.289
+          },
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.283
+          }
+        ]
+      }
+    },
+    {
+      "term": "analyzing phishing emails",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "analyzing phishing emails"
+        }
+      ],
+      "match": {
+        "original_term": "analyzing phishing emails",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.217,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.217
+          },
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.193
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.193
+          }
+        ]
+      }
+    },
+    {
+      "term": "Autoencoders",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Autoencoders"
+        }
+      ],
+      "match": {
+        "original_term": "Autoencoders",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.185,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:actuators",
+            "label": "actuators",
+            "score": 0.185
+          },
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.183
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.182
+          }
+        ]
+      }
+    },
+    {
+      "term": "deep learning methods like CNNs",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "deep learning methods like CNNs"
+        }
+      ],
+      "match": {
+        "original_term": "deep learning methods like CNNs",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'deep learning methods like CNNs' directly refers to deep learning, which is explicitly named in the taxonomy entry 'custom:deep-learning'.",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.605
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.358
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.343
+          }
+        ]
+      }
+    },
+    {
+      "term": "detecting",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "detecting"
+        }
+      ],
+      "match": {
+        "original_term": "detecting",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.301,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.301
+          },
+          {
+            "id": "esco:ce7c9e97-40e4-497b-a85d-72573a8b9991",
+            "label": "hunting truck detector",
+            "score": 0.284
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.28
+          }
+        ]
+      }
+    },
+    {
+      "term": "mitigating cyber threats",
+      "canonical": {
+        "id": "custom:incident-response",
+        "label": "security incident response",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "mitigating cyber threats"
+        }
+      ],
+      "match": {
+        "original_term": "mitigating cyber threats",
+        "canonical_id": "custom:incident-response",
+        "canonical_label": "security incident response",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'mitigating cyber threats' directly aligns with the description of 'security incident response' which involves detecting, containing, and recovering from security incidents.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.414
+          },
+          {
+            "id": "custom:incident-response",
+            "label": "security incident response",
+            "score": 0.4
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.361
+          }
+        ]
+      }
+    },
+    {
+      "term": "NIST SP 800-171",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "NIST SP 800-171"
+        }
+      ],
+      "match": {
+        "original_term": "NIST SP 800-171",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.155,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:d09ea154-1549-4ad0-a0e4-c8ca8fca8e52",
+            "label": "types of straightening machine",
+            "score": 0.155
+          },
+          {
+            "id": "esco:fa7d581b-da0e-47cf-bae8-4d07f267a225",
+            "label": "infrared sensors",
+            "score": 0.154
+          },
+          {
+            "id": "esco:fbf3b986-7eeb-415f-8abd-5a96785b20cc",
+            "label": "types of planing cutters",
+            "score": 0.151
+          }
+        ]
+      }
+    },
+    {
+      "term": "NLP",
+      "canonical": {
+        "id": "custom:natural-language-processing",
+        "label": "natural language processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "NLP"
+        }
+      ],
+      "match": {
+        "original_term": "NLP",
+        "canonical_id": "custom:natural-language-processing",
+        "canonical_label": "natural language processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "RNNs",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "RNNs"
+        }
+      ],
+      "match": {
+        "original_term": "RNNs",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.18,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.18
+          },
+          {
+            "id": "custom:rust",
+            "label": "Rust",
+            "score": 0.17
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.169
+          }
+        ]
+      }
+    },
+    {
+      "term": "standard compliance frameworks",
+      "canonical": {
+        "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "label": "ICT security standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "standard compliance frameworks"
+        }
+      ],
+      "match": {
+        "original_term": "standard compliance frameworks",
+        "canonical_id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "canonical_label": "ICT security standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'standard compliance frameworks' aligns with 'ICT security standards' as both refer to compliance with security standards like ISO, which is a key aspect of standard compliance frameworks.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.538
+          },
+          {
+            "id": "esco:24c200e5-be20-4370-a137-ab53797f3a17",
+            "label": "software frameworks",
+            "score": 0.43
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.404
+          }
+        ]
+      }
+    },
+    {
+      "term": "supervised",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "supervised"
+        }
+      ],
+      "match": {
+        "original_term": "supervised",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.189,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.189
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.187
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.178
+          }
+        ]
+      }
+    },
+    {
+      "term": "Support Vector Machines",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Support Vector Machines"
+        }
+      ],
+      "match": {
+        "original_term": "Support Vector Machines",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Support Vector Machines is a specific type of machine learning algorithm, so it falls under the broader category of machine learning.",
+        "candidates": [
+          {
+            "id": "custom:vector-databases",
+            "label": "vector databases",
+            "score": 0.411
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.404
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.402
+          }
+        ]
+      }
+    },
+    {
+      "term": "This course covers AI techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "This course covers AI techniques"
+        }
+      ],
+      "match": {
+        "original_term": "This course covers AI techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.399,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.399
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.369
+          },
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.345
+          }
+        ]
+      }
+    },
+    {
+      "term": "unsupervised machine learning algorithms",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "unsupervised machine learning algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "unsupervised machine learning algorithms",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.649,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.649
+          },
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.472
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.402
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,3701 @@
+{
+  "course_code": "0444501",
+  "course_codes": [
+    "0444501"
+  ],
+  "course_title": "Software Project Management",
+  "credit_hours": 3,
+  "plans": [
+    "SE"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "accepted": 39,
+      "no_match": 23,
+      "needs_review": 15
+    },
+    "by_method": {
+      "llm": 35,
+      "embedding_reranker": 40,
+      "exact_alias": 2
+    }
+  },
+  "total_skills": 77,
+  "skills": [
+    {
+      "term": "Jira",
+      "canonical": {
+        "id": "custom:project-management",
+        "label": "project management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "lab",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Integrate Jira and Confluence for project documentation"
+        },
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Jira and Confluence"
+        },
+        {
+          "source": "description",
+          "text": "Jira"
+        }
+      ],
+      "match": {
+        "original_term": "Jira",
+        "canonical_id": "custom:project-management",
+        "canonical_label": "project management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Jira' is explicitly listed in the 'project management' entry's also called section, indicating it refers to the same skill.",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.888
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.199
+          },
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.173
+          }
+        ]
+      }
+    },
+    {
+      "term": "Scrum",
+      "canonical": {
+        "id": "custom:agile-methodology",
+        "label": "agile methodology",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the key phases of the software development lifecycle (SDLC) and explain how they align with project management methodologies such as Scrum, Waterfall, and Spiral."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Agile Methodologies: Scrum and Kanban"
+        },
+        {
+          "source": "description",
+          "text": "Scrum"
+        }
+      ],
+      "match": {
+        "original_term": "Scrum",
+        "canonical_id": "custom:agile-methodology",
+        "canonical_label": "agile methodology",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'Scrum' is explicitly listed as an example of 'agile methodology' in the taxonomy entry, and the syllabus directly references Scrum as a project management methodology.",
+        "candidates": [
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.937
+          },
+          {
+            "id": "esco:ffddfc7c-a9dd-449f-9e96-882dc447c8b6",
+            "label": "Scala",
+            "score": 0.27
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.269
+          }
+        ]
+      }
+    },
+    {
+      "term": "Waterfall",
+      "canonical": {
+        "id": "esco:6a876489-7ad8-4a13-b09c-c9b8e97a302e",
+        "label": "Waterfall development",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the key phases of the software development lifecycle (SDLC) and explain how they align with project management methodologies such as Scrum, Waterfall, and Spiral."
+        },
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Waterfall and Spiral Models"
+        },
+        {
+          "source": "description",
+          "text": "Waterfall"
+        }
+      ],
+      "match": {
+        "original_term": "Waterfall",
+        "canonical_id": "esco:6a876489-7ad8-4a13-b09c-c9b8e97a302e",
+        "canonical_label": "Waterfall development",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.692,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.42",
+        "candidates": [
+          {
+            "id": "esco:6a876489-7ad8-4a13-b09c-c9b8e97a302e",
+            "label": "Waterfall development",
+            "score": 0.692
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.272
+          },
+          {
+            "id": "esco:09f2f811-a3fb-4de3-a70f-6420a6935575",
+            "label": "systems development life-cycle",
+            "score": 0.248
+          }
+        ]
+      }
+    },
+    {
+      "term": "daily standups",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a project management plan using Jira and Scrum practices, including sprint planning, daily standups, and retrospectives for a simulated software development team."
+        },
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Daily Standups and Retrospectives"
+        }
+      ],
+      "match": {
+        "original_term": "daily standups",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.236,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:69f0167e-75d9-46cf-847f-72a592880ebb",
+            "label": "STAF",
+            "score": 0.236
+          },
+          {
+            "id": "custom:devops",
+            "label": "DevOps practices",
+            "score": 0.219
+          },
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "FMEA",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of risk management in software projects and apply FMEA and SWOT analysis to identify and mitigate potential project risks."
+        },
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "FMEA and SWOT Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "FMEA",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.218,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ffddfc7c-a9dd-449f-9e96-882dc447c8b6",
+            "label": "Scala",
+            "score": 0.218
+          },
+          {
+            "id": "esco:a4d336a6-9ffd-402a-91cc-f359716ba4e0",
+            "label": "ML (computer programming)",
+            "score": 0.216
+          },
+          {
+            "id": "esco:cdd8b6b2-2fd9-453c-8d62-8a1dc6efcd49",
+            "label": "systems theory",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "retrospectives",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a project management plan using Jira and Scrum practices, including sprint planning, daily standups, and retrospectives for a simulated software development team."
+        },
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Daily Standups and Retrospectives"
+        }
+      ],
+      "match": {
+        "original_term": "retrospectives",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.225,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:devops",
+            "label": "DevOps practices",
+            "score": 0.225
+          },
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.219
+          },
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "sprint planning",
+      "canonical": {
+        "id": "custom:agile-methodology",
+        "label": "agile methodology",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a project management plan using Jira and Scrum practices, including sprint planning, daily standups, and retrospectives for a simulated software development team."
+        },
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Sprint Planning and Execution"
+        }
+      ],
+      "match": {
+        "original_term": "sprint planning",
+        "canonical_id": "custom:agile-methodology",
+        "canonical_label": "agile methodology",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "COCOMO",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply cost estimation techniques such as COCOMO and function point analysis to calculate project costs and schedule for a given software project."
+        }
+      ],
+      "match": {
+        "original_term": "COCOMO",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.272,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:def007fa-5fed-4a5f-91a2-b0d7e3db1be1",
+            "label": "COBOL",
+            "score": 0.272
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.259
+          },
+          {
+            "id": "esco:2bde42ae-e776-41c1-9ded-b07b30bfe985",
+            "label": "Prolog (computer programming)",
+            "score": 0.244
+          }
+        ]
+      }
+    },
+    {
+      "term": "components of a project charter",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the components of a project charter and create a work breakdown structure (WBS) using Microsoft Project for a sample software project."
+        }
+      ],
+      "match": {
+        "original_term": "components of a project charter",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'components of a project charter'. The closest entries relate to software components, hardware components, or system architecture, but none directly match the concept of a project charter's components.",
+        "candidates": [
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.456
+          },
+          {
+            "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+            "label": "software components libraries",
+            "score": 0.391
+          },
+          {
+            "id": "esco:e6b8f934-7f35-4dc6-9a64-f6c43acdc00b",
+            "label": "software components suppliers",
+            "score": 0.385
+          }
+        ]
+      }
+    },
+    {
+      "term": "cost estimation techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply cost estimation techniques such as COCOMO and function point analysis to calculate project costs and schedule for a given software project."
+        }
+      ],
+      "match": {
+        "original_term": "cost estimation techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'cost estimation techniques' or related concepts like COCOMO or function point analysis.",
+        "candidates": [
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.419
+          },
+          {
+            "id": "esco:41ec47dd-08b3-464a-9c45-c706f3e74467",
+            "label": "industrial software",
+            "score": 0.288
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.249
+          }
+        ]
+      }
+    },
+    {
+      "term": "given software project",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply cost estimation techniques such as COCOMO and function point analysis to calculate project costs and schedule for a given software project."
+        }
+      ],
+      "match": {
+        "original_term": "given software project",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'given software project' or the concept of applying cost estimation techniques to a software project. The closest entries are related to software metrics or industrial software, but they do not specifically match the skill described in the phra",
+        "candidates": [
+          {
+            "id": "esco:41ec47dd-08b3-464a-9c45-c706f3e74467",
+            "label": "industrial software",
+            "score": 0.48
+          },
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.449
+          },
+          {
+            "id": "esco:24c200e5-be20-4370-a137-ab53797f3a17",
+            "label": "software frameworks",
+            "score": 0.44
+          }
+        ]
+      }
+    },
+    {
+      "term": "mitigate potential project risks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of risk management in software projects and apply FMEA and SWOT analysis to identify and mitigate potential project risks."
+        }
+      ],
+      "match": {
+        "original_term": "mitigate potential project risks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.364,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.364
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.36
+          },
+          {
+            "id": "esco:2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80",
+            "label": "ICT network security risks",
+            "score": 0.347
+          }
+        ]
+      }
+    },
+    {
+      "term": "phases of the software development lifecycle",
+      "canonical": {
+        "id": "custom:software-engineering",
+        "label": "software engineering",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the key phases of the software development lifecycle (SDLC) and explain how they align with project management methodologies such as Scrum, Waterfall, and Spiral."
+        }
+      ],
+      "match": {
+        "original_term": "phases of the software development lifecycle",
+        "canonical_id": "custom:software-engineering",
+        "canonical_label": "software engineering",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.803,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.34",
+        "candidates": [
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.803
+          },
+          {
+            "id": "esco:09f2f811-a3fb-4de3-a70f-6420a6935575",
+            "label": "systems development life-cycle",
+            "score": 0.461
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.429
+          }
+        ]
+      }
+    },
+    {
+      "term": "project management plan using Jira",
+      "canonical": {
+        "id": "custom:project-management",
+        "label": "project management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a project management plan using Jira and Scrum practices, including sprint planning, daily standups, and retrospectives for a simulated software development team."
+        }
+      ],
+      "match": {
+        "original_term": "project management plan using Jira",
+        "canonical_id": "custom:project-management",
+        "canonical_label": "project management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.636,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.35",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.636
+          },
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.287
+          },
+          {
+            "id": "custom:devops",
+            "label": "DevOps practices",
+            "score": 0.238
+          }
+        ]
+      }
+    },
+    {
+      "term": "sample software project",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the components of a project charter and create a work breakdown structure (WBS) using Microsoft Project for a sample software project."
+        }
+      ],
+      "match": {
+        "original_term": "sample software project",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'sample software project' as a skill. The closest entries relate to software development processes, testing, or specific tools, but none match the concept of a sample software project as a skill.",
+        "candidates": [
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.423
+          },
+          {
+            "id": "esco:24c200e5-be20-4370-a137-ab53797f3a17",
+            "label": "software frameworks",
+            "score": 0.419
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.418
+          }
+        ]
+      }
+    },
+    {
+      "term": "schedule",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply cost estimation techniques such as COCOMO and function point analysis to calculate project costs and schedule for a given software project."
+        }
+      ],
+      "match": {
+        "original_term": "schedule",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.257,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ffddfc7c-a9dd-449f-9e96-882dc447c8b6",
+            "label": "Scala",
+            "score": 0.257
+          },
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.241
+          },
+          {
+            "id": "esco:def007fa-5fed-4a5f-91a2-b0d7e3db1be1",
+            "label": "COBOL",
+            "score": 0.225
+          }
+        ]
+      }
+    },
+    {
+      "term": "Scrum practices",
+      "canonical": {
+        "id": "custom:agile-methodology",
+        "label": "agile methodology",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a project management plan using Jira and Scrum practices, including sprint planning, daily standups, and retrospectives for a simulated software development team."
+        }
+      ],
+      "match": {
+        "original_term": "Scrum practices",
+        "canonical_id": "custom:agile-methodology",
+        "canonical_label": "agile methodology",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.643,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.12",
+        "candidates": [
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.643
+          },
+          {
+            "id": "custom:devops",
+            "label": "DevOps practices",
+            "score": 0.525
+          },
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.235
+          }
+        ]
+      }
+    },
+    {
+      "term": "SDLC",
+      "canonical": {
+        "id": "custom:software-engineering",
+        "label": "software engineering",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the key phases of the software development lifecycle (SDLC) and explain how they align with project management methodologies such as Scrum, Waterfall, and Spiral."
+        }
+      ],
+      "match": {
+        "original_term": "SDLC",
+        "canonical_id": "custom:software-engineering",
+        "canonical_label": "software engineering",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "simulated software development team",
+      "canonical": {
+        "id": "custom:software-engineering",
+        "label": "software engineering",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a project management plan using Jira and Scrum practices, including sprint planning, daily standups, and retrospectives for a simulated software development team."
+        }
+      ],
+      "match": {
+        "original_term": "simulated software development team",
+        "canonical_id": "custom:software-engineering",
+        "canonical_label": "software engineering",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.649,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.24",
+        "candidates": [
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.649
+          },
+          {
+            "id": "esco:dba46f87-0831-49cd-a1c7-340a653c0221",
+            "label": "Agile development",
+            "score": 0.411
+          },
+          {
+            "id": "esco:4840338b-ac6c-486a-be1d-9ddfe00b8bdf",
+            "label": "Spiral development",
+            "score": 0.407
+          }
+        ]
+      }
+    },
+    {
+      "term": "Spiral",
+      "canonical": {
+        "id": "esco:4840338b-ac6c-486a-be1d-9ddfe00b8bdf",
+        "label": "Spiral development",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the key phases of the software development lifecycle (SDLC) and explain how they align with project management methodologies such as Scrum, Waterfall, and Spiral."
+        }
+      ],
+      "match": {
+        "original_term": "Spiral",
+        "canonical_id": "esco:4840338b-ac6c-486a-be1d-9ddfe00b8bdf",
+        "canonical_label": "Spiral development",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.657,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.40",
+        "candidates": [
+          {
+            "id": "esco:4840338b-ac6c-486a-be1d-9ddfe00b8bdf",
+            "label": "Spiral development",
+            "score": 0.657
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.259
+          },
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.257
+          }
+        ]
+      }
+    },
+    {
+      "term": "SWOT analysis to identify",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of risk management in software projects and apply FMEA and SWOT analysis to identify and mitigate potential project risks."
+        }
+      ],
+      "match": {
+        "original_term": "SWOT analysis to identify",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'SWOT analysis to identify' as a skill. The closest entries relate to risk assessment or security risk management, but they do not directly match the phrase.",
+        "candidates": [
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.401
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.229
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.229
+          }
+        ]
+      }
+    },
+    {
+      "term": "WBS",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the components of a project charter and create a work breakdown structure (WBS) using Microsoft Project for a sample software project."
+        }
+      ],
+      "match": {
+        "original_term": "WBS",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.215,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.215
+          },
+          {
+            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+            "label": "ICT architectural frameworks",
+            "score": 0.197
+          },
+          {
+            "id": "esco:23900e3d-06fa-424c-a5dc-c0ea42edde1e",
+            "label": "Oracle Warehouse Builder",
+            "score": 0.196
+          }
+        ]
+      }
+    },
+    {
+      "term": "work breakdown structure using Microsoft Project",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the components of a project charter and create a work breakdown structure (WBS) using Microsoft Project for a sample software project."
+        }
+      ],
+      "match": {
+        "original_term": "work breakdown structure using Microsoft Project",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.337,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.337
+          },
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.335
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.252
+          }
+        ]
+      }
+    },
+    {
+      "term": "Confluence",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Integrate Jira and Confluence for project documentation"
+        },
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Jira and Confluence"
+        }
+      ],
+      "match": {
+        "original_term": "Confluence",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.235,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.235
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.213
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "term": "Kanban",
+      "canonical": {
+        "id": "custom:agile-methodology",
+        "label": "agile methodology",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Agile Methodologies: Scrum and Kanban"
+        },
+        {
+          "source": "description",
+          "text": "Kanban"
+        }
+      ],
+      "match": {
+        "original_term": "Kanban",
+        "canonical_id": "custom:agile-methodology",
+        "canonical_label": "agile methodology",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Kanban' is explicitly listed in the also called field of the 'agile methodology' entry, confirming it is the same skill.",
+        "candidates": [
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.945
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.264
+          },
+          {
+            "id": "esco:dba46f87-0831-49cd-a1c7-340a653c0221",
+            "label": "Agile development",
+            "score": 0.228
+          }
+        ]
+      }
+    },
+    {
+      "term": "Post-Mortem Reviews",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Post-Mortem Reviews"
+        },
+        {
+          "source": "description",
+          "text": "post-mortem reviews"
+        }
+      ],
+      "match": {
+        "original_term": "Post-Mortem Reviews",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.171,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.171
+          },
+          {
+            "id": "custom:robot-perception",
+            "label": "robot perception",
+            "score": 0.163
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.158
+          }
+        ]
+      }
+    },
+    {
+      "term": "Product Owner",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Scrum Master and Product Owner"
+        },
+        {
+          "source": "description",
+          "text": "Product Owner"
+        }
+      ],
+      "match": {
+        "original_term": "Product Owner",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.273,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.273
+          },
+          {
+            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
+            "label": "packaging processes",
+            "score": 0.271
+          },
+          {
+            "id": "esco:b8ac179c-4a29-4467-9177-031daf1321d6",
+            "label": "packaging engineering",
+            "score": 0.263
+          }
+        ]
+      }
+    },
+    {
+      "term": "Scrum Master",
+      "canonical": {
+        "id": "custom:agile-methodology",
+        "label": "agile methodology",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Scrum Master and Product Owner"
+        },
+        {
+          "source": "description",
+          "text": "Scrum Master"
+        }
+      ],
+      "match": {
+        "original_term": "Scrum Master",
+        "canonical_id": "custom:agile-methodology",
+        "canonical_label": "agile methodology",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.621,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.41",
+        "candidates": [
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.621
+          },
+          {
+            "id": "custom:robot-manipulators",
+            "label": "robot manipulators",
+            "score": 0.212
+          },
+          {
+            "id": "esco:bac209e9-d337-4312-9041-17c2e75fa4df",
+            "label": "hardware industry",
+            "score": 0.209
+          }
+        ]
+      }
+    },
+    {
+      "term": "Spiral Models",
+      "canonical": {
+        "id": "esco:4840338b-ac6c-486a-be1d-9ddfe00b8bdf",
+        "label": "Spiral development",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Waterfall and Spiral Models"
+        },
+        {
+          "source": "description",
+          "text": "Spiral models"
+        }
+      ],
+      "match": {
+        "original_term": "Spiral Models",
+        "canonical_id": "esco:4840338b-ac6c-486a-be1d-9ddfe00b8bdf",
+        "canonical_label": "Spiral development",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Spiral Models' directly refers to the 'Spiral development' methodology, which is explicitly listed as a taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.477
+          },
+          {
+            "id": "esco:4840338b-ac6c-486a-be1d-9ddfe00b8bdf",
+            "label": "Spiral development",
+            "score": 0.47
+          },
+          {
+            "id": "esco:6a876489-7ad8-4a13-b09c-c9b8e97a302e",
+            "label": "Waterfall development",
+            "score": 0.315
+          }
+        ]
+      }
+    },
+    {
+      "term": "SWOT Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "FMEA and SWOT Analysis"
+        },
+        {
+          "source": "description",
+          "text": "SWOT analysis"
+        }
+      ],
+      "match": {
+        "original_term": "SWOT Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'SWOT Analysis' does not match any of the provided taxonomy entries, which focus on data analysis, computer vision, quality control systems, or other unrelated fields.",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.492
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.479
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.471
+          }
+        ]
+      }
+    },
+    {
+      "term": "Conduct a post-mortem review",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Conduct a post-mortem review for a software project"
+        }
+      ],
+      "match": {
+        "original_term": "Conduct a post-mortem review",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.316,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.316
+          },
+          {
+            "id": "esco:41ec47dd-08b3-464a-9c45-c706f3e74467",
+            "label": "industrial software",
+            "score": 0.256
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.252
+          }
+        ]
+      }
+    },
+    {
+      "term": "Conduct risk assessment using SWOT analysis",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Conduct risk assessment using SWOT analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Conduct risk assessment using SWOT analysis",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Conduct risk assessment using SWOT analysis' directly aligns with the skill 'security risk management' which includes risk assessment and is also referred to as 'risk assessment' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.545
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.451
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.344
+          }
+        ]
+      }
+    },
+    {
+      "term": "cost estimation using COCOMO model",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Perform cost estimation using COCOMO model"
+        }
+      ],
+      "match": {
+        "original_term": "cost estimation using COCOMO model",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.321,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:da40ce72-a158-4116-84d2-01d4924e0667",
+            "label": "parts pricing",
+            "score": 0.321
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.305
+          },
+          {
+            "id": "esco:41ec47dd-08b3-464a-9c45-c706f3e74467",
+            "label": "industrial software",
+            "score": 0.229
+          }
+        ]
+      }
+    },
+    {
+      "term": "project documentation",
+      "canonical": {
+        "id": "custom:technical-documentation",
+        "label": "technical documentation",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Integrate Jira and Confluence for project documentation"
+        }
+      ],
+      "match": {
+        "original_term": "project documentation",
+        "canonical_id": "custom:technical-documentation",
+        "canonical_label": "technical documentation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.648,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.14",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.648
+          },
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.507
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "project schedule using Microsoft Project",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Create a project schedule using Microsoft Project"
+        }
+      ],
+      "match": {
+        "original_term": "project schedule using Microsoft Project",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.392,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.392
+          },
+          {
+            "id": "esco:3d03c40c-1b83-4793-8902-2523f40af59e",
+            "label": "Microsoft Access",
+            "score": 0.37
+          },
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.369
+          }
+        ]
+      }
+    },
+    {
+      "term": "software project",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Conduct a post-mortem review for a software project"
+        }
+      ],
+      "match": {
+        "original_term": "software project",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'software project' does not clearly match any of the provided taxonomy entries, which focus on specific aspects like testing, metrics, or methodologies rather than the general concept of a software project.",
+        "candidates": [
+          {
+            "id": "esco:41ec47dd-08b3-464a-9c45-c706f3e74467",
+            "label": "industrial software",
+            "score": 0.5
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.489
+          },
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.487
+          }
+        ]
+      }
+    },
+    {
+      "term": "software project against ISO 9001 standards",
+      "canonical": {
+        "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "label": "ICT security standards",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Evaluate a software project against ISO 9001 standards"
+        }
+      ],
+      "match": {
+        "original_term": "software project against ISO 9001 standards",
+        "canonical_id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+        "canonical_label": "ICT security standards",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'software project against ISO 9001 standards' directly relates to compliance with ISO standards, which is covered by the 'ICT security standards' entry, as it specifically mentions ISO and compliance.",
+        "candidates": [
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.439
+          },
+          {
+            "id": "esco:41ec47dd-08b3-464a-9c45-c706f3e74467",
+            "label": "industrial software",
+            "score": 0.351
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "term": "Agile Methodologies",
+      "canonical": {
+        "id": "custom:agile-methodology",
+        "label": "agile methodology",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Agile Methodologies: Scrum and Kanban"
+        }
+      ],
+      "match": {
+        "original_term": "Agile Methodologies",
+        "canonical_id": "custom:agile-methodology",
+        "canonical_label": "agile methodology",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.844,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.31",
+        "candidates": [
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.844
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.53
+          },
+          {
+            "id": "esco:dba46f87-0831-49cd-a1c7-340a653c0221",
+            "label": "Agile development",
+            "score": 0.452
+          }
+        ]
+      }
+    },
+    {
+      "term": "Case Studies in Software Project Management",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Case Studies in Software Project Management"
+        }
+      ],
+      "match": {
+        "original_term": "Case Studies in Software Project Management",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.363,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.363
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.36
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.359
+          }
+        ]
+      }
+    },
+    {
+      "term": "Change Management",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Change Management and Scope Control"
+        }
+      ],
+      "match": {
+        "original_term": "Change Management",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Change Management' as it is not related to control systems, operating systems, or any other listed domain.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.503
+          },
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.257
+          },
+          {
+            "id": "custom:control-systems",
+            "label": "control systems engineering",
+            "score": 0.249
+          }
+        ]
+      }
+    },
+    {
+      "term": "CMMI",
+      "canonical": {
+        "id": "esco:fafe0b9d-dbd9-46bd-b770-26299539ce66",
+        "label": "ICT process quality models",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "ISO 9001 and CMMI"
+        }
+      ],
+      "match": {
+        "original_term": "CMMI",
+        "canonical_id": "esco:fafe0b9d-dbd9-46bd-b770-26299539ce66",
+        "canonical_label": "ICT process quality models",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'CMMI' is explicitly listed in the also called section of the 'ICT process quality models' entry, confirming it is the same skill.",
+        "candidates": [
+          {
+            "id": "esco:fafe0b9d-dbd9-46bd-b770-26299539ce66",
+            "label": "ICT process quality models",
+            "score": 0.495
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.222
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "Control",
+      "canonical": {
+        "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+        "label": "control systems",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Project Monitoring and Control"
+        }
+      ],
+      "match": {
+        "original_term": "Control",
+        "canonical_id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+        "canonical_label": "control systems",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Control' is directly related to the broader concept of 'control systems' which encompasses the management and regulation of systems, matching the syllabus context of 'Project Monitoring and Control'.",
+        "candidates": [
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.677
+          },
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.664
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.651
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cost-Benefit Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Cost-Benefit Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Cost-Benefit Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Cost-Benefit Analysis'.",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.436
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.433
+          },
+          {
+            "id": "esco:da40ce72-a158-4116-84d2-01d4924e0667",
+            "label": "parts pricing",
+            "score": 0.372
+          }
+        ]
+      }
+    },
+    {
+      "term": "Earned Value Analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Earned Value Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Earned Value Analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Earned Value Analysis'.",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.444
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.432
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.422
+          }
+        ]
+      }
+    },
+    {
+      "term": "Estimation",
+      "canonical": {
+        "id": "custom:robot-localization",
+        "label": "robot localization",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Resource Planning and Estimation"
+        }
+      ],
+      "match": {
+        "original_term": "Estimation",
+        "canonical_id": "custom:robot-localization",
+        "canonical_label": "robot localization",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.67,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.40",
+        "candidates": [
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.67
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.27
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.257
+          }
+        ]
+      }
+    },
+    {
+      "term": "Evaluation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Project Closure and Evaluation"
+        }
+      ],
+      "match": {
+        "original_term": "Evaluation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.251,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.251
+          },
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.233
+          },
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "Execution",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Sprint Planning and Execution"
+        }
+      ],
+      "match": {
+        "original_term": "Execution",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.278,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.278
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.277
+          },
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.243
+          }
+        ]
+      }
+    },
+    {
+      "term": "Final Project Integration",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Final Project Integration"
+        }
+      ],
+      "match": {
+        "original_term": "Final Project Integration",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Final Project Integration' does not match any of the provided taxonomy entries, as none of the labels or aliases refer to project integration in the context of academic or professional skill development.",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.563
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.44
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "ISO 9001",
+      "canonical": {
+        "id": "esco:fafe0b9d-dbd9-46bd-b770-26299539ce66",
+        "label": "ICT process quality models",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "ISO 9001 and CMMI"
+        }
+      ],
+      "match": {
+        "original_term": "ISO 9001",
+        "canonical_id": "esco:fafe0b9d-dbd9-46bd-b770-26299539ce66",
+        "canonical_label": "ICT process quality models",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ISO 9001' is explicitly mentioned in the also called section of the 'ICT process quality models' entry, which directly matches the skill.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.494
+          },
+          {
+            "id": "esco:fafe0b9d-dbd9-46bd-b770-26299539ce66",
+            "label": "ICT process quality models",
+            "score": 0.302
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.186
+          }
+        ]
+      }
+    },
+    {
+      "term": "Microsoft Project Fundamentals",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Microsoft Project Fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "Microsoft Project Fundamentals",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Microsoft Project Fundamentals'.",
+        "candidates": [
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.419
+          },
+          {
+            "id": "custom:power-bi",
+            "label": "Power BI",
+            "score": 0.391
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "Project Closure",
+      "canonical": {
+        "id": "custom:project-management",
+        "label": "project management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Project Closure and Evaluation"
+        }
+      ],
+      "match": {
+        "original_term": "Project Closure",
+        "canonical_id": "custom:project-management",
+        "canonical_label": "project management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Project Closure' is part of 'Project Closure and Evaluation,' which directly relates to the project management skill, specifically the phase of closing a project.",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.474
+          },
+          {
+            "id": "custom:devops",
+            "label": "DevOps practices",
+            "score": 0.198
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.191
+          }
+        ]
+      }
+    },
+    {
+      "term": "Project Management Methodologies Overview",
+      "canonical": {
+        "id": "custom:project-management",
+        "label": "project management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Project Management Methodologies Overview"
+        }
+      ],
+      "match": {
+        "original_term": "Project Management Methodologies Overview",
+        "canonical_id": "custom:project-management",
+        "canonical_label": "project management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.622,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.25",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.622
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.375
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.236
+          }
+        ]
+      }
+    },
+    {
+      "term": "Project Management Tools Integration",
+      "canonical": {
+        "id": "custom:project-management",
+        "label": "project management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Project Management Tools Integration"
+        }
+      ],
+      "match": {
+        "original_term": "Project Management Tools Integration",
+        "canonical_id": "custom:project-management",
+        "canonical_label": "project management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.643,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.24",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.643
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.406
+          },
+          {
+            "id": "esco:9d0d89be-bffa-4393-b6f6-8d05bea49051",
+            "label": "data extraction, transformation and loading tools",
+            "score": 0.314
+          }
+        ]
+      }
+    },
+    {
+      "term": "Project Monitoring",
+      "canonical": {
+        "id": "custom:monitoring-observability",
+        "label": "monitoring and observability",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Project Monitoring and Control"
+        }
+      ],
+      "match": {
+        "original_term": "Project Monitoring",
+        "canonical_id": "custom:monitoring-observability",
+        "canonical_label": "monitoring and observability",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.657,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.11",
+        "candidates": [
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.657
+          },
+          {
+            "id": "esco:0e8d16c9-e2db-4862-ac06-1567f01ef806",
+            "label": "building systems monitoring technology",
+            "score": 0.55
+          },
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.501
+          }
+        ]
+      }
+    },
+    {
+      "term": "Quality Assurance Standards",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Quality Assurance Standards"
+        }
+      ],
+      "match": {
+        "original_term": "Quality Assurance Standards",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.732,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.14",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.732
+          },
+          {
+            "id": "esco:d56358e4-3bcc-4b5d-981d-ea15b2743e9e",
+            "label": "quality control systems",
+            "score": 0.594
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.58
+          }
+        ]
+      }
+    },
+    {
+      "term": "Real-World Challenges",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Real-World Challenges"
+        }
+      ],
+      "match": {
+        "original_term": "Real-World Challenges",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.192,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.192
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.188
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.185
+          }
+        ]
+      }
+    },
+    {
+      "term": "Requirement Gathering",
+      "canonical": {
+        "id": "esco:ca73ac82-867a-4afa-9732-834aebe896ff",
+        "label": "ICT system user requirements",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Requirement Gathering and Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Requirement Gathering",
+        "canonical_id": "esco:ca73ac82-867a-4afa-9732-834aebe896ff",
+        "canonical_label": "ICT system user requirements",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Requirement Gathering' directly aligns with the skill 'ICT system user requirements' as both involve eliciting and specifying user needs to match system components and services.",
+        "candidates": [
+          {
+            "id": "esco:ca73ac82-867a-4afa-9732-834aebe896ff",
+            "label": "ICT system user requirements",
+            "score": 0.494
+          },
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.304
+          },
+          {
+            "id": "esco:e6b8f934-7f35-4dc6-9a64-f6c43acdc00b",
+            "label": "software components suppliers",
+            "score": 0.298
+          }
+        ]
+      }
+    },
+    {
+      "term": "Resource Planning",
+      "canonical": {
+        "id": "custom:project-management",
+        "label": "project management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Resource Planning and Estimation"
+        }
+      ],
+      "match": {
+        "original_term": "Resource Planning",
+        "canonical_id": "custom:project-management",
+        "canonical_label": "project management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Resource Planning' aligns closely with 'project management' as both involve planning and coordinating work to deliver a defined outcome.",
+        "candidates": [
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.497
+          },
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.494
+          },
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.492
+          }
+        ]
+      }
+    },
+    {
+      "term": "Risk Management Frameworks",
+      "canonical": {
+        "id": "custom:risk-management",
+        "label": "security risk management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Risk Management Frameworks"
+        }
+      ],
+      "match": {
+        "original_term": "Risk Management Frameworks",
+        "canonical_id": "custom:risk-management",
+        "canonical_label": "security risk management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Risk Management Frameworks' directly aligns with the label 'security risk management' and its also called entries, including 'risk assessment' and 'compliance', which are closely related to the concept of risk management frameworks.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.577
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.427
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.38
+          }
+        ]
+      }
+    },
+    {
+      "term": "Roles",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Team Management and Roles"
+        }
+      ],
+      "match": {
+        "original_term": "Roles",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.247,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:teamwork",
+            "label": "teamwork",
+            "score": 0.247
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.236
+          },
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.227
+          }
+        ]
+      }
+    },
+    {
+      "term": "Scheduling",
+      "canonical": {
+        "id": "custom:project-management",
+        "label": "project management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Project Planning and Scheduling"
+        }
+      ],
+      "match": {
+        "original_term": "Scheduling",
+        "canonical_id": "custom:project-management",
+        "canonical_label": "project management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Scheduling' is directly related to 'Project Planning and Scheduling,' which aligns with the definition of 'project management' as planning and coordinating work to deliver a defined outcome.",
+        "candidates": [
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.539
+          },
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.35
+          },
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.284
+          }
+        ]
+      }
+    },
+    {
+      "term": "Scope Control",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Change Management and Scope Control"
+        }
+      ],
+      "match": {
+        "original_term": "Scope Control",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Scope Control' refers to managing the boundaries of a project, which is not related to any of the provided taxonomy entries that focus on control systems, robotics, or software tools.",
+        "candidates": [
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.529
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.519
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.507
+          }
+        ]
+      }
+    },
+    {
+      "term": "Software Project Management",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Software Project Management"
+        }
+      ],
+      "match": {
+        "original_term": "Software Project Management",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Software Project Management'. The closest entries relate to software design methodologies or industrial software, but none specifically address project management.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.469
+          },
+          {
+            "id": "esco:41ec47dd-08b3-464a-9c45-c706f3e74467",
+            "label": "industrial software",
+            "score": 0.446
+          },
+          {
+            "id": "esco:fb7aee4d-f6c6-4a87-8e9d-8e542b3771f8",
+            "label": "software metrics",
+            "score": 0.431
+          }
+        ]
+      }
+    },
+    {
+      "term": "Team Management",
+      "canonical": {
+        "id": "custom:teamwork",
+        "label": "teamwork",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Team Management and Roles"
+        }
+      ],
+      "match": {
+        "original_term": "Team Management",
+        "canonical_id": "custom:teamwork",
+        "canonical_label": "teamwork",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Team Management' directly aligns with the skill 'teamwork' as both involve working effectively with others toward a shared goal.",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.523
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.512
+          },
+          {
+            "id": "custom:teamwork",
+            "label": "teamwork",
+            "score": 0.474
+          }
+        ]
+      }
+    },
+    {
+      "term": "UML Use Cases",
+      "canonical": {
+        "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "label": "unified modelling language",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "UML Use Cases"
+        }
+      ],
+      "match": {
+        "original_term": "UML Use Cases",
+        "canonical_id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+        "canonical_label": "unified modelling language",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'UML Use Cases' is a specific application of the Unified Modelling Language (UML), which is directly named in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+            "label": "unified modelling language",
+            "score": 0.52
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.194
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.187
+          }
+        ]
+      }
+    },
+    {
+      "term": "Version Control with Git",
+      "canonical": {
+        "id": "custom:git",
+        "label": "Git",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Version Control with Git"
+        }
+      ],
+      "match": {
+        "original_term": "Version Control with Git",
+        "canonical_id": "custom:git",
+        "canonical_label": "Git",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.773,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.25",
+        "candidates": [
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.773
+          },
+          {
+            "id": "esco:9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+            "label": "tools for software configuration management",
+            "score": 0.523
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.42
+          }
+        ]
+      }
+    },
+    {
+      "term": "Agile",
+      "canonical": {
+        "id": "custom:agile-methodology",
+        "label": "agile methodology",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Agile"
+        }
+      ],
+      "match": {
+        "original_term": "Agile",
+        "canonical_id": "custom:agile-methodology",
+        "canonical_label": "agile methodology",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'Agile' directly matches the label 'agile methodology' and is also listed as an alias in its 'also called' field.",
+        "candidates": [
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.895
+          },
+          {
+            "id": "esco:dba46f87-0831-49cd-a1c7-340a653c0221",
+            "label": "Agile development",
+            "score": 0.596
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "CMMI standards",
+      "canonical": {
+        "id": "esco:fafe0b9d-dbd9-46bd-b770-26299539ce66",
+        "label": "ICT process quality models",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "CMMI standards"
+        }
+      ],
+      "match": {
+        "original_term": "CMMI standards",
+        "canonical_id": "esco:fafe0b9d-dbd9-46bd-b770-26299539ce66",
+        "canonical_label": "ICT process quality models",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'CMMI standards' directly matches the label 'ICT process quality models' which includes CMMI (Capability Maturity Model Integrated) as one of its also called entries.",
+        "candidates": [
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.511
+          },
+          {
+            "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+            "label": "ICT accessibility standards",
+            "score": 0.415
+          },
+          {
+            "id": "esco:19ec88aa-c0b1-4515-ba10-56b6cf27369e",
+            "label": "electronic equipment standards",
+            "score": 0.413
+          }
+        ]
+      }
+    },
+    {
+      "term": "cost estimation using COCOMO",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "cost estimation using COCOMO"
+        }
+      ],
+      "match": {
+        "original_term": "cost estimation using COCOMO",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.339,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:da40ce72-a158-4116-84d2-01d4924e0667",
+            "label": "parts pricing",
+            "score": 0.339
+          },
+          {
+            "id": "esco:41ec47dd-08b3-464a-9c45-c706f3e74467",
+            "label": "industrial software",
+            "score": 0.231
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "function point analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "function point analysis"
+        }
+      ],
+      "match": {
+        "original_term": "function point analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'function point analysis'.",
+        "candidates": [
+          {
+            "id": "esco:2d7bf28a-2487-4443-9115-47478080b1a4",
+            "label": "hazard analysis and critical control points",
+            "score": 0.443
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.437
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.425
+          }
+        ]
+      }
+    },
+    {
+      "term": "project closure with lessons learned",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "project closure with lessons learned"
+        }
+      ],
+      "match": {
+        "original_term": "project closure with lessons learned",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.349,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.349
+          },
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.203
+          },
+          {
+            "id": "custom:control-systems",
+            "label": "control systems engineering",
+            "score": 0.187
+          }
+        ]
+      }
+    },
+    {
+      "term": "project planning using Microsoft Project",
+      "canonical": {
+        "id": "custom:project-management",
+        "label": "project management",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "project planning using Microsoft Project"
+        }
+      ],
+      "match": {
+        "original_term": "project planning using Microsoft Project",
+        "canonical_id": "custom:project-management",
+        "canonical_label": "project management",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.641,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.25",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.641
+          },
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.389
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.388
+          }
+        ]
+      }
+    },
+    {
+      "term": "quality assurance with ISO 9001",
+      "canonical": {
+        "id": "custom:software-testing",
+        "label": "software testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "quality assurance with ISO 9001"
+        }
+      ],
+      "match": {
+        "original_term": "quality assurance with ISO 9001",
+        "canonical_id": "custom:software-testing",
+        "canonical_label": "software testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.643,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.12",
+        "candidates": [
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.643
+          },
+          {
+            "id": "esco:d56358e4-3bcc-4b5d-981d-ea15b2743e9e",
+            "label": "quality control systems",
+            "score": 0.526
+          },
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.366
+          }
+        ]
+      }
+    },
+    {
+      "term": "requirement gathering with UML use cases",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "requirement gathering with UML use cases"
+        }
+      ],
+      "match": {
+        "original_term": "requirement gathering with UML use cases",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.39,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:7193cb6d-8334-494f-86e5-21e6d03a47c3",
+            "label": "unified modelling language",
+            "score": 0.39
+          },
+          {
+            "id": "esco:ca73ac82-867a-4afa-9732-834aebe896ff",
+            "label": "ICT system user requirements",
+            "score": 0.319
+          },
+          {
+            "id": "esco:48c82c54-fc6d-48f3-91f5-c9adc2a70f4b",
+            "label": "mechanical requirements for vehicles in urban areas",
+            "score": 0.297
+          }
+        ]
+      }
+    },
+    {
+      "term": "risk management with FMEA",
+      "canonical": {
+        "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "label": "assessment of risks and threats",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "risk management with FMEA"
+        }
+      ],
+      "match": {
+        "original_term": "risk management with FMEA",
+        "canonical_id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+        "canonical_label": "assessment of risks and threats",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'risk management with FMEA' directly aligns with the entry 'assessment of risks and threats' which explicitly mentions FMEA as a technique for risk assessment.",
+        "candidates": [
+          {
+            "id": "custom:risk-management",
+            "label": "security risk management",
+            "score": 0.56
+          },
+          {
+            "id": "esco:e3f2c37f-e484-4b4c-ad82-f565a2b98f89",
+            "label": "environmental management monitors",
+            "score": 0.365
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.353
+          }
+        ]
+      }
+    },
+    {
+      "term": "team management using Scrum roles",
+      "canonical": {
+        "id": "custom:agile-methodology",
+        "label": "agile methodology",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "team management using Scrum roles"
+        }
+      ],
+      "match": {
+        "original_term": "team management using Scrum roles",
+        "canonical_id": "custom:agile-methodology",
+        "canonical_label": "agile methodology",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'team management using Scrum roles' directly relates to Scrum, which is explicitly listed as an alias for 'agile methodology' in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.432
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.372
+          },
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.368
+          }
+        ]
+      }
+    },
+    {
+      "term": "techniques to real-world software projects",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "techniques to real-world software projects"
+        }
+      ],
+      "match": {
+        "original_term": "techniques to real-world software projects",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.36,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.36
+          },
+          {
+            "id": "esco:c9e96450-421d-48af-9ee6-d9c50e29afc2",
+            "label": "ICT recovery techniques",
+            "score": 0.348
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.337
+          }
+        ]
+      }
+    }
+  ]
+}

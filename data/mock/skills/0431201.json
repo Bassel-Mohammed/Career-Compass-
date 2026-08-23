@@ -1,0 +1,4181 @@
+{
+  "course_code": "0431201",
+  "course_codes": [
+    "0431201"
+  ],
+  "course_title": "Python Programming",
+  "credit_hours": 2,
+  "plans": [
+    "CS",
+    "CS/AI"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "no_match": 26,
+      "accepted": 46,
+      "needs_review": 15
+    },
+    "by_method": {
+      "embedding_reranker": 47,
+      "llm": 35,
+      "exact_alias": 5
+    }
+  },
+  "total_skills": 87,
+  "skills": [
+    {
+      "term": "inheritance",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the principles of object-oriented programming in Python including classes, objects, inheritance, and encapsulation."
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Inheritance and Polymorphism"
+        },
+        {
+          "source": "description",
+          "text": "inheritance"
+        }
+      ],
+      "match": {
+        "original_term": "inheritance",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.253,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.253
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.244
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.235
+          }
+        ]
+      }
+    },
+    {
+      "term": "sys",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the use of standard libraries such as os, sys, re, and itertools for system operations and data manipulation."
+        },
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Python Standard Libraries: os, sys, re itertools for Iteration"
+        },
+        {
+          "source": "description",
+          "text": "sys"
+        }
+      ],
+      "match": {
+        "original_term": "sys",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.304,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.304
+          },
+          {
+            "id": "esco:cf310cff-0d28-4dbc-9dbb-cc500a3196c2",
+            "label": "office software",
+            "score": 0.291
+          },
+          {
+            "id": "esco:3ce1fe19-7f9e-4070-941d-651673a5693b",
+            "label": "decision support systems",
+            "score": 0.282
+          }
+        ]
+      }
+    },
+    {
+      "term": "classes",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the principles of object-oriented programming in Python including classes, objects, inheritance, and encapsulation."
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Object-Oriented Programming: Classes and Objects"
+        }
+      ],
+      "match": {
+        "original_term": "classes",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.262,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.262
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.255
+          },
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.246
+          }
+        ]
+      }
+    },
+    {
+      "term": "data manipulation",
+      "canonical": {
+        "id": "custom:pandas",
+        "label": "pandas",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the use of standard libraries such as os, sys, re, and itertools for system operations and data manipulation."
+        },
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Pandas for Data Manipulation"
+        }
+      ],
+      "match": {
+        "original_term": "data manipulation",
+        "canonical_id": "custom:pandas",
+        "canonical_label": "pandas",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'data manipulation' is directly linked to 'Pandas' in the syllabus, which is a specific library for tabular data manipulation.",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.43
+          },
+          {
+            "id": "esco:9effa3d7-c0c4-4583-ad94-b496ba5e5f2c",
+            "label": "data mining methods",
+            "score": 0.401
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.271
+          }
+        ]
+      }
+    },
+    {
+      "term": "data types",
+      "canonical": {
+        "id": "custom:data-structures",
+        "label": "data structures",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define Python syntax and data types including integers, strings, lists, tuples, dictionaries, and sets."
+        },
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Basic Syntax and Data Types"
+        }
+      ],
+      "match": {
+        "original_term": "data types",
+        "canonical_id": "custom:data-structures",
+        "canonical_label": "data structures",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.721,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.20",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.721
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.518
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.46
+          }
+        ]
+      }
+    },
+    {
+      "term": "dictionaries",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define Python syntax and data types including integers, strings, lists, tuples, dictionaries, and sets."
+        },
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Data Structures: Lists, Tuples, Dictionaries, and Sets"
+        }
+      ],
+      "match": {
+        "original_term": "dictionaries",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.25,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.25
+          },
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.248
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.246
+          }
+        ]
+      }
+    },
+    {
+      "term": "lists",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define Python syntax and data types including integers, strings, lists, tuples, dictionaries, and sets."
+        },
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Data Structures: Lists, Tuples, Dictionaries, and Sets"
+        }
+      ],
+      "match": {
+        "original_term": "lists",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.279,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:0de61385-de6d-4146-ba32-1cc1bc102220",
+            "label": "Lisp",
+            "score": 0.279
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.23
+          },
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "objects",
+      "canonical": {
+        "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+        "label": "Objective-C",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the principles of object-oriented programming in Python including classes, objects, inheritance, and encapsulation."
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Object-Oriented Programming: Classes and Objects"
+        }
+      ],
+      "match": {
+        "original_term": "objects",
+        "canonical_id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+        "canonical_label": "Objective-C",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.622,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.08",
+        "candidates": [
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.622
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.541
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.523
+          }
+        ]
+      }
+    },
+    {
+      "term": "Python",
+      "canonical": {
+        "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "label": "Python",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply Python for data analysis using pandas and numpy to clean, transform, and analyze datasets."
+        },
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Python for Data Visualization with Matplotlib"
+        }
+      ],
+      "match": {
+        "original_term": "Python",
+        "canonical_id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "canonical_label": "Python",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "sets",
+      "canonical": {
+        "id": "custom:data-structures",
+        "label": "data structures",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define Python syntax and data types including integers, strings, lists, tuples, dictionaries, and sets."
+        },
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Data Structures: Lists, Tuples, Dictionaries, and Sets"
+        }
+      ],
+      "match": {
+        "original_term": "sets",
+        "canonical_id": "custom:data-structures",
+        "canonical_label": "data structures",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'sets' is explicitly mentioned in the syllabus under 'Data Structures: Lists, Tuples, Dictionaries, and Sets', which directly aligns with the 'data structures' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:discrete-mathematics",
+            "label": "discrete mathematics",
+            "score": 0.513
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.23
+          },
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.224
+          }
+        ]
+      }
+    },
+    {
+      "term": "standard libraries",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the use of standard libraries such as os, sys, re, and itertools for system operations and data manipulation."
+        },
+        {
+          "source": "description",
+          "text": "standard libraries"
+        }
+      ],
+      "match": {
+        "original_term": "standard libraries",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'standard libraries' refers to general libraries provided by a programming language, such as Python's built-in libraries, which are not specifically covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+            "label": "software components libraries",
+            "score": 0.431
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.241
+          },
+          {
+            "id": "esco:9ce670ec-318c-4a91-9179-03437db728dc",
+            "label": "ICT software specifications",
+            "score": 0.221
+          }
+        ]
+      }
+    },
+    {
+      "term": "templates",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a web application using Flask framework with routes, templates, and database integration."
+        },
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Routing and Templates"
+        }
+      ],
+      "match": {
+        "original_term": "templates",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.231,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:9b9de2a4-d8af-4a7b-933a-a8334ae60067",
+            "label": "JavaScript Framework",
+            "score": 0.231
+          },
+          {
+            "id": "custom:flask",
+            "label": "Flask",
+            "score": 0.23
+          },
+          {
+            "id": "custom:flutter",
+            "label": "Flutter",
+            "score": 0.227
+          }
+        ]
+      }
+    },
+    {
+      "term": "tuples",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define Python syntax and data types including integers, strings, lists, tuples, dictionaries, and sets."
+        },
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Data Structures: Lists, Tuples, Dictionaries, and Sets"
+        }
+      ],
+      "match": {
+        "original_term": "tuples",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.246,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.246
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.222
+          },
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "data analysis using pandas",
+      "canonical": {
+        "id": "custom:data-analysis",
+        "label": "data analysis",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply Python for data analysis using pandas and numpy to clean, transform, and analyze datasets."
+        }
+      ],
+      "match": {
+        "original_term": "data analysis using pandas",
+        "canonical_id": "custom:data-analysis",
+        "canonical_label": "data analysis",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.651,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.13",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.651
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.522
+          },
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.385
+          }
+        ]
+      }
+    },
+    {
+      "term": "database integration",
+      "canonical": {
+        "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+        "label": "database",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a web application using Flask framework with routes, templates, and database integration."
+        }
+      ],
+      "match": {
+        "original_term": "database integration",
+        "canonical_id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+        "canonical_label": "database",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.63,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.12",
+        "candidates": [
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.63
+          },
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.512
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.507
+          }
+        ]
+      }
+    },
+    {
+      "term": "datasets",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply Python for data analysis using pandas and numpy to clean, transform, and analyze datasets."
+        }
+      ],
+      "match": {
+        "original_term": "datasets",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.273,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.273
+          },
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.269
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.26
+          }
+        ]
+      }
+    },
+    {
+      "term": "encapsulation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the principles of object-oriented programming in Python including classes, objects, inheritance, and encapsulation."
+        }
+      ],
+      "match": {
+        "original_term": "encapsulation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.253,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.253
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.251
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.243
+          }
+        ]
+      }
+    },
+    {
+      "term": "integers",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define Python syntax and data types including integers, strings, lists, tuples, dictionaries, and sets."
+        }
+      ],
+      "match": {
+        "original_term": "integers",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.217,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.217
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.216
+          },
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "itertools",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the use of standard libraries such as os, sys, re, and itertools for system operations and data manipulation."
+        }
+      ],
+      "match": {
+        "original_term": "itertools",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.262,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:3ce1fe19-7f9e-4070-941d-651673a5693b",
+            "label": "decision support systems",
+            "score": 0.262
+          },
+          {
+            "id": "esco:33d49d4f-31ec-473f-9b8a-b555aa5116bb",
+            "label": "Iterative development",
+            "score": 0.235
+          },
+          {
+            "id": "custom:rqt",
+            "label": "RQT",
+            "score": 0.235
+          }
+        ]
+      }
+    },
+    {
+      "term": "numpy to clean",
+      "canonical": {
+        "id": "custom:numpy",
+        "label": "NumPy",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply Python for data analysis using pandas and numpy to clean, transform, and analyze datasets."
+        }
+      ],
+      "match": {
+        "original_term": "numpy to clean",
+        "canonical_id": "custom:numpy",
+        "canonical_label": "NumPy",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.642,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.40",
+        "candidates": [
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.642
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.243
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.226
+          }
+        ]
+      }
+    },
+    {
+      "term": "principles of object-oriented programming in Python",
+      "canonical": {
+        "id": "custom:object-oriented-programming",
+        "label": "object-oriented programming",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the principles of object-oriented programming in Python including classes, objects, inheritance, and encapsulation."
+        }
+      ],
+      "match": {
+        "original_term": "principles of object-oriented programming in Python",
+        "canonical_id": "custom:object-oriented-programming",
+        "canonical_label": "object-oriented programming",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.698,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.10",
+        "candidates": [
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.698
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.594
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.529
+          }
+        ]
+      }
+    },
+    {
+      "term": "Python syntax",
+      "canonical": {
+        "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "label": "Python",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define Python syntax and data types including integers, strings, lists, tuples, dictionaries, and sets."
+        }
+      ],
+      "match": {
+        "original_term": "Python syntax",
+        "canonical_id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "canonical_label": "Python",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.666,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.20",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.666
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.466
+          },
+          {
+            "id": "custom:jupyter",
+            "label": "Jupyter Notebook",
+            "score": 0.259
+          }
+        ]
+      }
+    },
+    {
+      "term": "strings",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define Python syntax and data types including integers, strings, lists, tuples, dictionaries, and sets."
+        }
+      ],
+      "match": {
+        "original_term": "strings",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.257,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.257
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.257
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.232
+          }
+        ]
+      }
+    },
+    {
+      "term": "system operations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the use of standard libraries such as os, sys, re, and itertools for system operations and data manipulation."
+        }
+      ],
+      "match": {
+        "original_term": "system operations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'system operations' refers to the use of standard libraries for system operations and data manipulation, which is not directly captured by any of the provided taxonomy entries. None of the labels match the specific skill described in the phrase.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.548
+          },
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.498
+          },
+          {
+            "id": "esco:cf310cff-0d28-4dbc-9dbb-cc500a3196c2",
+            "label": "office software",
+            "score": 0.496
+          }
+        ]
+      }
+    },
+    {
+      "term": "transform",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply Python for data analysis using pandas and numpy to clean, transform, and analyze datasets."
+        }
+      ],
+      "match": {
+        "original_term": "transform",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.249,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.249
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.225
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "Scheduling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Lab: Task Automation and Scheduling"
+        },
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Scheduling and Monitoring"
+        }
+      ],
+      "match": {
+        "original_term": "Scheduling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'Scheduling' as a skill. The closest entries are related to monitoring, task automation, and specific tools, but none match the concept of scheduling as described in the syllabus.",
+        "candidates": [
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.468
+          },
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.295
+          },
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.26
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Structures",
+      "canonical": {
+        "id": "custom:data-structures",
+        "label": "data structures",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Data Structures: Lists, Tuples, Dictionaries, and Sets"
+        },
+        {
+          "source": "description",
+          "text": "data structures"
+        }
+      ],
+      "match": {
+        "original_term": "Data Structures",
+        "canonical_id": "custom:data-structures",
+        "canonical_label": "data structures",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Data Visualization with Matplotlib",
+      "canonical": {
+        "id": "custom:data-visualization",
+        "label": "data visualization",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Python for Data Visualization with Matplotlib"
+        },
+        {
+          "source": "description",
+          "text": "data visualization with matplotlib"
+        }
+      ],
+      "match": {
+        "original_term": "Data Visualization with Matplotlib",
+        "canonical_id": "custom:data-visualization",
+        "canonical_label": "data visualization",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Data Visualization with Matplotlib' directly aligns with the skill 'data visualization' as it involves presenting data graphically using Matplotlib, which is explicitly mentioned in the syllabus.",
+        "candidates": [
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.719
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.67
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.356
+          }
+        ]
+      }
+    },
+    {
+      "term": "Exception Handling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "File Handling and Exception Handling"
+        },
+        {
+          "source": "description",
+          "text": "exception handling"
+        }
+      ],
+      "match": {
+        "original_term": "Exception Handling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'Exception Handling' as a skill. The closest is 'software anomalies' (esco:438ff259-d086-4004-acda-1ec3e1631bc6), which deals with deviations and exceptional events in software systems, but it is not the same as exception handling in programmin",
+        "candidates": [
+          {
+            "id": "esco:e3b4b533-cc4d-4c70-adb6-128120f40c88",
+            "label": "handling of dangerous goods",
+            "score": 0.416
+          },
+          {
+            "id": "custom:linux",
+            "label": "Linux",
+            "score": 0.219
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "File Handling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "File Handling and Exception Handling"
+        },
+        {
+          "source": "description",
+          "text": "file handling"
+        }
+      ],
+      "match": {
+        "original_term": "File Handling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'File Handling' as described in the syllabus. The closest entries are related to operating systems, image processing, or software UI design, but none specifically refer to file handling as a skill.",
+        "candidates": [
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.482
+          },
+          {
+            "id": "esco:e3b4b533-cc4d-4c70-adb6-128120f40c88",
+            "label": "handling of dangerous goods",
+            "score": 0.435
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.251
+          }
+        ]
+      }
+    },
+    {
+      "term": "Higher-Order Functions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Functional Programming: Lambda and Higher-Order Functions"
+        },
+        {
+          "source": "description",
+          "text": "higher-order functions"
+        }
+      ],
+      "match": {
+        "original_term": "Higher-Order Functions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.266,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.266
+          },
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.233
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "Numpy",
+      "canonical": {
+        "id": "custom:numpy",
+        "label": "NumPy",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Numpy for Numerical Computing"
+        },
+        {
+          "source": "description",
+          "text": "numpy"
+        }
+      ],
+      "match": {
+        "original_term": "Numpy",
+        "canonical_id": "custom:numpy",
+        "canonical_label": "NumPy",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Polymorphism",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Inheritance and Polymorphism"
+        },
+        {
+          "source": "description",
+          "text": "polymorphism"
+        }
+      ],
+      "match": {
+        "original_term": "Polymorphism",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.201,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.201
+          },
+          {
+            "id": "custom:poisson-distribution",
+            "label": "Poisson distribution",
+            "score": 0.195
+          },
+          {
+            "id": "custom:binomial-distribution",
+            "label": "binomial distribution",
+            "score": 0.185
+          }
+        ]
+      }
+    },
+    {
+      "term": "Seaborn",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Seaborn for Statistical Graphics"
+        },
+        {
+          "source": "description",
+          "text": "seaborn"
+        }
+      ],
+      "match": {
+        "original_term": "Seaborn",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.217,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:inferential-statistics",
+            "label": "inferential statistics",
+            "score": 0.217
+          },
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.216
+          },
+          {
+            "id": "custom:poisson-distribution",
+            "label": "Poisson distribution",
+            "score": 0.175
+          }
+        ]
+      }
+    },
+    {
+      "term": "Syntax",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Basic Syntax and Data Types"
+        },
+        {
+          "source": "description",
+          "text": "syntax"
+        }
+      ],
+      "match": {
+        "original_term": "Syntax",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.269,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.269
+          },
+          {
+            "id": "esco:03ff0d53-573a-47a0-a0ad-1995815a4339",
+            "label": "information structure",
+            "score": 0.25
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Analysis with Pandas",
+      "canonical": {
+        "id": "custom:data-analysis",
+        "label": "data analysis",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Lab: Data Analysis with Pandas"
+        }
+      ],
+      "match": {
+        "original_term": "Data Analysis with Pandas",
+        "canonical_id": "custom:data-analysis",
+        "canonical_label": "data analysis",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.691,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.16",
+        "candidates": [
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.691
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.527
+          },
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.405
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Visualization Projects",
+      "canonical": {
+        "id": "custom:data-visualization",
+        "label": "data visualization",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Lab: Data Visualization Projects"
+        }
+      ],
+      "match": {
+        "original_term": "Data Visualization Projects",
+        "canonical_id": "custom:data-visualization",
+        "canonical_label": "data visualization",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.743,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.32",
+        "candidates": [
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.743
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.423
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.376
+          }
+        ]
+      }
+    },
+    {
+      "term": "Error Handling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 2,
+          "text": "Lab: File Operations and Error Handling"
+        }
+      ],
+      "match": {
+        "original_term": "Error Handling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.216,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:034c29fa-c3ba-45ea-b8f3-bf8e3705e386",
+            "label": "Erlang",
+            "score": 0.216
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.213
+          },
+          {
+            "id": "esco:bb99af26-71ff-4dca-bde7-1eb1f6194426",
+            "label": "SAP R3",
+            "score": 0.206
+          }
+        ]
+      }
+    },
+    {
+      "term": "File Operations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 2,
+          "text": "Lab: File Operations and Error Handling"
+        }
+      ],
+      "match": {
+        "original_term": "File Operations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries directly match the skill 'File Operations'. The closest entries are related to operating systems or Linux, but they do not specifically refer to file operations.",
+        "candidates": [
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.42
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.267
+          },
+          {
+            "id": "custom:linux",
+            "label": "Linux",
+            "score": 0.226
+          }
+        ]
+      }
+    },
+    {
+      "term": "Flask API Development",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Lab: Flask API Development"
+        }
+      ],
+      "match": {
+        "original_term": "Flask API Development",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.741,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.22",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.741
+          },
+          {
+            "id": "custom:flask",
+            "label": "Flask",
+            "score": 0.525
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.483
+          }
+        ]
+      }
+    },
+    {
+      "term": "Functional Programming Techniques",
+      "canonical": {
+        "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+        "label": "computer programming",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Lab: Functional Programming Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Functional Programming Techniques",
+        "canonical_id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+        "canonical_label": "computer programming",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Functional Programming Techniques' is a specific type of programming paradigm covered under the broader category of 'computer programming' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.443
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.44
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.439
+          }
+        ]
+      }
+    },
+    {
+      "term": "Machine Learning Model Training",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Lab: Machine Learning Model Training"
+        }
+      ],
+      "match": {
+        "original_term": "Machine Learning Model Training",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.662,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.26",
+        "candidates": [
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.662
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.399
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.355
+          }
+        ]
+      }
+    },
+    {
+      "term": "Numerical Computation with Numpy",
+      "canonical": {
+        "id": "custom:numerical-methods",
+        "label": "numerical methods",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Lab: Numerical Computation with Numpy"
+        }
+      ],
+      "match": {
+        "original_term": "Numerical Computation with Numpy",
+        "canonical_id": "custom:numerical-methods",
+        "canonical_label": "numerical methods",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.748,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.19",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.748
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.562
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.283
+          }
+        ]
+      }
+    },
+    {
+      "term": "OOP Concepts Implementation",
+      "canonical": {
+        "id": "custom:object-oriented-programming",
+        "label": "object-oriented programming",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Lab: OOP Concepts Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "OOP Concepts Implementation",
+        "canonical_id": "custom:object-oriented-programming",
+        "canonical_label": "object-oriented programming",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'OOP Concepts Implementation' directly refers to the practice of implementing object-oriented programming concepts, which matches the label 'object-oriented programming' and its also called entry 'OOP'.",
+        "candidates": [
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.491
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.251
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "Simple Flask Web Application",
+      "canonical": {
+        "id": "custom:flask",
+        "label": "Flask",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Lab: Simple Flask Web Application"
+        }
+      ],
+      "match": {
+        "original_term": "Simple Flask Web Application",
+        "canonical_id": "custom:flask",
+        "canonical_label": "Flask",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Simple Flask Web Application' directly refers to the use of Flask, a lightweight Python web framework, which matches the label 'Flask' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:flask",
+            "label": "Flask",
+            "score": 0.484
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.367
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.207
+          }
+        ]
+      }
+    },
+    {
+      "term": "Task Automation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Lab: Task Automation and Scheduling"
+        }
+      ],
+      "match": {
+        "original_term": "Task Automation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Task Automation' does not match any of the provided taxonomy entries, which focus on testing automation, algorithmization, or specific tools, rather than general task automation.",
+        "candidates": [
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.524
+          },
+          {
+            "id": "esco:7482a123-e801-48de-9733-262125671410",
+            "label": "task algorithmisation",
+            "score": 0.483
+          },
+          {
+            "id": "esco:7557f0f4-b8bc-4ac0-b91e-222ab1ba744f",
+            "label": "tools for ICT test automation",
+            "score": 0.453
+          }
+        ]
+      }
+    },
+    {
+      "term": "Advanced Python",
+      "canonical": {
+        "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "label": "Python",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Advanced Python Concepts: Generators, Context Managers, and Metaprogramming"
+        }
+      ],
+      "match": {
+        "original_term": "Advanced Python",
+        "canonical_id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "canonical_label": "Python",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.648,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.26",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.648
+          },
+          {
+            "id": "esco:300d432b-f457-4cd3-9cb1-1858c7d14954",
+            "label": "OpenEdge Advanced Business Language",
+            "score": 0.385
+          },
+          {
+            "id": "custom:apache-spark",
+            "label": "Apache Spark",
+            "score": 0.196
+          }
+        ]
+      }
+    },
+    {
+      "term": "Array Operations",
+      "canonical": {
+        "id": "custom:numpy",
+        "label": "NumPy",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Array Operations and Broadcasting"
+        }
+      ],
+      "match": {
+        "original_term": "Array Operations",
+        "canonical_id": "custom:numpy",
+        "canonical_label": "NumPy",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Array Operations' is directly related to NumPy, a Python library for array computation, which is explicitly mentioned in the taxonomy entry for 'NumPy'.",
+        "candidates": [
+          {
+            "id": "esco:9156104b-9bcb-4c22-aaa8-02e3e990ebc7",
+            "label": "maritime telecommunications",
+            "score": 0.518
+          },
+          {
+            "id": "esco:1a163b43-9826-426f-9bda-05133a9f4bf3",
+            "label": "milking operations",
+            "score": 0.487
+          },
+          {
+            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
+            "label": "packaging processes",
+            "score": 0.481
+          }
+        ]
+      }
+    },
+    {
+      "term": "Automating Tasks with Python Scripts",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Automating Tasks with Python Scripts"
+        }
+      ],
+      "match": {
+        "original_term": "Automating Tasks with Python Scripts",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Automating Tasks with Python Scripts' refers to using Python for task automation, which is not directly captured by any of the provided taxonomy entries. None of the candidates specifically address the skill of automating tasks through Python scripts.",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.45
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.353
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.349
+          }
+        ]
+      }
+    },
+    {
+      "term": "Best Practices",
+      "canonical": {
+        "id": "esco:1618ee1c-6753-456e-a171-3d7e5f75404a",
+        "label": "good laboratory practice",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Code Quality and Best Practices"
+        }
+      ],
+      "match": {
+        "original_term": "Best Practices",
+        "canonical_id": "esco:1618ee1c-6753-456e-a171-3d7e5f75404a",
+        "canonical_label": "good laboratory practice",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.623,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.13",
+        "candidates": [
+          {
+            "id": "esco:1618ee1c-6753-456e-a171-3d7e5f75404a",
+            "label": "good laboratory practice",
+            "score": 0.623
+          },
+          {
+            "id": "custom:devops",
+            "label": "DevOps practices",
+            "score": 0.492
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.447
+          }
+        ]
+      }
+    },
+    {
+      "term": "Broadcasting",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Array Operations and Broadcasting"
+        }
+      ],
+      "match": {
+        "original_term": "Broadcasting",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.252,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
+            "label": "packaging processes",
+            "score": 0.252
+          },
+          {
+            "id": "esco:9156104b-9bcb-4c22-aaa8-02e3e990ebc7",
+            "label": "maritime telecommunications",
+            "score": 0.228
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "Code Quality",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Code Quality and Best Practices"
+        }
+      ],
+      "match": {
+        "original_term": "Code Quality",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Code Quality' as described in the syllabus. The closest entries are related to quality control systems or software testing, but they do not specifically refer to code quality practices.",
+        "candidates": [
+          {
+            "id": "esco:fafe0b9d-dbd9-46bd-b770-26299539ce66",
+            "label": "ICT process quality models",
+            "score": 0.486
+          },
+          {
+            "id": "esco:d56358e4-3bcc-4b5d-981d-ea15b2743e9e",
+            "label": "quality control systems",
+            "score": 0.485
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.483
+          }
+        ]
+      }
+    },
+    {
+      "term": "Comprehensions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Comprehensions"
+        }
+      ],
+      "match": {
+        "original_term": "Comprehensions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.262,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.262
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.256
+          },
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.226
+          }
+        ]
+      }
+    },
+    {
+      "term": "Context Managers",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Advanced Python Concepts: Generators, Context Managers, and Metaprogramming"
+        }
+      ],
+      "match": {
+        "original_term": "Context Managers",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.247,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.247
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.235
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "Control Flow Statements",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Control Flow Statements"
+        }
+      ],
+      "match": {
+        "original_term": "Control Flow Statements",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Control Flow Statements' refers to programming constructs that dictate the order of execution in code, which is not equivalent to any of the provided taxonomy entries related to control systems, robotics, or software tools.",
+        "candidates": [
+          {
+            "id": "esco:4ff549c3-daa5-4def-9916-301c7bdf13b8",
+            "label": "control systems",
+            "score": 0.43
+          },
+          {
+            "id": "custom:control-systems",
+            "label": "control systems engineering",
+            "score": 0.429
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.425
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Cleaning",
+      "canonical": {
+        "id": "esco:9d0d89be-bffa-4393-b6f6-8d05bea49051",
+        "label": "data extraction, transformation and loading tools",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Data Cleaning and Transformation"
+        }
+      ],
+      "match": {
+        "original_term": "Data Cleaning",
+        "canonical_id": "esco:9d0d89be-bffa-4393-b6f6-8d05bea49051",
+        "canonical_label": "data extraction, transformation and loading tools",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Data Cleaning' is a part of 'data extraction, transformation and loading tools' (ETL), which includes data cleaning as a key step in the process.",
+        "candidates": [
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.498
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.475
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.466
+          }
+        ]
+      }
+    },
+    {
+      "term": "Decorators",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Decorators"
+        }
+      ],
+      "match": {
+        "original_term": "Decorators",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.231,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-manipulators",
+            "label": "robot manipulators",
+            "score": 0.231
+          },
+          {
+            "id": "custom:teamwork",
+            "label": "teamwork",
+            "score": 0.191
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.185
+          }
+        ]
+      }
+    },
+    {
+      "term": "Environment Setup",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Python Introduction and Environment Setup"
+        }
+      ],
+      "match": {
+        "original_term": "Environment Setup",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Environment Setup' does not match any of the provided taxonomy entries, as none of the labels or descriptions refer to setting up an environment in the context of software development or programming.",
+        "candidates": [
+          {
+            "id": "esco:e7f7ceb9-6b2e-4a9f-9bc3-34613fd984c7",
+            "label": "airport operating environment",
+            "score": 0.424
+          },
+          {
+            "id": "esco:b1b118c4-3291-484e-b64d-6d51fd5da8b3",
+            "label": "environmental engineering",
+            "score": 0.273
+          },
+          {
+            "id": "esco:e3f2c37f-e484-4b4c-ad82-f565a2b98f89",
+            "label": "environmental management monitors",
+            "score": 0.27
+          }
+        ]
+      }
+    },
+    {
+      "term": "Flask Database Integration with SQLAlchemy",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Flask Database Integration with SQLAlchemy"
+        }
+      ],
+      "match": {
+        "original_term": "Flask Database Integration with SQLAlchemy",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Flask Database Integration with SQLAlchemy' as a skill. The closest entries are related to general database management or specific tools like SQL Server or NoSQL, but none capture the specific integration of Flask with SQLAlchemy as a skil",
+        "candidates": [
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.436
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.436
+          },
+          {
+            "id": "custom:flask",
+            "label": "Flask",
+            "score": 0.41
+          }
+        ]
+      }
+    },
+    {
+      "term": "Flask Web Framework Basics",
+      "canonical": {
+        "id": "custom:flask",
+        "label": "Flask",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Flask Web Framework Basics"
+        }
+      ],
+      "match": {
+        "original_term": "Flask Web Framework Basics",
+        "canonical_id": "custom:flask",
+        "canonical_label": "Flask",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "The phrase 'Flask Web Framework Basics' directly refers to the Flask framework, which is explicitly named in the taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:flask",
+            "label": "Flask",
+            "score": 0.493
+          },
+          {
+            "id": "custom:spring-boot",
+            "label": "Spring Boot",
+            "score": 0.407
+          },
+          {
+            "id": "esco:8c88d336-c249-4537-b26e-d679a85c4b9b",
+            "label": "Ajax Framework",
+            "score": 0.396
+          }
+        ]
+      }
+    },
+    {
+      "term": "Functional Programming",
+      "canonical": {
+        "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+        "label": "computer programming",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Functional Programming: Lambda and Higher-Order Functions"
+        }
+      ],
+      "match": {
+        "original_term": "Functional Programming",
+        "canonical_id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+        "canonical_label": "computer programming",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Functional Programming' is explicitly mentioned in the description of 'computer programming' as one of the programming paradigms.",
+        "candidates": [
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.567
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.507
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.499
+          }
+        ]
+      }
+    },
+    {
+      "term": "Functions",
+      "canonical": {
+        "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+        "label": "software components libraries",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Functions and Modules"
+        }
+      ],
+      "match": {
+        "original_term": "Functions",
+        "canonical_id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+        "canonical_label": "software components libraries",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Functions' directly relates to 'software components libraries', which specifically refers to software packages and modules that cover a set of related functions.",
+        "candidates": [
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.528
+          },
+          {
+            "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+            "label": "software components libraries",
+            "score": 0.293
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.229
+          }
+        ]
+      }
+    },
+    {
+      "term": "Generators",
+      "canonical": {
+        "id": "esco:c8c18b8d-a813-49f8-a702-689564dcf8b2",
+        "label": "electric generators",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Advanced Python Concepts: Generators, Context Managers, and Metaprogramming"
+        }
+      ],
+      "match": {
+        "original_term": "Generators",
+        "canonical_id": "esco:c8c18b8d-a813-49f8-a702-689564dcf8b2",
+        "canonical_label": "electric generators",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Generators' in the context of 'Advanced Python Concepts' refers to Python generators, which are a specific type of generator in programming. The taxonomy entry 'electric generators' includes generators of electricity, which is a direct match for the term 'Generators' in this context.",
+        "candidates": [
+          {
+            "id": "esco:f0ab5d57-4be7-411b-afce-b4a76a142302",
+            "label": "electrical machines",
+            "score": 0.878
+          },
+          {
+            "id": "esco:c8c18b8d-a813-49f8-a702-689564dcf8b2",
+            "label": "electric generators",
+            "score": 0.643
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.298
+          }
+        ]
+      }
+    },
+    {
+      "term": "Iteration",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Python Standard Libraries: os, sys, re itertools for Iteration"
+        }
+      ],
+      "match": {
+        "original_term": "Iteration",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.232,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.232
+          },
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.228
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "Lambda",
+      "canonical": {
+        "id": "custom:aws",
+        "label": "Amazon Web Services",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Functional Programming: Lambda and Higher-Order Functions"
+        }
+      ],
+      "match": {
+        "original_term": "Lambda",
+        "canonical_id": "custom:aws",
+        "canonical_label": "Amazon Web Services",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Lambda' is explicitly mentioned in the also called field of the 'custom:aws' entry, indicating it refers to AWS Lambda, a cloud computing service.",
+        "candidates": [
+          {
+            "id": "custom:aws",
+            "label": "Amazon Web Services",
+            "score": 1.0
+          },
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.227
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.219
+          }
+        ]
+      }
+    },
+    {
+      "term": "Machine Learning with Scikit-Learn",
+      "canonical": {
+        "id": "custom:scikit-learn",
+        "label": "scikit-learn",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Introduction to Machine Learning with Scikit-Learn"
+        }
+      ],
+      "match": {
+        "original_term": "Machine Learning with Scikit-Learn",
+        "canonical_id": "custom:scikit-learn",
+        "canonical_label": "scikit-learn",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Machine Learning with Scikit-Learn' directly refers to the use of the Scikit-Learn library, which is explicitly named in the 'custom:scikit-learn' entry.",
+        "candidates": [
+          {
+            "id": "custom:scikit-learn",
+            "label": "scikit-learn",
+            "score": 0.65
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.639
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.389
+          }
+        ]
+      }
+    },
+    {
+      "term": "Metaprogramming",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Advanced Python Concepts: Generators, Context Managers, and Metaprogramming"
+        }
+      ],
+      "match": {
+        "original_term": "Metaprogramming",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.352,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.352
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.312
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.312
+          }
+        ]
+      }
+    },
+    {
+      "term": "Modules",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Functions and Modules"
+        }
+      ],
+      "match": {
+        "original_term": "Modules",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.31,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.31
+          },
+          {
+            "id": "esco:484df271-bb52-49f1-8f50-f19624bf4df2",
+            "label": "software components libraries",
+            "score": 0.305
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.227
+          }
+        ]
+      }
+    },
+    {
+      "term": "Monitoring",
+      "canonical": {
+        "id": "custom:monitoring-observability",
+        "label": "monitoring and observability",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Scheduling and Monitoring"
+        }
+      ],
+      "match": {
+        "original_term": "Monitoring",
+        "canonical_id": "custom:monitoring-observability",
+        "canonical_label": "monitoring and observability",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Monitoring' directly matches the label 'monitoring and observability' and is listed as an alias in the also called section.",
+        "candidates": [
+          {
+            "id": "custom:monitoring-observability",
+            "label": "monitoring and observability",
+            "score": 0.911
+          },
+          {
+            "id": "esco:0e8d16c9-e2db-4862-ac06-1567f01ef806",
+            "label": "building systems monitoring technology",
+            "score": 0.56
+          },
+          {
+            "id": "esco:e3f2c37f-e484-4b4c-ad82-f565a2b98f89",
+            "label": "environmental management monitors",
+            "score": 0.261
+          }
+        ]
+      }
+    },
+    {
+      "term": "Numerical Computing",
+      "canonical": {
+        "id": "custom:numpy",
+        "label": "NumPy",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Numpy for Numerical Computing"
+        }
+      ],
+      "match": {
+        "original_term": "Numerical Computing",
+        "canonical_id": "custom:numpy",
+        "canonical_label": "NumPy",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.644,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.07",
+        "candidates": [
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.644
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.575
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.263
+          }
+        ]
+      }
+    },
+    {
+      "term": "Object-Oriented Programming",
+      "canonical": {
+        "id": "custom:object-oriented-programming",
+        "label": "object-oriented programming",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Object-Oriented Programming: Classes and Objects"
+        }
+      ],
+      "match": {
+        "original_term": "Object-Oriented Programming",
+        "canonical_id": "custom:object-oriented-programming",
+        "canonical_label": "object-oriented programming",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Pandas",
+      "canonical": {
+        "id": "custom:pandas",
+        "label": "pandas",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Pandas for Data Manipulation"
+        }
+      ],
+      "match": {
+        "original_term": "Pandas",
+        "canonical_id": "custom:pandas",
+        "canonical_label": "pandas",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Python Introduction",
+      "canonical": {
+        "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "label": "Python",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Python Introduction and Environment Setup"
+        }
+      ],
+      "match": {
+        "original_term": "Python Introduction",
+        "canonical_id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "canonical_label": "Python",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.629,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.17",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.629
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.457
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.455
+          }
+        ]
+      }
+    },
+    {
+      "term": "Python Standard Libraries",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Python Standard Libraries: os, sys, re itertools for Iteration"
+        }
+      ],
+      "match": {
+        "original_term": "Python Standard Libraries",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Python Standard Libraries' or its components (os, sys, re, itertools). The closest match is 'Python' (esco:ccd0a1d9-afda-43d9-b901-96344886e14d), but it is too broad and does not specifically capture the use of standard libraries.",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.512
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.438
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.407
+          }
+        ]
+      }
+    },
+    {
+      "term": "re itertools",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Python Standard Libraries: os, sys, re itertools for Iteration"
+        }
+      ],
+      "match": {
+        "original_term": "re itertools",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.219,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:rqt",
+            "label": "RQT",
+            "score": 0.219
+          },
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.21
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.206
+          }
+        ]
+      }
+    },
+    {
+      "term": "REST APIs",
+      "canonical": {
+        "id": "custom:rest-api",
+        "label": "REST API development",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "REST APIs"
+        }
+      ],
+      "match": {
+        "original_term": "REST APIs",
+        "canonical_id": "custom:rest-api",
+        "canonical_label": "REST API development",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.672,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.26",
+        "candidates": [
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.672
+          },
+          {
+            "id": "custom:django",
+            "label": "Django",
+            "score": 0.417
+          },
+          {
+            "id": "custom:fastapi",
+            "label": "FastAPI",
+            "score": 0.295
+          }
+        ]
+      }
+    },
+    {
+      "term": "Routing",
+      "canonical": {
+        "id": "esco:7f1a7abb-9208-48b7-8b84-2c1f283a50a0",
+        "label": "call routing",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Routing and Templates"
+        }
+      ],
+      "match": {
+        "original_term": "Routing",
+        "canonical_id": "esco:7f1a7abb-9208-48b7-8b84-2c1f283a50a0",
+        "canonical_label": "call routing",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.667,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.11",
+        "candidates": [
+          {
+            "id": "esco:7f1a7abb-9208-48b7-8b84-2c1f283a50a0",
+            "label": "call routing",
+            "score": 0.667
+          },
+          {
+            "id": "esco:0da6cab1-0ee9-4391-a299-f71fbf21db56",
+            "label": "ICT network routing",
+            "score": 0.557
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.237
+          }
+        ]
+      }
+    },
+    {
+      "term": "Statistical Graphics",
+      "canonical": {
+        "id": "custom:data-visualization",
+        "label": "data visualization",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Seaborn for Statistical Graphics"
+        }
+      ],
+      "match": {
+        "original_term": "Statistical Graphics",
+        "canonical_id": "custom:data-visualization",
+        "canonical_label": "data visualization",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Statistical Graphics' directly relates to creating visual representations of data, which aligns with the definition of 'data visualization' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.477
+          },
+          {
+            "id": "custom:discrete-mathematics",
+            "label": "discrete mathematics",
+            "score": 0.221
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.216
+          }
+        ]
+      }
+    },
+    {
+      "term": "Supervised Learning Algorithms",
+      "canonical": {
+        "id": "custom:machine-learning",
+        "label": "machine learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Supervised Learning Algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "Supervised Learning Algorithms",
+        "canonical_id": "custom:machine-learning",
+        "canonical_label": "machine learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.725,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.29",
+        "candidates": [
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.725
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.431
+          },
+          {
+            "id": "custom:scikit-learn",
+            "label": "scikit-learn",
+            "score": 0.222
+          }
+        ]
+      }
+    },
+    {
+      "term": "Transformation",
+      "canonical": {
+        "id": "esco:106b9659-4b9a-4ce2-8d16-80add5bf81b0",
+        "label": "energy transformation",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Data Cleaning and Transformation"
+        }
+      ],
+      "match": {
+        "original_term": "Transformation",
+        "canonical_id": "esco:106b9659-4b9a-4ce2-8d16-80add5bf81b0",
+        "canonical_label": "energy transformation",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.669,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.13",
+        "candidates": [
+          {
+            "id": "esco:106b9659-4b9a-4ce2-8d16-80add5bf81b0",
+            "label": "energy transformation",
+            "score": 0.669
+          },
+          {
+            "id": "esco:9d0d89be-bffa-4393-b6f6-8d05bea49051",
+            "label": "data extraction, transformation and loading tools",
+            "score": 0.538
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.291
+          }
+        ]
+      }
+    },
+    {
+      "term": "automation with Python scripts",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "automation with Python scripts"
+        }
+      ],
+      "match": {
+        "original_term": "automation with Python scripts",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'automation with Python scripts' refers to using Python for automation tasks, which is not exactly captured by any of the provided taxonomy entries. None of the entries specifically address automation using Python scripts.",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.499
+          },
+          {
+            "id": "esco:f4a6e9f7-5cff-46c0-894c-59c20bb78694",
+            "label": "automation technology",
+            "score": 0.423
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.422
+          }
+        ]
+      }
+    },
+    {
+      "term": "control flow",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "control flow"
+        }
+      ],
+      "match": {
+        "original_term": "control flow",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'control flow' refers to the structure and order of execution in programming, which is distinct from the broader concepts of control systems or robotics control covered by the taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.502
+          },
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.497
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.486
+          }
+        ]
+      }
+    },
+    {
+      "term": "data science using pandas",
+      "canonical": {
+        "id": "custom:pandas",
+        "label": "pandas",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "data science using pandas"
+        }
+      ],
+      "match": {
+        "original_term": "data science using pandas",
+        "canonical_id": "custom:pandas",
+        "canonical_label": "pandas",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'data science using pandas' directly refers to the use of the pandas library for data science tasks, which matches the 'pandas' entry in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.486
+          },
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.369
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.362
+          }
+        ]
+      }
+    },
+    {
+      "term": "functional programming with lambda functions",
+      "canonical": {
+        "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+        "label": "computer programming",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "functional programming with lambda functions"
+        }
+      ],
+      "match": {
+        "original_term": "functional programming with lambda functions",
+        "canonical_id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+        "canonical_label": "computer programming",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'functional programming with lambda functions' directly relates to functional programming paradigms, which is explicitly mentioned in the description of 'computer programming' as one of the programming paradigms.",
+        "candidates": [
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.454
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.401
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.394
+          }
+        ]
+      }
+    },
+    {
+      "term": "object-oriented programming principles with classes",
+      "canonical": {
+        "id": "custom:object-oriented-programming",
+        "label": "object-oriented programming",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "object-oriented programming principles with classes"
+        }
+      ],
+      "match": {
+        "original_term": "object-oriented programming principles with classes",
+        "canonical_id": "custom:object-oriented-programming",
+        "canonical_label": "object-oriented programming",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.707,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.20",
+        "candidates": [
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.707
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.509
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.369
+          }
+        ]
+      }
+    },
+    {
+      "term": "This course covers foundational Python programming",
+      "canonical": {
+        "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "label": "Python",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "This course covers foundational Python programming"
+        }
+      ],
+      "match": {
+        "original_term": "This course covers foundational Python programming",
+        "canonical_id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+        "canonical_label": "Python",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'foundational Python programming' directly matches the skill 'Python' as described in the taxonomy entry, which specifically refers to Python programming techniques and principles.",
+        "candidates": [
+          {
+            "id": "esco:ccd0a1d9-afda-43d9-b901-96344886e14d",
+            "label": "Python",
+            "score": 0.566
+          },
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.356
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.346
+          }
+        ]
+      }
+    },
+    {
+      "term": "web development with Flask",
+      "canonical": {
+        "id": "custom:flask",
+        "label": "Flask",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "web development with Flask"
+        }
+      ],
+      "match": {
+        "original_term": "web development with Flask",
+        "canonical_id": "custom:flask",
+        "canonical_label": "Flask",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'web development with Flask' directly refers to the use of the Flask framework, which is explicitly named in the 'custom:flask' entry.",
+        "candidates": [
+          {
+            "id": "custom:flask",
+            "label": "Flask",
+            "score": 0.541
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.449
+          },
+          {
+            "id": "custom:rest-api",
+            "label": "REST API development",
+            "score": 0.445
+          }
+        ]
+      }
+    }
+  ]
+}

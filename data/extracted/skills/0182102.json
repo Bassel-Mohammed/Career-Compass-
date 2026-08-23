@@ -1,0 +1,2381 @@
+{
+  "course_code": "0182102",
+  "total_skills": 56,
+  "taxonomy_version": "1.0",
+  "match_backend": {
+    "retrieval": "lexical-ngram-v1",
+    "reranker": "lexical",
+    "llm": null
+  },
+  "match_summary": {
+    "by_status": {
+      "accepted": 24,
+      "no_match": 16,
+      "needs_review": 16
+    },
+    "by_method": {
+      "exact_alias": 22,
+      "embedding_reranker": 34
+    }
+  },
+  "skills": [
+    {
+      "term": "Probability",
+      "canonical": {
+        "id": "custom:probability-theory",
+        "label": "probability theory",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 4,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Sample Spaces and Probability the Addition Rules for Probability"
+        },
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Probability"
+        },
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Probability and Counting Rules"
+        },
+        {
+          "source": "description",
+          "text": "Probability"
+        }
+      ],
+      "match": {
+        "original_term": "Probability",
+        "canonical_id": "custom:probability-theory",
+        "canonical_label": "probability theory",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "counting rules",
+      "canonical": {
+        "id": "custom:counting-rules",
+        "label": "counting rules",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Calculate theoretical, empirical probabilities and counting rules. CLO Coverage: 25%"
+        },
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Counting Rules"
+        },
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Probability and Counting Rules"
+        }
+      ],
+      "match": {
+        "original_term": "counting rules",
+        "canonical_id": "custom:counting-rules",
+        "canonical_label": "counting rules",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "mean",
+      "canonical": null,
+      "level": "intermediate",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Calculate the mean, variance, standard deviation, and probabilities for valid probability distributions. CLO Coverage: 20%"
+        },
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Mean, Variance, Standard Deviation, and"
+        },
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Method z Test for a Mean t Test for a Mean"
+        }
+      ],
+      "match": {
+        "original_term": "mean",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.16,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:standard-deviation",
+            "label": "standard deviation",
+            "score": 0.16
+          },
+          {
+            "id": "custom:normal-distribution",
+            "label": "normal distribution",
+            "score": 0.125
+          },
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.096
+          }
+        ]
+      }
+    },
+    {
+      "term": "standard deviation",
+      "canonical": {
+        "id": "custom:standard-deviation",
+        "label": "standard deviation",
+        "taxonomy": "custom"
+      },
+      "level": "intermediate",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Calculate the mean, variance, standard deviation, and probabilities for valid probability distributions. CLO Coverage: 20%"
+        },
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Mean, Variance, Standard Deviation, and"
+        }
+      ],
+      "match": {
+        "original_term": "standard deviation",
+        "canonical_id": "custom:standard-deviation",
+        "canonical_label": "standard deviation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "statistical measures",
+      "canonical": {
+        "id": "custom:descriptive-statistics",
+        "label": "descriptive statistics",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Calculate statistical measures. CLO Coverage: 40%"
+        },
+        {
+          "source": "description",
+          "text": "Statistical measures"
+        }
+      ],
+      "match": {
+        "original_term": "statistical measures",
+        "canonical_id": "custom:descriptive-statistics",
+        "canonical_label": "descriptive statistics",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "variance",
+      "canonical": {
+        "id": "custom:standard-deviation",
+        "label": "standard deviation",
+        "taxonomy": "custom"
+      },
+      "level": "intermediate",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Calculate the mean, variance, standard deviation, and probabilities for valid probability distributions. CLO Coverage: 20%"
+        },
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Mean, Variance, Standard Deviation, and"
+        }
+      ],
+      "match": {
+        "original_term": "variance",
+        "canonical_id": "custom:standard-deviation",
+        "canonical_label": "standard deviation",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "empirical probabilities",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Calculate theoretical, empirical probabilities and counting rules. CLO Coverage: 25%"
+        }
+      ],
+      "match": {
+        "original_term": "empirical probabilities",
+        "canonical_id": "custom:probability-theory",
+        "canonical_label": "probability theory",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.575,
+        "review_status": "needs_review",
+        "reason": "ambiguous: score below accept threshold",
+        "candidates": [
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.575
+          },
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.19
+          },
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.136
+          }
+        ]
+      }
+    },
+    {
+      "term": "hypothesis testing related to the mean",
+      "canonical": null,
+      "level": "intermediate",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Build Statistical inference to determine confidence interval and hypothesis testing related to the mean. CLO Coverage: 15%"
+        }
+      ],
+      "match": {
+        "original_term": "hypothesis testing related to the mean",
+        "canonical_id": "custom:hypothesis-testing",
+        "canonical_label": "hypothesis testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.541,
+        "review_status": "needs_review",
+        "reason": "ambiguous: score below accept threshold",
+        "candidates": [
+          {
+            "id": "custom:hypothesis-testing",
+            "label": "hypothesis testing",
+            "score": 0.541
+          },
+          {
+            "id": "custom:test-automation",
+            "label": "test automation",
+            "score": 0.278
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.265
+          }
+        ]
+      }
+    },
+    {
+      "term": "probabilities",
+      "canonical": {
+        "id": "custom:probability-theory",
+        "label": "probability theory",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Calculate the mean, variance, standard deviation, and probabilities for valid probability distributions. CLO Coverage: 20%"
+        }
+      ],
+      "match": {
+        "original_term": "probabilities",
+        "canonical_id": "custom:probability-theory",
+        "canonical_label": "probability theory",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Statistical inference to determine confidence interval",
+      "canonical": null,
+      "level": "intermediate",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Build Statistical inference to determine confidence interval and hypothesis testing related to the mean. CLO Coverage: 15%"
+        }
+      ],
+      "match": {
+        "original_term": "Statistical inference to determine confidence interval",
+        "canonical_id": "custom:confidence-intervals",
+        "canonical_label": "confidence intervals",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.507,
+        "review_status": "needs_review",
+        "reason": "ambiguous: score below accept threshold",
+        "candidates": [
+          {
+            "id": "custom:confidence-intervals",
+            "label": "confidence intervals",
+            "score": 0.507
+          },
+          {
+            "id": "custom:inferential-statistics",
+            "label": "inferential statistics",
+            "score": 0.504
+          },
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.235
+          }
+        ]
+      }
+    },
+    {
+      "term": "valid probability distributions",
+      "canonical": {
+        "id": "custom:probability-distributions",
+        "label": "probability distributions",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Calculate the mean, variance, standard deviation, and probabilities for valid probability distributions. CLO Coverage: 20%"
+        }
+      ],
+      "match": {
+        "original_term": "valid probability distributions",
+        "canonical_id": "custom:probability-distributions",
+        "canonical_label": "probability distributions",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.694,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.22",
+        "candidates": [
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.694
+          },
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.473
+          },
+          {
+            "id": "custom:normal-distribution",
+            "label": "normal distribution",
+            "score": 0.396
+          }
+        ]
+      }
+    },
+    {
+      "term": "Binomial Distribution",
+      "canonical": {
+        "id": "custom:binomial-distribution",
+        "label": "binomial distribution",
+        "taxonomy": "custom"
+      },
+      "level": "intermediate",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "The Binomial Distribution"
+        },
+        {
+          "source": "description",
+          "text": "Binomial distribution"
+        }
+      ],
+      "match": {
+        "original_term": "Binomial Distribution",
+        "canonical_id": "custom:binomial-distribution",
+        "canonical_label": "binomial distribution",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Confidence Intervals",
+      "canonical": {
+        "id": "custom:confidence-intervals",
+        "label": "confidence intervals",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Confidence Intervals for the Mean When s Is"
+        },
+        {
+          "source": "description",
+          "text": "Confidence intervals"
+        }
+      ],
+      "match": {
+        "original_term": "Confidence Intervals",
+        "canonical_id": "custom:confidence-intervals",
+        "canonical_label": "confidence intervals",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Descriptive",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Descriptive and Inferential Statistics"
+        },
+        {
+          "source": "description",
+          "text": "descriptive"
+        }
+      ],
+      "match": {
+        "original_term": "Descriptive",
+        "canonical_id": "custom:descriptive-statistics",
+        "canonical_label": "descriptive statistics",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.59,
+        "review_status": "needs_review",
+        "reason": "ambiguous: score below accept threshold",
+        "candidates": [
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.59
+          },
+          {
+            "id": "custom:inferential-statistics",
+            "label": "inferential statistics",
+            "score": 0.197
+          },
+          {
+            "id": "custom:urdf",
+            "label": "URDF robot modelling",
+            "score": 0.181
+          }
+        ]
+      }
+    },
+    {
+      "term": "Distribution of Sample Means",
+      "canonical": null,
+      "level": "intermediate",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Distribution of Sample Means"
+        },
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Distribution of Sample Means"
+        }
+      ],
+      "match": {
+        "original_term": "Distribution of Sample Means",
+        "canonical_id": "custom:probability-distributions",
+        "canonical_label": "probability distributions",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.404,
+        "review_status": "needs_review",
+        "reason": "ambiguous: score below accept threshold",
+        "candidates": [
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.404
+          },
+          {
+            "id": "custom:normal-distribution",
+            "label": "normal distribution",
+            "score": 0.386
+          },
+          {
+            "id": "custom:poisson-distribution",
+            "label": "Poisson distribution",
+            "score": 0.384
+          }
+        ]
+      }
+    },
+    {
+      "term": "Distributions",
+      "canonical": {
+        "id": "custom:probability-distributions",
+        "label": "probability distributions",
+        "taxonomy": "custom"
+      },
+      "level": "intermediate",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Other Types of Distributions"
+        },
+        {
+          "source": "description",
+          "text": "Distributions"
+        }
+      ],
+      "match": {
+        "original_term": "Distributions",
+        "canonical_id": "custom:probability-distributions",
+        "canonical_label": "probability distributions",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Expectation",
+      "canonical": null,
+      "level": "intermediate",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Expectation"
+        },
+        {
+          "source": "description",
+          "text": "Expectation"
+        }
+      ],
+      "match": {
+        "original_term": "Expectation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.121,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.121
+          },
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.111
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.103
+          }
+        ]
+      }
+    },
+    {
+      "term": "Inferential Statistics",
+      "canonical": {
+        "id": "custom:inferential-statistics",
+        "label": "inferential statistics",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Descriptive and Inferential Statistics"
+        },
+        {
+          "source": "description",
+          "text": "inferential statistics"
+        }
+      ],
+      "match": {
+        "original_term": "Inferential Statistics",
+        "canonical_id": "custom:inferential-statistics",
+        "canonical_label": "inferential statistics",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Measures of Central Tendency",
+      "canonical": {
+        "id": "custom:descriptive-statistics",
+        "label": "descriptive statistics",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Measures of Central Tendency"
+        },
+        {
+          "source": "description",
+          "text": "measures of central tendency"
+        }
+      ],
+      "match": {
+        "original_term": "Measures of Central Tendency",
+        "canonical_id": "custom:descriptive-statistics",
+        "canonical_label": "descriptive statistics",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Measures of Position",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Measures of Position"
+        },
+        {
+          "source": "description",
+          "text": "measures of position"
+        }
+      ],
+      "match": {
+        "original_term": "Measures of Position",
+        "canonical_id": "custom:descriptive-statistics",
+        "canonical_label": "descriptive statistics",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.439,
+        "review_status": "needs_review",
+        "reason": "ambiguous: score below accept threshold",
+        "candidates": [
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.439
+          },
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.362
+          },
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.319
+          }
+        ]
+      }
+    },
+    {
+      "term": "Measures of Variation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Measures of Variation"
+        },
+        {
+          "source": "description",
+          "text": "measures of variation"
+        }
+      ],
+      "match": {
+        "original_term": "Measures of Variation",
+        "canonical_id": "custom:descriptive-statistics",
+        "canonical_label": "descriptive statistics",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.431,
+        "review_status": "needs_review",
+        "reason": "ambiguous: score below accept threshold",
+        "candidates": [
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.431
+          },
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.36
+          },
+          {
+            "id": "custom:standard-deviation",
+            "label": "standard deviation",
+            "score": 0.15
+          }
+        ]
+      }
+    },
+    {
+      "term": "Normal Distribution",
+      "canonical": {
+        "id": "custom:normal-distribution",
+        "label": "normal distribution",
+        "taxonomy": "custom"
+      },
+      "level": "intermediate",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Applications of the Normal Distribution"
+        },
+        {
+          "source": "description",
+          "text": "Normal distribution"
+        }
+      ],
+      "match": {
+        "original_term": "Normal Distribution",
+        "canonical_id": "custom:normal-distribution",
+        "canonical_label": "normal distribution",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Bayes’ Theorem",
+      "canonical": {
+        "id": "custom:bayes-theorem",
+        "label": "Bayes theorem",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Bayes’ Theorem"
+        }
+      ],
+      "match": {
+        "original_term": "Bayes’ Theorem",
+        "canonical_id": "custom:bayes-theorem",
+        "canonical_label": "Bayes theorem",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Conditional",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "The Multiplication Rules and Conditional"
+        }
+      ],
+      "match": {
+        "original_term": "Conditional",
+        "canonical_id": "custom:bayes-theorem",
+        "canonical_label": "Bayes theorem",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.572,
+        "review_status": "needs_review",
+        "reason": "ambiguous: score below accept threshold",
+        "candidates": [
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.572
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.144
+          },
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.123
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Variables and Types of Data"
+        }
+      ],
+      "match": {
+        "original_term": "Data",
+        "canonical_id": "custom:data-structures",
+        "canonical_label": "data structures",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.545,
+        "review_status": "needs_review",
+        "reason": "ambiguous: score below accept threshold",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.545
+          },
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.479
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.478
+          }
+        ]
+      }
+    },
+    {
+      "term": "Frequency Polygons",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Histograms, Frequency Polygons, and Ogives"
+        }
+      ],
+      "match": {
+        "original_term": "Frequency Polygons",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.068,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.068
+          },
+          {
+            "id": "custom:tf-transforms",
+            "label": "coordinate frame transforms",
+            "score": 0.066
+          },
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.057
+          }
+        ]
+      }
+    },
+    {
+      "term": "Histograms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Histograms, Frequency Polygons, and Ogives"
+        }
+      ],
+      "match": {
+        "original_term": "Histograms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.112,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.112
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.096
+          },
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.084
+          }
+        ]
+      }
+    },
+    {
+      "term": "Hypothesis Testing—Traditional",
+      "canonical": {
+        "id": "custom:hypothesis-testing",
+        "label": "hypothesis testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Steps in Hypothesis Testing—Traditional"
+        }
+      ],
+      "match": {
+        "original_term": "Hypothesis Testing—Traditional",
+        "canonical_id": "custom:hypothesis-testing",
+        "canonical_label": "hypothesis testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.626,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.25",
+        "candidates": [
+          {
+            "id": "custom:hypothesis-testing",
+            "label": "hypothesis testing",
+            "score": 0.626
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.381
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.301
+          }
+        ]
+      }
+    },
+    {
+      "term": "Known",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Known and unknown"
+        }
+      ],
+      "match": {
+        "original_term": "Known",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.152,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:slam",
+            "label": "SLAM",
+            "score": 0.152
+          },
+          {
+            "id": "custom:retrieval-augmented-generation",
+            "label": "retrieval-augmented generation",
+            "score": 0.022
+          },
+          {
+            "id": "custom:control-systems",
+            "label": "control systems engineering",
+            "score": 0.022
+          }
+        ]
+      }
+    },
+    {
+      "term": "Mean t Test",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Method z Test for a Mean t Test for a Mean"
+        }
+      ],
+      "match": {
+        "original_term": "Mean t Test",
+        "canonical_id": "custom:hypothesis-testing",
+        "canonical_label": "hypothesis testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.575,
+        "review_status": "needs_review",
+        "reason": "ambiguous: score below accept threshold",
+        "candidates": [
+          {
+            "id": "custom:hypothesis-testing",
+            "label": "hypothesis testing",
+            "score": 0.575
+          },
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.293
+          },
+          {
+            "id": "custom:full-stack-development",
+            "label": "full-stack development",
+            "score": 0.272
+          }
+        ]
+      }
+    },
+    {
+      "term": "Mean When s Is",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Confidence Intervals for the Mean When s Is"
+        }
+      ],
+      "match": {
+        "original_term": "Mean When s Is",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.279,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:full-stack-development",
+            "label": "full-stack development",
+            "score": 0.279
+          },
+          {
+            "id": "custom:confidence-intervals",
+            "label": "confidence intervals",
+            "score": 0.187
+          },
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.061
+          }
+        ]
+      }
+    },
+    {
+      "term": "Method z Test",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Method z Test for a Mean t Test for a Mean"
+        }
+      ],
+      "match": {
+        "original_term": "Method z Test",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.345,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:hypothesis-testing",
+            "label": "hypothesis testing",
+            "score": 0.345
+          },
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.271
+          },
+          {
+            "id": "custom:software-testing",
+            "label": "software testing",
+            "score": 0.261
+          }
+        ]
+      }
+    },
+    {
+      "term": "Multiplication Rules",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "The Multiplication Rules and Conditional"
+        }
+      ],
+      "match": {
+        "original_term": "Multiplication Rules",
+        "canonical_id": "custom:bayes-theorem",
+        "canonical_label": "Bayes theorem",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.402,
+        "review_status": "needs_review",
+        "reason": "ambiguous: score below accept threshold",
+        "candidates": [
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.402
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.298
+          },
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.135
+          }
+        ]
+      }
+    },
+    {
+      "term": "Normal Distributions",
+      "canonical": {
+        "id": "custom:normal-distribution",
+        "label": "normal distribution",
+        "taxonomy": "custom"
+      },
+      "level": "intermediate",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Normal Distributions"
+        }
+      ],
+      "match": {
+        "original_term": "Normal Distributions",
+        "canonical_id": "custom:normal-distribution",
+        "canonical_label": "normal distribution",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Ogives",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Histograms, Frequency Polygons, and Ogives"
+        }
+      ],
+      "match": {
+        "original_term": "Ogives",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.052,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.052
+          },
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.049
+          },
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.046
+          }
+        ]
+      }
+    },
+    {
+      "term": "Organizing Data",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Organizing Data"
+        }
+      ],
+      "match": {
+        "original_term": "Organizing Data",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.331,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.331
+          },
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.329
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.323
+          }
+        ]
+      }
+    },
+    {
+      "term": "Probability Distributions",
+      "canonical": {
+        "id": "custom:probability-distributions",
+        "label": "probability distributions",
+        "taxonomy": "custom"
+      },
+      "level": "intermediate",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Probability Distributions"
+        }
+      ],
+      "match": {
+        "original_term": "Probability Distributions",
+        "canonical_id": "custom:probability-distributions",
+        "canonical_label": "probability distributions",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Probability the Addition Rules",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Sample Spaces and Probability the Addition Rules for Probability"
+        }
+      ],
+      "match": {
+        "original_term": "Probability the Addition Rules",
+        "canonical_id": "custom:probability-theory",
+        "canonical_label": "probability theory",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.492,
+        "review_status": "needs_review",
+        "reason": "ambiguous: score below accept threshold",
+        "candidates": [
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.492
+          },
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.38
+          },
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.342
+          }
+        ]
+      }
+    },
+    {
+      "term": "Sample Spaces",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Sample Spaces and Probability the Addition Rules for Probability"
+        }
+      ],
+      "match": {
+        "original_term": "Sample Spaces",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.194,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.194
+          },
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.15
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.126
+          }
+        ]
+      }
+    },
+    {
+      "term": "unknown",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Known and unknown"
+        }
+      ],
+      "match": {
+        "original_term": "unknown",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.055,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:slam",
+            "label": "SLAM",
+            "score": 0.055
+          },
+          {
+            "id": "custom:urdf",
+            "label": "URDF robot modelling",
+            "score": 0.035
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.023
+          }
+        ]
+      }
+    },
+    {
+      "term": "Variables",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Variables and Types of Data"
+        }
+      ],
+      "match": {
+        "original_term": "Variables",
+        "canonical_id": "custom:probability-distributions",
+        "canonical_label": "probability distributions",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.55,
+        "review_status": "needs_review",
+        "reason": "ambiguous: score below accept threshold",
+        "candidates": [
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.55
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.18
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.148
+          }
+        ]
+      }
+    },
+    {
+      "term": "Chebyshev's theorem",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Chebyshev's theorem"
+        }
+      ],
+      "match": {
+        "original_term": "Chebyshev's theorem",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.309,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.309
+          },
+          {
+            "id": "custom:discrete-mathematics",
+            "label": "discrete mathematics",
+            "score": 0.087
+          },
+          {
+            "id": "esco:5b6abc4b-0cfe-4178-845d-479da3d2d699",
+            "label": "pesticides",
+            "score": 0.05
+          }
+        ]
+      }
+    },
+    {
+      "term": "Combinations",
+      "canonical": {
+        "id": "custom:counting-rules",
+        "label": "counting rules",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Combinations"
+        }
+      ],
+      "match": {
+        "original_term": "Combinations",
+        "canonical_id": "custom:counting-rules",
+        "canonical_label": "counting rules",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Conditional probability",
+      "canonical": {
+        "id": "custom:bayes-theorem",
+        "label": "Bayes theorem",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Conditional probability"
+        }
+      ],
+      "match": {
+        "original_term": "Conditional probability",
+        "canonical_id": "custom:bayes-theorem",
+        "canonical_label": "Bayes theorem",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Counting methods",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Counting methods"
+        }
+      ],
+      "match": {
+        "original_term": "Counting methods",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.387,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.387
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.339
+          },
+          {
+            "id": "custom:agile-methodology",
+            "label": "agile methodology",
+            "score": 0.096
+          }
+        ]
+      }
+    },
+    {
+      "term": "definition",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "definition"
+        }
+      ],
+      "match": {
+        "original_term": "definition",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.115,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:gazebo",
+            "label": "Gazebo simulator",
+            "score": 0.115
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.115
+          },
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.09
+          }
+        ]
+      }
+    },
+    {
+      "term": "definition of probability",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "definition of probability"
+        }
+      ],
+      "match": {
+        "original_term": "definition of probability",
+        "canonical_id": "custom:probability-theory",
+        "canonical_label": "probability theory",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.56,
+        "review_status": "needs_review",
+        "reason": "ambiguous: score below accept threshold",
+        "candidates": [
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.56
+          },
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.42
+          },
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.391
+          }
+        ]
+      }
+    },
+    {
+      "term": "empirical rule",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "empirical rule"
+        }
+      ],
+      "match": {
+        "original_term": "empirical rule",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.293,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.293
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.264
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.092
+          }
+        ]
+      }
+    },
+    {
+      "term": "Hypothesis testing",
+      "canonical": {
+        "id": "custom:hypothesis-testing",
+        "label": "hypothesis testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Hypothesis testing"
+        }
+      ],
+      "match": {
+        "original_term": "Hypothesis testing",
+        "canonical_id": "custom:hypothesis-testing",
+        "canonical_label": "hypothesis testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Independence",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Independence"
+        }
+      ],
+      "match": {
+        "original_term": "Independence",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.105,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:confidence-intervals",
+            "label": "confidence intervals",
+            "score": 0.105
+          },
+          {
+            "id": "custom:microservices",
+            "label": "microservices architecture",
+            "score": 0.082
+          },
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.078
+          }
+        ]
+      }
+    },
+    {
+      "term": "laws of probability",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "laws of probability"
+        }
+      ],
+      "match": {
+        "original_term": "laws of probability",
+        "canonical_id": "custom:probability-theory",
+        "canonical_label": "probability theory",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.595,
+        "review_status": "needs_review",
+        "reason": "ambiguous: score below accept threshold",
+        "candidates": [
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.595
+          },
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.414
+          },
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.374
+          }
+        ]
+      }
+    },
+    {
+      "term": "permutations",
+      "canonical": {
+        "id": "custom:counting-rules",
+        "label": "counting rules",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "permutations"
+        }
+      ],
+      "match": {
+        "original_term": "permutations",
+        "canonical_id": "custom:counting-rules",
+        "canonical_label": "counting rules",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Poisson distribution",
+      "canonical": {
+        "id": "custom:poisson-distribution",
+        "label": "Poisson distribution",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Poisson distribution"
+        }
+      ],
+      "match": {
+        "original_term": "Poisson distribution",
+        "canonical_id": "custom:poisson-distribution",
+        "canonical_label": "Poisson distribution",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Random variables",
+      "canonical": {
+        "id": "custom:probability-distributions",
+        "label": "probability distributions",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Random variables"
+        }
+      ],
+      "match": {
+        "original_term": "Random variables",
+        "canonical_id": "custom:probability-distributions",
+        "canonical_label": "probability distributions",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Sampling distributions",
+      "canonical": {
+        "id": "custom:inferential-statistics",
+        "label": "inferential statistics",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Sampling distributions"
+        }
+      ],
+      "match": {
+        "original_term": "Sampling distributions",
+        "canonical_id": "custom:inferential-statistics",
+        "canonical_label": "inferential statistics",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Statistics",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Statistics"
+        }
+      ],
+      "match": {
+        "original_term": "Statistics",
+        "canonical_id": "custom:descriptive-statistics",
+        "canonical_label": "descriptive statistics",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.582,
+        "review_status": "needs_review",
+        "reason": "ambiguous: score below accept threshold",
+        "candidates": [
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.582
+          },
+          {
+            "id": "custom:inferential-statistics",
+            "label": "inferential statistics",
+            "score": 0.562
+          },
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.507
+          }
+        ]
+      }
+    }
+  ]
+}

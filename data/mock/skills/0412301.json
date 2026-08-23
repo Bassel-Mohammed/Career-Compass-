@@ -1,0 +1,4507 @@
+{
+  "course_code": "0412301",
+  "course_codes": [
+    "0412301"
+  ],
+  "course_title": "Computer Architecture",
+  "credit_hours": 3,
+  "plans": [
+    "CS",
+    "CS/AI",
+    "SE"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "accepted": 18,
+      "no_match": 57,
+      "needs_review": 22
+    },
+    "by_method": {
+      "exact_alias": 2,
+      "embedding_reranker": 62,
+      "llm": 33
+    }
+  },
+  "total_skills": 97,
+  "skills": [
+    {
+      "term": "distributed systems",
+      "canonical": {
+        "id": "custom:microservices",
+        "label": "microservices architecture",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply performance analysis techniques using Amdahl's Law and CPI metrics to evaluate CPU performance in multi-core and distributed systems."
+        },
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "System Design for Distributed Systems"
+        },
+        {
+          "source": "description",
+          "text": "distributed systems"
+        }
+      ],
+      "match": {
+        "original_term": "distributed systems",
+        "canonical_id": "custom:microservices",
+        "canonical_label": "microservices architecture",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "hazards",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain pipelining techniques for RISC-V and x86 processors, including hazards, branch prediction, and out-of-order execution."
+        },
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Hazards and Branch Prediction"
+        },
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Pipeline Stages and Hazards"
+        }
+      ],
+      "match": {
+        "original_term": "hazards",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.373,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:2d7bf28a-2487-4443-9115-47478080b1a4",
+            "label": "hazard analysis and critical control points",
+            "score": 0.373
+          },
+          {
+            "id": "esco:bacbf3d2-c151-4911-b376-e664faa313e3",
+            "label": "risks associated to physical, chemical, biological hazards in food and beverages",
+            "score": 0.36
+          },
+          {
+            "id": "esco:e3b4b533-cc4d-4c70-adb6-128120f40c88",
+            "label": "handling of dangerous goods",
+            "score": 0.273
+          }
+        ]
+      }
+    },
+    {
+      "term": "branch prediction",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain pipelining techniques for RISC-V and x86 processors, including hazards, branch prediction, and out-of-order execution."
+        },
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Hazards and Branch Prediction"
+        }
+      ],
+      "match": {
+        "original_term": "branch prediction",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.224,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.224
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.213
+          },
+          {
+            "id": "esco:ff6904ef-36e7-4890-8fb1-8353b299f047",
+            "label": "microchip scanners",
+            "score": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "term": "out-of-order execution",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain pipelining techniques for RISC-V and x86 processors, including hazards, branch prediction, and out-of-order execution."
+        },
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Out-of-Order Execution"
+        }
+      ],
+      "match": {
+        "original_term": "out-of-order execution",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.219,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.219
+          },
+          {
+            "id": "esco:05caf274-8edf-42d9-8de3-c350f6e3c703",
+            "label": "extrusion processes",
+            "score": 0.214
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.206
+          }
+        ]
+      }
+    },
+    {
+      "term": "pipelining techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain pipelining techniques for RISC-V and x86 processors, including hazards, branch prediction, and out-of-order execution."
+        },
+        {
+          "source": "description",
+          "text": "pipelining techniques"
+        }
+      ],
+      "match": {
+        "original_term": "pipelining techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'pipelining techniques' or related concepts in computer architecture or processor design.",
+        "candidates": [
+          {
+            "id": "esco:5eeac647-dc4b-496d-b109-c90b58006021",
+            "label": "mining engineering",
+            "score": 0.547
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.396
+          },
+          {
+            "id": "esco:2973b3bc-5893-4b3d-8953-22ef677a162f",
+            "label": "cutting technologies",
+            "score": 0.269
+          }
+        ]
+      }
+    },
+    {
+      "term": "RISC-V",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain pipelining techniques for RISC-V and x86 processors, including hazards, branch prediction, and out-of-order execution."
+        },
+        {
+          "source": "description",
+          "text": "RISC-V"
+        }
+      ],
+      "match": {
+        "original_term": "RISC-V",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.215,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.215
+          },
+          {
+            "id": "esco:dcdd5ddf-82a6-4ac3-8edc-d4b23cae9a88",
+            "label": "VBScript",
+            "score": 0.193
+          },
+          {
+            "id": "esco:ff6904ef-36e7-4890-8fb1-8353b299f047",
+            "label": "microchip scanners",
+            "score": 0.189
+          }
+        ]
+      }
+    },
+    {
+      "term": "x86 processors",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain pipelining techniques for RISC-V and x86 processors, including hazards, branch prediction, and out-of-order execution."
+        },
+        {
+          "source": "description",
+          "text": "x86 processors"
+        }
+      ],
+      "match": {
+        "original_term": "x86 processors",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.27,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.27
+          },
+          {
+            "id": "esco:4df1e319-03a1-4028-8f65-64b78484da47",
+            "label": "types of cylindrical grinding processes",
+            "score": 0.228
+          },
+          {
+            "id": "esco:0ccdfe98-f845-4598-84a1-3dca66e9d9a3",
+            "label": "Ruby (computer programming)",
+            "score": 0.224
+          }
+        ]
+      }
+    },
+    {
+      "term": "x86-64 instruction sets",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the architectural features of ARM and x86-64 instruction sets, including register sets, addressing modes, and exception handling."
+        },
+        {
+          "source": "description",
+          "text": "x86-64 instruction sets"
+        }
+      ],
+      "match": {
+        "original_term": "x86-64 instruction sets",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.231,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.231
+          },
+          {
+            "id": "esco:8bc3c77c-30c3-45e6-bd61-069ba433ecfe",
+            "label": "e-learning software infrastructure",
+            "score": 0.22
+          },
+          {
+            "id": "esco:9ce670ec-318c-4a91-9179-03437db728dc",
+            "label": "ICT software specifications",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "addressing modes",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the architectural features of ARM and x86-64 instruction sets, including register sets, addressing modes, and exception handling."
+        }
+      ],
+      "match": {
+        "original_term": "addressing modes",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.242,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:83218cac-3599-417e-93d2-26013cdccd98",
+            "label": "service-oriented modelling",
+            "score": 0.242
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.24
+          },
+          {
+            "id": "esco:976455eb-5bbe-4493-ae64-ed16c3b009ea",
+            "label": "mobile operating systems",
+            "score": 0.225
+          }
+        ]
+      }
+    },
+    {
+      "term": "architectural features of ARM",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the architectural features of ARM and x86-64 instruction sets, including register sets, addressing modes, and exception handling."
+        }
+      ],
+      "match": {
+        "original_term": "architectural features of ARM",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to the architectural features of ARM or instruction set architectures, which are central to the extracted phrase.",
+        "candidates": [
+          {
+            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+            "label": "ICT architectural frameworks",
+            "score": 0.444
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.311
+          },
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.293
+          }
+        ]
+      }
+    },
+    {
+      "term": "cache memory organization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the memory hierarchy, including cache memory organization, virtual memory mapping, and the role of TLBs in address translation."
+        }
+      ],
+      "match": {
+        "original_term": "cache memory organization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.221,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.221
+          },
+          {
+            "id": "esco:b3a186be-5f1b-45d3-a468-41183e9780f3",
+            "label": "configuration of the tote room hardware",
+            "score": 0.208
+          },
+          {
+            "id": "esco:7482a123-e801-48de-9733-262125671410",
+            "label": "task algorithmisation",
+            "score": 0.204
+          }
+        ]
+      }
+    },
+    {
+      "term": "exception handling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the architectural features of ARM and x86-64 instruction sets, including register sets, addressing modes, and exception handling."
+        }
+      ],
+      "match": {
+        "original_term": "exception handling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.368,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.368
+          },
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.24
+          },
+          {
+            "id": "esco:1d86f05e-e9cc-40ce-99d8-2b21cc71b16b",
+            "label": "solution deployment",
+            "score": 0.223
+          }
+        ]
+      }
+    },
+    {
+      "term": "execution",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design a simple processor pipeline using Verilog or VHDL, including instruction decoding, execution, and memory access stages."
+        }
+      ],
+      "match": {
+        "original_term": "execution",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.246,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.246
+          },
+          {
+            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
+            "label": "packaging processes",
+            "score": 0.225
+          },
+          {
+            "id": "custom:ci-cd",
+            "label": "CI/CD pipelines",
+            "score": 0.223
+          }
+        ]
+      }
+    },
+    {
+      "term": "instruction decoding",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design a simple processor pipeline using Verilog or VHDL, including instruction decoding, execution, and memory access stages."
+        }
+      ],
+      "match": {
+        "original_term": "instruction decoding",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.248,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.248
+          },
+          {
+            "id": "esco:2bde42ae-e776-41c1-9ded-b07b30bfe985",
+            "label": "Prolog (computer programming)",
+            "score": 0.212
+          },
+          {
+            "id": "custom:software-engineering",
+            "label": "software engineering",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "memory access stages",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design a simple processor pipeline using Verilog or VHDL, including instruction decoding, execution, and memory access stages."
+        }
+      ],
+      "match": {
+        "original_term": "memory access stages",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.217,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.217
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.212
+          },
+          {
+            "id": "esco:8a211052-4bec-49c2-9b4e-7914c37d21b4",
+            "label": "microprocessors",
+            "score": 0.205
+          }
+        ]
+      }
+    },
+    {
+      "term": "memory hierarchy",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the memory hierarchy, including cache memory organization, virtual memory mapping, and the role of TLBs in address translation."
+        }
+      ],
+      "match": {
+        "original_term": "memory hierarchy",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.188,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.188
+          },
+          {
+            "id": "esco:1bba98a7-92b9-450b-9235-e0c905f8f3c4",
+            "label": "information architecture",
+            "score": 0.185
+          },
+          {
+            "id": "esco:b3a186be-5f1b-45d3-a468-41183e9780f3",
+            "label": "configuration of the tote room hardware",
+            "score": 0.18
+          }
+        ]
+      }
+    },
+    {
+      "term": "performance analysis techniques using Amdahl's Law",
+      "canonical": {
+        "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+        "label": "ICT performance analysis methods",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply performance analysis techniques using Amdahl's Law and CPI metrics to evaluate CPU performance in multi-core and distributed systems."
+        }
+      ],
+      "match": {
+        "original_term": "performance analysis techniques using Amdahl's Law",
+        "canonical_id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+        "canonical_label": "ICT performance analysis methods",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.658,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.34",
+        "candidates": [
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.658
+          },
+          {
+            "id": "esco:77592603-505b-4096-97dd-d0def6bd7601",
+            "label": "computational fluid dynamics",
+            "score": 0.314
+          },
+          {
+            "id": "esco:401eb8d8-6daa-4f8b-90ad-60afc71eb4f8",
+            "label": "Perl",
+            "score": 0.186
+          }
+        ]
+      }
+    },
+    {
+      "term": "register sets",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the architectural features of ARM and x86-64 instruction sets, including register sets, addressing modes, and exception handling."
+        }
+      ],
+      "match": {
+        "original_term": "register sets",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.225,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b105ec9b-0857-41d6-8d07-a83e58b73d90",
+            "label": "ICT system programming",
+            "score": 0.225
+          },
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.213
+          },
+          {
+            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+            "label": "ICT architectural frameworks",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "role of TLBs in address translation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the memory hierarchy, including cache memory organization, virtual memory mapping, and the role of TLBs in address translation."
+        }
+      ],
+      "match": {
+        "original_term": "role of TLBs in address translation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.37,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:32a2c63d-2d13-4784-abb8-678ef2cd8a46",
+            "label": "machine translation",
+            "score": 0.37
+          },
+          {
+            "id": "esco:b3a186be-5f1b-45d3-a468-41183e9780f3",
+            "label": "configuration of the tote room hardware",
+            "score": 0.215
+          },
+          {
+            "id": "esco:9d0d89be-bffa-4393-b6f6-8d05bea49051",
+            "label": "data extraction, transformation and loading tools",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "simple processor pipeline using Verilog",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design a simple processor pipeline using Verilog or VHDL, including instruction decoding, execution, and memory access stages."
+        }
+      ],
+      "match": {
+        "original_term": "simple processor pipeline using Verilog",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.339,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:8a211052-4bec-49c2-9b4e-7914c37d21b4",
+            "label": "microprocessors",
+            "score": 0.339
+          },
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.336
+          },
+          {
+            "id": "esco:2bde42ae-e776-41c1-9ded-b07b30bfe985",
+            "label": "Prolog (computer programming)",
+            "score": 0.229
+          }
+        ]
+      }
+    },
+    {
+      "term": "VHDL",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Design a simple processor pipeline using Verilog or VHDL, including instruction decoding, execution, and memory access stages."
+        }
+      ],
+      "match": {
+        "original_term": "VHDL",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.189,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:2bde42ae-e776-41c1-9ded-b07b30bfe985",
+            "label": "Prolog (computer programming)",
+            "score": 0.189
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.188
+          },
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.188
+          }
+        ]
+      }
+    },
+    {
+      "term": "virtual memory mapping",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the memory hierarchy, including cache memory organization, virtual memory mapping, and the role of TLBs in address translation."
+        }
+      ],
+      "match": {
+        "original_term": "virtual memory mapping",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.394,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:slam",
+            "label": "SLAM",
+            "score": 0.394
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.201
+          },
+          {
+            "id": "esco:b0a3bb25-a02f-43ed-ab1f-994fa66a424a",
+            "label": "online analytical processing",
+            "score": 0.193
+          }
+        ]
+      }
+    },
+    {
+      "term": "System Design",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 3,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "System Design for Multi-Core Architectures"
+        },
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "System Design for Distributed Systems"
+        },
+        {
+          "source": "description",
+          "text": "system design"
+        }
+      ],
+      "match": {
+        "original_term": "System Design",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'System Design' as described in the syllabus. The closest entries are related to specific domains (e.g., robotics, distributed systems) or narrower concepts (e.g., design patterns, UI design), but none capture the general skill of system",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.507
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.498
+          },
+          {
+            "id": "esco:0f9958d2-f700-4f62-b90b-a5873cb5ae4c",
+            "label": "systems thinking",
+            "score": 0.481
+          }
+        ]
+      }
+    },
+    {
+      "term": "Floating-Point Operations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Computer Arithmetic and Floating-Point Operations"
+        },
+        {
+          "source": "description",
+          "text": "floating-point operations"
+        }
+      ],
+      "match": {
+        "original_term": "Floating-Point Operations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Floating-Point Operations'. The closest entries are related to computer technology, numerical methods, or calculus, but none specifically refer to floating-point operations.",
+        "candidates": [
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.416
+          },
+          {
+            "id": "esco:77592603-505b-4096-97dd-d0def6bd7601",
+            "label": "computational fluid dynamics",
+            "score": 0.28
+          },
+          {
+            "id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+            "label": "computer technology",
+            "score": 0.271
+          }
+        ]
+      }
+    },
+    {
+      "term": "Interrupt Handling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "DMA and Interrupt Handling"
+        },
+        {
+          "source": "description",
+          "text": "interrupt handling"
+        }
+      ],
+      "match": {
+        "original_term": "Interrupt Handling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.275,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:90d7dc07-3d66-4364-b6ff-c40a1fe1b849",
+            "label": "switching devices",
+            "score": 0.275
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.223
+          },
+          {
+            "id": "esco:7b969ac9-f085-4afb-a480-c5210fb4da7d",
+            "label": "milling machines",
+            "score": 0.221
+          }
+        ]
+      }
+    },
+    {
+      "term": "Memory Management Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Memory Management Techniques"
+        },
+        {
+          "source": "description",
+          "text": "memory management techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Memory Management Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Memory Management Techniques' or its equivalent. The closest entries are related to operating systems, data storage, or data mining, but none directly match the skill described.",
+        "candidates": [
+          {
+            "id": "esco:a3ce2bf7-5562-4639-9b52-fdb4850a3904",
+            "label": "ICT problem management techniques",
+            "score": 0.555
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.436
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.432
+          }
+        ]
+      }
+    },
+    {
+      "term": "PCIe",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "PCIe and USB Interconnect Standards"
+        },
+        {
+          "source": "description",
+          "text": "PCIe"
+        }
+      ],
+      "match": {
+        "original_term": "PCIe",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.235,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.235
+          },
+          {
+            "id": "esco:6a2bc03b-e30d-429b-9549-5784cb92ae2f",
+            "label": "printed circuit boards",
+            "score": 0.224
+          },
+          {
+            "id": "esco:19ec88aa-c0b1-4515-ba10-56b6cf27369e",
+            "label": "electronic equipment standards",
+            "score": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "term": "RAID Configurations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "SSD and RAID Configurations"
+        },
+        {
+          "source": "description",
+          "text": "RAID configurations"
+        }
+      ],
+      "match": {
+        "original_term": "RAID Configurations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.396,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b3a186be-5f1b-45d3-a468-41183e9780f3",
+            "label": "configuration of the tote room hardware",
+            "score": 0.396
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.209
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.194
+          }
+        ]
+      }
+    },
+    {
+      "term": "Virtual Memory",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Virtual Memory Concepts"
+        },
+        {
+          "source": "description",
+          "text": "virtual memory"
+        }
+      ],
+      "match": {
+        "original_term": "Virtual Memory",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.286,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+            "label": "data storage",
+            "score": 0.286
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.198
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.19
+          }
+        ]
+      }
+    },
+    {
+      "term": "Address Translation Mechanisms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Address Translation Mechanisms"
+        }
+      ],
+      "match": {
+        "original_term": "Address Translation Mechanisms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Address Translation Mechanisms'.",
+        "candidates": [
+          {
+            "id": "esco:32a2c63d-2d13-4784-abb8-678ef2cd8a46",
+            "label": "machine translation",
+            "score": 0.433
+          },
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.419
+          },
+          {
+            "id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+            "label": "computer technology",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "Architecture Fundamentals",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Computer Organization and Architecture Fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "Architecture Fundamentals",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Architecture Fundamentals' does not clearly match any of the provided taxonomy entries, as none specifically refer to the foundational aspects of architecture in a way that aligns with the syllabus text.",
+        "candidates": [
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.522
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.513
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.305
+          }
+        ]
+      }
+    },
+    {
+      "term": "ARM vs x86-64 ISA Comparison",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "ARM vs x86-64 ISA Comparison"
+        }
+      ],
+      "match": {
+        "original_term": "ARM vs x86-64 ISA Comparison",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.163,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:ff6904ef-36e7-4890-8fb1-8353b299f047",
+            "label": "microchip scanners",
+            "score": 0.163
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.163
+          },
+          {
+            "id": "esco:61c81161-b732-4c47-aba5-9e554d9a853f",
+            "label": "integrated circuit types",
+            "score": 0.162
+          }
+        ]
+      }
+    },
+    {
+      "term": "Benchmarking Techniques",
+      "canonical": {
+        "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+        "label": "ICT performance analysis methods",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Benchmarking Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Benchmarking Techniques",
+        "canonical_id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+        "canonical_label": "ICT performance analysis methods",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Benchmarking Techniques' directly matches the taxonomy entry 'ICT performance analysis methods' which is also called 'performance analysis techniques'. Both refer to methods used to analyze performance, including benchmarking.",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.499
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.418
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "Cache Memory Basics",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Cache Memory Basics"
+        }
+      ],
+      "match": {
+        "original_term": "Cache Memory Basics",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.234,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.234
+          },
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.229
+          },
+          {
+            "id": "custom:apache-spark",
+            "label": "Apache Spark",
+            "score": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "term": "Computer Architecture",
+      "canonical": {
+        "id": "esco:9983816d-cc78-4d3f-9e3c-c7baa9ebc77a",
+        "label": "computer equipment",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Computer Architecture"
+        }
+      ],
+      "match": {
+        "original_term": "Computer Architecture",
+        "canonical_id": "esco:9983816d-cc78-4d3f-9e3c-c7baa9ebc77a",
+        "canonical_label": "computer equipment",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.627,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.11",
+        "candidates": [
+          {
+            "id": "esco:9983816d-cc78-4d3f-9e3c-c7baa9ebc77a",
+            "label": "computer equipment",
+            "score": 0.627
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.521
+          },
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.517
+          }
+        ]
+      }
+    },
+    {
+      "term": "Computer Architecture Standards",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Computer Architecture Standards"
+        }
+      ],
+      "match": {
+        "original_term": "Computer Architecture Standards",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill phrase 'Computer Architecture Standards'. The closest entries are 'hardware architectures' and 'ICT hardware specifications', but neither specifically refers to standards, which is a key component of the phrase.",
+        "candidates": [
+          {
+            "id": "esco:9983816d-cc78-4d3f-9e3c-c7baa9ebc77a",
+            "label": "computer equipment",
+            "score": 0.525
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.447
+          },
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.431
+          }
+        ]
+      }
+    },
+    {
+      "term": "Computer Arithmetic",
+      "canonical": {
+        "id": "esco:9983816d-cc78-4d3f-9e3c-c7baa9ebc77a",
+        "label": "computer equipment",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Computer Arithmetic and Floating-Point Operations"
+        }
+      ],
+      "match": {
+        "original_term": "Computer Arithmetic",
+        "canonical_id": "esco:9983816d-cc78-4d3f-9e3c-c7baa9ebc77a",
+        "canonical_label": "computer equipment",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.626,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.10",
+        "candidates": [
+          {
+            "id": "esco:9983816d-cc78-4d3f-9e3c-c7baa9ebc77a",
+            "label": "computer equipment",
+            "score": 0.626
+          },
+          {
+            "id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+            "label": "computer technology",
+            "score": 0.521
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.479
+          }
+        ]
+      }
+    },
+    {
+      "term": "Computer Organization",
+      "canonical": {
+        "id": "esco:9983816d-cc78-4d3f-9e3c-c7baa9ebc77a",
+        "label": "computer equipment",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Computer Organization and Architecture Fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "Computer Organization",
+        "canonical_id": "esco:9983816d-cc78-4d3f-9e3c-c7baa9ebc77a",
+        "canonical_label": "computer equipment",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.639,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.16",
+        "candidates": [
+          {
+            "id": "esco:9983816d-cc78-4d3f-9e3c-c7baa9ebc77a",
+            "label": "computer equipment",
+            "score": 0.639
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.477
+          },
+          {
+            "id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+            "label": "computer technology",
+            "score": 0.474
+          }
+        ]
+      }
+    },
+    {
+      "term": "CPU Scheduling Algorithms",
+      "canonical": {
+        "id": "custom:operating-systems",
+        "label": "operating systems",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "CPU Scheduling Algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "CPU Scheduling Algorithms",
+        "canonical_id": "custom:operating-systems",
+        "canonical_label": "operating systems",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "CPU Scheduling Algorithms are a core component of operating systems, specifically related to process management and concurrency, which aligns directly with the taxonomy entry for operating systems.",
+        "candidates": [
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.454
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.452
+          },
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.253
+          }
+        ]
+      }
+    },
+    {
+      "term": "Designing a Simple Processor Pipeline",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Designing a Simple Processor Pipeline"
+        }
+      ],
+      "match": {
+        "original_term": "Designing a Simple Processor Pipeline",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.376,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:8a211052-4bec-49c2-9b4e-7914c37d21b4",
+            "label": "microprocessors",
+            "score": 0.376
+          },
+          {
+            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
+            "label": "packaging processes",
+            "score": 0.252
+          },
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.251
+          }
+        ]
+      }
+    },
+    {
+      "term": "DMA",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "DMA and Interrupt Handling"
+        }
+      ],
+      "match": {
+        "original_term": "DMA",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.166,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.166
+          },
+          {
+            "id": "esco:69c05210-9738-4757-8bb3-2e40f0244b56",
+            "label": "maintenance of ammunition",
+            "score": 0.165
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.163
+          }
+        ]
+      }
+    },
+    {
+      "term": "Embedded Systems Overview",
+      "canonical": {
+        "id": "esco:2180bd8c-86de-4889-8165-adac902eee9d",
+        "label": "embedded systems",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "FPGA and Embedded Systems Overview"
+        }
+      ],
+      "match": {
+        "original_term": "Embedded Systems Overview",
+        "canonical_id": "esco:2180bd8c-86de-4889-8165-adac902eee9d",
+        "canonical_label": "embedded systems",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.745,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.32",
+        "candidates": [
+          {
+            "id": "esco:2180bd8c-86de-4889-8165-adac902eee9d",
+            "label": "embedded systems",
+            "score": 0.745
+          },
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.42
+          },
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.386
+          }
+        ]
+      }
+    },
+    {
+      "term": "FPGA",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "FPGA and Embedded Systems Overview"
+        }
+      ],
+      "match": {
+        "original_term": "FPGA",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.265,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:2180bd8c-86de-4889-8165-adac902eee9d",
+            "label": "embedded systems",
+            "score": 0.265
+          },
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.213
+          },
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.211
+          }
+        ]
+      }
+    },
+    {
+      "term": "GPU Architecture Overview",
+      "canonical": {
+        "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+        "label": "hardware architectures",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "GPU Architecture Overview"
+        }
+      ],
+      "match": {
+        "original_term": "GPU Architecture Overview",
+        "canonical_id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+        "canonical_label": "hardware architectures",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'GPU Architecture Overview' refers to the design and structure of GPU hardware, which aligns with the 'hardware architectures' entry describing physical hardware components and their interconnections.",
+        "candidates": [
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.437
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.257
+          },
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.19
+          }
+        ]
+      }
+    },
+    {
+      "term": "Hardware Description Languages",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Hardware Description Languages"
+        }
+      ],
+      "match": {
+        "original_term": "Hardware Description Languages",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Hardware Description Languages', which is a distinct skill related to hardware design and simulation.",
+        "candidates": [
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.477
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.426
+          },
+          {
+            "id": "esco:4b51e76e-9e8a-455f-a289-5b48246345c4",
+            "label": "hardware components",
+            "score": 0.419
+          }
+        ]
+      }
+    },
+    {
+      "term": "IEEE 754 Standard Implementation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "IEEE 754 Standard Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "IEEE 754 Standard Implementation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.363,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.363
+          },
+          {
+            "id": "esco:19ec88aa-c0b1-4515-ba10-56b6cf27369e",
+            "label": "electronic equipment standards",
+            "score": 0.35
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.336
+          }
+        ]
+      }
+    },
+    {
+      "term": "Input/Output Mechanisms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Input/Output Mechanisms"
+        }
+      ],
+      "match": {
+        "original_term": "Input/Output Mechanisms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill phrase 'Input/Output Mechanisms'. The closest candidates are related to electronics, interfacing techniques, or electromechanics, but none specifically refer to input/output mechanisms.",
+        "candidates": [
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.448
+          },
+          {
+            "id": "esco:2bbdea06-a265-42b5-bb4f-7241b661f069",
+            "label": "electromechanics",
+            "score": 0.249
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.204
+          }
+        ]
+      }
+    },
+    {
+      "term": "Instruction Set Architecture Overview",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Instruction Set Architecture (ISA) Overview"
+        }
+      ],
+      "match": {
+        "original_term": "Instruction Set Architecture Overview",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'Instruction Set Architecture Overview' or its equivalent. The closest entries are related to hardware, software architecture, or ICT systems, but none specifically address instruction set architecture.",
+        "candidates": [
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.41
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.395
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.369
+          }
+        ]
+      }
+    },
+    {
+      "term": "Inter-Process Communication",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Inter-Process Communication"
+        }
+      ],
+      "match": {
+        "original_term": "Inter-Process Communication",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries accurately represent 'Inter-Process Communication' as a specific skill. The closest entries are related to communication skills, ICT protocols, or networking, but none precisely match the technical concept of inter-process communication.",
+        "candidates": [
+          {
+            "id": "custom:communication-skills",
+            "label": "communication skills",
+            "score": 0.573
+          },
+          {
+            "id": "esco:debef2fc-7af4-4bff-ac92-4d0317915a84",
+            "label": "electronic communication",
+            "score": 0.457
+          },
+          {
+            "id": "esco:12c7b323-d870-4f5b-9d7d-d9f525206d77",
+            "label": "production processes",
+            "score": 0.442
+          }
+        ]
+      }
+    },
+    {
+      "term": "ISA",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Instruction Set Architecture (ISA) Overview"
+        }
+      ],
+      "match": {
+        "original_term": "ISA",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.219,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.219
+          },
+          {
+            "id": "esco:c453cf81-6197-428e-84c6-70c773b63f27",
+            "label": "ICT architectural frameworks",
+            "score": 0.205
+          },
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.195
+          }
+        ]
+      }
+    },
+    {
+      "term": "ISO/IEC 2382 Terminology",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "ISO/IEC 2382 Terminology"
+        }
+      ],
+      "match": {
+        "original_term": "ISO/IEC 2382 Terminology",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.188,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.188
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.172
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.168
+          }
+        ]
+      }
+    },
+    {
+      "term": "Logic Synthesis Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Logic Synthesis Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Logic Synthesis Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Logic Synthesis Techniques' does not match any of the provided taxonomy entries, which cover topics like discrete mathematics, C programming, numerical methods, and others, but none specifically refer to logic synthesis techniques.",
+        "candidates": [
+          {
+            "id": "custom:discrete-mathematics",
+            "label": "discrete mathematics",
+            "score": 0.494
+          },
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.239
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.206
+          }
+        ]
+      }
+    },
+    {
+      "term": "Memory Hierarchy Overview",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Memory Hierarchy Overview"
+        }
+      ],
+      "match": {
+        "original_term": "Memory Hierarchy Overview",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.179,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.179
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.172
+          },
+          {
+            "id": "esco:02c71cde-f513-43da-8952-0974763c7568",
+            "label": "circuit diagrams",
+            "score": 0.17
+          }
+        ]
+      }
+    },
+    {
+      "term": "Multi-Core Architectures",
+      "canonical": {
+        "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+        "label": "hardware architectures",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "System Design for Multi-Core Architectures"
+        }
+      ],
+      "match": {
+        "original_term": "Multi-Core Architectures",
+        "canonical_id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+        "canonical_label": "hardware architectures",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Multi-Core Architectures' directly relates to hardware architectures, which is the focus of the syllabus course 'System Design for Multi-Core Architectures'.",
+        "candidates": [
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.542
+          },
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.521
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.479
+          }
+        ]
+      }
+    },
+    {
+      "term": "Networked Computer Architectures",
+      "canonical": {
+        "id": "custom:computer-networks",
+        "label": "computer networks",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Networked Computer Architectures"
+        }
+      ],
+      "match": {
+        "original_term": "Networked Computer Architectures",
+        "canonical_id": "custom:computer-networks",
+        "canonical_label": "computer networks",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Networked Computer Architectures' directly relates to how computers exchange data across links and protocols, which matches the description of 'computer networks' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:9983816d-cc78-4d3f-9e3c-c7baa9ebc77a",
+            "label": "computer equipment",
+            "score": 0.515
+          },
+          {
+            "id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+            "label": "computer technology",
+            "score": 0.495
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.472
+          }
+        ]
+      }
+    },
+    {
+      "term": "Optimization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Performance Evaluation and Optimization"
+        }
+      ],
+      "match": {
+        "original_term": "Optimization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.301,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.301
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.27
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.257
+          }
+        ]
+      }
+    },
+    {
+      "term": "Page Tables",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Page Tables and TLB Organization"
+        }
+      ],
+      "match": {
+        "original_term": "Page Tables",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.289,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:tableau",
+            "label": "Tableau",
+            "score": 0.289
+          },
+          {
+            "id": "esco:b0a3bb25-a02f-43ed-ab1f-994fa66a424a",
+            "label": "online analytical processing",
+            "score": 0.211
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.21
+          }
+        ]
+      }
+    },
+    {
+      "term": "Parallel Processing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Parallel Processing and SIMD Instructions"
+        }
+      ],
+      "match": {
+        "original_term": "Parallel Processing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Parallel Processing' as it is neither explicitly named nor clearly encompassed by any of the shortlisted entries.",
+        "candidates": [
+          {
+            "id": "esco:0b472dad-1a3f-456e-99ba-de5ffe8665c2",
+            "label": "non-ferrous metal processing",
+            "score": 0.496
+          },
+          {
+            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
+            "label": "packaging processes",
+            "score": 0.49
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.485
+          }
+        ]
+      }
+    },
+    {
+      "term": "Performance Evaluation",
+      "canonical": {
+        "id": "custom:performance-testing",
+        "label": "performance testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Performance Evaluation and Optimization"
+        }
+      ],
+      "match": {
+        "original_term": "Performance Evaluation",
+        "canonical_id": "custom:performance-testing",
+        "canonical_label": "performance testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Performance Evaluation' directly aligns with 'performance testing' as both involve measuring system behavior under load, which is the core of performance testing.",
+        "candidates": [
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.507
+          },
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.448
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.242
+          }
+        ]
+      }
+    },
+    {
+      "term": "Pipeline Stages",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Pipeline Stages and Hazards"
+        }
+      ],
+      "match": {
+        "original_term": "Pipeline Stages",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.327,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:7c127140-3a91-4fe2-b33e-12567d78ef0f",
+            "label": "fuel gas",
+            "score": 0.327
+          },
+          {
+            "id": "esco:bacbf3d2-c151-4911-b376-e664faa313e3",
+            "label": "risks associated to physical, chemical, biological hazards in food and beverages",
+            "score": 0.298
+          },
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.227
+          }
+        ]
+      }
+    },
+    {
+      "term": "Pipelining Fundamentals",
+      "canonical": {
+        "id": "custom:airflow",
+        "label": "Apache Airflow",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Pipelining Fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "Pipelining Fundamentals",
+        "canonical_id": "custom:airflow",
+        "canonical_label": "Apache Airflow",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Pipelining Fundamentals' is closely related to 'Apache Airflow' as both involve the concept of data pipelines, and 'Airflow' specifically refers to workflow orchestration for data pipelines.",
+        "candidates": [
+          {
+            "id": "esco:c8ac1986-38fa-43b2-89dc-50a4beeb420e",
+            "label": "electricity",
+            "score": 0.478
+          },
+          {
+            "id": "esco:be99117b-49a1-4ec2-a670-e9baac66c1bd",
+            "label": "principles of combustion engines",
+            "score": 0.432
+          },
+          {
+            "id": "esco:5eeac647-dc4b-496d-b109-c90b58006021",
+            "label": "mining engineering",
+            "score": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "term": "RISC-V Instruction Pipeline",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "RISC-V Instruction Pipeline"
+        }
+      ],
+      "match": {
+        "original_term": "RISC-V Instruction Pipeline",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.212,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.212
+          },
+          {
+            "id": "esco:76526bf6-bada-4ca1-8e79-6b9d4228b607",
+            "label": "electrical safety regulations",
+            "score": 0.2
+          },
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.175
+          }
+        ]
+      }
+    },
+    {
+      "term": "SIMD Instructions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Parallel Processing and SIMD Instructions"
+        }
+      ],
+      "match": {
+        "original_term": "SIMD Instructions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.268,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
+            "label": "packaging processes",
+            "score": 0.268
+          },
+          {
+            "id": "esco:8a211052-4bec-49c2-9b4e-7914c37d21b4",
+            "label": "microprocessors",
+            "score": 0.222
+          },
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.215
+          }
+        ]
+      }
+    },
+    {
+      "term": "Speculative Execution Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Speculative Execution Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Speculative Execution Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Speculative Execution Techniques'.",
+        "candidates": [
+          {
+            "id": "esco:1e3e0736-6d4a-4a65-8787-1fa16bff5660",
+            "label": "explosives",
+            "score": 0.406
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.222
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "SSD",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "SSD and RAID Configurations"
+        }
+      ],
+      "match": {
+        "original_term": "SSD",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.217,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.217
+          },
+          {
+            "id": "esco:b3a186be-5f1b-45d3-a468-41183e9780f3",
+            "label": "configuration of the tote room hardware",
+            "score": 0.205
+          },
+          {
+            "id": "esco:117373c8-f04b-4fff-8683-aebe36edac81",
+            "label": "hardware platforms",
+            "score": 0.205
+          }
+        ]
+      }
+    },
+    {
+      "term": "Storage Systems Overview",
+      "canonical": {
+        "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+        "label": "data storage",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Storage Systems Overview"
+        }
+      ],
+      "match": {
+        "original_term": "Storage Systems Overview",
+        "canonical_id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+        "canonical_label": "data storage",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Storage Systems Overview' directly relates to the concept of data storage, which is explicitly described in the 'data storage' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+            "label": "data storage",
+            "score": 0.417
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.404
+          },
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.382
+          }
+        ]
+      }
+    },
+    {
+      "term": "System Interconnects Overview",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "System Interconnects Overview"
+        }
+      ],
+      "match": {
+        "original_term": "System Interconnects Overview",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.393,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.393
+          },
+          {
+            "id": "esco:748d926e-0662-4c0d-b61d-78949c513a64",
+            "label": "vessel electrical system",
+            "score": 0.378
+          },
+          {
+            "id": "esco:a2b566b0-1070-47a4-adc8-88839942ce25",
+            "label": "hybrid control systems",
+            "score": 0.368
+          }
+        ]
+      }
+    },
+    {
+      "term": "TLB Organization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Page Tables and TLB Organization"
+        }
+      ],
+      "match": {
+        "original_term": "TLB Organization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.221,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.221
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.183
+          },
+          {
+            "id": "custom:tableau",
+            "label": "Tableau",
+            "score": 0.182
+          }
+        ]
+      }
+    },
+    {
+      "term": "USB Interconnect Standards",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "PCIe and USB Interconnect Standards"
+        }
+      ],
+      "match": {
+        "original_term": "USB Interconnect Standards",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'USB Interconnect Standards' or related standards. The closest entries are about general electronics standards or IPC standards, which are not the same as USB interconnect standards.",
+        "candidates": [
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.453
+          },
+          {
+            "id": "esco:19ec88aa-c0b1-4515-ba10-56b6cf27369e",
+            "label": "electronic equipment standards",
+            "score": 0.404
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "term": "Vector Processing Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Vector Processing Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Vector Processing Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Vector Processing Techniques' does not match any of the provided taxonomy entries, as none of the labels or also-called terms refer to vector processing in the context of computational or mathematical operations.",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.453
+          },
+          {
+            "id": "esco:0b472dad-1a3f-456e-99ba-de5ffe8665c2",
+            "label": "non-ferrous metal processing",
+            "score": 0.44
+          },
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.402
+          }
+        ]
+      }
+    },
+    {
+      "term": "Verilog/VHDL Implementation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Verilog/VHDL Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "Verilog/VHDL Implementation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.215,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.215
+          },
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.204
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "Virtual Memory Implementation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Virtual Memory Implementation"
+        }
+      ],
+      "match": {
+        "original_term": "Virtual Memory Implementation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.207,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.207
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.199
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.187
+          }
+        ]
+      }
+    },
+    {
+      "term": "x86-64 Pipeline Architecture",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "x86-64 Pipeline Architecture"
+        }
+      ],
+      "match": {
+        "original_term": "x86-64 Pipeline Architecture",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.339,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ci-cd",
+            "label": "CI/CD pipelines",
+            "score": 0.339
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.257
+          },
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "address translation using page tables",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "address translation using page tables"
+        }
+      ],
+      "match": {
+        "original_term": "address translation using page tables",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.197,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:tableau",
+            "label": "Tableau",
+            "score": 0.197
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.188
+          },
+          {
+            "id": "custom:nodejs",
+            "label": "Node.js",
+            "score": 0.187
+          }
+        ]
+      }
+    },
+    {
+      "term": "architecture standards",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "architecture standards"
+        }
+      ],
+      "match": {
+        "original_term": "architecture standards",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill phrase 'architecture standards'. The closest entries are related to software architecture models, ICT architectural frameworks, or hardware architectures, but none specifically refer to 'architecture standards'.",
+        "candidates": [
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.5
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.432
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.413
+          }
+        ]
+      }
+    },
+    {
+      "term": "ARM",
+      "canonical": {
+        "id": "custom:robot-manipulators",
+        "label": "robot manipulators",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "ARM"
+        }
+      ],
+      "match": {
+        "original_term": "ARM",
+        "canonical_id": "custom:robot-manipulators",
+        "canonical_label": "robot manipulators",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'ARM' is explicitly listed in the also called section of the 'robot manipulators' entry, indicating it refers to the same skill.",
+        "candidates": [
+          {
+            "id": "custom:robot-manipulators",
+            "label": "robot manipulators",
+            "score": 0.585
+          },
+          {
+            "id": "custom:artificial-intelligence",
+            "label": "artificial intelligence",
+            "score": 0.166
+          },
+          {
+            "id": "custom:mobile-robots",
+            "label": "mobile robots",
+            "score": 0.158
+          }
+        ]
+      }
+    },
+    {
+      "term": "computer organization with FPGAs",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "computer organization with FPGAs"
+        }
+      ],
+      "match": {
+        "original_term": "computer organization with FPGAs",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries accurately represent the skill 'computer organization with FPGAs'. The closest entries are related to hardware architectures or programmable logic controllers, but none specifically address computer organization with FPGAs.",
+        "candidates": [
+          {
+            "id": "esco:9983816d-cc78-4d3f-9e3c-c7baa9ebc77a",
+            "label": "computer equipment",
+            "score": 0.516
+          },
+          {
+            "id": "esco:8a211052-4bec-49c2-9b4e-7914c37d21b4",
+            "label": "microprocessors",
+            "score": 0.405
+          },
+          {
+            "id": "esco:6468e5fb-f3be-4025-87be-4b6556755c61",
+            "label": "programmable logic controller",
+            "score": 0.369
+          }
+        ]
+      }
+    },
+    {
+      "term": "course also covers computer organization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "course also covers computer organization"
+        }
+      ],
+      "match": {
+        "original_term": "course also covers computer organization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'computer organization' refers to the structure and operation of computer systems, including hardware and software components, which is not explicitly covered by any of the provided taxonomy entries. None of the labels match the specific skill described in the phrase.",
+        "candidates": [
+          {
+            "id": "esco:9983816d-cc78-4d3f-9e3c-c7baa9ebc77a",
+            "label": "computer equipment",
+            "score": 0.449
+          },
+          {
+            "id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+            "label": "computer technology",
+            "score": 0.35
+          },
+          {
+            "id": "esco:7b5cce4d-c7fe-4119-b48f-70aa05391787",
+            "label": "computer science",
+            "score": 0.349
+          }
+        ]
+      }
+    },
+    {
+      "term": "CPU performance analysis using Amdahl's Law",
+      "canonical": {
+        "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+        "label": "ICT performance analysis methods",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "CPU performance analysis using Amdahl's Law"
+        }
+      ],
+      "match": {
+        "original_term": "CPU performance analysis using Amdahl's Law",
+        "canonical_id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+        "canonical_label": "ICT performance analysis methods",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'CPU performance analysis using Amdahl's Law' directly relates to performance analysis methods, which is the label of the first candidate.",
+        "candidates": [
+          {
+            "id": "esco:ed39edd3-44d0-4a16-9796-bfb99f92baf3",
+            "label": "ICT performance analysis methods",
+            "score": 0.453
+          },
+          {
+            "id": "esco:4e09e2d2-e317-47d2-bf5e-1d6c66be3efc",
+            "label": "energy performance of buildings",
+            "score": 0.39
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "term": "embedded systems",
+      "canonical": {
+        "id": "esco:2180bd8c-86de-4889-8165-adac902eee9d",
+        "label": "embedded systems",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "embedded systems"
+        }
+      ],
+      "match": {
+        "original_term": "embedded systems",
+        "canonical_id": "esco:2180bd8c-86de-4889-8165-adac902eee9d",
+        "canonical_label": "embedded systems",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "floating-point arithmetic",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "floating-point arithmetic"
+        }
+      ],
+      "match": {
+        "original_term": "floating-point arithmetic",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.196,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.196
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.195
+          },
+          {
+            "id": "custom:forward-kinematics",
+            "label": "forward kinematics",
+            "score": 0.182
+          }
+        ]
+      }
+    },
+    {
+      "term": "IEEE 754",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "IEEE 754"
+        }
+      ],
+      "match": {
+        "original_term": "IEEE 754",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.17,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:matplotlib",
+            "label": "Matplotlib",
+            "score": 0.17
+          },
+          {
+            "id": "custom:airflow",
+            "label": "Apache Airflow",
+            "score": 0.165
+          },
+          {
+            "id": "custom:jupyter",
+            "label": "Jupyter Notebook",
+            "score": 0.164
+          }
+        ]
+      }
+    },
+    {
+      "term": "input/output mechanisms with DMA",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "input/output mechanisms with DMA"
+        }
+      ],
+      "match": {
+        "original_term": "input/output mechanisms with DMA",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.39,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.39
+          },
+          {
+            "id": "esco:2bbdea06-a265-42b5-bb4f-7241b661f069",
+            "label": "electromechanics",
+            "score": 0.226
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.189
+          }
+        ]
+      }
+    },
+    {
+      "term": "integer division",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "integer division"
+        }
+      ],
+      "match": {
+        "original_term": "integer division",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.278,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.278
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.244
+          },
+          {
+            "id": "custom:binomial-distribution",
+            "label": "binomial distribution",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "ISO/IEC 2382",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "ISO/IEC 2382"
+        }
+      ],
+      "match": {
+        "original_term": "ISO/IEC 2382",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.163,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:19ec88aa-c0b1-4515-ba10-56b6cf27369e",
+            "label": "electronic equipment standards",
+            "score": 0.163
+          },
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.163
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.159
+          }
+        ]
+      }
+    },
+    {
+      "term": "memory hierarchy design with cache memory",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "memory hierarchy design with cache memory"
+        }
+      ],
+      "match": {
+        "original_term": "memory hierarchy design with cache memory",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.352,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.352
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.351
+          },
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "multi-core",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "multi-core"
+        }
+      ],
+      "match": {
+        "original_term": "multi-core",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.396,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:sensor-fusion",
+            "label": "sensor fusion",
+            "score": 0.396
+          },
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.202
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.19
+          }
+        ]
+      }
+    },
+    {
+      "term": "parallel processing with SIMD instructions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "parallel processing with SIMD instructions"
+        }
+      ],
+      "match": {
+        "original_term": "parallel processing with SIMD instructions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.373,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:0b472dad-1a3f-456e-99ba-de5ffe8665c2",
+            "label": "non-ferrous metal processing",
+            "score": 0.373
+          },
+          {
+            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
+            "label": "packaging processes",
+            "score": 0.369
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.368
+          }
+        ]
+      }
+    },
+    {
+      "term": "SSDs",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "SSDs"
+        }
+      ],
+      "match": {
+        "original_term": "SSDs",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.172,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:rust",
+            "label": "Rust",
+            "score": 0.172
+          },
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.171
+          },
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.17
+          }
+        ]
+      }
+    },
+    {
+      "term": "storage systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "storage systems"
+        }
+      ],
+      "match": {
+        "original_term": "storage systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'storage systems' does not clearly match any of the provided taxonomy entries, as none of the labels or descriptions precisely align with the specific meaning of 'storage systems' in the context of a university course.",
+        "candidates": [
+          {
+            "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+            "label": "data storage",
+            "score": 0.489
+          },
+          {
+            "id": "esco:8203b07a-8097-4383-aff6-603b7df7f0f4",
+            "label": "ATM systems",
+            "score": 0.486
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.481
+          }
+        ]
+      }
+    },
+    {
+      "term": "Students will explore computer arithmetic",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Students will explore computer arithmetic"
+        }
+      ],
+      "match": {
+        "original_term": "Students will explore computer arithmetic",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Students will explore computer arithmetic' refers to the study of arithmetic operations in computers, which is not directly covered by any of the provided taxonomy entries. None of the labels match the specific skill described.",
+        "candidates": [
+          {
+            "id": "esco:9983816d-cc78-4d3f-9e3c-c7baa9ebc77a",
+            "label": "computer equipment",
+            "score": 0.431
+          },
+          {
+            "id": "esco:118a9b27-1c5a-4214-b685-1a4d9e6365ea",
+            "label": "computer forensics",
+            "score": 0.35
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.347
+          }
+        ]
+      }
+    },
+    {
+      "term": "system interconnects",
+      "canonical": {
+        "id": "esco:0f9958d2-f700-4f62-b90b-a5873cb5ae4c",
+        "label": "systems thinking",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "system interconnects"
+        }
+      ],
+      "match": {
+        "original_term": "system interconnects",
+        "canonical_id": "esco:0f9958d2-f700-4f62-b90b-a5873cb5ae4c",
+        "canonical_label": "systems thinking",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'system interconnects' aligns with the concept of understanding how various constituents of a system interrelate, which is directly described by 'systems thinking' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:6fa1c2c0-a012-4ca0-9642-e01569ba322c",
+            "label": "ICT system integration",
+            "score": 0.479
+          },
+          {
+            "id": "esco:0f9958d2-f700-4f62-b90b-a5873cb5ae4c",
+            "label": "systems thinking",
+            "score": 0.436
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.423
+          }
+        ]
+      }
+    },
+    {
+      "term": "terminology",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "terminology"
+        }
+      ],
+      "match": {
+        "original_term": "terminology",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.214,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.214
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.201
+          },
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.198
+          }
+        ]
+      }
+    },
+    {
+      "term": "This course covers instruction set architecture",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "This course covers instruction set architecture"
+        }
+      ],
+      "match": {
+        "original_term": "This course covers instruction set architecture",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.367,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robotics-system-architecture",
+            "label": "robotics system architecture",
+            "score": 0.367
+          },
+          {
+            "id": "esco:e043aeeb-78f5-4049-afbf-12bba52225bc",
+            "label": "hardware architectures",
+            "score": 0.352
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.336
+          }
+        ]
+      }
+    },
+    {
+      "term": "TLBs",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "TLBs"
+        }
+      ],
+      "match": {
+        "original_term": "TLBs",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.168,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.168
+          },
+          {
+            "id": "custom:pytorch",
+            "label": "PyTorch",
+            "score": 0.165
+          },
+          {
+            "id": "custom:tableau",
+            "label": "Tableau",
+            "score": 0.161
+          }
+        ]
+      }
+    },
+    {
+      "term": "Topics include CPU scheduling algorithms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Topics include CPU scheduling algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "Topics include CPU scheduling algorithms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.387,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.387
+          },
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.222
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.207
+          }
+        ]
+      }
+    },
+    {
+      "term": "USB",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "USB"
+        }
+      ],
+      "match": {
+        "original_term": "USB",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.179,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.179
+          },
+          {
+            "id": "custom:rust",
+            "label": "Rust",
+            "score": 0.172
+          },
+          {
+            "id": "custom:azure",
+            "label": "Microsoft Azure",
+            "score": 0.17
+          }
+        ]
+      }
+    }
+  ]
+}

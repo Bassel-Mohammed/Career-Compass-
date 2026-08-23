@@ -1,0 +1,4740 @@
+{
+  "course_code": "0414404",
+  "course_codes": [
+    "0414404"
+  ],
+  "course_title": "Digital-Imaging Processing",
+  "credit_hours": 3,
+  "plans": [
+    "CS"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "no_match": 43,
+      "accepted": 30,
+      "needs_review": 27
+    },
+    "by_method": {
+      "embedding_reranker": 53,
+      "llm": 45,
+      "exact_alias": 2
+    }
+  },
+  "total_skills": 100,
+  "skills": [
+    {
+      "term": "JPEG",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 4,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the principles and applications of JPEG and MPEG compression standards in digital imaging."
+        },
+        {
+          "source": "clo",
+          "clo": 12,
+          "text": "Construct image storage formats (PNG, JPEG, TIFF) with specific compression and quality parameters."
+        },
+        {
+          "source": "description",
+          "text": "JPEG"
+        },
+        {
+          "source": "description",
+          "text": "JPEG"
+        }
+      ],
+      "match": {
+        "original_term": "JPEG",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.205,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.205
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.188
+          },
+          {
+            "id": "esco:12c82224-6394-4c3c-9831-2a8198ed1274",
+            "label": "optical character recognition software",
+            "score": 0.186
+          }
+        ]
+      }
+    },
+    {
+      "term": "CMYK",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 11,
+          "text": "Evaluate the impact of color models (RGB, CMYK, HSV) on image processing and display technologies."
+        },
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "RGB, CMYK, and HSV Models"
+        },
+        {
+          "source": "description",
+          "text": "CMYK"
+        }
+      ],
+      "match": {
+        "original_term": "CMYK",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.194,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.194
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.185
+          },
+          {
+            "id": "esco:f88002a8-6355-4d33-9496-285c166ff375",
+            "label": "ICT power consumption",
+            "score": 0.182
+          }
+        ]
+      }
+    },
+    {
+      "term": "convolution",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply image filtering techniques including convolution and median filtering to enhance and restore images."
+        },
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Convolution and Median Filtering"
+        },
+        {
+          "source": "description",
+          "text": "convolution"
+        }
+      ],
+      "match": {
+        "original_term": "convolution",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.266,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.266
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.263
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "term": "image filtering techniques",
+      "canonical": {
+        "id": "custom:image-processing",
+        "label": "image processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply image filtering techniques including convolution and median filtering to enhance and restore images."
+        },
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Image Filtering Techniques"
+        },
+        {
+          "source": "description",
+          "text": "image filtering techniques"
+        }
+      ],
+      "match": {
+        "original_term": "image filtering techniques",
+        "canonical_id": "custom:image-processing",
+        "canonical_label": "image processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.768,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.31",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.768
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.46
+          },
+          {
+            "id": "esco:ebd90bfe-ab0f-4155-a77c-3de9267b27a1",
+            "label": "metal smoothing technologies",
+            "score": 0.424
+          }
+        ]
+      }
+    },
+    {
+      "term": "PNG",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 12,
+          "text": "Construct image storage formats (PNG, JPEG, TIFF) with specific compression and quality parameters."
+        },
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "PNG and JPEG File Formats"
+        },
+        {
+          "source": "description",
+          "text": "PNG"
+        }
+      ],
+      "match": {
+        "original_term": "PNG",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.214,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.214
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.21
+          },
+          {
+            "id": "esco:0764b28d-04ee-4e80-bf58-b737f02a63e0",
+            "label": "captioning software",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "RGB",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 11,
+          "text": "Evaluate the impact of color models (RGB, CMYK, HSV) on image processing and display technologies."
+        },
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "RGB, CMYK, and HSV Models"
+        },
+        {
+          "source": "description",
+          "text": "RGB"
+        }
+      ],
+      "match": {
+        "original_term": "RGB",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.194,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.194
+          },
+          {
+            "id": "esco:f88002a8-6355-4d33-9496-285c166ff375",
+            "label": "ICT power consumption",
+            "score": 0.186
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.185
+          }
+        ]
+      }
+    },
+    {
+      "term": "TIFF",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 12,
+          "text": "Construct image storage formats (PNG, JPEG, TIFF) with specific compression and quality parameters."
+        },
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "TIFF and Its Applications"
+        },
+        {
+          "source": "description",
+          "text": "TIFF"
+        }
+      ],
+      "match": {
+        "original_term": "TIFF",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.206,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.206
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.205
+          },
+          {
+            "id": "esco:0764b28d-04ee-4e80-bf58-b737f02a63e0",
+            "label": "captioning software",
+            "score": 0.194
+          }
+        ]
+      }
+    },
+    {
+      "term": "ethical",
+      "canonical": {
+        "id": "custom:penetration-testing",
+        "label": "penetration testing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 15,
+          "text": "Evaluate the ethical and security implications of digital image processing in modern applications."
+        },
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Ethical and Security Considerations"
+        }
+      ],
+      "match": {
+        "original_term": "ethical",
+        "canonical_id": "custom:penetration-testing",
+        "canonical_label": "penetration testing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.634,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.38",
+        "candidates": [
+          {
+            "id": "custom:penetration-testing",
+            "label": "penetration testing",
+            "score": 0.634
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.255
+          },
+          {
+            "id": "esco:cfa2be0d-96d5-4017-a866-962efb9c5070",
+            "label": "signal processing",
+            "score": 0.227
+          }
+        ]
+      }
+    },
+    {
+      "term": "HSV",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 11,
+          "text": "Evaluate the impact of color models (RGB, CMYK, HSV) on image processing and display technologies."
+        },
+        {
+          "source": "description",
+          "text": "HSV"
+        }
+      ],
+      "match": {
+        "original_term": "HSV",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.191,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.191
+          },
+          {
+            "id": "custom:opencv",
+            "label": "OpenCV",
+            "score": 0.184
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.183
+          }
+        ]
+      }
+    },
+    {
+      "term": "image sampling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define image sampling and quantization techniques and their impact on image quality and resolution."
+        },
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Image Sampling and Quantization"
+        }
+      ],
+      "match": {
+        "original_term": "image sampling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'image sampling' refers to the process of converting continuous images into discrete samples, which is a specific technique within image processing. None of the provided taxonomy entries directly match this definition.",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.511
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.479
+          },
+          {
+            "id": "custom:inferential-statistics",
+            "label": "inferential statistics",
+            "score": 0.474
+          }
+        ]
+      }
+    },
+    {
+      "term": "region growing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement image segmentation methods using thresholding, region growing, and edge-based approaches in a programming environment."
+        },
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Region Growing and Thresholding"
+        }
+      ],
+      "match": {
+        "original_term": "region growing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.251,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:51586df8-1c46-4b47-8583-773cb63bf00b",
+            "label": "R",
+            "score": 0.251
+          },
+          {
+            "id": "custom:motion-planning",
+            "label": "motion planning",
+            "score": 0.238
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.229
+          }
+        ]
+      }
+    },
+    {
+      "term": "Sobel",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the operation of edge detection algorithms such as Sobel and Canny operators in image processing pipelines."
+        },
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Sobel and Canny Edge Detectors"
+        }
+      ],
+      "match": {
+        "original_term": "Sobel",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.209,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.209
+          },
+          {
+            "id": "esco:82313e12-9d39-47d1-b7c9-78bbd6bb50e2",
+            "label": "CAE software",
+            "score": 0.207
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "Canny operators in image processing pipelines",
+      "canonical": {
+        "id": "custom:image-processing",
+        "label": "image processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the operation of edge detection algorithms such as Sobel and Canny operators in image processing pipelines."
+        }
+      ],
+      "match": {
+        "original_term": "Canny operators in image processing pipelines",
+        "canonical_id": "custom:image-processing",
+        "canonical_label": "image processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Canny operators in image processing pipelines' directly relates to image processing techniques, specifically edge detection algorithms, which fall under the broader category of image processing.",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.569
+          },
+          {
+            "id": "esco:b0a3bb25-a02f-43ed-ab1f-994fa66a424a",
+            "label": "online analytical processing",
+            "score": 0.339
+          },
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.339
+          }
+        ]
+      }
+    },
+    {
+      "term": "compression",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 14,
+          "text": "Design a digital imaging application that integrates image processing, compression, and storage functionalities."
+        }
+      ],
+      "match": {
+        "original_term": "compression",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.309,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.309
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.286
+          },
+          {
+            "id": "esco:8a211052-4bec-49c2-9b4e-7914c37d21b4",
+            "label": "microprocessors",
+            "score": 0.273
+          }
+        ]
+      }
+    },
+    {
+      "term": "compression quality in different applications",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 13,
+          "text": "Analyze the trade-offs between image resolution, file size, and compression quality in different applications."
+        }
+      ],
+      "match": {
+        "original_term": "compression quality in different applications",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'compression quality in different applications' refers to evaluating compression quality across various contexts, which is not directly covered by any of the provided taxonomy entries. None of the labels or descriptions match the specific skill described in the phrase.",
+        "candidates": [
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.403
+          },
+          {
+            "id": "esco:cf310cff-0d28-4dbc-9dbb-cc500a3196c2",
+            "label": "office software",
+            "score": 0.383
+          },
+          {
+            "id": "esco:9ce670ec-318c-4a91-9179-03437db728dc",
+            "label": "ICT software specifications",
+            "score": 0.38
+          }
+        ]
+      }
+    },
+    {
+      "term": "display technologies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 11,
+          "text": "Evaluate the impact of color models (RGB, CMYK, HSV) on image processing and display technologies."
+        }
+      ],
+      "match": {
+        "original_term": "display technologies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'display technologies' refers to technologies used in displaying information, such as LCDs, OLEDs, and other display systems. None of the provided taxonomy entries directly match this definition, and the closest entries are either too broad or unrelated.",
+        "candidates": [
+          {
+            "id": "esco:ee762b34-5a0e-4dc6-b386-5930bb3e3c25",
+            "label": "metal coating technologies",
+            "score": 0.439
+          },
+          {
+            "id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+            "label": "computer technology",
+            "score": 0.263
+          },
+          {
+            "id": "esco:8ff015a0-98ea-4d80-a23e-1f68110a919e",
+            "label": "software design methodologies",
+            "score": 0.237
+          }
+        ]
+      }
+    },
+    {
+      "term": "edge-based approaches in a programming environment",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement image segmentation methods using thresholding, region growing, and edge-based approaches in a programming environment."
+        }
+      ],
+      "match": {
+        "original_term": "edge-based approaches in a programming environment",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.375,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.375
+          },
+          {
+            "id": "esco:47b9bbcf-356c-4782-83a4-7f5a1b2b51a3",
+            "label": "Assembly (computer programming)",
+            "score": 0.344
+          },
+          {
+            "id": "esco:51586df8-1c46-4b47-8583-773cb63bf00b",
+            "label": "R",
+            "score": 0.247
+          }
+        ]
+      }
+    },
+    {
+      "term": "efficiency with JPEG standards",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 9,
+          "text": "Construct an image compression algorithm using wavelet transforms and compare its efficiency with JPEG standards."
+        }
+      ],
+      "match": {
+        "original_term": "efficiency with JPEG standards",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'efficiency with JPEG standards' refers to comparing the performance of an image compression algorithm using wavelet transforms against JPEG standards. None of the provided taxonomy entries directly relate to image compression efficiency or algorithm comparison.",
+        "candidates": [
+          {
+            "id": "esco:83fc0b2b-6cd2-46af-b1ff-d3fc83604c26",
+            "label": "energy efficiency",
+            "score": 0.402
+          },
+          {
+            "id": "esco:21c27eba-bd1f-42f5-a1d5-c250227030f7",
+            "label": "electricity consumption",
+            "score": 0.216
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.194
+          }
+        ]
+      }
+    },
+    {
+      "term": "file size",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 13,
+          "text": "Analyze the trade-offs between image resolution, file size, and compression quality in different applications."
+        }
+      ],
+      "match": {
+        "original_term": "file size",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.22,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.22
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.195
+          },
+          {
+            "id": "esco:7f107a85-d6ac-410f-a995-d635c5aa418b",
+            "label": "types of metal",
+            "score": 0.19
+          }
+        ]
+      }
+    },
+    {
+      "term": "image segmentation methods using thresholding",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement image segmentation methods using thresholding, region growing, and edge-based approaches in a programming environment."
+        }
+      ],
+      "match": {
+        "original_term": "image segmentation methods using thresholding",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.362,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.362
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.343
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.336
+          }
+        ]
+      }
+    },
+    {
+      "term": "impact on image quality",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define image sampling and quantization techniques and their impact on image quality and resolution."
+        }
+      ],
+      "match": {
+        "original_term": "impact on image quality",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to the concept of 'impact on image quality' as described in the syllabus phrase.",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.407
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.402
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.401
+          }
+        ]
+      }
+    },
+    {
+      "term": "management of digital images",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 10,
+          "text": "Design and implement an image database system that supports efficient retrieval and management of digital images."
+        }
+      ],
+      "match": {
+        "original_term": "management of digital images",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'management of digital images' refers to organizing and handling digital images, which is not directly captured by any of the provided taxonomy entries. The closest candidates are 'database management systems' and 'data storage', but these are broader and not specific to image management.",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.582
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.447
+          },
+          {
+            "id": "esco:0ab03c6c-281b-48f4-83e0-10eeb27a1bae",
+            "label": "network management system tools",
+            "score": 0.433
+          }
+        ]
+      }
+    },
+    {
+      "term": "median filtering to enhance",
+      "canonical": {
+        "id": "custom:image-processing",
+        "label": "image processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply image filtering techniques including convolution and median filtering to enhance and restore images."
+        }
+      ],
+      "match": {
+        "original_term": "median filtering to enhance",
+        "canonical_id": "custom:image-processing",
+        "canonical_label": "image processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'median filtering to enhance' is directly related to image filtering techniques, which is explicitly covered under the 'image processing' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.487
+          },
+          {
+            "id": "esco:b2b970ad-0276-4069-ba31-899a53191b95",
+            "label": "biofilter systems",
+            "score": 0.244
+          },
+          {
+            "id": "esco:ebd90bfe-ab0f-4155-a77c-3de9267b27a1",
+            "label": "metal smoothing technologies",
+            "score": 0.229
+          }
+        ]
+      }
+    },
+    {
+      "term": "MPEG compression standards in digital imaging",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the principles and applications of JPEG and MPEG compression standards in digital imaging."
+        }
+      ],
+      "match": {
+        "original_term": "MPEG compression standards in digital imaging",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.365,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.365
+          },
+          {
+            "id": "esco:629c000a-b94b-4736-b2e2-04b7954d60db",
+            "label": "IPC standards",
+            "score": 0.345
+          },
+          {
+            "id": "esco:19ec88aa-c0b1-4515-ba10-56b6cf27369e",
+            "label": "electronic equipment standards",
+            "score": 0.319
+          }
+        ]
+      }
+    },
+    {
+      "term": "operation of edge detection algorithms",
+      "canonical": {
+        "id": "custom:image-processing",
+        "label": "image processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the operation of edge detection algorithms such as Sobel and Canny operators in image processing pipelines."
+        }
+      ],
+      "match": {
+        "original_term": "operation of edge detection algorithms",
+        "canonical_id": "custom:image-processing",
+        "canonical_label": "image processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'operation of edge detection algorithms' is directly related to image processing pipelines, which is explicitly covered by the 'image processing' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.489
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.418
+          },
+          {
+            "id": "esco:0f2cb38a-6e97-4f49-80f7-1da9e5835ed0",
+            "label": "buffing motions",
+            "score": 0.374
+          }
+        ]
+      }
+    },
+    {
+      "term": "quality parameters",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 12,
+          "text": "Construct image storage formats (PNG, JPEG, TIFF) with specific compression and quality parameters."
+        }
+      ],
+      "match": {
+        "original_term": "quality parameters",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'quality parameters' as defined in the syllabus. The closest entries are about quality control systems, database quality standards, and storage facilities, but none specifically match the concept of quality parameters in the context of image co",
+        "candidates": [
+          {
+            "id": "esco:d56358e4-3bcc-4b5d-981d-ea15b2743e9e",
+            "label": "quality control systems",
+            "score": 0.453
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.398
+          },
+          {
+            "id": "esco:7f107a85-d6ac-410f-a995-d635c5aa418b",
+            "label": "types of metal",
+            "score": 0.226
+          }
+        ]
+      }
+    },
+    {
+      "term": "quantization techniques",
+      "canonical": {
+        "id": "custom:image-processing",
+        "label": "image processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define image sampling and quantization techniques and their impact on image quality and resolution."
+        }
+      ],
+      "match": {
+        "original_term": "quantization techniques",
+        "canonical_id": "custom:image-processing",
+        "canonical_label": "image processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'quantization techniques' is directly related to image processing, as quantization is a key concept in image processing that affects image quality and resolution.",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.476
+          },
+          {
+            "id": "esco:ebd90bfe-ab0f-4155-a77c-3de9267b27a1",
+            "label": "metal smoothing technologies",
+            "score": 0.429
+          },
+          {
+            "id": "esco:ddc3119d-1d6e-4324-9125-a3380d299ac5",
+            "label": "computer technology",
+            "score": 0.275
+          }
+        ]
+      }
+    },
+    {
+      "term": "resolution",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define image sampling and quantization techniques and their impact on image quality and resolution."
+        }
+      ],
+      "match": {
+        "original_term": "resolution",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.264,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.264
+          },
+          {
+            "id": "esco:f1a56786-e6d7-4b2e-a39c-23e09024d473",
+            "label": "concepts of telecommunications",
+            "score": 0.256
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.256
+          }
+        ]
+      }
+    },
+    {
+      "term": "restore images",
+      "canonical": {
+        "id": "custom:image-processing",
+        "label": "image processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply image filtering techniques including convolution and median filtering to enhance and restore images."
+        }
+      ],
+      "match": {
+        "original_term": "restore images",
+        "canonical_id": "custom:image-processing",
+        "canonical_label": "image processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'restore images' is directly related to image filtering techniques for enhancing and restoring images, which aligns with the definition of 'image processing' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.505
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.456
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.435
+          }
+        ]
+      }
+    },
+    {
+      "term": "shape analysis",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 6,
+          "text": "Analyze the effectiveness of morphological operations in noise reduction and shape analysis."
+        }
+      ],
+      "match": {
+        "original_term": "shape analysis",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'shape analysis' from the syllabus. The closest entries are related to image processing or metal shaping, but none specifically refer to shape analysis as a skill.",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.484
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.473
+          },
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.342
+          }
+        ]
+      }
+    },
+    {
+      "term": "storage functionalities",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 14,
+          "text": "Design a digital imaging application that integrates image processing, compression, and storage functionalities."
+        }
+      ],
+      "match": {
+        "original_term": "storage functionalities",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'storage functionalities' refers to the capabilities related to storing data, which is more closely aligned with 'data storage' (candidate 2). However, the phrase is not specific enough to match any of the provided taxonomy entries with high confidence.",
+        "candidates": [
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.515
+          },
+          {
+            "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+            "label": "data storage",
+            "score": 0.494
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.276
+          }
+        ]
+      }
+    },
+    {
+      "term": "trade-offs between image resolution",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 13,
+          "text": "Analyze the trade-offs between image resolution, file size, and compression quality in different applications."
+        }
+      ],
+      "match": {
+        "original_term": "trade-offs between image resolution",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.328,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.328
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.319
+          },
+          {
+            "id": "esco:ff6904ef-36e7-4890-8fb1-8353b299f047",
+            "label": "microchip scanners",
+            "score": 0.315
+          }
+        ]
+      }
+    },
+    {
+      "term": "Color Models",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Color Models and Their Applications"
+        },
+        {
+          "source": "description",
+          "text": "color models"
+        }
+      ],
+      "match": {
+        "original_term": "Color Models",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'Color Models' or its applications. The closest entries are related to data models, software architecture, or computer vision, but none specifically match the concept of color models.",
+        "candidates": [
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.486
+          },
+          {
+            "id": "esco:2450c3b3-e78e-435b-b84d-e05d984e71dc",
+            "label": "software architecture models",
+            "score": 0.416
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.307
+          }
+        ]
+      }
+    },
+    {
+      "term": "Image Acquisition",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Image Acquisition and Representation"
+        },
+        {
+          "source": "description",
+          "text": "image acquisition"
+        }
+      ],
+      "match": {
+        "original_term": "Image Acquisition",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Image Acquisition' does not directly match any of the provided taxonomy entries, which focus on broader topics like computer vision, object detection, or specific tools like Capture One.",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.502
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.497
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.484
+          }
+        ]
+      }
+    },
+    {
+      "term": "Image Storage Formats",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Image Storage Formats"
+        },
+        {
+          "source": "description",
+          "text": "image storage formats"
+        }
+      ],
+      "match": {
+        "original_term": "Image Storage Formats",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Image Storage Formats' as a skill. The closest entries are related to broader topics like data storage or image processing, but none match the exact skill phrase.",
+        "candidates": [
+          {
+            "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+            "label": "data storage",
+            "score": 0.425
+          },
+          {
+            "id": "esco:f3f29c39-4124-4a8c-a63c-878bfc487586",
+            "label": "types of containers",
+            "score": 0.422
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.417
+          }
+        ]
+      }
+    },
+    {
+      "term": "Median Filtering",
+      "canonical": {
+        "id": "custom:image-processing",
+        "label": "image processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Convolution and Median Filtering"
+        },
+        {
+          "source": "description",
+          "text": "median filtering"
+        }
+      ],
+      "match": {
+        "original_term": "Median Filtering",
+        "canonical_id": "custom:image-processing",
+        "canonical_label": "image processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Median filtering is a specific image processing technique used to reduce noise in images, which aligns directly with the 'image processing' skill.",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.522
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.215
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "Quantization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Image Sampling and Quantization"
+        },
+        {
+          "source": "description",
+          "text": "quantization"
+        }
+      ],
+      "match": {
+        "original_term": "Quantization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.295,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.295
+          },
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.295
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.286
+          }
+        ]
+      }
+    },
+    {
+      "term": "Resolution Trade-offs",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Image Quality and Resolution Trade-offs"
+        },
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Compression vs. Resolution Trade-offs"
+        }
+      ],
+      "match": {
+        "original_term": "Resolution Trade-offs",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.223,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.223
+          },
+          {
+            "id": "esco:3b3b7373-220a-4287-87cf-e24a208b63c6",
+            "label": "quality and cycle time optimisation",
+            "score": 0.22
+          },
+          {
+            "id": "custom:tf-transforms",
+            "label": "coordinate frame transforms",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "Canny Edge Detectors",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Sobel and Canny Edge Detectors"
+        }
+      ],
+      "match": {
+        "original_term": "Canny Edge Detectors",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Canny Edge Detectors' refers to a specific image processing technique used in computer vision, which is not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "esco:c199731b-1c17-47be-8f5d-296b9892a1b4",
+            "label": "smoke sensors",
+            "score": 0.439
+          },
+          {
+            "id": "esco:286d0e0d-48e9-4210-b110-b1fbf04c35f1",
+            "label": "radars",
+            "score": 0.431
+          },
+          {
+            "id": "esco:fa7d581b-da0e-47cf-bae8-4d07f267a225",
+            "label": "infrared sensors",
+            "score": 0.383
+          }
+        ]
+      }
+    },
+    {
+      "term": "Color Space Conversion Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Color Space Conversion Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Color Space Conversion Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.365,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.365
+          },
+          {
+            "id": "esco:ee762b34-5a0e-4dc6-b386-5930bb3e3c25",
+            "label": "metal coating technologies",
+            "score": 0.232
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.226
+          }
+        ]
+      }
+    },
+    {
+      "term": "Comparative Analysis of Compression Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Comparative Analysis of Compression Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Comparative Analysis of Compression Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.393,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.393
+          },
+          {
+            "id": "esco:530cb489-d900-46ab-9350-4d50ccd49eea",
+            "label": "welding techniques",
+            "score": 0.387
+          },
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.36
+          }
+        ]
+      }
+    },
+    {
+      "term": "Compression vs",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Compression vs. Resolution Trade-offs"
+        }
+      ],
+      "match": {
+        "original_term": "Compression vs",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.375,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:6ceecfd6-3256-40f6-8924-7c68011fc240",
+            "label": "compression moulding machine parts",
+            "score": 0.375
+          },
+          {
+            "id": "custom:regression-analysis",
+            "label": "regression analysis",
+            "score": 0.254
+          },
+          {
+            "id": "esco:05caf274-8edf-42d9-8de3-c350f6e3c703",
+            "label": "extrusion processes",
+            "score": 0.228
+          }
+        ]
+      }
+    },
+    {
+      "term": "Convolutional Neural Networks",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Introduction to Convolutional Neural Networks"
+        }
+      ],
+      "match": {
+        "original_term": "Convolutional Neural Networks",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.723,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.48",
+        "candidates": [
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.723
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.246
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.227
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Security",
+      "canonical": {
+        "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+        "label": "data protection",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Image Privacy and Data Security"
+        }
+      ],
+      "match": {
+        "original_term": "Data Security",
+        "canonical_id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+        "canonical_label": "data protection",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Data Security' directly aligns with the label 'data protection' and its also called entries, which include related terms like 'data privacy' and 'protection of private data'.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.548
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.525
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.517
+          }
+        ]
+      }
+    },
+    {
+      "term": "Deep Learning",
+      "canonical": {
+        "id": "custom:deep-learning",
+        "label": "deep learning",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Deep Learning for Image Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Deep Learning",
+        "canonical_id": "custom:deep-learning",
+        "canonical_label": "deep learning",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Digital Imaging Application Design",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Digital Imaging Application Design"
+        }
+      ],
+      "match": {
+        "original_term": "Digital Imaging Application Design",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Digital Imaging Application Design' does not clearly align with any of the provided taxonomy entries, which focus on image processing, UX/UI design, or software development rather than the specific application design of digital imaging systems.",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.411
+          },
+          {
+            "id": "custom:ux-design",
+            "label": "user experience design",
+            "score": 0.4
+          },
+          {
+            "id": "esco:de0be6e8-644c-4cc9-9c8d-925dd98dda56",
+            "label": "software interaction design",
+            "score": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "term": "Digital Imaging Processing",
+      "canonical": {
+        "id": "custom:image-processing",
+        "label": "image processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Digital Imaging Processing"
+        }
+      ],
+      "match": {
+        "original_term": "Digital Imaging Processing",
+        "canonical_id": "custom:image-processing",
+        "canonical_label": "image processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.679,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.07",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.679
+          },
+          {
+            "id": "esco:cfa2be0d-96d5-4017-a866-962efb9c5070",
+            "label": "signal processing",
+            "score": 0.612
+          },
+          {
+            "id": "esco:fcc64184-33d5-4e4a-8d28-0993d5685c39",
+            "label": "packaging processes",
+            "score": 0.48
+          }
+        ]
+      }
+    },
+    {
+      "term": "Dilation Operations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Erosion and Dilation Operations"
+        }
+      ],
+      "match": {
+        "original_term": "Dilation Operations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the extracted phrase 'Dilation Operations' in meaning or terminology.",
+        "candidates": [
+          {
+            "id": "esco:05caf274-8edf-42d9-8de3-c350f6e3c703",
+            "label": "extrusion processes",
+            "score": 0.542
+          },
+          {
+            "id": "esco:0be7c835-a562-416f-8c35-67abd0995b4d",
+            "label": "swaging processes",
+            "score": 0.521
+          },
+          {
+            "id": "esco:95b3f4dc-f57f-414a-82b3-eaa22afee5ad",
+            "label": "forging processes",
+            "score": 0.515
+          }
+        ]
+      }
+    },
+    {
+      "term": "Edge Detection Techniques",
+      "canonical": {
+        "id": "custom:object-detection",
+        "label": "object detection",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Edge Detection Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Edge Detection Techniques",
+        "canonical_id": "custom:object-detection",
+        "canonical_label": "object detection",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Edge Detection Techniques is a specific method used in object detection, which aligns with the definition of locating and classifying objects within an image or video stream.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.462
+          },
+          {
+            "id": "esco:530cb489-d900-46ab-9350-4d50ccd49eea",
+            "label": "welding techniques",
+            "score": 0.436
+          },
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.429
+          }
+        ]
+      }
+    },
+    {
+      "term": "Edge-Based Segmentation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Edge-Based Segmentation"
+        }
+      ],
+      "match": {
+        "original_term": "Edge-Based Segmentation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.212,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.212
+          },
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.209
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.196
+          }
+        ]
+      }
+    },
+    {
+      "term": "Efficient Image Retrieval Systems",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Efficient Image Retrieval Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Efficient Image Retrieval Systems",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.397,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.397
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.374
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.354
+          }
+        ]
+      }
+    },
+    {
+      "term": "Erosion",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Erosion and Dilation Operations"
+        }
+      ],
+      "match": {
+        "original_term": "Erosion",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.305,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:05caf274-8edf-42d9-8de3-c350f6e3c703",
+            "label": "extrusion processes",
+            "score": 0.305
+          },
+          {
+            "id": "esco:0be7c835-a562-416f-8c35-67abd0995b4d",
+            "label": "swaging processes",
+            "score": 0.263
+          },
+          {
+            "id": "esco:95b3f4dc-f57f-414a-82b3-eaa22afee5ad",
+            "label": "forging processes",
+            "score": 0.259
+          }
+        ]
+      }
+    },
+    {
+      "term": "Feature Matching Techniques",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Feature Matching Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Feature Matching Techniques",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Feature Matching Techniques'. The closest related entries are 'computer vision' and 'image processing', but neither specifically refers to feature matching techniques.",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.456
+          },
+          {
+            "id": "esco:ebd90bfe-ab0f-4155-a77c-3de9267b27a1",
+            "label": "metal smoothing technologies",
+            "score": 0.426
+          },
+          {
+            "id": "esco:dfb76ee8-1e49-4371-b0ef-ea132d93aaca",
+            "label": "metal bending techniques",
+            "score": 0.422
+          }
+        ]
+      }
+    },
+    {
+      "term": "HSV Models",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "RGB, CMYK, and HSV Models"
+        }
+      ],
+      "match": {
+        "original_term": "HSV Models",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.369,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:urdf",
+            "label": "URDF robot modelling",
+            "score": 0.369
+          },
+          {
+            "id": "esco:1aa0f58e-790d-4965-afd2-18c581481c0c",
+            "label": "motor vehicle parts drawings",
+            "score": 0.183
+          },
+          {
+            "id": "esco:8a5d67b6-4abf-4fae-bedf-78c8882d7d47",
+            "label": "types of vehicle engines",
+            "score": 0.173
+          }
+        ]
+      }
+    },
+    {
+      "term": "Image Analysis",
+      "canonical": {
+        "id": "custom:computer-vision",
+        "label": "computer vision",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Deep Learning for Image Analysis"
+        }
+      ],
+      "match": {
+        "original_term": "Image Analysis",
+        "canonical_id": "custom:computer-vision",
+        "canonical_label": "computer vision",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Image Compression",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Wavelet Transform for Image Compression"
+        }
+      ],
+      "match": {
+        "original_term": "Image Compression",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'Image Compression' or its related concepts like 'Wavelet Transform for Image Compression'. The closest entries are related to image processing or computer vision, but they do not precisely match the skill described.",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.492
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.454
+          },
+          {
+            "id": "custom:tf-transforms",
+            "label": "coordinate frame transforms",
+            "score": 0.257
+          }
+        ]
+      }
+    },
+    {
+      "term": "Image Compression Fundamentals",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Image Compression Fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "Image Compression Fundamentals",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Image Compression Fundamentals'. The closest is 'image processing', but that is broader and does not specifically refer to compression techniques.",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.423
+          },
+          {
+            "id": "esco:be99117b-49a1-4ec2-a670-e9baac66c1bd",
+            "label": "principles of combustion engines",
+            "score": 0.42
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.403
+          }
+        ]
+      }
+    },
+    {
+      "term": "Image Database Design",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Image Database Design"
+        }
+      ],
+      "match": {
+        "original_term": "Image Database Design",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.755,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.19",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.755
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.565
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.437
+          }
+        ]
+      }
+    },
+    {
+      "term": "Image Enhancement Methods",
+      "canonical": {
+        "id": "custom:image-processing",
+        "label": "image processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Image Enhancement Methods"
+        }
+      ],
+      "match": {
+        "original_term": "Image Enhancement Methods",
+        "canonical_id": "custom:image-processing",
+        "canonical_label": "image processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Image Enhancement Methods' directly aligns with the label 'image processing' which specifically refers to transforming images to enhance them or extract features.",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.414
+          },
+          {
+            "id": "esco:ff8bd17c-77e9-4d4e-929a-a0cf86f3ed34",
+            "label": "surveillance methods",
+            "score": 0.412
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.411
+          }
+        ]
+      }
+    },
+    {
+      "term": "Image Privacy",
+      "canonical": {
+        "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+        "label": "information confidentiality",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Image Privacy and Data Security"
+        }
+      ],
+      "match": {
+        "original_term": "Image Privacy",
+        "canonical_id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+        "canonical_label": "information confidentiality",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Image Privacy' is closely related to 'information confidentiality' as both focus on protecting data from unauthorized access, with 'Image Privacy' being a specific application of data confidentiality in the context of images.",
+        "candidates": [
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.568
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.492
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.482
+          }
+        ]
+      }
+    },
+    {
+      "term": "Image Quality",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Image Quality and Resolution Trade-offs"
+        }
+      ],
+      "match": {
+        "original_term": "Image Quality",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Image Quality' does not match any of the provided taxonomy entries, which focus on image processing, computer vision, object detection, or unrelated topics like database quality standards and ICT power consumption.",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.452
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.45
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.432
+          }
+        ]
+      }
+    },
+    {
+      "term": "Image Registration Fundamentals",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Image Registration Fundamentals"
+        }
+      ],
+      "match": {
+        "original_term": "Image Registration Fundamentals",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match 'Image Registration Fundamentals'. The closest is 'image processing', but 'image registration' is a specific technique within image processing and not explicitly covered by the given labels.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.404
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.399
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.391
+          }
+        ]
+      }
+    },
+    {
+      "term": "Image Segmentation Methods",
+      "canonical": {
+        "id": "custom:computer-vision",
+        "label": "computer vision",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Image Segmentation Methods"
+        }
+      ],
+      "match": {
+        "original_term": "Image Segmentation Methods",
+        "canonical_id": "custom:computer-vision",
+        "canonical_label": "computer vision",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Image Segmentation Methods is a specific technique within the broader field of computer vision, which involves extracting information from images and video.",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.42
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.418
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.409
+          }
+        ]
+      }
+    },
+    {
+      "term": "Image Storage",
+      "canonical": {
+        "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+        "label": "data storage",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Image Storage and Management"
+        }
+      ],
+      "match": {
+        "original_term": "Image Storage",
+        "canonical_id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+        "canonical_label": "data storage",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Image Storage' is a specific instance of 'data storage', which encompasses the organization and management of digital data, including images.",
+        "candidates": [
+          {
+            "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+            "label": "data storage",
+            "score": 0.525
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.478
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.476
+          }
+        ]
+      }
+    },
+    {
+      "term": "Image Thresholding Techniques",
+      "canonical": {
+        "id": "custom:image-processing",
+        "label": "image processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Image Thresholding Techniques"
+        }
+      ],
+      "match": {
+        "original_term": "Image Thresholding Techniques",
+        "canonical_id": "custom:image-processing",
+        "canonical_label": "image processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Image Thresholding Techniques is a specific technique used in image processing to enhance images or extract features, which aligns directly with the definition of image processing.",
+        "candidates": [
+          {
+            "id": "esco:23b45aa6-a479-486d-9e6f-062cbab7c68a",
+            "label": "interfacing techniques",
+            "score": 0.441
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.43
+          },
+          {
+            "id": "esco:ebd90bfe-ab0f-4155-a77c-3de9267b27a1",
+            "label": "metal smoothing technologies",
+            "score": 0.407
+          }
+        ]
+      }
+    },
+    {
+      "term": "Integration of Processing",
+      "canonical": {
+        "id": "custom:calculus",
+        "label": "calculus",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Integration of Processing and Storage"
+        }
+      ],
+      "match": {
+        "original_term": "Integration of Processing",
+        "canonical_id": "custom:calculus",
+        "canonical_label": "calculus",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.649,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.11",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.649
+          },
+          {
+            "id": "esco:0f9958d2-f700-4f62-b90b-a5873cb5ae4c",
+            "label": "systems thinking",
+            "score": 0.534
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.497
+          }
+        ]
+      }
+    },
+    {
+      "term": "JPEG Compression Standard",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "JPEG Compression Standard"
+        }
+      ],
+      "match": {
+        "original_term": "JPEG Compression Standard",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries match the skill 'JPEG Compression Standard'.",
+        "candidates": [
+          {
+            "id": "custom:standard-deviation",
+            "label": "standard deviation",
+            "score": 0.401
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.216
+          },
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.205
+          }
+        ]
+      }
+    },
+    {
+      "term": "JPEG File Formats",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "PNG and JPEG File Formats"
+        }
+      ],
+      "match": {
+        "original_term": "JPEG File Formats",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the taxonomy entries directly refer to 'JPEG File Formats' or related concepts. The closest is 'image processing' (id: custom:image-processing), but that refers to processing images rather than file formats.",
+        "candidates": [
+          {
+            "id": "esco:aa9eb826-390c-4923-b379-ba56444e680e",
+            "label": "laser types",
+            "score": 0.404
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.2
+          },
+          {
+            "id": "custom:tf-transforms",
+            "label": "coordinate frame transforms",
+            "score": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "term": "JPEG2000 Compression Standard",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "JPEG2000 Compression Standard"
+        }
+      ],
+      "match": {
+        "original_term": "JPEG2000 Compression Standard",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.335,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.335
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.182
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.179
+          }
+        ]
+      }
+    },
+    {
+      "term": "Management",
+      "canonical": {
+        "id": "custom:operating-systems",
+        "label": "operating systems",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Image Storage and Management"
+        }
+      ],
+      "match": {
+        "original_term": "Management",
+        "canonical_id": "custom:operating-systems",
+        "canonical_label": "operating systems",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.654,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.15",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.654
+          },
+          {
+            "id": "esco:0ab03c6c-281b-48f4-83e0-10eeb27a1bae",
+            "label": "network management system tools",
+            "score": 0.5
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.285
+          }
+        ]
+      }
+    },
+    {
+      "term": "Morphological Image Processing",
+      "canonical": {
+        "id": "custom:image-processing",
+        "label": "image processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Morphological Image Processing"
+        }
+      ],
+      "match": {
+        "original_term": "Morphological Image Processing",
+        "canonical_id": "custom:image-processing",
+        "canonical_label": "image processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.725,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.30",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.725
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.423
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.405
+          }
+        ]
+      }
+    },
+    {
+      "term": "MPEG Compression Standard",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "MPEG Compression Standard"
+        }
+      ],
+      "match": {
+        "original_term": "MPEG Compression Standard",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.215,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.215
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.186
+          },
+          {
+            "id": "esco:8a211052-4bec-49c2-9b4e-7914c37d21b4",
+            "label": "microprocessors",
+            "score": 0.186
+          }
+        ]
+      }
+    },
+    {
+      "term": "Multi-Spectral Image Alignment",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Multi-Spectral Image Alignment"
+        }
+      ],
+      "match": {
+        "original_term": "Multi-Spectral Image Alignment",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.377,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.377
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.373
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.357
+          }
+        ]
+      }
+    },
+    {
+      "term": "Noise Reduction in Images",
+      "canonical": {
+        "id": "custom:image-processing",
+        "label": "image processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Noise Reduction in Images"
+        }
+      ],
+      "match": {
+        "original_term": "Noise Reduction in Images",
+        "canonical_id": "custom:image-processing",
+        "canonical_label": "image processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Noise Reduction in Images' directly relates to image processing techniques, which aligns with the description of transforming images to enhance them or extract features.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.424
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.399
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.395
+          }
+        ]
+      }
+    },
+    {
+      "term": "Object Recognition in Images",
+      "canonical": {
+        "id": "custom:object-detection",
+        "label": "object detection",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Object Recognition in Images"
+        }
+      ],
+      "match": {
+        "original_term": "Object Recognition in Images",
+        "canonical_id": "custom:object-detection",
+        "canonical_label": "object detection",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.761,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.35",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.761
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.406
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.401
+          }
+        ]
+      }
+    },
+    {
+      "term": "Optimal Image Parameter Selection",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Optimal Image Parameter Selection"
+        }
+      ],
+      "match": {
+        "original_term": "Optimal Image Parameter Selection",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Optimal Image Parameter Selection'. The closest entries are related to image processing or computer vision, but none specifically address the selection of optimal image parameters.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.408
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.394
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.372
+          }
+        ]
+      }
+    },
+    {
+      "term": "Real-World Application Case Studies",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Real-World Application Case Studies"
+        }
+      ],
+      "match": {
+        "original_term": "Real-World Application Case Studies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.373,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:c4b626c1-e71c-44ec-9f88-042766f37fcc",
+            "label": "application usability",
+            "score": 0.373
+          },
+          {
+            "id": "esco:96eb286a-58b7-45ff-a916-5578d0b79b8c",
+            "label": "Rapid application development",
+            "score": 0.363
+          },
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.36
+          }
+        ]
+      }
+    },
+    {
+      "term": "Representation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Image Acquisition and Representation"
+        }
+      ],
+      "match": {
+        "original_term": "Representation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.3,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.3
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.299
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.264
+          }
+        ]
+      }
+    },
+    {
+      "term": "Secure Image Transmission Protocols",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Secure Image Transmission Protocols"
+        }
+      ],
+      "match": {
+        "original_term": "Secure Image Transmission Protocols",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.397,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:71f81e1a-e2ca-48d6-b7b8-7a34c56c51f8",
+            "label": "transmission technology",
+            "score": 0.397
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.39
+          },
+          {
+            "id": "custom:cryptography",
+            "label": "cryptography",
+            "score": 0.384
+          }
+        ]
+      }
+    },
+    {
+      "term": "Security Considerations",
+      "canonical": {
+        "id": "custom:cybersecurity",
+        "label": "cybersecurity",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Ethical and Security Considerations"
+        }
+      ],
+      "match": {
+        "original_term": "Security Considerations",
+        "canonical_id": "custom:cybersecurity",
+        "canonical_label": "cybersecurity",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Security Considerations' aligns closely with the definition of 'cybersecurity' which involves protecting systems and data from unauthorized access and attack, matching the syllabus mention of 'Ethical and Security Considerations'.",
+        "candidates": [
+          {
+            "id": "custom:cybersecurity",
+            "label": "cybersecurity",
+            "score": 0.502
+          },
+          {
+            "id": "custom:network-security",
+            "label": "network security",
+            "score": 0.472
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.443
+          }
+        ]
+      }
+    },
+    {
+      "term": "Storage",
+      "canonical": {
+        "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+        "label": "data storage",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Integration of Processing and Storage"
+        }
+      ],
+      "match": {
+        "original_term": "Storage",
+        "canonical_id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+        "canonical_label": "data storage",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.663,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.12",
+        "candidates": [
+          {
+            "id": "esco:a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+            "label": "data storage",
+            "score": 0.663
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.542
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.28
+          }
+        ]
+      }
+    },
+    {
+      "term": "Thresholding",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Region Growing and Thresholding"
+        }
+      ],
+      "match": {
+        "original_term": "Thresholding",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.208,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.208
+          },
+          {
+            "id": "esco:034c29fa-c3ba-45ea-b8f3-bf8e3705e386",
+            "label": "Erlang",
+            "score": 0.195
+          },
+          {
+            "id": "custom:descriptive-statistics",
+            "label": "descriptive statistics",
+            "score": 0.182
+          }
+        ]
+      }
+    },
+    {
+      "term": "Wavelet Transform",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Wavelet Transform for Image Compression"
+        }
+      ],
+      "match": {
+        "original_term": "Wavelet Transform",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'Wavelet Transform' or its application in image compression. The closest match is 'image processing', but 'Wavelet Transform' is a specific technique within that domain, not the same skill.",
+        "candidates": [
+          {
+            "id": "custom:tf-transforms",
+            "label": "coordinate frame transforms",
+            "score": 0.49
+          },
+          {
+            "id": "esco:106b9659-4b9a-4ce2-8d16-80add5bf81b0",
+            "label": "energy transformation",
+            "score": 0.266
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.256
+          }
+        ]
+      }
+    },
+    {
+      "term": "advanced topics",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "advanced topics"
+        }
+      ],
+      "match": {
+        "original_term": "advanced topics",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.371,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:300d432b-f457-4cd3-9cb1-1858c7d14954",
+            "label": "OpenEdge Advanced Business Language",
+            "score": 0.371
+          },
+          {
+            "id": "custom:forward-kinematics",
+            "label": "forward kinematics",
+            "score": 0.2
+          },
+          {
+            "id": "custom:pytorch",
+            "label": "PyTorch",
+            "score": 0.198
+          }
+        ]
+      }
+    },
+    {
+      "term": "Canny operators",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Canny operators"
+        }
+      ],
+      "match": {
+        "original_term": "Canny operators",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.236,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-manipulators",
+            "label": "robot manipulators",
+            "score": 0.236
+          },
+          {
+            "id": "esco:343dd8e6-225f-460b-99e4-2e24ecbfd7ed",
+            "label": "sommelier activities",
+            "score": 0.232
+          },
+          {
+            "id": "esco:0be7c835-a562-416f-8c35-67abd0995b4d",
+            "label": "swaging processes",
+            "score": 0.226
+          }
+        ]
+      }
+    },
+    {
+      "term": "course also explores image databases",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "course also explores image databases"
+        }
+      ],
+      "match": {
+        "original_term": "course also explores image databases",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'course also explores image databases' refers to the study of image databases, which is not directly captured by any of the provided taxonomy entries. None of the entries specifically address the concept of image databases.",
+        "candidates": [
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.436
+          },
+          {
+            "id": "esco:b0a3bb25-a02f-43ed-ab1f-994fa66a424a",
+            "label": "online analytical processing",
+            "score": 0.367
+          },
+          {
+            "id": "custom:vector-databases",
+            "label": "vector databases",
+            "score": 0.365
+          }
+        ]
+      }
+    },
+    {
+      "term": "dilation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "dilation"
+        }
+      ],
+      "match": {
+        "original_term": "dilation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.278,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.278
+          },
+          {
+            "id": "esco:f18b3dc3-fc4f-438c-9279-ebcaf2908b20",
+            "label": "alkylation",
+            "score": 0.272
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.259
+          }
+        ]
+      }
+    },
+    {
+      "term": "edge detection using Sobel",
+      "canonical": {
+        "id": "custom:image-processing",
+        "label": "image processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "edge detection using Sobel"
+        }
+      ],
+      "match": {
+        "original_term": "edge detection using Sobel",
+        "canonical_id": "custom:image-processing",
+        "canonical_label": "image processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'edge detection using Sobel' is a specific technique within the broader field of image processing, which aligns with the description of transforming images to enhance them or extract features.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.413
+          },
+          {
+            "id": "esco:5d9d5582-2a36-4887-98fc-cff1ba767983",
+            "label": "electron beam welding processes",
+            "score": 0.193
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.192
+          }
+        ]
+      }
+    },
+    {
+      "term": "enhancement",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "enhancement"
+        }
+      ],
+      "match": {
+        "original_term": "enhancement",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.226,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:00c04e40-35ea-4ed1-824c-82f936c8f876",
+            "label": "Incremental development",
+            "score": 0.226
+          },
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.225
+          },
+          {
+            "id": "esco:3b3b7373-220a-4287-87cf-e24a208b63c6",
+            "label": "quality and cycle time optimisation",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "feature extraction",
+      "canonical": {
+        "id": "custom:image-processing",
+        "label": "image processing",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "feature extraction"
+        }
+      ],
+      "match": {
+        "original_term": "feature extraction",
+        "canonical_id": "custom:image-processing",
+        "canonical_label": "image processing",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'feature extraction' aligns with the description of 'image processing' which includes transforming images to enhance them or extract features.",
+        "candidates": [
+          {
+            "id": "esco:696e3b5b-8b61-45af-ae4c-3ab700f197ec",
+            "label": "information extraction",
+            "score": 0.473
+          },
+          {
+            "id": "esco:608eb32b-276c-42a6-9be9-2d7bc33e9b3b",
+            "label": "natural gas",
+            "score": 0.437
+          },
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.221
+          }
+        ]
+      }
+    },
+    {
+      "term": "histogram equalization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "histogram equalization"
+        }
+      ],
+      "match": {
+        "original_term": "histogram equalization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.255,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-localization",
+            "label": "robot localization",
+            "score": 0.255
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.254
+          },
+          {
+            "id": "custom:slam",
+            "label": "SLAM",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "image compression with wavelet transforms",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "image compression with wavelet transforms"
+        }
+      ],
+      "match": {
+        "original_term": "image compression with wavelet transforms",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.384,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.384
+          },
+          {
+            "id": "custom:tf-transforms",
+            "label": "coordinate frame transforms",
+            "score": 0.383
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.352
+          }
+        ]
+      }
+    },
+    {
+      "term": "image registration",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "image registration"
+        }
+      ],
+      "match": {
+        "original_term": "image registration",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'image registration'. The closest related terms are 'computer vision' and 'image processing', but neither specifically refers to the process of aligning images, which is the core of 'image registration'.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.476
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.438
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.438
+          }
+        ]
+      }
+    },
+    {
+      "term": "morphological operations like erosion",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "morphological operations like erosion"
+        }
+      ],
+      "match": {
+        "original_term": "morphological operations like erosion",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'morphological operations like erosion' refers to image processing techniques, specifically erosion in morphology, which is not related to any of the provided taxonomy entries that focus on metalworking or manufacturing processes.",
+        "candidates": [
+          {
+            "id": "esco:05caf274-8edf-42d9-8de3-c350f6e3c703",
+            "label": "extrusion processes",
+            "score": 0.409
+          },
+          {
+            "id": "esco:0be7c835-a562-416f-8c35-67abd0995b4d",
+            "label": "swaging processes",
+            "score": 0.406
+          },
+          {
+            "id": "esco:95b3f4dc-f57f-414a-82b3-eaa22afee5ad",
+            "label": "forging processes",
+            "score": 0.403
+          }
+        ]
+      }
+    },
+    {
+      "term": "MPEG compression standards",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "MPEG compression standards"
+        }
+      ],
+      "match": {
+        "original_term": "MPEG compression standards",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.356,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.356
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.216
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.189
+          }
+        ]
+      }
+    },
+    {
+      "term": "object recognition using convolutional neural networks",
+      "canonical": {
+        "id": "custom:object-detection",
+        "label": "object detection",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "object recognition using convolutional neural networks"
+        }
+      ],
+      "match": {
+        "original_term": "object recognition using convolutional neural networks",
+        "canonical_id": "custom:object-detection",
+        "canonical_label": "object detection",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'object recognition using convolutional neural networks' directly matches the 'object detection' skill, which is also called 'object recognition'.",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.565
+          },
+          {
+            "id": "custom:deep-learning",
+            "label": "deep learning",
+            "score": 0.526
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.305
+          }
+        ]
+      }
+    },
+    {
+      "term": "preprocessing",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "preprocessing"
+        }
+      ],
+      "match": {
+        "original_term": "preprocessing",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.325,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.325
+          },
+          {
+            "id": "esco:0b472dad-1a3f-456e-99ba-de5ffe8665c2",
+            "label": "non-ferrous metal processing",
+            "score": 0.317
+          },
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "term": "restoration",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "restoration"
+        }
+      ],
+      "match": {
+        "original_term": "restoration",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.257,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.257
+          },
+          {
+            "id": "esco:8fdf4273-d8ce-47a2-b461-45cb1282ef36",
+            "label": "reverse engineering",
+            "score": 0.253
+          },
+          {
+            "id": "custom:retrieval-augmented-generation",
+            "label": "retrieval-augmented generation",
+            "score": 0.226
+          }
+        ]
+      }
+    },
+    {
+      "term": "segmentation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "segmentation"
+        }
+      ],
+      "match": {
+        "original_term": "segmentation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.264,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:edef3251-fd5f-4a5a-bab6-88c17e36a001",
+            "label": "ground segment",
+            "score": 0.264
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.253
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.233
+          }
+        ]
+      }
+    },
+    {
+      "term": "Topics include image sampling",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Topics include image sampling"
+        }
+      ],
+      "match": {
+        "original_term": "Topics include image sampling",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.382,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.382
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.37
+          },
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.228
+          }
+        ]
+      }
+    }
+  ]
+}

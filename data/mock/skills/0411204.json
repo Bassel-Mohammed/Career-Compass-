@@ -1,0 +1,3956 @@
+{
+  "course_code": "0411204",
+  "course_codes": [
+    "0411204"
+  ],
+  "course_title": "Object-Oriented Programming (C++) Lab",
+  "credit_hours": 1,
+  "plans": [
+    "CS",
+    "CS/AI",
+    "SE"
+  ],
+  "taxonomy_version": "1.0",
+  "mock": true,
+  "mock_model": "qwen3:8b",
+  "WARNING": "Synthetic. Never load into the production course_skills table.",
+  "match_summary": {
+    "by_status": {
+      "no_match": 46,
+      "accepted": 24,
+      "needs_review": 13
+    },
+    "by_method": {
+      "embedding_reranker": 53,
+      "llm": 29,
+      "exact_alias": 1
+    }
+  },
+  "total_skills": 83,
+  "skills": [
+    {
+      "term": "Factory",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of design patterns such as Singleton, Factory, and Observer and their implementation in C++."
+        },
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Design Patterns: Singleton, Factory, and Observer"
+        },
+        {
+          "source": "description",
+          "text": "Factory"
+        }
+      ],
+      "match": {
+        "original_term": "Factory",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.223,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.223
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.223
+          },
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "inheritance",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define C++ syntax and semantics for object-oriented programming constructs such as classes, objects, inheritance, and polymorphism."
+        },
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Inheritance and Polymorphism: Base and Derived Classes"
+        },
+        {
+          "source": "description",
+          "text": "inheritance"
+        }
+      ],
+      "match": {
+        "original_term": "inheritance",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.235,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.235
+          },
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.234
+          },
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "objects",
+      "canonical": {
+        "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+        "label": "Objective-C",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define C++ syntax and semantics for object-oriented programming constructs such as classes, objects, inheritance, and polymorphism."
+        },
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Classes and Objects: Encapsulation and Access Modifiers"
+        },
+        {
+          "source": "description",
+          "text": "objects"
+        }
+      ],
+      "match": {
+        "original_term": "objects",
+        "canonical_id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+        "canonical_label": "Objective-C",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.642,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.14",
+        "candidates": [
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.642
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.499
+          },
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.487
+          }
+        ]
+      }
+    },
+    {
+      "term": "Observer",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of design patterns such as Singleton, Factory, and Observer and their implementation in C++."
+        },
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Design Patterns: Singleton, Factory, and Observer"
+        },
+        {
+          "source": "description",
+          "text": "Observer"
+        }
+      ],
+      "match": {
+        "original_term": "Observer",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.243,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.243
+          },
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.22
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "polymorphism",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define C++ syntax and semantics for object-oriented programming constructs such as classes, objects, inheritance, and polymorphism."
+        },
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Inheritance and Polymorphism: Base and Derived Classes"
+        },
+        {
+          "source": "description",
+          "text": "polymorphism"
+        }
+      ],
+      "match": {
+        "original_term": "polymorphism",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.241,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.241
+          },
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.24
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.239
+          }
+        ]
+      }
+    },
+    {
+      "term": "Singleton",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of design patterns such as Singleton, Factory, and Observer and their implementation in C++."
+        },
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Design Patterns: Singleton, Factory, and Observer"
+        },
+        {
+          "source": "description",
+          "text": "Singleton"
+        }
+      ],
+      "match": {
+        "original_term": "Singleton",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.226,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.226
+          },
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.21
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "classes",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define C++ syntax and semantics for object-oriented programming constructs such as classes, objects, inheritance, and polymorphism."
+        },
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Classes and Objects: Encapsulation and Access Modifiers"
+        }
+      ],
+      "match": {
+        "original_term": "classes",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.251,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.251
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.245
+          },
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.245
+          }
+        ]
+      }
+    },
+    {
+      "term": "smart pointers",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the memory management mechanisms in C++ including stack, heap, and smart pointers."
+        },
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Smart Pointers and Memory Management"
+        }
+      ],
+      "match": {
+        "original_term": "smart pointers",
+        "canonical_id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+        "canonical_label": "security panels",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "None of the provided taxonomy entries directly refer to 'smart pointers' or related concepts in C++ memory management.",
+        "candidates": [
+          {
+            "id": "esco:22225017-a02e-4171-8775-64c3adc87512",
+            "label": "automatic meter reading",
+            "score": 0.456
+          },
+          {
+            "id": "esco:8203b07a-8097-4383-aff6-603b7df7f0f4",
+            "label": "ATM systems",
+            "score": 0.24
+          },
+          {
+            "id": "esco:bf3e70b4-b65e-4595-81d4-e3bb846f0672",
+            "label": "security panels",
+            "score": 0.228
+          }
+        ]
+      }
+    },
+    {
+      "term": "algorithms to solve complex data manipulation",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply C++ STL containers and algorithms to solve complex data manipulation problems."
+        }
+      ],
+      "match": {
+        "original_term": "algorithms to solve complex data manipulation",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'algorithms to solve complex data manipulation' directly aligns with the definition of 'algorithms' in the taxonomy, which refers to step-by-step operations for solving problems.",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.488
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.362
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.32
+          }
+        ]
+      }
+    },
+    {
+      "term": "C++ STL containers",
+      "canonical": {
+        "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+        "label": "C++",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Apply C++ STL containers and algorithms to solve complex data manipulation problems."
+        }
+      ],
+      "match": {
+        "original_term": "C++ STL containers",
+        "canonical_id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+        "canonical_label": "C++",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'C++ STL containers' refers to the use of C++ Standard Template Library containers, which is a specific aspect of C++ programming. The taxonomy entry for 'C++' includes the techniques and principles of software development in C++, which aligns with the skill described in the phrase.",
+        "candidates": [
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.587
+          },
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.518
+          },
+          {
+            "id": "esco:f3f29c39-4124-4a8c-a63c-878bfc487586",
+            "label": "types of containers",
+            "score": 0.454
+          }
+        ]
+      }
+    },
+    {
+      "term": "C++ syntax",
+      "canonical": {
+        "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+        "label": "C++",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define C++ syntax and semantics for object-oriented programming constructs such as classes, objects, inheritance, and polymorphism."
+        }
+      ],
+      "match": {
+        "original_term": "C++ syntax",
+        "canonical_id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+        "canonical_label": "C++",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.656,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.16",
+        "candidates": [
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.656
+          },
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.496
+          },
+          {
+            "id": "esco:8369ede5-4200-4a44-be2e-bc60ef959259",
+            "label": "Microsoft Visual C++",
+            "score": 0.47
+          }
+        ]
+      }
+    },
+    {
+      "term": "complete software application using object-oriented principles",
+      "canonical": {
+        "id": "custom:object-oriented-programming",
+        "label": "object-oriented programming",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a complete software application using object-oriented principles and modern C++ standards."
+        }
+      ],
+      "match": {
+        "original_term": "complete software application using object-oriented principles",
+        "canonical_id": "custom:object-oriented-programming",
+        "canonical_label": "object-oriented programming",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'complete software application using object-oriented principles' directly aligns with 'object-oriented programming' as it involves designing software around objects and using object-oriented principles.",
+        "candidates": [
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.465
+          },
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.462
+          },
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.368
+          }
+        ]
+      }
+    },
+    {
+      "term": "heap",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the memory management mechanisms in C++ including stack, heap, and smart pointers."
+        }
+      ],
+      "match": {
+        "original_term": "heap",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.216,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.216
+          },
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.199
+          },
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.179
+          }
+        ]
+      }
+    },
+    {
+      "term": "implementation in C++",
+      "canonical": {
+        "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+        "label": "C++",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of design patterns such as Singleton, Factory, and Observer and their implementation in C++."
+        }
+      ],
+      "match": {
+        "original_term": "implementation in C++",
+        "canonical_id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+        "canonical_label": "C++",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'implementation in C++' directly refers to the use of C++ for coding and implementation, which aligns with the description of the 'C++' entry in the taxonomy.",
+        "candidates": [
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.6
+          },
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.442
+          },
+          {
+            "id": "esco:8369ede5-4200-4a44-be2e-bc60ef959259",
+            "label": "Microsoft Visual C++",
+            "score": 0.419
+          }
+        ]
+      }
+    },
+    {
+      "term": "memory management mechanisms in C++",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the memory management mechanisms in C++ including stack, heap, and smart pointers."
+        }
+      ],
+      "match": {
+        "original_term": "memory management mechanisms in C++",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'memory management mechanisms in C++'. The closest entry is 'C++', but it is too broad and does not capture the specific skill of memory management.",
+        "candidates": [
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.436
+          },
+          {
+            "id": "esco:8369ede5-4200-4a44-be2e-bc60ef959259",
+            "label": "Microsoft Visual C++",
+            "score": 0.329
+          },
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.318
+          }
+        ]
+      }
+    },
+    {
+      "term": "modern C++ standards",
+      "canonical": {
+        "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+        "label": "C++",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Implement a complete software application using object-oriented principles and modern C++ standards."
+        }
+      ],
+      "match": {
+        "original_term": "modern C++ standards",
+        "canonical_id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+        "canonical_label": "C++",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'modern C++ standards' directly refers to the C++ programming language and its standards, which is exactly what the 'C++' entry describes.",
+        "candidates": [
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.547
+          },
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.447
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.406
+          }
+        ]
+      }
+    },
+    {
+      "term": "object-oriented programming constructs",
+      "canonical": {
+        "id": "custom:object-oriented-programming",
+        "label": "object-oriented programming",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define C++ syntax and semantics for object-oriented programming constructs such as classes, objects, inheritance, and polymorphism."
+        }
+      ],
+      "match": {
+        "original_term": "object-oriented programming constructs",
+        "canonical_id": "custom:object-oriented-programming",
+        "canonical_label": "object-oriented programming",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.781,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.21",
+        "candidates": [
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.781
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.572
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.441
+          }
+        ]
+      }
+    },
+    {
+      "term": "principles of design patterns",
+      "canonical": {
+        "id": "custom:design-patterns",
+        "label": "software design patterns",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Explain the principles of design patterns such as Singleton, Factory, and Observer and their implementation in C++."
+        }
+      ],
+      "match": {
+        "original_term": "principles of design patterns",
+        "canonical_id": "custom:design-patterns",
+        "canonical_label": "software design patterns",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.705,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.19",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.705
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.517
+          },
+          {
+            "id": "esco:5a9a6d45-f4e5-437a-8f2d-2671061917ea",
+            "label": "pattern grading",
+            "score": 0.426
+          }
+        ]
+      }
+    },
+    {
+      "term": "semantics",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define C++ syntax and semantics for object-oriented programming constructs such as classes, objects, inheritance, and polymorphism."
+        }
+      ],
+      "match": {
+        "original_term": "semantics",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.258,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.258
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.253
+          },
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "term": "stack",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Describe the memory management mechanisms in C++ including stack, heap, and smart pointers."
+        }
+      ],
+      "match": {
+        "original_term": "stack",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'stack' refers to the memory management concept in C++, specifically the stack memory region, which is not captured by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:full-stack-development",
+            "label": "full-stack development",
+            "score": 0.617
+          },
+          {
+            "id": "esco:69f0167e-75d9-46cf-847f-72a592880ebb",
+            "label": "STAF",
+            "score": 0.257
+          },
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.199
+          }
+        ]
+      }
+    },
+    {
+      "term": "friend functions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Overload operators for custom data types and implement friend functions"
+        },
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Operator Overloading and Friend Functions"
+        }
+      ],
+      "match": {
+        "original_term": "friend functions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'friend functions' refers to a programming concept in C++ where a function is declared as a friend of a class to access its private members. None of the provided taxonomy entries relate to this specific programming concept.",
+        "candidates": [
+          {
+            "id": "esco:44297bbb-306a-46fa-ab1b-fa3fb327ebda",
+            "label": "mechanical tools",
+            "score": 0.424
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.424
+          },
+          {
+            "id": "esco:343dd8e6-225f-460b-99e4-2e24ecbfd7ed",
+            "label": "sommelier activities",
+            "score": 0.249
+          }
+        ]
+      }
+    },
+    {
+      "term": "memory management",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab",
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Create a class with constructor and destructor for memory management"
+        },
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Smart Pointers and Memory Management"
+        }
+      ],
+      "match": {
+        "original_term": "memory management",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly refer to 'memory management' as a skill. The closest entries relate to databases, data structures, or robotics, but none specifically match the concept of memory management in software development.",
+        "candidates": [
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.42
+          },
+          {
+            "id": "esco:22225017-a02e-4171-8775-64c3adc87512",
+            "label": "automatic meter reading",
+            "score": 0.217
+          },
+          {
+            "id": "esco:9ef0f3a0-9ce2-4ef1-a987-0366b5cb2dbe",
+            "label": "database development tools",
+            "score": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "term": "STL containers",
+      "canonical": {
+        "id": "custom:docker",
+        "label": "Docker",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Use STL containers and algorithms to solve data processing problems"
+        },
+        {
+          "source": "description",
+          "text": "STL containers"
+        }
+      ],
+      "match": {
+        "original_term": "STL containers",
+        "canonical_id": "custom:docker",
+        "canonical_label": "Docker",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.684,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.17",
+        "candidates": [
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.684
+          },
+          {
+            "id": "esco:f3f29c39-4124-4a8c-a63c-878bfc487586",
+            "label": "types of containers",
+            "score": 0.517
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.473
+          }
+        ]
+      }
+    },
+    {
+      "term": "Algorithms",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Standard Template Library (STL) Containers and Algorithms"
+        },
+        {
+          "source": "description",
+          "text": "algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "Algorithms",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Encapsulation",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Classes and Objects: Encapsulation and Access Modifiers"
+        },
+        {
+          "source": "description",
+          "text": "encapsulation"
+        }
+      ],
+      "match": {
+        "original_term": "Encapsulation",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.266,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.266
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.241
+          },
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.234
+          }
+        ]
+      }
+    },
+    {
+      "term": "Exception Handling",
+      "canonical": {
+        "id": "esco:438ff259-d086-4004-acda-1ec3e1631bc6",
+        "label": "software anomalies",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Exception Handling and Error Management"
+        },
+        {
+          "source": "description",
+          "text": "exception handling"
+        }
+      ],
+      "match": {
+        "original_term": "Exception Handling",
+        "canonical_id": "esco:438ff259-d086-4004-acda-1ec3e1631bc6",
+        "canonical_label": "software anomalies",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Exception Handling' directly relates to managing software anomalies, which is explicitly described in the taxonomy entry for 'software anomalies'.",
+        "candidates": [
+          {
+            "id": "esco:e3b4b533-cc4d-4c70-adb6-128120f40c88",
+            "label": "handling of dangerous goods",
+            "score": 0.418
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.274
+          },
+          {
+            "id": "esco:a3ce2bf7-5562-4639-9b52-fdb4850a3904",
+            "label": "ICT problem management techniques",
+            "score": 0.235
+          }
+        ]
+      }
+    },
+    {
+      "term": "Templates",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Templates and Generic Programming"
+        },
+        {
+          "source": "description",
+          "text": "templates"
+        }
+      ],
+      "match": {
+        "original_term": "Templates",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.233,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:867137fb-ff1b-4ca3-99f3-cb6969aa2c68",
+            "label": "TypeScript",
+            "score": 0.233
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.203
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.201
+          }
+        ]
+      }
+    },
+    {
+      "term": "algorithms to solve data processing",
+      "canonical": {
+        "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "label": "algorithms",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Use STL containers and algorithms to solve data processing problems"
+        }
+      ],
+      "match": {
+        "original_term": "algorithms to solve data processing",
+        "canonical_id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+        "canonical_label": "algorithms",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'algorithms to solve data processing' directly aligns with the definition of 'algorithms' in the taxonomy, which includes using step-by-step operations to solve data processing problems.",
+        "candidates": [
+          {
+            "id": "esco:54924a2c-daca-40d3-9716-4b38ceb04f38",
+            "label": "algorithms",
+            "score": 0.5
+          },
+          {
+            "id": "custom:machine-learning",
+            "label": "machine learning",
+            "score": 0.423
+          },
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.404
+          }
+        ]
+      }
+    },
+    {
+      "term": "class with constructor",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Create a class with constructor and destructor for memory management"
+        }
+      ],
+      "match": {
+        "original_term": "class with constructor",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.232,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:2d63745d-3c4c-4da1-ad77-985f68768be9",
+            "label": "manufacturing of metal structures",
+            "score": 0.232
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.205
+          },
+          {
+            "id": "esco:0189f448-179e-47cc-9716-c5c3ac4b1aec",
+            "label": "Absorb (learning management systems)",
+            "score": 0.188
+          }
+        ]
+      }
+    },
+    {
+      "term": "class with private members",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Implement a class with private members and public methods"
+        }
+      ],
+      "match": {
+        "original_term": "class with private members",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.197,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.197
+          },
+          {
+            "id": "esco:a56dec32-05ef-45de-a256-ee6741f356db",
+            "label": "information confidentiality",
+            "score": 0.187
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.187
+          }
+        ]
+      }
+    },
+    {
+      "term": "classes using templates",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Create generic functions and classes using templates"
+        }
+      ],
+      "match": {
+        "original_term": "classes using templates",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.198,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.198
+          },
+          {
+            "id": "esco:ed1d8bd4-cd2a-4c64-b665-56d70651026c",
+            "label": "Prototyping development",
+            "score": 0.19
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.188
+          }
+        ]
+      }
+    },
+    {
+      "term": "complete project using object-oriented principles",
+      "canonical": {
+        "id": "custom:object-oriented-programming",
+        "label": "object-oriented programming",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 15,
+          "text": "Develop a complete project using object-oriented principles and optimize it"
+        }
+      ],
+      "match": {
+        "original_term": "complete project using object-oriented principles",
+        "canonical_id": "custom:object-oriented-programming",
+        "canonical_label": "object-oriented programming",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'complete project using object-oriented principles' directly relates to applying object-oriented programming concepts in a project, which matches the definition of 'object-oriented programming' in the taxonomy.",
+        "candidates": [
+          {
+            "id": "custom:object-oriented-programming",
+            "label": "object-oriented programming",
+            "score": 0.505
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.49
+          },
+          {
+            "id": "esco:209a5498-3449-4689-8ed9-bd08cab4fd78",
+            "label": "engineering principles",
+            "score": 0.36
+          }
+        ]
+      }
+    },
+    {
+      "term": "custom data types",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Overload operators for custom data types and implement friend functions"
+        }
+      ],
+      "match": {
+        "original_term": "custom data types",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'custom data types' refers to creating and using user-defined data types, which is not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.56
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.415
+          },
+          {
+            "id": "esco:7f107a85-d6ac-410f-a995-d635c5aa418b",
+            "label": "types of metal",
+            "score": 0.382
+          }
+        ]
+      }
+    },
+    {
+      "term": "custom exceptions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Implement error handling using try-catch blocks and custom exceptions"
+        }
+      ],
+      "match": {
+        "original_term": "custom exceptions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.185,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.185
+          },
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.184
+          },
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.178
+          }
+        ]
+      }
+    },
+    {
+      "term": "destructor",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Create a class with constructor and destructor for memory management"
+        }
+      ],
+      "match": {
+        "original_term": "destructor",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.229,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.229
+          },
+          {
+            "id": "custom:actuators",
+            "label": "actuators",
+            "score": 0.209
+          },
+          {
+            "id": "esco:2d63745d-3c4c-4da1-ad77-985f68768be9",
+            "label": "manufacturing of metal structures",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "error handling using try-catch blocks",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Implement error handling using try-catch blocks and custom exceptions"
+        }
+      ],
+      "match": {
+        "original_term": "error handling using try-catch blocks",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.183,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.183
+          },
+          {
+            "id": "custom:robot-troubleshooting",
+            "label": "robot system troubleshooting",
+            "score": 0.183
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.179
+          }
+        ]
+      }
+    },
+    {
+      "term": "generic functions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 8,
+          "text": "Create generic functions and classes using templates"
+        }
+      ],
+      "match": {
+        "original_term": "generic functions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.236,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:teamwork",
+            "label": "teamwork",
+            "score": 0.236
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.235
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "hierarchy of classes using inheritance",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Implement a hierarchy of classes using inheritance and virtual functions"
+        }
+      ],
+      "match": {
+        "original_term": "hierarchy of classes using inheritance",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.187,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.187
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.184
+          },
+          {
+            "id": "custom:embeddings",
+            "label": "text embeddings",
+            "score": 0.184
+          }
+        ]
+      }
+    },
+    {
+      "term": "memory management using unique_ptr",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Implement memory management using unique_ptr and shared_ptr"
+        }
+      ],
+      "match": {
+        "original_term": "memory management using unique_ptr",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.367,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.367
+          },
+          {
+            "id": "custom:unit-testing",
+            "label": "unit testing",
+            "score": 0.197
+          },
+          {
+            "id": "esco:22225017-a02e-4171-8775-64c3adc87512",
+            "label": "automatic meter reading",
+            "score": 0.19
+          }
+        ]
+      }
+    },
+    {
+      "term": "Overload operators",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Overload operators for custom data types and implement friend functions"
+        }
+      ],
+      "match": {
+        "original_term": "Overload operators",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.231,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.231
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.221
+          },
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.213
+          }
+        ]
+      }
+    },
+    {
+      "term": "patterns in a real-world application",
+      "canonical": {
+        "id": "custom:design-patterns",
+        "label": "software design patterns",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 13,
+          "text": "Implement design patterns in a real-world application"
+        }
+      ],
+      "match": {
+        "original_term": "patterns in a real-world application",
+        "canonical_id": "custom:design-patterns",
+        "canonical_label": "software design patterns",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'patterns in a real-world application' directly aligns with the skill 'software design patterns', which refers to reusable solutions to recurring software design problems, as explicitly mentioned in the syllabus.",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.475
+          },
+          {
+            "id": "esco:96eb286a-58b7-45ff-a916-5578d0b79b8c",
+            "label": "Rapid application development",
+            "score": 0.44
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.412
+          }
+        ]
+      }
+    },
+    {
+      "term": "public methods",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Implement a class with private members and public methods"
+        }
+      ],
+      "match": {
+        "original_term": "public methods",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'public methods' refers to programming concepts related to class design and encapsulation, which is not explicitly covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:numerical-methods",
+            "label": "numerical methods",
+            "score": 0.446
+          },
+          {
+            "id": "esco:0cd6dcf1-5778-42a5-b685-4d01ae4a4871",
+            "label": "Common Lisp",
+            "score": 0.163
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.163
+          }
+        ]
+      }
+    },
+    {
+      "term": "Read",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 12,
+          "text": "Read from and write to files using C++ file streams"
+        }
+      ],
+      "match": {
+        "original_term": "Read",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.205,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.205
+          },
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.203
+          },
+          {
+            "id": "esco:8369ede5-4200-4a44-be2e-bc60ef959259",
+            "label": "Microsoft Visual C++",
+            "score": 0.196
+          }
+        ]
+      }
+    },
+    {
+      "term": "shared_ptr",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Implement memory management using unique_ptr and shared_ptr"
+        }
+      ],
+      "match": {
+        "original_term": "shared_ptr",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.209,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:redis",
+            "label": "Redis",
+            "score": 0.209
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.188
+          },
+          {
+            "id": "esco:e5a6e1e0-1b07-4432-83ba-77d593b2cb47",
+            "label": "SAS Data Management",
+            "score": 0.183
+          }
+        ]
+      }
+    },
+    {
+      "term": "structured bindings",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Utilize modern C++ features such as structured bindings and concepts"
+        }
+      ],
+      "match": {
+        "original_term": "structured bindings",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.288,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.288
+          },
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.263
+          },
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.227
+          }
+        ]
+      }
+    },
+    {
+      "term": "Utilize modern C++ features",
+      "canonical": {
+        "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+        "label": "C++",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 14,
+          "text": "Utilize modern C++ features such as structured bindings and concepts"
+        }
+      ],
+      "match": {
+        "original_term": "Utilize modern C++ features",
+        "canonical_id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+        "canonical_label": "C++",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Utilize modern C++ features' directly relates to C++ programming, and the taxonomy entry for C++ includes the use of modern features like structured bindings and concepts.",
+        "candidates": [
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.481
+          },
+          {
+            "id": "esco:8369ede5-4200-4a44-be2e-bc60ef959259",
+            "label": "Microsoft Visual C++",
+            "score": 0.371
+          },
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.361
+          }
+        ]
+      }
+    },
+    {
+      "term": "virtual functions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Implement a hierarchy of classes using inheritance and virtual functions"
+        }
+      ],
+      "match": {
+        "original_term": "virtual functions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.208,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:object-detection",
+            "label": "object detection",
+            "score": 0.208
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.192
+          },
+          {
+            "id": "custom:robot-simulation",
+            "label": "robot simulation",
+            "score": 0.188
+          }
+        ]
+      }
+    },
+    {
+      "term": "Access Modifiers",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Classes and Objects: Encapsulation and Access Modifiers"
+        }
+      ],
+      "match": {
+        "original_term": "Access Modifiers",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Access Modifiers' from the syllabus. The term refers to programming concepts related to encapsulation and data hiding, which is not covered by any of the listed entries.",
+        "candidates": [
+          {
+            "id": "esco:3d03c40c-1b83-4793-8902-2523f40af59e",
+            "label": "Microsoft Access",
+            "score": 0.6
+          },
+          {
+            "id": "esco:70b0bc44-6751-4530-ac5c-a893d4241aeb",
+            "label": "building's electronic access equipment",
+            "score": 0.357
+          },
+          {
+            "id": "custom:actuators",
+            "label": "actuators",
+            "score": 0.214
+          }
+        ]
+      }
+    },
+    {
+      "term": "Base",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Inheritance and Polymorphism: Base and Derived Classes"
+        }
+      ],
+      "match": {
+        "original_term": "Base",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.267,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:de134835-030e-4f79-9873-e87c34c1a0db",
+            "label": "laboratory-based sciences",
+            "score": 0.267
+          },
+          {
+            "id": "custom:bayes-theorem",
+            "label": "Bayes theorem",
+            "score": 0.199
+          },
+          {
+            "id": "esco:5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+            "label": "object-oriented modelling",
+            "score": 0.189
+          }
+        ]
+      }
+    },
+    {
+      "term": "C++ Basics",
+      "canonical": {
+        "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+        "label": "C++",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "C++ Basics: Variables, Data Types, and Operators"
+        }
+      ],
+      "match": {
+        "original_term": "C++ Basics",
+        "canonical_id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+        "canonical_label": "C++",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'C++ Basics' directly refers to the C++ programming language, and the taxonomy entry for 'C++' matches this skill exactly.",
+        "candidates": [
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.61
+          },
+          {
+            "id": "esco:8369ede5-4200-4a44-be2e-bc60ef959259",
+            "label": "Microsoft Visual C++",
+            "score": 0.433
+          },
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.431
+          }
+        ]
+      }
+    },
+    {
+      "term": "C++20 Standards",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Modern C++ Features: C++17 and C++20 Standards"
+        }
+      ],
+      "match": {
+        "original_term": "C++20 Standards",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.313,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.313
+          },
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.221
+          },
+          {
+            "id": "esco:8369ede5-4200-4a44-be2e-bc60ef959259",
+            "label": "Microsoft Visual C++",
+            "score": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "term": "Code Optimization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 15,
+          "text": "Project Development and Code Optimization"
+        }
+      ],
+      "match": {
+        "original_term": "Code Optimization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.295,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:mobile-development",
+            "label": "mobile application development",
+            "score": 0.295
+          },
+          {
+            "id": "esco:96eb286a-58b7-45ff-a916-5578d0b79b8c",
+            "label": "Rapid application development",
+            "score": 0.283
+          },
+          {
+            "id": "esco:def007fa-5fed-4a5f-91a2-b0d7e3db1be1",
+            "label": "COBOL",
+            "score": 0.269
+          }
+        ]
+      }
+    },
+    {
+      "term": "Conditionals",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Control Flow: Loops, Conditionals, and Switch Statements"
+        }
+      ],
+      "match": {
+        "original_term": "Conditionals",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.3,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.3
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.255
+          },
+          {
+            "id": "custom:control-systems",
+            "label": "control systems engineering",
+            "score": 0.253
+          }
+        ]
+      }
+    },
+    {
+      "term": "Constructors",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Constructors and Destructors: Initialization and Resource Management"
+        }
+      ],
+      "match": {
+        "original_term": "Constructors",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.266,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:2d63745d-3c4c-4da1-ad77-985f68768be9",
+            "label": "manufacturing of metal structures",
+            "score": 0.266
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.261
+          },
+          {
+            "id": "custom:actuators",
+            "label": "actuators",
+            "score": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "term": "Control Flow",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Control Flow: Loops, Conditionals, and Switch Statements"
+        }
+      ],
+      "match": {
+        "original_term": "Control Flow",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.1,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Control Flow' refers to programming constructs like loops, conditionals, and switch statements, which are fundamental programming concepts. None of the provided taxonomy entries specifically match this skill, as they all relate to control systems or robotics, not general programming cont",
+        "candidates": [
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.537
+          },
+          {
+            "id": "custom:control-systems",
+            "label": "control systems engineering",
+            "score": 0.526
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.514
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Types",
+      "canonical": {
+        "id": "custom:data-structures",
+        "label": "data structures",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "C++ Basics: Variables, Data Types, and Operators"
+        }
+      ],
+      "match": {
+        "original_term": "Data Types",
+        "canonical_id": "custom:data-structures",
+        "canonical_label": "data structures",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.715,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.22",
+        "candidates": [
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.715
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.499
+          },
+          {
+            "id": "esco:0132ac4f-ffac-4396-8b56-052fde0c9d73",
+            "label": "types of barley",
+            "score": 0.469
+          }
+        ]
+      }
+    },
+    {
+      "term": "Derived Classes",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Inheritance and Polymorphism: Base and Derived Classes"
+        }
+      ],
+      "match": {
+        "original_term": "Derived Classes",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.296,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.296
+          },
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.227
+          },
+          {
+            "id": "custom:pid-control",
+            "label": "PID control",
+            "score": 0.21
+          }
+        ]
+      }
+    },
+    {
+      "term": "Destructors",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Constructors and Destructors: Initialization and Resource Management"
+        }
+      ],
+      "match": {
+        "original_term": "Destructors",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.246,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:actuators",
+            "label": "actuators",
+            "score": 0.246
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.24
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.227
+          }
+        ]
+      }
+    },
+    {
+      "term": "Error Management",
+      "canonical": {
+        "id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+        "label": "levels of software testing",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Exception Handling and Error Management"
+        }
+      ],
+      "match": {
+        "original_term": "Error Management",
+        "canonical_id": "esco:85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+        "canonical_label": "levels of software testing",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Error Management' aligns with 'software anomalies' as both refer to identifying and handling exceptional events during software execution.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.522
+          },
+          {
+            "id": "esco:a3ce2bf7-5562-4639-9b52-fdb4850a3904",
+            "label": "ICT problem management techniques",
+            "score": 0.404
+          },
+          {
+            "id": "esco:7f27f1ff-2e17-4b69-990e-c23334478313",
+            "label": "assessment of risks and threats",
+            "score": 0.266
+          }
+        ]
+      }
+    },
+    {
+      "term": "File Input/Output",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "File Input/Output and Serialization"
+        }
+      ],
+      "match": {
+        "original_term": "File Input/Output",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.199,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:image-processing",
+            "label": "image processing",
+            "score": 0.199
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.187
+          },
+          {
+            "id": "esco:cf310cff-0d28-4dbc-9dbb-cc500a3196c2",
+            "label": "office software",
+            "score": 0.185
+          }
+        ]
+      }
+    },
+    {
+      "term": "Functions",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Functions: Parameters, Return Values, and Overloading"
+        }
+      ],
+      "match": {
+        "original_term": "Functions",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.278,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:d11fd23b-ad01-4f12-85f4-e0d2ed16d5af",
+            "label": "functional properties of foods",
+            "score": 0.278
+          },
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.265
+          },
+          {
+            "id": "custom:counting-rules",
+            "label": "counting rules",
+            "score": 0.245
+          }
+        ]
+      }
+    },
+    {
+      "term": "Generic Programming",
+      "canonical": {
+        "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+        "label": "computer programming",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 8,
+          "text": "Templates and Generic Programming"
+        }
+      ],
+      "match": {
+        "original_term": "Generic Programming",
+        "canonical_id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+        "canonical_label": "computer programming",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Generic Programming' is a specific form of 'computer programming' as described in the taxonomy entry, which includes programming paradigms like generic programming.",
+        "candidates": [
+          {
+            "id": "custom:c-language",
+            "label": "C",
+            "score": 0.591
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.506
+          },
+          {
+            "id": "esco:21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+            "label": "computer programming",
+            "score": 0.499
+          }
+        ]
+      }
+    },
+    {
+      "term": "Initialization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Constructors and Destructors: Initialization and Resource Management"
+        }
+      ],
+      "match": {
+        "original_term": "Initialization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.264,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.264
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.242
+          },
+          {
+            "id": "esco:21c27eba-bd1f-42f5-a1d5-c250227030f7",
+            "label": "electricity consumption",
+            "score": 0.218
+          }
+        ]
+      }
+    },
+    {
+      "term": "Loops",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Control Flow: Loops, Conditionals, and Switch Statements"
+        }
+      ],
+      "match": {
+        "original_term": "Loops",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Loops' refers to a programming concept in control flow, but none of the taxonomy entries specifically match this skill. The closest entries relate to control systems or robotics, which are broader topics and not directly equivalent to 'Loops'.",
+        "candidates": [
+          {
+            "id": "custom:control-systems",
+            "label": "control systems engineering",
+            "score": 0.449
+          },
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.228
+          },
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.21
+          }
+        ]
+      }
+    },
+    {
+      "term": "Modern C++ Features",
+      "canonical": {
+        "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+        "label": "C++",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Modern C++ Features: C++17 and C++20 Standards"
+        }
+      ],
+      "match": {
+        "original_term": "Modern C++ Features",
+        "canonical_id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+        "canonical_label": "C++",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Modern C++ Features' directly relates to C++ programming standards, which is captured by the 'C++' taxonomy entry.",
+        "candidates": [
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.49
+          },
+          {
+            "id": "esco:8369ede5-4200-4a44-be2e-bc60ef959259",
+            "label": "Microsoft Visual C++",
+            "score": 0.36
+          },
+          {
+            "id": "esco:9973a5a2-7822-4161-99e9-95c781eb63f8",
+            "label": "Objective-C",
+            "score": 0.357
+          }
+        ]
+      }
+    },
+    {
+      "term": "Operator Overloading",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Operator Overloading and Friend Functions"
+        }
+      ],
+      "match": {
+        "original_term": "Operator Overloading",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.244,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.244
+          },
+          {
+            "id": "esco:7b2ebf06-c789-434e-b274-7f159a1a4ea3",
+            "label": "machinery load capacity",
+            "score": 0.241
+          },
+          {
+            "id": "esco:137833bd-aa42-47b5-8005-dd004060c8b5",
+            "label": "airport planning",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "Operators",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "C++ Basics: Variables, Data Types, and Operators"
+        }
+      ],
+      "match": {
+        "original_term": "Operators",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.265,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:actuators",
+            "label": "actuators",
+            "score": 0.265
+          },
+          {
+            "id": "esco:be99117b-49a1-4ec2-a670-e9baac66c1bd",
+            "label": "principles of combustion engines",
+            "score": 0.259
+          },
+          {
+            "id": "esco:204cd81a-b1f0-467c-8c5c-17e723eb62fd",
+            "label": "operation of different engines",
+            "score": 0.247
+          }
+        ]
+      }
+    },
+    {
+      "term": "Overloading",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Functions: Parameters, Return Values, and Overloading"
+        }
+      ],
+      "match": {
+        "original_term": "Overloading",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.245,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.245
+          },
+          {
+            "id": "esco:034c29fa-c3ba-45ea-b8f3-bf8e3705e386",
+            "label": "Erlang",
+            "score": 0.22
+          },
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.211
+          }
+        ]
+      }
+    },
+    {
+      "term": "Parameters",
+      "canonical": {
+        "id": "custom:ros-parameter-server",
+        "label": "ROS parameter server",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Functions: Parameters, Return Values, and Overloading"
+        }
+      ],
+      "match": {
+        "original_term": "Parameters",
+        "canonical_id": "custom:ros-parameter-server",
+        "canonical_label": "ROS parameter server",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.655,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.41",
+        "candidates": [
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.655
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.245
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.202
+          }
+        ]
+      }
+    },
+    {
+      "term": "Patterns",
+      "canonical": {
+        "id": "custom:design-patterns",
+        "label": "software design patterns",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Design Patterns: Singleton, Factory, and Observer"
+        }
+      ],
+      "match": {
+        "original_term": "Patterns",
+        "canonical_id": "custom:design-patterns",
+        "canonical_label": "software design patterns",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Patterns' in the context of 'Design Patterns: Singleton, Factory, and Observer' directly refers to software design patterns, which is exactly what the 'software design patterns' entry describes.",
+        "candidates": [
+          {
+            "id": "esco:86ed2a45-eae9-4ab7-b0e6-d7508d33df4f",
+            "label": "dies",
+            "score": 1.0
+          },
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.671
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.496
+          }
+        ]
+      }
+    },
+    {
+      "term": "Resource Management",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Constructors and Destructors: Initialization and Resource Management"
+        }
+      ],
+      "match": {
+        "original_term": "Resource Management",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries directly match the skill 'Resource Management' from the syllabus. The closest entry, 'operating systems', is related but not equivalent.",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.49
+          },
+          {
+            "id": "esco:6cb9c23b-e3bc-4917-b588-26c4cef9d920",
+            "label": "maintenance and repair",
+            "score": 0.211
+          },
+          {
+            "id": "esco:61d6ef20-6cc7-40f8-919e-3360db6cf2b3",
+            "label": "hardware materials",
+            "score": 0.205
+          }
+        ]
+      }
+    },
+    {
+      "term": "Return Values",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Functions: Parameters, Return Values, and Overloading"
+        }
+      ],
+      "match": {
+        "original_term": "Return Values",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.263,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.263
+          },
+          {
+            "id": "custom:probability-distributions",
+            "label": "probability distributions",
+            "score": 0.24
+          },
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.205
+          }
+        ]
+      }
+    },
+    {
+      "term": "Serialization",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "File Input/Output and Serialization"
+        }
+      ],
+      "match": {
+        "original_term": "Serialization",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.248,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.248
+          },
+          {
+            "id": "custom:computer-vision",
+            "label": "computer vision",
+            "score": 0.21
+          },
+          {
+            "id": "custom:numpy",
+            "label": "NumPy",
+            "score": 0.203
+          }
+        ]
+      }
+    },
+    {
+      "term": "Standard Template Library Containers",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Standard Template Library (STL) Containers and Algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "Standard Template Library Containers",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries match the skill 'Standard Template Library Containers' as they refer to unrelated concepts such as containerization platforms, storage facilities, or software development paradigms.",
+        "candidates": [
+          {
+            "id": "custom:docker",
+            "label": "Docker",
+            "score": 0.478
+          },
+          {
+            "id": "esco:f3f29c39-4124-4a8c-a63c-878bfc487586",
+            "label": "types of containers",
+            "score": 0.397
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.357
+          }
+        ]
+      }
+    },
+    {
+      "term": "STL",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Standard Template Library (STL) Containers and Algorithms"
+        }
+      ],
+      "match": {
+        "original_term": "STL",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.24,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:9d0d89be-bffa-4393-b6f6-8d05bea49051",
+            "label": "data extraction, transformation and loading tools",
+            "score": 0.24
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.189
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.184
+          }
+        ]
+      }
+    },
+    {
+      "term": "Switch Statements",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Control Flow: Loops, Conditionals, and Switch Statements"
+        }
+      ],
+      "match": {
+        "original_term": "Switch Statements",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.261,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:87b984b4-44cc-4fc0-bfcb-988e2e147009",
+            "label": "tube filling systems",
+            "score": 0.261
+          },
+          {
+            "id": "custom:robot-control",
+            "label": "robot control",
+            "score": 0.248
+          },
+          {
+            "id": "custom:control-systems",
+            "label": "control systems engineering",
+            "score": 0.246
+          }
+        ]
+      }
+    },
+    {
+      "term": "Variables",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "C++ Basics: Variables, Data Types, and Operators"
+        }
+      ],
+      "match": {
+        "original_term": "Variables",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.258,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:0132ac4f-ffac-4396-8b56-052fde0c9d73",
+            "label": "types of barley",
+            "score": 0.258
+          },
+          {
+            "id": "custom:data-structures",
+            "label": "data structures",
+            "score": 0.248
+          },
+          {
+            "id": "esco:be99117b-49a1-4ec2-a670-e9baac66c1bd",
+            "label": "principles of combustion engines",
+            "score": 0.243
+          }
+        ]
+      }
+    },
+    {
+      "term": "course also explores design patterns",
+      "canonical": {
+        "id": "custom:design-patterns",
+        "label": "software design patterns",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "course also explores design patterns"
+        }
+      ],
+      "match": {
+        "original_term": "course also explores design patterns",
+        "canonical_id": "custom:design-patterns",
+        "canonical_label": "software design patterns",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'design patterns' directly matches the label 'software design patterns' and is explicitly mentioned in the syllabus.",
+        "candidates": [
+          {
+            "id": "custom:design-patterns",
+            "label": "software design patterns",
+            "score": 0.599
+          },
+          {
+            "id": "esco:1019423b-3368-4f83-b24f-19e5fa23e816",
+            "label": "software UI design patterns",
+            "score": 0.447
+          },
+          {
+            "id": "esco:86ed2a45-eae9-4ab7-b0e6-d7508d33df4f",
+            "label": "dies",
+            "score": 0.434
+          }
+        ]
+      }
+    },
+    {
+      "term": "file I/O operations",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "file I/O operations"
+        }
+      ],
+      "match": {
+        "original_term": "file I/O operations",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.328,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ros2-launch-files",
+            "label": "ROS 2 launch files",
+            "score": 0.328
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.242
+          },
+          {
+            "id": "custom:kubernetes",
+            "label": "Kubernetes",
+            "score": 0.197
+          }
+        ]
+      }
+    },
+    {
+      "term": "integration with modern C++ standards",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "integration with modern C++ standards"
+        }
+      ],
+      "match": {
+        "original_term": "integration with modern C++ standards",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: None of the provided taxonomy entries specifically refer to 'integration with modern C++ standards'. The closest entry is 'C++' (esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f), but it refers to general C++ software development techniques, not the integration with modern C++ standards.",
+        "candidates": [
+          {
+            "id": "esco:b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+            "label": "C++",
+            "score": 0.426
+          },
+          {
+            "id": "custom:api-testing",
+            "label": "API testing",
+            "score": 0.38
+          },
+          {
+            "id": "esco:3ff589b7-68df-4ea5-ae41-b395bdb2378f",
+            "label": "ICT security standards",
+            "score": 0.342
+          }
+        ]
+      }
+    },
+    {
+      "term": "memory management with smart pointers",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "memory management with smart pointers"
+        }
+      ],
+      "match": {
+        "original_term": "memory management with smart pointers",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.371,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.371
+          },
+          {
+            "id": "esco:22225017-a02e-4171-8775-64c3adc87512",
+            "label": "automatic meter reading",
+            "score": 0.359
+          },
+          {
+            "id": "esco:8203b07a-8097-4383-aff6-603b7df7f0f4",
+            "label": "ATM systems",
+            "score": 0.198
+          }
+        ]
+      }
+    },
+    {
+      "term": "standard library facilities",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "standard library facilities"
+        }
+      ],
+      "match": {
+        "original_term": "standard library facilities",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.399,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:81f53835-1dfe-4819-8bc1-01d9b647add8",
+            "label": "types of storage facilities",
+            "score": 0.399
+          },
+          {
+            "id": "esco:3e23db60-0c3d-498a-a6ac-ffbed0ecb033",
+            "label": "ICT accessibility standards",
+            "score": 0.368
+          },
+          {
+            "id": "esco:b5c7e0dc-dda3-4790-a7d1-d6d8023b3089",
+            "label": "database quality standards",
+            "score": 0.366
+          }
+        ]
+      }
+    },
+    {
+      "term": "Topics include classes",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Topics include classes"
+        }
+      ],
+      "match": {
+        "original_term": "Topics include classes",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.218,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:probability-theory",
+            "label": "probability theory",
+            "score": 0.218
+          },
+          {
+            "id": "esco:629c9139-8a87-447b-8f61-bfe678cf3e7c",
+            "label": "types of maritime vessels",
+            "score": 0.21
+          },
+          {
+            "id": "esco:52838a25-11f5-4cb1-b4ab-c5c7d59041e8",
+            "label": "types of electronics",
+            "score": 0.2
+          }
+        ]
+      }
+    }
+  ]
+}
