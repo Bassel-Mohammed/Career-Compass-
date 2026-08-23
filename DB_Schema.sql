@@ -332,13 +332,7 @@ CREATE TABLE appointments (
         ON DELETE RESTRICT
 );
 
--- Token denylist backing logout / session termination
--- (FR-JS-03, FR-CM-02, FR-EMP-03, and the equivalent for Administrators and Experts).
--- Holds only the token's `jti` claim, never the token itself, so a leak of this table
--- cannot be replayed as a credential. Rows are purged once expires_at has passed,
--- since a revoked token needs remembering only for the remainder of its own lifetime.
--- Deliberately has no foreign key to any actor table: one denylist serves all five
--- actors, and the token already identifies its owner.
+
 CREATE TABLE revoked_tokens (
     token_id      VARCHAR(64) NOT NULL PRIMARY KEY,
     expires_at    TIMESTAMP NOT NULL,
