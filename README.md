@@ -42,7 +42,8 @@ Then open `http://localhost:5173`. Compose keeps the browser API URL at
 `http://localhost:8080`, while Spring reaches FastAPI through the private
 service URL `http://ai-service:8000`. It uses Spring's seeded H2 `dev` profile,
 the real HTTP AI client, deterministic lexical AI backends, and a local-only
-shared service token. No MySQL or PostgreSQL container is started.
+shared service token. All published ports bind to `127.0.0.1`, and no MySQL or
+PostgreSQL container is started.
 
 The default stack deliberately disables optional model downloads and LLM calls.
 Transcript parsing, skill dashboards, gaps, recommendations, and matching use
@@ -51,10 +52,22 @@ unavailable because it requires a configured LLM. Large rebuild caches stay out
 of Git, while the taxonomy, course-skill maps, and career-path ontology needed by
 a fresh clone are versioned with the application.
 
-Uploaded learning-outcome PDFs persist in the `learning_outcomes` named volume.
-Stop the stack with `docker compose down`; add `--volumes` only when you also
-want to erase those uploads. Set `AI_SERVICE_TOKEN` in a root `.env` file to
-override the development-only default for both backend services.
+The real AI service deliberately returns 501 for the descoped job-matching
+capability. To demonstrate the employer candidate list with the UI's clearly
+labelled placeholder scores, start the same stack with the Java mock enabled:
+
+```bash
+BACKEND_USE_AI_MOCK=true docker compose up --build
+```
+
+H2 account/upload metadata persists in the `backend_h2` named volume, and the
+PDF bytes persist in `learning_outcomes`, so stored uploads remain discoverable
+after a restart. Stop the stack with `docker compose down`; add `--volumes` only
+when you also want to erase the H2 data and uploaded files.
+
+The checked-in token and JWT defaults are for loopback development only. Set
+`AI_SERVICE_TOKEN` and `JWT_SECRET` in a root `.env` file before sharing the
+stack or changing its host bindings.
 
 ## Integration status
 

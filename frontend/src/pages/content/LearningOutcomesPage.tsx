@@ -113,14 +113,18 @@ export function LearningOutcomesPage() {
 
       {profile.loading && <Skeleton rows={2} />}
 
-      {missingStudyField && (
+      {!profile.loading && profile.failed && (
+        <ErrorState message={messageFor(profile.error)} onRetry={profile.reload} />
+      )}
+
+      {!profile.failed && missingStudyField && (
         <PrerequisiteState
           to="/content/profile"
           message="Choose the study field you teach first — uploads are filed under your university and field."
         />
       )}
 
-      {!profile.loading && !missingStudyField && (
+      {!profile.loading && !profile.failed && !missingStudyField && (
         <div className="stack">
           <Card>
             <h2 className="section__title">Upload a document</h2>

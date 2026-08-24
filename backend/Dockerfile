@@ -19,9 +19,9 @@ WORKDIR /app
 
 COPY --from=build /workspace/target/careercompass-backend-*.jar ./app.jar
 
-# Docker initializes the named upload volume from this directory, including
-# its ownership, so the non-root process can persist content-manager uploads.
-RUN mkdir -p /app/uploads/learning-outcomes \
+# Docker initializes the named volumes from these directories, including their
+# ownership, so the non-root process can persist H2 metadata and uploads.
+RUN mkdir -p /app/data /app/uploads/learning-outcomes \
     && chown -R careercompass:careercompass /app
 
 USER careercompass

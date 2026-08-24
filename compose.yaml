@@ -12,7 +12,7 @@ services:
       CC_RERANKER: lexical
       CC_MATCH_LLM: "0"
     ports:
-      - "8000:8000"
+      - "127.0.0.1:8000:8000"
     healthcheck:
       test:
         - CMD
@@ -35,15 +35,19 @@ services:
       dockerfile: Dockerfile
     environment:
       SPRING_PROFILES_ACTIVE: dev
+      SPRING_DATASOURCE_URL: "jdbc:h2:file:/app/data/careercompass;MODE=MySQL;DB_CLOSE_ON_EXIT=FALSE"
+      JWT_SECRET: ${JWT_SECRET:-CHANGE_ME_LOCAL_DOCKER_ONLY_NOT_FOR_SHARED_HOSTS_1234567890}
       AI_SERVICE_BASE_URL: http://ai-service:8000
       AI_SERVICE_TOKEN: ${AI_SERVICE_TOKEN:-careercompass-local-dev-token}
       # Spring relaxed binding maps this environment name to
-      # careercompass.ai-service.use-mock.
-      CAREERCOMPASS_AI_SERVICE_USE_MOCK: "false"
+      # careercompass.ai-service.use-mock. Set BACKEND_USE_AI_MOCK=true only
+      # when demonstrating the explicitly labelled placeholder job scores.
+      CAREERCOMPASS_AI_SERVICE_USE_MOCK: ${BACKEND_USE_AI_MOCK:-false}
       LEARNING_OUTCOMES_DIR: /app/uploads/learning-outcomes
     ports:
-      - "8080:8080"
+      - "127.0.0.1:8080:8080"
     volumes:
+      - backend_h2:/app/data
       - learning_outcomes:/app/uploads/learning-outcomes
     depends_on:
       ai-service:
@@ -70,7 +74,7 @@ services:
       # not the backend service name from Docker's private network.
       VITE_API_BASE_URL: http://localhost:8080
     ports:
-      - "5173:5173"
+      - "127.0.0.1:5173:5173"
     depends_on:
       backend:
         condition: service_healthy
@@ -89,4 +93,5 @@ services:
       start_period: 10s
 
 volumes:
+  backend_h2:
   learning_outcomes:

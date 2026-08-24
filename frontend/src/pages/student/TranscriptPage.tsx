@@ -3,7 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { AppShell } from '../../components/AppShell';
 import { Banner } from '../../components/Banner';
 import { FileDrop } from '../../components/FileDrop';
-import { Card, EmptyState, PageHeader, PrerequisiteState, Skeleton } from '../../components/ui';
+import {
+  Card,
+  EmptyState,
+  ErrorState,
+  PageHeader,
+  PrerequisiteState,
+  Skeleton,
+} from '../../components/ui';
 import { useAuth } from '../../auth/useAuth';
 import { useAction, useAsync } from '../../hooks/useAsync';
 import * as transcriptApi from '../../api/transcript';
@@ -100,14 +107,18 @@ export function TranscriptPage() {
 
       {profile.loading && <Skeleton rows={2} />}
 
-      {missingCareerPath && !rows && (
+      {!profile.loading && profile.failed && (
+        <ErrorState message={messageFor(profile.error)} onRetry={profile.reload} />
+      )}
+
+      {!profile.failed && missingCareerPath && !rows && (
         <PrerequisiteState
           to="/setup"
           message="Choose the career path you want to be measured against first — your skills are scored relative to it."
         />
       )}
 
-      {!profile.loading && !missingCareerPath && !rows && (
+      {!profile.loading && !profile.failed && !missingCareerPath && !rows && (
         <Card>
           {upload.failed && <Banner message={messageFor(upload.error)} />}
           {upload.running ? (
@@ -132,7 +143,7 @@ export function TranscriptPage() {
         </Card>
       )}
 
-      {rows && (
+      {!profile.failed && rows && (
         <>
           {confirm.failed && !confirmPrereq && <Banner message={messageFor(confirm.error)} />}
           {confirmPrereq && (
