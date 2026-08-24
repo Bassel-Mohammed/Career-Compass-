@@ -27,6 +27,29 @@ uv pip install -e ".[semantic]"
 uv pip install -e ".[llm]"
 ```
 
+## PostgreSQL schema
+
+The AI knowledge base is PostgreSQL-specific and is separate from the Java
+backend's MySQL/H2 application database. Do not apply `backend/db/schema.sql`
+to this database: both systems have a table named `job_skills` with different
+meanings and incompatible columns.
+
+After configuring `CC_DB_*`, apply or upgrade the complete schema with:
+
+```bash
+cc-db-migrate
+# equivalent: python -m careercompass.db.migrate
+```
+
+The command takes a PostgreSQL advisory lock, validates immutable SHA-256
+checksums in `careercompass_ai_schema_history`, and applies every pending
+`NNN_*.sql` migration in one transaction. It is safe to repeat. Never edit an
+applied migration; add the next numbered file instead.
+
+FastAPI does not mutate a configured database at startup unless an operator
+explicitly sets `CC_DB_AUTO_MIGRATE=1`. Prefer the command above as a separate
+deployment step after backup and rehearsal.
+
 ## Run the API
 
 ```bash
@@ -41,15 +64,14 @@ cc-build-taxonomy
 cc-extract-skills "data/syllabi/robotics_programming.pdf" --match
 cc-match-skills "data/syllabi/robotics_programming.pdf"
 cc-parse-transcript plan.pdf
+cc-db-migrate
 ```
 
 ## Test
 
 ```bash
 cd ai-service
-for test_file in tests/test_*.py; do
-  python "$test_file" || exit 1
-done
+pytest -q
 ```
 
 Implementation and API notes are in [`docs/`](docs/).

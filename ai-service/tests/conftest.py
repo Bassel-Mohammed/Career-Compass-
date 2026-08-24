@@ -18,6 +18,13 @@ ways, and this file fixes both:
    without being enforced. :func:`_enforce_recorded_checks` closes that gap.
 """
 
+import os
+
+# Unit tests must never discover a developer's .env and connect to its live
+# PostgreSQL while constructing the shared matcher fixture.
+os.environ["CC_DB_LOAD_REVIEWS"] = "0"
+os.environ["CC_DB_AUTO_MIGRATE"] = "0"
+
 import pytest
 
 from careercompass.skills.embeddings import LexicalEmbedder, VectorIndex

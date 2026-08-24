@@ -38,6 +38,7 @@ class MatcherRuntime:
         self._state = COLD
         self._error = ""
         self._warm_seconds = 0.0
+        self._review_revision = 0
         self._lock = threading.Lock()
         # Deciders are cached per override because constructing one probes
         # the provider over HTTP, and per-request overrides are common.
@@ -119,6 +120,17 @@ class MatcherRuntime:
         """
         return self._matcher.taxonomy if self._state == READY else None
 
+    @property
+    def review_revision(self) -> int:
+        """Cache key that changes whenever an in-process review is recorded."""
+        return self._review_revision
+
+    def overlay_reviewed_matches(self, skills: list) -> int:
+        """Overlay the warm matcher's human decisions onto JSON skill rows."""
+        with self._lock:
+            matcher = self._matcher
+        return matcher.overlay_reviewed_matches(skills) if matcher is not None else 0
+
     def matcher_for(self, use_llm=None) -> SkillMatcher:
         """
         A matcher honouring a per-request LLM override.
@@ -146,7 +158,15 @@ class MatcherRuntime:
             accept_score=base.accept_score,
             accept_margin=base.accept_margin,
             review_floor=base.review_floor,
+            reviewed_matches=base.reviewed_matches,
         )
+
+    def set_reviewed_decision(self, term: str, skill_id, decision: str) -> None:
+        """Refresh the warm matcher's review cache after a committed decision."""
+        with self._lock:
+            if self._matcher is not None:
+                self._matcher.set_reviewed_decision(term, skill_id, decision)
+                self._review_revision += 1
 
     # ── Health ─────────────────────────────────────────────────
     def health(self) -> dict:

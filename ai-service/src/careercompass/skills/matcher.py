@@ -34,8 +34,10 @@ Usage:
 """
 
 import logging
+import os
 import re
 
+from careercompass.config import DB_CONFIG
 from careercompass.skills.phrases import SYLLABUS_NOISE_TERMS
 from careercompass.skills.taxonomy import TAXONOMY_VERSION, load_taxonomy, normalize
 from careercompass.skills.embeddings import load_or_build_index
@@ -89,6 +91,29 @@ UNMATCHED = "no_match"
 # Skills a syllabus phrase can never establish on its own, however confident
 # the scorer is. See `_auto_accept_block`.
 SOFT_TYPE = "soft"
+
+
+def _database_reviews_enabled() -> bool:
+    """Whether a configured PostgreSQL should seed matcher decisions."""
+    override = os.getenv("CC_DB_LOAD_REVIEWS", "").strip().lower()
+    if override in ("0", "false", "no", "off"):
+        return False
+    if override in ("1", "true", "yes", "on"):
+        return True
+    return all(DB_CONFIG.get(key) for key in ("host", "dbname", "user"))
+
+
+def _load_database_reviews() -> dict:
+    """Load human decisions when PostgreSQL is configured, degrading cleanly."""
+    if not _database_reviews_enabled():
+        return {}
+    try:
+        from careercompass.db.skills import load_reviewed_matches
+
+        return load_reviewed_matches()
+    except Exception as exc:  # noqa: BLE001 - matching remains available without DB
+        logger.warning("Could not load human-reviewed matches: %s", exc)
+        return {}
 
 
 def _auto_accept_block(term: str, evidence: str, skill: dict):
@@ -229,9 +254,18 @@ def _record(term: str, skill=None, method: str = "", score: float = 0.0,
 class SkillMatcher:
     """Resolves extracted skill phrases onto canonical taxonomy entries."""
 
-    def __init__(self, taxonomy, index, reranker, decider=None, top_k: int = TOP_K,
-                 accept_score: float = ACCEPT_SCORE, accept_margin: float = ACCEPT_MARGIN,
-                 review_floor: float = REVIEW_FLOOR):
+    def __init__(
+        self,
+        taxonomy,
+        index,
+        reranker,
+        decider=None,
+        top_k: int = TOP_K,
+        accept_score: float = ACCEPT_SCORE,
+        accept_margin: float = ACCEPT_MARGIN,
+        review_floor: float = REVIEW_FLOOR,
+        reviewed_matches: dict | None = None,
+    ):
         if index.embedder is None:
             raise ValueError(
                 "This VectorIndex has no embedder attached, so queries cannot be "
@@ -245,11 +279,31 @@ class SkillMatcher:
         self.accept_score = accept_score
         self.accept_margin = accept_margin
         self.review_floor = review_floor
+        self.reviewed_matches = {}
+        for term, value in (reviewed_matches or {}).items():
+            if isinstance(value, dict):
+                record = {
+                    "decision": value.get("decision"),
+                    "skill_id": value.get("skill_id"),
+                }
+            else:
+                record = {
+                    "decision": "rejected" if value is None else "corrected",
+                    "skill_id": value,
+                }
+            self.reviewed_matches[normalize(term)] = record
 
     @classmethod
-    def build(cls, backend: str = "", reranker: str = "", use_llm=None,
-              rebuild: bool = False, domain: str = DEFAULT_DOMAIN,
-              **options) -> "SkillMatcher":
+    def build(
+        cls,
+        backend: str = "",
+        reranker: str = "",
+        use_llm=None,
+        rebuild: bool = False,
+        domain: str = DEFAULT_DOMAIN,
+        reviewed_matches: dict | None = None,
+        **options,
+    ) -> "SkillMatcher":
         """
         Assemble a matcher from the configured backends.
 
@@ -274,7 +328,16 @@ class SkillMatcher:
         family = "cross" if scorer.name.startswith("cross") else "lexical"
         thresholds = dict(SCORER_THRESHOLDS[family])
         thresholds.update(options)  # an explicit threshold always wins
-        return cls(taxonomy, index, scorer, decider, **thresholds)
+        if reviewed_matches is None:
+            reviewed_matches = _load_database_reviews()
+        return cls(
+            taxonomy,
+            index,
+            scorer,
+            decider,
+            reviewed_matches=reviewed_matches,
+            **thresholds,
+        )
 
     def with_thresholds(self, **overrides) -> "SkillMatcher":
         """
@@ -293,8 +356,74 @@ class SkillMatcher:
             "review_floor": self.review_floor,
         }
         thresholds.update(overrides)
-        return SkillMatcher(self.taxonomy, self.index, self.reranker,
-                            self.decider, **thresholds)
+        return SkillMatcher(
+            self.taxonomy,
+            self.index,
+            self.reranker,
+            self.decider,
+            reviewed_matches=self.reviewed_matches,
+            **thresholds,
+        )
+
+    def set_reviewed_decision(self, term: str, skill_id, decision: str) -> None:
+        """Make a newly persisted human decision effective without a restart."""
+        self.reviewed_matches[normalize(term)] = {
+            "decision": decision,
+            "skill_id": skill_id,
+        }
+
+    def _reviewed_decision(self, term: str):
+        """Return the authoritative human result for a term, when one exists."""
+        reviewed = self.reviewed_matches.get(normalize(term))
+        if reviewed is None:
+            return None
+
+        decision = reviewed.get("decision")
+        skill_id = reviewed.get("skill_id")
+        if decision == "rejected":
+            return _record(
+                term,
+                None,
+                "human_review",
+                1.0,
+                UNMATCHED,
+                reason="a human reviewer rejected every taxonomy candidate",
+            )
+
+        skill = self.taxonomy.index.get(skill_id) if skill_id else None
+        if skill is None:
+            return _record(
+                term,
+                None,
+                "human_review",
+                0.0,
+                NEEDS_REVIEW,
+                reason=f"reviewed taxonomy id {skill_id!r} is no longer available",
+            )
+        return _record(
+            term,
+            skill,
+            "human_review",
+            1.0,
+            ACCEPTED,
+            reason=f"a human reviewer {decision} this mapping",
+        )
+
+    def overlay_reviewed_matches(self, skills: list) -> int:
+        """Apply authoritative reviews to already-extracted JSON skill rows.
+
+        Course vectors are built from JSON artefacts rather than PostgreSQL.
+        Overlaying at read time makes a review visible immediately without
+        rewriting a source artefact or waiting for a full re-extraction.
+        """
+        updated = 0
+        for skill in skills:
+            reviewed = self._reviewed_decision(skill.get("term") or "")
+            if reviewed is None:
+                continue
+            self.attach([skill], [reviewed])
+            updated += 1
+        return updated
 
     def _exact_decision(self, term: str):
         """Classify an alias-index hit as safe exact or context-dependent."""
@@ -333,6 +462,11 @@ class SkillMatcher:
         term = (term or "").strip()
         if not term:
             return _record(term)
+
+        # Human decisions outrank every automated stage and survive reruns.
+        reviewed = self._reviewed_decision(term)
+        if reviewed is not None:
+            return reviewed
 
         # 0. Known noise, refused before retrieval.
         #    The filter used to live only in `extract_skills`, so anything
@@ -459,6 +593,10 @@ class SkillMatcher:
         for position, skill in enumerate(skills):
             term = (skill.get("term") or "").strip()
             evidence = evidence_text(skill)
+
+            if term and normalize(term) in self.reviewed_matches:
+                results[position] = self.match(term, evidence)
+                continue
 
             # Empty, safe-exact, and context-free generic aliases do not
             # need retrieval.  A generic alias with evidence must join the

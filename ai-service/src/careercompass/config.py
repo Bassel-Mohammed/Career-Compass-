@@ -54,9 +54,6 @@ TAXONOMY_CACHE_DIR = TAXONOMY_DIR / "cache"
 TAXONOMY_PATH = TAXONOMY_DIR / "taxonomy.jsonl"
 VECTOR_INDEX_PATH = TAXONOMY_DIR / "vector_index.npz"
 
-# SQL migrations, applied by careercompass.db
-MIGRATIONS_DIR = PACKAGE_DIR / "db" / "migrations"
-
 # ── PostgreSQL ─────────────────────────────────────────────────
 # Lives here rather than in jobs/config.py, where it used to sit: the
 # skills pipeline needs a connection too, and reaching into the scraper
@@ -67,4 +64,6 @@ DB_CONFIG = {
     "dbname": os.getenv("CC_DB_NAME"),
     "user": os.getenv("CC_DB_USER"),
     "password": os.getenv("CC_DB_PASSWORD"),
+    "connect_timeout": max(1, int(os.getenv("CC_DB_CONNECT_TIMEOUT", "5"))),
+    "application_name": "careercompass-ai",
 }

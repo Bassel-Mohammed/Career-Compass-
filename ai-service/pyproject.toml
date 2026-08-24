@@ -38,9 +38,13 @@ cc-parse-syllabus = "careercompass.cli.parse_syllabus:main"
 cc-extract-skills = "careercompass.cli.extract_skills:main"
 cc-build-taxonomy = "careercompass.cli.build_taxonomy:main"
 cc-match-skills = "careercompass.cli.match_skills:main"
+cc-db-migrate = "careercompass.db.migrate:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+"careercompass.db.migrations" = ["*.sql"]
 
 [tool.black]
 line-length = 100

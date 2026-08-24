@@ -3,7 +3,7 @@
 Where the code stands against the Knowledge Base and six AI modules of
 Section 5.3 of the project report.
 
-**Last updated:** 24 August 2026
+**Last updated:** 25 August 2026
 
 Cross-cutting engineering facts — the identity defects, silent-failure modes,
 measured numbers, hardware constraints and open decisions — are in
@@ -41,10 +41,12 @@ measured numbers, hardware constraints and open decisions — are in
 
 Worth stating plainly, because none of it fails loudly:
 
-- **Migrations 004 and 005 have never run against PostgreSQL.** No database is
-  available in the development environment, so `career_path_skills.skill_type`,
-  `catalog_courses` and `catalog_course_skills` are written but unexecuted.
-  Every API path reads JSON artefacts instead, so the service works regardless.
+- **Migrations 004 and 005 are rehearsed but not yet applied live.** A verified
+  custom-format backup was restored to a disposable PostgreSQL database. The
+  packaged runner adopted 001–003, applied 004/005, recorded all five SHA-256
+  checksums, passed a repeat no-op, preserved row counts, and backfilled all
+  771 career-path rows without a taxonomy mismatch. Live execution requires a
+  separate operator-approved change window.
 - **YouTube ingestion has only been exercised on its no-key path.** It needs
   `CC_YOUTUBE_API_KEY`; without one it is skipped with a warning rather than
   failing the run.
@@ -79,7 +81,8 @@ serve.
    retrofitting means re-extracting everything. ENGINEERING_NOTES §3.
 2. **M6, job half** — the data is real and already in place.
 3. **Collect the remaining real syllabi** — the long pole, dependent on others.
-4. **Run migrations 004 and 005** the next time a database is available.
+4. **Schedule the rehearsed live 004/005 upgrade** with the verified backup and
+   an explicit operator approval; do not rely on automatic startup migration.
 5. **Tell the backend owner about the contract mismatch.** Five of his six
    endpoints do not exist, and there are now four working ones he does not know
    about. ENGINEERING_NOTES §12b.

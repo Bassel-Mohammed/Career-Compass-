@@ -77,6 +77,14 @@ async def lifespan(app: FastAPI):
     health probe pointed at it.
     """
     log_auth_state()
+    from careercompass.db.connection import apply_migrations, auto_migrate_enabled
+
+    if auto_migrate_enabled():
+        # Explicit self-migration mode fails startup on a drifted/partially
+        # migrated schema instead of serving broken review/storage endpoints.
+        await asyncio.to_thread(apply_migrations)
+    else:
+        logger.info("Automatic PostgreSQL migration is disabled; schema migration skipped")
     extraction_queue.start()
     if warmup_enabled():
         runtime.warm_in_background()
@@ -545,6 +553,22 @@ def _read_course(course_code: str) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _current_match_summary(document: dict) -> dict:
+    """Recount a document after human-review overlays have changed its rows."""
+    summary = dict(document.get("match_summary") or {})
+    by_status = {}
+    by_method = {}
+    skills = document.get("skills") or []
+    for skill in skills:
+        match = skill.get("match") or {}
+        review_status = match.get("review_status", "no_match")
+        method = match.get("match_method") or "none"
+        by_status[review_status] = by_status.get(review_status, 0) + 1
+        by_method[method] = by_method.get(method, 0) + 1
+    summary.update({"total": len(skills), "by_status": by_status, "by_method": by_method})
+    return summary
+
+
 @app.get("/api/v1/courses", response_model=schemas.CourseListResponse, tags=["results"])
 def list_courses():
     """Every course that has been extracted, with its counts by review status."""
@@ -558,11 +582,13 @@ def list_courses():
             except (OSError, ValueError):
                 logger.warning("Skipping unreadable skills file: %s", path)
                 continue
+            document_skills = document.get("skills") or []
+            runtime.overlay_reviewed_matches(document_skills)
             courses.append({
                 "course_code": document.get("course_code") or path.stem,
                 "total_skills": document.get("total_skills", 0),
                 "taxonomy_version": document.get("taxonomy_version"),
-                "by_status": (document.get("match_summary") or {}).get("by_status", {}),
+                "by_status": _current_match_summary(document)["by_status"],
             })
     return {"total": len(courses), "courses": courses}
 
@@ -587,6 +613,7 @@ def get_course_skills_endpoint(
     asked for by name.
     """
     document = _read_course(course_code)
+    runtime.overlay_reviewed_matches(document.get("skills") or [])
     wanted = {part.strip() for part in include.split(",") if part.strip()}
 
     skills = []
@@ -610,7 +637,7 @@ def get_course_skills_endpoint(
     return {
         "course_code": document.get("course_code", course_code),
         "taxonomy_version": document.get("taxonomy_version"),
-        "match_summary": document.get("match_summary", {}),
+        "match_summary": _current_match_summary(document),
         "total_skills": len(skills),
         "skills": skills,
     }
@@ -649,8 +676,8 @@ def _taxonomy_skill(skill_id: str) -> dict:
 
 
 
-@cached_by_files(lambda paths, taxonomy_version=None: paths)
-def _load_course_skills(paths: tuple, taxonomy_version=None) -> dict:
+@cached_by_files(lambda paths, taxonomy_version=None, review_revision=0: paths)
+def _load_course_skills(paths: tuple, taxonomy_version=None, review_revision=0) -> dict:
     """Parse the course → skill map, cached on the fingerprint of every file.
 
     Keyed on `taxonomy_version` as well, because `load_course_skills` resolves
@@ -659,7 +686,16 @@ def _load_course_skills(paths: tuple, taxonomy_version=None) -> dict:
     """
     from careercompass.skills.vector import load_course_skills
 
-    return load_course_skills(paths, taxonomy=runtime.taxonomy_if_ready())
+    mapping = load_course_skills(paths, taxonomy=runtime.taxonomy_if_ready())
+    seen = set()
+    for skills in mapping.values():
+        # Plan-edition aliases point several course codes at the same list.
+        # Apply once so the count/logging remains meaningful.
+        if id(skills) in seen:
+            continue
+        seen.add(id(skills))
+        runtime.overlay_reviewed_matches(skills)
+    return mapping
 
 
 def _course_skill_map() -> dict:
@@ -680,6 +716,7 @@ def _course_skill_map() -> dict:
     return _load_course_skills(
         tuple(sorted(SKILLS_DIR.glob("*.json"))),
         taxonomy_version=getattr(taxonomy, "version", None),
+        review_revision=runtime.review_revision,
     )
 
 
@@ -1061,6 +1098,9 @@ async def record_decisions(request: schemas.ReviewDecisionsRequest):
                 record_review(
                     decision.term, decision.skill_id, decision.decision,
                     reviewer=request.reviewer, note=decision.note,
+                )
+                runtime.set_reviewed_decision(
+                    decision.term, decision.skill_id, decision.decision,
                 )
                 recorded += 1
             except ValueError as exc:

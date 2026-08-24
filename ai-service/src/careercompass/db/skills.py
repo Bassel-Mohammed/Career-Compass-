@@ -21,17 +21,15 @@ import logging
 import psycopg2
 import psycopg2.extras
 
-from careercompass.db.connection import get_connection, run_migration
+from careercompass.db.connection import apply_migrations, get_connection
 from careercompass.skills.taxonomy import TAXONOMY_VERSION, normalize
 
 logger = logging.getLogger("careercompass.skills_db")
 
-MIGRATION = "002_course_skills.sql"
-
 
 def init_skill_tables(conn=None) -> None:
-    """Create the taxonomy and course-skill tables if they do not exist."""
-    run_migration(MIGRATION, conn=conn)
+    """Bring the complete AI schema to the latest version."""
+    apply_migrations(conn=conn)
 
 
 # ── Taxonomy ───────────────────────────────────────────────────
@@ -54,12 +52,18 @@ def store_taxonomy(taxonomy, conn=None) -> int:
         for skill in taxonomy.skills
     ]
 
-    alias_rows = []
+    # One normalised alias per skill. Replacing this set on every taxonomy
+    # sync removes aliases that were retired from the source instead of
+    # leaving them as permanent false exact-matches.
+    aliases_by_key = {}
     for skill in taxonomy.skills:
         for alias in skill.get("aliases", []):
-            alias_rows.append((skill["id"], alias, normalize(alias), "en"))
+            row = (skill["id"], alias, normalize(alias), "en")
+            aliases_by_key.setdefault((row[0], row[2]), row)
         for code, label in skill.get("labels", {}).items():
-            alias_rows.append((skill["id"], label, normalize(label), code))
+            row = (skill["id"], label, normalize(label), code)
+            aliases_by_key.setdefault((row[0], row[2]), row)
+    alias_rows = list(aliases_by_key.values())
 
     try:
         with conn.cursor() as cur:
@@ -79,11 +83,14 @@ def store_taxonomy(taxonomy, conn=None) -> int:
                     updated_at = CURRENT_TIMESTAMP
             """, skill_rows, page_size=500)
 
+            cur.execute(
+                "DELETE FROM taxonomy_skill_aliases WHERE skill_id = ANY(%s)",
+                ([row[0] for row in skill_rows],),
+            )
             psycopg2.extras.execute_batch(cur, """
                 INSERT INTO taxonomy_skill_aliases (
                     skill_id, alias, alias_normalized, language
                 ) VALUES (%s, %s, %s, %s)
-                ON CONFLICT (skill_id, alias_normalized) DO NOTHING
             """, alias_rows, page_size=500)
         conn.commit()
         logger.info("Stored %d taxonomy skills and %d aliases",
@@ -164,6 +171,21 @@ def store_course_skills(course_code: str, skills: list, conn=None) -> int:
                     taxonomy_version = EXCLUDED.taxonomy_version,
                     matched_at = CURRENT_TIMESTAMP
             """, rows, page_size=200)
+
+            terms = [row[1] for row in rows]
+            if terms:
+                cur.execute(
+                    """
+                    DELETE FROM course_skills
+                    WHERE course_code = %s AND NOT (term = ANY(%s))
+                    """,
+                    (course_code, terms),
+                )
+            else:
+                cur.execute(
+                    "DELETE FROM course_skills WHERE course_code = %s",
+                    (course_code,),
+                )
         conn.commit()
         return len(rows)
     except psycopg2.Error:
@@ -222,23 +244,37 @@ def get_review_queue(limit: int = 100, conn=None) -> list:
                 FROM course_skills
                 WHERE review_status <> 'accepted'
                 ORDER BY match_score ASC NULLS FIRST, term
-                LIMIT %s
-            """, (limit,))
-            return [
+            """)
+            rows = cur.fetchall()
+            cur.execute(
+                "SELECT term_normalized, skill_id, decision FROM skill_match_reviews"
+            )
+            # A corrected/confirmed decision whose taxonomy row was retired is
+            # unresolved again (the FK sets its skill_id to NULL), so it must
+            # return to the queue.  Rejections remain complete with a NULL id.
+            reviewed = {
+                term_normalized
+                for term_normalized, skill_id, decision in cur.fetchall()
+                if decision == "rejected" or skill_id is not None
+            }
+
+            items = [
                 {
                     "course_code": row[0], "term": row[1], "review_status": row[2],
                     "match_score": float(row[3]) if row[3] is not None else None,
                     "candidates": row[4] or [],
                 }
-                for row in cur.fetchall()
+                for row in rows
+                if normalize(row[1]) not in reviewed
             ]
+            return items[:limit]
     finally:
         if owned:
             conn.close()
 
 
 def record_review(term: str, skill_id, decision: str, reviewer: str = "",
-                  note: str = "", conn=None) -> None:
+                  note: str = "", conn=None) -> int:
     """
     Store one reviewer decision.
 
@@ -249,9 +285,14 @@ def record_review(term: str, skill_id, decision: str, reviewer: str = "",
     """
     if decision not in ("confirmed", "corrected", "rejected"):
         raise ValueError(f"Unknown review decision: {decision}")
+    if decision in ("confirmed", "corrected") and not skill_id:
+        raise ValueError(f"{decision} decisions require a skill_id")
+    if decision == "rejected" and skill_id is not None:
+        raise ValueError("rejected decisions must not include a skill_id")
 
     owned = conn is None
     conn = conn or get_connection()
+    term_normalized = normalize(term)
     try:
         with conn.cursor() as cur:
             cur.execute("""
@@ -264,8 +305,40 @@ def record_review(term: str, skill_id, decision: str, reviewer: str = "",
                     reviewer = EXCLUDED.reviewer,
                     note = EXCLUDED.note,
                     reviewed_at = CURRENT_TIMESTAMP
-            """, (normalize(term), skill_id, decision, reviewer or None, note or None))
+            """, (term_normalized, skill_id, decision, reviewer or None, note or None))
+
+            # PostgreSQL cannot reproduce the matcher's Unicode NFKC + Arabic
+            # mark + punctuation normalisation exactly. Course terms are a
+            # small review corpus, so compare them with the one canonical
+            # Python function and update the matching ids in one statement.
+            cur.execute("SELECT id, term FROM course_skills")
+            course_skill_ids = [
+                row_id for row_id, raw_term in cur.fetchall()
+                if normalize(raw_term) == term_normalized
+            ]
+            if course_skill_ids:
+                accepted = decision in ("confirmed", "corrected")
+                cur.execute(
+                    """
+                    UPDATE course_skills
+                    SET skill_id = %s,
+                        match_method = 'human_review',
+                        match_score = %s,
+                        review_status = %s,
+                        match_reason = %s,
+                        matched_at = CURRENT_TIMESTAMP
+                    WHERE id = ANY(%s)
+                    """,
+                    (
+                        skill_id if accepted else None,
+                        1.0 if accepted else None,
+                        "accepted" if accepted else "no_match",
+                        note or f"human review: {decision}",
+                        course_skill_ids,
+                    ),
+                )
         conn.commit()
+        return len(course_skill_ids)
     except psycopg2.Error:
         conn.rollback()
         raise
@@ -286,28 +359,22 @@ def load_reviewed_matches(conn=None) -> dict:
     try:
         with conn.cursor() as cur:
             cur.execute("""
-                SELECT term_normalized, skill_id
+                SELECT term_normalized, skill_id, decision
                 FROM skill_match_reviews
-                WHERE decision IN ('confirmed', 'corrected') AND skill_id IS NOT NULL
             """)
-            return dict(cur.fetchall())
+            return {
+                term: {"skill_id": skill_id, "decision": decision}
+                for term, skill_id, decision in cur.fetchall()
+            }
     finally:
         if owned:
             conn.close()
 
 
 # ── Job skills ─────────────────────────────────────────────────
-JOB_MIGRATION = "003_job_skills.sql"
-# 004 adds career_path_skills.skill_type and backfills it, so M3 can rank
-# technical and soft requirements separately. It is idempotent and must run
-# after 003.
-PATH_SKILL_TYPE_MIGRATION = "004_career_path_skill_type.sql"
-
-
 def init_job_skill_tables(conn=None) -> None:
-    """Create the job-skill and ontology tables if they do not exist."""
-    run_migration(JOB_MIGRATION, conn=conn)
-    run_migration(PATH_SKILL_TYPE_MIGRATION, conn=conn)
+    """Bring the complete AI schema to the latest version."""
+    apply_migrations(conn=conn)
 
 
 def store_job_skills(job_id: int, skills: list, conn=None) -> int:
@@ -365,6 +432,18 @@ def store_job_skills(job_id: int, skills: list, conn=None) -> int:
                     review_status = EXCLUDED.review_status,
                     taxonomy_version = EXCLUDED.taxonomy_version
             """, rows, page_size=500)
+
+            terms = [row[1] for row in rows]
+            if terms:
+                cur.execute(
+                    """
+                    DELETE FROM job_skills
+                    WHERE job_id = %s AND NOT (term = ANY(%s))
+                    """,
+                    (job_id, terms),
+                )
+            else:
+                cur.execute("DELETE FROM job_skills WHERE job_id = %s", (job_id,))
         conn.commit()
         return len(rows)
     except psycopg2.Error:
@@ -375,15 +454,12 @@ def store_job_skills(job_id: int, skills: list, conn=None) -> int:
             conn.close()
 
 
-CATALOG_MIGRATION = "005_course_catalog.sql"
-
-
 def init_catalog_tables(conn=None) -> None:
-    """Create the course-catalog tables if they do not exist."""
-    run_migration(CATALOG_MIGRATION, conn=conn)
+    """Bring the complete AI schema to the latest version."""
+    apply_migrations(conn=conn)
 
 
-def store_catalog_courses(index: dict, conn=None) -> int:
+def store_catalog_courses(index: dict, conn=None, platforms=None) -> int:
     """
     Replace the catalog for every platform the index covers.
 
@@ -393,6 +469,8 @@ def store_catalog_courses(index: dict, conn=None) -> int:
 
     Args:
         index: ``{skill_id: [course records]}`` from skills.course_index.
+        platforms: Optional source scopes being replaced. Passing a platform
+            allows an intentionally empty refresh to remove all of its rows.
 
     Returns:
         Number of course-skill rows written.
@@ -403,10 +481,11 @@ def store_catalog_courses(index: dict, conn=None) -> int:
             courses[record["course_id"]] = record
             pairs.append((record["course_id"], skill_id,
                           bool(record.get("in_title"))))
-    if not courses:
+    covered_platforms = {course["platform"] for course in courses.values()}
+    platforms = sorted(set(platforms or ()) | covered_platforms)
+    if not courses and not platforms:
         return 0
 
-    platforms = sorted({c["platform"] for c in courses.values()})
     owned = conn is None
     conn = conn or get_connection()
 
@@ -416,17 +495,18 @@ def store_catalog_courses(index: dict, conn=None) -> int:
                 "DELETE FROM catalog_courses WHERE platform = ANY(%s)",
                 (platforms,),
             )
-            psycopg2.extras.execute_batch(cur, """
-                INSERT INTO catalog_courses (
-                    course_id, platform, title, url, level, language,
-                    duration_hours, rating
-                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
-            """, [
-                (c["course_id"], c["platform"], c["title"], c["url"],
-                 c.get("level"), c.get("language"), c.get("duration_hours"),
-                 c.get("rating"))
-                for c in courses.values()
-            ], page_size=500)
+            if courses:
+                psycopg2.extras.execute_batch(cur, """
+                    INSERT INTO catalog_courses (
+                        course_id, platform, title, url, level, language,
+                        duration_hours, rating
+                    ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+                """, [
+                    (c["course_id"], c["platform"], c["title"], c["url"],
+                     c.get("level"), c.get("language"), c.get("duration_hours"),
+                     c.get("rating"))
+                    for c in courses.values()
+                ], page_size=500)
 
             # Skills the taxonomy no longer carries would violate the foreign
             # key and abort the batch, so they are skipped rather than fatal.
@@ -434,13 +514,17 @@ def store_catalog_courses(index: dict, conn=None) -> int:
             known = {row[0] for row in cur.fetchall()}
             usable = [p for p in pairs if p[1] in known]
 
-            psycopg2.extras.execute_batch(cur, """
-                INSERT INTO catalog_course_skills (course_id, skill_id, in_title)
-                VALUES (%s, %s, %s)
-                ON CONFLICT (course_id, skill_id) DO NOTHING
-            """, usable, page_size=1000)
+            if usable:
+                psycopg2.extras.execute_batch(cur, """
+                    INSERT INTO catalog_course_skills (course_id, skill_id, in_title)
+                    VALUES (%s, %s, %s)
+                    ON CONFLICT (course_id, skill_id) DO NOTHING
+                """, usable, page_size=1000)
         conn.commit()
         return len(usable)
+    except psycopg2.Error:
+        conn.rollback()
+        raise
     finally:
         if owned:
             conn.close()
@@ -482,13 +566,15 @@ def store_career_path_skills(rows: list, totals: dict, conn=None) -> int:
     Returns:
         Number of rows written.
     """
-    if not rows:
+    if not rows and not totals:
         return 0
 
     owned = conn is None
     conn = conn or get_connection()
 
-    paths = sorted({row["career_path"] for row in rows})
+    # ``totals`` is the authoritative set of paths in this derivation. A path
+    # that now yields zero requirements must still have its old rows removed.
+    paths = sorted(set(totals) | {row["career_path"] for row in rows})
     values = [
         (
             row["career_path"], row["skill_id"], row["posting_count"],
@@ -505,13 +591,14 @@ def store_career_path_skills(rows: list, totals: dict, conn=None) -> int:
                 "DELETE FROM career_path_skills WHERE career_path = ANY(%s)",
                 (paths,),
             )
-            psycopg2.extras.execute_batch(cur, """
-                INSERT INTO career_path_skills (
-                    career_path, skill_id, posting_count, sample_size,
-                    coverage, required_score, required_level, skill_type,
-                    taxonomy_version
-                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
-            """, values, page_size=500)
+            if values:
+                psycopg2.extras.execute_batch(cur, """
+                    INSERT INTO career_path_skills (
+                        career_path, skill_id, posting_count, sample_size,
+                        coverage, required_score, required_level, skill_type,
+                        taxonomy_version
+                    ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+                """, values, page_size=500)
         conn.commit()
         logger.info("stored %d ontology rows across %d career paths",
                     len(values), len(paths))
@@ -538,7 +625,7 @@ def get_career_path_skills(career_path: str, conn=None) -> list:
             cur.execute("""
                 SELECT c.skill_id, t.label AS skill_label, c.posting_count,
                        c.sample_size, c.coverage, c.required_score,
-                       c.required_level, c.taxonomy_version
+                       c.required_level, c.skill_type, c.taxonomy_version
                 FROM career_path_skills c
                 JOIN taxonomy_skills t ON t.skill_id = c.skill_id
                 WHERE c.career_path = %s
