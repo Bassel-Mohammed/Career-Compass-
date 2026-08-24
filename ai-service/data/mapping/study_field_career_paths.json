@@ -1,0 +1,65 @@
+{
+  "_comment": [
+    "Maps a university study field to the career paths whose required skills a graduate of",
+    "that field is assumed to know. Used only when a mentor has no stated expertise terms.",
+    "",
+    "This is a reviewed mapping, not a derived artefact. Study fields are created by",
+    "administrators as free text and are institution-specific, so a fuzzy match would quietly",
+    "mis-map a field rather than admit it did not recognise it. A field that is absent here",
+    "produces no inferred skills at all and the mentor is ranked on seniority alone, which is",
+    "the honest outcome — better than confidently matching them to the wrong students.",
+    "",
+    "Keys are matched case-insensitively after collapsing whitespace. Values must be exact",
+    "career-path names from data/extracted/jobs/career_path_skills.json."
+  ],
+  "mappings": {
+    "computer science": [
+      "Backend Development",
+      "Full Stack Development",
+      "Data Science & Analytics"
+    ],
+    "computer engineering": [
+      "Backend Development",
+      "DevOps & Cloud"
+    ],
+    "software engineering": [
+      "Backend Development",
+      "Full Stack Development",
+      "QA & Testing"
+    ],
+    "information technology": [
+      "DevOps & Cloud",
+      "Cybersecurity"
+    ],
+    "information systems": [
+      "Data Science & Analytics",
+      "Full Stack Development"
+    ],
+    "cybersecurity": [
+      "Cybersecurity"
+    ],
+    "information security": [
+      "Cybersecurity"
+    ],
+    "data science": [
+      "Data Science & Analytics",
+      "AI & Machine Learning"
+    ],
+    "artificial intelligence": [
+      "AI & Machine Learning",
+      "Data Science & Analytics"
+    ],
+    "multimedia": [
+      "UI/UX Design"
+    ],
+    "graphic design": [
+      "UI/UX Design"
+    ],
+    "web development": [
+      "Full Stack Development"
+    ],
+    "mobile development": [
+      "Mobile Development"
+    ]
+  }
+}

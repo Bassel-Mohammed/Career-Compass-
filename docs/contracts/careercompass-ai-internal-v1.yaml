@@ -2,7 +2,7 @@ openapi: 3.0.3
 
 info:
   title: CareerCompass AI Internal API
-  version: 1.0.0
+  version: 1.1.0
   description: |
     The **internal** service-to-service contract between the Java (Spring Boot) backend and the
     Python (FastAPI) AI/data-analysis service.
@@ -28,11 +28,13 @@ info:
     ## Scope of v1
 
     In scope: transcript parsing (M1), skill vector (M2), skill gap (M3), course
-    recommendations (M4), quiz generation (M5).
+    recommendations (M4), quiz generation (M5), mentor matching (M6).
 
-    **Out of scope by owner decision (24 August 2026):** job matching (M7) and mentor AI
-    ranking (M9). `/api/v1/job-matches/*` and `/api/v1/mentor-matches` are deliberately absent
-    rather than unimplemented, and adding them is a v1.1 additive change.
+    Mentor matching was added in **v1.1.0** (ADR-008, superseding ADR-005's deferral). Purely
+    additive: every v1.0.0 request and response remains valid.
+
+    **Still out of scope by owner decision:** job matching. `/api/v1/job-matches/*` is
+    deliberately absent rather than unimplemented; adding it is a further additive change.
 
     ## Known deferrals
 
@@ -309,6 +311,52 @@ paths:
         '422': { $ref: '#/components/responses/Problem' }
         '503': { $ref: '#/components/responses/Problem' }
 
+  /api/v1/mentor-matches:
+    post:
+      tags: [matching]
+      operationId: matchMentors
+      summary: Rank supplied mentors against one student's skill gap (M6)
+      description: |
+        **Budget: 10 s.** Synchronous. Deterministic — no model is involved, and the same
+        request always produces the same ranking.
+
+        Mentors are ranked against what the student is **missing**, not what they already
+        know: a mentor matched to a strength is the one who can teach them least. Weighting is
+        by `priority`, so a mentor covering a small shortfall the market asks for constantly
+        outranks one covering a large shortfall almost nobody hires for.
+
+        The caller supplies the mentors — already filtered for status and authorisation — and
+        no id can come back that did not go in. This service stores no mentor records.
+
+        **Read `signal` on every item before displaying it.** `stated` means the mentor's own
+        `expertise_terms` resolved onto the taxonomy. `inferred` means only a study field was
+        available and a career path stood in for it — that must never be shown to a student as
+        though the mentor had claimed the skill. `none` means neither was usable and the
+        mentor was ranked on experience alone.
+      parameters:
+        - $ref: '#/components/parameters/CorrelationId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MentorMatchRequest'
+      responses:
+        '200':
+          description: Mentors ranked best-first.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MentorMatchResponse'
+        '404':
+          description: Unknown `career_path`. The problem body lists the names that do exist.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '422': { $ref: '#/components/responses/Problem' }
+        '503': { $ref: '#/components/responses/Problem' }
+
 components:
 
   securitySchemes:
@@ -316,10 +364,16 @@ components:
       type: http
       scheme: bearer
       description: |
-        A shared service token (ADR-008). Sent by the Java backend as
+        A shared service token (ADR-004). Sent by the Java backend as
         `Authorization: Bearer <token>`. This authenticates the *service*, not a student — no
         end-user identity crosses this boundary. Production additionally requires TLS and
         network policy; mTLS may replace the token later without changing any payload.
+
+        **Enforced since v1.1.0.** The service reads `CC_SERVICE_TOKEN`; when it is set, every
+        `/api/v1/*` request except health must carry that token or receive `401`. Leaving it
+        unset disables the check, which is intended for loopback development only and is
+        logged as a warning at startup. Health stays open in both cases so that a readiness
+        probe cannot be mistaken for an unhealthy container.
 
   parameters:
     CorrelationId:
@@ -779,3 +833,121 @@ components:
         warnings:
           type: array
           items: { type: string }
+
+    Mentor:
+      type: object
+      description: |
+        One mentor to rank. The caller owns mentor records; this service holds none and
+        supplies nothing of its own.
+
+        `expertise_terms` is optional but is the only strong signal. Without it the ranking
+        falls back to what the study field implies, which is broad, capped, and reported as
+        `inferred` in the response.
+      required: [mentor_id]
+      properties:
+        mentor_id:
+          type: string
+          minLength: 1
+          maxLength: 120
+          description: Opaque, caller-owned. Never a database-local integer.
+        study_field:
+          type: string
+          nullable: true
+          maxLength: 120
+          description: |
+            Matched case-insensitively against a reviewed study-field to career-path mapping.
+            A field absent from that mapping attributes no skills at all rather than guessing.
+        field_starting_year:
+          type: integer
+          nullable: true
+          minimum: 1950
+          maximum: 2100
+          description: Used for years of experience, which is capped so it cannot outweigh relevance.
+        expertise_terms:
+          type: array
+          maxItems: 20
+          description: |
+            Free text, resolved onto canonical skills by the same matcher the syllabus
+            pipeline uses. Only confidently-resolved terms count — an uncertain match must not
+            become a claim that a mentor knows a skill.
+          items: { type: string }
+
+    MentorMatchRequest:
+      allOf:
+        - $ref: '#/components/schemas/SkillGapRequest'
+        - type: object
+          required: [mentors]
+          properties:
+            mentors:
+              type: array
+              minItems: 1
+              maxItems: 200
+              description: '`mentor_id` must be unique; a repeat is a 422, not a duplicate row.'
+              items:
+                $ref: '#/components/schemas/Mentor'
+            limit:
+              type: integer
+              default: 10
+              minimum: 1
+              maximum: 50
+
+    AlignedSkill:
+      type: object
+      description: A gap of the student's that this mentor could help close.
+      required: [skill_id]
+      properties:
+        skill_id: { type: string }
+        skill_label: { type: string, nullable: true }
+
+    MentorMatchItem:
+      type: object
+      required: [mentor_id, score, signal, aligned_skills, gaps_addressed, years_experience, explanation]
+      properties:
+        mentor_id: { type: string }
+        score:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 1.0
+        signal:
+          type: string
+          enum: [stated, inferred, none]
+          description: |
+            What the ranking was built from, and the field that decides how this may be
+            presented. `stated` — the mentor's own expertise resolved onto the taxonomy.
+            `inferred` — only a study field was available; do not show this to a student as a
+            claim the mentor made. `none` — neither was usable; experience only.
+        aligned_skills:
+          type: array
+          description: The student's highest-priority gaps this mentor covers, most valuable first.
+          items:
+            $ref: '#/components/schemas/AlignedSkill'
+        gaps_addressed:
+          type: integer
+          description: |
+            Total open gaps this mentor touches, including ones outside the scored set.
+            Context for the reader; the score is built from `aligned_skills`.
+        years_experience: { type: integer }
+        explanation:
+          type: string
+          description: Written from the student's own gap, never from mentor-supplied prose.
+
+    MentorMatchResponse:
+      type: object
+      required: [total, gaps_considered, items]
+      properties:
+        career_path: { type: string, nullable: true }
+        taxonomy_version: { type: string, nullable: true }
+        total:
+          type: integer
+          description: Mentors scored, before `limit` truncated the list.
+        gaps_considered:
+          type: integer
+          description: |
+            How many of the student's highest-priority gaps the ranking scored against.
+            Scoring against every open requirement sounds fairer and is not — with around a
+            hundred of them, a mentor genuinely covering three would score 3%.
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/MentorMatchItem'

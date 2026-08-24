@@ -1,7 +1,12 @@
 # ADR-005: Mentor matching scope
 
-- Status: Accepted — AI ranking deferred
+- Status: **Superseded by [ADR-008](ADR-008-mentor-matching-in-scope.md)** on 2026-08-24
 - Date: 2026-08-23
+
+> The deferral below was reversed: the product owner asked for mentor matching, which
+> resolves the requirement ambiguity this ADR recorded. Retained unedited because it is
+> the reasoning ADR-008 argues against, and because the constraint it names — that no
+> mentor expertise data exists — is still true and still shapes the design.
 
 ## Context
 

@@ -10,7 +10,7 @@ added. The models below cover the envelopes the API itself owns.
 
 from typing import Annotated, Any, Literal, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 JobStatus = Literal["queued", "running", "succeeded", "failed", "cancelled"]
 JobStage = Literal["queued", "parsing", "extracting", "matching", "storing", "done"]
@@ -287,6 +287,82 @@ class RecommendationResponse(BaseModel):
     # as the transcript the gap behind it could read.
     courses_counted: int = 0
     courses_skipped: list[dict[str, Any]] = Field(default_factory=list)
+
+
+# ── Mentor matching ────────────────────────────────────────────
+class Mentor(BaseModel):
+    """
+    One mentor the caller wants ranked.
+
+    The caller owns mentor records; this service holds none. It supplies only the mentors a
+    given student is allowed to see — already filtered for status and authorisation — and
+    every id in the response will have come from this list.
+
+    ``expertise_terms`` is optional but is the only strong signal. Without it the ranking
+    falls back to what a study field implies, which is broad and is reported as such in the
+    response's ``signal`` field.
+    """
+    mentor_id: str = Field(min_length=1, max_length=120)
+    study_field: Optional[str] = Field(None, max_length=120)
+    field_starting_year: Optional[int] = Field(None, ge=1950, le=2100)
+    expertise_terms: list[str] = Field(default_factory=list, max_length=20)
+
+
+class MentorMatchRequest(SkillGapRequest):
+    """A gap request plus the mentors to rank against it."""
+    mentors: list[Mentor] = Field(min_length=1, max_length=200)
+    limit: int = Field(10, ge=1, le=50)
+
+    @field_validator("mentors")
+    @classmethod
+    def _reject_duplicate_ids(cls, mentors: list) -> list:
+        seen = set()
+        duplicates = set()
+        for mentor in mentors:
+            if mentor.mentor_id in seen:
+                duplicates.add(mentor.mentor_id)
+            seen.add(mentor.mentor_id)
+        if duplicates:
+            # Ranking the same mentor twice would put them in the list twice, which reads as
+            # a bug in the caller's list rather than an answer.
+            raise ValueError(
+                "mentor_id must be unique; repeated: " + ", ".join(sorted(duplicates))
+            )
+        return mentors
+
+
+class AlignedSkill(BaseModel):
+    """A gap of the student's that this mentor could help close."""
+    skill_id: str
+    skill_label: Optional[str] = None
+
+
+class MentorMatchItem(BaseModel):
+    mentor_id: str
+    score: float = Field(ge=0.0, le=1.0)
+    signal: Literal["stated", "inferred", "none"] = Field(
+        description=(
+            "What the ranking was built from. 'stated' means the mentor's own expertise "
+            "terms resolved to canonical skills. 'inferred' means only their study field was "
+            "available and a career path stood in for it — do not present that to a student "
+            "as though the mentor claimed the skill. 'none' means neither was usable."
+        )
+    )
+    aligned_skills: list[AlignedSkill]
+    gaps_addressed: int
+    years_experience: int
+    explanation: str
+
+
+class MentorMatchResponse(BaseModel):
+    career_path: Optional[str] = None
+    taxonomy_version: Optional[str] = None
+    total: int
+    gaps_considered: int = Field(
+        description="How many open gaps the ranking had to work with. Zero means the student "
+                    "has no weak or moderate skills, so every mentor scores on seniority only."
+    )
+    items: list[MentorMatchItem]
 
 
 # ── Quizzes ────────────────────────────────────────────────────

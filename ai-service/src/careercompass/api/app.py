@@ -31,6 +31,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, RedirectResponse
 
 from careercompass.api import schemas
+from careercompass.api.auth import log_auth_state, service_token_middleware
 from careercompass.api.errors import (
     Problem,
     problem_handler,
@@ -75,6 +76,7 @@ async def lifespan(app: FastAPI):
     does not accept connections for four minutes looks dead to every
     health probe pointed at it.
     """
+    log_auth_state()
     extraction_queue.start()
     if warmup_enabled():
         runtime.warm_in_background()
@@ -130,6 +132,10 @@ app.add_middleware(
     allow_methods=["GET", "POST", "DELETE", "OPTIONS"],
     allow_headers=["*"],
 )
+
+# Registered after CORS so it sits outside it in the stack; preflight OPTIONS is exempted
+# inside the middleware itself, so the ordering costs nothing either way.
+app.middleware("http")(service_token_middleware)
 
 app.add_exception_handler(Problem, problem_handler)
 app.add_exception_handler(RequestValidationError, validation_handler)
@@ -926,6 +932,52 @@ def create_quiz(request: schemas.QuizRequest):
         # Every candidate question failed validation. That is a model-quality
         # problem, not a bad request, so it reads as a dependency failure.
         raise Problem.llm_unavailable(str(exc)) from exc
+
+
+# ── Mentor matching ────────────────────────────────────────────
+@app.post("/api/v1/mentor-matches", response_model=schemas.MentorMatchResponse,
+          tags=["matching"])
+def match_mentors(request: schemas.MentorMatchRequest):
+    """
+    Rank supplied mentors against one student's skill gap (M6).
+
+    Mentors are ranked against what the student is **missing**, not what they already know:
+    a mentor matched to a strength is the one who can teach them least. Weighting is by
+    `priority`, so a mentor who covers a small shortfall the market asks for constantly
+    outranks one who covers a large shortfall almost nobody hires for.
+
+    The caller supplies the mentors — already filtered for status and authorisation — and no
+    id can come back that did not go in. This service stores no mentor records.
+
+    Read `signal` on every item before displaying it. `stated` means the mentor's own
+    expertise resolved onto the taxonomy. `inferred` means only a study field was available
+    and a career path stood in for it; that must not be shown to a student as though the
+    mentor had claimed the skill. Deterministic throughout — no model is involved, and the
+    same request always produces the same ranking.
+    """
+    from careercompass.skills.gap import build_skill_gap
+    from careercompass.skills.mentor_matching import build_mentor_matches
+
+    vector = _build_vector(request)
+    gap = build_skill_gap(
+        vector,
+        _requirements(request.career_path),
+        career_path=request.career_path,
+        include_soft=request.include_soft,
+    )
+
+    # Only pay for the matcher when a mentor actually stated expertise. Building it cold
+    # costs minutes, and a request where every mentor falls back to their study field would
+    # otherwise be billed for an index it never consults.
+    needs_matcher = any(mentor.expertise_terms for mentor in request.mentors)
+    matcher = runtime.matcher_for(False) if needs_matcher else None
+
+    return build_mentor_matches(
+        gap,
+        [mentor.model_dump() for mentor in request.mentors],
+        matcher=matcher,
+        limit=request.limit,
+    )
 
 
 # ── Ad-hoc matching ────────────────────────────────────────────

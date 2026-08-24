@@ -42,6 +42,11 @@ SKILLS_DIR = EXTRACTED_DIR / "skills"
 JOBS_DIR = EXTRACTED_DIR / "jobs"
 TEMP_DIR = DATA_DIR / "temp"
 
+# Hand-maintained lookups that are reviewed rather than derived. Kept out of the code so the
+# person who names a study field can correct its mapping without a release.
+MAPPING_DIR = DATA_DIR / "mapping"
+STUDY_FIELD_CAREER_PATHS_PATH = MAPPING_DIR / "study_field_career_paths.json"
+
 # Canonical vocabulary: one source file, three build artifacts
 TAXONOMY_DIR = DATA_DIR / "taxonomy"
 CUSTOM_SKILLS_PATH = TAXONOMY_DIR / "custom_skills.json"

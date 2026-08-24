@@ -184,6 +184,21 @@ class Problem(Exception):
             headers={"Retry-After": "30"},
         )
 
+    # ── Service authentication ─────────────────────────────────
+    @classmethod
+    def not_authenticated(cls, detail: str):
+        """
+        The caller did not present a valid service token.
+
+        This authenticates the *calling service*, not a student — no end-user identity
+        crosses this boundary. `WWW-Authenticate` is required on a 401 by RFC 9110 and tells
+        the caller which scheme to retry with.
+        """
+        return cls(
+            401, "not-authenticated", "Service authentication required", detail,
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
 
 async def validation_handler(request: Request, exc) -> JSONResponse:
     """
