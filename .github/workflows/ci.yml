@@ -1,0 +1,135 @@
+name: CI
+
+# Runs on every push to main and on every pull request.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# A new push to the same branch makes the previous run irrelevant.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  frontend:
+    name: Frontend (React)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Build
+        working-directory: frontend
+        run: npm run build
+
+      - name: Lint
+        working-directory: frontend
+        run: npm run lint
+
+  ai-service:
+    name: AI service (Python)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: ai-service/uv.lock
+
+      - name: Sync dependencies
+        working-directory: ai-service
+        run: uv sync --extra dev
+
+      - name: Run tests
+        working-directory: ai-service
+        # The matcher builds its index in memory from the lexical backend; the semantic
+        # backend needs sentence-transformers, which is a large optional dependency and not
+        # what these tests are checking.
+        env:
+          CC_EMBEDDING_BACKEND: lexical
+          CC_API_WARMUP: "0"
+        run: uv run --extra dev pytest -q
+
+  contract:
+    name: AI contract (OpenAPI)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: ai-service/uv.lock
+
+      - name: Sync dependencies
+        working-directory: ai-service
+        run: uv sync --extra dev
+
+      - name: Validate the internal contract
+        working-directory: ai-service
+        run: |
+          uv run --extra dev python -c "
+          from openapi_spec_validator import validate
+          from openapi_spec_validator.readers import read_from_filename
+          spec, _ = read_from_filename('../docs/contracts/careercompass-ai-internal-v1.yaml')
+          validate(spec)
+          print(f'Contract valid: {len(spec[\"paths\"])} paths, {len(spec[\"components\"][\"schemas\"])} schemas')
+          "
+
+  backend-compile:
+    name: Backend compiles (Java)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # 17 because that is what the pom targets, and because Lombok 1.18.34 does not support
+      # the JDK 25 that ships on some developer machines here.
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: "17"
+          distribution: temurin
+          cache: maven
+
+      - name: Compile
+        working-directory: backend
+        run: mvn -B -q clean test-compile
+
+  backend-test:
+    name: Backend tests (Java)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: "17"
+          distribution: temurin
+          cache: maven
+
+      - name: Run tests
+        working-directory: backend
+        run: mvn -B test
+
+      - name: Upload failure reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-reports
+          path: backend/target/surefire-reports/
+          if-no-files-found: ignore
