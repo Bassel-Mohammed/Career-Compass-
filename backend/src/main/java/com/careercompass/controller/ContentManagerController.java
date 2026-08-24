@@ -27,6 +27,20 @@ public class ContentManagerController {
 
     private final LearningOutcomeService learningOutcomeService;
 
+    /**
+     * FR-CM-06: the signed-in Content Manager's own account.
+     *
+     * <p>Every other actor already had this ({@code JobSeekerController.getMyProfile},
+     * {@code EmployerController.getMyProfile}, {@code ExpertController.getMyProfile}); the
+     * Content Manager was the only one without it. The consequence was not cosmetic — the sole
+     * endpoint returning a {@link ContentManagerResponse} that this role could reach was the
+     * {@code PUT} below, so a client had to change the account to discover its current state.
+     */
+    @GetMapping
+    public ResponseEntity<ContentManagerResponse> getMyProfile(@CurrentUser UserPrincipal principal) {
+        return ResponseEntity.ok(learningOutcomeService.getMyProfile(principal.getUserId()));
+    }
+
     /** FR-CM-05: select the study field taught. */
     @PutMapping("/study-field")
     public ResponseEntity<ContentManagerResponse> selectStudyField(

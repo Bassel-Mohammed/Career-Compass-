@@ -51,6 +51,24 @@ public class LearningOutcomeService {
     private final ContentManagerMapper contentManagerMapper;
     private final LearningOutcomeMapper learningOutcomeMapper;
 
+    /**
+     * FR-CM-06: the Content Manager's own account.
+     *
+     * <p>Sits here rather than on {@code ContentManagerAdminService} for the reason that class's
+     * Javadoc gives: this is the actor acting on themselves, not an administrator managing them.
+     * Its counterpart {@link #selectStudyField} — the only other thing a Content Manager can do
+     * to their own account — is already here.
+     *
+     * <p>Without this, a Content Manager could not read their own profile at all: every other
+     * producer of {@link ContentManagerResponse} is behind {@code /api/admin/**}, and the only
+     * one they could reach was {@code selectStudyField}, which is a mutation. A UI had no way to
+     * show who they were or whether they had already chosen a field without changing something.
+     */
+    @Transactional(readOnly = true)
+    public ContentManagerResponse getMyProfile(Integer contentManagerId) {
+        return contentManagerMapper.toResponse(getOrThrow(contentManagerId));
+    }
+
     /** FR-CM-05: select the study field the Content Manager teaches in. */
     @Transactional
     public ContentManagerResponse selectStudyField(Integer contentManagerId, Integer studyFieldId) {

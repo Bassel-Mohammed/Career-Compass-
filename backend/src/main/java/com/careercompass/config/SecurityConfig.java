@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -87,6 +88,14 @@ public class SecurityConfig {
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
                         // Dev-only: H2 console (never enabled in prod profile)
                         .requestMatchers("/h2-console/**").permitAll()
+                        // Shared lookup lists (universities, study fields, career paths). Any
+                        // signed-in actor may read them: a job seeker needs the study field and
+                        // career path ids to satisfy FR-JS-07/09, and a content manager needs the
+                        // study field ids for FR-CM-05, but neither can reach /api/admin/**.
+                        // Declared BEFORE the role rules below because the first match wins —
+                        // moving it after them would leave it unreachable. Read-only; creating
+                        // and editing these rows stays on /api/admin/** (FR-SA-07..10).
+                        .requestMatchers(HttpMethod.GET, "/api/reference/**").authenticated()
                         // Role-scoped areas — refined further at the controller/method level
                         // as those controllers are built in later increments.
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
