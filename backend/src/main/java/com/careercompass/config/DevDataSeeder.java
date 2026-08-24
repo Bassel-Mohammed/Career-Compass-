@@ -75,6 +75,16 @@ public class DevDataSeeder implements CommandLineRunner {
      * study-field mapping. A job seeker sees the paths whose set contains their own field.
      */
     private static final Map<String, List<String>> CAREER_PATHS = new LinkedHashMap<>();
+    private static final Map<String, String> CAREER_PATH_CODES = Map.of(
+            "Backend Development", "career:backend-development",
+            "Full Stack Development", "career:full-stack-development",
+            "Data Science & Analytics", "career:data-science-analytics",
+            "AI & Machine Learning", "career:ai-machine-learning",
+            "DevOps & Cloud", "career:devops-cloud",
+            "Cybersecurity", "career:cybersecurity",
+            "QA & Testing", "career:qa-testing",
+            "Mobile Development", "career:mobile-development",
+            "UI/UX Design", "career:ui-ux-design");
 
     static {
         CAREER_PATHS.put("Backend Development", List.of("Computer Science", "Software Engineering"));
@@ -153,6 +163,8 @@ public class DevDataSeeder implements CommandLineRunner {
 
             careerPathRepository.save(CareerPath.builder()
                     .title(title)
+                    // Reviewed stable IDs aligned to this seed catalogue, never inferred at run time.
+                    .careerPathCode(CAREER_PATH_CODES.get(title))
                     .description(PATH_DESCRIPTIONS.get(title))
                     .createdByAdmin(admin)
                     .studyFields(linked)

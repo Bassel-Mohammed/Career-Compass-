@@ -16,5 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SkillVectorResponse {
+    /** Taxonomy version reported by Python; nullable only for legacy/mock adapters. */
+    private String taxonomyVersion;
     private List<SkillScoreDto> skills;
 }

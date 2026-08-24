@@ -46,6 +46,19 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
+        <!--
+            Schema lifecycle. flyway-mysql is separate from flyway-core in the Flyway version
+            managed by Spring Boot 3.3; H2 support remains in core for local/test migrations.
+        -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-mysql</artifactId>
+        </dependency>
+
         <!-- Security -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

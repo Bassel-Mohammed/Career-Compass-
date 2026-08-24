@@ -28,6 +28,14 @@ public class CareerPath {
     @Column(name = "title", nullable = false, length = 150)
     private String title;
 
+    /** Stable cross-service identity. Nullable only while legacy title-keyed rows are backfilled. */
+    @Column(name = "career_path_code", unique = true, length = 120)
+    private String careerPathCode;
+
+    /** Version of the approved career-path requirements/ontology this row is aligned with. */
+    @Column(name = "ontology_version", length = 120)
+    private String ontologyVersion;
+
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 

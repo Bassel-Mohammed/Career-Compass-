@@ -6,6 +6,7 @@ import com.careercompass.dto.response.CareerPathResponse;
 import com.careercompass.dto.response.StudyFieldResponse;
 import com.careercompass.entity.CareerPath;
 import com.careercompass.entity.StudyField;
+import com.careercompass.exception.DuplicateResourceException;
 import com.careercompass.exception.ResourceNotFoundException;
 import com.careercompass.mapper.CareerPathMapper;
 import com.careercompass.repository.CareerPathRepository;
@@ -48,6 +49,8 @@ class CareerPathServiceTest {
         CareerPathMapper stubMapper = careerPath -> CareerPathResponse.builder()
                 .careerPathId(careerPath.getCareerPathId())
                 .title(careerPath.getTitle())
+                .careerPathCode(careerPath.getCareerPathCode())
+                .ontologyVersion(careerPath.getOntologyVersion())
                 .description(careerPath.getDescription())
                 .studyFields(careerPath.getStudyFields() == null ? List.of() :
                         careerPath.getStudyFields().stream()
@@ -67,6 +70,8 @@ class CareerPathServiceTest {
     void createCareerPath_linksResolvedStudyFields() {
         CreateCareerPathRequest request = new CreateCareerPathRequest();
         request.setTitle("Software Engineer");
+        request.setCareerPathCode("career:software-engineering");
+        request.setOntologyVersion("career-ontology-v1");
         request.setDescription("Build and ship reliable software.");
         request.setStudyFieldIds(List.of(1, 2));
 
@@ -85,7 +90,48 @@ class CareerPathServiceTest {
 
         assertThat(response.getCareerPathId()).isEqualTo(100);
         assertThat(response.getTitle()).isEqualTo("Software Engineer");
+        assertThat(response.getCareerPathCode()).isEqualTo("career:software-engineering");
+        assertThat(response.getOntologyVersion()).isEqualTo("career-ontology-v1");
         assertThat(response.getStudyFields()).hasSize(2);
+    }
+
+    @Test
+    void createCareerPath_generatesOpaqueCodeWhenCallerOmitsIt() {
+        CreateCareerPathRequest request = new CreateCareerPathRequest();
+        request.setTitle("Software Engineer");
+        request.setStudyFieldIds(List.of(1));
+
+        StudyField field = StudyField.builder().studyFieldId(1).fieldName("Computer Science").build();
+        when(studyFieldRepository.findById(1)).thenReturn(Optional.of(field));
+        when(careerPathRepository.save(any(CareerPath.class))).thenAnswer(inv -> inv.getArgument(0));
+
+        CareerPathResponse response = careerPathService.createCareerPath(request);
+
+        assertThat(response.getCareerPathCode())
+                .startsWith("cp:")
+                .doesNotContain("software-engineer");
+    }
+
+    @Test
+    void createCareerPath_rejectsDuplicateCanonicalCode() {
+        CreateCareerPathRequest request = new CreateCareerPathRequest();
+        request.setTitle("Another backend title");
+        request.setCareerPathCode("career:backend");
+        request.setStudyFieldIds(List.of(1));
+
+        StudyField field = StudyField.builder().studyFieldId(1).fieldName("Computer Science").build();
+        when(studyFieldRepository.findById(1)).thenReturn(Optional.of(field));
+        when(careerPathRepository.findByCareerPathCode("career:backend"))
+                .thenReturn(Optional.of(CareerPath.builder()
+                        .careerPathCode("career:backend")
+                        .title("Backend")
+                        .build()));
+
+        assertThatThrownBy(() -> careerPathService.createCareerPath(request))
+                .isInstanceOf(DuplicateResourceException.class)
+                .hasMessageContaining("career:backend");
+
+        verify(careerPathRepository, never()).save(any());
     }
 
     // Purpose: Create Career Path - throws When Study Field Does Not Exist.

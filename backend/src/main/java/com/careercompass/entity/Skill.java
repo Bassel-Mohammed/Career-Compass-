@@ -23,4 +23,15 @@ public class Skill {
 
     @Column(name = "skill_name", nullable = false, unique = true, length = 150)
     private String skillName;
+
+    /**
+     * Canonical taxonomy identity (for example {@code esco:<uuid>} or {@code custom:<slug>}).
+     * Nullable only for legacy rows awaiting an operator-reviewed backfill; labels are display
+     * text and must not be used as identity for new AI results.
+     */
+    @Column(name = "canonical_skill_id", unique = true, length = 120)
+    private String canonicalSkillId;
+
+    @Column(name = "taxonomy_version", length = 120)
+    private String taxonomyVersion;
 }

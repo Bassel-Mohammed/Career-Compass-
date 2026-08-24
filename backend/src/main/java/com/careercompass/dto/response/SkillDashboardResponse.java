@@ -22,6 +22,12 @@ public class SkillDashboardResponse {
     private Integer jobseekerId;
     private String careerPathTitle;
 
+    /** Java-issued identity of this persisted projection refresh. */
+    private String vectorVersion;
+
+    /** Taxonomy version reported by the AI service, when available. */
+    private String taxonomyVersion;
+
     /** 0-100 overall readiness score for the selected career path. */
     private Integer overallReadinessPercent;
 

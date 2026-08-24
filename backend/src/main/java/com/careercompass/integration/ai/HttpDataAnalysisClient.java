@@ -132,7 +132,10 @@ public class HttpDataAnalysisClient implements DataAnalysisClient {
                     .score(toPercent(item.proficiency(), "skill-vector.proficiency"))
                     .build());
         }
-        return SkillVectorResponse.builder().skills(skills).build();
+        return SkillVectorResponse.builder()
+                .taxonomyVersion(wire == null ? null : wire.taxonomyVersion())
+                .skills(skills)
+                .build();
     }
 
     // ── M3 skill gap ──────────────────────────────────────────────────────

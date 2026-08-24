@@ -12,7 +12,9 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update   # convenient for local dev; use validate/none once schema is stable
+      # Flyway owns every schema change. Hibernate only verifies that entities and migrations
+      # still agree, so local H2 cannot silently drift away from production MySQL.
+      ddl-auto: validate
     show-sql: true
     properties:
       hibernate:

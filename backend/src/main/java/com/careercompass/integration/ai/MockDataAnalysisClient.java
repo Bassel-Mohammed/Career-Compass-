@@ -71,7 +71,10 @@ public class MockDataAnalysisClient implements DataAnalysisClient {
                     .score(score)
                     .build());
         }
-        return SkillVectorResponse.builder().skills(skills).build();
+        return SkillVectorResponse.builder()
+                .taxonomyVersion("mock-v1")
+                .skills(skills)
+                .build();
     }
 
     @Override

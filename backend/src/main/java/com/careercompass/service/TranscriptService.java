@@ -21,7 +21,9 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * Business Layer for FR-JS-10 through FR-JS-14: transcript upload, extraction review,
@@ -194,6 +196,13 @@ public class TranscriptService {
                         .quizScores(quizScores)
                         .build());
 
+        // Python's current v1 response exposes taxonomy_version but not a durable vector id.
+        // Java therefore issues an opaque projection version for this persisted refresh. It is
+        // intentionally not derived from labels or scores and can later become the FK/reference
+        // to an immutable vector document without changing existing rows.
+        String vectorVersion = UUID.randomUUID().toString();
+        String taxonomyVersion = skillVector.getTaxonomyVersion();
+
         // Upsert every skill in the new vector, then remove only the rows it no longer
         // contains. Deleting the whole set first and re-inserting looks simpler but is not
         // equivalent: the removed rows stay in the persistence context until the transaction
@@ -201,7 +210,8 @@ public class TranscriptService {
         // inserts, leaving the job seeker with no skills at all.
         Set<Integer> currentSkillIds = new HashSet<>();
         for (SkillScoreDto skillScore : skillVector.getSkills()) {
-            currentSkillIds.add(persistJobseekerSkill(jobSeeker, skillScore));
+            currentSkillIds.add(persistJobseekerSkill(
+                    jobSeeker, skillScore, vectorVersion, taxonomyVersion));
         }
         removeSkillsNoLongerInVector(jobSeeker.getJobseekerId(), currentSkillIds);
 
@@ -227,6 +237,8 @@ public class TranscriptService {
         return SkillDashboardResponse.builder()
                 .jobseekerId(jobSeeker.getJobseekerId())
                 .careerPathTitle(jobSeeker.getCareerPath().getTitle())
+                .vectorVersion(vectorVersion)
+                .taxonomyVersion(taxonomyVersion)
                 .overallReadinessPercent(gapResponse.getOverallReadinessPercent())
                 .skills(skillLevels)
                 .basedOnQuizResults(!quizScores.isEmpty()) // FR-JS-20/21 vs FR-JS-22 fallback
@@ -272,8 +284,10 @@ public class TranscriptService {
     }
 
     /** @return the local skill id that was written, so the caller can identify stale rows. */
-    private Integer persistJobseekerSkill(JobSeeker jobSeeker, SkillScoreDto skillScore) {
-        Skill skill = getOrCreateSkill(skillScore.getSkillName());
+    private Integer persistJobseekerSkill(JobSeeker jobSeeker, SkillScoreDto skillScore,
+                                          String vectorVersion, String taxonomyVersion) {
+        validatePercentage(skillScore.getScore(), "skill score");
+        Skill skill = getOrCreateSkill(skillScore, taxonomyVersion);
         Level level = getOrCreateLevel(classifyLevel(skillScore.getScore()));
 
         JobseekerSkillId id = new JobseekerSkillId(jobSeeker.getJobseekerId(), skill.getSkillId());
@@ -283,14 +297,63 @@ public class TranscriptService {
 
         jobseekerSkill.setLevel(level);
         jobseekerSkill.setScore(skillScore.getScore());
+        jobseekerSkill.setVectorVersion(vectorVersion);
+        jobseekerSkill.setTaxonomyVersion(taxonomyVersion);
 
         jobseekerSkillRepository.save(jobseekerSkill);
         return skill.getSkillId();
     }
 
-    private Skill getOrCreateSkill(String skillName) {
-        return skillRepository.findBySkillName(skillName)
-                .orElseGet(() -> skillRepository.save(Skill.builder().skillName(skillName).build()));
+    private Skill getOrCreateSkill(SkillScoreDto skillScore, String taxonomyVersion) {
+        String canonicalSkillId = normalizeIdentity(skillScore.getSkillId());
+        String skillName = skillScore.getSkillName();
+
+        if (canonicalSkillId == null) {
+            // Legacy/mock compatibility only. Real v1 responses always carry a canonical id.
+            return skillRepository.findBySkillName(skillName)
+                    .orElseGet(() -> skillRepository.save(Skill.builder().skillName(skillName).build()));
+        }
+
+        Optional<Skill> byCanonicalId = skillRepository.findByCanonicalSkillId(canonicalSkillId);
+        if (byCanonicalId.isPresent()) {
+            Skill existing = byCanonicalId.get();
+            existing.setSkillName(skillName);
+            existing.setTaxonomyVersion(taxonomyVersion);
+            return skillRepository.save(existing);
+        }
+
+        // Safe lazy backfill: a legacy row may already represent this skill by its old label. It
+        // can be claimed only while it has no canonical identity; never overwrite a different id.
+        Optional<Skill> legacyByName = skillRepository.findBySkillName(skillName);
+        if (legacyByName.isPresent()) {
+            Skill legacy = legacyByName.get();
+            if (legacy.getCanonicalSkillId() != null
+                    && !canonicalSkillId.equals(legacy.getCanonicalSkillId())) {
+                throw new IllegalStateException(
+                        "Two canonical skills share the legacy label '" + skillName
+                                + "'. Backfill the skills table before retrying.");
+            }
+            legacy.setCanonicalSkillId(canonicalSkillId);
+            legacy.setTaxonomyVersion(taxonomyVersion);
+            return skillRepository.save(legacy);
+        }
+
+        return skillRepository.save(Skill.builder()
+                .canonicalSkillId(canonicalSkillId)
+                .skillName(skillName)
+                .taxonomyVersion(taxonomyVersion)
+                .build());
+    }
+
+    private String normalizeIdentity(String value) {
+        return value == null || value.isBlank() ? null : value.trim();
+    }
+
+    private void validatePercentage(BigDecimal value, String field) {
+        if (value == null || value.compareTo(BigDecimal.ZERO) < 0
+                || value.compareTo(BigDecimal.valueOf(100)) > 0) {
+            throw new IllegalStateException(field + " must be between 0 and 100.");
+        }
     }
 
     private Level getOrCreateLevel(String levelName) {

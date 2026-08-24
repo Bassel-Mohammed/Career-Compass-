@@ -4,6 +4,7 @@ import com.careercompass.dto.response.ApiErrorResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -77,6 +78,18 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiErrorResponse> handleDuplicateResource(DuplicateResourceException ex,
                                                                     HttpServletRequest request) {
         return build(HttpStatus.CONFLICT, "DUPLICATE_RESOURCE", ex.getMessage(), request, null);
+    }
+
+    /**
+     * Database constraints are the final guard for concurrent duplicate submissions and invalid
+     * score writes. Return a controlled conflict without leaking SQL or constraint details.
+     */
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<ApiErrorResponse> handleDataConflict(DataIntegrityViolationException ex,
+                                                               HttpServletRequest request) {
+        return build(HttpStatus.CONFLICT, "DATA_CONFLICT",
+                "The requested change conflicts with data that was already saved. Refresh and try again.",
+                request, null);
     }
 
     @ExceptionHandler(ResourceNotFoundException.class)

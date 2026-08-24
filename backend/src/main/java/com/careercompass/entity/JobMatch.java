@@ -2,6 +2,7 @@ package com.careercompass.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Check;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
  */
 @Entity
 @Table(name = "job_matches")
+@Check(name = "chk_job_match_score", constraints = "match_score BETWEEN 0 AND 100")
 @Getter
 @Setter
 @NoArgsConstructor

@@ -10,6 +10,14 @@ spring:
     deserialization:
       fail-on-unknown-properties: false
 
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    # Never guess that an arbitrary populated production schema is the baseline. Existing
+    # hand-created databases must be reviewed and baselined explicitly at V1 before startup.
+    baseline-on-migrate: false
+    validate-on-migrate: true
+
 server:
   port: 8080
   error:

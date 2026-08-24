@@ -2,6 +2,7 @@ package com.careercompass.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Check;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
  */
 @Entity
 @Table(name = "jobseeker_skills")
+@Check(name = "chk_jobseeker_skill_score", constraints = "score IS NULL OR score BETWEEN 0 AND 100")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -40,6 +42,14 @@ public class JobseekerSkill {
 
     @Column(name = "score", precision = 5, scale = 2)
     private BigDecimal score;
+
+    /** Java-issued identity of the current persisted projection refresh. */
+    @Column(name = "vector_version", length = 120)
+    private String vectorVersion;
+
+    /** Taxonomy version reported by the AI service for this projection, when available. */
+    @Column(name = "taxonomy_version", length = 120)
+    private String taxonomyVersion;
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;

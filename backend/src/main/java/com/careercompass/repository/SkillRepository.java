@@ -14,6 +14,8 @@ public interface SkillRepository extends JpaRepository<Skill, Integer> {
 
     Optional<Skill> findBySkillName(String skillName);
 
+    Optional<Skill> findByCanonicalSkillId(String canonicalSkillId);
+
     List<Skill> findBySkillNameIn(List<String> skillNames);
 
     boolean existsBySkillName(String skillName);

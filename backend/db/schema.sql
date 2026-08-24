@@ -19,9 +19,12 @@ CREATE TABLE study_fields (
 CREATE TABLE career_paths (
     career_path_id      INT AUTO_INCREMENT PRIMARY KEY,
     title                VARCHAR(150) NOT NULL,
+    career_path_code      VARCHAR(120) NULL,
+    ontology_version       VARCHAR(120) NULL,
     description          TEXT,
     created_by_admin_id  INT NULL,
     created_at           TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT uq_career_paths_code UNIQUE (career_path_code),
     CONSTRAINT fk_careerpath_admin
         FOREIGN KEY (created_by_admin_id) REFERENCES administrators(admin_id)
         ON DELETE SET NULL
@@ -154,9 +157,12 @@ CREATE TABLE quizzes (
     quiz_id       INT AUTO_INCREMENT PRIMARY KEY,
     jobseeker_id    INT NOT NULL,
     course_name       VARCHAR(200) NOT NULL,
+    skill_id            VARCHAR(120) NULL,
     generated_at        TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     score                 DECIMAL(5,2),
     taken_at                TIMESTAMP NULL,
+    INDEX idx_quizzes_jobseeker_skill (jobseeker_id, skill_id),
+    CONSTRAINT chk_quiz_score CHECK (score IS NULL OR score BETWEEN 0 AND 100),
     CONSTRAINT fk_quiz_jobseeker
         FOREIGN KEY (jobseeker_id) REFERENCES job_seekers(jobseeker_id)
         ON DELETE CASCADE
@@ -170,7 +176,7 @@ CREATE TABLE quiz_questions (
     option_b               VARCHAR(300) NOT NULL,
     option_c               VARCHAR(300) NOT NULL,
     option_d               VARCHAR(300) NOT NULL,
-    correct_option           CHAR(1) NOT NULL,
+    correct_option           VARCHAR(1) NOT NULL,
     CONSTRAINT chk_correct_option CHECK (correct_option IN ('A','B','C','D')),
     CONSTRAINT fk_qq_quiz
         FOREIGN KEY (quiz_id) REFERENCES quizzes(quiz_id)
@@ -180,9 +186,10 @@ CREATE TABLE quiz_questions (
 CREATE TABLE quiz_responses (
     response_id       INT AUTO_INCREMENT PRIMARY KEY,
     question_id         INT NOT NULL,
-    selected_option        CHAR(1) NOT NULL,
+    selected_option        VARCHAR(1) NOT NULL,
     is_correct               BOOLEAN NOT NULL,
     answered_at                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT uq_quiz_response_question UNIQUE (question_id),
     CONSTRAINT chk_selected_option CHECK (selected_option IN ('A','B','C','D')),
     CONSTRAINT fk_qr_question
         FOREIGN KEY (question_id) REFERENCES quiz_questions(question_id)
@@ -191,7 +198,10 @@ CREATE TABLE quiz_responses (
 
 CREATE TABLE skills (
     skill_id     INT AUTO_INCREMENT PRIMARY KEY,
-    skill_name     VARCHAR(150) NOT NULL UNIQUE
+    skill_name     VARCHAR(150) NOT NULL UNIQUE,
+    canonical_skill_id VARCHAR(120) NULL,
+    taxonomy_version VARCHAR(120) NULL,
+    CONSTRAINT uq_skills_canonical_skill_id UNIQUE (canonical_skill_id)
 );
 
 CREATE TABLE levels (
@@ -204,8 +214,12 @@ CREATE TABLE jobseeker_skills (
     skill_id         INT NOT NULL,
     level_id           INT NOT NULL,
     score                 DECIMAL(5,2),
+    vector_version          VARCHAR(120) NULL,
+    taxonomy_version         VARCHAR(120) NULL,
     updated_at              TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (jobseeker_id, skill_id),
+    INDEX idx_jobseeker_skills_vector_version (jobseeker_id, vector_version),
+    CONSTRAINT chk_jobseeker_skill_score CHECK (score IS NULL OR score BETWEEN 0 AND 100),
     CONSTRAINT fk_js_skill_jobseeker
         FOREIGN KEY (jobseeker_id) REFERENCES job_seekers(jobseeker_id)
         ON DELETE CASCADE,
@@ -262,6 +276,7 @@ CREATE TABLE job_matches (
     match_score        DECIMAL(5,2) NOT NULL,
     matched_at            TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (job_id, jobseeker_id),
+    CONSTRAINT chk_job_match_score CHECK (match_score BETWEEN 0 AND 100),
     CONSTRAINT fk_match_job
         FOREIGN KEY (job_id) REFERENCES jobs(job_id)
         ON DELETE CASCADE,

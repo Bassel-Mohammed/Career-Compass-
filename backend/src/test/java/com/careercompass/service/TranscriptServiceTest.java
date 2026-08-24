@@ -143,12 +143,16 @@ class TranscriptServiceTest {
 
         when(dataAnalysisClient.buildSkillVector(any(BuildSkillVectorRequest.class)))
                 .thenReturn(SkillVectorResponse.builder()
+                        .taxonomyVersion("taxonomy-2026-08")
                         .skills(List.of(SkillScoreDto.builder()
+                                .skillId("custom:data-structures")
                                 .skillName("Data Structures")
                                 .score(BigDecimal.valueOf(90))
                                 .build()))
                         .build());
 
+        when(skillRepository.findByCanonicalSkillId("custom:data-structures"))
+                .thenReturn(Optional.empty());
         when(skillRepository.findBySkillName("Data Structures")).thenReturn(Optional.empty());
         when(skillRepository.save(any(Skill.class))).thenAnswer(inv -> {
             Skill s = inv.getArgument(0);
@@ -204,6 +208,18 @@ class TranscriptServiceTest {
             assertThat(course.getCourseName()).isEqualTo("Data Structures");
         });
         verify(jobseekerSkillRepository).save(any(JobseekerSkill.class));
+
+        ArgumentCaptor<Skill> skillCaptor = ArgumentCaptor.forClass(Skill.class);
+        verify(skillRepository).save(skillCaptor.capture());
+        assertThat(skillCaptor.getValue().getCanonicalSkillId()).isEqualTo("custom:data-structures");
+        assertThat(skillCaptor.getValue().getTaxonomyVersion()).isEqualTo("taxonomy-2026-08");
+
+        ArgumentCaptor<JobseekerSkill> projectionCaptor = ArgumentCaptor.forClass(JobseekerSkill.class);
+        verify(jobseekerSkillRepository).save(projectionCaptor.capture());
+        assertThat(projectionCaptor.getValue().getVectorVersion()).isNotBlank();
+        assertThat(projectionCaptor.getValue().getTaxonomyVersion()).isEqualTo("taxonomy-2026-08");
+        assertThat(dashboard.getVectorVersion()).isEqualTo(projectionCaptor.getValue().getVectorVersion());
+        assertThat(dashboard.getTaxonomyVersion()).isEqualTo("taxonomy-2026-08");
     }
 
     // Purpose: persisted records retain their course identity when a dashboard is reconstructed.
