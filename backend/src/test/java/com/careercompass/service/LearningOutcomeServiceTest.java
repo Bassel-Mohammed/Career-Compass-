@@ -88,10 +88,6 @@ class LearningOutcomeServiceTest {
     // Purpose: Upload Learning Outcome - rejects Non Pdf File.
     @Test
     void uploadLearningOutcome_rejectsNonPdfFile() {
-        StudyField studyField = StudyField.builder().studyFieldId(20).build();
-        ContentManager cm = ContentManager.builder().contentManagerId(1).studyField(studyField).build();
-        when(contentManagerRepository.findById(1)).thenReturn(Optional.of(cm));
-
         MockMultipartFile file = new MockMultipartFile(
                 "file", "outcomes.txt", "text/plain", "content".getBytes());
 

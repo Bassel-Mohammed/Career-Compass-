@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ContextConfiguration;
@@ -32,6 +33,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * exception mapping itself, not authentication, is what's under test here.
  */
 @WebMvcTest(controllers = GlobalExceptionHandlerTest.ThrowingTestController.class)
+@AutoConfigureMockMvc(addFilters = false)
 @ContextConfiguration(classes = {
         GlobalExceptionHandlerTest.ThrowingTestController.class,
         GlobalExceptionHandler.class

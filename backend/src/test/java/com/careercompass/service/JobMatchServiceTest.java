@@ -76,9 +76,11 @@ class JobMatchServiceTest {
         when(jobRepository.findByIsActiveTrue(any()))
                 .thenReturn(new PageImpl<>(List.of(lowMatchJob, highMatchJob)));
 
-        when(dataAnalysisClient.scoreJobMatch(argThat(r -> "Low Match".equals(r.getJobTitle()))))
+        when(dataAnalysisClient.scoreJobMatch(argThat(
+                        r -> r != null && "Low Match".equals(r.getJobTitle()))))
                 .thenReturn(JobMatchResponse.builder().matchScore(BigDecimal.valueOf(40)).explanation("meh").build());
-        when(dataAnalysisClient.scoreJobMatch(argThat(r -> "High Match".equals(r.getJobTitle()))))
+        when(dataAnalysisClient.scoreJobMatch(argThat(
+                        r -> r != null && "High Match".equals(r.getJobTitle()))))
                 .thenReturn(JobMatchResponse.builder().matchScore(BigDecimal.valueOf(90)).explanation("great fit").build());
 
         when(jobMatchRepository.findById(any())).thenReturn(Optional.empty());

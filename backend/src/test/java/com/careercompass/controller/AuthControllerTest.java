@@ -10,6 +10,7 @@ import com.careercompass.security.jwt.JwtAuthFilter;
 import com.careercompass.security.jwt.JwtProperties;
 import com.careercompass.security.jwt.JwtTokenProvider;
 import com.careercompass.service.AuthService;
+import com.careercompass.service.TokenRevocationService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +58,9 @@ class AuthControllerTest {
 
     @MockBean
     private AuthService authService;
+
+    @MockBean
+    private TokenRevocationService tokenRevocationService;
 
     // Purpose: valid registration request returns 201 CREATED with a JWT in the response body.
     @Test

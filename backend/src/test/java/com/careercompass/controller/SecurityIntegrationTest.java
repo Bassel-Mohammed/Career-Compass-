@@ -13,6 +13,7 @@ import com.careercompass.service.EmployerService;
 import com.careercompass.service.JobMatchService;
 import com.careercompass.service.JobSeekerService;
 import com.careercompass.service.JobService;
+import com.careercompass.service.TokenRevocationService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -69,6 +70,9 @@ class SecurityIntegrationTest {
 
     @MockBean
     private JobMatchService jobMatchService;
+
+    @MockBean
+    private TokenRevocationService tokenRevocationService;
 
     private String jobSeekerToken;
     private String employerToken;
