@@ -1,0 +1,2178 @@
+{
+  "course_code": "0413403",
+  "total_skills": 47,
+  "course_title": "Database Systems",
+  "source_file": "database_systems.pdf",
+  "taxonomy_version": "1.0",
+  "match_summary": {
+    "by_status": {
+      "accepted": 24,
+      "no_match": 17,
+      "needs_review": 6
+    },
+    "by_method": {
+      "exact_alias": 5,
+      "embedding_reranker": 28,
+      "llm": 14
+    }
+  },
+  "skills": [
+    {
+      "term": "SQL",
+      "canonical": {
+        "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "label": "SQL",
+        "taxonomy": "esco"
+      },
+      "level": "intermediate",
+      "weight": 1.0,
+      "evidence_count": 3,
+      "sources": [
+        "clo",
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Use Structured Query Language (SQL) to create, manipulate and query a database."
+        },
+        {
+          "source": "topic",
+          "week": 10,
+          "text": "Basic SQL"
+        },
+        {
+          "source": "description",
+          "text": "SQL"
+        }
+      ],
+      "match": {
+        "original_term": "SQL",
+        "canonical_id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "canonical_label": "SQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "tables",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 2,
+      "sources": [
+        "clo",
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Describe the basic concepts of the relational data model; tables and relations"
+        },
+        {
+          "source": "lab",
+          "week": 2,
+          "text": "Lab 2: Create tables"
+        }
+      ],
+      "match": {
+        "original_term": "tables",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.241,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.241
+          },
+          {
+            "id": "esco:b0a3bb25-a02f-43ed-ab1f-994fa66a424a",
+            "label": "online analytical processing",
+            "score": 0.238
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.236
+          }
+        ]
+      }
+    },
+    {
+      "term": "data management",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 1,
+          "text": "Define the basic data management concepts."
+        }
+      ],
+      "match": {
+        "original_term": "data management",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.6,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'data management' is not clearly matched by any of the provided taxonomy entries, as none directly refer to the concept of managing data in a broad sense, which includes organizing, storing, and handling data.",
+        "candidates": [
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.486
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.485
+          },
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.485
+          }
+        ]
+      }
+    },
+    {
+      "term": "database system using Entity- Relationship Diagram",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "advanced",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Design a database system using Entity- Relationship Diagram (ERD) and Enhanced Entity-Relationship Diagram (EERD)."
+        }
+      ],
+      "match": {
+        "original_term": "database system using Entity- Relationship Diagram",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'database system using Entity-Relationship Diagram' directly aligns with 'database design' as it involves structuring tables, keys, and relationships using ER diagrams, which is exactly what 'database design' encompasses.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.541
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.52
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.464
+          }
+        ]
+      }
+    },
+    {
+      "term": "EERD",
+      "canonical": null,
+      "level": "advanced",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Design a database system using Entity- Relationship Diagram (ERD) and Enhanced Entity-Relationship Diagram (EERD)."
+        }
+      ],
+      "match": {
+        "original_term": "EERD",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.287,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.287
+          },
+          {
+            "id": "esco:9ef0f3a0-9ce2-4ef1-a987-0366b5cb2dbe",
+            "label": "database development tools",
+            "score": 0.265
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.259
+          }
+        ]
+      }
+    },
+    {
+      "term": "Enhanced Entity-Relationship Diagram",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "advanced",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Design a database system using Entity- Relationship Diagram (ERD) and Enhanced Entity-Relationship Diagram (EERD)."
+        }
+      ],
+      "match": {
+        "original_term": "Enhanced Entity-Relationship Diagram",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Enhanced Entity-Relationship Diagram' is directly related to database design, which is explicitly covered under the 'database design' entry, including ER diagrams and EERD.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.618
+          },
+          {
+            "id": "esco:43ec6db6-33f7-449b-a566-5779a7e8997a",
+            "label": "OpenEdge Database",
+            "score": 0.303
+          },
+          {
+            "id": "esco:de9f85ba-e77f-48fd-8c66-f5ebaf32d655",
+            "label": "Oracle Relational Database",
+            "score": 0.284
+          }
+        ]
+      }
+    },
+    {
+      "term": "ERD",
+      "canonical": null,
+      "level": "advanced",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 2,
+          "text": "Design a database system using Entity- Relationship Diagram (ERD) and Enhanced Entity-Relationship Diagram (EERD)."
+        }
+      ],
+      "match": {
+        "original_term": "ERD",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.319,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.319
+          },
+          {
+            "id": "esco:9ef0f3a0-9ce2-4ef1-a987-0366b5cb2dbe",
+            "label": "database development tools",
+            "score": 0.268
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.261
+          }
+        ]
+      }
+    },
+    {
+      "term": "manipulate",
+      "canonical": null,
+      "level": "intermediate",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Use Structured Query Language (SQL) to create, manipulate and query a database."
+        }
+      ],
+      "match": {
+        "original_term": "manipulate",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.281,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.281
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.257
+          },
+          {
+            "id": "esco:c7d24594-0c11-4b27-9039-fe0bb903da8e",
+            "label": "LINQ",
+            "score": 0.242
+          }
+        ]
+      }
+    },
+    {
+      "term": "normalization process to relational databases",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "intermediate",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 5,
+          "text": "Apply the normalization process to relational databases."
+        }
+      ],
+      "match": {
+        "original_term": "normalization process to relational databases",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'normalization process to relational databases' directly aligns with the 'database design' skill, which explicitly includes normalization as part of its description.",
+        "candidates": [
+          {
+            "id": "esco:de9f85ba-e77f-48fd-8c66-f5ebaf32d655",
+            "label": "Oracle Relational Database",
+            "score": 0.52
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.516
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.507
+          }
+        ]
+      }
+    },
+    {
+      "term": "query a database",
+      "canonical": {
+        "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+        "label": "database",
+        "taxonomy": "esco"
+      },
+      "level": "intermediate",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Use Structured Query Language (SQL) to create, manipulate and query a database."
+        }
+      ],
+      "match": {
+        "original_term": "query a database",
+        "canonical_id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+        "canonical_label": "database",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.67,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.13",
+        "candidates": [
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.67
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.539
+          },
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.506
+          }
+        ]
+      }
+    },
+    {
+      "term": "relational data model",
+      "canonical": {
+        "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+        "label": "data models",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Describe the basic concepts of the relational data model; tables and relations"
+        }
+      ],
+      "match": {
+        "original_term": "relational data model",
+        "canonical_id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+        "canonical_label": "data models",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.645,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.15",
+        "candidates": [
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.645
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.495
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.417
+          }
+        ]
+      }
+    },
+    {
+      "term": "relations",
+      "canonical": {
+        "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+        "label": "data models",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 3,
+          "text": "Describe the basic concepts of the relational data model; tables and relations"
+        }
+      ],
+      "match": {
+        "original_term": "relations",
+        "canonical_id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+        "canonical_label": "data models",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'relations' in the context of relational data model and tables directly aligns with the concept of relationships between data elements described in 'data models'.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.407
+          },
+          {
+            "id": "esco:f6424ebb-8401-446b-9f7e-10d7c854da02",
+            "label": "ICT network simulation",
+            "score": 0.254
+          },
+          {
+            "id": "esco:a4346013-a967-4a58-a533-6b32ad1364c5",
+            "label": "data protection",
+            "score": 0.249
+          }
+        ]
+      }
+    },
+    {
+      "term": "Structured Query Language to create",
+      "canonical": {
+        "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "label": "SQL",
+        "taxonomy": "esco"
+      },
+      "level": "intermediate",
+      "weight": 1.0,
+      "evidence_count": 1,
+      "sources": [
+        "clo"
+      ],
+      "evidence": [
+        {
+          "source": "clo",
+          "clo": 4,
+          "text": "Use Structured Query Language (SQL) to create, manipulate and query a database."
+        }
+      ],
+      "match": {
+        "original_term": "Structured Query Language to create",
+        "canonical_id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "canonical_label": "SQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.814,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.24",
+        "candidates": [
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.814
+          },
+          {
+            "id": "esco:9cf681c7-89ec-470c-b651-7fe03786f586",
+            "label": "query languages",
+            "score": 0.572
+          },
+          {
+            "id": "esco:99207709-d076-4cce-ba38-e90d3bb28806",
+            "label": "resource description framework query language",
+            "score": 0.554
+          }
+        ]
+      }
+    },
+    {
+      "term": "keys",
+      "canonical": null,
+      "level": "advanced",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Lab 4: Alter table and keys"
+        },
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Lab 5: keys & DML Statements"
+        }
+      ],
+      "match": {
+        "original_term": "keys",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.19,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:06f33d6a-f7a7-4a2b-baa5-8c3c53bd1a9c",
+            "label": "keywords in digital content",
+            "score": 0.19
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.188
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.172
+          }
+        ]
+      }
+    },
+    {
+      "term": "users",
+      "canonical": null,
+      "level": "intermediate",
+      "weight": 0.9,
+      "evidence_count": 2,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 10,
+          "text": "Lab 9: Create users"
+        },
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Lab 10: grant privilege for users"
+        }
+      ],
+      "match": {
+        "original_term": "users",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'users' refers to creating and managing user accounts and privileges, which is not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:user-research",
+            "label": "user research",
+            "score": 0.493
+          },
+          {
+            "id": "custom:ui-design",
+            "label": "user interface design",
+            "score": 0.404
+          },
+          {
+            "id": "custom:git",
+            "label": "Git",
+            "score": 0.184
+          }
+        ]
+      }
+    },
+    {
+      "term": "Normalization",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "intermediate",
+      "weight": 0.8,
+      "evidence_count": 2,
+      "sources": [
+        "topic",
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Normalization for"
+        },
+        {
+          "source": "description",
+          "text": "normalization"
+        }
+      ],
+      "match": {
+        "original_term": "Normalization",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Normalization' is explicitly listed in the 'also called' field of the 'database design' entry, indicating it refers to the same skill.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.879
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.288
+          },
+          {
+            "id": "custom:normal-distribution",
+            "label": "normal distribution",
+            "score": 0.284
+          }
+        ]
+      }
+    },
+    {
+      "term": "Alter table",
+      "canonical": null,
+      "level": "advanced",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 4,
+          "text": "Lab 4: Alter table and keys"
+        }
+      ],
+      "match": {
+        "original_term": "Alter table",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.252,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:tableau",
+            "label": "Tableau",
+            "score": 0.252
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.219
+          },
+          {
+            "id": "custom:jupyter",
+            "label": "Jupyter Notebook",
+            "score": 0.219
+          }
+        ]
+      }
+    },
+    {
+      "term": "Delete tables",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 3,
+          "text": "Lab 3 :Delete tables"
+        }
+      ],
+      "match": {
+        "original_term": "Delete tables",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.247,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:tableau",
+            "label": "Tableau",
+            "score": 0.247
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.187
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.184
+          }
+        ]
+      }
+    },
+    {
+      "term": "DML Statements",
+      "canonical": null,
+      "level": "advanced",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 5,
+          "text": "Lab 5: keys & DML Statements"
+        }
+      ],
+      "match": {
+        "original_term": "DML Statements",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.243,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:a4d336a6-9ffd-402a-91cc-f359716ba4e0",
+            "label": "ML (computer programming)",
+            "score": 0.243
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.206
+          },
+          {
+            "id": "custom:performance-testing",
+            "label": "performance testing",
+            "score": 0.176
+          }
+        ]
+      }
+    },
+    {
+      "term": "Foreign Keys",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 6,
+          "text": "Lab 6: Foreign Keys"
+        }
+      ],
+      "match": {
+        "original_term": "Foreign Keys",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.195,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:tensorflow",
+            "label": "TensorFlow",
+            "score": 0.195
+          },
+          {
+            "id": "esco:558337fa-2e6a-4733-ba02-3bc00a7ca26e",
+            "label": "locking mechanisms",
+            "score": 0.188
+          },
+          {
+            "id": "custom:large-language-models",
+            "label": "large language models",
+            "score": 0.171
+          }
+        ]
+      }
+    },
+    {
+      "term": "grant privilege",
+      "canonical": null,
+      "level": "intermediate",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 11,
+          "text": "Lab 10: grant privilege for users"
+        }
+      ],
+      "match": {
+        "original_term": "grant privilege",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.202,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:secure-coding",
+            "label": "secure coding practices",
+            "score": 0.202
+          },
+          {
+            "id": "custom:natural-language-processing",
+            "label": "natural language processing",
+            "score": 0.176
+          },
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.175
+          }
+        ]
+      }
+    },
+    {
+      "term": "Statement Part1",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 7,
+          "text": "Lab 7: Select Statement Part1"
+        }
+      ],
+      "match": {
+        "original_term": "Statement Part1",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.193,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:reinforcement-learning",
+            "label": "reinforcement learning",
+            "score": 0.193
+          },
+          {
+            "id": "custom:technical-documentation",
+            "label": "technical documentation",
+            "score": 0.192
+          },
+          {
+            "id": "esco:c8cfa83b-bc13-4f8c-97b7-5269119fa4d6",
+            "label": "filing machine parts",
+            "score": 0.186
+          }
+        ]
+      }
+    },
+    {
+      "term": "Statement Part2",
+      "canonical": null,
+      "level": "intermediate",
+      "weight": 0.8,
+      "evidence_count": 1,
+      "sources": [
+        "lab"
+      ],
+      "evidence": [
+        {
+          "source": "lab",
+          "week": 9,
+          "text": "Lab 8: Select Statement Part2"
+        }
+      ],
+      "match": {
+        "original_term": "Statement Part2",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.179,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:ros-parameter-server",
+            "label": "ROS parameter server",
+            "score": 0.179
+          },
+          {
+            "id": "custom:pandas",
+            "label": "pandas",
+            "score": 0.169
+          },
+          {
+            "id": "custom:retrieval-augmented-generation",
+            "label": "retrieval-augmented generation",
+            "score": 0.165
+          }
+        ]
+      }
+    },
+    {
+      "term": "Basics of Functional Dependencies",
+      "canonical": null,
+      "level": "intermediate",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 13,
+          "text": "Basics of Functional Dependencies"
+        }
+      ],
+      "match": {
+        "original_term": "Basics of Functional Dependencies",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.382,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "esco:c8ac1986-38fa-43b2-89dc-50a4beeb420e",
+            "label": "electricity",
+            "score": 0.382
+          },
+          {
+            "id": "custom:robot-programming",
+            "label": "robot programming",
+            "score": 0.322
+          },
+          {
+            "id": "esco:95c35c3a-035f-47c2-90cf-7e934d20fc08",
+            "label": "electronics",
+            "score": 0.256
+          }
+        ]
+      }
+    },
+    {
+      "term": "Calculus",
+      "canonical": {
+        "id": "custom:calculus",
+        "label": "calculus",
+        "taxonomy": "custom"
+      },
+      "level": "intermediate",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Relational Algebra and Calculus"
+        }
+      ],
+      "match": {
+        "original_term": "Calculus",
+        "canonical_id": "custom:calculus",
+        "canonical_label": "calculus",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Complex SQL",
+      "canonical": {
+        "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "label": "SQL",
+        "taxonomy": "esco"
+      },
+      "level": "intermediate",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 11,
+          "text": "Complex SQL"
+        }
+      ],
+      "match": {
+        "original_term": "Complex SQL",
+        "canonical_id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "canonical_label": "SQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Complex SQL' directly refers to the SQL skill, which is explicitly listed in the taxonomy entry with the label 'SQL' and includes related terms like 'Subquery' and 'SQL queries'.",
+        "candidates": [
+          {
+            "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+            "label": "SQL",
+            "score": 0.586
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.58
+          },
+          {
+            "id": "esco:c062bab3-3ea0-4291-9220-a2d8fef4bead",
+            "label": "SQL Server",
+            "score": 0.437
+          }
+        ]
+      }
+    },
+    {
+      "term": "Data Modeling Using Entity",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "advanced",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Data Modeling Using Entity-"
+        }
+      ],
+      "match": {
+        "original_term": "Data Modeling Using Entity",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.658,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.24",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.658
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.423
+          },
+          {
+            "id": "custom:data-visualization",
+            "label": "data visualization",
+            "score": 0.381
+          }
+        ]
+      }
+    },
+    {
+      "term": "Database System",
+      "canonical": {
+        "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+        "label": "database management systems",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 2,
+          "text": "Database System Concepts"
+        }
+      ],
+      "match": {
+        "original_term": "Database System",
+        "canonical_id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+        "canonical_label": "database management systems",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "Database System Architecture",
+      "canonical": {
+        "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+        "label": "database management systems",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 3,
+          "text": "Database System Architecture"
+        }
+      ],
+      "match": {
+        "original_term": "Database System Architecture",
+        "canonical_id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+        "canonical_label": "database management systems",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.663,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.10",
+        "candidates": [
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.663
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.563
+          },
+          {
+            "id": "esco:1bba98a7-92b9-450b-9235-e0c905f8f3c4",
+            "label": "information architecture",
+            "score": 0.458
+          }
+        ]
+      }
+    },
+    {
+      "term": "Databases",
+      "canonical": {
+        "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+        "label": "database",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 1,
+          "text": "Introduction to Databases"
+        }
+      ],
+      "match": {
+        "original_term": "Databases",
+        "canonical_id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+        "canonical_label": "database",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    },
+    {
+      "term": "EER",
+      "canonical": null,
+      "level": "advanced",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Enhanced Entity-Relationship (EER)"
+        }
+      ],
+      "match": {
+        "original_term": "EER",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.288,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.288
+          },
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.259
+          },
+          {
+            "id": "custom:data-analysis",
+            "label": "data analysis",
+            "score": 0.174
+          }
+        ]
+      }
+    },
+    {
+      "term": "EER- to-Relational Mapping",
+      "canonical": null,
+      "level": "intermediate",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Relational DB Design by ER and EER- to-Relational Mapping"
+        }
+      ],
+      "match": {
+        "original_term": "EER- to-Relational Mapping",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.339,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.339
+          },
+          {
+            "id": "esco:9d0d89be-bffa-4393-b6f6-8d05bea49051",
+            "label": "data extraction, transformation and loading tools",
+            "score": 0.248
+          },
+          {
+            "id": "esco:9ef0f3a0-9ce2-4ef1-a987-0366b5cb2dbe",
+            "label": "database development tools",
+            "score": 0.225
+          }
+        ]
+      }
+    },
+    {
+      "term": "Enhanced Entity-Relationship",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "advanced",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Enhanced Entity-Relationship (EER)"
+        }
+      ],
+      "match": {
+        "original_term": "Enhanced Entity-Relationship",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "Enhanced Entity-Relationship (EER) is a specific type of database design that extends the Entity-Relationship model, which is explicitly mentioned in the also called list for database design.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.607
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.243
+          },
+          {
+            "id": "custom:etl",
+            "label": "ETL pipelines",
+            "score": 0.211
+          }
+        ]
+      }
+    },
+    {
+      "term": "Mapping",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Relational Database Design (Mapping)"
+        }
+      ],
+      "match": {
+        "original_term": "Mapping",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.327,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.327
+          },
+          {
+            "id": "esco:25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+            "label": "data mining",
+            "score": 0.307
+          },
+          {
+            "id": "esco:0da6cab1-0ee9-4391-a299-f71fbf21db56",
+            "label": "ICT network routing",
+            "score": 0.288
+          }
+        ]
+      }
+    },
+    {
+      "term": "Modeling",
+      "canonical": null,
+      "level": "advanced",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 5,
+          "text": "Modeling"
+        }
+      ],
+      "match": {
+        "original_term": "Modeling",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.662,
+        "review_status": "needs_review",
+        "reason": "generic one-word term with no syllabus context beyond itself; nothing to disambiguate with",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.662
+          },
+          {
+            "id": "esco:cb304338-3a44-4b6f-802b-dfc6c64de109",
+            "label": "scientific modelling",
+            "score": 0.286
+          },
+          {
+            "id": "custom:wireframing",
+            "label": "wireframing and prototyping",
+            "score": 0.233
+          }
+        ]
+      }
+    },
+    {
+      "term": "Relational Algebra",
+      "canonical": null,
+      "level": "intermediate",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 12,
+          "text": "Relational Algebra and Calculus"
+        }
+      ],
+      "match": {
+        "original_term": "Relational Algebra",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Relational Algebra' refers to a specific mathematical framework used in database theory, which is not covered by any of the provided taxonomy entries.",
+        "candidates": [
+          {
+            "id": "custom:linear-algebra",
+            "label": "linear algebra",
+            "score": 0.501
+          },
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.378
+          },
+          {
+            "id": "custom:correlation-analysis",
+            "label": "correlation analysis",
+            "score": 0.266
+          }
+        ]
+      }
+    },
+    {
+      "term": "Relational Database Constraints",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 7,
+          "text": "Relational Database Constraints"
+        }
+      ],
+      "match": {
+        "original_term": "Relational Database Constraints",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The phrase 'Relational Database Constraints' refers to specific rules or conditions applied within a relational database, which is not directly captured by any of the provided taxonomy entries. None of the candidates accurately represent this skill.",
+        "candidates": [
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.515
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.424
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.403
+          }
+        ]
+      }
+    },
+    {
+      "term": "Relational Database Design",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 6,
+          "text": "Relational Database Design (Mapping)"
+        }
+      ],
+      "match": {
+        "original_term": "Relational Database Design",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.736,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.18",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.736
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.554
+          },
+          {
+            "id": "esco:b0a3bb25-a02f-43ed-ab1f-994fa66a424a",
+            "label": "online analytical processing",
+            "score": 0.434
+          }
+        ]
+      }
+    },
+    {
+      "term": "Relational Databases",
+      "canonical": {
+        "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+        "label": "database",
+        "taxonomy": "esco"
+      },
+      "level": "intermediate",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 14,
+          "text": "Relational Databases"
+        }
+      ],
+      "match": {
+        "original_term": "Relational Databases",
+        "canonical_id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+        "canonical_label": "database",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.85,
+        "review_status": "accepted",
+        "reason": "The phrase 'Relational Databases' is a specific type of database, and the entry 'database' in the taxonomy includes all types of databases, including relational ones.",
+        "candidates": [
+          {
+            "id": "esco:de9f85ba-e77f-48fd-8c66-f5ebaf32d655",
+            "label": "Oracle Relational Database",
+            "score": 0.656
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.611
+          },
+          {
+            "id": "custom:vector-databases",
+            "label": "vector databases",
+            "score": 0.481
+          }
+        ]
+      }
+    },
+    {
+      "term": "Relational DB Design by ER",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "intermediate",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 9,
+          "text": "Relational DB Design by ER and EER- to-Relational Mapping"
+        }
+      ],
+      "match": {
+        "original_term": "Relational DB Design by ER",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.95,
+        "review_status": "accepted",
+        "reason": "The phrase 'Relational DB Design by ER' directly relates to database design, specifically using Entity-Relationship (ER) modeling, which is explicitly covered in the 'database design' entry.",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.408
+          },
+          {
+            "id": "esco:de9f85ba-e77f-48fd-8c66-f5ebaf32d655",
+            "label": "Oracle Relational Database",
+            "score": 0.382
+          },
+          {
+            "id": "esco:9ef0f3a0-9ce2-4ef1-a987-0366b5cb2dbe",
+            "label": "database development tools",
+            "score": 0.201
+          }
+        ]
+      }
+    },
+    {
+      "term": "Relationship Model",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "advanced",
+      "weight": 0.7,
+      "evidence_count": 1,
+      "sources": [
+        "topic"
+      ],
+      "evidence": [
+        {
+          "source": "topic",
+          "week": 4,
+          "text": "Relationship (ER) Model"
+        }
+      ],
+      "match": {
+        "original_term": "Relationship Model",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.844,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.39",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.844
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.451
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.433
+          }
+        ]
+      }
+    },
+    {
+      "term": "Database schema",
+      "canonical": {
+        "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+        "label": "database",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Database schema"
+        }
+      ],
+      "match": {
+        "original_term": "Database schema",
+        "canonical_id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+        "canonical_label": "database",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.655,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.15",
+        "candidates": [
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.655
+          },
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.507
+          },
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.507
+          }
+        ]
+      }
+    },
+    {
+      "term": "Entity Relationship Modeling",
+      "canonical": {
+        "id": "custom:database-design",
+        "label": "database design",
+        "taxonomy": "custom"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Entity Relationship Modeling"
+        }
+      ],
+      "match": {
+        "original_term": "Entity Relationship Modeling",
+        "canonical_id": "custom:database-design",
+        "canonical_label": "database design",
+        "taxonomy": "custom",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.712,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.47",
+        "candidates": [
+          {
+            "id": "custom:database-design",
+            "label": "database design",
+            "score": 0.712
+          },
+          {
+            "id": "esco:fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+            "label": "data models",
+            "score": 0.238
+          },
+          {
+            "id": "custom:computer-networks",
+            "label": "computer networks",
+            "score": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "term": "management",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "management"
+        }
+      ],
+      "match": {
+        "original_term": "management",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "llm",
+        "match_score": 0.0,
+        "review_status": "needs_review",
+        "reason": "low-confidence no_match: The extracted phrase 'management' is too generic and does not match any of the specific skills in the taxonomy shortlist.",
+        "candidates": [
+          {
+            "id": "custom:project-management",
+            "label": "project management",
+            "score": 0.669
+          },
+          {
+            "id": "custom:operating-systems",
+            "label": "operating systems",
+            "score": 0.652
+          },
+          {
+            "id": "esco:cf532795-a1fd-43bd-8407-6e43f877e6e3",
+            "label": "mobile device management",
+            "score": 0.551
+          }
+        ]
+      }
+    },
+    {
+      "term": "redundancy elimination",
+      "canonical": null,
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "redundancy elimination"
+        }
+      ],
+      "match": {
+        "original_term": "redundancy elimination",
+        "canonical_id": null,
+        "canonical_label": null,
+        "taxonomy": null,
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.221,
+        "review_status": "no_match",
+        "reason": "best candidate below the review floor",
+        "candidates": [
+          {
+            "id": "custom:calculus",
+            "label": "calculus",
+            "score": 0.221
+          },
+          {
+            "id": "esco:21c27eba-bd1f-42f5-a1d5-c250227030f7",
+            "label": "electricity consumption",
+            "score": 0.21
+          },
+          {
+            "id": "esco:2fd40b98-4b70-439a-981e-539b52d7f038",
+            "label": "demining operations",
+            "score": 0.208
+          }
+        ]
+      }
+    },
+    {
+      "term": "Relational Database Management Systems",
+      "canonical": {
+        "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+        "label": "database management systems",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Relational Database Management Systems"
+        }
+      ],
+      "match": {
+        "original_term": "Relational Database Management Systems",
+        "canonical_id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+        "canonical_label": "database management systems",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "embedding_reranker",
+        "match_score": 0.774,
+        "review_status": "accepted",
+        "reason": "leads the runner-up by 0.22",
+        "candidates": [
+          {
+            "id": "esco:ab1e97ed-2319-4293-a8b7-072d2648822f",
+            "label": "database management systems",
+            "score": 0.774
+          },
+          {
+            "id": "esco:de9f85ba-e77f-48fd-8c66-f5ebaf32d655",
+            "label": "Oracle Relational Database",
+            "score": 0.551
+          },
+          {
+            "id": "esco:43ae58b9-5e56-4524-b45a-b422777a0576",
+            "label": "database",
+            "score": 0.481
+          }
+        ]
+      }
+    },
+    {
+      "term": "Structured Query Language",
+      "canonical": {
+        "id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "label": "SQL",
+        "taxonomy": "esco"
+      },
+      "level": "beginner",
+      "weight": 0.6,
+      "evidence_count": 1,
+      "sources": [
+        "description"
+      ],
+      "evidence": [
+        {
+          "source": "description",
+          "text": "Structured Query Language"
+        }
+      ],
+      "match": {
+        "original_term": "Structured Query Language",
+        "canonical_id": "esco:598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+        "canonical_label": "SQL",
+        "taxonomy": "esco",
+        "taxonomy_version": "1.0",
+        "match_method": "exact_alias",
+        "match_score": 1.0,
+        "review_status": "accepted",
+        "reason": "term matches a taxonomy label or alias",
+        "candidates": []
+      }
+    }
+  ]
+}

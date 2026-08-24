@@ -1,0 +1,92 @@
+services:
+  ai-service:
+    build:
+      context: ./ai-service
+      dockerfile: Dockerfile
+    environment:
+      CC_DATA_DIR: /app/data
+      CC_SERVICE_TOKEN: ${AI_SERVICE_TOKEN:-careercompass-local-dev-token}
+      # Keep the development image deterministic and offline-capable. The
+      # optional BGE/cross-encoder/LLM dependencies are intentionally omitted.
+      CC_EMBEDDING_BACKEND: lexical
+      CC_RERANKER: lexical
+      CC_MATCH_LLM: "0"
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - >-
+          import urllib.request;
+          urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health/ready', timeout=3).close()
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      # A clean machine may need several minutes to assemble the matcher.
+      # Readiness (unlike liveness) ensures the real client is usable before
+      # Spring starts, while this grace period avoids failing during warm-up.
+      start_period: 5m
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      AI_SERVICE_BASE_URL: http://ai-service:8000
+      AI_SERVICE_TOKEN: ${AI_SERVICE_TOKEN:-careercompass-local-dev-token}
+      # Spring relaxed binding maps this environment name to
+      # careercompass.ai-service.use-mock.
+      CAREERCOMPASS_AI_SERVICE_USE_MOCK: "false"
+      LEARNING_OUTCOMES_DIR: /app/uploads/learning-outcomes
+    ports:
+      - "8080:8080"
+    volumes:
+      - learning_outcomes:/app/uploads/learning-outcomes
+    depends_on:
+      ai-service:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - curl
+        - --fail
+        - --silent
+        - --show-error
+        - http://127.0.0.1:8080/v3/api-docs
+      interval: 10s
+      timeout: 5s
+      retries: 18
+      start_period: 30s
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    environment:
+      # This value is compiled/served to the browser, so it must be a host URL,
+      # not the backend service name from Docker's private network.
+      VITE_API_BASE_URL: http://localhost:8080
+    ports:
+      - "5173:5173"
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - >-
+          fetch('http://127.0.0.1:5173')
+          .then(response => { if (!response.ok) process.exit(1) })
+          .catch(() => process.exit(1))
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+
+volumes:
+  learning_outcomes:
