@@ -34,7 +34,7 @@ builds and lints cleanly, but there is not yet an automated browser end-to-end s
 | Java ↔ Python link | **Working** | 5 capabilities verified against the running service (was 0 of 6) |
 | Frontend | **In progress** | React 19 + Vite; auth, 8 student routes, 2 content-manager routes, and the employer workspace are built; mentor/admin are placeholders |
 | Development stack | **Configured** | Docker Compose runs frontend, Java, and Python with health checks, a shared service token, H2/JSON data, and persistent learning-outcome uploads; production databases are intentionally deferred |
-| Docs & contract | **Current** | 8 ADRs, validated OpenAPI contract, audit + remediation plan, and CI for all three runtimes |
+| Docs & contract | **Current** | 8 ADRs, validated OpenAPI contract, database runbooks, and runtime plus MySQL/PostgreSQL migration CI |
 
 ---
 
@@ -107,9 +107,11 @@ Latest test runs on 25 August 2026 — measured, not estimated.
 | Result | Meaning |
 |---|---|
 | **6 / 6** | Live cross-runtime tests passing — real Java client against real FastAPI, including an LLM-generated quiz |
-| **180 passed, 6 skipped** | Full Java suite: 186 total, 0 failures and 0 errors |
-| **162 passed** | Full Python suite: 0 failures, with 1 deprecation warning |
+| **193 total, 6 skipped** | Full Java suite: 0 failures and 0 errors; includes fresh and legacy Flyway upgrade tests |
+| **199 passed** | Full Python suite: 0 failures, with 1 existing Starlette/httpx deprecation warning |
 | **2 / 2** | Frontend production build and lint commands passing |
+| **PostgreSQL restore rehearsal** | Verified backup restore, ordered 001–005 migration, checksum history, repeat no-op, row counts, and migration-004 backfill on a disposable copy |
+| **Migration CI configured** | MySQL 8.4 fresh/V1-upgrade plus PostgreSQL 17 fresh/001–003-upgrade jobs; service-backed jobs run in GitHub Actions |
 | **Compose static validation** | Service wiring, ports, health checks, shared token, and upload volume checked; image build/start still requires a machine with Docker installed |
 | **0** | Endpoints returning 404 or 422. Previously all six did |
 
@@ -132,11 +134,14 @@ A student whose courses have no extracted syllabus gets a thin skill vector and 
 understates them. The service reports this honestly rather than hiding it, but the fix is
 collection work, not code.
 
-### 3. Database migrations are not automated
+### 3. Production database rollout still needs an operator-approved window
 
-Two migrations exist as SQL files under `backend/db/migrations/` and must be applied by hand. Any
-environment running `ddl-auto: validate` — which is what the production profile does — will fail
-to start until they are. Flyway is decided in ADR-007 but not yet wired in.
+The repository paths are now automated: Java uses a tested Flyway V1–V4 chain followed by
+Hibernate validation, and Python packages an ordered PostgreSQL 001–005 runner with advisory
+locking and immutable checksums. PostgreSQL migrations 004/005 passed against a restored copy,
+but the configured live AI database remains unchanged until the operator explicitly approves the
+live mutation. The MySQL service-backed verification is configured in CI and should be observed
+green before a production backend baseline/upgrade.
 
 ---
 
@@ -146,7 +151,9 @@ to start until they are. Flyway is decided in ADR-007 but not yet wired in.
    registration → transcript → dashboard and employer posting flows.
 2. **Keep collecting syllabi.** Steady background work that directly improves every dashboard,
    recommendation and quiz the system produces.
-3. **Wire in Flyway** before anyone deploys, or production will not start.
+3. **Run the database rollout gates:** observe both migration CI jobs, explicitly baseline any
+   reviewed legacy MySQL schema at V1, and schedule the rehearsed live AI migration with a rollback
+   owner and the verified backup available.
 4. **Then reconsider job matching.** The data is ready and the plan is written. Mentor matching's
    next steps are Java integration and collecting explicit expertise terms; until then its Python
    fallback uses reviewed study-field-to-career-path inference and labels that signal honestly.
