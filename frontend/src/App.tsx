@@ -17,6 +17,7 @@ import { JobsPage } from './pages/student/JobsPage';
 import { ProfilePage } from './pages/student/ProfilePage';
 import { StudyFieldPage } from './pages/content/StudyFieldPage';
 import { LearningOutcomesPage } from './pages/content/LearningOutcomesPage';
+import { LearningOutcomeReviewPage } from './pages/content/LearningOutcomeReviewPage';
 import { EmployerJobsPage } from './pages/employer/EmployerJobsPage';
 import { JobFormPage } from './pages/employer/JobFormPage';
 import { CandidatesPage } from './pages/employer/CandidatesPage';
@@ -87,6 +88,14 @@ export default function App() {
             element={
               <ProtectedRoute allow={['CONTENT_MANAGER']}>
                 <LearningOutcomesPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/content/learning-outcomes/:outcomeId/review"
+            element={
+              <ProtectedRoute allow={['CONTENT_MANAGER']}>
+                <LearningOutcomeReviewPage />
               </ProtectedRoute>
             }
           />

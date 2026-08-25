@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AppShell } from '../../components/AppShell';
 import { Banner } from '../../components/Banner';
 import { ConfirmDialog } from '../../components/ConfirmDialog';
@@ -17,28 +18,51 @@ import { useAuth } from '../../auth/useAuth';
 import { useAction, useAsync } from '../../hooks/useAsync';
 import * as contentManagerApi from '../../api/contentManager';
 import { formatDate } from '../../api/format';
-import { messageFor, prerequisiteFor, storageMessageFor } from '../../api/errors';
+import {
+  fieldErrorsFor,
+  messageFor,
+  prerequisiteFor,
+  storageMessageFor,
+} from '../../api/errors';
 import type { LearningOutcomeResponse } from '../../types';
+import { isRunningStatus, statusLabel, statusTone } from './workflow';
 
-/** `course_name` is VARCHAR(200) and has no server-side validation — see below. */
+const MAX_COURSE_CODE = 64;
+const MAX_CATALOG_VERSION = 64;
 const MAX_COURSE_NAME = 200;
+const POLL_INTERVAL_MS = 3_000;
 
-/**
- * FR-CM-04 — upload course learning-outcome PDFs, and manage what has been uploaded.
- *
- * Two things shape this screen more than anything else.
- *
- * **Nothing processes the file.** It is written to disk and recorded in the database, and that
- * is the end of the path — `LearningOutcomeService` has no AI client and the response carries
- * no status field. So the screen says the document is stored, and does not imply extraction,
- * progress or a skill mapping that does not exist.
- *
- * **The server-side validation is thin.** `courseName` has no `@NotBlank` and no length check,
- * a missing part has no exception handler, and an oversized file is killed by Spring's
- * multipart limit before the service's friendly message can run — all three surface as a 500.
- * The client-side checks here are what stands between the user and "Something went wrong on
- * our end."
- */
+interface UploadErrors {
+  courseCode?: string;
+  catalogVersion?: string;
+  courseName?: string;
+  file?: string;
+}
+
+function statusDescription(row: LearningOutcomeResponse): string {
+  switch (row.extractionStatus) {
+    case 'UPLOADED':
+      return 'The PDF is stored and will be queued for extraction.';
+    case 'QUEUED':
+      return 'Waiting for the skill extraction worker.';
+    case 'EXTRACTING':
+      return 'The PDF is being analysed. This page refreshes automatically.';
+    case 'READY_FOR_REVIEW':
+      return `${row.totalSkills} extracted skill${row.totalSkills === 1 ? '' : 's'} · ${row.pendingSkills} still pending`;
+    case 'PUBLISHING':
+      return 'The approved course map is being published.';
+    case 'PUBLISHED':
+      return row.courseMapVersion === undefined
+        ? 'The course map is available to student analysis.'
+        : `Course map ${row.courseMapVersion} is available to student analysis.`;
+    case 'FAILED':
+      return row.extractionError ?? 'The PDF could not be analysed. You can retry safely.';
+    case 'CANCELLED':
+      return 'Extraction was cancelled. The PDF remains available for a retry.';
+  }
+}
+
+/** Upload syllabi, monitor extraction, and enter the review workspace. */
 export function LearningOutcomesPage() {
   const { session } = useAuth();
   const token = session!.token;
@@ -48,50 +72,153 @@ export function LearningOutcomesPage() {
   const upload = useAction(contentManagerApi.uploadLearningOutcome);
   const removeFile = useAction(contentManagerApi.deleteOutcomeFile);
 
+  const [courseCode, setCourseCode] = useState('');
+  const [catalogVersion, setCatalogVersion] = useState('');
   const [courseName, setCourseName] = useState('');
   const [description, setDescription] = useState('');
   const [file, setFile] = useState<File | null>(null);
-  const [nameError, setNameError] = useState<string | null>(null);
+  const [errors, setErrors] = useState<UploadErrors>({});
+  const [success, setSuccess] = useState<string | null>(null);
+  const [rowError, setRowError] = useState<unknown>(null);
+  const [pollError, setPollError] = useState<string | null>(null);
+  const [rowAction, setRowAction] = useState<string | null>(null);
   const [removing, setRemoving] = useState<LearningOutcomeResponse | null>(null);
+  const [cancelling, setCancelling] = useState<LearningOutcomeResponse | null>(null);
 
-  // Checked here as well as by the upload's own error, so the form is disabled up front
-  // rather than letting someone fill it in and only then be turned away.
   const missingStudyField = profile.data !== undefined && profile.data.studyFieldId === undefined;
   const uploadPrereq = prerequisiteFor(upload.error, 'CONTENT_MANAGER');
+  const rows = useMemo(() => outcomes.data ?? [], [outcomes.data]);
+  const serverErrors = fieldErrorsFor(upload.error);
 
-  const rows = outcomes.data ?? [];
-  const duplicate = rows.some(
-    (r) => r.courseName.trim().toLowerCase() === courseName.trim().toLowerCase(),
+  const duplicate = useMemo(
+    () =>
+      rows.some(
+        (row) =>
+          row.courseCode.trim().toLowerCase() === courseCode.trim().toLowerCase() &&
+          row.catalogVersion.trim().toLowerCase() === catalogVersion.trim().toLowerCase(),
+      ),
+    [catalogVersion, courseCode, rows],
   );
 
-  function validateName(): boolean {
-    const trimmed = courseName.trim();
-    if (!trimmed) {
-      setNameError('A course name is required');
-      return false;
+  // Only active rows are polled, and only their small extraction resource is requested.
+  // Completed rows stop the timer automatically.
+  const pollKey = rows
+    .filter((row) => isRunningStatus(row.extractionStatus))
+    .map((row) => `${row.outcomeId}:${row.extractionStatus}`)
+    .join(',');
+
+  useEffect(() => {
+    const activeRows = rows.filter((row) => isRunningStatus(row.extractionStatus));
+    if (activeRows.length === 0) return;
+
+    let live = true;
+    async function poll() {
+      const settled = await Promise.allSettled(
+        activeRows.map((row) => contentManagerApi.getExtractionStatus(token, row.outcomeId)),
+      );
+      if (!live) return;
+
+      const updates = new Map<number, LearningOutcomeResponse>();
+      for (const result of settled) {
+        if (result.status === 'fulfilled') updates.set(result.value.outcomeId, result.value);
+      }
+      if (updates.size > 0) {
+        outcomes.setData(rows.map((row) => updates.get(row.outcomeId) ?? row));
+        setPollError(null);
+      } else {
+        setPollError('Live extraction updates are temporarily unavailable. Use Refresh to try again.');
+      }
     }
-    if (trimmed.length > MAX_COURSE_NAME) {
-      setNameError(`Course name must be ${MAX_COURSE_NAME} characters or fewer`);
-      return false;
+
+    void poll();
+    const timer = window.setInterval(() => void poll(), POLL_INTERVAL_MS);
+    return () => {
+      live = false;
+      window.clearInterval(timer);
+    };
+    // pollKey intentionally changes only when the set of active workflows changes.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pollKey, token]);
+
+  function validateUpload(): boolean {
+    const next: UploadErrors = {};
+    const code = courseCode.trim();
+    const version = catalogVersion.trim();
+    const name = courseName.trim();
+
+    if (!code) next.courseCode = 'A course code is required';
+    else if (code.length > MAX_COURSE_CODE) {
+      next.courseCode = `Course code must be ${MAX_COURSE_CODE} characters or fewer`;
     }
-    setNameError(null);
-    return true;
+    if (!version) next.catalogVersion = 'A catalog version is required';
+    else if (version.length > MAX_CATALOG_VERSION) {
+      next.catalogVersion = `Catalog version must be ${MAX_CATALOG_VERSION} characters or fewer`;
+    }
+    if (!name) next.courseName = 'A course name is required';
+    else if (name.length > MAX_COURSE_NAME) {
+      next.courseName = `Course name must be ${MAX_COURSE_NAME} characters or fewer`;
+    }
+    if (!file) next.file = 'Choose the course PDF to upload';
+
+    setErrors(next);
+    return Object.keys(next).length === 0;
   }
 
   async function handleUpload(event: React.FormEvent) {
     event.preventDefault();
-    if (!validateName() || !file) return;
+    setSuccess(null);
+    if (!validateUpload() || !file) return;
 
     const created = await upload.run(token, {
+      courseCode: courseCode.trim(),
+      catalogVersion: catalogVersion.trim(),
       courseName: courseName.trim(),
       description: description.trim() || undefined,
       file,
     });
-    if (created) {
-      outcomes.setData([created, ...rows]);
-      setCourseName('');
-      setDescription('');
-      setFile(null);
+    if (!created) return;
+
+    outcomes.setData([created, ...rows]);
+    setCourseCode('');
+    setCatalogVersion('');
+    setCourseName('');
+    setDescription('');
+    setFile(null);
+    setErrors({});
+    setSuccess(`“${created.courseName}” was uploaded. Skill extraction has started.`);
+  }
+
+  async function handleRetry(row: LearningOutcomeResponse) {
+    setRowAction(`retry:${row.outcomeId}`);
+    setRowError(null);
+    setSuccess(null);
+    try {
+      const updated = await contentManagerApi.retryExtraction(token, row.outcomeId);
+      outcomes.setData(rows.map((item) => (item.outcomeId === row.outcomeId ? updated : item)));
+      setSuccess(`Skill extraction was restarted for “${row.courseName}”.`);
+    } catch (cause) {
+      setRowError(cause);
+    } finally {
+      setRowAction(null);
+    }
+  }
+
+  async function handleCancel() {
+    if (!cancelling) return;
+    setRowAction(`cancel:${cancelling.outcomeId}`);
+    setRowError(null);
+    setSuccess(null);
+    try {
+      const updated = await contentManagerApi.cancelExtraction(token, cancelling.outcomeId);
+      outcomes.setData(
+        rows.map((item) => (item.outcomeId === cancelling.outcomeId ? updated : item)),
+      );
+      setSuccess(`Skill extraction was cancelled for “${cancelling.courseName}”.`);
+      setCancelling(null);
+    } catch (cause) {
+      setRowError(cause);
+    } finally {
+      setRowAction(null);
     }
   }
 
@@ -99,7 +226,8 @@ export function LearningOutcomesPage() {
     if (!removing) return;
     const updated = await removeFile.run(token, removing.outcomeId);
     if (updated) {
-      outcomes.setData(rows.map((r) => (r.outcomeId === updated.outcomeId ? updated : r)));
+      outcomes.setData(rows.map((row) => (row.outcomeId === updated.outcomeId ? updated : row)));
+      setSuccess(`The stored PDF for “${removing.courseName}” was removed.`);
       setRemoving(null);
     }
   }
@@ -108,15 +236,13 @@ export function LearningOutcomesPage() {
     <AppShell careerPath={profile.data?.studyFieldName}>
       <PageHeader
         title="Learning outcomes"
-        lede="Upload the learning-outcome document for a course you teach. These build the course-to-skill knowledge base the student analysis draws on."
+        lede="Upload a course PDF, let CareerCompass extract its skills, then review every suggestion before publishing it to student analysis."
       />
 
       {profile.loading && <Skeleton rows={2} />}
-
       {!profile.loading && profile.failed && (
         <ErrorState message={messageFor(profile.error)} onRetry={profile.reload} />
       )}
-
       {!profile.failed && missingStudyField && (
         <PrerequisiteState
           to="/content/profile"
@@ -126,37 +252,73 @@ export function LearningOutcomesPage() {
 
       {!profile.loading && !profile.failed && !missingStudyField && (
         <div className="stack">
+          {success && (
+            <div className="notice notice--ok" role="status">
+              {success}
+            </div>
+          )}
+
           <Card>
-            <h2 className="section__title">Upload a document</h2>
+            <h2 className="section__title">Upload a course PDF</h2>
+            <p className="section__lede">
+              Course code and catalog version keep this syllabus separate from similarly named
+              courses and older revisions.
+            </p>
 
             {uploadPrereq && (
               <PrerequisiteState to={uploadPrereq.to} message={uploadPrereq.message} />
             )}
             {upload.failed && !uploadPrereq && <Banner message={storageMessageFor(upload.error)} />}
 
-            <form className="form" onSubmit={handleUpload}>
+            <form className="form" onSubmit={handleUpload} noValidate>
+              <div className="form__row">
+                <TextField
+                  label="Course code"
+                  value={courseCode}
+                  onChange={(event) => {
+                    setCourseCode(event.target.value);
+                    setErrors((current) => ({ ...current, courseCode: undefined }));
+                  }}
+                  error={errors.courseCode ?? serverErrors.courseCode}
+                  placeholder="CS-241"
+                  maxLength={MAX_COURSE_CODE}
+                  disabled={upload.running}
+                  required
+                />
+                <TextField
+                  label="Catalog version"
+                  value={catalogVersion}
+                  onChange={(event) => {
+                    setCatalogVersion(event.target.value);
+                    setErrors((current) => ({ ...current, catalogVersion: undefined }));
+                  }}
+                  error={errors.catalogVersion ?? serverErrors.catalogVersion}
+                  hint="For example: 2026-2027 or v3"
+                  placeholder="2026-2027"
+                  maxLength={MAX_CATALOG_VERSION}
+                  disabled={upload.running}
+                  required
+                />
+              </div>
+
               <TextField
                 label="Course name"
                 value={courseName}
-                onChange={(e) => {
-                  setCourseName(e.target.value);
-                  if (nameError) setNameError(null);
+                onChange={(event) => {
+                  setCourseName(event.target.value);
+                  setErrors((current) => ({ ...current, courseName: undefined }));
                 }}
-                onBlur={validateName}
-                error={nameError ?? undefined}
+                error={errors.courseName ?? serverErrors.courseName}
                 placeholder="Data Structures"
                 maxLength={MAX_COURSE_NAME}
                 disabled={upload.running}
                 required
               />
 
-              {/* Nothing server-side prevents this — no unique constraint, no 409 — so an
-                  accidental second upload silently creates a second row and a second file.
-                  A warning is the only place this can be caught. */}
               {duplicate && (
-                <p className="notice notice--preview">
-                  You have already uploaded a document for a course with this name. Uploading
-                  again adds a second copy rather than replacing the first.
+                <p className="notice notice--preview" role="status">
+                  A syllabus for this course code and catalog version already exists. Use a new
+                  catalog version for a revised syllabus.
                 </p>
               )}
 
@@ -165,8 +327,8 @@ export function LearningOutcomesPage() {
                 optional
                 rows={3}
                 value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                placeholder="What the course covers, or which version of the syllabus this is."
+                onChange={(event) => setDescription(event.target.value)}
+                placeholder="What the course covers, or notes about this syllabus revision."
                 disabled={upload.running}
               />
 
@@ -188,101 +350,198 @@ export function LearningOutcomesPage() {
               ) : (
                 <FileDrop
                   maxBytes={contentManagerApi.MAX_OUTCOME_BYTES}
-                  onSelect={setFile}
+                  onSelect={(selected) => {
+                    setFile(selected);
+                    setErrors((current) => ({ ...current, file: undefined }));
+                  }}
                   disabled={upload.running}
-                  label="Drop the learning-outcome PDF here, or browse"
-                  hint="Text-based PDF, up to 10MB."
+                  label="Drop the course PDF here, or browse"
+                  hint="Text-based PDF, up to 10MB. Nothing is published before your review."
                 />
+              )}
+              {errors.file && (
+                <p className="field__error" role="alert">
+                  {errors.file}
+                </p>
               )}
 
               <div className="actions">
                 <button
                   type="submit"
                   className="button button--primary button--auto"
-                  disabled={upload.running || !file || !courseName.trim()}
+                  disabled={
+                    upload.running ||
+                    !file ||
+                    !courseCode.trim() ||
+                    !catalogVersion.trim() ||
+                    !courseName.trim()
+                  }
                 >
-                  {upload.running ? 'Uploading…' : 'Upload document'}
+                  {upload.running ? 'Uploading…' : 'Upload and extract skills'}
                 </button>
-                <span className="actions__hint">
-                  The document is stored for the knowledge base. It is not analysed yet.
-                </span>
+                <span className="actions__hint">Extraction continues safely in the background.</span>
               </div>
             </form>
           </Card>
 
-          <section>
-            <h2 className="section__title">
-              Your uploads
-              {!outcomes.loading && <span className="section__count">{rows.length}</span>}
-            </h2>
+          <section className="stack" aria-labelledby="uploads-title">
+            <div className="section-heading">
+              <div>
+                <h2 className="section__title" id="uploads-title">
+                  Your course documents
+                  {!outcomes.loading && <span className="section__count">{rows.length}</span>}
+                </h2>
+                <p className="section__lede">Status updates automatically while extraction runs.</p>
+              </div>
+              <button
+                type="button"
+                className="button button--secondary button--small button--auto"
+                onClick={outcomes.reload}
+                disabled={outcomes.loading}
+              >
+                Refresh
+              </button>
+            </div>
 
+            {pollError && <Banner message={pollError} />}
+            {rowError != null && <Banner message={messageFor(rowError)} />}
+            {removeFile.failed && <Banner message={storageMessageFor(removeFile.error)} />}
             {outcomes.loading && <Skeleton rows={3} />}
             {!outcomes.loading && outcomes.failed && (
               <ErrorState message={messageFor(outcomes.error)} onRetry={outcomes.reload} />
             )}
-
             {!outcomes.loading && !outcomes.failed && rows.length === 0 && (
               <EmptyState
                 title="Nothing uploaded yet"
-                body="Documents you upload appear here, with the course they belong to and whether the original file is still stored."
+                body="Upload a course PDF above. Its extracted skills will stay in a private draft until you approve and publish them."
               />
             )}
 
             {!outcomes.loading && !outcomes.failed && rows.length > 0 && (
-              <>
-                {removeFile.failed && <Banner message={storageMessageFor(removeFile.error)} />}
-                <ul className="stack list-reset">
-                  {rows.map((row) => (
+              <ul className="stack list-reset">
+                {rows.map((row) => {
+                  const running = isRunningStatus(row.extractionStatus);
+                  const canCancel = ['UPLOADED', 'QUEUED', 'EXTRACTING'].includes(
+                    row.extractionStatus,
+                  );
+                  const canRetry = ['FAILED', 'CANCELLED'].includes(row.extractionStatus);
+                  const canReview = ['READY_FOR_REVIEW', 'PUBLISHED'].includes(
+                    row.extractionStatus,
+                  );
+                  return (
                     <Card as="li" key={row.outcomeId} className="outcome">
                       <div className="outcome__head">
                         <div>
+                          <div className="outcome__identity">
+                            <span>{row.courseCode}</span>
+                            <span>{row.catalogVersion}</span>
+                          </div>
                           <h3 className="outcome__name">{row.courseName}</h3>
                           <p className="cell__quiet">
-                            {row.studyFieldName ?? 'Field unknown'} ·{' '}
-                            {formatDate(row.uploadedAt)}
+                            {row.studyFieldName ?? 'Field unknown'} · {formatDate(row.uploadedAt)}
                           </p>
                         </div>
-                        {/* Means "the raw file was removed", NOT "it was processed" —
-                            there is no processing state to report. */}
-                        {row.deletedFromDisk ? (
-                          <span className="badge badge--unknown">File removed</span>
-                        ) : (
-                          <span className="badge badge--strong">File stored</span>
-                        )}
+                        <span
+                          className={`workflow-badge workflow-badge--${statusTone(row.extractionStatus)}`}
+                        >
+                          {running && <span className="workflow-badge__dot" aria-hidden="true" />}
+                          {statusLabel(row.extractionStatus)}
+                        </span>
                       </div>
 
                       {row.description && <p className="outcome__desc">{row.description}</p>}
+                      <p
+                        className={`outcome__status-copy${row.extractionStatus === 'FAILED' ? ' outcome__status-copy--error' : ''}`}
+                        aria-live={running ? 'polite' : undefined}
+                      >
+                        {statusDescription(row)}
+                      </p>
+
+                      {row.warnings.length > 0 && (
+                        <details className="review-details">
+                          <summary>{row.warnings.length} extraction warning(s)</summary>
+                          <ul>
+                            {row.warnings.map((warning, index) => (
+                              <li key={`${warning}-${index}`}>{warning}</li>
+                            ))}
+                          </ul>
+                        </details>
+                      )}
 
                       <div className="outcome__foot">
                         <span className="cell__quiet">
                           {row.deletedFromDisk
-                            ? 'The original document is no longer kept.'
-                            : row.originalFilename ?? 'Document stored'}
+                            ? 'Original PDF removed'
+                            : row.originalFilename ?? 'PDF stored'}
                         </span>
-                        {!row.deletedFromDisk && (
-                          <button
-                            type="button"
-                            className="button button--secondary button--small button--auto"
-                            onClick={() => setRemoving(row)}
-                          >
-                            Remove stored file
-                          </button>
-                        )}
+                        <div className="outcome__actions">
+                          {canReview && (
+                            <Link
+                              className="button button--primary button--small button--auto"
+                              to={`/content/learning-outcomes/${row.outcomeId}/review`}
+                            >
+                              {row.extractionStatus === 'PUBLISHED'
+                                ? 'View published skills'
+                                : 'Review skills'}
+                            </Link>
+                          )}
+                          {canRetry && (
+                            <button
+                              type="button"
+                              className="button button--secondary button--small button--auto"
+                              onClick={() => void handleRetry(row)}
+                              disabled={rowAction != null}
+                            >
+                              {rowAction === `retry:${row.outcomeId}` ? 'Restarting…' : 'Retry extraction'}
+                            </button>
+                          )}
+                          {canCancel && (
+                            <button
+                              type="button"
+                              className="button button--quiet button--small button--auto"
+                              onClick={() => setCancelling(row)}
+                              disabled={rowAction != null}
+                            >
+                              Cancel extraction
+                            </button>
+                          )}
+                          {!row.deletedFromDisk && !running && (
+                            <button
+                              type="button"
+                              className="button button--quiet button--small button--auto"
+                              onClick={() => setRemoving(row)}
+                              disabled={removeFile.running}
+                            >
+                              Remove PDF
+                            </button>
+                          )}
+                        </div>
                       </div>
                     </Card>
-                  ))}
-                </ul>
-              </>
+                  );
+                })}
+              </ul>
             )}
           </section>
         </div>
       )}
 
+      {cancelling && (
+        <ConfirmDialog
+          title="Cancel skill extraction?"
+          body={`CareerCompass will stop processing “${cancelling.courseName}”. The uploaded PDF stays stored, so you can retry later.`}
+          confirmLabel="Cancel extraction"
+          busy={rowAction === `cancel:${cancelling.outcomeId}`}
+          onConfirm={() => void handleCancel()}
+          onCancel={() => setCancelling(null)}
+        />
+      )}
+
       {removing && (
         <ConfirmDialog
-          title="Remove the stored file?"
-          body={`The PDF for "${removing.courseName}" is deleted from the server. The record of the upload is kept, but the document cannot be downloaded or restored afterwards.`}
-          confirmLabel="Remove file"
+          title="Remove the stored PDF?"
+          body={`The PDF for “${removing.courseName}” will be deleted from the server. Its course record and reviewed skill map are kept, but the original document cannot be restored.`}
+          confirmLabel="Remove PDF"
           destructive
           busy={removeFile.running}
           onConfirm={() => void handleRemove()}

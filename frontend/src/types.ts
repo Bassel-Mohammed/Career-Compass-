@@ -454,8 +454,22 @@ export interface SelectStudyFieldRequest {
   studyFieldId: number;
 }
 
+export type LearningOutcomeExtractionStatus =
+  | 'UPLOADED'
+  | 'QUEUED'
+  | 'EXTRACTING'
+  | 'READY_FOR_REVIEW'
+  | 'PUBLISHING'
+  | 'PUBLISHED'
+  | 'FAILED'
+  | 'CANCELLED';
+
 export interface LearningOutcomeResponse {
   outcomeId: number;
+  /** Stable course identity. Course codes are only unique inside this scope. */
+  institutionCode: string;
+  catalogVersion: string;
+  courseCode: string;
   courseName: string;
   description?: string;
   originalFilename?: string;
@@ -464,6 +478,112 @@ export interface LearningOutcomeResponse {
   /** The raw PDF was removed from disk; the row and its metadata are retained. */
   deletedFromDisk: boolean;
   uploadedAt: string;
+  updatedAt: string;
+  extractionStatus: LearningOutcomeExtractionStatus;
+  extractionError?: string;
+  warnings: string[];
+  taxonomyVersion?: string;
+  /** Optimistic-lock token sent with every draft mutation. */
+  draftRevision: number;
+  courseMapVersion?: number;
+  totalSkills: number;
+  pendingSkills: number;
+  publishedAt?: string;
+}
+
+export type DraftSkillDecision =
+  | 'PENDING'
+  | 'ACCEPTED'
+  | 'REPLACED'
+  | 'REMOVED'
+  | 'ADDED';
+
+export type SkillLevel = 'beginner' | 'intermediate' | 'advanced';
+
+export interface DraftSkillCandidate {
+  skillId: string;
+  label: string;
+  /** Matcher confidence, represented on the AI service's 0..1 scale. */
+  score: number;
+}
+
+export interface DraftSkillResponse {
+  draftSkillId: number;
+  outcomeId: number;
+  term: string;
+  canonicalSkillId?: string;
+  canonicalSkillLabel?: string;
+  originalCanonicalSkillId?: string;
+  originalCanonicalSkillLabel?: string;
+  level: SkillLevel;
+  /** Relative course contribution, on a 0..1 scale. */
+  weight: number;
+  evidenceCount: number;
+  sources: string[];
+  /** Evidence payloads vary by extractor zone; the review UI renders them defensively. */
+  evidence: unknown[];
+  candidates: DraftSkillCandidate[];
+  matchMethod?: string;
+  /** Matcher confidence, represented on the AI service's 0..1 scale. */
+  matchScore?: number;
+  matchReason?: string;
+  aiReviewStatus?: string;
+  decision: DraftSkillDecision;
+  note?: string;
+  /** Optimistic-lock token for this individual row. */
+  rowVersion: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface TaxonomySkillResponse {
+  skillId: string;
+  label: string;
+  skillType?: string;
+  source?: string;
+  description?: string;
+  taxonomyVersion?: string;
+}
+
+export interface TaxonomySkillSearchResponse {
+  total: number;
+  items: TaxonomySkillResponse[];
+}
+
+export interface AddDraftSkillRequest {
+  skillId: string;
+  /** Display label from the taxonomy picker; the backend re-resolves it against the taxonomy. */
+  skillLabel?: string;
+  term?: string;
+  level: SkillLevel;
+  weight: number;
+  note?: string;
+  expectedDraftRevision: number;
+}
+
+export interface UpdateDraftSkillRequest {
+  level?: SkillLevel;
+  weight?: number;
+  note?: string;
+  decision?: DraftSkillDecision;
+  expectedRowVersion: number;
+  expectedDraftRevision: number;
+}
+
+export interface ReplaceDraftSkillRequest {
+  replacementSkillId: string;
+  note?: string;
+  expectedRowVersion: number;
+  expectedDraftRevision: number;
+}
+
+export interface DeleteDraftSkillRequest {
+  expectedRowVersion: number;
+  expectedDraftRevision: number;
+}
+
+export interface PublishLearningOutcomeRequest {
+  expectedDraftRevision: number;
 }
 
 /* ===========================================================================

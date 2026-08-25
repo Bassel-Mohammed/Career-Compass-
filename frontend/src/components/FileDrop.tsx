@@ -30,7 +30,7 @@ export function FileDrop({ maxBytes, onSelect, disabled, label, hint }: Props) {
     const looksLikePdf =
       file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf');
     if (!looksLikePdf) {
-      setRejected('That is not a PDF. Transcripts must be text-based PDF files.');
+      setRejected('That is not a PDF. Please choose a text-based PDF file.');
       return;
     }
     if (file.size > maxBytes) {
