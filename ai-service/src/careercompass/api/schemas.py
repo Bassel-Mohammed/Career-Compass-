@@ -153,6 +153,125 @@ class CourseListResponse(BaseModel):
     courses: list[CourseSummary]
 
 
+# ── Content-manager publication ───────────────────────────────
+class TaxonomySkill(BaseModel):
+    skill_id: str
+    label: str
+    skill_type: str
+    source: str
+    description: str = ""
+    taxonomy_version: str
+
+
+class TaxonomySkillSearchResponse(BaseModel):
+    total: int
+    items: list[TaxonomySkill]
+
+
+class ApprovedCourseSkill(BaseModel):
+    """One canonical skill approved by a content manager.
+
+    There is deliberately no review-status field here.  Presence in a
+    publication request means the row is approved; allowing callers to submit
+    ``needs_review`` would make it possible for a proposal to leak into student
+    vectors through the publication endpoint.
+    """
+
+    skill_id: str = Field(min_length=1, max_length=120)
+    skill_label: Optional[str] = Field(None, max_length=300)
+    term: str = Field(min_length=1, max_length=300)
+    level: Literal["beginner", "intermediate", "advanced"]
+    weight: float = Field(ge=0.0, le=1.0)
+    evidence_count: int = Field(ge=0, le=10000)
+    sources: list[str] = Field(default_factory=list, max_length=30)
+    evidence: list[dict[str, Any]] = Field(default_factory=list, max_length=500)
+
+    @field_validator("skill_id", "term")
+    @classmethod
+    def _strip_required_skill_fields(cls, value: str) -> str:
+        value = value.strip()
+        if not value:
+            raise ValueError("must not be blank")
+        return value
+
+    @field_validator("skill_label")
+    @classmethod
+    def _strip_optional_skill_label(cls, value: Optional[str]) -> Optional[str]:
+        if value is None:
+            return None
+        return value.strip() or None
+
+    @field_validator("sources")
+    @classmethod
+    def _normalise_sources(cls, values: list[str]) -> list[str]:
+        cleaned = []
+        seen = set()
+        for raw in values:
+            value = str(raw).strip()
+            if not value:
+                continue
+            if len(value) > 40:
+                raise ValueError("source names must be at most 40 characters")
+            if value not in seen:
+                cleaned.append(value)
+                seen.add(value)
+        return cleaned
+
+
+class CourseMapPublicationRequest(BaseModel):
+    # The backend derives institution codes as ``uni:<id>`` (colon included), so the
+    # pattern must accept it — see docs/contracts/careercompass-ai-internal-v1.yaml,
+    # which deliberately declares no character restriction beyond length here.
+    institution_code: str = Field(min_length=1, max_length=120,
+                                  pattern=r"^[A-Za-z0-9][A-Za-z0-9._:-]*$")
+    catalog_version: str = Field(min_length=1, max_length=80,
+                                 pattern=r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
+    course_code: str = Field(min_length=1, max_length=64,
+                             pattern=r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
+    source_outcome_id: str = Field(min_length=1, max_length=120)
+    taxonomy_version: str = Field(min_length=1, max_length=120)
+    skills: list[ApprovedCourseSkill] = Field(min_length=1, max_length=1000)
+
+    @field_validator("institution_code", "course_code")
+    @classmethod
+    def _normalise_codes(cls, value: str) -> str:
+        return value.strip().upper()
+
+    @field_validator("catalog_version", "source_outcome_id", "taxonomy_version")
+    @classmethod
+    def _strip_publication_fields(cls, value: str) -> str:
+        value = value.strip()
+        if not value:
+            raise ValueError("must not be blank")
+        return value
+
+    @field_validator("skills")
+    @classmethod
+    def _reject_duplicate_skill_ids(cls, skills: list[ApprovedCourseSkill]):
+        seen = set()
+        duplicates = set()
+        for skill in skills:
+            if skill.skill_id in seen:
+                duplicates.add(skill.skill_id)
+            seen.add(skill.skill_id)
+        if duplicates:
+            raise ValueError(
+                "skill_id must be unique; repeated: " + ", ".join(sorted(duplicates))
+            )
+        return skills
+
+
+class CourseMapPublicationResponse(BaseModel):
+    course_map_version: str
+    course_key: str
+    course_code: str
+    taxonomy_version: str
+    total_skills: int
+    content_sha256: str
+    published_at: str
+    idempotent: bool
+
+
 # ── Ad-hoc matching ────────────────────────────────────────────
 class MatchTermRequest(BaseModel):
     term: str = Field(min_length=1, max_length=200)

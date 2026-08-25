@@ -417,13 +417,32 @@ def load_course_skills(paths, taxonomy=None) -> dict:
     from pathlib import Path
 
     mapping = {}
+    bare_candidates = {}
     for path in sorted(Path(p) for p in paths):
         record = json.loads(Path(path).read_text(encoding="utf-8"))
         skills = record.get("skills") or []
         if taxonomy is not None:
             resolve_retired_ids(skills, taxonomy, source=Path(path).name)
         codes = record.get("course_codes") or [record.get("course_code")]
+        qualified_key = record.get("qualified_course_key")
+        if qualified_key:
+            # A caller that knows institution and catalog can always address
+            # the exact map.  The ordinary transcript still carries only a
+            # bare course code, which is added below only when it identifies a
+            # single artifact across the whole data set.
+            mapping[qualified_key] = skills
         for code in codes:
             if code:
-                mapping[code] = skills
+                candidates = bare_candidates.setdefault(code, [])
+                candidates.append((str(path), skills))
+
+    for code, candidates in bare_candidates.items():
+        if len(candidates) == 1:
+            mapping[code] = candidates[0][1]
+        else:
+            logger.warning(
+                "course code %s has %d skill maps; bare lookup disabled",
+                code,
+                len(candidates),
+            )
     return mapping

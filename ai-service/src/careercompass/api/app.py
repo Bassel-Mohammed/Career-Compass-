@@ -25,6 +25,7 @@ import uuid
 from contextlib import asynccontextmanager
 from pathlib import Path
 
+import psycopg2
 from fastapi import FastAPI, File, Form, Query, Response, UploadFile, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
@@ -48,6 +49,7 @@ from careercompass.api.jobs import (
 )
 from careercompass.api.runtime import required_ok, runtime, warmup_enabled
 from careercompass.config import EXTRACTED_DIR, SKILLS_DIR, TEMP_DIR
+from careercompass.db.course_maps import CourseMapVersionConflict
 from careercompass.parsing.syllabus import parse_syllabus
 from careercompass.skills.artifacts import cached_by_files
 from careercompass.parsing.grades import grade_to_points, normalize_grade
@@ -57,10 +59,12 @@ from careercompass.parsing.transcript import (
     save_extraction,
 )
 from careercompass.skills.extractor import extract_skills
+from careercompass.skills import course_maps
 
 logger = logging.getLogger("careercompass.api")
 
-COURSE_CODE_RE = re.compile(r"^[A-Za-z0-9_-]{1,64}$")
+COURSE_LOOKUP_RE = re.compile(r"^[A-Za-z0-9._|:-]{1,266}$")
+COURSE_MAP_VERSION_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:-]{0,119}$")
 
 job_store = JobStore()
 extraction_queue = ExtractionQueue(job_store, maxsize=queue_size())
@@ -137,7 +141,7 @@ app.add_middleware(
     # Off deliberately: see _cors_origins. Turning this on requires naming
     # origins, never "*".
     allow_credentials=False,
-    allow_methods=["GET", "POST", "DELETE", "OPTIONS"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
 )
 
@@ -457,7 +461,7 @@ async def create_extraction(
     # Fails with 503 while the index is still warming, before any parsing.
     runtime.require()
 
-    cache_key = cache_key_for(content_sha256)
+    cache_key = cache_key_for(content_sha256, store=store, use_llm=use_llm)
     if not force:
         cached = job_store.find_succeeded(cache_key)
         if cached is not None:
@@ -537,20 +541,181 @@ def cancel_extraction(extraction_id: str):
     return job.to_dict()
 
 
+# ── Content-manager review and publication ────────────────────
+def _taxonomy_search_score(skill: dict, query: str):
+    """Stable relevance ordering without invoking the semantic matcher."""
+    from careercompass.skills.taxonomy import normalize
+
+    label = normalize(skill.get("label") or "")
+    aliases = [normalize(alias) for alias in skill.get("aliases") or []]
+    description = normalize(skill.get("description") or "")
+    if not query:
+        return (0, label, skill["id"])
+    if label == query:
+        rank = 0
+    elif label.startswith(query):
+        rank = 1
+    elif query in aliases:
+        rank = 2
+    elif query in label:
+        rank = 3
+    elif any(alias.startswith(query) for alias in aliases):
+        rank = 4
+    elif any(query in alias for alias in aliases):
+        rank = 5
+    elif query in description:
+        rank = 6
+    else:
+        return None
+    return (rank, label, skill["id"])
+
+
+@app.get(
+    "/api/v1/taxonomy/skills",
+    response_model=schemas.TaxonomySkillSearchResponse,
+    tags=["content-manager"],
+)
+def search_taxonomy_skills(
+    q: str = Query(..., min_length=1, max_length=200),
+    limit: int = Query(20, ge=1, le=50),
+):
+    """Search canonical skills for the content manager's replace/add control."""
+    from careercompass.skills.taxonomy import normalize
+
+    taxonomy = runtime.require().taxonomy
+    query = normalize(q)
+    ranked = []
+    for skill in taxonomy.skills:
+        score = _taxonomy_search_score(skill, query)
+        if score is not None:
+            ranked.append((score, skill))
+    ranked.sort(key=lambda item: item[0])
+
+    return {
+        "total": len(ranked),
+        "items": [
+            {
+                "skill_id": skill["id"],
+                "label": skill["label"],
+                "skill_type": skill["skill_type"],
+                "source": skill["source"],
+                "description": skill.get("description") or "",
+                "taxonomy_version": taxonomy.version,
+            }
+            for _, skill in ranked[:limit]
+        ],
+    }
+
+
+@app.put(
+    "/api/v1/course-maps/{course_map_version}",
+    response_model=schemas.CourseMapPublicationResponse,
+    tags=["content-manager"],
+)
+async def publish_reviewed_course_map(
+    course_map_version: str,
+    request: schemas.CourseMapPublicationRequest,
+    response: Response,
+):
+    """Publish one complete, canonical, accepted-only course map.
+
+    Versions are immutable idempotency keys.  The same version and canonical
+    payload can be retried safely; reusing it for changed content is a 409.
+    """
+    if not COURSE_MAP_VERSION_RE.fullmatch(course_map_version):
+        raise Problem.invalid_course_map(
+            "course_map_version must be 1-120 characters and contain only "
+            "letters, digits, '.', '_', ':' or '-'."
+        )
+
+    taxonomy = runtime.require().taxonomy
+    if request.taxonomy_version != taxonomy.version:
+        raise Problem.taxonomy_version_conflict(
+            request.taxonomy_version, taxonomy.version
+        )
+
+    unknown = sorted(
+        skill.skill_id
+        for skill in request.skills
+        if taxonomy.index.get(skill.skill_id) is None
+    )
+    if unknown:
+        raise Problem.invalid_course_map(
+            "Every approved skill must use a current canonical ID; unknown: "
+            + ", ".join(unknown)
+        )
+
+    try:
+        document = course_maps.build_course_map_document(
+            course_map_version=course_map_version,
+            institution_code=request.institution_code,
+            catalog_version=request.catalog_version,
+            course_code=request.course_code,
+            source_outcome_id=request.source_outcome_id,
+            taxonomy_version=request.taxonomy_version,
+            approved_skills=[skill.model_dump() for skill in request.skills],
+            taxonomy=taxonomy,
+        )
+        published = await asyncio.to_thread(
+            course_maps.publish_course_map, document, SKILLS_DIR
+        )
+    except CourseMapVersionConflict as exc:
+        raise Problem.course_map_version_conflict(course_map_version) from exc
+    except psycopg2.Error as exc:
+        logger.warning("Course-map publication database write failed: %s", exc)
+        raise Problem.database_unavailable(
+            "Publication metadata could not be stored. No course map was exposed."
+        ) from exc
+    except ValueError as exc:
+        raise Problem.invalid_course_map(str(exc)) from exc
+
+    record = published.record
+    response.status_code = status.HTTP_200_OK
+    return {
+        "course_map_version": course_map_version,
+        "course_key": published.qualified_course_key,
+        "course_code": request.course_code,
+        "taxonomy_version": request.taxonomy_version,
+        "total_skills": len(request.skills),
+        "content_sha256": published.payload_sha256,
+        "published_at": record.published_at,
+        "idempotent": record.idempotent,
+    }
+
+
 # ── Results ────────────────────────────────────────────────────
-def _course_path(course_code: str) -> Path:
-    if not COURSE_CODE_RE.match(course_code):
-        raise Problem.course_not_found(course_code)
-    return SKILLS_DIR / f"{course_code}.json"
-
-
 def _read_course(course_code: str) -> dict:
     import json
 
-    path = _course_path(course_code)
-    if not path.exists():
+    if not COURSE_LOOKUP_RE.fullmatch(course_code):
         raise Problem.course_not_found(course_code)
-    return json.loads(path.read_text(encoding="utf-8"))
+
+    candidates = []
+    if SKILLS_DIR.exists():
+        for path in sorted(SKILLS_DIR.glob("*.json")):
+            try:
+                document = json.loads(path.read_text(encoding="utf-8"))
+            except (OSError, ValueError):
+                logger.warning("Skipping unreadable skills file: %s", path)
+                continue
+            qualified_key = document.get("qualified_course_key")
+            codes = document.get("course_codes") or [document.get("course_code")]
+            if course_code == qualified_key or course_code in codes:
+                candidates.append(document)
+
+    if not candidates:
+        raise Problem.course_not_found(course_code)
+    if len(candidates) > 1:
+        raise Problem.course_code_ambiguous(
+            course_code,
+            [
+                document.get("qualified_course_key")
+                or document.get("course_code")
+                or course_code
+                for document in candidates
+            ],
+        )
+    return candidates[0]
 
 
 def _current_match_summary(document: dict) -> dict:

@@ -74,7 +74,7 @@ class FakeConnection:
         self.closed = True
 
 
-def history_rows(count=5):
+def history_rows(count=6):
     return [
         (migration.version, migration.filename, migration.checksum)
         for migration in db.discover_migrations()[:count]
@@ -84,9 +84,11 @@ def history_rows(count=5):
 def test_packaged_migrations_are_complete_and_ordered():
     migrations = db.discover_migrations()
 
-    assert [migration.version for migration in migrations] == [1, 2, 3, 4, 5]
+    assert [migration.version for migration in migrations] == [1, 2, 3, 4, 5, 6]
     assert migrations[0].filename == "001_linkedin_jobs.sql"
-    assert migrations[-1].filename == "005_course_catalog.sql"
+    assert migrations[-1].filename == "006_course_map_publications.sql"
+    assert "course_map_publications" in migrations[-1].sql
+    assert "course_map_heads" in migrations[-1].sql
     assert all(len(migration.checksum) == 64 for migration in migrations)
     assert all("CREATE" in migration.sql or "ALTER" in migration.sql for migration in migrations)
 
@@ -96,8 +98,8 @@ def test_fresh_database_applies_everything_in_one_transaction():
 
     applied = db.apply_migrations(conn)
 
-    assert [migration.version for migration in applied] == [1, 2, 3, 4, 5]
-    assert conn.executed_versions == [1, 2, 3, 4, 5]
+    assert [migration.version for migration in applied] == [1, 2, 3, 4, 5, 6]
+    assert conn.executed_versions == [1, 2, 3, 4, 5, 6]
     assert conn.history == history_rows()
     assert conn.commits == 1
     assert conn.rollbacks == 0
@@ -122,8 +124,8 @@ def test_upgrade_applies_only_the_pending_suffix():
 
     applied = db.apply_migrations(conn)
 
-    assert [migration.version for migration in applied] == [4, 5]
-    assert conn.executed_versions == [4, 5]
+    assert [migration.version for migration in applied] == [4, 5, 6]
+    assert conn.executed_versions == [4, 5, 6]
     assert conn.history == history_rows()
 
 
