@@ -2,7 +2,7 @@ openapi: 3.0.3
 
 info:
   title: CareerCompass AI Internal API
-  version: 1.1.0
+  version: 1.2.0
   description: |
     The **internal** service-to-service contract between the Java (Spring Boot) backend and the
     Python (FastAPI) AI/data-analysis service.
@@ -28,7 +28,8 @@ info:
     ## Scope of v1
 
     In scope: transcript parsing (M1), skill vector (M2), skill gap (M3), course
-    recommendations (M4), quiz generation (M5), mentor matching (M6).
+    recommendations (M4), quiz generation (M5), mentor matching (M6), and the
+    proposal/review/publication boundary for syllabus maps (M8).
 
     Mentor matching was added in **v1.1.0** (ADR-008, superseding ADR-005's deferral). Purely
     additive: every v1.0.0 request and response remains valid.
@@ -71,6 +72,12 @@ tags:
     description: M4 — grounded course retrieval.
   - name: quiz
     description: M5 — quiz generation.
+  - name: syllabus
+    description: M8 — proposal-only syllabus extraction jobs.
+  - name: taxonomy
+    description: Canonical skill lookup for reviewed additions and replacements.
+  - name: course-maps
+    description: Idempotent publication of Java-approved course maps.
 
 paths:
 
@@ -157,6 +164,141 @@ paths:
                 $ref: '#/components/schemas/TranscriptParseResponse'
         '400': { $ref: '#/components/responses/Problem' }
         '413': { $ref: '#/components/responses/Problem' }
+        '422': { $ref: '#/components/responses/Problem' }
+        '503': { $ref: '#/components/responses/Problem' }
+
+  /api/v1/extractions:
+    post:
+      tags: [syllabus]
+      operationId: submitSyllabusExtraction
+      summary: Queue a syllabus extraction proposal (M8)
+      description: |
+        Java sends `store=false`: this result is a proposal and must not write either the
+        published JSON course map or PostgreSQL `course_skills`. Human-reviewed publication is
+        a separate `PUT /api/v1/course-maps/{course_map_version}` operation.
+      parameters:
+        - $ref: '#/components/parameters/CorrelationId'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [file]
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: Text-based course syllabus PDF.
+                use_llm: { type: boolean, default: false }
+                force: { type: boolean, default: false }
+                store:
+                  type: boolean
+                  default: false
+                  description: Must be false for review-first Java submissions.
+      responses:
+        '200':
+          description: Idempotency cache returned an already successful proposal.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SyllabusExtractionResponse' }
+        '202':
+          description: Extraction queued. Poll the Location resource.
+          headers:
+            Location:
+              schema: { type: string }
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SyllabusExtractionResponse' }
+        '400': { $ref: '#/components/responses/Problem' }
+        '413': { $ref: '#/components/responses/Problem' }
+        '422': { $ref: '#/components/responses/Problem' }
+        '503': { $ref: '#/components/responses/Problem' }
+
+  /api/v1/extractions/{extraction_id}:
+    parameters:
+      - name: extraction_id
+        in: path
+        required: true
+        schema: { type: string, minLength: 1, maxLength: 120 }
+      - $ref: '#/components/parameters/CorrelationId'
+    get:
+      tags: [syllabus]
+      operationId: getSyllabusExtraction
+      summary: Poll a syllabus extraction proposal
+      responses:
+        '200':
+          description: Current operation state, including the proposal once succeeded.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SyllabusExtractionResponse' }
+        '404': { $ref: '#/components/responses/Problem' }
+        '503': { $ref: '#/components/responses/Problem' }
+    delete:
+      tags: [syllabus]
+      operationId: cancelSyllabusExtraction
+      summary: Cancel a queued or running extraction
+      responses:
+        '200':
+          description: Cancellation requested.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SyllabusExtractionResponse' }
+        '404': { $ref: '#/components/responses/Problem' }
+        '409': { $ref: '#/components/responses/Problem' }
+
+  /api/v1/taxonomy/skills:
+    get:
+      tags: [taxonomy]
+      operationId: searchTaxonomySkills
+      summary: Search canonical skills for a human-reviewed picker
+      parameters:
+        - $ref: '#/components/parameters/CorrelationId'
+        - name: q
+          in: query
+          required: true
+          schema: { type: string, minLength: 1, maxLength: 200 }
+        - name: limit
+          in: query
+          required: false
+          schema: { type: integer, minimum: 1, maximum: 50, default: 20 }
+      responses:
+        '200':
+          description: Canonical results, best match first.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TaxonomySearchResponse' }
+        '422': { $ref: '#/components/responses/Problem' }
+        '503': { $ref: '#/components/responses/Problem' }
+
+  /api/v1/course-maps/{course_map_version}:
+    put:
+      tags: [course-maps]
+      operationId: publishApprovedCourseMap
+      summary: Atomically install one complete Java-approved course map
+      description: |
+        Full replacement, never a delta. The same version and same canonical payload is
+        idempotent; reusing a version for different bytes is a `409`. Every skill ID is validated
+        against the current taxonomy. Only this approved representation enters student vectors.
+      parameters:
+        - $ref: '#/components/parameters/CorrelationId'
+        - name: course_map_version
+          in: path
+          required: true
+          schema: { type: string, minLength: 1, maxLength: 120 }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/PublishCourseMapRequest' }
+      responses:
+        '200':
+          description: Published or confirmed idempotently.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/PublishCourseMapResponse' }
+        '404': { $ref: '#/components/responses/Problem' }
+        '409': { $ref: '#/components/responses/Problem' }
         '422': { $ref: '#/components/responses/Problem' }
         '503': { $ref: '#/components/responses/Problem' }
 
@@ -501,6 +643,162 @@ components:
         grade: { type: string, maxLength: 8, nullable: true }
         status: { type: string, maxLength: 30, nullable: true }
         credit_hours: { type: integer, minimum: 0, maximum: 20, nullable: true }
+
+    ExtractionProgress:
+      type: object
+      required: [stage, terms_total, terms_resolved, elapsed_seconds]
+      properties:
+        stage:
+          type: string
+          enum: [queued, parsing, extracting, matching, storing, done]
+        terms_total: { type: integer, minimum: 0 }
+        terms_resolved: { type: integer, minimum: 0 }
+        elapsed_seconds: { type: number, format: double, minimum: 0 }
+
+    SkillCandidate:
+      type: object
+      required: [id, label, score]
+      properties:
+        id: { type: string }
+        label: { type: string }
+        score: { type: number, format: double, minimum: 0.0, maximum: 1.0 }
+
+    ExtractedSkillMatch:
+      type: object
+      properties:
+        original_term: { type: string }
+        canonical_id: { type: string, nullable: true }
+        canonical_label: { type: string, nullable: true }
+        taxonomy: { type: string, nullable: true }
+        taxonomy_version: { type: string, nullable: true }
+        match_method: { type: string, nullable: true }
+        match_score: { type: number, format: double, minimum: 0.0, maximum: 1.0, nullable: true }
+        review_status: { type: string, enum: [accepted, needs_review, no_match] }
+        reason: { type: string, nullable: true }
+        candidates:
+          type: array
+          items: { $ref: '#/components/schemas/SkillCandidate' }
+
+    ExtractedCourseSkill:
+      type: object
+      required: [term, level, weight, evidence_count, sources]
+      properties:
+        term: { type: string }
+        canonical:
+          type: object
+          nullable: true
+          properties:
+            id: { type: string }
+            label: { type: string }
+            taxonomy: { type: string }
+        level: { type: string, enum: [beginner, intermediate, advanced] }
+        weight: { type: number, format: double, minimum: 0.0, maximum: 1.0 }
+        evidence_count: { type: integer, minimum: 0 }
+        sources:
+          type: array
+          items: { type: string }
+        evidence:
+          type: array
+          items: { type: object, additionalProperties: true }
+        match: { $ref: '#/components/schemas/ExtractedSkillMatch' }
+
+    SyllabusExtractionResult:
+      type: object
+      required: [course_code, total_skills, skills]
+      properties:
+        course_code: { type: string }
+        total_skills: { type: integer, minimum: 0 }
+        taxonomy_version: { type: string, nullable: true }
+        skills:
+          type: array
+          items: { $ref: '#/components/schemas/ExtractedCourseSkill' }
+
+    SyllabusExtractionResponse:
+      type: object
+      required: [extraction_id, status, content_sha256, progress]
+      properties:
+        extraction_id: { type: string }
+        status:
+          type: string
+          enum: [queued, running, succeeded, failed, cancelled]
+        course_code: { type: string, nullable: true }
+        content_sha256: { type: string }
+        degraded: { type: boolean, default: false }
+        progress: { $ref: '#/components/schemas/ExtractionProgress' }
+        result:
+          allOf: [{ $ref: '#/components/schemas/SyllabusExtractionResult' }]
+          nullable: true
+        warnings:
+          type: array
+          items: { type: string }
+        error: { type: string, nullable: true }
+        created_at: { type: string, format: date-time }
+        finished_at: { type: string, format: date-time, nullable: true }
+
+    TaxonomySkill:
+      type: object
+      required: [skill_id, label, source, skill_type, taxonomy_version]
+      properties:
+        skill_id: { type: string }
+        label: { type: string }
+        skill_type: { type: string }
+        source: { type: string }
+        description: { type: string, nullable: true }
+        taxonomy_version: { type: string }
+
+    TaxonomySearchResponse:
+      type: object
+      required: [total, items]
+      properties:
+        total: { type: integer, minimum: 0 }
+        items:
+          type: array
+          items: { $ref: '#/components/schemas/TaxonomySkill' }
+
+    ApprovedCourseSkill:
+      type: object
+      required: [skill_id, term, level, weight, evidence_count, sources]
+      properties:
+        skill_id: { type: string, minLength: 1, maxLength: 120 }
+        skill_label: { type: string, nullable: true }
+        term: { type: string, minLength: 1, maxLength: 300 }
+        level: { type: string, enum: [beginner, intermediate, advanced] }
+        weight: { type: number, format: double, minimum: 0.0, maximum: 1.0 }
+        evidence_count: { type: integer, minimum: 0 }
+        sources:
+          type: array
+          items: { type: string }
+        evidence:
+          type: array
+          items: { type: object, additionalProperties: true }
+
+    PublishCourseMapRequest:
+      type: object
+      required: [institution_code, catalog_version, course_code, source_outcome_id, taxonomy_version, skills]
+      properties:
+        institution_code: { type: string, minLength: 1, maxLength: 120 }
+        catalog_version: { type: string, minLength: 1, maxLength: 80 }
+        course_code: { type: string, minLength: 1, maxLength: 64 }
+        source_outcome_id: { type: string, minLength: 1, maxLength: 120 }
+        taxonomy_version: { type: string, minLength: 1, maxLength: 120 }
+        skills:
+          type: array
+          minItems: 1
+          maxItems: 1000
+          items: { $ref: '#/components/schemas/ApprovedCourseSkill' }
+
+    PublishCourseMapResponse:
+      type: object
+      required: [course_map_version, course_key, course_code, taxonomy_version, total_skills, content_sha256, published_at, idempotent]
+      properties:
+        course_map_version: { type: string }
+        course_key: { type: string }
+        course_code: { type: string }
+        taxonomy_version: { type: string }
+        total_skills: { type: integer, minimum: 0 }
+        content_sha256: { type: string }
+        published_at: { type: string, format: date-time }
+        idempotent: { type: boolean }
 
     SkillVectorRequest:
       type: object
