@@ -289,6 +289,129 @@ public class HttpDataAnalysisClient implements DataAnalysisClient {
                 .build();
     }
 
+    // ── M8 syllabus extraction and approved course maps ─────────────────
+
+    @Override
+    public SyllabusExtractionResponse submitSyllabusExtraction(SyllabusExtractionRequest request) {
+        if (request == null || request.getFileContent() == null || request.getFileContent().length == 0) {
+            throw new IllegalArgumentException("Syllabus file content is required.");
+        }
+
+        String filename = StringUtils.hasText(request.getOriginalFilename())
+                ? request.getOriginalFilename()
+                : "syllabus.pdf";
+
+        MultipartBodyBuilder multipart = new MultipartBodyBuilder();
+        multipart.part("file", new NamedByteArrayResource(request.getFileContent(), filename))
+                .contentType(resolveContentType(request.getContentType()));
+        multipart.part("use_llm", Boolean.toString(request.isUseLlm()));
+        multipart.part("force", Boolean.toString(request.isForce()));
+        // Content-manager extraction is a proposal. `false` must write neither the production
+        // JSON course map nor PostgreSQL course_skills.
+        multipart.part("store", Boolean.toString(request.isStoreResults()));
+
+        AiWire.SyllabusExtractionResponse wire = call(
+                "syllabus-submit",
+                aiServiceWebClient.post()
+                        .uri("/api/v1/extractions")
+                        .contentType(MediaType.MULTIPART_FORM_DATA)
+                        .body(BodyInserters.fromMultipartData(multipart.build())),
+                AiWire.SyllabusExtractionResponse.class,
+                aiServiceProperties.getTimeouts().getSyllabusSeconds());
+        return toSyllabusExtraction(wire);
+    }
+
+    @Override
+    public SyllabusExtractionResponse getSyllabusExtraction(String extractionId) {
+        requireExtractionId(extractionId);
+        AiWire.SyllabusExtractionResponse wire = call(
+                "syllabus-poll",
+                aiServiceWebClient.get().uri("/api/v1/extractions/{id}", extractionId),
+                AiWire.SyllabusExtractionResponse.class,
+                aiServiceProperties.getTimeouts().getSyllabusSeconds());
+        return toSyllabusExtraction(wire);
+    }
+
+    @Override
+    public SyllabusExtractionResponse cancelSyllabusExtraction(String extractionId) {
+        requireExtractionId(extractionId);
+        AiWire.SyllabusExtractionResponse wire = call(
+                "syllabus-cancel",
+                aiServiceWebClient.delete().uri("/api/v1/extractions/{id}", extractionId),
+                AiWire.SyllabusExtractionResponse.class,
+                aiServiceProperties.getTimeouts().getSyllabusSeconds());
+        return toSyllabusExtraction(wire);
+    }
+
+    @Override
+    public List<TaxonomySkillSuggestion> searchTaxonomySkills(String query, int limit) {
+        if (!StringUtils.hasText(query)) {
+            return List.of();
+        }
+        int bounded = Math.max(1, Math.min(50, limit));
+        AiWire.TaxonomySearchResponse wire = call(
+                "taxonomy-search",
+                aiServiceWebClient.get().uri(builder -> builder
+                        .path("/api/v1/taxonomy/skills")
+                        .queryParam("q", query.trim())
+                        .queryParam("limit", bounded)
+                        .build()),
+                AiWire.TaxonomySearchResponse.class,
+                aiServiceProperties.getTimeouts().getTaxonomySeconds());
+
+        return safe(wire == null ? null : wire.items()).stream()
+                .map(item -> TaxonomySkillSuggestion.builder()
+                        .skillId(item.skillId())
+                        .label(item.label())
+                        .skillType(item.skillType())
+                        .source(item.source())
+                        .description(item.description())
+                        .taxonomyVersion(item.taxonomyVersion())
+                        .build())
+                .toList();
+    }
+
+    @Override
+    public PublishCourseMapResponse publishCourseMap(PublishCourseMapRequest request) {
+        if (request == null || !StringUtils.hasText(request.getCourseMapVersion())) {
+            throw new IllegalArgumentException("A course map version is required.");
+        }
+
+        List<AiWire.ApprovedCourseSkill> skills = safe(request.getSkills()).stream()
+                .map(skill -> new AiWire.ApprovedCourseSkill(
+                        skill.getSkillId(), skill.getSkillLabel(), skill.getTerm(), skill.getLevel(),
+                        skill.getWeight() == null ? null : skill.getWeight().doubleValue(),
+                        skill.getEvidenceCount(), safe(skill.getSources()), safe(skill.getEvidence())))
+                .toList();
+
+        AiWire.PublishCourseMapRequest body = new AiWire.PublishCourseMapRequest(
+                request.getInstitutionCode(), request.getCatalogVersion(), request.getCourseCode(),
+                request.getSourceOutcomeId(), request.getTaxonomyVersion(), skills);
+
+        AiWire.PublishCourseMapResponse wire = call(
+                "course-map-publish",
+                aiServiceWebClient.put()
+                        .uri("/api/v1/course-maps/{version}", request.getCourseMapVersion())
+                        .bodyValue(body),
+                AiWire.PublishCourseMapResponse.class,
+                aiServiceProperties.getTimeouts().getPublicationSeconds());
+
+        if (wire == null) {
+            throw new AiServiceException(HttpStatus.BAD_GATEWAY, "AI_SERVICE_RESPONSE_INVALID",
+                    "The AI service returned no course-map publication confirmation.");
+        }
+        return PublishCourseMapResponse.builder()
+                .courseMapVersion(wire.courseMapVersion())
+                .courseKey(wire.courseKey())
+                .courseCode(wire.courseCode())
+                .taxonomyVersion(wire.taxonomyVersion())
+                .totalSkills(wire.totalSkills())
+                .contentSha256(wire.contentSha256())
+                .publishedAt(wire.publishedAt())
+                .idempotent(wire.idempotent())
+                .build();
+    }
+
     // ── M6/M7 job matching — deliberately not in v1 ───────────────────────
 
     /**
@@ -480,6 +603,100 @@ public class HttpDataAnalysisClient implements DataAnalysisClient {
                     "A career path name is required before the AI service can analyse a skill gap.");
         }
         return careerPathName;
+    }
+
+    private static void requireExtractionId(String extractionId) {
+        if (!StringUtils.hasText(extractionId)) {
+            throw new IllegalArgumentException("An extraction id is required.");
+        }
+    }
+
+    private static SyllabusExtractionResponse toSyllabusExtraction(
+            AiWire.SyllabusExtractionResponse wire) {
+        if (wire == null) {
+            throw new AiServiceException(HttpStatus.BAD_GATEWAY, "AI_SERVICE_RESPONSE_INVALID",
+                    "The AI service returned no syllabus extraction state.");
+        }
+
+        SyllabusExtractionResponse.Progress progress = wire.progress() == null ? null
+                : SyllabusExtractionResponse.Progress.builder()
+                .stage(wire.progress().stage())
+                .termsTotal(wire.progress().termsTotal())
+                .termsResolved(wire.progress().termsResolved())
+                .elapsedSeconds(decimal(wire.progress().elapsedSeconds()))
+                .build();
+
+        SyllabusExtractionResponse.Result result = null;
+        if (wire.result() != null) {
+            List<SyllabusExtractionResponse.ExtractedSkill> skills = safe(wire.result().skills()).stream()
+                    .map(HttpDataAnalysisClient::toExtractedSkill)
+                    .toList();
+            result = SyllabusExtractionResponse.Result.builder()
+                    .courseCode(wire.result().courseCode())
+                    .totalSkills(wire.result().totalSkills())
+                    .taxonomyVersion(wire.result().taxonomyVersion())
+                    .skills(skills)
+                    .build();
+        }
+
+        return SyllabusExtractionResponse.builder()
+                .extractionId(wire.extractionId())
+                .status(wire.status())
+                .courseCode(wire.courseCode())
+                .contentSha256(wire.contentSha256())
+                .degraded(wire.degraded())
+                .progress(progress)
+                .result(result)
+                .warnings(safe(wire.warnings()))
+                .error(wire.error())
+                .createdAt(wire.createdAt())
+                .finishedAt(wire.finishedAt())
+                .build();
+    }
+
+    private static SyllabusExtractionResponse.ExtractedSkill toExtractedSkill(
+            AiWire.ExtractedSkill wire) {
+        SyllabusExtractionResponse.CanonicalSkill canonical = wire.canonical() == null ? null
+                : SyllabusExtractionResponse.CanonicalSkill.builder()
+                .id(wire.canonical().id())
+                .label(wire.canonical().label())
+                .taxonomy(wire.canonical().taxonomy())
+                .build();
+
+        SyllabusExtractionResponse.Match match = wire.match() == null ? null
+                : SyllabusExtractionResponse.Match.builder()
+                .originalTerm(wire.match().originalTerm())
+                .canonicalId(wire.match().canonicalId())
+                .canonicalLabel(wire.match().canonicalLabel())
+                .taxonomy(wire.match().taxonomy())
+                .taxonomyVersion(wire.match().taxonomyVersion())
+                .matchMethod(wire.match().matchMethod())
+                .matchScore(decimal(wire.match().matchScore()))
+                .reviewStatus(wire.match().reviewStatus())
+                .reason(wire.match().reason())
+                .candidates(safe(wire.match().candidates()).stream()
+                        .map(candidate -> SyllabusExtractionResponse.Candidate.builder()
+                                .id(candidate.id())
+                                .label(candidate.label())
+                                .score(decimal(candidate.score()))
+                                .build())
+                        .toList())
+                .build();
+
+        return SyllabusExtractionResponse.ExtractedSkill.builder()
+                .term(wire.term())
+                .canonical(canonical)
+                .level(wire.level())
+                .weight(decimal(wire.weight()))
+                .evidenceCount(wire.evidenceCount())
+                .sources(safe(wire.sources()))
+                .evidence(safe(wire.evidence()))
+                .match(match)
+                .build();
+    }
+
+    private static BigDecimal decimal(Double value) {
+        return value == null ? null : BigDecimal.valueOf(value);
     }
 
     private static <T> List<T> safe(List<T> list) {

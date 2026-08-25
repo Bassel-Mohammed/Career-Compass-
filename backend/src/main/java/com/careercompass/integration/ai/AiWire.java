@@ -213,4 +213,126 @@ final class AiWire {
     @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
     record QuizAnswer(Integer correctIndex, String correctAnswer, String explanation) {
     }
+
+    // ── M8 syllabus proposals and approved course maps ──────────────────
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    record SyllabusExtractionResponse(
+            String extractionId,
+            String status,
+            String courseCode,
+            String contentSha256,
+            boolean degraded,
+            ExtractionProgress progress,
+            ExtractionResult result,
+            List<String> warnings,
+            String error,
+            String createdAt,
+            String finishedAt) {
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    record ExtractionProgress(
+            String stage,
+            Integer termsTotal,
+            Integer termsResolved,
+            Double elapsedSeconds) {
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    record ExtractionResult(
+            String courseCode,
+            Integer totalSkills,
+            String taxonomyVersion,
+            List<ExtractedSkill> skills) {
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    record ExtractedSkill(
+            String term,
+            CanonicalSkill canonical,
+            String level,
+            Double weight,
+            Integer evidenceCount,
+            List<String> sources,
+            List<Map<String, Object>> evidence,
+            SkillMatch match) {
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    record CanonicalSkill(String id, String label, String taxonomy) {
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    record SkillMatch(
+            String originalTerm,
+            String canonicalId,
+            String canonicalLabel,
+            String taxonomy,
+            String taxonomyVersion,
+            String matchMethod,
+            Double matchScore,
+            String reviewStatus,
+            String reason,
+            List<SkillCandidate> candidates) {
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    record SkillCandidate(String id, String label, Double score) {
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    record TaxonomySearchResponse(Integer total, List<TaxonomySkill> items) {
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    record TaxonomySkill(
+            String skillId,
+            String label,
+            String skillType,
+            String source,
+            String description,
+            String taxonomyVersion) {
+    }
+
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    record PublishCourseMapRequest(
+            String institutionCode,
+            String catalogVersion,
+            String courseCode,
+            String sourceOutcomeId,
+            String taxonomyVersion,
+            List<ApprovedCourseSkill> skills) {
+    }
+
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    record ApprovedCourseSkill(
+            String skillId,
+            String skillLabel,
+            String term,
+            String level,
+            Double weight,
+            Integer evidenceCount,
+            List<String> sources,
+            List<Map<String, Object>> evidence) {
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    record PublishCourseMapResponse(
+            String courseMapVersion,
+            String courseKey,
+            String courseCode,
+            String taxonomyVersion,
+            Integer totalSkills,
+            String contentSha256,
+            String publishedAt,
+            boolean idempotent) {
+    }
 }

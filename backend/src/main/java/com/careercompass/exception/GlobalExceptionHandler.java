@@ -4,11 +4,18 @@ import com.careercompass.dto.response.ApiErrorResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.web.HttpMediaTypeNotSupportedException;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
+import org.springframework.web.multipart.support.MissingServletRequestPartException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
@@ -90,6 +97,53 @@ public class GlobalExceptionHandler {
         return build(HttpStatus.CONFLICT, "DATA_CONFLICT",
                 "The requested change conflicts with data that was already saved. Refresh and try again.",
                 request, null);
+    }
+
+    @ExceptionHandler(StaleResourceException.class)
+    public ResponseEntity<ApiErrorResponse> handleStaleResource(StaleResourceException ex,
+                                                                 HttpServletRequest request) {
+        return build(HttpStatus.CONFLICT, "STALE_RESOURCE", ex.getMessage(), request, null);
+    }
+
+    @ExceptionHandler(MaxUploadSizeExceededException.class)
+    public ResponseEntity<ApiErrorResponse> handleUploadTooLarge(MaxUploadSizeExceededException ex,
+                                                                  HttpServletRequest request) {
+        return build(HttpStatus.PAYLOAD_TOO_LARGE, "FILE_TOO_LARGE",
+                "The PDF exceeds the 10 MB upload limit.", request, null);
+    }
+
+    @ExceptionHandler({MissingServletRequestPartException.class,
+            MissingServletRequestParameterException.class,
+            HttpMessageNotReadableException.class})
+    public ResponseEntity<ApiErrorResponse> handleMalformedRequest(Exception ex,
+                                                                   HttpServletRequest request) {
+        return build(HttpStatus.BAD_REQUEST, "INVALID_REQUEST",
+                "A required request value is missing or malformed.", request, null);
+    }
+
+    /**
+     * A wrong HTTP verb on an existing resource (e.g. PUT on a PATCH-only path) must not
+     * fall into the catch-all 500: the client is told which part of the request is wrong.
+     */
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    public ResponseEntity<ApiErrorResponse> handleMethodNotSupported(
+            HttpRequestMethodNotSupportedException ex, HttpServletRequest request) {
+        return build(HttpStatus.METHOD_NOT_ALLOWED, "METHOD_NOT_ALLOWED",
+                "This endpoint does not support that HTTP method.", request, null);
+    }
+
+    @ExceptionHandler(HttpMediaTypeNotSupportedException.class)
+    public ResponseEntity<ApiErrorResponse> handleMediaTypeNotSupported(
+            HttpMediaTypeNotSupportedException ex, HttpServletRequest request) {
+        return build(HttpStatus.UNSUPPORTED_MEDIA_TYPE, "UNSUPPORTED_MEDIA_TYPE",
+                "Send this request with a supported Content-Type.", request, null);
+    }
+
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<ApiErrorResponse> handleTypeMismatch(
+            MethodArgumentTypeMismatchException ex, HttpServletRequest request) {
+        return build(HttpStatus.BAD_REQUEST, "INVALID_REQUEST",
+                "A path or query parameter has an invalid value.", request, null);
     }
 
     @ExceptionHandler(ResourceNotFoundException.class)

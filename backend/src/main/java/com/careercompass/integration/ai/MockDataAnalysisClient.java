@@ -9,6 +9,8 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.UUID;
 
 /**
  * Stub implementation of {@link DataAnalysisClient} returning realistic-shaped fake data.
@@ -177,6 +179,126 @@ public class MockDataAnalysisClient implements DataAnalysisClient {
         return JobMatchResponse.builder()
                 .matchScore(matchScore)
                 .explanation("[MOCK] Score derived from average skill level, adjusted for role fit.")
+                .build();
+    }
+
+    @Override
+    public SyllabusExtractionResponse submitSyllabusExtraction(SyllabusExtractionRequest request) {
+        if (request == null || request.getFileContent() == null || request.getFileContent().length == 0) {
+            throw new IllegalArgumentException("Syllabus file content is required.");
+        }
+        String extractionId = "mock-extraction-" + UUID.randomUUID();
+        List<SyllabusExtractionResponse.ExtractedSkill> skills = List.of(
+                mockExtractedSkill("Object-oriented programming", "mock:oop",
+                        "Object-oriented programming", "intermediate", 1.0),
+                mockExtractedSkill("Unit testing", "mock:unit-testing",
+                        "Unit testing", "beginner", 0.8));
+
+        return SyllabusExtractionResponse.builder()
+                .extractionId(extractionId)
+                .status("succeeded")
+                .courseCode("MOCK101")
+                .contentSha256("mock-content-sha256")
+                .progress(SyllabusExtractionResponse.Progress.builder()
+                        .stage("done").termsTotal(skills.size()).termsResolved(skills.size())
+                        .elapsedSeconds(BigDecimal.ZERO).build())
+                .result(SyllabusExtractionResponse.Result.builder()
+                        .courseCode("MOCK101")
+                        .totalSkills(skills.size())
+                        .taxonomyVersion("mock-v1")
+                        .skills(skills)
+                        .build())
+                .warnings(List.of("[MOCK] Skills were generated without parsing the uploaded PDF."))
+                .build();
+    }
+
+    @Override
+    public SyllabusExtractionResponse getSyllabusExtraction(String extractionId) {
+        // Mock submissions complete synchronously; return the same deterministic proposal.
+        SyllabusExtractionResponse response = submitSyllabusExtraction(
+                SyllabusExtractionRequest.builder().fileContent(new byte[]{1}).build());
+        return SyllabusExtractionResponse.builder()
+                .extractionId(extractionId)
+                .status(response.getStatus())
+                .courseCode(response.getCourseCode())
+                .contentSha256(response.getContentSha256())
+                .progress(response.getProgress())
+                .result(response.getResult())
+                .warnings(response.getWarnings())
+                .build();
+    }
+
+    @Override
+    public SyllabusExtractionResponse cancelSyllabusExtraction(String extractionId) {
+        return SyllabusExtractionResponse.builder()
+                .extractionId(extractionId)
+                .status("cancelled")
+                .progress(SyllabusExtractionResponse.Progress.builder().stage("done").build())
+                .warnings(List.of())
+                .build();
+    }
+
+    @Override
+    public List<TaxonomySkillSuggestion> searchTaxonomySkills(String query, int limit) {
+        if (query == null || query.isBlank()) {
+            return List.of();
+        }
+        List<TaxonomySkillSuggestion> catalog = List.of(
+                TaxonomySkillSuggestion.builder().skillId("mock:oop")
+                        .label("Object-oriented programming").skillType("skill")
+                        .source("mock").taxonomyVersion("mock-v1").build(),
+                TaxonomySkillSuggestion.builder().skillId("mock:unit-testing")
+                        .label("Unit testing").skillType("skill")
+                        .source("mock").taxonomyVersion("mock-v1").build(),
+                TaxonomySkillSuggestion.builder().skillId("mock:docker")
+                        .label("Docker").skillType("tool")
+                        .source("mock").taxonomyVersion("mock-v1").build());
+        String needle = query.trim().toLowerCase(Locale.ROOT);
+        return catalog.stream()
+                .filter(item -> item.getLabel().toLowerCase(Locale.ROOT).contains(needle)
+                        || item.getSkillId().toLowerCase(Locale.ROOT).contains(needle))
+                .limit(Math.max(1, limit))
+                .toList();
+    }
+
+    @Override
+    public PublishCourseMapResponse publishCourseMap(PublishCourseMapRequest request) {
+        return PublishCourseMapResponse.builder()
+                .courseMapVersion(request.getCourseMapVersion())
+                .courseKey(String.join("|", request.getInstitutionCode(),
+                        request.getCatalogVersion(), request.getCourseCode()))
+                .courseCode(request.getCourseCode())
+                .taxonomyVersion(request.getTaxonomyVersion())
+                .totalSkills(request.getSkills() == null ? 0 : request.getSkills().size())
+                .contentSha256("mock-published-sha256")
+                .publishedAt(java.time.OffsetDateTime.now().toString())
+                .idempotent(false)
+                .build();
+    }
+
+    private SyllabusExtractionResponse.ExtractedSkill mockExtractedSkill(
+            String term, String skillId, String label, String level, double weight) {
+        return SyllabusExtractionResponse.ExtractedSkill.builder()
+                .term(term)
+                .canonical(SyllabusExtractionResponse.CanonicalSkill.builder()
+                        .id(skillId).label(label).taxonomy("mock").build())
+                .level(level)
+                .weight(BigDecimal.valueOf(weight))
+                .evidenceCount(1)
+                .sources(List.of("clo"))
+                .evidence(List.of(Map.of("source", "clo", "text", "[MOCK] " + term)))
+                .match(SyllabusExtractionResponse.Match.builder()
+                        .originalTerm(term)
+                        .canonicalId(skillId)
+                        .canonicalLabel(label)
+                        .taxonomy("mock")
+                        .taxonomyVersion("mock-v1")
+                        .matchMethod("mock")
+                        .matchScore(BigDecimal.ONE)
+                        .reviewStatus("accepted")
+                        .reason("[MOCK] deterministic proposal")
+                        .candidates(List.of())
+                        .build())
                 .build();
     }
 

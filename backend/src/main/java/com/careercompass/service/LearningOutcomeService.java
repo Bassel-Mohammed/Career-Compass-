@@ -6,9 +6,11 @@ import com.careercompass.entity.ContentManager;
 import com.careercompass.entity.LearningOutcome;
 import com.careercompass.entity.StudyField;
 import com.careercompass.entity.UniversityStudyField;
+import com.careercompass.exception.DuplicateResourceException;
 import com.careercompass.exception.PrerequisiteNotMetException;
 import com.careercompass.exception.ResourceNotFoundException;
 import com.careercompass.exception.UnauthorizedActionException;
+import com.careercompass.entity.LearningOutcomeExtractionStatus;
 import com.careercompass.mapper.ContentManagerMapper;
 import com.careercompass.mapper.LearningOutcomeMapper;
 import com.careercompass.repository.ContentManagerRepository;
@@ -21,7 +23,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.EnumSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Business Layer for a Content Manager's OWN actions (FR-CM-04/05).
@@ -42,6 +46,16 @@ import java.util.List;
 public class LearningOutcomeService {
 
     private static final long MAX_FILE_SIZE_BYTES = 10L * 1024 * 1024; // same NFR-PERF-07 cap as transcripts
+    private static final int MAX_COURSE_CODE_LENGTH = 80;
+    private static final int MAX_CATALOG_VERSION_LENGTH = 120;
+
+    /** Uploads that occupy the document's extraction identity and block re-uploading its content. */
+    private static final Set<LearningOutcomeExtractionStatus> ACTIVE_STATUSES = EnumSet.of(
+            LearningOutcomeExtractionStatus.QUEUED,
+            LearningOutcomeExtractionStatus.EXTRACTING,
+            LearningOutcomeExtractionStatus.READY_FOR_REVIEW,
+            LearningOutcomeExtractionStatus.PUBLISHING,
+            LearningOutcomeExtractionStatus.PUBLISHED);
 
     private final ContentManagerRepository contentManagerRepository;
     private final StudyFieldRepository studyFieldRepository;
@@ -50,6 +64,7 @@ public class LearningOutcomeService {
     private final FileStorageService fileStorageService;
     private final ContentManagerMapper contentManagerMapper;
     private final LearningOutcomeMapper learningOutcomeMapper;
+    private final LearningOutcomeReviewService reviewService;
 
     /**
      * FR-CM-06: the Content Manager's own account.
@@ -82,12 +97,29 @@ public class LearningOutcomeService {
         return contentManagerMapper.toResponse(contentManagerRepository.save(contentManager));
     }
 
-    /** FR-CM-04: upload a course learning-outcome PDF. */
+    /**
+     * FR-CM-04: upload a course learning-outcome PDF and start its skill extraction.
+     *
+     * <p>The qualified course identity ({@code courseCode} + {@code catalogVersion}, scoped by
+     * the Content Manager's own institution) is supplied by the caller rather than inferred
+     * from a filename or PDF text — guessing an identity that later becomes a published
+     * course key is how silent data corruption happens. The upload answers 201 with the row
+     * in {@code QUEUED}/{@code EXTRACTING}/{@code READY_FOR_REVIEW} (or {@code FAILED} when
+     * the AI submission itself failed); extraction problems are job statuses, never upload
+     * failures, because the file is already safe on disk.
+     *
+     * <p>The AI call is proposal-only ({@code storeResults=false}): nothing it returns is
+     * visible to student analysis until the content manager approves and publishes it.
+     */
     @Transactional
     public LearningOutcomeResponse uploadLearningOutcome(
-            Integer contentManagerId, String courseName, String description, MultipartFile file) {
+            Integer contentManagerId, String courseCode, String catalogVersion,
+            String courseName, String description, MultipartFile file) {
 
         FileValidationUtils.validatePdf(file, MAX_FILE_SIZE_BYTES);
+        String normalizedCourseCode = requireBounded(courseCode, MAX_COURSE_CODE_LENGTH, "course code");
+        String normalizedCatalogVersion =
+                requireBounded(catalogVersion, MAX_CATALOG_VERSION_LENGTH, "catalog version");
 
         ContentManager contentManager = getOrThrow(contentManagerId);
 
@@ -98,26 +130,65 @@ public class LearningOutcomeService {
 
         UniversityStudyField universityField = resolveUniversityStudyField(contentManager);
 
-        String storedPath = fileStorageService.store(file);
+        byte[] content = fileBytes(file);
+        String institutionCode = institutionCodeFor(contentManager);
 
-        LearningOutcome learningOutcome = LearningOutcome.builder()
+        learningOutcomeRepository
+                .findByUploadedByContentManager_ContentManagerId(contentManagerId).stream()
+                .filter(existing -> existing.getInstitutionCode().equals(institutionCode))
+                .filter(existing -> existing.getCatalogVersion().equalsIgnoreCase(normalizedCatalogVersion))
+                .filter(existing -> existing.getCourseCode().equalsIgnoreCase(normalizedCourseCode))
+                .filter(existing -> existing.getExtractionStatus() != LearningOutcomeExtractionStatus.CANCELLED
+                        && existing.getExtractionStatus() != LearningOutcomeExtractionStatus.FAILED)
+                .findFirst()
+                .ifPresent(existing -> {
+                    throw new DuplicateResourceException(
+                            "A learning outcome for " + normalizedCourseCode + " (catalog "
+                                    + normalizedCatalogVersion + ") already exists. Review it instead of re-uploading.");
+                });
+
+        // Same PDF content under a different course code still maps to the one extraction
+        // the AI service keeps for that document, so reject it before any submission —
+        // otherwise the unique ai_extraction_id constraint fails mid-transaction.
+        learningOutcomeRepository
+                .findFirstByContentSha256OrderByUploadedAtDesc(
+                        LearningOutcomeReviewService.sha256Hex(content))
+                .filter(existing -> ACTIVE_STATUSES.contains(existing.getExtractionStatus()))
+                .ifPresent(existing -> {
+                    throw new DuplicateResourceException(
+                            "This syllabus PDF was already uploaded as " + existing.getCourseCode()
+                                    + " (catalog " + existing.getCatalogVersion()
+                                    + "). Review that upload instead of re-uploading the same file.");
+                });
+
+        LearningOutcome learningOutcome = learningOutcomeRepository.save(LearningOutcome.builder()
                 .universityField(universityField)
+                .institutionCode(institutionCode)
+                .catalogVersion(normalizedCatalogVersion)
+                .courseCode(normalizedCourseCode)
+                .contentSha256(LearningOutcomeReviewService.sha256Hex(content))
                 .courseName(courseName)
                 .description(description)
-                .filePath(storedPath)
+                .filePath(fileStorageService.store(file))
                 .originalFilename(file.getOriginalFilename())
+                .extractionStatus(LearningOutcomeExtractionStatus.QUEUED)
                 .isDeletedFromDisk(false)
                 .uploadedByContentManager(contentManager)
-                .build();
+                .build());
 
-        return learningOutcomeMapper.toResponse(learningOutcomeRepository.save(learningOutcome));
+        reviewService.beginExtraction(learningOutcome, content, learningOutcome.getOriginalFilename(),
+                file.getContentType(), false);
+
+        return reviewService.toResponse(learningOutcome);
     }
 
     /** FR-CM-04 (view list of uploaded course learning outcomes). */
     @Transactional(readOnly = true)
     public List<LearningOutcomeResponse> listMyUploads(Integer contentManagerId) {
-        return learningOutcomeRepository.findByUploadedByContentManager_ContentManagerId(contentManagerId).stream()
-                .map(learningOutcomeMapper::toResponse)
+        return learningOutcomeRepository
+                .findByUploadedByContentManager_ContentManagerIdOrderByUploadedAtDesc(contentManagerId)
+                .stream()
+                .map(reviewService::toResponse)
                 .toList();
     }
 
@@ -157,6 +228,40 @@ public class LearningOutcomeService {
                         .university(contentManager.getUniversity())
                         .studyField(contentManager.getStudyField())
                         .build()));
+    }
+
+    /**
+     * Stable qualified identity for the Content Manager's institution. Universities have no
+     * natural code in this system, so the surrogate key is used verbatim; the {@code uni:}
+     * prefix keeps it readable and distinct from the {@code legacy:*} values migration V5
+     * wrote for pre-existing rows.
+     */
+    private static String institutionCodeFor(ContentManager contentManager) {
+        return "uni:" + contentManager.getUniversity().getUniversityId();
+    }
+
+    private static byte[] fileBytes(MultipartFile file) {
+        try {
+            byte[] content = file.getBytes();
+            if (content == null || content.length == 0) {
+                throw new IllegalArgumentException("The uploaded file is empty.");
+            }
+            return content;
+        } catch (java.io.IOException ex) {
+            throw new IllegalStateException("Could not read the uploaded file.", ex);
+        }
+    }
+
+    private static String requireBounded(String value, int maxLength, String label) {
+        if (value == null || value.isBlank()) {
+            throw new IllegalArgumentException("A " + label + " is required.");
+        }
+        String trimmed = value.trim();
+        if (trimmed.length() > maxLength) {
+            throw new IllegalArgumentException(
+                    "The " + label + " must be " + maxLength + " characters or fewer.");
+        }
+        return trimmed;
     }
 
     private ContentManager getOrThrow(Integer contentManagerId) {

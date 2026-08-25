@@ -109,6 +109,10 @@ class CareerCompassSystemTest {
 
     private static String contentManagerToken;
     private static Integer contentManagerId;
+    private static Integer contentManagerOutcomeId;
+    private static Long contentManagerDraftSkillId;
+    private static Long contentManagerDraftRowVersion;
+    private static Long contentManagerDraftRevision;
 
     private static String expertToken;
     private static Integer expertId;
@@ -266,6 +270,93 @@ class CareerCompassSystemTest {
                         .matchScore(BigDecimal.valueOf(82.0))
                         .explanation("Strong overlap in required skills.")
                         .build());
+
+        // Module 8: proposal-only syllabus extraction for the content-manager review
+        // workflow. The submission completes synchronously with two matched skills, so the
+        // upload lands in READY_FOR_REVIEW immediately and the review phases below can drive
+        // accept → publish against deterministic ids.
+        when(dataAnalysisClient.submitSyllabusExtraction(any(SyllabusExtractionRequest.class)))
+                .thenAnswer(inv -> SyllabusExtractionResponse.builder()
+                        .extractionId("ext-sys-test-1")
+                        .status("succeeded")
+                        .contentSha256("a".repeat(64))
+                        .warnings(List.of())
+                        .result(SyllabusExtractionResponse.Result.builder()
+                                .courseCode("CS201")
+                                .totalSkills(2)
+                                .taxonomyVersion("taxonomy-2026.08")
+                                .skills(List.of(
+                                        extractedSyllabusSkill("object-oriented programming",
+                                                "skill:oop", "Object-oriented programming",
+                                                "intermediate", "0.9000"),
+                                        extractedSyllabusSkill("unit testing",
+                                                "skill:unit-testing", "Unit testing",
+                                                "beginner", "0.7000")))
+                                .build())
+                        .build());
+        when(dataAnalysisClient.getSyllabusExtraction(any()))
+                .thenAnswer(inv -> SyllabusExtractionResponse.builder()
+                        .extractionId(inv.getArgument(0))
+                        .status("succeeded")
+                        .warnings(List.of())
+                        .build());
+        when(dataAnalysisClient.cancelSyllabusExtraction(any()))
+                .thenAnswer(inv -> SyllabusExtractionResponse.builder()
+                        .extractionId(inv.getArgument(0))
+                        .status("cancelled")
+                        .warnings(List.of())
+                        .build());
+        when(dataAnalysisClient.searchTaxonomySkills(any(), any(int.class)))
+                .thenReturn(List.of(
+                        TaxonomySkillSuggestion.builder()
+                                .skillId("skill:docker").label("Docker").skillType("tool")
+                                .source("taxonomy-2026.08").taxonomyVersion("taxonomy-2026.08")
+                                .build(),
+                        TaxonomySkillSuggestion.builder()
+                                .skillId("skill:oop").label("Object-oriented programming")
+                                .skillType("skill").source("taxonomy-2026.08")
+                                .taxonomyVersion("taxonomy-2026.08")
+                                .build()));
+        when(dataAnalysisClient.publishCourseMap(any(PublishCourseMapRequest.class)))
+                .thenAnswer(inv -> {
+                    PublishCourseMapRequest req = inv.getArgument(0);
+                    return PublishCourseMapResponse.builder()
+                            .courseMapVersion(req.getCourseMapVersion())
+                            .courseKey(req.getInstitutionCode() + "|" + req.getCatalogVersion()
+                                    + "|" + req.getCourseCode())
+                            .courseCode(req.getCourseCode())
+                            .taxonomyVersion(req.getTaxonomyVersion())
+                            .totalSkills(req.getSkills() == null ? 0 : req.getSkills().size())
+                            .contentSha256("b".repeat(64))
+                            .publishedAt("2026-08-25T00:00:00Z")
+                            .idempotent(false)
+                            .build();
+                });
+    }
+
+    /** One matched skill inside the Module 8 stub proposal above. */
+    private static SyllabusExtractionResponse.ExtractedSkill extractedSyllabusSkill(
+            String term, String skillId, String label, String level, String weight) {
+        return SyllabusExtractionResponse.ExtractedSkill.builder()
+                .term(term)
+                .canonical(SyllabusExtractionResponse.CanonicalSkill.builder()
+                        .id(skillId).label(label).taxonomy("taxonomy-2026.08").build())
+                .level(level)
+                .weight(new BigDecimal(weight))
+                .evidenceCount(2)
+                .sources(List.of("clo"))
+                .evidence(List.of(java.util.Map.of("source", "clo", "text", "Students can " + term)))
+                .match(SyllabusExtractionResponse.Match.builder()
+                        .originalTerm(term)
+                        .canonicalId(skillId)
+                        .canonicalLabel(label)
+                        .matchMethod("lexical")
+                        .matchScore(new BigDecimal("0.9500"))
+                        .reviewStatus("accepted")
+                        .reason("Exact alias match")
+                        .candidates(List.of())
+                        .build())
+                .build();
     }
 
     // =====================================================================================
@@ -850,20 +941,193 @@ class CareerCompassSystemTest {
                 .andExpect(status().isOk());
     }
 
-    // Purpose: FR-CM-04 - the Content Manager uploads a course learning-outcome PDF.
+    // Purpose: FR-CM-04 - the content manager uploads a syllabus PDF with its qualified course
+    // identity; the (mocked) extraction completes synchronously, so the row is immediately
+    // READY_FOR_REVIEW and never visible to students until published.
     @Test
     @Order(38)
     void phase3_contentManagerCanUploadLearningOutcomePdf() throws Exception {
         MockMultipartFile file = new MockMultipartFile(
                 "file", "cs201-outcomes.pdf", "application/pdf", "fake pdf content".getBytes());
 
-        mockMvc.perform(multipart("/api/content-managers/me/learning-outcomes")
+        MvcResult result = mockMvc.perform(multipart("/api/content-managers/me/learning-outcomes")
                         .file(file)
+                        .param("courseCode", "CS201")
+                        .param("catalogVersion", "2025-2026")
                         .param("courseName", "Data Structures")
                         .param("description", "Covers arrays, lists, trees, graphs.")
                         .header("Authorization", "Bearer " + contentManagerToken))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.courseName", is("Data Structures")));
+                .andExpect(jsonPath("$.courseName", is("Data Structures")))
+                .andExpect(jsonPath("$.courseCode", is("CS201")))
+                .andExpect(jsonPath("$.catalogVersion", is("2025-2026")))
+                .andExpect(jsonPath("$.extractionStatus", is("READY_FOR_REVIEW")))
+                .andExpect(jsonPath("$.draftRevision", is(0)))
+                .andReturn();
+
+        contentManagerOutcomeId = objectMapper.readTree(result.getResponse().getContentAsString())
+                .get("outcomeId").asInt();
+    }
+
+    // Purpose: FR-CM-04 review - the extraction proposal is pollable and reports the draft
+    // revision the content manager must echo back on every mutation (optimistic locking).
+    @Test
+    @Order(381)
+    void phase3_extractionStatusReportsReadyForReviewWithDraftRevision() throws Exception {
+        mockMvc.perform(get("/api/content-managers/me/learning-outcomes/"
+                        + contentManagerOutcomeId + "/extraction")
+                        .header("Authorization", "Bearer " + contentManagerToken))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.extractionStatus", is("READY_FOR_REVIEW")))
+                .andExpect(jsonPath("$.totalSkills", is(2)))
+                .andExpect(jsonPath("$.pendingSkills", is(2)))
+                .andExpect(jsonPath("$.taxonomyVersion", is("taxonomy-2026.08")));
+    }
+
+    // Purpose: FR-CM-04 review - every extracted term is listed with its canonical match,
+    // evidence, and PENDING decision; nothing has been approved by anyone yet.
+    @Test
+    @Order(382)
+    void phase3_draftSkillsListShowsPendingProposalWithEvidence() throws Exception {
+        MvcResult result = mockMvc.perform(get("/api/content-managers/me/learning-outcomes/"
+                        + contentManagerOutcomeId + "/skills")
+                        .header("Authorization", "Bearer " + contentManagerToken))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(2)))
+                .andExpect(jsonPath("$[0].term", is("object-oriented programming")))
+                .andExpect(jsonPath("$[0].canonicalSkillId", is("skill:oop")))
+                .andExpect(jsonPath("$[0].decision", is("PENDING")))
+                .andExpect(jsonPath("$[0].matchScore", is(0.95)))
+                .andExpect(jsonPath("$[0].evidence", hasSize(1)))
+                .andReturn();
+
+        JsonNode skills = objectMapper.readTree(result.getResponse().getContentAsString());
+        contentManagerDraftSkillId = skills.get(0).get("draftSkillId").asLong();
+        contentManagerDraftRowVersion = skills.get(0).get("rowVersion").asLong();
+    }
+
+    // Purpose: review concurrency - a mutation carrying a stale draft revision is rejected
+    // with 409 STALE_RESOURCE before anything is modified, so two browsers on the same review
+    // can never silently overwrite each other.
+    @Test
+    @Order(383)
+    void phase3_staleDraftRevisionIsRejectedWithConflict() throws Exception {
+        mockMvc.perform(patch("/api/content-managers/me/learning-outcomes/"
+                        + contentManagerOutcomeId + "/skills/" + contentManagerDraftSkillId)
+                        .header("Authorization", "Bearer " + contentManagerToken)
+                        .contentType("application/json")
+                        .content(objectMapper.writeValueAsString(java.util.Map.of(
+                                "expectedRowVersion", contentManagerDraftRowVersion,
+                                "expectedDraftRevision", 999)))
+                )
+                .andExpect(status().isConflict())
+                .andExpect(jsonPath("$.error", is("STALE_RESOURCE")));
+    }
+
+    // Purpose: FR-CM-04 review - accepting a proposal advances the aggregate revision, and a
+    // second mutation must then use the new revision value (the CAS really rotates).
+    @Test
+    @Order(384)
+    void phase3_contentManagerAcceptsExtractedSkill() throws Exception {
+        contentManagerDraftRevision = readCurrentDraftRevision();
+
+        MvcResult result = mockMvc.perform(patch("/api/content-managers/me/learning-outcomes/"
+                        + contentManagerOutcomeId + "/skills/" + contentManagerDraftSkillId)
+                        .header("Authorization", "Bearer " + contentManagerToken)
+                        .contentType("application/json")
+                        .content(objectMapper.writeValueAsString(java.util.Map.of(
+                                "decision", "ACCEPTED",
+                                "expectedRowVersion", contentManagerDraftRowVersion,
+                                "expectedDraftRevision", contentManagerDraftRevision)))
+                )
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.decision", is("ACCEPTED")))
+                .andExpect(jsonPath("$.rowVersion", is((int) (contentManagerDraftRowVersion + 1))))
+                .andReturn();
+
+        contentManagerDraftRowVersion = objectMapper.readTree(
+                result.getResponse().getContentAsString()).get("rowVersion").asLong();
+
+        mockMvc.perform(get("/api/content-managers/me/learning-outcomes/" + contentManagerOutcomeId)
+                        .header("Authorization", "Bearer " + contentManagerToken))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.pendingSkills", is(1)));
+    }
+
+    // Purpose: FR-CM-04 publication - with every skill resolved, the approved map is copied
+    // into an immutable version 1, confirmed by the AI service, and only then becomes
+    // PUBLISHED; the row's course_map_version records exactly which snapshot students see.
+    @Test
+    @Order(385)
+    void phase3_contentManagerPublishesApprovedCourseMap() throws Exception {
+        // Accept the remaining pending skill first.
+        MvcResult skills = mockMvc.perform(get("/api/content-managers/me/learning-outcomes/"
+                        + contentManagerOutcomeId + "/skills")
+                        .header("Authorization", "Bearer " + contentManagerToken))
+                .andExpect(status().isOk())
+                .andReturn();
+        JsonNode rows = objectMapper.readTree(skills.getResponse().getContentAsString());
+        Long pendingId = null;
+        Long pendingRowVersion = null;
+        for (JsonNode row : rows) {
+            if ("PENDING".equals(row.get("decision").asText())) {
+                pendingId = row.get("draftSkillId").asLong();
+                pendingRowVersion = row.get("rowVersion").asLong();
+            }
+        }
+        assertThat(pendingId).isNotNull();
+        contentManagerDraftRevision = readCurrentDraftRevision();
+        mockMvc.perform(patch("/api/content-managers/me/learning-outcomes/"
+                        + contentManagerOutcomeId + "/skills/" + pendingId)
+                        .header("Authorization", "Bearer " + contentManagerToken)
+                        .contentType("application/json")
+                        .content(objectMapper.writeValueAsString(java.util.Map.of(
+                                "decision", "ACCEPTED",
+                                "expectedRowVersion", pendingRowVersion,
+                                "expectedDraftRevision", contentManagerDraftRevision)))
+                )
+                .andExpect(status().isOk());
+
+        contentManagerDraftRevision = readCurrentDraftRevision();
+        mockMvc.perform(post("/api/content-managers/me/learning-outcomes/"
+                        + contentManagerOutcomeId + "/publish")
+                        .header("Authorization", "Bearer " + contentManagerToken)
+                        .contentType("application/json")
+                        .content(objectMapper.writeValueAsString(java.util.Map.of(
+                                "expectedDraftRevision", contentManagerDraftRevision)))
+                )
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.extractionStatus", is("PUBLISHED")))
+                .andExpect(jsonPath("$.courseMapVersion", is(1)))
+                .andExpect(jsonPath("$.publishedAt", notNullValue()));
+    }
+
+    // Purpose: publication guardrails - after PUBLISHED the review is closed, so a further
+    // edit is a 400 (not a silent mutation of a map students already see), and re-uploading
+    // the same course identity is a 409 pointing at the existing review.
+    @Test
+    @Order(386)
+    void phase3_publishedOutcomeIsImmutableAndDuplicateUploadRejected() throws Exception {
+        mockMvc.perform(patch("/api/content-managers/me/learning-outcomes/"
+                        + contentManagerOutcomeId + "/skills/" + contentManagerDraftSkillId)
+                        .header("Authorization", "Bearer " + contentManagerToken)
+                        .contentType("application/json")
+                        .content(objectMapper.writeValueAsString(java.util.Map.of(
+                                "expectedRowVersion", contentManagerDraftRowVersion,
+                                "expectedDraftRevision", contentManagerDraftRevision)))
+                )
+                .andExpect(status().isBadRequest());
+
+        MockMultipartFile file = new MockMultipartFile(
+                "file", "cs201-again.pdf", "application/pdf", "fake pdf content".getBytes());
+        mockMvc.perform(multipart("/api/content-managers/me/learning-outcomes")
+                        .file(file)
+                        .param("courseCode", "CS201")
+                        .param("catalogVersion", "2025-2026")
+                        .param("courseName", "Data Structures")
+                        .header("Authorization", "Bearer " + contentManagerToken))
+                .andExpect(status().isConflict())
+                .andExpect(jsonPath("$.error", is("DUPLICATE_RESOURCE")));
     }
 
     // Purpose: FR-CM-04 - a non-PDF upload is rejected with 400, never silently accepted.
@@ -1500,6 +1764,20 @@ class CareerCompassSystemTest {
 
     private String readToken(MvcResult result) throws Exception {
         return objectMapper.readTree(result.getResponse().getContentAsString()).get("token").asText();
+    }
+
+    /**
+     * Reads the aggregate's current draft revision straight from the API, mirroring what a
+     * real second browser would do after receiving 409 STALE_RESOURCE.
+     */
+    private long readCurrentDraftRevision() throws Exception {
+        MvcResult result = mockMvc.perform(get("/api/content-managers/me/learning-outcomes/"
+                        + contentManagerOutcomeId)
+                        .header("Authorization", "Bearer " + contentManagerToken))
+                .andExpect(status().isOk())
+                .andReturn();
+        return objectMapper.readTree(result.getResponse().getContentAsString())
+                .get("draftRevision").asLong();
     }
 
     /**

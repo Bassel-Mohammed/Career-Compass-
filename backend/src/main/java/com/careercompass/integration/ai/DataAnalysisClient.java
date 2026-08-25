@@ -41,4 +41,19 @@ public interface DataAnalysisClient {
 
     /** Module 6 — Job Matching, scored against a single job (Section 5.3.3). */
     JobMatchResponse scoreJobMatch(JobMatchRequest request);
+
+    /** M8 — queue a syllabus extraction proposal. This must not publish a course map. */
+    SyllabusExtractionResponse submitSyllabusExtraction(SyllabusExtractionRequest request);
+
+    /** M8 — read current progress or the completed extraction proposal. */
+    SyllabusExtractionResponse getSyllabusExtraction(String extractionId);
+
+    /** M8 — cancel an extraction which has not reached a terminal state. */
+    SyllabusExtractionResponse cancelSyllabusExtraction(String extractionId);
+
+    /** Search the AI-owned canonical taxonomy for manual additions and replacements. */
+    java.util.List<TaxonomySkillSuggestion> searchTaxonomySkills(String query, int limit);
+
+    /** Publish one complete, content-manager-approved course map idempotently. */
+    PublishCourseMapResponse publishCourseMap(PublishCourseMapRequest request);
 }
