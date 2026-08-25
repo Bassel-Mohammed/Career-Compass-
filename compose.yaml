@@ -1,4 +1,25 @@
 services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${AI_POSTGRES_DB:-careercompass_ai}
+      POSTGRES_USER: ${AI_POSTGRES_USER:-careercompass}
+      POSTGRES_PASSWORD: ${AI_POSTGRES_PASSWORD:-careercompass-local-dev-only}
+    ports:
+      # 5432 is commonly taken by a developer's local PostgreSQL; expose the
+      # container DB on 5433 instead. The ai-service reaches it over the
+      # internal network either way.
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - ai_postgres:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U ${AI_POSTGRES_USER:-careercompass} -d ${AI_POSTGRES_DB:-careercompass_ai}
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
   ai-service:
     build:
       context: ./ai-service
@@ -11,6 +32,17 @@ services:
       CC_EMBEDDING_BACKEND: lexical
       CC_RERANKER: lexical
       CC_MATCH_LLM: "0"
+      # Course-map publication persistence (skills review workflow). The schema
+      # is created by the packaged migrations on startup.
+      CC_DB_HOST: postgres
+      CC_DB_PORT: "5432"
+      CC_DB_NAME: ${AI_POSTGRES_DB:-careercompass_ai}
+      CC_DB_USER: ${AI_POSTGRES_USER:-careercompass}
+      CC_DB_PASSWORD: ${AI_POSTGRES_PASSWORD:-careercompass-local-dev-only}
+      CC_DB_AUTO_MIGRATE: "1"
+    depends_on:
+      postgres:
+        condition: service_healthy
     ports:
       - "127.0.0.1:8000:8000"
     healthcheck:
@@ -95,3 +127,4 @@ services:
 volumes:
   backend_h2:
   learning_outcomes:
+  ai_postgres:
