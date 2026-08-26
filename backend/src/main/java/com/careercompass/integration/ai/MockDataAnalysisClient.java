@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -41,10 +42,10 @@ public class MockDataAnalysisClient implements DataAnalysisClient {
         List<TranscriptExtractionResponse.ExtractedCourseDto> courses = List.of(
                 TranscriptExtractionResponse.ExtractedCourseDto.builder()
                         .courseCode("CS101").courseName("Introduction to Programming")
-                        .grade("A").lowConfidence(false).warnings(List.of()).build(),
+                        .grade("A").lowConfidence(false).warnings(java.util.Collections.emptyList()).build(),
                 TranscriptExtractionResponse.ExtractedCourseDto.builder()
                         .courseCode("CS201").courseName("Data Structures")
-                        .grade("A-").lowConfidence(false).warnings(List.of()).build(),
+                        .grade("A-").lowConfidence(false).warnings(java.util.Collections.emptyList()).build(),
                 TranscriptExtractionResponse.ExtractedCourseDto.builder()
                         .courseCode("CS310").courseName("Operating Systems")
                         .grade("B-").lowConfidence(true)
@@ -86,22 +87,34 @@ public class MockDataAnalysisClient implements DataAnalysisClient {
                 .quizScores(request.getQuizScores())
                 .build());
 
-        List<SkillGapAnalysisResponse.SkillGapItemDto> gaps = vector.getSkills().stream()
-                .map(skill -> {
-                    BigDecimal target = BigDecimal.valueOf(75);
-                    String classification = classify(skill.getScore(), target);
-                    return SkillGapAnalysisResponse.SkillGapItemDto.builder()
-                            .skillId(skill.getSkillId())
-                            .skillName(skill.getSkillName())
-                            .currentScore(skill.getScore())
-                            .targetScore(target)
-                            .classification(classification)
-                            .explanation("[MOCK] Estimated from related coursework; "
-                                    + classification.toLowerCase(Locale.ROOT) + " relative to the target level.")
-                            .priority(BigDecimal.ZERO)
-                            .build();
-                })
-                .toList();
+        List<SkillGapAnalysisResponse.SkillGapItemDto> gaps = new ArrayList<>();
+        List<SkillScoreDto> held = vector.getSkills();
+        for (int index = 0; index < held.size(); index++) {
+            SkillScoreDto skill = held.get(index);
+            BigDecimal target = BigDecimal.valueOf(75);
+            String classification = classify(skill.getScore(), target);
+            // Demand descends across the list so all three bands appear. The dashboard groups by
+            // band and would look broken against a mock that only ever produced one of them.
+            BigDecimal importance = mockImportance(index, held.size());
+            gaps.add(SkillGapAnalysisResponse.SkillGapItemDto.builder()
+                    .skillId(skill.getSkillId())
+                    .skillName(skill.getSkillName())
+                    .currentScore(skill.getScore())
+                    .targetScore(target)
+                    .classification(classification)
+                    .explanation("[MOCK] Estimated from related coursework; "
+                            + classification.toLowerCase(Locale.ROOT) + " relative to the target level.")
+                    .importancePercent(importance)
+                    .demandBand(mockBand(importance))
+                    .postingCount(importance
+                            .multiply(BigDecimal.valueOf(MOCK_SAMPLE_SIZE))
+                            .divide(BigDecimal.valueOf(100), 0, RoundingMode.HALF_UP)
+                            .intValue())
+                    .requiredLevel("advanced")
+                    .skillType("knowledge")
+                    .priority(BigDecimal.ZERO)
+                    .build());
+        }
 
         int overallReadiness = gaps.isEmpty() ? 0 : (int) gaps.stream()
                 .mapToInt(g -> g.getCurrentScore().intValue())
@@ -114,7 +127,95 @@ public class MockDataAnalysisClient implements DataAnalysisClient {
                 .narrative(request.isIncludeNarrative()
                         ? "[MOCK] A generated summary would appear here."
                         : null)
+                .bandSummary(mockBandSummary(gaps))
+                .sampleSize(MOCK_SAMPLE_SIZE)
+                .coursesCounted(request.getCourses() == null ? 0 : request.getCourses().size())
+                .syntheticCounted(0)
+                .coursesSkipped(java.util.Collections.emptyList())
                 .build();
+    }
+
+    @Override
+    public CareerPathSkillsResponse getCareerPathSkills(String careerPathName) {
+        List<CareerPathSkillsResponse.CareerPathSkillDto> skills = new ArrayList<>();
+        for (int index = 0; index < MOCK_MARKET_SKILLS.size(); index++) {
+            String label = MOCK_MARKET_SKILLS.get(index);
+            BigDecimal coverage = mockImportance(index, MOCK_MARKET_SKILLS.size());
+            skills.add(CareerPathSkillsResponse.CareerPathSkillDto.builder()
+                    .skillId("mock:" + slug(label))
+                    .label(label)
+                    .skillType("knowledge")
+                    .postingCount(coverage
+                            .multiply(BigDecimal.valueOf(MOCK_SAMPLE_SIZE))
+                            .divide(BigDecimal.valueOf(100), 0, RoundingMode.HALF_UP)
+                            .intValue())
+                    .coveragePercent(coverage)
+                    .demandBand(mockBand(coverage))
+                    .requiredLevel("advanced")
+                    .sampleTerms(List.of("[MOCK] " + label))
+                    .build());
+        }
+
+        Map<String, Integer> bandTotals = new LinkedHashMap<>();
+        for (CareerPathSkillsResponse.CareerPathSkillDto skill : skills) {
+            bandTotals.merge(skill.getDemandBand(), 1, Integer::sum);
+        }
+
+        return CareerPathSkillsResponse.builder()
+                .careerPath(careerPathName)
+                .sampleSize(MOCK_SAMPLE_SIZE)
+                .derivedFrom("job_postings")
+                .capturedAt("2026-08-07T22:51:27Z")
+                .taxonomyVersion("mock-1.0")
+                .total(skills.size())
+                .bandTotals(bandTotals)
+                .skills(skills)
+                .build();
+    }
+
+    /** Postings behind the mock market, so its counts read like the real ones. */
+    private static final int MOCK_SAMPLE_SIZE = 184;
+
+    private static final List<String> MOCK_MARKET_SKILLS = List.of(
+            "back-end development", "Python", "REST API development", "Docker",
+            "SQL", "CI/CD pipelines", "Kubernetes", "message queues");
+
+    /**
+     * Demand spread evenly from 40% down to 3% across a list, so a mock profile always spans all
+     * three bands. Not meant to resemble any real career path — only to exercise the grouping.
+     */
+    private static BigDecimal mockImportance(int index, int total) {
+        if (total <= 1) {
+            return BigDecimal.valueOf(40).setScale(2, RoundingMode.HALF_UP);
+        }
+        double fraction = 40.0 - (37.0 * index / (total - 1));
+        return BigDecimal.valueOf(fraction).setScale(2, RoundingMode.HALF_UP);
+    }
+
+    /**
+     * The AI service's bands, restated here only because the mock has no service to ask.
+     * The real client passes {@code demand_band} straight through and never computes it.
+     */
+    private static String mockBand(BigDecimal importancePercent) {
+        if (importancePercent.compareTo(BigDecimal.valueOf(25)) >= 0) {
+            return "critical";
+        }
+        return importancePercent.compareTo(BigDecimal.TEN) >= 0 ? "important" : "useful";
+    }
+
+    private static Map<String, Map<String, Integer>> mockBandSummary(
+            List<SkillGapAnalysisResponse.SkillGapItemDto> gaps) {
+        Map<String, Map<String, Integer>> summary = new LinkedHashMap<>();
+        for (String band : List.of("critical", "important", "useful")) {
+            summary.put(band, new LinkedHashMap<>(Map.of(
+                    "strong", 0, "moderate", 0, "weak", 0, "total", 0)));
+        }
+        for (SkillGapAnalysisResponse.SkillGapItemDto gap : gaps) {
+            Map<String, Integer> bucket = summary.get(gap.getDemandBand());
+            bucket.merge(gap.getClassification().toLowerCase(Locale.ROOT), 1, Integer::sum);
+            bucket.merge("total", 1, Integer::sum);
+        }
+        return summary;
     }
 
     @Override
@@ -152,7 +253,7 @@ public class MockDataAnalysisClient implements DataAnalysisClient {
                 .limit(request.getLimit())
                 .map(m -> MentorMatchResponse.MentorMatchItem.builder()
                         .mentorId(m.getMentorId())
-                        .score(0.85)
+                        .score(new java.math.BigDecimal("85.0"))
                         .signal("mock")
                         .alignedSkills(List.of(
                                 MentorMatchResponse.AlignedSkill.builder()
@@ -280,14 +381,14 @@ public class MockDataAnalysisClient implements DataAnalysisClient {
                 .extractionId(extractionId)
                 .status("cancelled")
                 .progress(SyllabusExtractionResponse.Progress.builder().stage("done").build())
-                .warnings(List.of())
+                .warnings(java.util.Collections.emptyList())
                 .build();
     }
 
     @Override
     public List<TaxonomySkillSuggestion> searchTaxonomySkills(String query, int limit) {
         if (query == null || query.isBlank()) {
-            return List.of();
+            return java.util.Collections.emptyList();
         }
         List<TaxonomySkillSuggestion> catalog = List.of(
                 TaxonomySkillSuggestion.builder().skillId("mock:oop")
@@ -343,7 +444,7 @@ public class MockDataAnalysisClient implements DataAnalysisClient {
                         .matchScore(BigDecimal.ONE)
                         .reviewStatus("accepted")
                         .reason("[MOCK] deterministic proposal")
-                        .candidates(List.of())
+                        .candidates(java.util.Collections.emptyList())
                         .build())
                 .build();
     }
@@ -369,7 +470,7 @@ public class MockDataAnalysisClient implements DataAnalysisClient {
     }
 
     private static <T> List<T> nullSafe(List<T> list) {
-        return list == null ? List.of() : list;
+        return list == null ? java.util.Collections.emptyList() : list;
     }
 
     private BigDecimal gradeToScore(String grade) {

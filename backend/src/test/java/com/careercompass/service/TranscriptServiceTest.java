@@ -2,6 +2,7 @@ package com.careercompass.service;
 
 import com.careercompass.dto.request.ConfirmTranscriptRequest;
 import com.careercompass.dto.response.SkillDashboardResponse;
+import com.careercompass.dto.response.SkillLevelResponse;
 import com.careercompass.dto.response.TranscriptReviewResponse;
 import com.careercompass.entity.*;
 import com.careercompass.exception.PrerequisiteNotMetException;
@@ -19,6 +20,8 @@ import org.springframework.mock.web.MockMultipartFile;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -254,6 +257,132 @@ class TranscriptServiceTest {
             assertThat(course.getCourseName()).isEqualTo("Operating Systems");
             assertThat(course.getGrade()).isEqualTo("B");
         });
+    }
+
+    // Purpose: the AI service's ranking survives the flattening untouched.
+    @Test
+    void getSkillDashboard_preservesTheServiceRankingRatherThanReSorting() {
+        JobSeeker jobSeeker = stubDashboardFor(1);
+
+        // Deliberately adversarial: the lowest score is the least wanted skill. Sorting on
+        // currentScore puts it first, which is the bug this ordering exists to fix.
+        when(dataAnalysisClient.analyzeSkillGap(any(SkillGapAnalysisRequest.class)))
+                .thenReturn(SkillGapAnalysisResponse.builder()
+                        .overallReadinessPercent(20)
+                        .sampleSize(184)
+                        .bandSummary(Map.of("critical", Map.of("strong", 0, "moderate", 0,
+                                "weak", 1, "total", 1)))
+                        .narrative("A generated summary.")
+                        .coursesCounted(4)
+                        .syntheticCounted(4)
+                        .coursesSkipped(List.of(
+                                SkillGapAnalysisResponse.SkippedCourseDto.builder()
+                                        .courseCode("0999999").reason("no skill map").build()))
+                        // As the service ranks them: technical before soft, then by priority.
+                        // Re-sorting on priority alone would put "teamwork" first, which is what
+                        // this test exists to prevent.
+                        .skillGaps(List.of(
+                                gapItem("Python", 40, "critical", 0.2100, 66, "21.00"),
+                                gapItem("teamwork", 10, "critical", 0.3000, 90, "30.00"),
+                                gapItem("Power BI", 5, "useful", 0.0400, 4, "2.00")))
+                        .build());
+
+        SkillDashboardResponse dashboard = transcriptService.getSkillDashboard(
+                jobSeeker.getJobseekerId());
+
+        assertThat(dashboard.getSkills()).extracting(SkillLevelResponse::getSkillName)
+                .containsExactly("Python", "teamwork", "Power BI");
+
+        SkillLevelResponse first = dashboard.getSkills().get(0);
+        assertThat(first.getDemandBand()).isEqualTo("critical");
+        assertThat(first.getPostingCount()).isEqualTo(66);
+        assertThat(first.getImportancePercent()).isEqualByComparingTo("21.00");
+
+        // The denominator and the banded counts have to survive the flattening too — without
+        // them the page can show a percentage but not the evidence behind it.
+        assertThat(dashboard.getSampleSize()).isEqualTo(184);
+        assertThat(dashboard.getBandSummary()).containsKey("critical");
+        assertThat(dashboard.getNarrative()).isEqualTo("A generated summary.");
+
+        // The coverage caveat has to survive the flattening: without it the page reports a gap
+        // the student is not responsible for as though they were.
+        assertThat(dashboard.getCoursesCounted()).isEqualTo(4);
+        assertThat(dashboard.getSyntheticCounted()).isEqualTo(4);
+        assertThat(dashboard.getCoursesSkipped()).singleElement().satisfies(course -> {
+            assertThat(course.getCourseCode()).isEqualTo("0999999");
+            assertThat(course.getReason()).isEqualTo("no skill map");
+        });
+    }
+
+    // Purpose: a service that reports no priority must still produce a sensible order.
+    @Test
+    void getSkillDashboard_fallsBackToWeakestFirstWhenPriorityIsAbsent() {
+        JobSeeker jobSeeker = stubDashboardFor(1);
+
+        when(dataAnalysisClient.analyzeSkillGap(any(SkillGapAnalysisRequest.class)))
+                .thenReturn(SkillGapAnalysisResponse.builder()
+                        .overallReadinessPercent(50)
+                        .skillGaps(List.of(
+                                gapItem("Docker", 80, null, null, null, null),
+                                gapItem("SQL", 20, null, null, null, null)))
+                        .build());
+
+        assertThat(transcriptService.getSkillDashboard(jobSeeker.getJobseekerId()).getSkills())
+                .extracting(SkillLevelResponse::getSkillName)
+                .containsExactly("SQL", "Docker");
+    }
+
+    // Purpose: the market view needs a career path, but deliberately not a transcript.
+    @Test
+    void getCareerPathSkills_needsACareerPathButNoAcademicRecords() {
+        CareerPath careerPath = CareerPath.builder().careerPathId(1).title("UI/UX Design").build();
+        JobSeeker jobSeeker = JobSeeker.builder().jobseekerId(1).careerPath(careerPath).build();
+        when(jobSeekerRepository.findById(1)).thenReturn(Optional.of(jobSeeker));
+        when(dataAnalysisClient.getCareerPathSkills("UI/UX Design"))
+                .thenReturn(CareerPathSkillsResponse.builder()
+                        .careerPath("UI/UX Design").sampleSize(269).build());
+
+        assertThat(transcriptService.getCareerPathSkills(1).getSampleSize()).isEqualTo(269);
+        // The path name crosses the boundary, never the numeric id (ADR-002).
+        verify(dataAnalysisClient).getCareerPathSkills("UI/UX Design");
+        verifyNoInteractions(academicRecordRepository);
+
+        JobSeeker pathless = JobSeeker.builder().jobseekerId(2).build();
+        when(jobSeekerRepository.findById(2)).thenReturn(Optional.of(pathless));
+        assertThatThrownBy(() -> transcriptService.getCareerPathSkills(2))
+                .isInstanceOf(PrerequisiteNotMetException.class);
+    }
+
+    /** A job seeker with one graded course and an empty vector — enough to reach the gap step. */
+    private JobSeeker stubDashboardFor(Integer jobseekerId) {
+        CareerPath careerPath = CareerPath.builder().careerPathId(1).title("Backend Development").build();
+        JobSeeker jobSeeker = JobSeeker.builder().jobseekerId(jobseekerId).careerPath(careerPath).build();
+        AcademicRecord record = AcademicRecord.builder()
+                .jobSeeker(jobSeeker).courseCode("CS310").courseName("Operating Systems").grade("B")
+                .build();
+
+        when(jobSeekerRepository.findById(jobseekerId)).thenReturn(Optional.of(jobSeeker));
+        when(academicRecordRepository.findByJobSeeker_JobseekerId(jobseekerId))
+                .thenReturn(List.of(record));
+        when(dataAnalysisClient.buildSkillVector(any(BuildSkillVectorRequest.class)))
+                .thenReturn(SkillVectorResponse.builder().skills(List.of()).build());
+        return jobSeeker;
+    }
+
+    private static SkillGapAnalysisResponse.SkillGapItemDto gapItem(
+            String name, int score, String band, Double priority, Integer postings,
+            String importancePercent) {
+        return SkillGapAnalysisResponse.SkillGapItemDto.builder()
+                .skillId("custom:" + name.toLowerCase(Locale.ROOT).replace(' ', '-'))
+                .skillName(name)
+                .currentScore(BigDecimal.valueOf(score))
+                .targetScore(BigDecimal.valueOf(85))
+                .classification("Weak")
+                .demandBand(band)
+                .postingCount(postings)
+                .importancePercent(importancePercent == null ? null : new BigDecimal(importancePercent))
+                .priority(priority == null ? null : BigDecimal.valueOf(priority))
+                .build();
     }
 
     // Purpose: Get Skill Dashboard - throws When No Academic Records Exist.

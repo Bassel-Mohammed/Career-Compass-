@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import java.math.BigDecimal;
 
 /**
  * A mentor/expert as browsable by a job seeker (FR-JS-24).
@@ -18,7 +19,7 @@ public class MentorSummaryResponse {
     private String lastName;
     private String studyFieldName;
     private Short fieldStartingYear;
-    private Double matchScore;
+    private BigDecimal matchScore;
     private Integer gapsAddressed;
     private String matchReason;
 }

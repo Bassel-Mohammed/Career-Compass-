@@ -280,7 +280,7 @@ class CareerCompassSystemTest {
                         .extractionId("ext-sys-test-1")
                         .status("succeeded")
                         .contentSha256("a".repeat(64))
-                        .warnings(List.of())
+                        .warnings(java.util.Collections.emptyList())
                         .result(SyllabusExtractionResponse.Result.builder()
                                 .courseCode("CS201")
                                 .totalSkills(2)
@@ -298,13 +298,13 @@ class CareerCompassSystemTest {
                 .thenAnswer(inv -> SyllabusExtractionResponse.builder()
                         .extractionId(inv.getArgument(0))
                         .status("succeeded")
-                        .warnings(List.of())
+                        .warnings(java.util.Collections.emptyList())
                         .build());
         when(dataAnalysisClient.cancelSyllabusExtraction(any()))
                 .thenAnswer(inv -> SyllabusExtractionResponse.builder()
                         .extractionId(inv.getArgument(0))
                         .status("cancelled")
-                        .warnings(List.of())
+                        .warnings(java.util.Collections.emptyList())
                         .build());
         when(dataAnalysisClient.searchTaxonomySkills(any(), any(int.class)))
                 .thenReturn(List.of(
@@ -344,7 +344,7 @@ class CareerCompassSystemTest {
                             .limit(req.getLimit())
                             .map(m -> MentorMatchResponse.MentorMatchItem.builder()
                                     .mentorId(m.getMentorId())
-                                    .score(0.85)
+                                    .score(new java.math.BigDecimal("85.0"))
                                     .gapsAddressed(2)
                                     .explanation("Mock explanation")
                                     .build())
@@ -379,7 +379,7 @@ class CareerCompassSystemTest {
                         .matchScore(new BigDecimal("0.9500"))
                         .reviewStatus("accepted")
                         .reason("Exact alias match")
-                        .candidates(List.of())
+                        .candidates(java.util.Collections.emptyList())
                         .build())
                 .build();
     }

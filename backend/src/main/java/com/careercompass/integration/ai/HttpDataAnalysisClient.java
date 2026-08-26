@@ -166,6 +166,14 @@ public class HttpDataAnalysisClient implements DataAnalysisClient {
                     .targetScore(toPercent(item.requiredProficiency(), "skill-gap.required_proficiency"))
                     .classification(toDisplayClassification(item.classification()))
                     .explanation(null) // per-skill prose is not part of the v1 gap contract
+                    .importancePercent(toPercent(item.importance(), "skill-gap.importance"))
+                    // Banded by the AI service beside the ontology that justifies the
+                    // thresholds. Deriving it here would be a second definition of
+                    // "critical", and the two would part company the first time either moved.
+                    .demandBand(item.demandBand())
+                    .postingCount(item.postingCount())
+                    .requiredLevel(item.requiredLevel())
+                    .skillType(item.skillType())
                     .priority(item.priority() == null
                             ? null
                             : BigDecimal.valueOf(item.priority()).setScale(4, RoundingMode.HALF_UP))
@@ -176,6 +184,68 @@ public class HttpDataAnalysisClient implements DataAnalysisClient {
                 .skillGaps(gaps)
                 .overallReadinessPercent(readinessPercent(wire))
                 .narrative(wire == null ? null : wire.narrative())
+                .bandSummary(wire == null ? null : wire.bandSummary())
+                .sampleSize(wire == null ? null : wire.sampleSize())
+                .marketCapturedAt(wire == null ? null : wire.capturedAt())
+                .coursesCounted(wire == null ? null : wire.coursesCounted())
+                .syntheticCounted(wire == null ? null : wire.syntheticCounted())
+                .coursesSkipped(toSkippedCourses(wire == null ? null : wire.coursesSkipped()))
+                .build();
+    }
+
+    private static List<SkillGapAnalysisResponse.SkippedCourseDto> toSkippedCourses(
+            List<AiWire.SkippedCourse> wire) {
+        List<SkillGapAnalysisResponse.SkippedCourseDto> skipped = new ArrayList<>();
+        for (AiWire.SkippedCourse course : safe(wire)) {
+            skipped.add(SkillGapAnalysisResponse.SkippedCourseDto.builder()
+                    .courseCode(course.courseCode())
+                    .reason(course.reason())
+                    .status(course.status())
+                    .build());
+        }
+        return skipped;
+    }
+
+    /** {@code GET /api/v1/career-paths/skills}. */
+    @Override
+    public CareerPathSkillsResponse getCareerPathSkills(String careerPathName) {
+        String careerPath = requireCareerPath(careerPathName);
+
+        // A query parameter, not a path segment: two of the nine path names contain a slash
+        // ("UI/UX Design"), and encoding that into a segment is normalised or rejected by
+        // enough proxies to be a real bug rather than a theoretical one.
+        AiWire.CareerPathSkillsResponse wire = call(
+                "career-path-skills",
+                aiServiceWebClient.get().uri(builder -> builder
+                        .path("/api/v1/career-paths/skills")
+                        .queryParam("career_path", careerPath)
+                        .build()),
+                AiWire.CareerPathSkillsResponse.class,
+                aiServiceProperties.getTimeouts().getSkillGapSeconds());
+
+        List<CareerPathSkillsResponse.CareerPathSkillDto> skills = new ArrayList<>();
+        for (AiWire.CareerPathSkill item : safe(wire == null ? null : wire.skills())) {
+            skills.add(CareerPathSkillsResponse.CareerPathSkillDto.builder()
+                    .skillId(item.skillId())
+                    .label(item.label())
+                    .skillType(item.skillType())
+                    .postingCount(item.postingCount())
+                    .coveragePercent(toPercent(item.coverage(), "career-path-skills.coverage"))
+                    .demandBand(item.demandBand())
+                    .requiredLevel(item.requiredLevel())
+                    .sampleTerms(item.sampleTerms() == null ? List.of() : item.sampleTerms())
+                    .build());
+        }
+
+        return CareerPathSkillsResponse.builder()
+                .careerPath(wire == null || wire.careerPath() == null ? careerPath : wire.careerPath())
+                .sampleSize(wire == null ? null : wire.sampleSize())
+                .derivedFrom(wire == null ? null : wire.derivedFrom())
+                .capturedAt(wire == null ? null : wire.capturedAt())
+                .taxonomyVersion(wire == null ? null : wire.taxonomyVersion())
+                .total(skills.size())
+                .bandTotals(wire == null || wire.bandTotals() == null ? Map.of() : wire.bandTotals())
+                .skills(skills)
                 .build();
     }
 
@@ -503,7 +573,7 @@ public class HttpDataAnalysisClient implements DataAnalysisClient {
 
             items.add(MentorMatchResponse.MentorMatchItem.builder()
                     .mentorId(item.mentorId())
-                    .score(item.score() != null ? item.score() : 0.0)
+                    .score(toPercent(item.score(), "mentor-match.score"))
                     .signal(item.signal())
                     .alignedSkills(alignedSkills)
                     .gapsAddressed(item.gapsAddressed() != null ? item.gapsAddressed() : 0)

@@ -2,6 +2,7 @@ package com.careercompass.controller;
 
 import com.careercompass.dto.request.ConfirmTranscriptRequest;
 import com.careercompass.dto.response.SkillDashboardResponse;
+import com.careercompass.integration.dto.CareerPathSkillsResponse;
 import com.careercompass.dto.response.TranscriptReviewResponse;
 import com.careercompass.security.userdetails.CurrentUser;
 import com.careercompass.security.userdetails.UserPrincipal;
@@ -45,5 +46,17 @@ public class TranscriptController {
     @GetMapping("/skill-dashboard")
     public ResponseEntity<SkillDashboardResponse> getSkillDashboard(@CurrentUser UserPrincipal principal) {
         return ResponseEntity.ok(transcriptService.getSkillDashboard(principal.getUserId()));
+    }
+
+    /**
+     * What the selected career path asks for, derived from job postings.
+     *
+     * <p>Needs a career path but not a transcript, which is the whole point: it is the one thing
+     * the dashboard can show truthfully before a student has uploaded anything.
+     */
+    @GetMapping("/career-path/skills")
+    public ResponseEntity<CareerPathSkillsResponse> getCareerPathSkills(
+            @CurrentUser UserPrincipal principal) {
+        return ResponseEntity.ok(transcriptService.getCareerPathSkills(principal.getUserId()));
     }
 }

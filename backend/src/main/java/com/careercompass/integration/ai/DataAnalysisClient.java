@@ -33,6 +33,15 @@ public interface DataAnalysisClient {
     /** Module 3 — Skill-Gap Analysis and Dashboard (Section 5.3.3). */
     SkillGapAnalysisResponse analyzeSkillGap(SkillGapAnalysisRequest request);
 
+    /**
+     * What a career path demands, independent of any student.
+     *
+     * <p>Keyed on the path <em>name</em>, like every other cross-service call (ADR-002). Exists so
+     * a dashboard has something true to show before a transcript is uploaded — every other call
+     * here needs the student's courses first.
+     */
+    CareerPathSkillsResponse getCareerPathSkills(String careerPathName);
+
     /** Module 4 — Course Recommendation (Section 5.3.3). */
     java.util.List<RecommendedCourseDto> recommendCourses(CourseRecommendationRequest request);
 

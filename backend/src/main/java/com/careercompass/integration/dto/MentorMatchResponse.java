@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.math.BigDecimal;
 
 @Getter
 @Builder
@@ -24,7 +25,7 @@ public class MentorMatchResponse {
     @AllArgsConstructor
     public static class MentorMatchItem {
         private String mentorId;
-        private double score;
+        private BigDecimal score;
         private String signal;
         private List<AlignedSkill> alignedSkills;
         private int gapsAddressed;

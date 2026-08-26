@@ -115,11 +115,25 @@ final class AiWire {
     record SkillGapResponse(
             String careerPath,
             Map<String, Integer> summary,
+            Map<String, Map<String, Integer>> bandSummary,
+            Integer sampleSize,
+            String capturedAt,
             Integer totalRequirements,
             Integer requirementsMet,
             List<SkillGapItem> skills,
             String narrative,
-            Integer coursesCounted) {
+            Integer coursesCounted,
+            Integer syntheticCounted,
+            List<SkippedCourse> coursesSkipped) {
+    }
+
+    /** A transcript row the vector could not use, and why. */
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    record SkippedCourse(
+            String courseCode,
+            String reason,
+            String status) {
     }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
@@ -127,13 +141,45 @@ final class AiWire {
     record SkillGapItem(
             String skillId,
             String label,
+            String skillType,
             String requiredLevel,
             Double requiredProficiency,
             Double currentLevel,
             Double gap,
             String classification,
             Double importance,
+            String demandBand,
+            Integer postingCount,
             Double priority) {
+    }
+
+    // ── Career-path requirements ──────────────────────────────────────────
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    record CareerPathSkillsResponse(
+            String careerPath,
+            Integer sampleSize,
+            String derivedFrom,
+            String capturedAt,
+            String taxonomyVersion,
+            Integer total,
+            Map<String, Integer> bandTotals,
+            List<CareerPathSkill> skills) {
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    record CareerPathSkill(
+            String skillId,
+            String label,
+            String skillType,
+            Integer postingCount,
+            Double coverage,
+            String demandBand,
+            String requiredLevel,
+            Double requiredScore,
+            List<String> sampleTerms) {
     }
 
     // ── M4 recommendations ────────────────────────────────────────────────

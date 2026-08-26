@@ -66,7 +66,7 @@ class ConsultationServiceTest {
         com.careercompass.integration.dto.MentorMatchResponse aiResponse = com.careercompass.integration.dto.MentorMatchResponse.builder()
                 .items(List.of(com.careercompass.integration.dto.MentorMatchResponse.MentorMatchItem.builder()
                         .mentorId("20")
-                        .score(0.85)
+                        .score(new java.math.BigDecimal("85.0"))
                         .gapsAddressed(2)
                         .explanation("Match explanation")
                         .build()))
@@ -79,7 +79,7 @@ class ConsultationServiceTest {
 
         assertThat(mentors).hasSize(1);
         assertThat(mentors.get(0).getExpertId()).isEqualTo(20);
-        assertThat(mentors.get(0).getMatchScore()).isEqualTo(0.85);
+        assertThat(mentors.get(0).getMatchScore()).isEqualTo(new java.math.BigDecimal("85.0"));
         assertThat(mentors.get(0).getGapsAddressed()).isEqualTo(2);
         assertThat(mentors.get(0).getMatchReason()).isEqualTo("Match explanation");
     }

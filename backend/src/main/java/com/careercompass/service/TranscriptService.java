@@ -3,6 +3,7 @@ package com.careercompass.service;
 import com.careercompass.dto.request.ConfirmTranscriptRequest;
 import com.careercompass.dto.response.SkillDashboardResponse;
 import com.careercompass.dto.response.SkillLevelResponse;
+import com.careercompass.dto.response.SkippedCourseResponse;
 import com.careercompass.dto.response.TranscriptReviewResponse;
 import com.careercompass.entity.*;
 import com.careercompass.exception.PrerequisiteNotMetException;
@@ -136,6 +137,30 @@ public class TranscriptService {
     }
 
     /**
+     * What the selected career path demands, with no student in it.
+     *
+     * <p>Needs a career path but deliberately <em>not</em> a transcript. The dashboard had
+     * nothing to show somebody who had not uploaded one, and "what does this career actually ask
+     * for" is answerable without knowing anything about them — from the same job postings the
+     * gap analysis subtracts against, so the two read side by side.
+     */
+    @Transactional(readOnly = true)
+    public CareerPathSkillsResponse getCareerPathSkills(Integer jobseekerId) {
+        JobSeeker jobSeeker = jobSeekerRepository.findById(jobseekerId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Job seeker with id " + jobseekerId + " not found."));
+
+        if (jobSeeker.getCareerPath() == null) {
+            throw new PrerequisiteNotMetException(
+                    "Select a career path (FR-JS-09) to see what it asks for.");
+        }
+
+        // The path name, never its numeric id: the two services key on names so neither owns
+        // the other's identifiers (ADR-002).
+        return dataAnalysisClient.getCareerPathSkills(jobSeeker.getCareerPath().getTitle());
+    }
+
+    /**
      * FR-JS-14/21: current skill dashboard, recomputed live from the persisted academic
      * records and the AI service — not read from a cached table, so it always reflects the
      * latest grades/career-path selection.
@@ -223,14 +248,39 @@ public class TranscriptService {
                         .quizScores(quizScores)
                         .build());
 
-        List<SkillLevelResponse> skillLevels = gapResponse.getSkillGaps().stream()
-                .sorted(Comparator.comparing(SkillGapAnalysisResponse.SkillGapItemDto::getCurrentScore)) // weakest-first, matches Figure 5.4.6
+        // The AI service already ranked these, and its order carries more than Java can
+        // reconstruct: technical requirements before soft ones, then by what closing each gap is
+        // worth. Re-sorting here on priority alone looked equivalent and was not — it pulled
+        // "communication skills" and "teamwork" above every technical gap, which is an accurate
+        // reading of job postings and useless as advice, since it hands every student the same
+        // three suggestions regardless of what they studied.
+        //
+        // So the wire order is preserved. The only case still needing a sort is a service that
+        // reports no priority at all — the mock client — where weakest-first beats whatever
+        // order the vector happened to be built in.
+        List<SkillGapAnalysisResponse.SkillGapItemDto> ranked = gapResponse.getSkillGaps();
+        if (ranked.stream().noneMatch(gap -> gap.getPriority() != null)) {
+            ranked = ranked.stream()
+                    .sorted(Comparator.comparing(
+                            SkillGapAnalysisResponse.SkillGapItemDto::getCurrentScore,
+                            Comparator.nullsLast(Comparator.naturalOrder())))
+                    .toList();
+        }
+
+        List<SkillLevelResponse> skillLevels = ranked.stream()
                 .map(gap -> SkillLevelResponse.builder()
                         .canonicalSkillId(gap.getSkillId())
                         .skillName(gap.getSkillName())
                         .score(gap.getCurrentScore())
                         .classification(gap.getClassification())
                         .explanation(gap.getExplanation())
+                        .targetScore(gap.getTargetScore())
+                        .requiredLevel(gap.getRequiredLevel())
+                        .importancePercent(gap.getImportancePercent())
+                        .demandBand(gap.getDemandBand())
+                        .postingCount(gap.getPostingCount())
+                        .skillType(gap.getSkillType())
+                        .priority(gap.getPriority())
                         .build())
                 .toList();
 
@@ -241,8 +291,30 @@ public class TranscriptService {
                 .taxonomyVersion(taxonomyVersion)
                 .overallReadinessPercent(gapResponse.getOverallReadinessPercent())
                 .skills(skillLevels)
+                .sampleSize(gapResponse.getSampleSize())
+                .marketCapturedAt(gapResponse.getMarketCapturedAt())
+                .coursesCounted(gapResponse.getCoursesCounted())
+                .syntheticCounted(gapResponse.getSyntheticCounted())
+                .coursesSkipped(toSkippedCourses(gapResponse.getCoursesSkipped()))
+                .bandSummary(gapResponse.getBandSummary())
+                .narrative(gapResponse.getNarrative())
                 .basedOnQuizResults(!quizScores.isEmpty()) // FR-JS-20/21 vs FR-JS-22 fallback
                 .build();
+    }
+
+    /** Wire DTO to response DTO. Kept explicit so the integration layer never leaks outward. */
+    private static List<SkippedCourseResponse> toSkippedCourses(
+            List<SkillGapAnalysisResponse.SkippedCourseDto> skipped) {
+        if (skipped == null) {
+            return List.of();
+        }
+        return skipped.stream()
+                .map(course -> SkippedCourseResponse.builder()
+                        .courseCode(course.getCourseCode())
+                        .reason(course.getReason())
+                        .status(course.getStatus())
+                        .build())
+                .toList();
     }
 
     /**
