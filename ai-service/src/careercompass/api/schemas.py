@@ -146,6 +146,9 @@ class CourseSummary(BaseModel):
     course_code: str
     total_skills: int
     taxonomy_version: Optional[str] = None
+    # True when this course's skills come from a synthetic syllabus rather than a real extracted
+    # document. Carried so no consumer has to infer it from a directory name.
+    synthetic: bool = False
     by_status: dict[str, int] = {}
 
 
@@ -324,6 +327,10 @@ class SkillVectorResponse(BaseModel):
     source: str
     total_skills: int
     courses_counted: int
+    # Of `courses_counted`, how many rest on a synthetic syllabus rather than a real extracted
+    # one. Zero unless the demo corpus is enabled. Reported so the caller can label it: a
+    # profile built on invented coursework must not be presented as one built on real records.
+    synthetic_counted: int = 0
     courses_skipped: list[dict[str, Any]]
     skills: list[dict[str, Any]]
 
@@ -341,6 +348,18 @@ class SkillGapResponse(BaseModel):
     taxonomy_version: Optional[str] = None
     source: Optional[str] = None
     summary: dict[str, int]
+    # The same counts split by how much of the market asks for each
+    # requirement, so a dashboard can say "you meet 4 of the 11 things this
+    # career insists on" instead of "4 of 129 requirements", which is true
+    # and useless. Keyed critical / important / useful.
+    band_summary: dict[str, dict[str, int]] = Field(default_factory=dict)
+    # Postings behind this path's requirements — the denominator under every
+    # `importance`. Null when the ontology header is missing; the arithmetic
+    # is unaffected, only the evidence line is poorer.
+    sample_size: Optional[int] = None
+    # When those postings were collected, so a consumer can date its own claim rather than
+    # hard-coding one that goes stale on the next scrape.
+    captured_at: Optional[str] = None
     total_requirements: int
     requirements_met: int
     skills: list[dict[str, Any]]
@@ -350,7 +369,62 @@ class SkillGapResponse(BaseModel):
     # course that teaches it has no syllabus extracted yet, and those are very
     # different things to show someone. Mirrors SkillVectorResponse.
     courses_counted: int = 0
+    synthetic_counted: int = 0
     courses_skipped: list[dict[str, Any]] = Field(default_factory=list)
+
+
+# ── Career-path requirements ───────────────────────────────────
+class CareerPathSkill(BaseModel):
+    """One thing a career path asks for, and the evidence that it does.
+
+    This is the ontology row as the outside world sees it. It carries both the
+    fraction and the count it came from: a dashboard that shows only "39%" is
+    asking to be trusted, and one that shows "72 of 184 postings" is showing
+    its working.
+    """
+    skill_id: str
+    label: str
+    skill_type: Optional[str] = None
+    posting_count: Optional[int] = None
+    coverage: float
+    demand_band: Literal["critical", "important", "useful"]
+    required_level: Optional[str] = None
+    required_score: Optional[float] = None
+    # A few of the phrases employers actually wrote that resolved to this
+    # skill. Capped, because the full list runs to dozens on common skills and
+    # nobody reads the twentieth way of writing "Python".
+    sample_terms: list[str] = Field(default_factory=list)
+
+
+class CareerPathSummary(BaseModel):
+    career_path: str
+    sample_size: int
+    total_skills: int
+
+
+class CareerPathListResponse(BaseModel):
+    total: int
+    derived_from: Optional[str] = None
+    captured_at: Optional[str] = None
+    career_paths: list[CareerPathSummary]
+
+
+class CareerPathSkillsResponse(BaseModel):
+    """What one career path demands, independent of any student.
+
+    Exists so the market can be shown before a transcript is uploaded. Every
+    other skill endpoint needs a student's courses first, which left the
+    dashboard with nothing to say to somebody who has not uploaded one yet.
+    """
+    career_path: str
+    sample_size: Optional[int] = None
+    derived_from: Optional[str] = None
+    # When the postings were collected, so the page can date its own claim.
+    captured_at: Optional[str] = None
+    taxonomy_version: Optional[str] = None
+    total: int
+    band_totals: dict[str, int] = Field(default_factory=dict)
+    skills: list[CareerPathSkill]
 
 
 # ── Course recommendations ─────────────────────────────────────

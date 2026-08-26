@@ -146,11 +146,15 @@ def build_skill_vector(
     taxonomy_version: str = "1.0",
     career_path_id: str | None = None,
     include_unpassed: bool = False,
+    synthetic_codes: frozenset | None = None,
 ) -> dict:
     """
     Compute the Student Skill Vector.
 
     Args:
+        synthetic_codes: course codes whose skill map is synthetic rather than
+            extracted from a real syllabus. Reported back as
+            ``synthetic_counted`` so a caller can say so; never changes a score.
         courses: transcript rows, each with ``course_code``, ``grade`` and
             optionally ``status``, ``credit_hours`` and ``course_name``.
         course_skills: ``{course_code: [skill, ...]}``, the course → skill map.
@@ -167,7 +171,9 @@ def build_skill_vector(
     """
     accumulator = {}
     counted = 0
+    synthetic_counted = 0
     skipped = []
+    synthetic_codes = synthetic_codes or frozenset()
 
     for course in courses:
         code = course.get("course_code")
@@ -194,6 +200,11 @@ def build_skill_vector(
             continue
 
         counted += 1
+        # Counted against every code this course is known by, because the join above already
+        # accepted whichever one matched.
+        if code in synthetic_codes or any(
+                alt in synthetic_codes for alt in course.get("course_codes") or []):
+            synthetic_counted += 1
         graded = not _is_transfer(course)
         attainment = _attainment(course) if graded else 0.0
         grade = course.get("grade")
@@ -266,6 +277,7 @@ def build_skill_vector(
         "source": "grades",
         "total_skills": len(skills_out),
         "courses_counted": counted,
+        "synthetic_counted": synthetic_counted,
         "courses_skipped": skipped,
         "skills": skills_out,
     }

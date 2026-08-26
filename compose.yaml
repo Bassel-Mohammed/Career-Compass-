@@ -1,17 +1,4 @@
 services:
-  ollama:
-    image: ollama/ollama:latest
-    ports:
-      - "127.0.0.1:11434:11434"
-    volumes:
-      - ollama_data:/root/.ollama
-    healthcheck:
-      test: ["CMD", "ollama", "list"]
-      interval: 10s
-      timeout: 5s
-      retries: 10
-      start_period: 60s
-
   postgres:
     image: postgres:16-alpine
     environment:
@@ -37,29 +24,33 @@ services:
     build:
       context: ./ai-service
       dockerfile: Dockerfile
+    network_mode: host
     environment:
       CC_DATA_DIR: /app/data
       CC_SERVICE_TOKEN: ${AI_SERVICE_TOKEN:-careercompass-local-dev-token}
+      # Load the 96 synthetic course maps in data/mock/skills alongside the 20 real extracted
+      # ones. Without them a student can reach at most ~40% of any career path's requirements,
+      # and the dashboard reads as "you are missing everything" when it means "we could not read
+      # your courses". Every counted synthetic course is reported and labelled on screen.
+      # Set to 0 for a build that must only ever touch real extracted syllabi.
+      CC_INCLUDE_MOCK_COURSES: ${AI_INCLUDE_MOCK_COURSES:-1}
       # Keep the development image deterministic and offline-capable. The
       # optional BGE/cross-encoder/LLM dependencies are intentionally omitted.
       CC_EMBEDDING_BACKEND: lexical
       CC_RERANKER: lexical
       CC_MATCH_LLM: "1"
-      # Ollama host for LLM calls (service name in Docker network)
-      OLLAMA_HOST: http://ollama:11434
+      # Use host's Ollama (already running with qwen3:8b model)
+      # With network_mode: host, localhost:11434 is the host's Ollama
+      CC_OLLAMA_URL: http://localhost:11434
       # Course-map publication persistence (skills review workflow). The schema
       # is created by the packaged migrations on startup.
-      CC_DB_HOST: postgres
-      CC_DB_PORT: "5432"
+      # With network_mode: host, connect to Postgres via host-mapped port
+      CC_DB_HOST: localhost
+      CC_DB_PORT: "5433"
       CC_DB_NAME: ${AI_POSTGRES_DB:-careercompass_ai}
       CC_DB_USER: ${AI_POSTGRES_USER:-careercompass}
       CC_DB_PASSWORD: ${AI_POSTGRES_PASSWORD:-careercompass-local-dev-only}
       CC_DB_AUTO_MIGRATE: "1"
-    depends_on:
-      postgres:
-        condition: service_healthy
-      ollama:
-        condition: service_healthy
     ports:
       - "127.0.0.1:8000:8000"
     healthcheck:
@@ -86,7 +77,8 @@ services:
       SPRING_PROFILES_ACTIVE: dev
       SPRING_DATASOURCE_URL: "jdbc:h2:file:/app/data/careercompass;MODE=MySQL;DB_CLOSE_ON_EXIT=FALSE"
       JWT_SECRET: ${JWT_SECRET:-CHANGE_ME_LOCAL_DOCKER_ONLY_NOT_FOR_SHARED_HOSTS_1234567890}
-      AI_SERVICE_BASE_URL: http://ai-service:8000
+      # ai-service uses network_mode: host, reachable via Docker gateway
+      AI_SERVICE_BASE_URL: http://172.18.0.1:8000
       AI_SERVICE_TOKEN: ${AI_SERVICE_TOKEN:-careercompass-local-dev-token}
       # Spring relaxed binding maps this environment name to
       # careercompass.ai-service.use-mock. Set BACKEND_USE_AI_MOCK=true only
@@ -152,4 +144,3 @@ volumes:
   backend_h2:
   learning_outcomes:
   ai_postgres:
-  ollama_data:

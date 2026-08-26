@@ -71,7 +71,8 @@ cc-db-migrate
 
 ```bash
 cd ai-service
-pytest -q
+../.venv/bin/pip install pytest
+PYTHONPATH=src ../.venv/bin/python -m pytest tests/ -q
 ```
 
 Implementation and API notes are in [`docs/`](docs/).

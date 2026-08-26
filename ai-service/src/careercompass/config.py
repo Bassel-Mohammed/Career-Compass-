@@ -42,6 +42,13 @@ SKILLS_DIR = EXTRACTED_DIR / "skills"
 JOBS_DIR = EXTRACTED_DIR / "jobs"
 TEMP_DIR = DATA_DIR / "temp"
 
+# Synthetic course→skill maps, for demonstrating the product against a corpus wider than the
+# syllabi that have actually been extracted. Off unless explicitly asked for, and never merged
+# into SKILLS_DIR: every file in there says "Not a real MEU document", and a system that cannot
+# repeat that claim is one that quietly presents invented coursework as real.
+MOCK_SKILLS_DIR = DATA_DIR / "mock" / "skills"
+INCLUDE_MOCK_COURSES = os.getenv("CC_INCLUDE_MOCK_COURSES", "0") == "1"
+
 # Hand-maintained lookups that are reviewed rather than derived. Kept out of the code so the
 # person who names a study field can correct its mapping without a release.
 MAPPING_DIR = DATA_DIR / "mapping"

@@ -302,6 +302,83 @@ paths:
         '422': { $ref: '#/components/responses/Problem' }
         '503': { $ref: '#/components/responses/Problem' }
 
+  /api/v1/career-paths:
+    get:
+      tags: [skill-gap]
+      operationId: listCareerPaths
+      summary: Career paths the ontology covers
+      description: |
+        **Budget: 1 s.** Synchronous, no model, no student.
+
+        The nine paths and how much evidence stands behind each. `captured_at`
+        is when the postings were collected, so a caller can date its own claim
+        instead of hard-coding one.
+      parameters:
+        - $ref: '#/components/parameters/CorrelationId'
+      responses:
+        '200':
+          description: Every career path with its sample size.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CareerPathListResponse'
+        '404':
+          description: No ontology has been built.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+
+  /api/v1/career-paths/skills:
+    get:
+      tags: [skill-gap]
+      operationId: getCareerPathSkills
+      summary: What one career path demands, with no student in it
+      description: |
+        **Budget: 2 s.** Synchronous, no model.
+
+        Every other endpoint in this group needs a transcript first, which leaves
+        a caller with nothing to show somebody who has not uploaded one. What a
+        career asks for is answerable without knowing anything about them.
+
+        Bands come from the same function `/skill-gap` uses, so a skill cannot
+        read `critical` here and `important` there.
+
+        The path name is a **query parameter, not a path segment**: two of the
+        nine names contain a slash ("UI/UX Design"), and encoding that into a
+        segment is normalised or rejected by enough proxies to be a real bug.
+      parameters:
+        - $ref: '#/components/parameters/CorrelationId'
+        - name: career_path
+          in: query
+          required: true
+          schema: { type: string, minLength: 1, maxLength: 120 }
+        - name: band
+          in: query
+          required: false
+          description: Return only one band. Totals still describe the whole path.
+          schema: { type: string, enum: [critical, important, useful] }
+        - name: include_soft
+          in: query
+          required: false
+          description: >-
+            Soft skills top nearly every path, which is accurate and useless as
+            advice. Set false to drop them.
+          schema: { type: boolean, default: true }
+      responses:
+        '200':
+          description: The path's requirements, most-demanded first.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CareerPathSkillsResponse'
+        '404':
+          description: Unknown career path.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+
   /api/v1/skill-vector:
     post:
       tags: [skill-gap]
@@ -919,6 +996,79 @@ components:
               default: false
               description: Costs an LLM call. The gap is returned complete either way.
 
+    CareerPathSummary:
+      type: object
+      required: [career_path, sample_size, total_skills]
+      properties:
+        career_path: { type: string }
+        sample_size: { type: integer, description: Postings behind this path. }
+        total_skills: { type: integer }
+
+    CareerPathListResponse:
+      type: object
+      required: [total, career_paths]
+      properties:
+        total: { type: integer }
+        derived_from: { type: string, nullable: true }
+        captured_at:
+          type: string
+          nullable: true
+          description: When the postings were collected, from the scrape report.
+        career_paths:
+          type: array
+          items:
+            $ref: '#/components/schemas/CareerPathSummary'
+
+    CareerPathSkill:
+      type: object
+      required: [skill_id, label, coverage, demand_band]
+      description: >-
+        One requirement, and the evidence that it is one. Carries both the
+        fraction and the count it came from: "39%" asks to be trusted, "72 of
+        184 postings" shows its working.
+      properties:
+        skill_id: { type: string }
+        label: { type: string }
+        skill_type: { type: string, nullable: true }
+        posting_count: { type: integer, nullable: true }
+        coverage:
+          type: number
+          format: double
+          description: Share of this path's postings asking for the skill, 0.0-1.0.
+        demand_band:
+          type: string
+          enum: [critical, important, useful]
+        required_level: { type: string, nullable: true }
+        required_score: { type: number, format: double, nullable: true }
+        sample_terms:
+          type: array
+          maxItems: 5
+          description: A few of the phrases employers wrote that resolved to this skill.
+          items: { type: string }
+
+    CareerPathSkillsResponse:
+      type: object
+      required: [career_path, total, skills]
+      properties:
+        career_path: { type: string }
+        sample_size: { type: integer, nullable: true }
+        derived_from: { type: string, nullable: true }
+        captured_at: { type: string, nullable: true }
+        taxonomy_version: { type: string, nullable: true }
+        total:
+          type: integer
+          description: Rows returned, after `band` and `include_soft` are applied.
+        band_totals:
+          type: object
+          description: >-
+            Rows per band across the whole path, counted before `band` filters —
+            so a caller showing one band can still say how big the others are.
+          additionalProperties: { type: integer }
+        skills:
+          type: array
+          items:
+            $ref: '#/components/schemas/CareerPathSkill'
+
     SkillGapItem:
       type: object
       required: [skill_id, label, classification]
@@ -937,6 +1087,20 @@ components:
           enum: [strong, moderate, weak]
           description: Lower-case on the wire. The caller maps to its own display casing.
         importance: { type: number, format: double }
+        demand_band:
+          type: string
+          enum: [critical, important, useful]
+          description: >-
+            `importance` bucketed into three learn-first bands: critical at or
+            above 0.25, important from 0.10, useful below. Banded by the service
+            rather than the caller so every consumer means the same thing by
+            "critical".
+        posting_count:
+          type: integer
+          nullable: true
+          description: >-
+            Postings that asked for this skill. The numerator under
+            `importance`; `sample_size` on the response is the denominator.
         priority:
           type: number
           format: double
@@ -955,6 +1119,34 @@ components:
         career_path: { type: string, nullable: true }
         taxonomy_version: { type: string, nullable: true }
         source: { type: string, nullable: true }
+        sample_size:
+          type: integer
+          nullable: true
+          description: >-
+            Job postings this path's requirements were derived from — the
+            denominator behind every `importance`. Null when the ontology
+            carries no header; the arithmetic is unaffected.
+        captured_at:
+          type: string
+          nullable: true
+          description: >-
+            When the postings behind these requirements were collected, ISO-8601. Reported rather
+            than hard-coded so a re-scrape moves the date a consumer shows.
+        band_summary:
+          type: object
+          description: >-
+            Classification counts split by `demand_band`, so a caller can report
+            progress against what the market insists on rather than against every
+            requirement. Keyed critical / important / useful, each carrying
+            strong, moderate, weak and total. Honours `include_soft` exactly as
+            `summary` does.
+          additionalProperties:
+            type: object
+            properties:
+              strong: { type: integer }
+              moderate: { type: integer }
+              weak: { type: integer }
+              total: { type: integer }
         summary:
           type: object
           description: Counts per classification.
@@ -970,6 +1162,13 @@ components:
             $ref: '#/components/schemas/SkillGapItem'
         narrative: { type: string, nullable: true }
         courses_counted: { type: integer }
+        synthetic_counted:
+          type: integer
+          description: >-
+            Of `courses_counted`, how many rest on a synthetic syllabus rather than a real
+            extracted one. Zero unless the demo corpus is enabled. A caller showing a profile
+            built on these must say so: invented coursework presented as a real academic record
+            is the one failure mode this field exists to prevent.
         courses_skipped:
           type: array
           items:

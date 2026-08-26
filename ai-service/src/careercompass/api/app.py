@@ -17,6 +17,7 @@ Run:
 
 import asyncio
 import hashlib
+import json
 import logging
 import math
 import os
@@ -741,21 +742,25 @@ def list_courses():
     import json
 
     courses = []
-    if SKILLS_DIR.exists():
-        for path in sorted(SKILLS_DIR.glob("*.json")):
-            try:
-                document = json.loads(path.read_text(encoding="utf-8"))
-            except (OSError, ValueError):
-                logger.warning("Skipping unreadable skills file: %s", path)
-                continue
-            document_skills = document.get("skills") or []
-            runtime.overlay_reviewed_matches(document_skills)
-            courses.append({
-                "course_code": document.get("course_code") or path.stem,
-                "total_skills": document.get("total_skills", 0),
-                "taxonomy_version": document.get("taxonomy_version"),
-                "by_status": _current_match_summary(document)["by_status"],
-            })
+    # The same file list the skill vector joins against, so this endpoint and the vector can
+    # never disagree about which courses exist.
+    for path in _course_skill_paths():
+        try:
+            document = json.loads(Path(path).read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            logger.warning("Skipping unreadable skills file: %s", path)
+            continue
+        document_skills = document.get("skills") or []
+        runtime.overlay_reviewed_matches(document_skills)
+        courses.append({
+            "course_code": document.get("course_code") or Path(path).stem,
+            "total_skills": document.get("total_skills", 0),
+            "taxonomy_version": document.get("taxonomy_version"),
+            # The file's own flag, not an inference from where it sits, so a synthetic course
+            # stays labelled even if the corpus is later moved.
+            "synthetic": bool(document.get("mock")),
+            "by_status": _current_match_summary(document)["by_status"],
+        })
     return {"total": len(courses), "courses": courses}
 
 
@@ -865,25 +870,70 @@ def _load_course_skills(paths: tuple, taxonomy_version=None, review_revision=0) 
 
 
 def _course_skill_map() -> dict:
-    """The course → skill map, keyed by every code each course is known by.
-
-    The loaded taxonomy resolves canonical ids retired by a merge, so they are
-    repointed rather than silently failing to join against the career-path
-    ontology. The matcher already holds it, so this costs no I/O.
-
-    Fingerprinting every file rather than the directory is deliberate: the
-    extraction worker rewrites a course's JSON in place while the server runs,
-    and that does not change the directory's mtime. Caching on the directory
-    would leave a freshly extracted course invisible to the API.
-    """
     if not SKILLS_DIR.exists():
         return {}
+        
+    paths = list(SKILLS_DIR.glob("*.json"))
+    if os.getenv("CC_INCLUDE_MOCK_COURSES") == "1":
+        from careercompass.config import DATA_DIR
+        mock_dir = DATA_DIR / "mock" / "skills"
+        if mock_dir.exists():
+            paths.extend(mock_dir.glob("*.json"))
+            
     taxonomy = runtime.taxonomy_if_ready()
     return _load_course_skills(
-        tuple(sorted(SKILLS_DIR.glob("*.json"))),
+        tuple(sorted(paths)),
         taxonomy_version=getattr(taxonomy, "version", None),
         review_revision=runtime.review_revision,
     )
+
+
+def _course_skill_paths() -> tuple:
+    """Every course→skill file to load, real ones first.
+
+    Order matters on a code collision: a real extracted syllabus must win over a synthetic one,
+    because `load_course_skills` keeps the last write for a code and the real document is the
+    one the university actually issued. There are no collisions today; this keeps that safe if a
+    real syllabus is later extracted for a course the mock corpus already covers.
+    """
+    from careercompass.config import INCLUDE_MOCK_COURSES, MOCK_SKILLS_DIR
+
+    paths = sorted(SKILLS_DIR.glob("*.json")) if SKILLS_DIR.exists() else []
+    if INCLUDE_MOCK_COURSES and Path(MOCK_SKILLS_DIR).exists():
+        real_codes = {path.stem for path in paths}
+        paths += [path for path in sorted(Path(MOCK_SKILLS_DIR).glob("*.json"))
+                  if path.stem not in real_codes]
+    return tuple(paths)
+
+
+@cached_by_files(lambda paths: paths)
+def _read_synthetic_codes(paths: tuple) -> frozenset:
+    """Every course code the synthetic corpus answers to, aliases included.
+
+    Aliases matter because plan editions renumber — a transcript quotes whichever code its own
+    plan uses, and the vector joins on any of them. Counting only the filename would under-report
+    how much of a student's profile is synthetic, which is the one direction this number must
+    not be wrong in.
+    """
+    codes = set()
+    for path in paths:
+        try:
+            record = json.loads(Path(path).read_text(encoding="utf-8"))
+        except (ValueError, OSError):
+            continue
+        if record.get("course_code"):
+            codes.add(record["course_code"])
+        codes.update(record.get("course_codes") or [])
+    return frozenset(codes)
+
+
+def _synthetic_codes() -> frozenset:
+    """The synthetic course codes currently loaded; empty when the corpus is off."""
+    from careercompass.config import INCLUDE_MOCK_COURSES, MOCK_SKILLS_DIR
+
+    if not INCLUDE_MOCK_COURSES or not Path(MOCK_SKILLS_DIR).exists():
+        return frozenset()
+    return _read_synthetic_codes(tuple(sorted(Path(MOCK_SKILLS_DIR).glob("*.json"))))
 
 
 def _requirements(career_path: str) -> list:
@@ -903,6 +953,39 @@ def _requirements(career_path: str) -> list:
     if Path(TAXONOMY_PATH).exists():
         attach_skill_types(rows, TAXONOMY_PATH)
     return rows
+
+
+def _path_summary(career_path: str = None) -> dict:
+    """The ontology header entry behind a path — sample size and skill count.
+
+    Separate from `_requirements` because the denominator lives in the file's
+    header rather than on the rows, and a missing header must not fail a gap:
+    the arithmetic is complete without it, only the evidence line is poorer.
+    """
+    from careercompass.skills.gap import load_path_summary
+    from careercompass.skills.ontology import ONTOLOGY_PATH
+
+    if not Path(ONTOLOGY_PATH).exists():
+        return {}
+    return load_path_summary(ONTOLOGY_PATH, career_path)
+
+
+def _market_captured_at() -> str:
+    """When the postings behind the ontology were collected.
+
+    Read from the scrape report rather than hard-coded, so a re-scrape moves
+    the date the dashboard shows without anybody remembering to edit it.
+    Absent report, absent date — never a guess.
+    """
+    from careercompass.config import RAW_DATA_DIR
+
+    report = Path(RAW_DATA_DIR) / "scrape_report.json"
+    if not report.exists():
+        return None
+    try:
+        return json.loads(report.read_text(encoding="utf-8")).get("finished_at")
+    except (ValueError, OSError):
+        return None
 
 
 # What each skip reason means to somebody reading the error, singular and plural.
@@ -956,6 +1039,11 @@ def _with_coverage(payload: dict, vector: dict) -> dict:
     """
     payload["courses_counted"] = vector.get("courses_counted", 0)
     payload["courses_skipped"] = vector.get("courses_skipped", [])
+    # How many of *this student's counted courses* rest on a synthetic syllabus — not how many
+    # synthetic courses exist. The corpus size is the same 96 for everybody and says nothing
+    # about the profile on screen; what a reader needs to know is how much of their own result
+    # is built on invented coursework. Zero unless the demo corpus is enabled.
+    payload["synthetic_counted"] = vector.get("synthetic_counted", 0)
     return payload
 
 
@@ -973,6 +1061,7 @@ def _build_vector(request) -> dict:
         course_skills,
         taxonomy_version=TAXONOMY_VERSION,
         include_unpassed=request.include_unpassed,
+        synthetic_codes=_synthetic_codes(),
     )
     if request.quiz_scores:
         # An unknown id would otherwise be injected into the vector with the
@@ -989,6 +1078,96 @@ def _build_vector(request) -> dict:
         raise Problem.no_skill_profile(_no_profile_detail(vector, len(request.courses)),
                                        courses_skipped=vector["courses_skipped"])
     return vector
+
+
+# ── Career-path requirements ───────────────────────────────────
+#
+# The ontology on its own, with no student in it. Every other endpoint in this
+# section needs a transcript first, which left a caller with nothing to show
+# somebody who has not uploaded one — and "what does this career actually ask
+# for" is answerable without knowing anything about them.
+#
+# The path name is a query parameter rather than a path segment because two of
+# the nine names contain a slash ("UI/UX Design"). Encoding that into a path
+# segment works in theory and is rejected or silently normalised by enough
+# proxies in practice that it is not worth the bug.
+@app.get("/api/v1/career-paths", response_model=schemas.CareerPathListResponse,
+         tags=["skill-gap"])
+def list_career_paths():
+    """Every career path the ontology covers, and how much evidence is behind it."""
+    summary = _path_summary()
+    if not summary:
+        raise Problem.career_path_not_found("(none)")
+
+    return schemas.CareerPathListResponse(
+        total=len(summary),
+        derived_from="job_postings",
+        captured_at=_market_captured_at(),
+        career_paths=[
+            schemas.CareerPathSummary(
+                career_path=name,
+                sample_size=entry.get("sample_size") or 0,
+                total_skills=entry.get("skills") or 0,
+            )
+            for name, entry in sorted(summary.items())
+        ],
+    )
+
+
+@app.get("/api/v1/career-paths/skills",
+         response_model=schemas.CareerPathSkillsResponse, tags=["skill-gap"])
+def career_path_skills(
+    career_path: str = Query(min_length=1, max_length=120),
+    band: str = Query(None, pattern="^(critical|important|useful)$"),
+    include_soft: bool = Query(True),
+):
+    """
+    What one career path demands, ranked by how much of the market asks for it.
+
+    Bands come from `gap.demand_band`, the same function the gap analysis uses,
+    so a skill cannot read `critical` here and `important` there.
+    """
+    from careercompass.skills.gap import BANDS, SOFT_TYPE, demand_band
+    from careercompass.skills.taxonomy import TAXONOMY_VERSION
+
+    rows = _requirements(career_path)
+
+    skills = []
+    band_totals = {name: 0 for name in BANDS}
+    for row in rows:
+        if not include_soft and row.get("skill_type") == SOFT_TYPE:
+            continue
+        row_band = demand_band(row.get("coverage"))
+        # Counted before the band filter, so the totals still describe the
+        # whole path when the caller is looking at one band of it.
+        band_totals[row_band] += 1
+        if band and row_band != band:
+            continue
+        skills.append(schemas.CareerPathSkill(
+            skill_id=row["skill_id"],
+            label=row.get("skill_label") or row["skill_id"],
+            skill_type=row.get("skill_type"),
+            posting_count=row.get("posting_count"),
+            coverage=float(row.get("coverage") or 0.0),
+            demand_band=row_band,
+            required_level=row.get("required_level"),
+            required_score=row.get("required_score"),
+            sample_terms=sorted(row.get("terms") or [])[:5],
+        ))
+
+    # Most-demanded first: this list is read top-down as an order to learn in.
+    skills.sort(key=lambda s: (-s.coverage, s.label))
+
+    return schemas.CareerPathSkillsResponse(
+        career_path=career_path,
+        sample_size=_path_summary(career_path).get("sample_size"),
+        derived_from="job_postings",
+        captured_at=_market_captured_at(),
+        taxonomy_version=TAXONOMY_VERSION,
+        total=len(skills),
+        band_totals=band_totals,
+        skills=skills,
+    )
 
 
 @app.post("/api/v1/skill-vector", response_model=schemas.SkillVectorResponse,
@@ -1030,7 +1209,9 @@ def build_gap(request: schemas.SkillGapRequest):
         _requirements(request.career_path),
         career_path=request.career_path,
         include_soft=request.include_soft,
+        sample_size=_path_summary(request.career_path).get("sample_size"),
     )
+    gap["captured_at"] = _market_captured_at()
     if request.narrative:
         write_narrative(gap)
     return _with_coverage(gap, vector)

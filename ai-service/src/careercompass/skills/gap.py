@@ -82,6 +82,40 @@ DEFAULT_COVERAGE = 0.70
 
 STRONG, MODERATE, WEAK = "strong", "moderate", "weak"
 
+# What share of a path's postings has to ask for a skill before it is worth
+# learning first. `importance` on its own is a number a student cannot act on;
+# these three bands turn it into an order.
+#
+# The cutoffs are read off the measured distribution over all 771 ontology
+# rows, not chosen: coverage runs 0.02 to 0.67 with a median of 0.06, so a
+# boundary anywhere near "most postings ask for it" would be empty. At
+# 0.25/0.10 a path yields roughly 7-20 critical and 9-26 important
+# requirements — few enough to read, enough to work through.
+#
+#     critical   asked for by at least one posting in four
+#     important  between one in ten and one in four
+#     useful     below that, down to the ontology's own 2% noise floor
+CRITICAL_COVERAGE = 0.25
+IMPORTANT_COVERAGE = 0.10
+
+CRITICAL, IMPORTANT, USEFUL = "critical", "important", "useful"
+BANDS = (CRITICAL, IMPORTANT, USEFUL)
+
+
+def demand_band(coverage: float) -> str:
+    """Which of the three learn-first bands a market coverage falls into.
+
+    One function, called by both the gap and the career-path requirements
+    endpoint, so the two can never disagree about what "critical" means.
+    """
+    value = float(coverage or 0.0)
+    if value >= CRITICAL_COVERAGE:
+        return CRITICAL
+    if value >= IMPORTANT_COVERAGE:
+        return IMPORTANT
+    return USEFUL
+
+
 # Soft skills top nearly every career path, which is an accurate reading of job
 # postings and useless as advice: ranked first, they give every student the
 # same three recommendations regardless of what they studied. Technical
@@ -121,6 +155,7 @@ def build_skill_gap(
     *,
     career_path: str = None,
     include_soft: bool = True,
+    sample_size: int = None,
 ) -> dict:
     """
     Compare a skill vector against one career path's requirements.
@@ -133,6 +168,10 @@ def build_skill_gap(
         career_path: recorded on the result; defaults to the rows' own path.
         include_soft: report soft-skill requirements. They are always ranked
             after technical ones; this drops them entirely.
+        sample_size: how many postings this path's requirements were derived
+            from. Reported so a consumer can render the evidence behind a
+            band — "asked for in 72 of 184 postings" — rather than a bare
+            percentage the student has no reason to trust.
 
     Returns:
         A dict shaped for ``GET /api/v1/me/skill-gap``.
@@ -178,6 +217,11 @@ def build_skill_gap(
             # How often the market asks for it, so a dashboard can sort by
             # what employers actually want rather than alphabetically.
             "importance": round(float(req.get("coverage") or 0.0), 4),
+            # The same number bucketed into the three learn-first bands, and
+            # the count behind it. Banding here rather than in each consumer
+            # keeps one definition of "critical" across every caller.
+            "demand_band": demand_band(req.get("coverage")),
+            "posting_count": req.get("posting_count"),
             # What closing this gap is worth. Ranking on the gap alone puts
             # every unstudied skill at the top in arbitrary order - Power BI,
             # asked for by 2% of Cybersecurity postings, above Linux at 18% -
@@ -201,8 +245,17 @@ def build_skill_gap(
     ))
 
     summary = {STRONG: 0, MODERATE: 0, WEAK: 0}
+    # The same counts split by band, which is what a dashboard needs to say
+    # "you meet 4 of the 11 things this career actually insists on". Counted
+    # over `rows`, so it honours include_soft exactly as `summary` does.
+    band_summary = {
+        band: {STRONG: 0, MODERATE: 0, WEAK: 0, "total": 0} for band in BANDS
+    }
     for row in rows:
         summary[row["classification"]] += 1
+        bucket = band_summary[row["demand_band"]]
+        bucket[row["classification"]] += 1
+        bucket["total"] += 1
 
     path = career_path or next(
         (r.get("career_path") for r in requirements if r.get("career_path")), None)
@@ -212,6 +265,8 @@ def build_skill_gap(
         "taxonomy_version": vector.get("taxonomy_version"),
         "source": vector.get("source"),
         "summary": summary,
+        "band_summary": band_summary,
+        "sample_size": sample_size,
         "total_requirements": len(rows),
         "requirements_met": summary[STRONG],
         "skills": rows,
@@ -334,6 +389,32 @@ def load_requirements(path, career_path: str = None) -> list:
     if career_path:
         rows = [r for r in rows if r.get("career_path") == career_path]
     return [dict(row) for row in rows]
+
+
+@cached_by_files(lambda path: [path])
+def _read_path_summary(path) -> dict:
+    """The ontology's header — sample size and skill count per career path."""
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
+    return data.get("career_paths", {}) if isinstance(data, dict) else {}
+
+
+def load_path_summary(path, career_path: str = None) -> dict:
+    """
+    How many postings each career path's requirements were derived from.
+
+    `load_requirements` deliberately returns only the rows, and the denominator
+    behind every `coverage` lives in the header those rows were written with.
+    Without it a consumer can render "39%" but not "72 of 184", and the second
+    is the one a student has any reason to believe.
+
+    Args:
+        path: path to `career_path_skills.json`.
+        career_path: return only this path's entry; all paths if omitted.
+    """
+    summary = _read_path_summary(path)
+    if career_path is not None:
+        return dict(summary.get(career_path) or {})
+    return {name: dict(entry) for name, entry in summary.items()}
 
 
 @cached_by_files(lambda taxonomy_path: [taxonomy_path])

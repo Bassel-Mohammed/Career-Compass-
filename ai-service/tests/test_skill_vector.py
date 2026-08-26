@@ -335,6 +335,56 @@ def test_deterministic():
           json.loads(first)["skills"])
 
 
+def test_synthetic_courses_are_counted_but_never_scored_differently():
+    """A synthetic syllabus contributes exactly like a real one, and says so.
+
+    The count is the whole point: a profile built on invented coursework has to be labellable
+    as such. It must never change a score — a demo corpus that also moved the numbers would be
+    a second, invisible variable in every result.
+    """
+    course_skills = {
+        "REAL1": [skill("s:python", "Python")],
+        "MOCK1": [skill("s:sql", "SQL")],
+    }
+    courses = [{"course_code": "REAL1", "grade": "A"}, {"course_code": "MOCK1", "grade": "A"}]
+
+    plain = build_skill_vector(courses, course_skills)
+    labelled = build_skill_vector(courses, course_skills, synthetic_codes=frozenset({"MOCK1"}))
+
+    check("both counted", labelled["courses_counted"], 2)
+    check("one is synthetic", labelled["synthetic_counted"], 1)
+    check("none synthetic without the set", plain["synthetic_counted"], 0)
+    # Same skills, same numbers — the flag is provenance, not arithmetic.
+    check("scores unchanged", by_id(labelled)["s:sql"]["proficiency"],
+          by_id(plain)["s:sql"]["proficiency"])
+
+
+def test_synthetic_count_follows_the_code_that_actually_matched():
+    """Plan editions renumber, and a transcript quotes whichever code its own plan uses.
+
+    Counting only the primary code would under-report how much of a profile is synthetic, and
+    that is the one direction this number must not be wrong in.
+    """
+    course_skills = {"A0413301": [skill("s:os", "Operating Systems")]}
+    courses = [{"course_code": "0433301", "course_codes": ["A0413301"], "grade": "B"}]
+
+    vector = build_skill_vector(courses, course_skills,
+                                synthetic_codes=frozenset({"A0413301"}))
+    check("counted", vector["courses_counted"], 1)
+    check("synthetic via alias", vector["synthetic_counted"], 1)
+
+
+def test_unreadable_courses_are_reported_not_swallowed():
+    """A course with no skill map is a skipped course with a reason, never a silent zero."""
+    vector = build_skill_vector(
+        [{"course_code": "C1", "grade": "A"}, {"course_code": "GHOST", "grade": "A"}],
+        {"C1": [skill("s:python", "Python")]},
+    )
+    check("counted", vector["courses_counted"], 1)
+    check("skipped", vector["courses_skipped"],
+          [{"course_code": "GHOST", "reason": "no skill map"}])
+
+
 def main():
     test_grade_drives_proficiency()
     test_level_scales_evidence_not_performance()
@@ -352,6 +402,9 @@ def main():
     test_transfer_credit_adds_coverage_without_scoring_zero()
     test_retired_ids_are_repointed_at_load()
     test_deterministic()
+    test_synthetic_courses_are_counted_but_never_scored_differently()
+    test_synthetic_count_follows_the_code_that_actually_matched()
+    test_unreadable_courses_are_reported_not_swallowed()
 
     print(f"Ran {_checks} checks")
     if _failures:
