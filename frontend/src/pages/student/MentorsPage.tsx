@@ -101,7 +101,7 @@ export function MentorsPage() {
                   </p>
                   {(mentor.matchScore !== undefined && mentor.matchScore > 0) && (
                     <div className="mentor__match">
-                      <strong>Match Score: {(mentor.matchScore * 100).toFixed(0)}%</strong> 
+                      <strong>Match Score: {mentor.matchScore.toFixed(0)}%</strong> 
                       <span className="cell__quiet"> (Addresses {mentor.gapsAddressed} gap{mentor.gapsAddressed !== 1 && 's'})</span>
                       <p className="cell__quiet">{mentor.matchReason}</p>
                     </div>

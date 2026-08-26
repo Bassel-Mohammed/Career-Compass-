@@ -2415,3 +2415,263 @@ a:hover {
   display: grid;
   gap: 4px;
 }
+
+/* --- Skill dashboard: demand bands and charts ------------------------------
+
+   The three bands the dashboard groups by. Each chip is always accompanied by its
+   name in words and, next to it, what the band means — the colour is a convenience
+   for readers who have it, never the thing carrying the meaning (NFR-USE-05).
+
+   That rule is load-bearing here rather than a formality: measured against a
+   colour-vision-deficiency model, --warn and --danger sit at a Delta-E of about 1.3
+   under deuteranopia. Two of these three chips are, for some readers, the same
+   colour. Everything they mean has to survive without it.
+   -------------------------------------------------------------------------- */
+
+.tier-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.tier-chip--critical {
+  background: var(--danger-soft);
+  border-color: var(--danger-border);
+  color: var(--danger);
+}
+
+.tier-chip--important {
+  background: var(--warn-soft);
+  border-color: var(--warn-border);
+  color: var(--warn);
+}
+
+.tier-chip--useful {
+  background: var(--surface-sunken);
+  border-color: var(--border);
+  color: var(--text-muted);
+}
+
+/* The definitions block: what each band means, in numbers the student can check. */
+.bands {
+  margin: 16px 0 0;
+  display: grid;
+  gap: 14px;
+}
+
+.bands__row {
+  display: grid;
+  gap: 6px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.bands__row dt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.bands__row dd {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+}
+
+.bands__blurb {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.bands__count {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.bands__detail {
+  margin: 6px 0 0;
+  color: var(--text-faint);
+  font-size: 0.82rem;
+}
+
+.band-group {
+  margin-top: 22px;
+}
+
+.band-group__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+}
+
+/* The evidence under a percentage — "asked for in 72 of 184 postings". */
+.skills__evidence {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.skills__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.strengths {
+  display: grid;
+  gap: 10px;
+}
+
+.strengths__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.strengths__item .skills__evidence {
+  margin-left: auto;
+}
+
+.soft-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.provenance__line {
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.provenance__line strong {
+  color: var(--text);
+}
+
+/* --- Charts ---------------------------------------------------------------
+
+   Recharts' ResponsiveContainer measures its parent, so the parent must have a
+   height of its own or the chart collapses to nothing. Colours come from
+   components/charts.tsx, which resolves the tokens above at runtime — recharts
+   cannot read custom properties itself.
+   -------------------------------------------------------------------------- */
+
+.chart-frame {
+  width: 100%;
+  margin: 4px 0 2px;
+}
+
+.chart-frame:focus-visible,
+.chart-frame :focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 2px 0 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.chart-legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* The swatch carries the identity; the text beside it stays in a text token, because a
+   light data colour is illegible as text on the surface. */
+.chart-legend__swatch {
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+  flex: none;
+}
+
+.chart-tip {
+  display: grid;
+  gap: 3px;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  font-size: 0.83rem;
+  line-height: 1.45;
+}
+
+.chart-tip strong {
+  font-size: 0.87rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chart-frame * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* A caveat that materially qualifies the numbers above it — courses we could not read, and
+   therefore skills that may look missing when they are not. Warn-toned like .notice--preview,
+   with an accent edge so the two are distinguishable when both appear. */
+.notice--warn {
+  background: var(--warn-soft);
+  border: 1px solid var(--warn-border);
+  border-left: 3px solid var(--warn);
+  color: var(--warn);
+}
+
+.notice--warn .review-details,
+.notice--warn summary {
+  color: inherit;
+}
+
+.skipped-courses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin: 8px 0 0;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.83rem;
+}
+
+/* T5 CSS Rules */
+.mentor__match {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.outcome__status-copy {
+  color: var(--text-muted);
+}
+
+.outcome__status-copy--error {
+  color: var(--danger);
+}
+
+.outcome__actions {
+  display: flex;
+  gap: 0.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 0.5rem;
+}

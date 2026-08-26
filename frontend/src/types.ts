@@ -172,6 +172,35 @@ export interface ConfirmTranscriptRequest {
    Skill dashboard
    =========================================================================== */
 
+/**
+ * How much of the job market asks for a skill, in three bands.
+ *
+ * Derived by the AI service from the share of a career path's scraped job postings that named
+ * the skill: `critical` at or above 25%, `important` from 10%, `useful` below. Never recomputed
+ * on this side — the thresholds live beside the posting data that justifies them.
+ */
+export type DemandBand = 'critical' | 'important' | 'useful';
+
+/**
+ * A transcript course that could not contribute to the dashboard.
+ *
+ * `reason` is `'no skill map'` — no syllabus extracted for it yet — or `'not passed'`. The first
+ * is the system's gap, not the student's, and the page has to say which it was.
+ */
+export interface SkippedCourseResponse {
+  courseCode?: string;
+  reason?: string;
+  status?: string;
+}
+
+/** Classification counts within one band. Keys are lower-case, unlike `classification`. */
+export interface BandCounts {
+  strong: number;
+  moderate: number;
+  weak: number;
+  total: number;
+}
+
 export interface SkillLevelResponse {
   /**
    * ⚠️ Always absent — the service never sets it. Present only to mirror the Java
@@ -187,6 +216,27 @@ export interface SkillLevelResponse {
   classification?: 'Strong' | 'Moderate' | 'Weak';
   /** Null against the real AI service — per-skill prose is not in the v1 contract. */
   explanation?: string;
+  /** 0..100 target for this career path, from `requiredLevel`. Already a percentage. */
+  targetScore?: number;
+  /** How deeply the market wants it, not how well the student does it. */
+  requiredLevel?: 'beginner' | 'intermediate' | 'advanced';
+  /**
+   * 0..100 — the share of this career path's job postings that asked for the skill.
+   *
+   * Not comparable to `score`. This says how much the skill matters; `score` says how good the
+   * student is at it. Rendering them on one axis would be meaningless.
+   */
+  importancePercent?: number;
+  demandBand?: DemandBand;
+  /**
+   * Postings that named this skill. Shown with `SkillDashboardResponse.sampleSize` as
+   * "asked for in 72 of 184 postings" — the evidence behind the percentage.
+   */
+  postingCount?: number;
+  /** Taxonomy type. `soft` skills top every path and are reported apart from the rest. */
+  skillType?: 'knowledge' | 'skill' | 'tool' | 'soft';
+  /** Shortfall weighted by demand. The order the list arrives in. */
+  priority?: number;
 }
 
 export interface SkillDashboardResponse {
@@ -194,10 +244,69 @@ export interface SkillDashboardResponse {
   careerPathTitle: string;
   /** 0..100 integer. */
   overallReadinessPercent: number;
-  /** Pre-sorted weakest-first by the service. Do not re-sort. */
+  /**
+   * Pre-sorted by `priority` — shortfall weighted by market demand — so the list reads as an
+   * order to work through. Do not re-sort by score: that puts every unstudied skill at the top
+   * in arbitrary order, which is a list of everything not done rather than what to do next.
+   */
   skills: SkillLevelResponse[];
   /** false = derived from grades alone (FR-JS-22), not from quiz evidence. */
   basedOnQuizResults: boolean;
+  /** Java-issued id of this projection refresh. */
+  vectorVersion?: string;
+  taxonomyVersion?: string;
+  /** Job postings behind this path — the denominator under every `importancePercent`. */
+  sampleSize?: number;
+  /** ISO-8601 — when those postings were collected. */
+  marketCapturedAt?: string;
+  /** Transcript courses that actually fed this dashboard. */
+  coursesCounted?: number;
+  /** Courses that could not be used, with the reason. Empty when everything was readable. */
+  coursesSkipped?: SkippedCourseResponse[];
+  /**
+   * Of `coursesCounted`, how many rest on a synthetic demo syllabus rather than a real one.
+   * Non-zero only when the demo corpus is enabled — and when it is, the page must say so.
+   */
+  syntheticCounted?: number;
+  /** Classification counts per band, keyed `critical` / `important` / `useful`. */
+  bandSummary?: Partial<Record<DemandBand, BandCounts>>;
+  /** Plain-language summary from the AI service. Null when unavailable. */
+  narrative?: string;
+}
+
+/* ===========================================================================
+   Career-path market requirements
+
+   What a career asks for, with no student in it. The one thing the dashboard can show
+   truthfully before a transcript has been uploaded.
+   =========================================================================== */
+
+export interface CareerPathSkill {
+  skillId: string;
+  label: string;
+  skillType?: 'knowledge' | 'skill' | 'tool' | 'soft';
+  /** Postings that named this skill. */
+  postingCount?: number;
+  /** 0..100 share of the path's postings. Already a percentage. */
+  coveragePercent: number;
+  demandBand: DemandBand;
+  requiredLevel?: 'beginner' | 'intermediate' | 'advanced';
+  /** A few phrases employers actually wrote that resolved to this skill. */
+  sampleTerms?: string[];
+}
+
+export interface CareerPathSkillsResponse {
+  careerPath: string;
+  /** Postings behind this path. */
+  sampleSize?: number;
+  derivedFrom?: string;
+  /** ISO-8601 — when the postings were collected. */
+  capturedAt?: string;
+  taxonomyVersion?: string;
+  total: number;
+  /** Rows per band across the whole path. */
+  bandTotals?: Partial<Record<DemandBand, number>>;
+  skills: CareerPathSkill[];
 }
 
 /* ===========================================================================

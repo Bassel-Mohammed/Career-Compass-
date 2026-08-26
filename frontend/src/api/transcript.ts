@@ -1,5 +1,6 @@
 import { AI_TIMEOUT_MS, request } from './client';
 import type {
+  CareerPathSkillsResponse,
   ConfirmTranscriptRequest,
   SkillDashboardResponse,
   TranscriptReviewResponse,
@@ -47,6 +48,19 @@ export function confirmTranscript(
  */
 export function getSkillDashboard(token: string): Promise<SkillDashboardResponse> {
   return request<SkillDashboardResponse>('/api/job-seekers/me/skill-dashboard', {
+    token,
+    timeoutMs: AI_TIMEOUT_MS.dashboard,
+  });
+}
+
+/**
+ * What the student's career path asks for, derived from scraped job postings.
+ *
+ * Needs a career path but **not** a transcript, which is the whole point: it is the one thing
+ * the dashboard can show truthfully to somebody who has not uploaded one yet.
+ */
+export function getCareerPathSkills(token: string): Promise<CareerPathSkillsResponse> {
+  return request<CareerPathSkillsResponse>('/api/job-seekers/me/career-path/skills', {
     token,
     timeoutMs: AI_TIMEOUT_MS.dashboard,
   });
