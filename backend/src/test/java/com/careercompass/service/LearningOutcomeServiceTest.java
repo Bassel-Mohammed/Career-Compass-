@@ -1,10 +1,12 @@
 package com.careercompass.service;
 
+import com.careercompass.dto.response.LearningOutcomePreviewResponse;
 import com.careercompass.dto.response.LearningOutcomeResponse;
 import com.careercompass.entity.*;
 import com.careercompass.exception.DuplicateResourceException;
 import com.careercompass.exception.PrerequisiteNotMetException;
 import com.careercompass.exception.UnauthorizedActionException;
+import com.careercompass.integration.dto.SyllabusPreviewResponse;
 import com.careercompass.mapper.ContentManagerMapper;
 import com.careercompass.mapper.LearningOutcomeMapper;
 import com.careercompass.repository.ContentManagerRepository;
@@ -227,6 +229,50 @@ class LearningOutcomeServiceTest {
         assertThatThrownBy(() -> learningOutcomeService.uploadLearningOutcome(
                 1, " ", "2025-2026", "Data Structures", null, file))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    // Purpose: Upload preview - validates the PDF and maps the AI suggestion without storing
+    // anything, so the form auto-fill can never create rows or start extractions.
+    @Test
+    void previewPdf_mapsSuggestionWithoutStoringAnything() {
+        when(contentManagerRepository.findById(1))
+                .thenReturn(Optional.of(ContentManager.builder().contentManagerId(1).build()));
+        when(reviewService.previewSyllabusPdf(any(), any(), any()))
+                .thenReturn(SyllabusPreviewResponse.builder()
+                        .courseCode("CS241")
+                        .courseTitle("Data Structures")
+                        .description("Covers lists, trees, and graphs.")
+                        .contentSha256("abc123")
+                        .totalTerms(12)
+                        .warnings(List.of())
+                        .build());
+
+        MockMultipartFile file = new MockMultipartFile(
+                "file", "syllabus.pdf", "application/pdf", "content".getBytes());
+
+        LearningOutcomePreviewResponse out = learningOutcomeService.previewPdf(1, file);
+
+        assertThat(out.getCourseCode()).isEqualTo("CS241");
+        assertThat(out.getCourseName()).isEqualTo("Data Structures");
+        assertThat(out.getDescription()).isEqualTo("Covers lists, trees, and graphs.");
+        assertThat(out.getTotalTerms()).isEqualTo(12);
+        verify(learningOutcomeRepository, never()).save(any());
+        verify(fileStorageService, never()).store(any());
+        verify(reviewService, never())
+                .beginExtraction(any(), any(), any(), any(), anyBoolean());
+    }
+
+    // Purpose: Upload preview - non-PDF files are rejected before the AI call.
+    @Test
+    void previewPdf_rejectsNonPdfFile() {
+        when(contentManagerRepository.findById(1))
+                .thenReturn(Optional.of(ContentManager.builder().contentManagerId(1).build()));
+        MockMultipartFile file = new MockMultipartFile(
+                "file", "syllabus.txt", "text/plain", "content".getBytes());
+
+        assertThatThrownBy(() -> learningOutcomeService.previewPdf(1, file))
+                .isInstanceOf(IllegalArgumentException.class);
+        verify(reviewService, never()).previewSyllabusPdf(any(), any(), any());
     }
 
     // Purpose: Delete Raw File - throws Unauthorized When Caller Did Not Upload It.

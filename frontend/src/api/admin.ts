@@ -79,6 +79,10 @@ export function createExpert(token: string, body: CreateExpertRequest): Promise<
   return request<ExpertResponse>(`${PATH}/experts`, { method: 'POST', token, body });
 }
 
+export function listExperts(token: string): Promise<ExpertResponse[]> {
+  return request<ExpertResponse[]>(`${PATH}/experts`, { token });
+}
+
 // --- Reference data (FR-SA-07..10) ------------------------------------------
 
 export function createStudyField(

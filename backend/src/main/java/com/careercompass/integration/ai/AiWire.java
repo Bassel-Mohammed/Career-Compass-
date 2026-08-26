@@ -292,6 +292,29 @@ final class AiWire {
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    record PreviewTerm(
+            String term,
+            String level,
+            Double weight,
+            Integer evidenceCount,
+            List<String> sources) {
+    }
+
+    /** Read-only syllabus scan behind the upload form's auto-fill. */
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    record PreviewResponse(
+            String courseCode,
+            String courseTitle,
+            String description,
+            String contentSha256,
+            Integer totalTerms,
+            List<PreviewTerm> terms,
+            List<String> warnings) {
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
     record TaxonomySkill(
             String skillId,
             String label,
@@ -334,5 +357,53 @@ final class AiWire {
             String contentSha256,
             String publishedAt,
             boolean idempotent) {
+    }
+
+    // ── M6 mentor matching ──────────────────────────────────────────────────
+
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    record MentorMatchRequest(
+            String careerPath,
+            List<TranscriptCourse> courses,
+            Map<String, Double> quizScores,
+            boolean includeSoft,
+            boolean narrative,
+            List<MentorDto> mentors,
+            int limit) {
+    }
+
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    record MentorDto(
+            String mentorId,
+            String studyField,
+            Integer fieldStartingYear,
+            List<String> expertiseTerms) {
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    record MentorMatchResponse(
+            String careerPath,
+            String taxonomyVersion,
+            Integer total,
+            Integer gapsConsidered,
+            List<MentorMatchItem> items) {
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    record MentorMatchItem(
+            String mentorId,
+            Double score,
+            String signal,
+            List<AlignedSkill> alignedSkills,
+            Integer gapsAddressed,
+            Integer yearsExperience,
+            String explanation) {
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    record AlignedSkill(String skillId, String skillLabel) {
     }
 }

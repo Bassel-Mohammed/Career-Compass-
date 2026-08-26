@@ -99,6 +99,14 @@ export function MentorsPage() {
                     {mentor.studyFieldName ?? 'Field not stated'} · in the field since{' '}
                     {mentor.fieldStartingYear}
                   </p>
+                  {(mentor.matchScore !== undefined && mentor.matchScore > 0) && (
+                    <div className="mentor__match">
+                      <strong>Match Score: {(mentor.matchScore * 100).toFixed(0)}%</strong> 
+                      <span className="cell__quiet"> (Addresses {mentor.gapsAddressed} gap{mentor.gapsAddressed !== 1 && 's'})</span>
+                      <p className="cell__quiet">{mentor.matchReason}</p>
+                    </div>
+                  )}
+
                   <button
                     type="button"
                     className="button button--secondary button--small button--auto"

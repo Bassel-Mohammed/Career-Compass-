@@ -10,6 +10,11 @@ import com.careercompass.entity.JobSeeker;
 import com.careercompass.exception.PrerequisiteNotMetException;
 import com.careercompass.exception.ResourceNotFoundException;
 import com.careercompass.exception.UnauthorizedActionException;
+import com.careercompass.integration.ai.DataAnalysisClient;
+import com.careercompass.integration.dto.CourseGradeDto;
+import com.careercompass.integration.dto.MentorMatchRequest;
+import com.careercompass.integration.dto.MentorMatchResponse;
+import com.careercompass.repository.AcademicRecordRepository;
 import com.careercompass.repository.AppointmentRepository;
 import com.careercompass.repository.AppointmentStatusRepository;
 import com.careercompass.repository.ExpertRepository;
@@ -19,6 +24,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * Business Layer for a Job Seeker's mentor browsing and booking actions (FR-JS-24/25).
@@ -33,28 +41,72 @@ public class ConsultationService {
     private final ExpertRepository expertRepository;
     private final AppointmentRepository appointmentRepository;
     private final AppointmentStatusRepository appointmentStatusRepository;
+    private final AcademicRecordRepository academicRecordRepository;
+    private final TranscriptService transcriptService;
+    private final DataAnalysisClient dataAnalysisClient;
 
-    /** FR-JS-24: mentors in the job seeker's own study field, currently active for consulting. */
+    /** FR-JS-24: AI-ranked mentors. */
     @Transactional(readOnly = true)
     public List<MentorSummaryResponse> listAvailableMentors(Integer jobseekerId) {
         JobSeeker jobSeeker = jobSeekerRepository.findById(jobseekerId)
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Job seeker with id " + jobseekerId + " not found."));
 
-        if (jobSeeker.getStudyField() == null) {
+        if (jobSeeker.getCareerPath() == null) {
             throw new PrerequisiteNotMetException(
-                    "Set your study field (FR-JS-07) before browsing mentors in your field.");
+                    "Set your career path (FR-JS-09) before browsing AI-ranked mentors.");
         }
 
-        return expertRepository.findByStudyField_StudyFieldIdAndStatus_StatusName(
-                        jobSeeker.getStudyField().getStudyFieldId(), "Active").stream()
-                .map(e -> MentorSummaryResponse.builder()
-                        .expertId(e.getExpertId())
-                        .firstName(e.getFirstName())
-                        .lastName(e.getLastName())
-                        .studyFieldName(e.getStudyField() != null ? e.getStudyField().getFieldName() : null)
-                        .fieldStartingYear(e.getFieldStartingYear())
+        List<Expert> activeMentors = expertRepository.findByStatus_StatusName("Active");
+        if (activeMentors.isEmpty()) {
+            return List.of();
+        }
+
+        List<CourseGradeDto> courses = academicRecordRepository.findByJobSeeker_JobseekerId(jobseekerId).stream()
+                .map(r -> CourseGradeDto.builder()
+                        .courseCode(r.getCourseCode())
+                        .courseName(r.getCourseName())
+                        .grade(r.getGrade())
                         .build())
+                .toList();
+
+        List<MentorMatchRequest.MentorDto> mentorDtos = activeMentors.stream()
+                .map(e -> MentorMatchRequest.MentorDto.builder()
+                        .mentorId(e.getExpertId().toString())
+                        .studyField(e.getStudyField() != null ? e.getStudyField().getFieldName() : null)
+                        .fieldStartingYear(e.getFieldStartingYear() != null ? e.getFieldStartingYear().intValue() : null)
+                        .expertiseTerms(List.of())
+                        .build())
+                .toList();
+
+        MentorMatchRequest request = MentorMatchRequest.builder()
+                .careerPathName(jobSeeker.getCareerPath().getTitle())
+                .courses(courses)
+                .quizScores(transcriptService.latestQuizScoresBySkillId(jobseekerId))
+                .mentors(mentorDtos)
+                .limit(20)
+                .build();
+
+        MentorMatchResponse matchResponse = dataAnalysisClient.matchMentors(request);
+
+        Map<Integer, Expert> expertById = activeMentors.stream()
+                .collect(Collectors.toMap(Expert::getExpertId, Function.identity()));
+
+        return matchResponse.getItems().stream()
+                .map(item -> {
+                    Integer expertId = Integer.valueOf(item.getMentorId());
+                    Expert e = expertById.get(expertId);
+                    return MentorSummaryResponse.builder()
+                            .expertId(e.getExpertId())
+                            .firstName(e.getFirstName())
+                            .lastName(e.getLastName())
+                            .studyFieldName(e.getStudyField() != null ? e.getStudyField().getFieldName() : null)
+                            .fieldStartingYear(e.getFieldStartingYear())
+                            .matchScore(item.getScore())
+                            .gapsAddressed(item.getGapsAddressed())
+                            .matchReason(item.getExplanation())
+                            .build();
+                })
                 .toList();
     }
 

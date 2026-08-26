@@ -302,9 +302,12 @@ export interface MentorSummaryResponse {
   expertId: number;
   firstName: string;
   lastName: string;
-  studyFieldName?: string;
+  studyFieldName: string | null;
   /** A calendar year (e.g. 2015), not a duration. */
   fieldStartingYear: number;
+  matchScore?: number;
+  gapsAddressed?: number;
+  matchReason?: string;
 }
 
 export interface BookAppointmentRequest {
@@ -548,6 +551,16 @@ export interface TaxonomySkillResponse {
 export interface TaxonomySkillSearchResponse {
   total: number;
   items: TaxonomySkillResponse[];
+}
+
+/** Auto-fill suggestion read back from the PDF before upload. Every field is advisory. */
+export interface SyllabusPreviewResponse {
+  courseCode?: string;
+  courseName?: string;
+  description?: string;
+  contentSha256: string;
+  totalTerms: number;
+  warnings: string[];
 }
 
 export interface AddDraftSkillRequest {

@@ -143,6 +143,38 @@ public class MockDataAnalysisClient implements DataAnalysisClient {
     }
 
     @Override
+    public MentorMatchResponse matchMentors(MentorMatchRequest request) {
+        if (request.getMentors() == null || request.getMentors().isEmpty()) {
+            return MentorMatchResponse.builder().build();
+        }
+        
+        List<MentorMatchResponse.MentorMatchItem> items = request.getMentors().stream()
+                .limit(request.getLimit())
+                .map(m -> MentorMatchResponse.MentorMatchItem.builder()
+                        .mentorId(m.getMentorId())
+                        .score(0.85)
+                        .signal("mock")
+                        .alignedSkills(List.of(
+                                MentorMatchResponse.AlignedSkill.builder()
+                                        .skillId("mock:skill:1")
+                                        .skillLabel("Mock Skill 1")
+                                        .build()))
+                        .gapsAddressed(1)
+                        .yearsExperience(5)
+                        .explanation("[MOCK] This mentor covers your mock gaps.")
+                        .build())
+                .toList();
+
+        return MentorMatchResponse.builder()
+                .careerPath(request.getCareerPathName())
+                .taxonomyVersion("mock-v1")
+                .total(items.size())
+                .gapsConsidered(3)
+                .items(items)
+                .build();
+    }
+
+    @Override
     public QuizGenerationResponse generateQuiz(QuizGenerationRequest request) {
         String skillId = request.getSkillId() == null ? "mock:general" : request.getSkillId();
         List<QuizGenerationResponse.GeneratedQuizQuestionDto> questions = new ArrayList<>();
@@ -209,6 +241,20 @@ public class MockDataAnalysisClient implements DataAnalysisClient {
                         .skills(skills)
                         .build())
                 .warnings(List.of("[MOCK] Skills were generated without parsing the uploaded PDF."))
+                .build();
+    }
+
+    @Override
+    public SyllabusPreviewResponse previewSyllabusPdf(String filename, String contentType, byte[] content) {
+        if (content == null || content.length == 0) {
+            throw new IllegalArgumentException("Syllabus file content is required.");
+        }
+        // The mock cannot parse PDFs, so it reports no detected identity and the
+        // upload form stays manual — the honest placeholder behaviour.
+        return SyllabusPreviewResponse.builder()
+                .contentSha256("mock-content-sha256")
+                .totalTerms(0)
+                .warnings(List.of("[MOCK] No PDF was parsed; course details were not detected."))
                 .build();
     }
 

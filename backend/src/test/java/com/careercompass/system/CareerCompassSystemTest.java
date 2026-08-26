@@ -332,6 +332,31 @@ class CareerCompassSystemTest {
                             .idempotent(false)
                             .build();
                 });
+
+        // Mentor matching stub
+        when(dataAnalysisClient.matchMentors(any(MentorMatchRequest.class)))
+                .thenAnswer(inv -> {
+                    MentorMatchRequest req = inv.getArgument(0);
+                    if (req.getMentors() == null || req.getMentors().isEmpty()) {
+                        return MentorMatchResponse.builder().build();
+                    }
+                    List<MentorMatchResponse.MentorMatchItem> items = req.getMentors().stream()
+                            .limit(req.getLimit())
+                            .map(m -> MentorMatchResponse.MentorMatchItem.builder()
+                                    .mentorId(m.getMentorId())
+                                    .score(0.85)
+                                    .gapsAddressed(2)
+                                    .explanation("Mock explanation")
+                                    .build())
+                            .toList();
+                    return MentorMatchResponse.builder()
+                            .careerPath(req.getCareerPathName())
+                            .taxonomyVersion("mock-v1")
+                            .total(items.size())
+                            .gapsConsidered(3)
+                            .items(items)
+                            .build();
+                });
     }
 
     /** One matched skill inside the Module 8 stub proposal above. */

@@ -26,6 +26,7 @@ import com.careercompass.integration.ai.DataAnalysisClient;
 import com.careercompass.integration.dto.PublishCourseMapRequest;
 import com.careercompass.integration.dto.SyllabusExtractionRequest;
 import com.careercompass.integration.dto.SyllabusExtractionResponse;
+import com.careercompass.integration.dto.SyllabusPreviewResponse;
 import com.careercompass.integration.dto.TaxonomySkillSuggestion;
 import com.careercompass.mapper.LearningOutcomeMapper;
 import com.careercompass.mapper.LearningOutcomeSkillDraftMapper;
@@ -112,9 +113,17 @@ public class LearningOutcomeReviewService {
                 .toList();
     }
 
+    /**
+     * Read-only scan of an uploaded syllabus PDF used to pre-fill the upload form.
+     * Runs no matching and writes nothing — the AI service parses identity fields
+     * (course code, title, description) straight from the document.
+     */
+    public SyllabusPreviewResponse previewSyllabusPdf(String filename, String contentType, byte[] content) {
+        return dataAnalysisClient.previewSyllabusPdf(filename, contentType, content);
+    }
+
     /** Bounded canonical-taxonomy search backing manual additions and replacements. */
-    public TaxonomySkillSearchResponse searchTaxonomySkills(String query, Integer limit) {
-        int bounded = limit == null ? 20 : Math.max(1, Math.min(50, limit));
+    public TaxonomySkillSearchResponse searchTaxonomySkills(String query, Integer limit) {        int bounded = limit == null ? 20 : Math.max(1, Math.min(50, limit));
         List<TaxonomySkillSuggestion> items =
                 dataAnalysisClient.searchTaxonomySkills(query == null ? "" : query.trim(), bounded);
         return TaxonomySkillSearchResponse.builder()

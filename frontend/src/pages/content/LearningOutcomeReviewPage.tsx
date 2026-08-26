@@ -204,6 +204,61 @@ function SkillDraftCard({
 
   const removed = skill.decision === 'REMOVED';
   const confidence = confidencePercent(skill.matchScore);
+  // Decided rows are finished work: show the final skill without the editing
+  // form, evidence, or matcher noise. Only a duplicate canonical skill (which
+  // blocks publishing) still demands action on a decided row.
+  const decided = !removed && skill.decision !== 'PENDING';
+
+  if (decided) {
+    return (
+      <Card as="li" className={`draft-skill draft-skill--final draft-skill--${skill.decision.toLowerCase()}`}>
+        <div className="draft-skill__head">
+          <div>
+            <p className="draft-skill__term">Extracted term</p>
+            <h3>{skill.term}</h3>
+          </div>
+          <span className={`decision-badge decision-badge--${skill.decision.toLowerCase()}`}>
+            {decisionLabel(skill.decision)}
+          </span>
+        </div>
+        <div className="final-skill">
+          <span className="final-skill__name">{skill.canonicalSkillLabel ?? skill.canonicalSkillId}</span>
+          {confidence && <span className="final-skill__confidence">{confidence} match</span>}
+          <span className="final-skill__meta">{skill.level}</span>
+          <span className="final-skill__meta">weight {skill.weight}</span>
+          <span className="final-skill__meta">
+            {skill.evidenceCount || skill.evidence.length} evidence
+          </span>
+        </div>
+        {skill.decision === 'REPLACED' && skill.originalCanonicalSkillLabel && (
+          <p className="cell__quiet">
+            Replaced “{skill.originalCanonicalSkillLabel}”.
+          </p>
+        )}
+        {skill.note && <p className="cell__quiet">Note: {skill.note}</p>}
+        {duplicate && (
+          <>
+            <p className="review-callout review-callout--warn">
+              This canonical skill appears more than once in the active draft. Remove this copy
+              before publishing.
+            </p>
+            {!readOnly && (
+              <div className="draft-skill__actions">
+                <button
+                  type="button"
+                  className="button button--quiet button--small button--auto draft-skill__remove"
+                  onClick={() => onDelete(skill)}
+                  disabled={busy}
+                >
+                  Remove
+                </button>
+              </div>
+            )}
+          </>
+        )}
+      </Card>
+    );
+  }
 
   function save(event: React.FormEvent) {
     event.preventDefault();
@@ -619,8 +674,13 @@ export function LearningOutcomeReviewPage() {
   const approvedCount = active.filter((skill) => skill.decision !== 'PENDING').length;
   const readOnly = outcome.data?.extractionStatus !== 'READY_FOR_REVIEW';
 
+  // Removed rows are audit records: they leave the working list (the card goes
+  // away on remove) and only reappear under the explicit "Removed" filter.
   const filteredRows = useMemo(
-    () => (filter === 'ALL' ? orderedRows : orderedRows.filter((skill) => skill.decision === filter)),
+    () =>
+      filter === 'ALL'
+        ? orderedRows.filter((skill) => skill.decision !== 'REMOVED')
+        : orderedRows.filter((skill) => skill.decision === filter),
     [filter, orderedRows],
   );
   const activeCanonicalIds = useMemo(

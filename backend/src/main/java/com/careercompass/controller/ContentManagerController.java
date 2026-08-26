@@ -8,6 +8,7 @@ import com.careercompass.dto.request.SelectStudyFieldRequest;
 import com.careercompass.dto.request.UpdateDraftSkillRequest;
 import com.careercompass.dto.response.ContentManagerResponse;
 import com.careercompass.dto.response.DraftSkillResponse;
+import com.careercompass.dto.response.LearningOutcomePreviewResponse;
 import com.careercompass.dto.response.LearningOutcomeResponse;
 import com.careercompass.dto.response.TaxonomySkillSearchResponse;
 import com.careercompass.security.userdetails.CurrentUser;
@@ -79,6 +80,14 @@ public class ContentManagerController {
         LearningOutcomeResponse response = learningOutcomeService.uploadLearningOutcome(
                 principal.getUserId(), courseCode, catalogVersion, courseName, description, file);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    /** FR-CM-04 aid: read-only scan that pre-fills the upload form from the PDF. */
+    @PostMapping(value = "/learning-outcomes/preview", consumes = "multipart/form-data")
+    public ResponseEntity<LearningOutcomePreviewResponse> previewLearningOutcomePdf(
+            @CurrentUser UserPrincipal principal,
+            @RequestParam("file") MultipartFile file) {
+        return ResponseEntity.ok(learningOutcomeService.previewPdf(principal.getUserId(), file));
     }
 
     @GetMapping("/learning-outcomes")

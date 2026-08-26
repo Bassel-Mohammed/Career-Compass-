@@ -49,7 +49,6 @@ export const NAV: Record<Role, NavItem[]> = {
   ],
   CONTENT_MANAGER: [
     { to: '/content', label: 'Learning outcomes', icon: ICONS.upload },
-    { to: '/content/profile', label: 'My study field', icon: ICONS.profile },
   ],
   ADMIN: [
     { to: '/admin', label: 'Content managers', icon: ICONS.people },

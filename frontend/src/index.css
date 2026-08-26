@@ -1924,3 +1924,494 @@ a:hover {
     flex-direction: column;
   }
 }
+
+/* ===========================================================================
+   Content manager: upload form auto-fill + skill review workspace
+   =========================================================================== */
+
+/* Hover states must never trade readability for affordance: secondary and
+   quiet buttons keep their text colour and gain a soft brand tint instead. */
+.button--secondary:hover:not(:disabled),
+.button--quiet:hover {
+  background: var(--brand-soft);
+  color: var(--text);
+  border-color: var(--brand);
+}
+
+.button--primary:hover:not(:disabled) {
+  background: var(--brand-hover);
+  color: var(--brand-ink);
+}
+
+.preview-loading {
+  opacity: 0.75;
+}
+
+/* --- Review section heading ------------------------------------------------ */
+
+.section-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.section-heading--wrap {
+  flex-wrap: wrap;
+}
+
+.section-heading__actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.section__count {
+  margin-left: 6px;
+  color: var(--text-muted);
+  font-size: 0.85em;
+  font-weight: 600;
+}
+
+/* --- Decision filter chips ------------------------------------------------- */
+
+.review-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.review-filter {
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.review-filter span {
+  margin-left: 5px;
+  color: var(--text-faint);
+  font-weight: 500;
+}
+
+.review-filter:hover {
+  border-color: var(--brand);
+  color: var(--text);
+}
+
+.review-filter--active {
+  background: var(--brand-soft);
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+.review-filter--active span {
+  color: var(--brand);
+}
+
+/* --- Draft skill cards ------------------------------------------------------ */
+
+.draft-skills {
+  display: grid;
+  gap: 14px;
+}
+
+.draft-skill {
+  display: grid;
+  gap: 12px;
+}
+
+.draft-skill__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.draft-skill__term {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.draft-skill__head h3 {
+  margin: 2px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.draft-skill__reason {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.decision-badge {
+  flex: none;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: var(--surface-sunken);
+  border: 1px solid var(--border-strong);
+  color: var(--text-muted);
+}
+
+.decision-badge--accepted,
+.decision-badge--added {
+  background: var(--ok-soft);
+  border-color: transparent;
+  color: var(--ok);
+}
+
+.decision-badge--replaced {
+  background: var(--brand-soft);
+  border-color: transparent;
+  color: var(--brand);
+}
+
+.decision-badge--removed {
+  background: var(--danger-soft);
+  border-color: transparent;
+  color: var(--danger);
+}
+
+/* Canonical match block: label above value, confidence right-aligned. */
+.canonical-match {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.canonical-match > div {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.canonical-match__label {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.canonical-match strong {
+  overflow-wrap: anywhere;
+}
+
+.canonical-match code {
+  color: var(--text-faint);
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
+
+.canonical-match > span:last-child {
+  flex: none;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.review-callout {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  background: var(--surface-sunken);
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.review-callout--warn {
+  background: var(--danger-soft);
+  color: var(--text);
+}
+
+.review-callout--ok {
+  background: var(--ok-soft);
+  color: var(--text);
+}
+
+/* Evidence / alternatives disclosure */
+.review-details summary {
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.review-details[open] summary {
+  margin-bottom: 8px;
+}
+
+.review-details__body {
+  display: grid;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
+
+.review-details__body ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  display: grid;
+  gap: 4px;
+}
+
+.candidate-list {
+  display: grid;
+  gap: 6px;
+}
+
+.candidate-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.candidate-list small {
+  margin-left: 6px;
+  color: var(--text-faint);
+}
+
+/* Edit form + action row */
+.draft-skill__form {
+  display: grid;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.draft-skill__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.draft-skill__remove:hover:not(:disabled) {
+  background: var(--danger-soft);
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.replacement-panel {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.replacement-panel h4 {
+  margin: 0;
+}
+
+.replacement-panel p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+/* Final (decided) skills: the published outcome, nothing else. */
+.draft-skill--final {
+  gap: 10px;
+}
+
+.final-skill {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.final-skill__name {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.final-skill__confidence {
+  color: var(--brand);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.final-skill__meta {
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--surface-sunken);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+/* --- Taxonomy picker -------------------------------------------------------- */
+
+.taxonomy-picker {
+  display: grid;
+  gap: 12px;
+}
+
+.taxonomy-search {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.taxonomy-search > :first-child {
+  flex: 1;
+}
+
+.taxonomy-results__count {
+  margin: 0 0 6px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.taxonomy-results {
+  display: grid;
+  gap: 6px;
+}
+
+.taxonomy-result {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 12px;
+  font: inherit;
+  text-align: left;
+  background: var(--surface-sunken);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.taxonomy-result:hover:not(:disabled) {
+  border-color: var(--brand);
+}
+
+.taxonomy-result:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.taxonomy-result span:last-child {
+  flex: none;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.taxonomy-result small {
+  display: block;
+  color: var(--text-faint);
+}
+
+.selected-taxonomy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: var(--radius);
+  background: var(--brand-soft);
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+/* --- Review page summary, stats, publish panel ------------------------------ */
+
+.review-summary {
+  display: grid;
+  gap: 12px;
+}
+
+.review-summary__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.outcome__identity {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.workflow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  background: var(--surface-sunken);
+  border: 1px solid var(--border-strong);
+  color: var(--text-muted);
+}
+
+.workflow-badge--ok {
+  background: var(--ok-soft);
+  border-color: transparent;
+  color: var(--ok);
+}
+
+.workflow-badge--danger {
+  background: var(--danger-soft);
+  border-color: transparent;
+  color: var(--danger);
+}
+
+.workflow-badge--working {
+  background: var(--brand-soft);
+  border-color: transparent;
+  color: var(--brand);
+}
+
+.workflow-badge__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: workflow-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes workflow-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.review-stats {
+  margin: 0;
+}
+
+.publish-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.publish-blockers {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: var(--danger);
+  font-size: 0.9rem;
+  display: grid;
+  gap: 4px;
+}

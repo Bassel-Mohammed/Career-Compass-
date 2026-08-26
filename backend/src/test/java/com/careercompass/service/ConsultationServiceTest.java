@@ -31,38 +31,59 @@ class ConsultationServiceTest {
     @Mock private ExpertRepository expertRepository;
     @Mock private AppointmentRepository appointmentRepository;
     @Mock private AppointmentStatusRepository appointmentStatusRepository;
+    @Mock private com.careercompass.repository.AcademicRecordRepository academicRecordRepository;
+    @Mock private com.careercompass.service.TranscriptService transcriptService;
+    @Mock private com.careercompass.integration.ai.DataAnalysisClient dataAnalysisClient;
 
     @InjectMocks
     private ConsultationService consultationService;
 
-    // Purpose: List Available Mentors - throws When Study Field Not Set.
+    // Purpose: List Available Mentors - throws When Career Path Not Set.
     @Test
-    void listAvailableMentors_throwsWhenStudyFieldNotSet() {
-        JobSeeker jobSeeker = JobSeeker.builder().jobseekerId(1).studyField(null).build();
+    void listAvailableMentors_throwsWhenCareerPathNotSet() {
+        JobSeeker jobSeeker = JobSeeker.builder().jobseekerId(1).careerPath(null).build();
         when(jobSeekerRepository.findById(1)).thenReturn(Optional.of(jobSeeker));
 
         assertThatThrownBy(() -> consultationService.listAvailableMentors(1))
                 .isInstanceOf(PrerequisiteNotMetException.class);
     }
 
-    // Purpose: List Available Mentors - returns Only Active Mentors In Field.
+    // Purpose: List Available Mentors - returns AI Ranked Mentors.
     @Test
-    void listAvailableMentors_returnsOnlyActiveMentorsInField() {
-        StudyField field = StudyField.builder().studyFieldId(5).fieldName("Computer Science").build();
-        JobSeeker jobSeeker = JobSeeker.builder().jobseekerId(1).studyField(field).build();
+    void listAvailableMentors_returnsAIRankedMentors() {
+        CareerPath path = CareerPath.builder().title("Software Engineering").build();
+        JobSeeker jobSeeker = JobSeeker.builder().jobseekerId(1).careerPath(path).build();
 
         Expert mentor = Expert.builder().expertId(20).firstName("Dr").lastName("Okafor")
-                .studyField(field).fieldStartingYear((short) 2010).build();
+                .studyField(StudyField.builder().fieldName("Computer Science").build())
+                .fieldStartingYear((short) 2010).build();
 
         when(jobSeekerRepository.findById(1)).thenReturn(Optional.of(jobSeeker));
-        when(expertRepository.findByStudyField_StudyFieldIdAndStatus_StatusName(5, "Active"))
-                .thenReturn(List.of(mentor));
+        when(expertRepository.findByStatus_StatusName("Active")).thenReturn(List.of(mentor));
+        when(academicRecordRepository.findByJobSeeker_JobseekerId(1)).thenReturn(List.of());
+        when(transcriptService.latestQuizScoresBySkillId(1)).thenReturn(java.util.Map.of());
+        
+        com.careercompass.integration.dto.MentorMatchResponse aiResponse = com.careercompass.integration.dto.MentorMatchResponse.builder()
+                .items(List.of(com.careercompass.integration.dto.MentorMatchResponse.MentorMatchItem.builder()
+                        .mentorId("20")
+                        .score(0.85)
+                        .gapsAddressed(2)
+                        .explanation("Match explanation")
+                        .build()))
+                .build();
+                
+        when(dataAnalysisClient.matchMentors(any(com.careercompass.integration.dto.MentorMatchRequest.class)))
+                .thenReturn(aiResponse);
 
         List<MentorSummaryResponse> mentors = consultationService.listAvailableMentors(1);
 
         assertThat(mentors).hasSize(1);
         assertThat(mentors.get(0).getExpertId()).isEqualTo(20);
+        assertThat(mentors.get(0).getMatchScore()).isEqualTo(0.85);
+        assertThat(mentors.get(0).getGapsAddressed()).isEqualTo(2);
+        assertThat(mentors.get(0).getMatchReason()).isEqualTo("Match explanation");
     }
+
 
     // Purpose: Book Session - creates Appointment With Requested Status.
     @Test

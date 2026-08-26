@@ -18,4 +18,7 @@ public class MentorSummaryResponse {
     private String lastName;
     private String studyFieldName;
     private Short fieldStartingYear;
+    private Double matchScore;
+    private Integer gapsAddressed;
+    private String matchReason;
 }

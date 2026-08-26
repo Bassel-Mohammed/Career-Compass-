@@ -430,6 +430,7 @@ async def preview_syllabus(
     return {
         "course_code": syllabus.get("course_code"),
         "course_title": syllabus.get("course_title"),
+        "description": syllabus.get("description"),
         "content_sha256": hashlib.sha256(data).hexdigest(),
         "total_terms": len(terms),
         "terms": terms,

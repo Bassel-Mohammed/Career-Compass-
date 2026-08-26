@@ -322,6 +322,41 @@ public class HttpDataAnalysisClient implements DataAnalysisClient {
     }
 
     @Override
+    public SyllabusPreviewResponse previewSyllabusPdf(String filename, String contentType, byte[] content) {
+        if (content == null || content.length == 0) {
+            throw new IllegalArgumentException("Syllabus file content is required.");
+        }
+
+        String safeName = StringUtils.hasText(filename) ? filename : "syllabus.pdf";
+        MultipartBodyBuilder multipart = new MultipartBodyBuilder();
+        multipart.part("file", new NamedByteArrayResource(content, safeName))
+                .contentType(resolveContentType(contentType));
+
+        // The preview runs no model and persists nothing, so the default service
+        // deadline is generous enough; no dedicated timeout knob is warranted.
+        AiWire.PreviewResponse wire = call(
+                "syllabus-preview",
+                aiServiceWebClient.post()
+                        .uri("/api/v1/syllabi/preview")
+                        .contentType(MediaType.MULTIPART_FORM_DATA)
+                        .body(BodyInserters.fromMultipartData(multipart.build())),
+                AiWire.PreviewResponse.class,
+                aiServiceProperties.getTimeoutSeconds());
+        if (wire == null) {
+            throw new AiServiceException(HttpStatus.BAD_GATEWAY, "AI_SERVICE_RESPONSE_INVALID",
+                    "The AI service returned no syllabus preview.");
+        }
+        return SyllabusPreviewResponse.builder()
+                .courseCode(wire.courseCode())
+                .courseTitle(wire.courseTitle())
+                .description(wire.description())
+                .contentSha256(wire.contentSha256())
+                .totalTerms(wire.totalTerms())
+                .warnings(wire.warnings() == null ? List.of() : wire.warnings())
+                .build();
+    }
+
+    @Override
     public SyllabusExtractionResponse getSyllabusExtraction(String extractionId) {
         requireExtractionId(extractionId);
         AiWire.SyllabusExtractionResponse wire = call(
@@ -427,6 +462,63 @@ public class HttpDataAnalysisClient implements DataAnalysisClient {
         throw new AiServiceException(HttpStatus.NOT_IMPLEMENTED, "AI_CAPABILITY_NOT_IN_SCOPE",
                 "AI job matching is not part of the current release. "
                         + "Run with careercompass.ai-service.use-mock=true to demonstrate this flow.");
+    }
+
+    @Override
+    public MentorMatchResponse matchMentors(MentorMatchRequest request) {
+        AiWire.MentorMatchRequest body = new AiWire.MentorMatchRequest(
+                request.getCareerPathName(),
+                toWireCourses(request.getCourses()),
+                toWireQuizScores(request.getQuizScores()),
+                request.isIncludeSoft(),
+                request.isNarrative(),
+                request.getMentors().stream()
+                        .map(m -> new AiWire.MentorDto(
+                                m.getMentorId(),
+                                m.getStudyField(),
+                                m.getFieldStartingYear(),
+                                m.getExpertiseTerms()))
+                        .toList(),
+                request.getLimit());
+
+        AiWire.MentorMatchResponse wire = call(
+                "mentor-matches",
+                aiServiceWebClient.post().uri("/api/v1/mentor-matches").bodyValue(body),
+                AiWire.MentorMatchResponse.class,
+                aiServiceProperties.getTimeouts().getSkillVectorSeconds());
+
+        if (wire == null) {
+            return MentorMatchResponse.builder().build();
+        }
+
+        List<MentorMatchResponse.MentorMatchItem> items = new ArrayList<>();
+        for (AiWire.MentorMatchItem item : safe(wire.items())) {
+            List<MentorMatchResponse.AlignedSkill> alignedSkills = new ArrayList<>();
+            for (AiWire.AlignedSkill as : safe(item.alignedSkills())) {
+                alignedSkills.add(MentorMatchResponse.AlignedSkill.builder()
+                        .skillId(as.skillId())
+                        .skillLabel(as.skillLabel())
+                        .build());
+            }
+
+            items.add(MentorMatchResponse.MentorMatchItem.builder()
+                    .mentorId(item.mentorId())
+                    .score(item.score() != null ? item.score() : 0.0)
+                    .signal(item.signal())
+                    .alignedSkills(alignedSkills)
+                    .gapsAddressed(item.gapsAddressed() != null ? item.gapsAddressed() : 0)
+                    .yearsExperience(item.yearsExperience() != null ? item.yearsExperience() : 0)
+                    .explanation(item.explanation())
+                    .build());
+        }
+
+        return MentorMatchResponse.builder()
+                .careerPath(wire.careerPath())
+                .taxonomyVersion(wire.taxonomyVersion())
+                .total(wire.total() != null ? wire.total() : 0)
+                .gapsConsidered(wire.gapsConsidered() != null ? wire.gapsConsidered() : 0)
+                .items(items)
+                .build();
     }
 
     // ── Transport ─────────────────────────────────────────────────────────

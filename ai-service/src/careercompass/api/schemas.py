@@ -36,6 +36,7 @@ class PreviewTerm(BaseModel):
 class PreviewResponse(BaseModel):
     course_code: Optional[str] = None
     course_title: Optional[str] = None
+    description: Optional[str] = None
     content_sha256: str
     total_terms: int
     terms: list[PreviewTerm]

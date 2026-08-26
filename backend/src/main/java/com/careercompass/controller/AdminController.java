@@ -74,6 +74,11 @@ public class AdminController {
         return ResponseEntity.status(HttpStatus.CREATED).body(expertAdminService.createExpert(request));
     }
 
+    @GetMapping("/experts")
+    public ResponseEntity<List<ExpertResponse>> listExperts() {
+        return ResponseEntity.ok(expertAdminService.listExperts());
+    }
+
     // --- Study Fields (FR-SA-07) --------------------------------------------------------
 
     @PostMapping("/study-fields")

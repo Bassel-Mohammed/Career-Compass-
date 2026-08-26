@@ -78,6 +78,8 @@ export function LearningOutcomesPage() {
   const [description, setDescription] = useState('');
   const [file, setFile] = useState<File | null>(null);
   const [errors, setErrors] = useState<UploadErrors>({});
+  const [previewing, setPreviewing] = useState(false);
+  const [previewNote, setPreviewNote] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [rowError, setRowError] = useState<unknown>(null);
   const [pollError, setPollError] = useState<string | null>(null);
@@ -140,8 +142,33 @@ export function LearningOutcomesPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pollKey, token]);
 
-  function validateUpload(): boolean {
-    const next: UploadErrors = {};
+  /**
+   * Ask the backend to read the course identity off the dropped PDF and pre-fill
+   * the empty form fields. Suggestions only: whatever the content manager already
+   * typed is kept, because course code + catalog version are the qualified
+   * identity they are accountable for.
+   */
+  async function autoFillFromPdf(selected: File) {
+    setPreviewing(true);
+    setPreviewNote(null);
+    try {
+      const suggestion = await contentManagerApi.previewLearningOutcomePdf(token, selected);
+      setCourseCode((current) => current.trim() || suggestion.courseCode?.trim() || '');
+      setCourseName((current) => current.trim() || suggestion.courseName?.trim() || '');
+      setDescription((current) => current.trim() || suggestion.description?.trim() || '');
+      setPreviewNote(
+        suggestion.courseCode || suggestion.courseName
+          ? 'Course details were read from the PDF — review them before uploading.'
+          : 'No course details were detected in this PDF; fill the form manually.',
+      );
+    } catch {
+      setPreviewNote('Could not read course details from this PDF; fill the form manually.');
+    } finally {
+      setPreviewing(false);
+    }
+  }
+
+  function validateUpload(): boolean {    const next: UploadErrors = {};
     const code = courseCode.trim();
     const version = catalogVersion.trim();
     const name = courseName.trim();
@@ -184,6 +211,7 @@ export function LearningOutcomesPage() {
     setCourseName('');
     setDescription('');
     setFile(null);
+    setPreviewNote(null);
     setErrors({});
     setSuccess(`“${created.courseName}” was uploaded. Skill extraction has started.`);
   }
@@ -341,7 +369,10 @@ export function LearningOutcomesPage() {
                   <button
                     type="button"
                     className="button button--quiet button--small"
-                    onClick={() => setFile(null)}
+                    onClick={() => {
+                      setFile(null);
+                      setPreviewNote(null);
+                    }}
                     disabled={upload.running}
                   >
                     Choose another
@@ -353,11 +384,17 @@ export function LearningOutcomesPage() {
                   onSelect={(selected) => {
                     setFile(selected);
                     setErrors((current) => ({ ...current, file: undefined }));
+                    void autoFillFromPdf(selected);
                   }}
                   disabled={upload.running}
                   label="Drop the course PDF here, or browse"
                   hint="Text-based PDF, up to 10MB. Nothing is published before your review."
                 />
+              )}
+              {(previewing || previewNote) && (
+                <p className={`cell__quiet${previewing ? ' preview-loading' : ''}`} role="status">
+                  {previewing ? 'Reading course details from the PDF…' : previewNote}
+                </p>
               )}
               {errors.file && (
                 <p className="field__error" role="alert">

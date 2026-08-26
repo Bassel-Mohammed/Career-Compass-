@@ -1,6 +1,7 @@
 package com.careercompass.service;
 
 import com.careercompass.dto.response.ContentManagerResponse;
+import com.careercompass.dto.response.LearningOutcomePreviewResponse;
 import com.careercompass.dto.response.LearningOutcomeResponse;
 import com.careercompass.entity.ContentManager;
 import com.careercompass.entity.LearningOutcome;
@@ -11,6 +12,7 @@ import com.careercompass.exception.PrerequisiteNotMetException;
 import com.careercompass.exception.ResourceNotFoundException;
 import com.careercompass.exception.UnauthorizedActionException;
 import com.careercompass.entity.LearningOutcomeExtractionStatus;
+import com.careercompass.integration.dto.SyllabusPreviewResponse;
 import com.careercompass.mapper.ContentManagerMapper;
 import com.careercompass.mapper.LearningOutcomeMapper;
 import com.careercompass.repository.ContentManagerRepository;
@@ -180,6 +182,28 @@ public class LearningOutcomeService {
                 file.getContentType(), false);
 
         return reviewService.toResponse(learningOutcome);
+    }
+
+    /**
+     * Read-only PDF scan behind the upload form's auto-fill. Validates the file exactly
+     * like an upload would, then asks the AI service for the course identity printed on
+     * the document. Nothing is stored and no extraction is queued.
+     */
+    @Transactional(readOnly = true)
+    public LearningOutcomePreviewResponse previewPdf(Integer contentManagerId, MultipartFile file) {
+        getOrThrow(contentManagerId);
+        FileValidationUtils.validatePdf(file, MAX_FILE_SIZE_BYTES);
+        byte[] content = fileBytes(file);
+        SyllabusPreviewResponse wire = reviewService.previewSyllabusPdf(
+                file.getOriginalFilename(), file.getContentType(), content);
+        return LearningOutcomePreviewResponse.builder()
+                .courseCode(wire.getCourseCode())
+                .courseName(wire.getCourseTitle())
+                .description(wire.getDescription())
+                .contentSha256(wire.getContentSha256())
+                .totalTerms(wire.getTotalTerms())
+                .warnings(wire.getWarnings() == null ? List.of() : wire.getWarnings())
+                .build();
     }
 
     /** FR-CM-04 (view list of uploaded course learning outcomes). */

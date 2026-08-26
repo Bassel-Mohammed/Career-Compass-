@@ -1,4 +1,17 @@
 services:
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "127.0.0.1:11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
+
   postgres:
     image: postgres:16-alpine
     environment:
@@ -31,7 +44,9 @@ services:
       # optional BGE/cross-encoder/LLM dependencies are intentionally omitted.
       CC_EMBEDDING_BACKEND: lexical
       CC_RERANKER: lexical
-      CC_MATCH_LLM: "0"
+      CC_MATCH_LLM: "1"
+      # Ollama host for LLM calls (service name in Docker network)
+      OLLAMA_HOST: http://ollama:11434
       # Course-map publication persistence (skills review workflow). The schema
       # is created by the packaged migrations on startup.
       CC_DB_HOST: postgres
@@ -42,6 +57,8 @@ services:
       CC_DB_AUTO_MIGRATE: "1"
     depends_on:
       postgres:
+        condition: service_healthy
+      ollama:
         condition: service_healthy
     ports:
       - "127.0.0.1:8000:8000"
@@ -97,6 +114,13 @@ services:
       retries: 18
       start_period: 30s
 
+  adminer:
+    image: adminer:latest
+    ports:
+      - "127.0.0.1:8081:8080"
+    depends_on:
+      - postgres
+
   frontend:
     build:
       context: ./frontend
@@ -128,3 +152,4 @@ volumes:
   backend_h2:
   learning_outcomes:
   ai_postgres:
+  ollama_data:

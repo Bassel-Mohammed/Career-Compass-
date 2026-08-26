@@ -8,6 +8,7 @@ import type {
   PublishLearningOutcomeRequest,
   ReplaceDraftSkillRequest,
   SelectStudyFieldRequest,
+  SyllabusPreviewResponse,
   TaxonomySkillSearchResponse,
   UpdateDraftSkillRequest,
 } from '../types';
@@ -68,6 +69,23 @@ export function uploadLearningOutcome(
 
 export function listLearningOutcomes(token: string): Promise<LearningOutcomeResponse[]> {
   return request<LearningOutcomeResponse[]>(`${PATH}/learning-outcomes`, { token });
+}
+
+/**
+ * Read-only scan of a dropped PDF that suggests the course identity fields.
+ * Nothing is stored and no extraction starts; the form stays fully editable.
+ */
+export function previewLearningOutcomePdf(
+  token: string,
+  file: File,
+): Promise<SyllabusPreviewResponse> {
+  const form = new FormData();
+  form.append('file', file);
+  return request<SyllabusPreviewResponse>(`${PATH}/learning-outcomes/preview`, {
+    method: 'POST',
+    token,
+    body: form,
+  });
 }
 
 export function getLearningOutcome(
