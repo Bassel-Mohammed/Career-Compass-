@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AppShell } from '../../components/AppShell';
 import {
@@ -12,7 +12,10 @@ import {
   Stat,
   StatusBadge,
 } from '../../components/ui';
+const GapChart = lazy(() => import('../../components/charts').then(m => ({ default: m.GapChart })));
 const MarketBandChart = lazy(() => import('../../components/charts').then(m => ({ default: m.MarketBandChart })));
+const TierSplitChart = lazy(() => import('../../components/charts').then(m => ({ default: m.TierSplitChart })));
+import type { GapDatum, TierDatum } from '../../components/charts';
 import { useAuth } from '../../auth/useAuth';
 import { useAsync } from '../../hooks/useAsync';
 import * as transcriptApi from '../../api/transcript';
@@ -21,6 +24,7 @@ import { messageFor, prerequisiteFor } from '../../api/errors';
 import type {
   CareerPathSkill,
   CareerPathSkillsResponse,
+  DemandBand,
   SkillDashboardResponse,
   SkillLevelResponse,
   SkippedCourseResponse,
@@ -28,9 +32,12 @@ import type {
 import {
   BAND_META,
   BAND_ORDER,
+  bandReadiness,
   capturedMonth,
+  criticalProgress,
   demandPercent,
   evidenceLine,
+  groupByBand,
   isMet,
   marketBandTotals,
   splitSoft,
@@ -76,6 +83,13 @@ export function DashboardPage() {
             ? `What your coursework says you can do, measured against ${data.careerPathTitle}.`
             : 'What your coursework says you can do, measured against your career path.'
         }
+        action={
+          data && (
+            <Link className="button button--secondary button--auto" to="/courses">
+              See course recommendations
+            </Link>
+          )
+        }
       />
 
       {dashboard.loading && <Skeleton rows={6} />}
@@ -100,12 +114,44 @@ export function DashboardPage() {
    The profile, once a transcript exists
    =========================================================================== */
 
+type Filter = DemandBand | 'all' | 'gaps';
+
 function SkillProfile({ data }: { data: SkillDashboardResponse }) {
+  const [filter, setFilter] = useState<Filter>('all');
+  const [showSoft, setShowSoft] = useState(false);
   const { technical, soft } = useMemo(() => splitSoft(data.skills), [data.skills]);
-  const openGaps = technical.filter((skill) => !isMet(skill)).length;
-  const strongCount = technical.filter(isMet).length;
+  const pool = showSoft ? data.skills : technical;
+  const readiness = useMemo(() => bandReadiness(pool), [pool]);
+  const critical = criticalProgress(readiness);
+  const openGaps = pool.filter((skill) => !isMet(skill)).length;
   const month = capturedMonth(data.marketCapturedAt);
-  const priorities = useMemo(() => topPriority(technical, 5), [technical]);
+
+  const tierData: TierDatum[] = BAND_ORDER.map((band) => ({
+    band,
+    label: BAND_META[band].label,
+    ...readiness[band],
+  }));
+
+  const priorities = useMemo(() => topPriority(technical, 6), [technical]);
+  const gapData: GapDatum[] = priorities.map((skill) => {
+    const target = skill.targetScore ?? 100;
+    const current = Math.min(skill.score, target);
+    return {
+      label: skill.skillName ?? 'Unnamed skill',
+      current,
+      shortfall: Math.max(0, target - current),
+      target,
+      band: skill.demandBand ?? 'useful',
+    };
+  });
+
+  const visible = useMemo(() => {
+    if (filter === 'all') return pool;
+    if (filter === 'gaps') return pool.filter((skill) => !isMet(skill));
+    return pool.filter((skill) => (skill.demandBand ?? 'useful') === filter);
+  }, [pool, filter]);
+
+  const grouped = useMemo(() => groupByBand(visible), [visible]);
   const held = useMemo(() => strengths(technical), [technical]);
 
   if (data.skills.length === 0) {
@@ -121,50 +167,92 @@ function SkillProfile({ data }: { data: SkillDashboardResponse }) {
 
   return (
     <div className="stack">
-      <Card className="skill-overview">
-        <p className="skill-overview__eyebrow">Your readiness for {data.careerPathTitle}</p>
-        <p className="skill-overview__score">{formatPercent(data.overallReadinessPercent)}</p>
+      <Provenance
+        careerPath={data.careerPathTitle}
+        sampleSize={data.sampleSize}
+        month={month}
+        basedOnQuizResults={data.basedOnQuizResults}
+        coursesCounted={data.coursesCounted}
+        coursesSkipped={data.coursesSkipped}
+        syntheticCounted={data.syntheticCounted}
+      />
+
+      <div className="grid grid--stats">
+        <Stat
+          label="Overall readiness"
+          value={formatPercent(data.overallReadinessPercent)}
+          hint={`for ${data.careerPathTitle}`}
+        />
+        <Stat
+          label="Critical skills met"
+          value={`${critical.met} of ${critical.total}`}
+          hint="what employers treat as the baseline"
+        />
+        <Stat label="Open gaps" value={openGaps} hint="skills below the level asked for" />
+        <Stat
+          label="Skills measured"
+          value={pool.length}
+          hint={
+            showSoft || soft.length === 0
+              ? 'against this career path'
+              : `${soft.length} soft skill${soft.length === 1 ? '' : 's'} hidden`
+          }
+        />
+      </div>
+
+      <Card>
+        <h2 className="section__title">Readiness for {data.careerPathTitle}</h2>
         <ProgressBar
           value={data.overallReadinessPercent}
           label={`Overall readiness for ${data.careerPathTitle}`}
         />
-        <div className="grid grid--stats skill-overview__stats">
-          <Stat label="Strong skills" value={strongCount} hint="already at the target" />
-          <Stat label="Skills to improve" value={openGaps} hint="below the target" />
-          <Stat label="Courses used" value={data.coursesCounted ?? 0} hint="from your transcript" />
-        </div>
-        <Link className="button button--primary button--auto" to="/courses">
-          View recommended courses
-        </Link>
+      </Card>
+
+      <Card as="section">
+        <h2 className="section__title">What this career actually asks for</h2>
+        <p className="section__lede">
+          Every skill below is placed by how many real job postings for {data.careerPathTitle}
+          {' '}asked for it. Work down from the top: the first band is what employers treat as the
+          baseline.
+          {!showSoft && soft.length > 0 && (
+            <> Soft skills are excluded from these counts — turn them on under “All skills”.</>
+          )}
+        </p>
+        <Suspense fallback={<Skeleton />}><TierSplitChart data={tierData} /></Suspense>
+        <dl className="bands">
+          {BAND_ORDER.map((band) => (
+            <div key={band} className="bands__row">
+              <dt>
+                <span className={`tier-chip tier-chip--${band}`}>{BAND_META[band].label}</span>
+                <span className="bands__blurb">{BAND_META[band].blurb}</span>
+              </dt>
+              <dd>
+                <span className="bands__count">
+                  {readiness[band].total} skill{readiness[band].total === 1 ? '' : 's'}
+                </span>
+                {' — '}
+                {readiness[band].strong} strong · {readiness[band].moderate} partly there ·{' '}
+                {readiness[band].weak} missing
+                <p className="bands__detail">{BAND_META[band].detail}</p>
+              </dd>
+            </div>
+          ))}
+        </dl>
       </Card>
 
       {priorities.length > 0 && (
         <Card as="section">
           <h2 className="section__title">
-            Skills to improve first
+            Learn these first
             <span className="section__count">{priorities.length}</span>
           </h2>
           <p className="section__lede">
-            Start here. These are the most useful gaps to close for {data.careerPathTitle}.
+            Ranked by what closing each gap is worth — a small shortfall in something most
+            postings ask for beats a large one in something almost nobody does.
           </p>
+          <Suspense fallback={<Skeleton />}><GapChart data={gapData} /></Suspense>
           <ul className="list-reset skills">
             {priorities.map((skill) => (
-              <SkillRow key={skill.canonicalSkillId ?? skill.skillName} skill={skill}
-                        sampleSize={data.sampleSize} showActions />
-            ))}
-          </ul>
-        </Card>
-      )}
-
-      {held.length > 0 && (
-        <Card as="section">
-          <h2 className="section__title">
-            Your strong skills
-            <span className="section__count">{strongCount}</span>
-          </h2>
-          <p className="section__lede">These are supported by your courses or quiz results.</p>
-          <ul className="list-reset skills">
-            {held.map((skill) => (
               <SkillRow key={skill.canonicalSkillId ?? skill.skillName} skill={skill}
                         sampleSize={data.sampleSize} />
             ))}
@@ -173,36 +261,77 @@ function SkillProfile({ data }: { data: SkillDashboardResponse }) {
       )}
 
       <Card as="section">
-        <details className="dashboard-details">
-          <summary>Show all skills and how this dashboard was calculated</summary>
-          <p className="section__lede">
-            Course codes come from your confirmed transcript. A skill appears when an extracted
-            course syllabus says that course teaches it. The score uses your grade, or your latest
-            quiz result when one exists. Career requirements come from job postings.
-          </p>
-          {soft.length > 0 && (
-            <p className="skills__evidence">
-              {soft.length} soft skill{soft.length === 1 ? '' : 's'} are included in the full list
-              but kept out of your learn-first suggestions.
-            </p>
-          )}
-          <Provenance
-            careerPath={data.careerPathTitle}
-            sampleSize={data.sampleSize}
-            month={month}
-            basedOnQuizResults={data.basedOnQuizResults}
-            coursesCounted={data.coursesCounted}
-            coursesSkipped={data.coursesSkipped}
-            syntheticCounted={data.syntheticCounted}
-          />
-          <ul className="list-reset skills dashboard-details__skills">
-            {data.skills.map((skill) => (
-              <SkillRow key={skill.canonicalSkillId ?? skill.skillName} skill={skill}
-                        sampleSize={data.sampleSize} />
+        <div className="section-heading section-heading--wrap">
+          <h2 className="section__title">
+            All skills
+            <span className="section__count">{visible.length}</span>
+          </h2>
+          <div className="section-heading__actions">
+            <label className="soft-toggle">
+              <input
+                type="checkbox"
+                checked={showSoft}
+                onChange={(event) => setShowSoft(event.target.checked)}
+              />
+              Include soft skills
+            </label>
+          </div>
+        </div>
+
+        <div className="review-filters" role="group" aria-label="Filter skills by demand">
+          <FilterChip active={filter === 'all'} onClick={() => setFilter('all')}>
+            All
+          </FilterChip>
+          {BAND_ORDER.map((band) => (
+            <FilterChip key={band} active={filter === band} onClick={() => setFilter(band)}>
+              {BAND_META[band].label} ({readiness[band].total})
+            </FilterChip>
+          ))}
+          <FilterChip active={filter === 'gaps'} onClick={() => setFilter('gaps')}>
+            Gaps only ({openGaps})
+          </FilterChip>
+        </div>
+
+        {visible.length === 0 ? (
+          <p className="cell__quiet">Nothing in this band yet.</p>
+        ) : (
+          BAND_ORDER.filter((band) => grouped[band].length > 0).map((band) => (
+            <section key={band} className="band-group" aria-label={`${BAND_META[band].label} skills`}>
+              <h3 className="band-group__title">
+                <span className={`tier-chip tier-chip--${band}`}>{BAND_META[band].label}</span>
+                <span className="bands__blurb">{BAND_META[band].blurb}</span>
+                <span className="section__count">{grouped[band].length}</span>
+              </h3>
+              <ul className="list-reset skills">
+                {grouped[band].map((skill) => (
+                  <SkillRow key={skill.canonicalSkillId ?? skill.skillName} skill={skill}
+                            sampleSize={data.sampleSize} />
+                ))}
+              </ul>
+            </section>
+          ))
+        )}
+      </Card>
+
+      {held.length > 0 && (
+        <Card as="section">
+          <h2 className="section__title">
+            Already at the level asked for
+            <span className="section__count">{held.length}</span>
+          </h2>
+          <ul className="list-reset strengths">
+            {held.map((skill) => (
+              <li key={skill.canonicalSkillId ?? skill.skillName} className="strengths__item">
+                <span className="skills__name">{skill.skillName}</span>
+                <StatusBadge status={skill.classification} />
+                <span className="skills__evidence">
+                  {evidenceLine(skill, data.sampleSize) ?? ''}
+                </span>
+              </li>
             ))}
           </ul>
-        </details>
-      </Card>
+        </Card>
+      )}
     </div>
   );
 }
@@ -316,15 +445,7 @@ function Provenance({
   );
 }
 
-function SkillRow({
-  skill,
-  sampleSize,
-  showActions = false,
-}: {
-  skill: SkillLevelResponse;
-  sampleSize?: number;
-  showActions?: boolean;
-}) {
+function SkillRow({ skill, sampleSize }: { skill: SkillLevelResponse; sampleSize?: number }) {
   const band = skill.demandBand ?? 'useful';
   const evidence = evidenceLine(skill, sampleSize);
   const met = isMet(skill);
@@ -344,26 +465,33 @@ function SkillRow({
       />
 
       <p className="skills__evidence">
-        Current {formatPercent(skill.score)}
+        {evidence}
+        {skill.requiredLevel && (
+          <>
+            {evidence ? ' · ' : ''}Asked for at {skill.requiredLevel} level
+          </>
+        )}
         {skill.targetScore != null && ` · target ${formatPercent(skill.targetScore)}`}
-        {evidence && ` · ${evidence}`}
       </p>
 
-      <SkillSourceGuide skill={skill} />
+      {skill.explanation && <p className="skills__why">{skill.explanation}</p>}
 
-      {showActions && skill.canonicalSkillId && !met && (
-        <div className="skills__actions">
-          <Link
-            className="skills__action"
-            to={`/quizzes?skill=${encodeURIComponent(skill.canonicalSkillId)}&name=${encodeURIComponent(skill.skillName ?? '')}`}
-          >
-            Take a quiz to refine this
-          </Link>
-          <Link className="skills__action" to="/courses">
-            Find a course
-          </Link>
-        </div>
-      )}
+      <div className="skills__actions">
+        {skill.canonicalSkillId && !met && (
+          <>
+            <Link
+              className="skills__action"
+              to={`/quizzes?skill=${encodeURIComponent(skill.canonicalSkillId)}&name=${encodeURIComponent(skill.skillName ?? '')}`}
+            >
+              Take a quiz to refine this
+            </Link>
+            <Link className="skills__action" to="/courses">
+              Find a course
+            </Link>
+          </>
+        )}
+        <SkillSourceGuide skill={skill} />
+      </div>
     </li>
   );
 }
@@ -374,30 +502,59 @@ function SkillSourceGuide({ skill }: { skill: SkillLevelResponse }) {
 
   if (courses.length === 0) {
     return (
-      <p className="skill-source skill-source--empty">
-        {usesQuiz
-          ? 'Source: your completed skill quiz.'
-          : 'No supporting course was found in your transcript. This skill is shown because your career path asks for it.'}
-      </p>
+      <details className="skill-source-menu">
+        <summary className="skills__action">
+          {usesQuiz ? 'Skill source' : 'Why this skill is shown'}
+        </summary>
+        <p className="skill-source skill-source--empty">
+          {usesQuiz
+            ? 'Source: your completed skill quiz.'
+            : 'No supporting course was found in your transcript. This skill is shown because your career path asks for it.'}
+        </p>
+      </details>
     );
   }
 
   return (
-    <div className="skill-source">
-      <p className="skill-source__title">
-        {usesQuiz ? 'Quiz score, supported by:' : 'You developed this skill in:'}
-      </p>
-      <ul className="list-reset skill-source__courses">
-        {courses.map((course, index) => (
-          <li key={`${course.courseCode ?? 'course'}-${index}`}>
-            <strong>{course.courseCode ?? 'Course'}</strong>
-            {course.courseName && ` — ${course.courseName}`}
-            {course.grade && <span className="skill-source__meta">Grade {course.grade}</span>}
-            {course.level && <span className="skill-source__meta">{course.level} syllabus level</span>}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <details className="skill-source-menu">
+      <summary className="skills__action">Where you developed this skill</summary>
+      <div className="skill-source">
+        <p className="skill-source__title">
+          {usesQuiz ? 'Quiz score, supported by:' : 'You developed this skill in:'}
+        </p>
+        <ul className="list-reset skill-source__courses">
+          {courses.map((course, index) => (
+            <li key={`${course.courseCode ?? 'course'}-${index}`}>
+              <strong>{course.courseCode ?? 'Course'}</strong>
+              {course.courseName && ` — ${course.courseName}`}
+              {course.grade && <span className="skill-source__meta">Grade {course.grade}</span>}
+              {course.level && <span className="skill-source__meta">{course.level} syllabus level</span>}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </details>
+  );
+}
+
+function FilterChip({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <button
+      type="button"
+      className={`review-filter${active ? ' review-filter--active' : ''}`}
+      aria-pressed={active}
+      onClick={onClick}
+    >
+      {children}
+    </button>
   );
 }
 

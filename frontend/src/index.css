@@ -2676,33 +2676,8 @@ a:hover {
   color: var(--text);
 }
 
-/* The signed-in dashboard keeps the decision surface small: one readiness number, one next-step
-   list and one strengths list. The complete market methodology stays available in details. */
-.skill-overview {
-  display: grid;
-  gap: 14px;
-}
-
-.skill-overview__eyebrow {
-  margin: 0;
-  color: var(--text-muted);
-  font-weight: 650;
-}
-
-.skill-overview__score {
-  margin: -4px 0 0;
-  font-size: clamp(2.4rem, 7vw, 4rem);
-  line-height: 1;
-  font-weight: 800;
-  letter-spacing: -0.05em;
-  color: var(--brand);
-}
-
-.skill-overview__stats {
-  margin-top: 2px;
-}
-
 .skill-source {
+  margin-top: 9px;
   padding: 10px 12px;
   border-radius: var(--radius);
   background: var(--surface-sunken);
@@ -2732,19 +2707,30 @@ a:hover {
   font-size: 0.78rem;
 }
 
-.dashboard-details > summary {
+.skill-source-menu {
+  min-width: 0;
+}
+
+.skill-source-menu > summary {
   cursor: pointer;
-  color: var(--brand);
-  font-weight: 700;
+  list-style: none;
 }
 
-.dashboard-details[open] > summary {
-  margin-bottom: 14px;
+.skill-source-menu > summary::-webkit-details-marker {
+  display: none;
 }
 
-.dashboard-details__skills {
-  margin-top: 18px;
-  border-top: 1px solid var(--border);
+.skill-source-menu > summary::after {
+  content: ' ▾';
+  font-size: 0.75em;
+}
+
+.skill-source-menu[open] {
+  flex-basis: 100%;
+}
+
+.skill-source-menu[open] > summary::after {
+  content: ' ▴';
 }
 
 /* --- Charts ---------------------------------------------------------------
