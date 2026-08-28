@@ -324,8 +324,10 @@ public class HttpDataAnalysisClient implements DataAnalysisClient {
             throw new IllegalArgumentException("A canonical skill id is required to generate a quiz.");
         }
 
+        // Keep quiz generation to one hosted-model round trip. The AI service and this service
+        // still validate every question structurally before it can be persisted or shown.
         AiWire.QuizRequest body = new AiWire.QuizRequest(
-                request.getSkillId(), request.getQuestionCount(), true);
+                request.getSkillId(), request.getQuestionCount(), false);
 
         AiWire.QuizResponse wire = call(
                 "quiz-generate",

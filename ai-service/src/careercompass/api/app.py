@@ -1306,11 +1306,14 @@ def create_quiz(request: schemas.QuizRequest):
             getattr(decider, "reason_unavailable", "the configured model is not reachable"))
 
     try:
+        # One generation attempt keeps the interactive request within its latency budget;
+        # malformed questions are still discarded by generate_quiz's local validation.
         return generate_quiz(
             skill,
             request.question_count,
             decider=decider,
             verify=request.verify,
+            attempts=1,
         )
     except RuntimeError as exc:
         # Every candidate question failed validation. That is a model-quality

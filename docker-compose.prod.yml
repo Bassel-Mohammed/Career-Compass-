@@ -75,12 +75,10 @@ services:
       CC_EMBEDDING_BACKEND: lexical
       CC_RERANKER: lexical
       CC_MATCH_LLM: ${CC_MATCH_LLM:-1}
-      CC_MATCH_LLM_PROVIDER: openrouter
-      CC_MATCH_MODEL: ${CC_MATCH_MODEL:-openrouter/free}
-      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
-      CC_OPENROUTER_TIMEOUT: "60"
-      CC_OPENROUTER_SITE_URL: https://${PUBLIC_HOST:?set PUBLIC_HOST in .env}
-      CC_OPENROUTER_DATA_COLLECTION: deny
+      CC_MATCH_LLM_PROVIDER: gemini
+      CC_MATCH_MODEL: ${CC_MATCH_MODEL:-gemini-3.5-flash-lite}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:?set GEMINI_API_KEY in .env}
+      CC_GEMINI_TIMEOUT: "60"
       CC_INCLUDE_MOCK_COURSES: ${CC_INCLUDE_MOCK_COURSES:-1}
     expose:
       - "8000"

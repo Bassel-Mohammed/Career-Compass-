@@ -229,8 +229,8 @@ export function QuizzesPage() {
               </button>
               {generate.running && (
                 <p className="field__hint">
-                  Questions are generated and then checked one by one. This usually takes a few
-                  seconds.
+                  Gemini is writing your questions. Their structure is checked automatically
+                  before the quiz is shown.
                 </p>
               )}
             </div>

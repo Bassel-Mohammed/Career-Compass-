@@ -63,9 +63,9 @@ def test_gemini_uses_current_model_and_schema(gemini, monkeypatch):
     }
 
     assert gemini.structured("return a value", schema) == '{"value":"ok"}'
-    assert gemini.model == "gemini-3.6-flash"
+    assert gemini.model == "gemini-3.5-flash-lite"
     assert captured["request"].full_url.endswith(
-        "/gemini-3.6-flash:generateContent"
+        "/gemini-3.5-flash-lite:generateContent"
     )
     assert captured["request"].get_header("X-goog-api-key") == "test-key"
 
