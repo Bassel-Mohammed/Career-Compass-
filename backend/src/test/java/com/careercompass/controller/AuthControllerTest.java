@@ -59,6 +59,11 @@ class AuthControllerTest {
     @MockBean
     private AuthService authService;
 
+    // JwtAuthFilter is @Import-ed above as a REAL bean (see class Javadoc), and its
+    // constructor now requires TokenRevocationService (added for logout). Without this
+    // @MockBean, Spring cannot construct JwtAuthFilter in this slice — there is no JPA
+    // context here to supply a real RevokedTokenRepository — and every test in this class
+    // fails at context startup rather than at any assertion.
     @MockBean
     private TokenRevocationService tokenRevocationService;
 
@@ -69,7 +74,7 @@ class AuthControllerTest {
         request.setFirstName("Basil");
         request.setLastName("Mohammad");
         request.setEmail("basil@example.com");
-        request.setPassword("password123");
+        request.setPassword("StrongPass!");
 
         when(authService.registerJobSeeker(any())).thenReturn(AuthResponse.builder()
                 .token("fake-jwt").tokenType("Bearer").role("JOB_SEEKER").userId(1)
@@ -92,7 +97,7 @@ class AuthControllerTest {
         request.setFirstName("Basil");
         request.setLastName("Mohammad");
         request.setEmail(""); // invalid
-        request.setPassword("password123");
+        request.setPassword("StrongPass!");
 
         mockMvc.perform(post("/api/auth/job-seekers/register")
                         .contentType("application/json")
@@ -117,6 +122,23 @@ class AuthControllerTest {
                 .andExpect(jsonPath("$.error", is("VALIDATION_ERROR")));
     }
 
+    // Purpose: length alone is insufficient; a numeric-only password is easy to guess and
+    // must be rejected even when it contains eight characters.
+    @Test
+    void registerJobSeeker_withNumericOnlyPassword_returns400ValidationError() throws Exception {
+        RegisterJobSeekerRequest request = new RegisterJobSeekerRequest();
+        request.setFirstName("Basil");
+        request.setLastName("Mohammad");
+        request.setEmail("basil@example.com");
+        request.setPassword("12345678");
+
+        mockMvc.perform(post("/api/auth/job-seekers/register")
+                        .contentType("application/json")
+                        .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.error", is("VALIDATION_ERROR")));
+    }
+
     // Purpose: registering with an email that's already taken surfaces the service's
     // EmailAlreadyExistsException as a 409 CONFLICT through the real GlobalExceptionHandler.
     @Test
@@ -125,7 +147,7 @@ class AuthControllerTest {
         request.setFirstName("Basil");
         request.setLastName("Mohammad");
         request.setEmail("taken@example.com");
-        request.setPassword("password123");
+        request.setPassword("StrongPass!");
 
         when(authService.registerJobSeeker(any()))
                 .thenThrow(new EmailAlreadyExistsException("taken@example.com"));

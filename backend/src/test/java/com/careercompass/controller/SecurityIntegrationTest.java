@@ -71,6 +71,10 @@ class SecurityIntegrationTest {
     @MockBean
     private JobMatchService jobMatchService;
 
+    // JwtAuthFilter is @Import-ed above as a REAL bean, and its constructor now requires
+    // TokenRevocationService (added for logout). Without this @MockBean, Spring cannot
+    // construct JwtAuthFilter in this slice, and every test in this class fails at context
+    // startup rather than at any assertion.
     @MockBean
     private TokenRevocationService tokenRevocationService;
 

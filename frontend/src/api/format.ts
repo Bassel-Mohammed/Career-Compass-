@@ -73,8 +73,12 @@ export function formatDate(value: string): string {
 /** A `LocalDateTime` string as a readable date and time. */
 export function formatDateTime(value: string): string {
   return fromLocalDateTime(value).toLocaleString(undefined, {
-    dateStyle: 'medium',
-    timeStyle: 'short',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hourCycle: 'h23',
   });
 }
 

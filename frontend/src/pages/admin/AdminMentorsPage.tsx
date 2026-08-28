@@ -10,6 +10,7 @@ import { useAction, useAsync } from '../../hooks/useAsync';
 import * as adminApi from '../../api/admin';
 import * as referenceApi from '../../api/reference';
 import { messageFor } from '../../api/errors';
+import { PASSWORD_HINT } from '../../auth/validate';
 import type { CreateExpertRequest } from '../../types';
 
 export function AdminMentorsPage() {
@@ -75,7 +76,7 @@ export function AdminMentorsPage() {
                 </div>
                 <div className="form__row">
                   <TextField label="Email" type="email" required value={createForm.email} onChange={e => setCreateForm({...createForm, email: e.target.value})} />
-                  <TextField label="Initial Password" type="password" required value={createForm.initialPassword} onChange={e => setCreateForm({...createForm, initialPassword: e.target.value})} />
+                  <TextField label="Initial Password" type="password" required hint={PASSWORD_HINT} value={createForm.initialPassword} onChange={e => setCreateForm({...createForm, initialPassword: e.target.value})} />
                 </div>
                 <div className="form__row">
                   <Select label="Study Field" options={fieldOptions} optional value={createForm.studyFieldId} onChange={e => setCreateForm({...createForm, studyFieldId: e.target.value})} />

@@ -10,7 +10,7 @@ import * as authApi from '../api/auth';
 import { useAuth } from '../auth/useAuth';
 import { SIGNUP_ROLES, homeFor } from '../auth/roles';
 import {
-  MIN_PASSWORD_LENGTH,
+  PASSWORD_HINT,
   collect,
   maxLength,
   requiredText,
@@ -236,7 +236,7 @@ export function SignupPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           error={errors.password}
-          hint={`At least ${MIN_PASSWORD_LENGTH} characters.`}
+          hint={PASSWORD_HINT}
           disabled={submitting}
           required
         />

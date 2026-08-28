@@ -1,5 +1,6 @@
 package com.careercompass.dto.request;
 
+import com.careercompass.validation.PasswordPolicy;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,7 +25,9 @@ public class CreateExpertRequest {
     @NotBlank @Email @Size(max = 255)
     private String email;
 
-    @NotBlank @Size(min = 8, max = 100, message = "Password must be at least 8 characters")
+    @NotBlank
+    @Size(min = 8, max = 100, message = "Password must be at least 8 characters")
+    @Pattern(regexp = PasswordPolicy.PATTERN, message = PasswordPolicy.MESSAGE)
     private String initialPassword;
 
     private Integer studyFieldId;

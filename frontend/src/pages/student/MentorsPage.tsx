@@ -185,8 +185,9 @@ export function MentorsPage() {
               {book.failed && <Banner message={messageFor(book.error)} />}
               <div className="form">
                 <TextField
-                  label="When"
+                  label="When (24-hour time)"
                   type="datetime-local"
+                  lang="en-GB"
                   value={when}
                   onChange={(e) => setWhen(e.target.value)}
                   error={errors.appointmentDate ?? outsideAvailability}

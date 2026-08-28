@@ -542,7 +542,7 @@ class CareerCompassSystemTest {
     @Test
     @Order(10)
     void phase1_jobSeekerCanRegisterThemselves() throws Exception {
-        String body = "{\"firstName\":\"Sara\",\"lastName\":\"Ahmad\",\"email\":\"sara@example.com\",\"password\":\"password123\"}";
+        String body = "{\"firstName\":\"Sara\",\"lastName\":\"Ahmad\",\"email\":\"sara@example.com\",\"password\":\"Password!123\"}";
 
         MvcResult result = mockMvc.perform(post("/api/auth/job-seekers/register")
                         .contentType("application/json").content(body))
@@ -563,7 +563,7 @@ class CareerCompassSystemTest {
     @Test
     @Order(11)
     void phase1_jobSeekerRegistration_rejectsDuplicateEmail() throws Exception {
-        String body = "{\"firstName\":\"Sara\",\"lastName\":\"Ahmad\",\"email\":\"sara@example.com\",\"password\":\"password123\"}";
+        String body = "{\"firstName\":\"Sara\",\"lastName\":\"Ahmad\",\"email\":\"sara@example.com\",\"password\":\"Password!123\"}";
 
         mockMvc.perform(post("/api/auth/job-seekers/register")
                         .contentType("application/json").content(body))
@@ -575,7 +575,7 @@ class CareerCompassSystemTest {
     @Test
     @Order(12)
     void phase1_jobSeekerCanLogin() throws Exception {
-        String body = "{\"email\":\"sara@example.com\",\"password\":\"password123\"}";
+        String body = "{\"email\":\"sara@example.com\",\"password\":\"Password!123\"}";
 
         mockMvc.perform(post("/api/auth/job-seekers/login")
                         .contentType("application/json").content(body))
@@ -676,7 +676,7 @@ class CareerCompassSystemTest {
     @Order(20)
     void phase2_employerCanRegisterThemselves() throws Exception {
         String body = "{\"companyName\":\"Atlas Systems\",\"industry\":\"Software\",\"email\":\"hr@atlas.example.com\"," +
-                "\"password\":\"password123\",\"companyDescription\":\"We build distributed systems.\"}";
+                "\"password\":\"Password!123\",\"companyDescription\":\"We build distributed systems.\"}";
 
         MvcResult result = mockMvc.perform(post("/api/auth/employers/register")
                         .contentType("application/json").content(body))
@@ -695,7 +695,7 @@ class CareerCompassSystemTest {
     @Order(21)
     void phase2_secondEmployerCanRegister_forOwnershipTestsLater() throws Exception {
         String body = "{\"companyName\":\"Northwind Labs\",\"industry\":\"Software\",\"email\":\"hr@northwind.example.com\"," +
-                "\"password\":\"password123\"}";
+                "\"password\":\"Password!123\"}";
 
         MvcResult result = mockMvc.perform(post("/api/auth/employers/register")
                         .contentType("application/json").content(body))
@@ -769,7 +769,7 @@ class CareerCompassSystemTest {
     @Test
     @Order(26)
     void phase2_employerCanLoginThroughTheDedicatedEndpoint() throws Exception {
-        String body = "{\"email\":\"hr@atlas.example.com\",\"password\":\"password123\"}";
+        String body = "{\"email\":\"hr@atlas.example.com\",\"password\":\"Password!123\"}";
 
         MvcResult result = mockMvc.perform(post("/api/auth/employers/login")
                         .contentType("application/json").content(body))
@@ -865,7 +865,7 @@ class CareerCompassSystemTest {
     void phase3_adminCreatesContentManager() throws Exception {
         String body = String.format(
                 "{\"firstName\":\"Nour\",\"lastName\":\"Khaled\",\"email\":\"nour@meu.edu.jo\"," +
-                "\"initialPassword\":\"cmPassword123\",\"universityId\":%d,\"studyFieldId\":%d}",
+                "\"initialPassword\":\"CmPassword!123\",\"universityId\":%d,\"studyFieldId\":%d}",
                 universityId, studyFieldId);
 
         MvcResult result = mockMvc.perform(post("/api/admin/content-managers")
@@ -883,7 +883,7 @@ class CareerCompassSystemTest {
     @Test
     @Order(33)
     void phase3_contentManagerCanLoginAfterAdminCreatesAccount() throws Exception {
-        String body = "{\"email\":\"nour@meu.edu.jo\",\"password\":\"cmPassword123\"}";
+        String body = "{\"email\":\"nour@meu.edu.jo\",\"password\":\"CmPassword!123\"}";
 
         MvcResult result = mockMvc.perform(post("/api/auth/content-managers/login")
                         .contentType("application/json").content(body))
@@ -901,7 +901,7 @@ class CareerCompassSystemTest {
     void phase3_adminCreatesExpert() throws Exception {
         String body = String.format(
                 "{\"firstName\":\"David\",\"lastName\":\"Okafor\",\"email\":\"david@example.com\"," +
-                "\"initialPassword\":\"expertPass123\",\"studyFieldId\":%d,\"fieldStartingYear\":2010}",
+                "\"initialPassword\":\"ExpertPass!123\",\"studyFieldId\":%d,\"fieldStartingYear\":2010}",
                 studyFieldId);
 
         MvcResult result = mockMvc.perform(post("/api/admin/experts")
@@ -919,7 +919,7 @@ class CareerCompassSystemTest {
     @Order(35)
     void phase3_secondExpertCreated_forAccessControlTestLater() throws Exception {
         String body = "{\"firstName\":\"Priya\",\"lastName\":\"Nair\",\"email\":\"priya@example.com\"," +
-                "\"initialPassword\":\"expertPass123\",\"fieldStartingYear\":2015}";
+                "\"initialPassword\":\"ExpertPass!123\",\"fieldStartingYear\":2015}";
 
         mockMvc.perform(post("/api/admin/experts")
                         .header("Authorization", "Bearer " + adminToken)
@@ -928,7 +928,7 @@ class CareerCompassSystemTest {
 
         MvcResult loginResult = mockMvc.perform(post("/api/auth/experts/login")
                         .contentType("application/json")
-                        .content("{\"email\":\"priya@example.com\",\"password\":\"expertPass123\"}"))
+                        .content("{\"email\":\"priya@example.com\",\"password\":\"ExpertPass!123\"}"))
                 .andExpect(status().isOk())
                 .andReturn();
 
@@ -942,7 +942,7 @@ class CareerCompassSystemTest {
     void phase3_expertCanLoginAndActivateForConsulting() throws Exception {
         MvcResult loginResult = mockMvc.perform(post("/api/auth/experts/login")
                         .contentType("application/json")
-                        .content("{\"email\":\"david@example.com\",\"password\":\"expertPass123\"}"))
+                        .content("{\"email\":\"david@example.com\",\"password\":\"ExpertPass!123\"}"))
                 .andExpect(status().isOk())
                 .andReturn();
 
@@ -1255,16 +1255,16 @@ class CareerCompassSystemTest {
 
         List<ActorSession> actors = List.of(
                 new ActorSession("/api/auth/job-seekers/login",
-                        "{\"email\":\"sara@example.com\",\"password\":\"password123\"}",
+                        "{\"email\":\"sara@example.com\",\"password\":\"Password!123\"}",
                         "/api/job-seekers/me"),
                 new ActorSession("/api/auth/employers/login",
-                        "{\"email\":\"hr@atlas.example.com\",\"password\":\"password123\"}",
+                        "{\"email\":\"hr@atlas.example.com\",\"password\":\"Password!123\"}",
                         "/api/employers/me"),
                 new ActorSession("/api/auth/content-managers/login",
-                        "{\"email\":\"nour@meu.edu.jo\",\"password\":\"cmPassword123\"}",
+                        "{\"email\":\"nour@meu.edu.jo\",\"password\":\"CmPassword!123\"}",
                         "/api/content-managers/me/learning-outcomes"),
                 new ActorSession("/api/auth/experts/login",
-                        "{\"email\":\"david@example.com\",\"password\":\"expertPass123\"}",
+                        "{\"email\":\"david@example.com\",\"password\":\"ExpertPass!123\"}",
                         "/api/experts/me"),
                 new ActorSession("/api/auth/admins/login",
                         "{\"email\":\"admin@careercompass.local\",\"password\":\"adminPass123\"}",
@@ -1328,7 +1328,7 @@ class CareerCompassSystemTest {
     void phase4b_aRevokedTokenCannotBeUsedToLogOutAgain() throws Exception {
         MvcResult login = mockMvc.perform(post("/api/auth/job-seekers/login")
                         .contentType("application/json")
-                        .content("{\"email\":\"sara@example.com\",\"password\":\"password123\"}"))
+                        .content("{\"email\":\"sara@example.com\",\"password\":\"Password!123\"}"))
                 .andExpect(status().isOk())
                 .andReturn();
 
@@ -1740,7 +1740,7 @@ class CareerCompassSystemTest {
     @Test
     @Order(91)
     void phase9_deactivatedContentManagerCannotLogin() throws Exception {
-        String body = "{\"email\":\"nour@meu.edu.jo\",\"password\":\"cmPassword123\"}";
+        String body = "{\"email\":\"nour@meu.edu.jo\",\"password\":\"CmPassword!123\"}";
 
         mockMvc.perform(post("/api/auth/content-managers/login")
                         .contentType("application/json").content(body))
@@ -1794,7 +1794,7 @@ class CareerCompassSystemTest {
     @Test
     @Order(95)
     void phase9_reactivatedContentManagerCanLogInAgain() throws Exception {
-        String body = "{\"email\":\"nour@meu.edu.jo\",\"password\":\"cmPassword123\"}";
+        String body = "{\"email\":\"nour@meu.edu.jo\",\"password\":\"CmPassword!123\"}";
 
         mockMvc.perform(post("/api/auth/content-managers/login")
                         .contentType("application/json").content(body))

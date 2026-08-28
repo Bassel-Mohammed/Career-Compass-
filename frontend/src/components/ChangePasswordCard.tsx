@@ -7,6 +7,7 @@ import { useAuth } from '../auth/useAuth';
 import { useAction } from '../hooks/useAsync';
 import * as authApi from '../api/auth';
 import { fieldErrorsFor, messageFor } from '../api/errors';
+import { PASSWORD_HINT, validatePassword } from '../auth/validate';
 
 /**
  * Password rotation, shared by every actor's profile screen.
@@ -32,8 +33,9 @@ export function ChangePasswordCard() {
   // Checked here because the server never sees the confirmation field — it exists only to
   // catch a typo in something the user cannot read back.
   const mismatch = confirm.length > 0 && next !== confirm;
+  const nextError = next.length > 0 ? validatePassword(next) : undefined;
   const canSubmit =
-    current.length > 0 && next.length >= 8 && next === confirm && !change.running;
+    current.length > 0 && !validatePassword(next) && next === confirm && !change.running;
 
   async function handleSubmit() {
     const done = await change.run(session!.token, {
@@ -74,8 +76,8 @@ export function ChangePasswordCard() {
           autoComplete="new-password"
           value={next}
           onChange={(e) => setNext(e.target.value)}
-          error={errors.newPassword}
-          hint="At least 8 characters."
+          error={errors.newPassword ?? nextError}
+          hint={PASSWORD_HINT}
           disabled={change.running}
         />
         <TextField

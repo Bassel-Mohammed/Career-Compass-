@@ -5,8 +5,10 @@
  * the backend re-validates everything, and its `fieldErrors` win whenever they arrive.
  */
 
-/** @Size(min = 8) on both register DTOs. */
+/** Shared with the backend's PasswordPolicy length limits. */
 export const MIN_PASSWORD_LENGTH = 8;
+export const PASSWORD_HINT =
+  '8–100 characters, including at least one letter and one symbol.';
 
 export type Errors = Record<string, string>;
 
@@ -31,6 +33,9 @@ export function validatePassword(password: string): string | undefined {
     return `Password must be at least ${MIN_PASSWORD_LENGTH} characters`;
   }
   if (password.length > 100) return 'Password must be 100 characters or fewer';
+  if (!/[A-Za-z]/.test(password) || !/[^A-Za-z0-9\s]/.test(password)) {
+    return 'Password must include at least one letter and one symbol';
+  }
   return undefined;
 }
 

@@ -1,8 +1,14 @@
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { toast } from 'sonner';
 import { AuthContext, type AuthContextValue } from './AuthContext';
 import { clearSession, loadSession, saveSession, toSession } from './session';
 import * as authApi from '../api/auth';
 import type { AuthResponse, Session } from '../types';
+
+const SESSION_WARNING_MS = 60_000;
+const SESSION_WARNING_TOAST_ID = 'session-expiry-warning';
+const SESSION_EXPIRED_TOAST_ID = 'session-expired';
+const MAX_TIMER_DELAY_MS = 2_147_483_647;
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   // Read storage once, during the first render, so a reload never flashes the
@@ -31,24 +37,39 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }, [session]);
 
-  // A token has a fixed lifetime, and the tab may be left open past it. Rather than
-  // let the next request fail with a confusing 401, drop the session the moment it dies.
+  // Warn one minute before the fixed token lifetime ends, then remove the session at
+  // the exact expiry instant. ProtectedRoute will immediately return the user to login.
   useEffect(() => {
     if (!session) return;
 
-    // Always go through the timer, even for a session that is already past its expiry:
-    // clearing state synchronously inside the effect would start a second render pass
-    // for no gain, and a 0 ms timeout lands on the very next tick anyway.
-    // setTimeout tops out at a signed 32-bit millisecond delay; a longer-lived token
-    // would otherwise wrap around and fire immediately.
-    const MAX_DELAY = 2_147_483_647;
-    const msLeft = Math.min(Math.max(0, session.expiresAt - Date.now()), MAX_DELAY);
+    const msUntilExpiry = Math.max(0, session.expiresAt - Date.now());
+    const warningDelay = Math.min(
+      Math.max(0, msUntilExpiry - SESSION_WARNING_MS),
+      MAX_TIMER_DELAY_MS,
+    );
+    const expiryDelay = Math.min(msUntilExpiry, MAX_TIMER_DELAY_MS);
 
-    const timer = window.setTimeout(() => {
+    const warningTimer = window.setTimeout(() => {
+      toast.warning('You will be signed out automatically in 1 minute. Save your work now.', {
+        id: SESSION_WARNING_TOAST_ID,
+        duration: SESSION_WARNING_MS,
+      });
+    }, warningDelay);
+
+    const expiryTimer = window.setTimeout(() => {
+      toast.dismiss(SESSION_WARNING_TOAST_ID);
       clearSession();
       setSession(null);
-    }, msLeft);
-    return () => window.clearTimeout(timer);
+      toast.error('Your 30-minute session has ended. Please sign in again.', {
+        id: SESSION_EXPIRED_TOAST_ID,
+      });
+    }, expiryDelay);
+
+    return () => {
+      window.clearTimeout(warningTimer);
+      window.clearTimeout(expiryTimer);
+      toast.dismiss(SESSION_WARNING_TOAST_ID);
+    };
   }, [session]);
 
   const value = useMemo<AuthContextValue>(
