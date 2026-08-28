@@ -15,6 +15,7 @@ import com.careercompass.security.userdetails.CurrentUser;
 import com.careercompass.security.userdetails.UserPrincipal;
 import com.careercompass.service.LearningOutcomeReviewService;
 import com.careercompass.service.LearningOutcomeService;
+import io.swagger.v3.oas.annotations.Parameter;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -72,10 +73,19 @@ public class ContentManagerController {
     @PostMapping(value = "/learning-outcomes", consumes = "multipart/form-data")
     public ResponseEntity<LearningOutcomeResponse> uploadLearningOutcome(
             @CurrentUser UserPrincipal principal,
+            // The @Parameter annotations are what put these fields in the generated OpenAPI
+            // document. Without them springdoc describes a multipart body containing only
+            // `file`, and a client written from the contract gets a 400 for the three required
+            // text fields the spec never mentioned.
+            @Parameter(description = "Course code, e.g. 0413403", required = true)
             @RequestParam("courseCode") String courseCode,
+            @Parameter(description = "Catalog version, e.g. 2026-2027 or v3", required = true)
             @RequestParam("catalogVersion") String catalogVersion,
+            @Parameter(description = "Human-readable course name", required = true)
             @RequestParam("courseName") String courseName,
+            @Parameter(description = "Optional course description")
             @RequestParam(value = "description", required = false) String description,
+            @Parameter(description = "The course PDF (text-based, max 10 MB)", required = true)
             @RequestParam("file") MultipartFile file) {
         LearningOutcomeResponse response = learningOutcomeService.uploadLearningOutcome(
                 principal.getUserId(), courseCode, catalogVersion, courseName, description, file);
@@ -188,6 +198,19 @@ public class ContentManagerController {
             @Valid @RequestBody PublishLearningOutcomeRequest request) {
         return ResponseEntity.ok(
                 reviewService.publishLearningOutcome(principal.getUserId(), outcomeId, request));
+    }
+
+    /**
+     * FR-CM-04: discard an upload entirely — the row, its draft skills and the PDF.
+     *
+     * <p>Not the same as {@code DELETE .../file}, which removes only the PDF and keeps everything
+     * extracted from it. Refused once the outcome has been published to a course map.
+     */
+    @DeleteMapping("/learning-outcomes/{outcomeId}")
+    public ResponseEntity<Void> deleteLearningOutcome(
+            @CurrentUser UserPrincipal principal, @PathVariable Integer outcomeId) {
+        learningOutcomeService.deleteOutcome(principal.getUserId(), outcomeId);
+        return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("/learning-outcomes/{outcomeId}/file")

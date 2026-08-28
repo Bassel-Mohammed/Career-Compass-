@@ -177,6 +177,8 @@ public class HttpDataAnalysisClient implements DataAnalysisClient {
                     .priority(item.priority() == null
                             ? null
                             : BigDecimal.valueOf(item.priority()).setScale(4, RoundingMode.HALF_UP))
+                    .evidenceSource(item.evidence())
+                    .sourceCourses(toCourseEvidence(item.courses()))
                     .build());
         }
 
@@ -191,6 +193,20 @@ public class HttpDataAnalysisClient implements DataAnalysisClient {
                 .syntheticCounted(wire == null ? null : wire.syntheticCounted())
                 .coursesSkipped(toSkippedCourses(wire == null ? null : wire.coursesSkipped()))
                 .build();
+    }
+
+    private static List<SkillGapAnalysisResponse.CourseEvidenceDto> toCourseEvidence(
+            List<AiWire.VectorCourseEvidence> courses) {
+        List<SkillGapAnalysisResponse.CourseEvidenceDto> evidence = new ArrayList<>();
+        for (AiWire.VectorCourseEvidence course : safe(courses)) {
+            evidence.add(SkillGapAnalysisResponse.CourseEvidenceDto.builder()
+                    .courseCode(course.courseCode())
+                    .courseName(course.courseName())
+                    .grade(course.grade())
+                    .level(course.level())
+                    .build());
+        }
+        return evidence;
     }
 
     private static List<SkillGapAnalysisResponse.SkippedCourseDto> toSkippedCourses(

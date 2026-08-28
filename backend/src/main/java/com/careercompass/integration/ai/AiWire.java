@@ -150,7 +150,20 @@ final class AiWire {
             Double importance,
             String demandBand,
             Integer postingCount,
-            Double priority) {
+            Double priority,
+            String evidence,
+            Integer courseCount,
+            List<VectorCourseEvidence> courses) {
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    record VectorCourseEvidence(
+            String courseCode,
+            String courseName,
+            String grade,
+            Double weight,
+            String level) {
     }
 
     // ── Career-path requirements ──────────────────────────────────────────

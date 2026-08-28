@@ -13,6 +13,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -86,6 +87,8 @@ class ExpertServiceTest {
                 .build();
 
         when(appointmentRepository.findById(5)).thenReturn(Optional.of(appointment));
+        when(appointmentStatusRepository.findByStatusName("Completed"))
+                .thenReturn(Optional.of(AppointmentStatus.builder().statusName("Completed").build()));
         when(appointmentRepository.save(any(Appointment.class))).thenAnswer(inv -> inv.getArgument(0));
 
         ConsultationOutcomeRequest request = new ConsultationOutcomeRequest();
@@ -96,6 +99,9 @@ class ExpertServiceTest {
 
         assertThat(response.getFeedback()).isEqualTo("New feedback covering readiness evaluation");
         assertThat(response.getSessionNotes()).isEqualTo("Old notes");
+        // Recording an outcome closes the session, which is what moves it out of the mentor's
+        // upcoming list and into their history.
+        assertThat(response.getStatusName()).isEqualTo("Completed");
     }
 
     // Purpose: View Job Seeker Skill Profile - throws When No Consultation Relationship Exists.
@@ -119,5 +125,31 @@ class ExpertServiceTest {
         var dashboard = expertService.viewJobSeekerSkillProfile(1, 9);
 
         assertThat(dashboard.getJobseekerId()).isEqualTo(9);
+    }
+
+    // Purpose: Upcoming and Past are complements, never overlapping sets. A future request
+    // that has not been answered yet belongs only to Upcoming; before this split it appeared
+    // in both lists, and after an accept the two copies showed different statuses.
+    @Test
+    void scheduledAndHistory_queryDisjointSets() {
+        Expert expert = Expert.builder().expertId(1).firstName("E").lastName("X").build();
+        JobSeeker seeker = JobSeeker.builder().jobseekerId(9).firstName("A").lastName("B").build();
+        AppointmentStatus requested = AppointmentStatus.builder().statusName("Requested").build();
+
+        Appointment upcoming = Appointment.builder()
+                .appointmentId(1).expert(expert).jobSeeker(seeker)
+                .appointmentDate(LocalDateTime.now().plusDays(7)).status(requested).build();
+
+        when(appointmentRepository.findUpcomingForExpert(eq(1), any())).thenReturn(List.of(upcoming));
+        when(appointmentRepository.findHistoryForExpert(eq(1), any())).thenReturn(List.of());
+
+        List<AppointmentResponse> scheduled = expertService.getScheduledSessions(1);
+        List<AppointmentResponse> history = expertService.getConsultationHistory(1);
+
+        assertThat(scheduled).extracting(AppointmentResponse::getAppointmentId).containsExactly(1);
+        assertThat(history).isEmpty();
+        // The service must delegate the filtering to the query rather than post-filtering an
+        // unscoped "everything for this expert" fetch.
+        verify(appointmentRepository, never()).findByExpert_ExpertIdOrderByAppointmentDateDesc(anyInt());
     }
 }

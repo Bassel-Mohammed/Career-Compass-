@@ -89,8 +89,10 @@ public class MockDataAnalysisClient implements DataAnalysisClient {
 
         List<SkillGapAnalysisResponse.SkillGapItemDto> gaps = new ArrayList<>();
         List<SkillScoreDto> held = vector.getSkills();
+        List<CourseGradeDto> sourceCourses = nullSafe(request.getCourses());
         for (int index = 0; index < held.size(); index++) {
             SkillScoreDto skill = held.get(index);
+            CourseGradeDto sourceCourse = index < sourceCourses.size() ? sourceCourses.get(index) : null;
             BigDecimal target = BigDecimal.valueOf(75);
             String classification = classify(skill.getScore(), target);
             // Demand descends across the list so all three bands appear. The dashboard groups by
@@ -113,6 +115,16 @@ public class MockDataAnalysisClient implements DataAnalysisClient {
                     .requiredLevel("advanced")
                     .skillType("knowledge")
                     .priority(BigDecimal.ZERO)
+                    .evidenceSource(request.getQuizScores() != null
+                            && request.getQuizScores().containsKey(skill.getSkillId())
+                            ? "grades+quizzes" : "grades")
+                    .sourceCourses(sourceCourse == null ? List.of() : List.of(
+                            SkillGapAnalysisResponse.CourseEvidenceDto.builder()
+                                    .courseCode(sourceCourse.getCourseCode())
+                                    .courseName(sourceCourse.getCourseName())
+                                    .grade(sourceCourse.getGrade())
+                                    .level("advanced")
+                                    .build()))
                     .build());
         }
 

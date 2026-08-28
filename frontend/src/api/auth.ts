@@ -1,6 +1,7 @@
 import { request } from './client';
 import type {
   AuthResponse,
+  ChangePasswordRequest,
   LoginRequest,
   RegisterEmployerRequest,
   RegisterJobSeekerRequest,
@@ -48,4 +49,19 @@ export function registerEmployer(body: RegisterEmployerRequest): Promise<AuthRes
  */
 export function logout(token: string): Promise<void> {
   return request<void>('/api/auth/logout', { method: 'POST', token });
+}
+
+/**
+ * Rotate the signed-in account's own password. Works for every role — the token says who is
+ * calling, so there is no per-actor path here as there is for login.
+ *
+ * The server revokes this token on success, so the caller must sign in again; returning void
+ * rather than a fresh session is deliberate, since re-authenticating proves the new password
+ * actually works.
+ */
+export function changePassword(
+  token: string,
+  body: ChangePasswordRequest,
+): Promise<void> {
+  return request<void>('/api/auth/password', { method: 'POST', token, body });
 }

@@ -4,9 +4,11 @@ import com.careercompass.dto.request.BookAppointmentRequest;
 import com.careercompass.dto.response.AppointmentResponse;
 import com.careercompass.dto.response.MentorSummaryResponse;
 import com.careercompass.entity.*;
+import com.careercompass.exception.DuplicateResourceException;
 import com.careercompass.exception.PrerequisiteNotMetException;
 import com.careercompass.repository.AppointmentRepository;
 import com.careercompass.repository.AppointmentStatusRepository;
+import com.careercompass.repository.ExpertAvailabilityRepository;
 import com.careercompass.repository.ExpertRepository;
 import com.careercompass.repository.JobSeekerRepository;
 import org.junit.jupiter.api.Test;
@@ -16,6 +18,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +34,7 @@ class ConsultationServiceTest {
     @Mock private ExpertRepository expertRepository;
     @Mock private AppointmentRepository appointmentRepository;
     @Mock private AppointmentStatusRepository appointmentStatusRepository;
+    @Mock private ExpertAvailabilityRepository expertAvailabilityRepository;
     @Mock private com.careercompass.repository.AcademicRecordRepository academicRecordRepository;
     @Mock private com.careercompass.service.TranscriptService transcriptService;
     @Mock private com.careercompass.integration.ai.DataAnalysisClient dataAnalysisClient;
@@ -85,6 +89,30 @@ class ConsultationServiceTest {
     }
 
 
+    /**
+     * A fixed Monday well in the future. The booking rules key off the day of week, so a
+     * relative date like {@code now().plusDays(3)} would drift across weekdays and make these
+     * tests pass or fail depending on the day they are run.
+     */
+    private static final LocalDateTime MONDAY_10AM = LocalDateTime.of(2027, 1, 4, 10, 0);
+
+    private void givenMondayMorningAvailability(Expert expert) {
+        when(expertAvailabilityRepository.findByExpert_ExpertIdAndDayOfWeek(expert.getExpertId(), (byte) 1))
+                .thenReturn(List.of(ExpertAvailability.builder()
+                        .expert(expert)
+                        .dayOfWeek((byte) 1)
+                        .startTime(LocalTime.of(9, 0))
+                        .endTime(LocalTime.of(12, 0))
+                        .build()));
+    }
+
+    private static BookAppointmentRequest bookingFor(LocalDateTime when) {
+        BookAppointmentRequest request = new BookAppointmentRequest();
+        request.setExpertId(20);
+        request.setAppointmentDate(when);
+        return request;
+    }
+
     // Purpose: Book Session - creates Appointment With Requested Status.
     @Test
     void bookSession_createsAppointmentWithRequestedStatus() {
@@ -92,12 +120,10 @@ class ConsultationServiceTest {
         Expert expert = Expert.builder().expertId(20).firstName("Dr").lastName("Okafor").build();
         AppointmentStatus requested = AppointmentStatus.builder().statusId(1).statusName("Requested").build();
 
-        BookAppointmentRequest request = new BookAppointmentRequest();
-        request.setExpertId(20);
-        request.setAppointmentDate(LocalDateTime.now().plusDays(3));
-
         when(jobSeekerRepository.findById(1)).thenReturn(Optional.of(jobSeeker));
         when(expertRepository.findById(20)).thenReturn(Optional.of(expert));
+        givenMondayMorningAvailability(expert);
+        when(appointmentRepository.isSlotTaken(20, MONDAY_10AM)).thenReturn(false);
         when(appointmentStatusRepository.findByStatusName("Requested")).thenReturn(Optional.of(requested));
         when(appointmentRepository.save(any(Appointment.class))).thenAnswer(inv -> {
             Appointment a = inv.getArgument(0);
@@ -105,11 +131,77 @@ class ConsultationServiceTest {
             return a;
         });
 
-        AppointmentResponse response = consultationService.bookSession(1, request);
+        AppointmentResponse response = consultationService.bookSession(1, bookingFor(MONDAY_10AM));
 
         assertThat(response.getAppointmentId()).isEqualTo(100);
         assertThat(response.getStatusName()).isEqualTo("Requested");
         assertThat(response.getExpertId()).isEqualTo(20);
         assertThat(response.getJobseekerId()).isEqualTo(1);
+    }
+
+    // Purpose: a mentor who has published no schedule at all cannot be booked. An empty
+    // availability table means "I have not said when I am free", not "any time suits me".
+    @Test
+    void bookSession_rejectsMentorWithNoPublishedAvailability() {
+        JobSeeker jobSeeker = JobSeeker.builder().jobseekerId(1).build();
+        Expert expert = Expert.builder().expertId(20).firstName("Dr").lastName("Okafor").build();
+
+        when(jobSeekerRepository.findById(1)).thenReturn(Optional.of(jobSeeker));
+        when(expertRepository.findById(20)).thenReturn(Optional.of(expert));
+        when(expertAvailabilityRepository.findByExpert_ExpertIdAndDayOfWeek(20, (byte) 1))
+                .thenReturn(List.of());
+
+        assertThatThrownBy(() -> consultationService.bookSession(1, bookingFor(MONDAY_10AM)))
+                .isInstanceOf(PrerequisiteNotMetException.class)
+                .hasMessageContaining("has not published any availability");
+    }
+
+    // Purpose: a time on a day the mentor does publish, but outside every slot, is refused —
+    // and the message names the slots that would have worked.
+    @Test
+    void bookSession_rejectsTimeOutsidePublishedSlots() {
+        JobSeeker jobSeeker = JobSeeker.builder().jobseekerId(1).build();
+        Expert expert = Expert.builder().expertId(20).firstName("Dr").lastName("Okafor").build();
+
+        when(jobSeekerRepository.findById(1)).thenReturn(Optional.of(jobSeeker));
+        when(expertRepository.findById(20)).thenReturn(Optional.of(expert));
+        givenMondayMorningAvailability(expert);
+
+        // 15:00 on a Monday whose only slot is 09:00–12:00.
+        assertThatThrownBy(() -> consultationService.bookSession(1, bookingFor(MONDAY_10AM.withHour(15))))
+                .isInstanceOf(PrerequisiteNotMetException.class)
+                .hasMessageContaining("09:00–12:00");
+    }
+
+    // Purpose: the slot end is exclusive, so back-to-back slots cannot both claim the
+    // boundary minute and 12:00 is not bookable against a 09:00–12:00 slot.
+    @Test
+    void bookSession_treatsSlotEndAsExclusive() {
+        JobSeeker jobSeeker = JobSeeker.builder().jobseekerId(1).build();
+        Expert expert = Expert.builder().expertId(20).firstName("Dr").lastName("Okafor").build();
+
+        when(jobSeekerRepository.findById(1)).thenReturn(Optional.of(jobSeeker));
+        when(expertRepository.findById(20)).thenReturn(Optional.of(expert));
+        givenMondayMorningAvailability(expert);
+
+        assertThatThrownBy(() -> consultationService.bookSession(1, bookingFor(MONDAY_10AM.withHour(12))))
+                .isInstanceOf(PrerequisiteNotMetException.class);
+    }
+
+    // Purpose: one mentor cannot be double-booked into the same instant, whether by two
+    // students or by the same student clicking twice.
+    @Test
+    void bookSession_rejectsAlreadyTakenSlot() {
+        JobSeeker jobSeeker = JobSeeker.builder().jobseekerId(1).build();
+        Expert expert = Expert.builder().expertId(20).firstName("Dr").lastName("Okafor").build();
+
+        when(jobSeekerRepository.findById(1)).thenReturn(Optional.of(jobSeeker));
+        when(expertRepository.findById(20)).thenReturn(Optional.of(expert));
+        givenMondayMorningAvailability(expert);
+        when(appointmentRepository.isSlotTaken(20, MONDAY_10AM)).thenReturn(true);
+
+        assertThatThrownBy(() -> consultationService.bookSession(1, bookingFor(MONDAY_10AM)))
+                .isInstanceOf(DuplicateResourceException.class)
+                .hasMessageContaining("already been requested");
     }
 }

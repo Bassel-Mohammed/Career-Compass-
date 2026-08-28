@@ -17,6 +17,7 @@ import com.careercompass.mapper.ContentManagerMapper;
 import com.careercompass.mapper.LearningOutcomeMapper;
 import com.careercompass.repository.ContentManagerRepository;
 import com.careercompass.repository.LearningOutcomeRepository;
+import com.careercompass.repository.LearningOutcomeSkillDraftRepository;
 import com.careercompass.repository.StudyFieldRepository;
 import com.careercompass.repository.UniversityStudyFieldRepository;
 import com.careercompass.util.FileValidationUtils;
@@ -63,6 +64,7 @@ public class LearningOutcomeService {
     private final StudyFieldRepository studyFieldRepository;
     private final UniversityStudyFieldRepository universityStudyFieldRepository;
     private final LearningOutcomeRepository learningOutcomeRepository;
+    private final LearningOutcomeSkillDraftRepository learningOutcomeSkillDraftRepository;
     private final FileStorageService fileStorageService;
     private final ContentManagerMapper contentManagerMapper;
     private final LearningOutcomeMapper learningOutcomeMapper;
@@ -241,6 +243,51 @@ public class LearningOutcomeService {
         }
 
         return learningOutcomeMapper.toResponse(learningOutcome);
+    }
+
+    /**
+     * Delete an upload outright — the row, its draft skills, and the PDF if it is still on disk.
+     *
+     * <p>Distinct from {@link #deleteRawFile}, which removes only the file and keeps everything
+     * that was extracted from it (NFR-PRIV-03). This is the content manager saying the upload
+     * itself was a mistake.
+     *
+     * <p>Refused once the outcome has been published to a course map. The published map lives in
+     * the AI service and is immutable by design, so deleting this row would not retract it — it
+     * would only destroy the record of where those skills came from, leaving a live map that
+     * student dashboards join against with no traceable provenance. An unpublishable mistake is
+     * better than an untraceable one.
+     */
+    @Transactional
+    public void deleteOutcome(Integer contentManagerId, Integer outcomeId) {
+        LearningOutcome learningOutcome = learningOutcomeRepository.findById(outcomeId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Learning outcome with id " + outcomeId + " not found."));
+
+        if (!learningOutcome.getUploadedByContentManager().getContentManagerId().equals(contentManagerId)) {
+            throw new UnauthorizedActionException(
+                    "You do not have permission to modify this learning outcome.");
+        }
+
+        if (learningOutcome.getCourseMapVersion() != null && learningOutcome.getCourseMapVersion() > 0) {
+            throw new PrerequisiteNotMetException(
+                    "This upload has been published to course map version "
+                            + learningOutcome.getCourseMapVersion()
+                            + " and can no longer be deleted. Publishing is permanent, and removing "
+                            + "this record would leave that map without a source.");
+        }
+
+        // Drafts first: there is no cascade from the outcome, and deleting the parent while its
+        // children still reference it fails on the foreign key rather than doing anything useful.
+        learningOutcomeSkillDraftRepository
+                .deleteByOutcome_OutcomeIdAndOutcome_UploadedByContentManager_ContentManagerId(
+                        outcomeId, contentManagerId);
+
+        if (!Boolean.TRUE.equals(learningOutcome.getIsDeletedFromDisk())) {
+            fileStorageService.deleteIfExists(learningOutcome.getFilePath());
+        }
+
+        learningOutcomeRepository.delete(learningOutcome);
     }
 
     private UniversityStudyField resolveUniversityStudyField(ContentManager contentManager) {

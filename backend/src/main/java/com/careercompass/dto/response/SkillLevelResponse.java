@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * A single skill's score/level within a {@link SkillDashboardResponse}
@@ -78,4 +79,10 @@ public class SkillLevelResponse {
      * every posting asks for matters more than a large gap in something almost nobody does.
      */
     private BigDecimal priority;
+
+    /** "grades", "grades+quizzes", "quizzes" or "transfer". */
+    private String evidenceSource;
+
+    /** Confirmed transcript courses whose extracted syllabi support this skill. */
+    private List<SkillCourseEvidenceResponse> sourceCourses;
 }

@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react';
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { AppShell } from '../../components/AppShell';
 import {
@@ -12,10 +12,7 @@ import {
   Stat,
   StatusBadge,
 } from '../../components/ui';
-const GapChart = lazy(() => import('../../components/charts').then(m => ({ default: m.GapChart })));
 const MarketBandChart = lazy(() => import('../../components/charts').then(m => ({ default: m.MarketBandChart })));
-const TierSplitChart = lazy(() => import('../../components/charts').then(m => ({ default: m.TierSplitChart })));
-import type { GapDatum, TierDatum } from '../../components/charts';
 import { useAuth } from '../../auth/useAuth';
 import { useAsync } from '../../hooks/useAsync';
 import * as transcriptApi from '../../api/transcript';
@@ -24,7 +21,6 @@ import { messageFor, prerequisiteFor } from '../../api/errors';
 import type {
   CareerPathSkill,
   CareerPathSkillsResponse,
-  DemandBand,
   SkillDashboardResponse,
   SkillLevelResponse,
   SkippedCourseResponse,
@@ -32,12 +28,9 @@ import type {
 import {
   BAND_META,
   BAND_ORDER,
-  bandReadiness,
   capturedMonth,
-  criticalProgress,
   demandPercent,
   evidenceLine,
-  groupByBand,
   isMet,
   marketBandTotals,
   splitSoft,
@@ -83,13 +76,6 @@ export function DashboardPage() {
             ? `What your coursework says you can do, measured against ${data.careerPathTitle}.`
             : 'What your coursework says you can do, measured against your career path.'
         }
-        action={
-          data && (
-            <Link className="button button--secondary button--auto" to="/courses">
-              See course recommendations
-            </Link>
-          )
-        }
       />
 
       {dashboard.loading && <Skeleton rows={6} />}
@@ -114,53 +100,12 @@ export function DashboardPage() {
    The profile, once a transcript exists
    =========================================================================== */
 
-type Filter = DemandBand | 'all' | 'gaps';
-
 function SkillProfile({ data }: { data: SkillDashboardResponse }) {
-  const [filter, setFilter] = useState<Filter>('all');
-  const [showSoft, setShowSoft] = useState(false);
-
   const { technical, soft } = useMemo(() => splitSoft(data.skills), [data.skills]);
-
-  // One pool feeds every number on the page. Soft skills top nearly every career path — an
-  // accurate reading of job postings and useless as advice — so they are out by default, and
-  // when they are out they are out of the counts too. Headline totals that disagree with the
-  // list beneath them read as a bug in the page.
-  const pool = showSoft ? data.skills : technical;
-
-  const readiness = useMemo(() => bandReadiness(pool), [pool]);
-  const critical = criticalProgress(readiness);
-  const openGaps = pool.filter((skill) => !isMet(skill)).length;
+  const openGaps = technical.filter((skill) => !isMet(skill)).length;
+  const strongCount = technical.filter(isMet).length;
   const month = capturedMonth(data.marketCapturedAt);
-
-  const tierData: TierDatum[] = BAND_ORDER.map((band) => ({
-    band,
-    label: BAND_META[band].label,
-    ...readiness[band],
-  }));
-
-  // Always technical, whatever the toggle says: this is the "what do I do next" list, and it is
-  // the one place where three identical soft-skill suggestions would do the most damage.
-  const priorities = useMemo(() => topPriority(technical, 6), [technical]);
-  const gapData: GapDatum[] = priorities.map((skill) => {
-    const target = skill.targetScore ?? 100;
-    const current = Math.min(skill.score, target);
-    return {
-      label: skill.skillName ?? 'Unnamed skill',
-      current,
-      shortfall: Math.max(0, target - current),
-      target,
-      band: skill.demandBand ?? 'useful',
-    };
-  });
-
-  const visible = useMemo(() => {
-    if (filter === 'all') return pool;
-    if (filter === 'gaps') return pool.filter((skill) => !isMet(skill));
-    return pool.filter((skill) => (skill.demandBand ?? 'useful') === filter);
-  }, [pool, filter]);
-
-  const grouped = useMemo(() => groupByBand(visible), [visible]);
+  const priorities = useMemo(() => topPriority(technical, 5), [technical]);
   const held = useMemo(() => strengths(technical), [technical]);
 
   if (data.skills.length === 0) {
@@ -176,94 +121,50 @@ function SkillProfile({ data }: { data: SkillDashboardResponse }) {
 
   return (
     <div className="stack">
-      <Provenance
-        careerPath={data.careerPathTitle}
-        sampleSize={data.sampleSize}
-        month={month}
-        basedOnQuizResults={data.basedOnQuizResults}
-        coursesCounted={data.coursesCounted}
-        coursesSkipped={data.coursesSkipped}
-        syntheticCounted={data.syntheticCounted}
-      />
-
-      <div className="grid grid--stats">
-        <Stat
-          label="Overall readiness"
-          value={formatPercent(data.overallReadinessPercent)}
-          hint={`for ${data.careerPathTitle}`}
-        />
-        <Stat
-          label="Critical skills met"
-          value={`${critical.met} of ${critical.total}`}
-          hint="what employers treat as the baseline"
-        />
-        <Stat label="Open gaps" value={openGaps} hint="skills below the level asked for" />
-        <Stat
-          label="Skills measured"
-          value={pool.length}
-          hint={
-            showSoft || soft.length === 0
-              ? 'against this career path'
-              : `${soft.length} soft skill${soft.length === 1 ? '' : 's'} hidden`
-          }
-        />
-      </div>
-
-      {/* The meter repeats the readiness number as a shape. A single value does not earn a
-          chart of its own — it earns a figure and a track. */}
-      <Card>
-        <h2 className="section__title">Readiness for {data.careerPathTitle}</h2>
+      <Card className="skill-overview">
+        <p className="skill-overview__eyebrow">Your readiness for {data.careerPathTitle}</p>
+        <p className="skill-overview__score">{formatPercent(data.overallReadinessPercent)}</p>
         <ProgressBar
           value={data.overallReadinessPercent}
           label={`Overall readiness for ${data.careerPathTitle}`}
         />
-      </Card>
-
-      <Card as="section">
-        <h2 className="section__title">What this career actually asks for</h2>
-        <p className="section__lede">
-          Every skill below is placed by how many real job postings for {data.careerPathTitle}
-          {' '}asked for it. Work down from the top: the first band is what employers treat as the
-          baseline.
-          {!showSoft && soft.length > 0 && (
-            <> Soft skills are excluded from these counts — turn them on under “All skills”.</>
-          )}
-        </p>
-        <Suspense fallback={<Skeleton />}><TierSplitChart data={tierData} /></Suspense>
-        <dl className="bands">
-          {BAND_ORDER.map((band) => (
-            <div key={band} className="bands__row">
-              <dt>
-                <span className={`tier-chip tier-chip--${band}`}>{BAND_META[band].label}</span>
-                <span className="bands__blurb">{BAND_META[band].blurb}</span>
-              </dt>
-              <dd>
-                <span className="bands__count">
-                  {readiness[band].total} skill{readiness[band].total === 1 ? '' : 's'}
-                </span>
-                {' — '}
-                {readiness[band].strong} strong · {readiness[band].moderate} partly there ·{' '}
-                {readiness[band].weak} missing
-                <p className="bands__detail">{BAND_META[band].detail}</p>
-              </dd>
-            </div>
-          ))}
-        </dl>
+        <div className="grid grid--stats skill-overview__stats">
+          <Stat label="Strong skills" value={strongCount} hint="already at the target" />
+          <Stat label="Skills to improve" value={openGaps} hint="below the target" />
+          <Stat label="Courses used" value={data.coursesCounted ?? 0} hint="from your transcript" />
+        </div>
+        <Link className="button button--primary button--auto" to="/courses">
+          View recommended courses
+        </Link>
       </Card>
 
       {priorities.length > 0 && (
         <Card as="section">
           <h2 className="section__title">
-            Learn these first
+            Skills to improve first
             <span className="section__count">{priorities.length}</span>
           </h2>
           <p className="section__lede">
-            Ranked by what closing each gap is worth — a small shortfall in something most
-            postings ask for beats a large one in something almost nobody does.
+            Start here. These are the most useful gaps to close for {data.careerPathTitle}.
           </p>
-          <Suspense fallback={<Skeleton />}><GapChart data={gapData} /></Suspense>
           <ul className="list-reset skills">
             {priorities.map((skill) => (
+              <SkillRow key={skill.canonicalSkillId ?? skill.skillName} skill={skill}
+                        sampleSize={data.sampleSize} showActions />
+            ))}
+          </ul>
+        </Card>
+      )}
+
+      {held.length > 0 && (
+        <Card as="section">
+          <h2 className="section__title">
+            Your strong skills
+            <span className="section__count">{strongCount}</span>
+          </h2>
+          <p className="section__lede">These are supported by your courses or quiz results.</p>
+          <ul className="list-reset skills">
+            {held.map((skill) => (
               <SkillRow key={skill.canonicalSkillId ?? skill.skillName} skill={skill}
                         sampleSize={data.sampleSize} />
             ))}
@@ -272,87 +173,36 @@ function SkillProfile({ data }: { data: SkillDashboardResponse }) {
       )}
 
       <Card as="section">
-        <div className="section-heading section-heading--wrap">
-          <h2 className="section__title">
-            All skills
-            <span className="section__count">{visible.length}</span>
-          </h2>
-          <div className="section-heading__actions">
-            <label className="soft-toggle">
-              <input
-                type="checkbox"
-                checked={showSoft}
-                onChange={(event) => setShowSoft(event.target.checked)}
-              />
-              Include soft skills
-            </label>
-          </div>
-        </div>
-
-        {/* Soft skills top nearly every career path, which is an accurate reading of postings
-            and useless as advice — ranked in with the rest they give every student the same
-            three suggestions regardless of what they studied. */}
-        <div className="review-filters" role="group" aria-label="Filter skills by demand">
-          <FilterChip active={filter === 'all'} onClick={() => setFilter('all')}>
-            All
-          </FilterChip>
-          {BAND_ORDER.map((band) => (
-            <FilterChip
-              key={band}
-              active={filter === band}
-              onClick={() => setFilter(band)}
-            >
-              {BAND_META[band].label} ({readiness[band].total})
-            </FilterChip>
-          ))}
-          <FilterChip active={filter === 'gaps'} onClick={() => setFilter('gaps')}>
-            Gaps only ({openGaps})
-          </FilterChip>
-        </div>
-
-        {visible.length === 0 ? (
-          <p className="cell__quiet">Nothing in this band yet.</p>
-        ) : (
-          BAND_ORDER.filter((band) => grouped[band].length > 0).map((band) => (
-            <section key={band} className="band-group" aria-label={`${BAND_META[band].label} skills`}>
-              <h3 className="band-group__title">
-                <span className={`tier-chip tier-chip--${band}`}>{BAND_META[band].label}</span>
-                <span className="bands__blurb">{BAND_META[band].blurb}</span>
-                <span className="section__count">{grouped[band].length}</span>
-              </h3>
-              <ul className="list-reset skills">
-                {grouped[band].map((skill) => (
-                  <SkillRow
-                    key={skill.canonicalSkillId ?? skill.skillName}
-                    skill={skill}
-                    sampleSize={data.sampleSize}
-                  />
-                ))}
-              </ul>
-            </section>
-          ))
-        )}
-      </Card>
-
-      {held.length > 0 && (
-        <Card as="section">
-          <h2 className="section__title">
-            Already at the level asked for
-            <span className="section__count">{held.length}</span>
-          </h2>
-          <ul className="list-reset strengths">
-            {held.map((skill) => (
-              <li key={skill.canonicalSkillId ?? skill.skillName} className="strengths__item">
-                <span className="skills__name">{skill.skillName}</span>
-                <StatusBadge status={skill.classification} />
-                <span className="skills__evidence">
-                  {evidenceLine(skill, data.sampleSize) ?? ''}
-                </span>
-              </li>
+        <details className="dashboard-details">
+          <summary>Show all skills and how this dashboard was calculated</summary>
+          <p className="section__lede">
+            Course codes come from your confirmed transcript. A skill appears when an extracted
+            course syllabus says that course teaches it. The score uses your grade, or your latest
+            quiz result when one exists. Career requirements come from job postings.
+          </p>
+          {soft.length > 0 && (
+            <p className="skills__evidence">
+              {soft.length} soft skill{soft.length === 1 ? '' : 's'} are included in the full list
+              but kept out of your learn-first suggestions.
+            </p>
+          )}
+          <Provenance
+            careerPath={data.careerPathTitle}
+            sampleSize={data.sampleSize}
+            month={month}
+            basedOnQuizResults={data.basedOnQuizResults}
+            coursesCounted={data.coursesCounted}
+            coursesSkipped={data.coursesSkipped}
+            syntheticCounted={data.syntheticCounted}
+          />
+          <ul className="list-reset skills dashboard-details__skills">
+            {data.skills.map((skill) => (
+              <SkillRow key={skill.canonicalSkillId ?? skill.skillName} skill={skill}
+                        sampleSize={data.sampleSize} />
             ))}
           </ul>
-        </Card>
-      )}
+        </details>
+      </Card>
     </div>
   );
 }
@@ -417,14 +267,19 @@ function Provenance({
       {/* A skill reads "missing" either because the student never studied it or because the
           course that teaches it has no syllabus extracted yet. Saying which is the difference
           between a fair result and one that blames them for our own missing data. */}
+      {/* A div, not a p: <details>, <summary> and <ul> are all block content and are invalid
+          inside a paragraph. The browser used to auto-close the <p> before them, which React
+          flagged as a hydration hazard on every render of this page. */}
       {unreadable.length > 0 && (
-        <p className="notice notice--warn">
-          <strong>
-            Built from {coursesCounted} of your {total} courses.
-          </strong>{' '}
-          {unreadable.length} {unreadable.length === 1 ? 'course has' : 'courses have'} no syllabus
-          extracted yet, so skills {unreadable.length === 1 ? 'it teaches' : 'they teach'} may show
-          as missing here even if you studied them.
+        <div className="notice notice--warn">
+          <p>
+            <strong>
+              Built from {coursesCounted} of your {total} courses.
+            </strong>{' '}
+            {unreadable.length} {unreadable.length === 1 ? 'course has' : 'courses have'} no
+            syllabus extracted yet, so skills {unreadable.length === 1 ? 'it teaches' : 'they teach'}{' '}
+            may show as missing here even if you studied them.
+          </p>
           <details className="review-details">
             <summary>
               Which {unreadable.length === 1 ? 'course' : 'courses'}
@@ -435,7 +290,7 @@ function Provenance({
               ))}
             </ul>
           </details>
-        </p>
+        </div>
       )}
 
       {notPassed.length > 0 && (
@@ -461,7 +316,15 @@ function Provenance({
   );
 }
 
-function SkillRow({ skill, sampleSize }: { skill: SkillLevelResponse; sampleSize?: number }) {
+function SkillRow({
+  skill,
+  sampleSize,
+  showActions = false,
+}: {
+  skill: SkillLevelResponse;
+  sampleSize?: number;
+  showActions?: boolean;
+}) {
   const band = skill.demandBand ?? 'useful';
   const evidence = evidenceLine(skill, sampleSize);
   const met = isMet(skill);
@@ -481,20 +344,14 @@ function SkillRow({ skill, sampleSize }: { skill: SkillLevelResponse; sampleSize
       />
 
       <p className="skills__evidence">
-        {evidence}
-        {skill.requiredLevel && (
-          <>
-            {evidence ? ' · ' : ''}Asked for at {skill.requiredLevel} level
-          </>
-        )}
+        Current {formatPercent(skill.score)}
         {skill.targetScore != null && ` · target ${formatPercent(skill.targetScore)}`}
+        {evidence && ` · ${evidence}`}
       </p>
 
-      {/* Null against the real AI service — per-skill prose is not in the v1 contract — so this
-          renders only when something is there. */}
-      {skill.explanation && <p className="skills__why">{skill.explanation}</p>}
+      <SkillSourceGuide skill={skill} />
 
-      {skill.canonicalSkillId && !met && (
+      {showActions && skill.canonicalSkillId && !met && (
         <div className="skills__actions">
           <Link
             className="skills__action"
@@ -511,24 +368,36 @@ function SkillRow({ skill, sampleSize }: { skill: SkillLevelResponse; sampleSize
   );
 }
 
-function FilterChip({
-  active,
-  onClick,
-  children,
-}: {
-  active: boolean;
-  onClick: () => void;
-  children: React.ReactNode;
-}) {
+function SkillSourceGuide({ skill }: { skill: SkillLevelResponse }) {
+  const courses = skill.sourceCourses ?? [];
+  const usesQuiz = skill.evidenceSource === 'quizzes' || skill.evidenceSource === 'grades+quizzes';
+
+  if (courses.length === 0) {
+    return (
+      <p className="skill-source skill-source--empty">
+        {usesQuiz
+          ? 'Source: your completed skill quiz.'
+          : 'No supporting course was found in your transcript. This skill is shown because your career path asks for it.'}
+      </p>
+    );
+  }
+
   return (
-    <button
-      type="button"
-      className={`review-filter${active ? ' review-filter--active' : ''}`}
-      aria-pressed={active}
-      onClick={onClick}
-    >
-      {children}
-    </button>
+    <div className="skill-source">
+      <p className="skill-source__title">
+        {usesQuiz ? 'Quiz score, supported by:' : 'You developed this skill in:'}
+      </p>
+      <ul className="list-reset skill-source__courses">
+        {courses.map((course, index) => (
+          <li key={`${course.courseCode ?? 'course'}-${index}`}>
+            <strong>{course.courseCode ?? 'Course'}</strong>
+            {course.courseName && ` — ${course.courseName}`}
+            {course.grade && <span className="skill-source__meta">Grade {course.grade}</span>}
+            {course.level && <span className="skill-source__meta">{course.level} syllabus level</span>}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

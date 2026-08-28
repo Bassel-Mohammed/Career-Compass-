@@ -21,12 +21,11 @@ const UNGROUPED = '__ungrouped__';
 /**
  * FR-JS-15/16.
  *
- * Two endpoints back this one screen and they return different things. `generate` recomputes
- * from the student's current weak skills and is the only call that says which skill each
- * course targets and why; the stored rows have no columns for either, so reading them back
- * later loses that. The screen therefore shows grouped, explained results right after
- * generating and a plainer list afterwards — and says so, rather than letting the explanation
- * silently vanish on the next visit.
+ * Two endpoints back this one screen. `generate` recomputes from the student's current weak
+ * skills; `list` reads back what was saved. Since V6 both carry the targeted skill and the
+ * explanation, so a return visit keeps the reasoning instead of degrading to a bare list of
+ * links. Rows written before that migration have no reasoning stored, which is what the
+ * notice below is for — regenerating is the only way to recover it for those.
  */
 export function CoursesPage() {
   const { session } = useAuth();
@@ -95,9 +94,9 @@ export function CoursesPage() {
             <>
               {!hasExplanations && (
                 <p className="notice notice--info">
-                  These are your previously saved recommendations. Which skill each one targets
-                  is not stored with them — <strong>regenerate</strong> to see that and the
-                  reasoning again, refreshed against your current gaps.
+                  These recommendations were saved before the reasoning was kept with them.{' '}
+                  <strong>Regenerate</strong> to see which skill each one targets and why,
+                  refreshed against your current gaps.
                 </p>
               )}
 

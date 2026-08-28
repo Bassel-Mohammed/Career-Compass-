@@ -76,7 +76,7 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: dev
       SPRING_DATASOURCE_URL: "jdbc:h2:file:/app/data/careercompass;MODE=MySQL;DB_CLOSE_ON_EXIT=FALSE"
-      JWT_SECRET: ${JWT_SECRET:-CHANGE_ME_LOCAL_DOCKER_ONLY_NOT_FOR_SHARED_HOSTS_1234567890}
+      JWT_SECRET: ${JWT_SECRET:-ROTATED_LOCAL_DOCKER_ONLY_SECRET_A9F8B7C6D5E4F3G2H1I0J9K8L7M6N5O4P3Q2R1S0}
       # ai-service uses network_mode: host, reachable via Docker gateway
       AI_SERVICE_BASE_URL: http://172.18.0.1:8000
       AI_SERVICE_TOKEN: ${AI_SERVICE_TOKEN:-careercompass-local-dev-token}

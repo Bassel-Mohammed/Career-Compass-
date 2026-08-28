@@ -39,6 +39,27 @@ interface UploadErrors {
   file?: string;
 }
 
+/**
+ * The one number this card exists to convey: how much review is still outstanding.
+ *
+ * It used to sit mid-sentence inside the status copy, which buried the only thing a content
+ * manager is here to act on — a card reading "95 extracted skills · 95 still pending" looked the
+ * same at a glance as one where the work was done.
+ *
+ * Null when there is nothing outstanding, so a finished card stays quiet.
+ */
+function reviewProgress(row: LearningOutcomeResponse): { pending: number; total: number } | null {
+  if (row.extractionStatus !== 'READY_FOR_REVIEW' || row.pendingSkills <= 0) return null;
+  return { pending: row.pendingSkills, total: row.totalSkills };
+}
+
+/** Secondary line for a card whose count is already shown prominently. */
+function statusHint(row: LearningOutcomeResponse): string {
+  return row.totalSkills === row.pendingSkills
+    ? 'Nothing reviewed yet.'
+    : `${row.totalSkills - row.pendingSkills} already decided.`;
+}
+
 function statusDescription(row: LearningOutcomeResponse): string {
   switch (row.extractionStatus) {
     case 'UPLOADED':
@@ -48,7 +69,9 @@ function statusDescription(row: LearningOutcomeResponse): string {
     case 'EXTRACTING':
       return 'The PDF is being analysed. This page refreshes automatically.';
     case 'READY_FOR_REVIEW':
-      return `${row.totalSkills} extracted skill${row.totalSkills === 1 ? '' : 's'} · ${row.pendingSkills} still pending`;
+      // The counts are rendered prominently by `reviewProgress` instead — this is the
+      // fallback for the case that has nothing left to count.
+      return 'Every extracted skill has been reviewed. Publish when you are ready.';
     case 'PUBLISHING':
       return 'The approved course map is being published.';
     case 'PUBLISHED':
@@ -86,6 +109,7 @@ export function LearningOutcomesPage() {
   const [rowAction, setRowAction] = useState<string | null>(null);
   const [removing, setRemoving] = useState<LearningOutcomeResponse | null>(null);
   const [cancelling, setCancelling] = useState<LearningOutcomeResponse | null>(null);
+  const [deleting, setDeleting] = useState<LearningOutcomeResponse | null>(null);
 
   const missingStudyField = profile.data !== undefined && profile.data.studyFieldId === undefined;
   const uploadPrereq = prerequisiteFor(upload.error, 'CONTENT_MANAGER');
@@ -244,6 +268,27 @@ export function LearningOutcomesPage() {
       setSuccess(`Skill extraction was cancelled for “${cancelling.courseName}”.`);
       setCancelling(null);
     } catch (cause) {
+      setRowError(cause);
+    } finally {
+      setRowAction(null);
+    }
+  }
+
+  async function handleDelete() {
+    if (!deleting) return;
+    setRowAction(`delete:${deleting.outcomeId}`);
+    setRowError(null);
+    setSuccess(null);
+    try {
+      await contentManagerApi.deleteOutcome(token, deleting.outcomeId);
+      // Dropped from the list locally rather than refetching: the row is gone, and a reload
+      // would flash the whole list for one removal.
+      outcomes.setData(rows.filter((item) => item.outcomeId !== deleting.outcomeId));
+      setSuccess(`“${deleting.courseName}” was deleted.`);
+      setDeleting(null);
+    } catch (cause) {
+      // Left open on failure — the commonest cause is the published guard, and the message
+      // explains why, which the content manager needs to read.
       setRowError(cause);
     } finally {
       setRowAction(null);
@@ -458,6 +503,7 @@ export function LearningOutcomesPage() {
               <ul className="stack list-reset">
                 {rows.map((row) => {
                   const running = isRunningStatus(row.extractionStatus);
+                  const progress = reviewProgress(row);
                   const canCancel = ['UPLOADED', 'QUEUED', 'EXTRACTING'].includes(
                     row.extractionStatus,
                   );
@@ -476,6 +522,10 @@ export function LearningOutcomesPage() {
                           <h3 className="outcome__name">{row.courseName}</h3>
                           <p className="cell__quiet">
                             {row.studyFieldName ?? 'Field unknown'} · {formatDate(row.uploadedAt)}
+                            {' · '}
+                            {row.deletedFromDisk
+                              ? 'PDF removed'
+                              : row.originalFilename ?? 'PDF stored'}
                           </p>
                         </div>
                         <span
@@ -487,16 +537,27 @@ export function LearningOutcomesPage() {
                       </div>
 
                       {row.description && <p className="outcome__desc">{row.description}</p>}
+
+                      {progress && (
+                        <p className="outcome__progress">
+                          <strong>{progress.pending}</strong> of {progress.total} skill
+                          {progress.total === 1 ? '' : 's'} still to review
+                        </p>
+                      )}
+
                       <p
                         className={`outcome__status-copy${row.extractionStatus === 'FAILED' ? ' outcome__status-copy--error' : ''}`}
                         aria-live={running ? 'polite' : undefined}
                       >
-                        {statusDescription(row)}
+                        {progress ? statusHint(row) : statusDescription(row)}
                       </p>
 
                       {row.warnings.length > 0 && (
                         <details className="review-details">
-                          <summary>{row.warnings.length} extraction warning(s)</summary>
+                          <summary>
+                            {row.warnings.length} extraction{' '}
+                            {row.warnings.length === 1 ? 'warning' : 'warnings'}
+                          </summary>
                           <ul>
                             {row.warnings.map((warning, index) => (
                               <li key={`${warning}-${index}`}>{warning}</li>
@@ -506,11 +567,6 @@ export function LearningOutcomesPage() {
                       )}
 
                       <div className="outcome__foot">
-                        <span className="cell__quiet">
-                          {row.deletedFromDisk
-                            ? 'Original PDF removed'
-                            : row.originalFilename ?? 'PDF stored'}
-                        </span>
                         <div className="outcome__actions">
                           {canReview && (
                             <Link
@@ -552,6 +608,20 @@ export function LearningOutcomesPage() {
                               Remove PDF
                             </button>
                           )}
+                          {/* Hidden while extraction is in flight — deleting a row a worker is
+                              still writing to would race it. Hidden once published, because the
+                              server refuses it and offering a button that always fails is worse
+                              than not offering one. */}
+                          {!running && row.extractionStatus !== 'PUBLISHED' && (
+                            <button
+                              type="button"
+                              className="button button--danger button--small button--auto"
+                              onClick={() => setDeleting(row)}
+                              disabled={rowAction != null}
+                            >
+                              Delete
+                            </button>
+                          )}
                         </div>
                       </div>
                     </Card>
@@ -571,6 +641,24 @@ export function LearningOutcomesPage() {
           busy={rowAction === `cancel:${cancelling.outcomeId}`}
           onConfirm={() => void handleCancel()}
           onCancel={() => setCancelling(null)}
+        />
+      )}
+
+      {deleting && (
+        <ConfirmDialog
+          title={`Delete “${deleting.courseName}”?`}
+          body={
+            deleting.totalSkills > 0
+              ? `This removes the upload, its ${deleting.totalSkills} extracted skill`
+                + `${deleting.totalSkills === 1 ? '' : 's'} and the stored PDF. Any review `
+                + 'decisions you have already made on it are lost. This cannot be undone.'
+              : 'This removes the upload and its stored PDF. This cannot be undone.'
+          }
+          confirmLabel="Delete permanently"
+          destructive
+          busy={rowAction === `delete:${deleting.outcomeId}`}
+          onConfirm={() => void handleDelete()}
+          onCancel={() => setDeleting(null)}
         />
       )}
 

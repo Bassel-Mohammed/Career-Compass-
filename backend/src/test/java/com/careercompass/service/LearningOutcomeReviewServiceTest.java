@@ -19,13 +19,19 @@ import com.careercompass.repository.CourseSkillMapItemRepository;
 import com.careercompass.repository.CourseSkillMapVersionRepository;
 import com.careercompass.repository.LearningOutcomeRepository;
 import com.careercompass.repository.LearningOutcomeSkillDraftRepository;
+import com.careercompass.entity.CourseSkillMapVersion;
+import com.careercompass.exception.AiServiceException;
+import com.careercompass.dto.response.LearningOutcomeResponse;
+import com.careercompass.integration.dto.PublishCourseMapRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.HttpStatus;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
@@ -36,8 +42,11 @@ import java.util.function.Consumer;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.lenient;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -202,6 +211,51 @@ class LearningOutcomeReviewServiceTest {
         // Matches the service's active-decision set by value (Set.of equality).
         return java.util.Set.of(SkillDraftDecision.PENDING, SkillDraftDecision.ACCEPTED,
                 SkillDraftDecision.REPLACED, SkillDraftDecision.ADDED);
+    }
+
+    @Test
+    void publishLearningOutcome_usesGloballyQualifiedVersionAndMaps409Conflict() {
+        // Arrange
+        LearningOutcomeSkillDraft draft = draft(100L, SkillDraftDecision.ACCEPTED, "canonical-123");
+        when(draftRepository.findByOutcome_OutcomeIdOrderByDraftSkillIdAsc(10))
+                .thenReturn(List.of(draft));
+        // The publish path spends the draft revision through a compare-and-set before it
+        // touches anything. Without this stub the mock returns 0 rows updated, which the
+        // service correctly reads as "someone else edited this" and the test never reaches
+        // the AI call it is actually about.
+        when(learningOutcomeRepository.advanceDraftRevision(10, 1, 3L)).thenReturn(1);
+
+        CourseSkillMapVersion mapVersion = CourseSkillMapVersion.builder()
+                .mapVersion(1L)
+                .build();
+        when(mapVersionRepository.save(any())).thenReturn(mapVersion);
+        // No stubs for findById/toResponse: this test asserts the failure path, which throws
+        // before the response is ever built. Stubbing them would trip Mockito's strict
+        // unnecessary-stubbing check.
+
+        // Simulate a conflict 409 from the AI Service
+        doThrow(new AiServiceException(HttpStatus.CONFLICT, "COURSE_MAP_VERSION_CONFLICT", "Version taken", null))
+                .when(dataAnalysisClient).publishCourseMap(any());
+
+        // Act & Assert
+        DuplicateResourceException ex = assertThrows(DuplicateResourceException.class, () ->
+                reviewService.publishLearningOutcome(1, 10, publishRequest(3L)));
+
+        assertEquals("This course map version is already published or conflicts with another map.", ex.getMessage());
+
+        // Verify the format of the courseMapVersion sent to AI Service
+        ArgumentCaptor<PublishCourseMapRequest> requestCaptor = ArgumentCaptor.forClass(PublishCourseMapRequest.class);
+        verify(dataAnalysisClient).publishCourseMap(requestCaptor.capture());
+
+        PublishCourseMapRequest capturedRequest = requestCaptor.getValue();
+        // It must be globally qualified: outcomeId + "-v" + mapVersion (10-v1)
+        assertEquals("10-v1", capturedRequest.getCourseMapVersion());
+    }
+
+    private static PublishLearningOutcomeRequest publishRequest(Long revision) {
+        PublishLearningOutcomeRequest r = new PublishLearningOutcomeRequest();
+        r.setExpectedDraftRevision(revision);
+        return r;
     }
 
     private LearningOutcomeSkillDraft draft(Long id, SkillDraftDecision decision, String canonicalId) {

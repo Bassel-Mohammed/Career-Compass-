@@ -10,6 +10,7 @@ import * as contentManagerApi from '../../api/contentManager';
 import * as referenceApi from '../../api/reference';
 import { formatDate } from '../../api/format';
 import { fieldErrorsFor, messageFor } from '../../api/errors';
+import { ChangePasswordCard } from '../../components/ChangePasswordCard';
 
 /**
  * FR-CM-05 — the study field the content manager teaches, plus the account details around it.
@@ -160,6 +161,8 @@ export function StudyFieldPage() {
           </Card>
         </div>
       )}
+
+      <ChangePasswordCard />
     </AppShell>
   );
 }

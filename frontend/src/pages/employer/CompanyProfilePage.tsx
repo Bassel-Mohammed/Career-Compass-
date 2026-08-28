@@ -8,6 +8,7 @@ import { useAuth } from '../../auth/useAuth';
 import { useAction, useAsync } from '../../hooks/useAsync';
 import * as employerApi from '../../api/employer';
 import { fieldErrorsFor, messageFor } from '../../api/errors';
+import { ChangePasswordCard } from '../../components/ChangePasswordCard';
 import { formatDate } from '../../api/format';
 
 interface ProfileDraft {
@@ -15,6 +16,8 @@ interface ProfileDraft {
   industry?: string;
   companyDescription?: string;
 }
+
+import { toast } from 'sonner';
 
 /** FR-EMP-05/06 — registration creates the profile; this screen maintains it. */
 export function CompanyProfilePage() {
@@ -24,7 +27,6 @@ export function CompanyProfilePage() {
   const save = useAction(employerApi.updateProfile);
   const [draft, setDraft] = useState<ProfileDraft>({});
   const [nameError, setNameError] = useState<string | undefined>();
-  const [saved, setSaved] = useState(false);
 
   const companyName = draft.companyName ?? profile.data?.companyName ?? '';
   const industry = draft.industry ?? profile.data?.industry ?? '';
@@ -47,7 +49,9 @@ export function CompanyProfilePage() {
     if (updated) {
       profile.setData(updated);
       setDraft({});
-      setSaved(true);
+      toast.success('Company profile saved');
+    } else {
+      toast.error('Failed to save company profile');
     }
   }
 
@@ -72,9 +76,6 @@ export function CompanyProfilePage() {
             </p>
 
             {save.failed && <Banner message={messageFor(save.error)} />}
-            {saved && !save.failed && (
-              <p className="notice notice--ok" role="status">Company profile saved.</p>
-            )}
 
             <form className="form" onSubmit={handleSave}>
               <TextField
@@ -83,7 +84,6 @@ export function CompanyProfilePage() {
                 onChange={(event) => {
                   setDraft((current) => ({ ...current, companyName: event.target.value }));
                   setNameError(undefined);
-                  setSaved(false);
                 }}
                 error={nameError ?? errors.companyName}
                 maxLength={200}
@@ -97,7 +97,6 @@ export function CompanyProfilePage() {
                 value={industry}
                 onChange={(event) => {
                   setDraft((current) => ({ ...current, industry: event.target.value }));
-                  setSaved(false);
                 }}
                 error={errors.industry}
                 placeholder="Software and technology"
@@ -111,7 +110,6 @@ export function CompanyProfilePage() {
                 value={companyDescription}
                 onChange={(event) => {
                   setDraft((current) => ({ ...current, companyDescription: event.target.value }));
-                  setSaved(false);
                 }}
                 error={errors.companyDescription}
                 placeholder="What your company does, its mission and what candidates can expect."
@@ -144,6 +142,8 @@ export function CompanyProfilePage() {
           </Card>
         </div>
       )}
+
+      <ChangePasswordCard />
     </AppShell>
   );
 }

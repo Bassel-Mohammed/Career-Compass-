@@ -2,6 +2,7 @@ package com.careercompass.service;
 
 import com.careercompass.dto.request.ConfirmTranscriptRequest;
 import com.careercompass.dto.response.SkillDashboardResponse;
+import com.careercompass.dto.response.SkillCourseEvidenceResponse;
 import com.careercompass.dto.response.SkillLevelResponse;
 import com.careercompass.dto.response.SkippedCourseResponse;
 import com.careercompass.dto.response.TranscriptReviewResponse;
@@ -281,6 +282,8 @@ public class TranscriptService {
                         .postingCount(gap.getPostingCount())
                         .skillType(gap.getSkillType())
                         .priority(gap.getPriority())
+                        .evidenceSource(gap.getEvidenceSource())
+                        .sourceCourses(toCourseEvidence(gap.getSourceCourses()))
                         .build())
                 .toList();
 
@@ -313,6 +316,21 @@ public class TranscriptService {
                         .courseCode(course.getCourseCode())
                         .reason(course.getReason())
                         .status(course.getStatus())
+                        .build())
+                .toList();
+    }
+
+    private static List<SkillCourseEvidenceResponse> toCourseEvidence(
+            List<SkillGapAnalysisResponse.CourseEvidenceDto> courses) {
+        if (courses == null) {
+            return List.of();
+        }
+        return courses.stream()
+                .map(course -> SkillCourseEvidenceResponse.builder()
+                        .courseCode(course.getCourseCode())
+                        .courseName(course.getCourseName())
+                        .grade(course.getGrade())
+                        .level(course.getLevel())
                         .build())
                 .toList();
     }

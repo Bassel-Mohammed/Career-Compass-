@@ -297,6 +297,11 @@ class TranscriptServiceTest {
         assertThat(first.getDemandBand()).isEqualTo("critical");
         assertThat(first.getPostingCount()).isEqualTo(66);
         assertThat(first.getImportancePercent()).isEqualByComparingTo("21.00");
+        assertThat(first.getEvidenceSource()).isEqualTo("grades");
+        assertThat(first.getSourceCourses()).singleElement().satisfies(course -> {
+            assertThat(course.getCourseCode()).isEqualTo("CS310");
+            assertThat(course.getCourseName()).isEqualTo("Operating Systems");
+        });
 
         // The denominator and the banded counts have to survive the flattening too — without
         // them the page can show a percentage but not the evidence behind it.
@@ -382,6 +387,13 @@ class TranscriptServiceTest {
                 .postingCount(postings)
                 .importancePercent(importancePercent == null ? null : new BigDecimal(importancePercent))
                 .priority(priority == null ? null : BigDecimal.valueOf(priority))
+                .evidenceSource("grades")
+                .sourceCourses(List.of(SkillGapAnalysisResponse.CourseEvidenceDto.builder()
+                        .courseCode("CS310")
+                        .courseName("Operating Systems")
+                        .grade("B")
+                        .level("advanced")
+                        .build()))
                 .build();
     }
 

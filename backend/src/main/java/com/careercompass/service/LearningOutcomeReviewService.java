@@ -495,6 +495,9 @@ public class LearningOutcomeReviewService {
         } catch (RuntimeException ex) {
             transactionTemplate.executeWithoutResult(tx ->
                     markPublicationFailed(snapshot, humanMessage(ex)));
+            if (ex instanceof AiServiceException ai && ai.getStatus() == HttpStatus.CONFLICT) {
+                throw new DuplicateResourceException("This course map version is already published or conflicts with another map.");
+            }
             throw ex instanceof AiServiceException ai ? ai
                     : new AiServiceException(HttpStatus.BAD_GATEWAY, "AI_SERVICE_RESPONSE_INVALID",
                             humanMessage(ex), ex);
@@ -603,7 +606,7 @@ public class LearningOutcomeReviewService {
     private PublishCourseMapRequest toPublishRequest(PublicationSnapshot snapshot) {
         LearningOutcome outcome = snapshot.outcome();
         return PublishCourseMapRequest.builder()
-                .courseMapVersion(String.valueOf(snapshot.mapVersion()))
+                .courseMapVersion(String.format("%s-v%d", outcome.getOutcomeId(), snapshot.mapVersion()))
                 .institutionCode(outcome.getInstitutionCode())
                 .catalogVersion(outcome.getCatalogVersion())
                 .courseCode(outcome.getCourseCode())

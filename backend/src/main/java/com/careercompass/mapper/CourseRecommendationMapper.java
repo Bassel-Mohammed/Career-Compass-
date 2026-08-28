@@ -15,7 +15,7 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface CourseRecommendationMapper {
 
-    @Mapping(target = "targetedSkillName", ignore = true)
-    @Mapping(target = "explanation", ignore = true)
+    // targetedSkillName and explanation now exist on the entity and map by name, so the
+    // previous ignore rules would silently blank the very fields V6 was added to keep.
     CourseRecommendationItem toItem(CourseRecommendation entity);
 }

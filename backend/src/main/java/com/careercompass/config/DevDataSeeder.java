@@ -4,6 +4,7 @@ import com.careercompass.entity.Administrator;
 import com.careercompass.entity.CareerPath;
 import com.careercompass.entity.ContentManager;
 import com.careercompass.entity.Expert;
+import com.careercompass.entity.ExpertAvailability;
 import com.careercompass.entity.ExpertStatus;
 import com.careercompass.entity.StudyField;
 import com.careercompass.entity.University;
@@ -11,6 +12,7 @@ import com.careercompass.repository.AdministratorRepository;
 import com.careercompass.repository.CareerPathRepository;
 import com.careercompass.repository.ContentManagerRepository;
 import com.careercompass.repository.ExpertRepository;
+import com.careercompass.repository.ExpertAvailabilityRepository;
 import com.careercompass.repository.ExpertStatusRepository;
 import com.careercompass.repository.StudyFieldRepository;
 import com.careercompass.repository.UniversityRepository;
@@ -22,6 +24,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -117,6 +120,7 @@ public class DevDataSeeder implements CommandLineRunner {
     private final CareerPathRepository careerPathRepository;
     private final ExpertRepository expertRepository;
     private final ExpertStatusRepository expertStatusRepository;
+    private final ExpertAvailabilityRepository expertAvailabilityRepository;
     private final ContentManagerRepository contentManagerRepository;
     private final PasswordEncoder passwordEncoder;
 
@@ -220,14 +224,43 @@ public class DevDataSeeder implements CommandLineRunner {
                         new Mentor("Rana", "Khalil", "Cybersecurity", (short) 2015),
                         new Mentor("Yousef", "Darwish", "Data Science", (short) 2017),
                         new Mentor("Huda", "Mansour", "Information Systems", (short) 2010))
-                .forEach(m -> expertRepository.save(Expert.builder()
-                        .firstName(m.first())
-                        .lastName(m.last())
-                        .email((m.first() + "." + m.last() + "@mentors.local").toLowerCase())
-                        .passwordHash(passwordEncoder.encode(SEEDED_PASSWORD))
-                        .studyField(fields.get(m.field()))
-                        .fieldStartingYear(m.since())
-                        .status(active)
+                .forEach(m -> {
+                    Expert expert = expertRepository.save(Expert.builder()
+                            .firstName(m.first())
+                            .lastName(m.last())
+                            .email((m.first() + "." + m.last() + "@mentors.local").toLowerCase())
+                            .passwordHash(passwordEncoder.encode(SEEDED_PASSWORD))
+                            .studyField(fields.get(m.field()))
+                            .fieldStartingYear(m.since())
+                            .status(active)
+                            .build());
+                    seedAvailability(expert);
+                });
+    }
+
+    /**
+     * Give every seeded mentor a weekly schedule.
+     *
+     * <p>Booking now refuses any time outside a mentor's published availability, and a mentor
+     * with no slots is not bookable at all. Seeding mentors without slots would therefore hand
+     * the demo a mentor list where every request is rejected — the mentor screen would look
+     * fine and the booking would never work, which is a worse failure than an empty list.
+     *
+     * <p>Monday/Wednesday/Sunday, 1=Monday..7=Sunday, matching the availability editor and the
+     * frontend's day names.
+     */
+    private void seedAvailability(Expert expert) {
+        record Slot(byte day, LocalTime from, LocalTime to) {}
+
+        Arrays.asList(
+                        new Slot((byte) 1, LocalTime.of(9, 0), LocalTime.of(12, 0)),
+                        new Slot((byte) 3, LocalTime.of(13, 0), LocalTime.of(17, 0)),
+                        new Slot((byte) 7, LocalTime.of(10, 0), LocalTime.of(14, 0)))
+                .forEach(s -> expertAvailabilityRepository.save(ExpertAvailability.builder()
+                        .expert(expert)
+                        .dayOfWeek(s.day())
+                        .startTime(s.from())
+                        .endTime(s.to())
                         .build()));
     }
 }

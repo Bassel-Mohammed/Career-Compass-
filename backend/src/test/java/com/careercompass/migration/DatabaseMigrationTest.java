@@ -24,12 +24,24 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
  */
 class DatabaseMigrationTest {
 
+    /**
+     * How many migrations the packaged chain contains, discovered rather than hard-coded.
+     *
+     * <p>A literal here has to be bumped by hand every time a migration is added, and the
+     * failure it produces ("expected 5 but was 6") looks like a schema regression rather than
+     * "someone added a file". Asking Flyway what it found keeps these tests about migration
+     * *behaviour* — clean install, operator baseline, idempotent re-run — instead of counting.
+     */
+    private static int packagedMigrationCount() {
+        return flyway(newDatabaseUrl()).info().all().length;
+    }
+
     @Test
     void cleanDatabaseMigratesToLatestAndEnforcesQuizIntegrity() throws Exception {
         String url = newDatabaseUrl();
         Flyway flyway = flyway(url);
 
-        assertThat(flyway.migrate().migrationsExecuted).isEqualTo(5);
+        assertThat(flyway.migrate().migrationsExecuted).isEqualTo(packagedMigrationCount());
         flyway.validate();
         assertLatestShapeAndConstraints(url);
         assertThat(flyway.migrate().migrationsExecuted).isZero();
@@ -44,7 +56,8 @@ class DatabaseMigrationTest {
         Flyway flyway = flyway(url);
         flyway.baseline();
 
-        assertThat(flyway.migrate().migrationsExecuted).isEqualTo(4);
+        // Baselined at V1, so every migration except the V1 baseline itself is applied.
+        assertThat(flyway.migrate().migrationsExecuted).isEqualTo(packagedMigrationCount() - 1);
         flyway.validate();
         assertLatestShapeAndConstraints(url);
         assertLegacyLearningOutcomeBackfill(url);
@@ -65,7 +78,8 @@ class DatabaseMigrationTest {
         Flyway flyway = flyway(url);
         flyway.baseline();
 
-        assertThat(flyway.migrate().migrationsExecuted).isEqualTo(4);
+        // Baselined at V1, so every migration except the V1 baseline itself is applied.
+        assertThat(flyway.migrate().migrationsExecuted).isEqualTo(packagedMigrationCount() - 1);
         flyway.validate();
         assertLatestShapeAndConstraints(url);
         assertLegacyLearningOutcomeBackfill(url);

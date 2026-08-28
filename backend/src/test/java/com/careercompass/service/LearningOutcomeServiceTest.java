@@ -11,6 +11,7 @@ import com.careercompass.mapper.ContentManagerMapper;
 import com.careercompass.mapper.LearningOutcomeMapper;
 import com.careercompass.repository.ContentManagerRepository;
 import com.careercompass.repository.LearningOutcomeRepository;
+import com.careercompass.repository.LearningOutcomeSkillDraftRepository;
 import com.careercompass.repository.StudyFieldRepository;
 import com.careercompass.repository.UniversityStudyFieldRepository;
 import org.junit.jupiter.api.Test;
@@ -41,6 +42,7 @@ class LearningOutcomeServiceTest {
     @Mock private StudyFieldRepository studyFieldRepository;
     @Mock private UniversityStudyFieldRepository universityStudyFieldRepository;
     @Mock private LearningOutcomeRepository learningOutcomeRepository;
+    @Mock private LearningOutcomeSkillDraftRepository learningOutcomeSkillDraftRepository;
     @Mock private FileStorageService fileStorageService;
     @Mock private ContentManagerMapper contentManagerMapper;
     @Mock private LearningOutcomeMapper learningOutcomeMapper;
@@ -273,6 +275,60 @@ class LearningOutcomeServiceTest {
         assertThatThrownBy(() -> learningOutcomeService.previewPdf(1, file))
                 .isInstanceOf(IllegalArgumentException.class);
         verify(reviewService, never()).previewSyllabusPdf(any(), any(), any());
+    }
+
+    // Purpose: Delete Outcome - removes the row, its drafts and the file.
+    @Test
+    void deleteOutcome_removesDraftsAndFileBeforeTheRow() {
+        ContentManager owner = ContentManager.builder().contentManagerId(1).build();
+        LearningOutcome lo = LearningOutcome.builder()
+                .outcomeId(5).uploadedByContentManager(owner)
+                .filePath("/uploads/outcomes.pdf").isDeletedFromDisk(false)
+                .courseMapVersion(0L).build();
+        when(learningOutcomeRepository.findById(5)).thenReturn(Optional.of(lo));
+
+        learningOutcomeService.deleteOutcome(1, 5);
+
+        // Drafts first — there is no cascade, and deleting the parent while children still
+        // reference it fails on the foreign key.
+        verify(learningOutcomeSkillDraftRepository)
+                .deleteByOutcome_OutcomeIdAndOutcome_UploadedByContentManager_ContentManagerId(5, 1);
+        verify(fileStorageService).deleteIfExists("/uploads/outcomes.pdf");
+        verify(learningOutcomeRepository).delete(lo);
+    }
+
+    // Purpose: Delete Outcome - refuses once published, so a live course map keeps its source.
+    @Test
+    void deleteOutcome_refusesOncePublishedToACourseMap() {
+        ContentManager owner = ContentManager.builder().contentManagerId(1).build();
+        LearningOutcome lo = LearningOutcome.builder()
+                .outcomeId(5).uploadedByContentManager(owner).courseMapVersion(3L).build();
+        when(learningOutcomeRepository.findById(5)).thenReturn(Optional.of(lo));
+
+        assertThatThrownBy(() -> learningOutcomeService.deleteOutcome(1, 5))
+                .isInstanceOf(PrerequisiteNotMetException.class)
+                .hasMessageContaining("published");
+
+        // Nothing is touched: the published map in the AI service is immutable, so removing this
+        // row would not retract it — only strip away the record of where its skills came from.
+        verify(learningOutcomeRepository, never()).delete(any(LearningOutcome.class));
+        verify(fileStorageService, never()).deleteIfExists(any());
+        verifyNoInteractions(learningOutcomeSkillDraftRepository);
+    }
+
+    // Purpose: Delete Outcome - throws Unauthorized When Caller Did Not Upload It.
+    @Test
+    void deleteOutcome_throwsUnauthorizedWhenCallerDidNotUploadIt() {
+        ContentManager owner = ContentManager.builder().contentManagerId(1).build();
+        LearningOutcome lo = LearningOutcome.builder()
+                .outcomeId(5).uploadedByContentManager(owner).courseMapVersion(0L).build();
+        when(learningOutcomeRepository.findById(5)).thenReturn(Optional.of(lo));
+
+        assertThatThrownBy(() -> learningOutcomeService.deleteOutcome(2, 5))
+                .isInstanceOf(UnauthorizedActionException.class);
+
+        verify(learningOutcomeRepository, never()).delete(any(LearningOutcome.class));
+        verifyNoInteractions(learningOutcomeSkillDraftRepository);
     }
 
     // Purpose: Delete Raw File - throws Unauthorized When Caller Did Not Upload It.

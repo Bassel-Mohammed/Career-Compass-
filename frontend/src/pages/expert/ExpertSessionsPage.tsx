@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AppShell } from '../../components/AppShell';
 import { Banner } from '../../components/Banner';
 import { Card, EmptyState, ErrorState, PageHeader, Skeleton, StatusBadge } from '../../components/ui';
@@ -26,19 +27,29 @@ export function ExpertSessionsPage() {
   const [notes, setNotes] = useState('');
   const [feedback, setFeedback] = useState('');
 
+  /**
+   * Every mutation here can move an appointment between the two lists, not just change it in
+   * place: rejecting sends it to history, and recording an outcome completes it. Patching only
+   * the list we happen to be looking at left the other one showing a stale copy of the same
+   * session — the sessions screen would report it as both Accepted and Requested at once.
+   * Refetching both is cheap and keeps them honest.
+   */
+  const refreshBothLists = () => {
+    scheduled.reload();
+    history.reload();
+  };
+
   const handleAccept = async (id: number) => {
     const res = await respond.run(token, id, true);
-    if (res) {
-      if (scheduled.data) scheduled.setData(scheduled.data.map(a => a.appointmentId === id ? res : a));
-    }
+    if (res) refreshBothLists();
   };
 
   const handleReject = async () => {
     if (!rejectId) return;
     const res = await respond.run(token, rejectId, false);
     if (res) {
-      if (scheduled.data) scheduled.setData(scheduled.data.map(a => a.appointmentId === rejectId ? res : a));
       setRejectId(null);
+      refreshBothLists();
     }
   };
 
@@ -52,9 +63,9 @@ export function ExpertSessionsPage() {
     if (!outcomeId) return;
     const res = await record.run(token, outcomeId, { sessionNotes: notes, feedback });
     if (res) {
-      if (scheduled.data) scheduled.setData(scheduled.data.map(a => a.appointmentId === outcomeId ? res : a));
-      if (history.data) history.setData(history.data.map(a => a.appointmentId === outcomeId ? res : a));
       setOutcomeId(null);
+      // Recording an outcome completes the session, so it leaves Upcoming for Past.
+      refreshBothLists();
     }
   };
 
@@ -96,7 +107,9 @@ export function ExpertSessionsPage() {
                 {scheduled.data?.map(app => (
                   <Card key={app.appointmentId} as="li" className="posting">
                     <div className="posting__head">
-                      <h3 className="posting__title">Session with {app.jobseekerName}</h3>
+                      <h3 className="posting__title">
+                        Session with <Link to={`/expert/job-seekers/${app.jobseekerId}`}>{app.jobseekerName}</Link>
+                      </h3>
                       <StatusBadge status={getBadgeType(app.statusName) === 'unknown' ? 'Unknown' : app.statusName} />
                     </div>
                     <div className="posting__meta">
@@ -188,7 +201,9 @@ export function ExpertSessionsPage() {
                 {history.data?.map(app => (
                   <Card key={app.appointmentId} as="li" className="posting">
                     <div className="posting__head">
-                      <h3 className="posting__title">Session with {app.jobseekerName}</h3>
+                      <h3 className="posting__title">
+                        Session with <Link to={`/expert/job-seekers/${app.jobseekerId}`}>{app.jobseekerName}</Link>
+                      </h3>
                       <StatusBadge status={app.statusName} />
                     </div>
                     <div className="posting__meta">

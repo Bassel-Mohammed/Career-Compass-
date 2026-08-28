@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ApiError } from '../../api/client';
 import * as contentManagerApi from '../../api/contentManager';
@@ -14,7 +14,6 @@ import { TextField } from '../../components/TextField';
 import { Card, EmptyState, ErrorState, PageHeader, Skeleton, Stat } from '../../components/ui';
 import { useAsync } from '../../hooks/useAsync';
 import type {
-  DraftSkillDecision,
   DraftSkillResponse,
   SkillLevel,
   TaxonomySkillResponse,
@@ -39,16 +38,53 @@ const LEVEL_OPTIONS = [
   { value: 'advanced', label: 'Advanced' },
 ];
 
-type Filter = 'ALL' | DraftSkillDecision;
+/**
+ * The list is filtered by *how much work a row needs*, not by what was decided about it.
+ *
+ * A syllabus routinely extracts ninety-odd terms, and the old chips split them by `decision` — a
+ * dimension on which nearly every row reads PENDING until the review is almost over, so the
+ * reviewer faced one undifferentiated wall. `reviewPriority` already tells a near-certain match
+ * apart from a term the taxonomy cannot resolve at all; these chips surface that instead.
+ *
+ * ACCEPTED / REPLACED / ADDED collapse into `DONE`. Which one a row is stays legible on its own
+ * decision badge, and none of them is outstanding work.
+ */
+type Filter = 'ALL' | 'QUICK' | 'JUDGMENT' | 'BLOCKED' | 'DONE' | 'REMOVED';
 
-const FILTERS: { value: Filter; label: string }[] = [
-  { value: 'ALL', label: 'All' },
-  { value: 'PENDING', label: 'Pending' },
-  { value: 'ACCEPTED', label: 'Accepted' },
-  { value: 'REPLACED', label: 'Replaced' },
-  { value: 'ADDED', label: 'Added' },
-  { value: 'REMOVED', label: 'Removed' },
+const FILTERS: { value: Filter; label: string; hint: string }[] = [
+  { value: 'ALL', label: 'All', hint: 'Every row still in the draft' },
+  { value: 'QUICK', label: 'Quick', hint: 'Confident matches \u2014 accept or edit' },
+  { value: 'JUDGMENT', label: 'Judgment', hint: 'The matcher was unsure; you decide' },
+  { value: 'BLOCKED', label: 'Blocked', hint: 'No canonical match \u2014 blocks publishing' },
+  { value: 'DONE', label: 'Done', hint: 'Accepted, replaced or added' },
+  { value: 'REMOVED', label: 'Removed', hint: 'Dropped from the course map' },
 ];
+
+/** Which chip a row sits under. One row, one chip \u2014 every chip but `ALL` is disjoint. */
+function filterGroup(skill: DraftSkillResponse): Exclude<Filter, 'ALL'> {
+  if (skill.decision === 'REMOVED') return 'REMOVED';
+  if (skill.decision !== 'PENDING') return 'DONE';
+  const priority = reviewPriority(skill);
+  if (priority === 'blocked') return 'BLOCKED';
+  return priority === 'judgment' ? 'JUDGMENT' : 'QUICK';
+}
+
+/**
+ * The group to open on: the fastest work available, else the next group with anything in it.
+ *
+ * A fixed default would open some courses on an empty list \u2014 one seeded outcome has a single
+ * decided row and nothing quick \u2014 and an empty list reads as a broken page, not a finished queue.
+ */
+const FILTER_PREFERENCE: Filter[] = ['QUICK', 'JUDGMENT', 'BLOCKED', 'DONE', 'ALL'];
+
+function openingFilter(rows: DraftSkillResponse[]): Filter {
+  const counts = new Map<Filter, number>();
+  for (const row of rows) {
+    const group = filterGroup(row);
+    counts.set(group, (counts.get(group) ?? 0) + 1);
+  }
+  return FILTER_PREFERENCE.find((value) => (counts.get(value) ?? 0) > 0) ?? 'ALL';
+}
 
 function confidencePercent(value: number | undefined): string | null {
   if (value === undefined) return null;
@@ -175,7 +211,7 @@ function SkillDraftCard({
   duplicate,
   readOnly,
   busy,
-  unavailableReplacementIds,
+  activeCanonicalIds,
   onSave,
   onReplace,
   onDelete,
@@ -185,7 +221,7 @@ function SkillDraftCard({
   duplicate: boolean;
   readOnly: boolean;
   busy: boolean;
-  unavailableReplacementIds: Set<string>;
+  activeCanonicalIds: Set<string>;
   onSave: (skill: DraftSkillResponse, changes: Omit<UpdateDraftSkillRequest, 'expectedRowVersion' | 'expectedDraftRevision'>) => void;
   onReplace: (skill: DraftSkillResponse, replacement: TaxonomySkillResponse) => void;
   onDelete: (skill: DraftSkillResponse) => void;
@@ -195,6 +231,16 @@ function SkillDraftCard({
   const [note, setNote] = useState(skill.note ?? '');
   const [showReplacement, setShowReplacement] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
+  const [expanded, setExpanded] = useState(false);
+
+  // Every canonical skill already in the draft except this row's own \u2014 replacing a row with the
+  // skill it already holds is a no-op, not a duplicate. Derived here rather than in the parent's
+  // map, which rebuilt one Set per row on every render.
+  const unavailableReplacementIds = useMemo(() => {
+    const unavailable = new Set(activeCanonicalIds);
+    if (skill.canonicalSkillId) unavailable.delete(skill.canonicalSkillId);
+    return unavailable;
+  }, [activeCanonicalIds, skill.canonicalSkillId]);
 
   useEffect(() => {
     setLevel(skill.level);
@@ -208,6 +254,75 @@ function SkillDraftCard({
   // form, evidence, or matcher noise. Only a duplicate canonical skill (which
   // blocks publishing) still demands action on a decided row.
   const decided = !removed && skill.decision !== 'PENDING';
+
+  // A pending row the matcher was confident about renders in the same compact shape as a decided
+  // one, with one button to agree. The full form is one click away for the cases that need it:
+  // folded, never removed, because a confident match can still be wrong.
+  const quickPending = !removed
+    && skill.decision === 'PENDING'
+    && reviewPriority(skill) === 'quick'
+    && !expanded;
+
+  if (quickPending) {
+    return (
+      <Card as="li" className="draft-skill draft-skill--compact">
+        <div className="draft-skill__head">
+          <div>
+            <p className="draft-skill__term">Extracted term</p>
+            <h3>{skill.term}</h3>
+          </div>
+          <span className="decision-badge decision-badge--pending">
+            {decisionLabel(skill.decision)}
+          </span>
+        </div>
+        <div className="final-skill">
+          <span className="final-skill__name">
+            {skill.canonicalSkillLabel ?? skill.canonicalSkillId}
+          </span>
+          {confidence && <span className="final-skill__confidence">{confidence} match</span>}
+          <span className="final-skill__meta">{skill.level}</span>
+          <span className="final-skill__meta">weight {skill.weight}</span>
+          <span className="final-skill__meta">
+            {skill.evidenceCount || skill.evidence.length} evidence
+          </span>
+        </div>
+        {duplicate && (
+          <p className="review-callout review-callout--warn">
+            This canonical skill appears more than once in the active draft. Remove or replace one
+            copy before publishing.
+          </p>
+        )}
+        {!readOnly && (
+          <div className="draft-skill__actions">
+            <button
+              type="button"
+              className="button button--primary button--small button--auto"
+              onClick={acceptAsIs}
+              disabled={busy}
+            >
+              Accept
+            </button>
+            <button
+              type="button"
+              className="button button--secondary button--small button--auto"
+              onClick={() => setExpanded(true)}
+              disabled={busy}
+            >
+              Edit
+            </button>
+            <button
+              type="button"
+              className="button button--quiet button--small button--auto draft-skill__remove"
+              onClick={() => onDelete(skill)}
+              disabled={busy}
+            >
+              Remove
+            </button>
+          </div>
+        )}
+      </Card>
+    );
+  }
 
   if (decided) {
     return (
@@ -260,8 +375,33 @@ function SkillDraftCard({
     );
   }
 
+  const canAccept = skill.decision === 'PENDING' && skill.canonicalSkillId;
+  const isDirty =
+    level !== skill.level ||
+    Number(weight) !== skill.weight ||
+    (note.trim() || undefined) !== skill.note;
+  const canSave = isDirty || canAccept;
+
+  /**
+   * Accept a confident match without opening the form.
+   *
+   * The level and weight the extractor already proposed, unchanged \u2014 on a row the matcher scored
+   * at or near certainty there is nothing to correct. Making a reviewer read an evidence list and
+   * a candidate list to agree with `Python` is what turned ninety-odd rows into an afternoon.
+   */
+  function acceptAsIs() {
+    setFormError(null);
+    onSave(skill, {
+      level,
+      weight: skill.weight,
+      note: note.trim() || undefined,
+      decision: 'ACCEPTED',
+    });
+  }
+
   function save(event: React.FormEvent) {
     event.preventDefault();
+    if (!canSave) return;
     const parsedWeight = Number(weight);
     if (!Number.isFinite(parsedWeight) || parsedWeight < 0 || parsedWeight > 1) {
       setFormError('Weight must be a number from 0 to 1.');
@@ -269,7 +409,7 @@ function SkillDraftCard({
     }
     setFormError(null);
     let decision = skill.decision;
-    if (skill.decision === 'PENDING' && skill.canonicalSkillId) decision = 'ACCEPTED';
+    if (canAccept) decision = 'ACCEPTED';
     onSave(skill, {
       level,
       weight: parsedWeight,
@@ -410,13 +550,15 @@ function SkillDraftCard({
             <button
               type="submit"
               className="button button--primary button--small button--auto"
-              disabled={busy}
+              disabled={busy || !canSave}
             >
               {busy
                 ? 'Saving…'
-                : skill.decision === 'PENDING' && skill.canonicalSkillId
+                : canAccept
                   ? 'Save and accept'
-                  : 'Save changes'}
+                  : isDirty
+                    ? 'Save changes'
+                    : 'Saved'}
             </button>
             <button
               type="button"
@@ -656,16 +798,28 @@ export function LearningOutcomeReviewPage() {
     return placed.length === rows.length ? placed : [...placed, ...byId.values()];
   }, [rows, orderIds]);
 
+  // Keyed the way the chips are, so a chip and the sentence above it cannot disagree. Counted
+  // over every row, never over the filtered view, so a chip's number does not move because of
+  // the chip that happens to be active.
   const queueCounts = useMemo(() => {
-    const counts: Record<ReturnType<typeof reviewPriority>, number> = {
-      blocked: 0,
-      judgment: 0,
-      quick: 0,
-      archived: 0,
+    const counts: Record<Exclude<Filter, 'ALL'>, number> = {
+      QUICK: 0, JUDGMENT: 0, BLOCKED: 0, DONE: 0, REMOVED: 0,
     };
-    for (const row of rows) counts[reviewPriority(row)] += 1;
+    for (const row of rows) counts[filterGroup(row)] += 1;
     return counts;
   }, [rows]);
+
+  // What the order *would* be if re-sorted now. The page already loads in priority order, so
+  // until the reviewer decides something the button has nothing to do \u2014 and a button that
+  // silently does nothing reads as broken. Compare, then say which it is.
+  const priorityOrder = useMemo(
+    () => sortDraftSkillsForReview(rows).map((skill) => skill.draftSkillId),
+    [rows],
+  );
+  const resortWouldMoveRows = useMemo(() => {
+    if (!orderIds || orderIds.length !== priorityOrder.length) return rows.length > 0;
+    return orderIds.some((id, index) => id !== priorityOrder[index]);
+  }, [orderIds, priorityOrder, rows.length]);
 
   const active = activeDraftSkills(rows);
   const duplicateIds = duplicateCanonicalIds(rows);
@@ -676,11 +830,24 @@ export function LearningOutcomeReviewPage() {
 
   // Removed rows are audit records: they leave the working list (the card goes
   // away on remove) and only reappear under the explicit "Removed" filter.
+  // Settled once, when the rows first arrive \u2014 not per render. Recomputing would move the view
+  // to another group the moment the reviewer emptied the current one, which is the opposite of
+  // what someone working through a queue wants.
+  const openingFilterChosen = useRef(false);
+  useEffect(() => {
+    if (openingFilterChosen.current || skills.loading || skills.failed || rows.length === 0) return;
+    openingFilterChosen.current = true;
+    setFilter(openingFilter(rows));
+  }, [rows, skills.loading, skills.failed]);
+  useEffect(() => {
+    openingFilterChosen.current = false; // a different outcome is a different queue
+  }, [outcomeId]);
+
   const filteredRows = useMemo(
     () =>
       filter === 'ALL'
         ? orderedRows.filter((skill) => skill.decision !== 'REMOVED')
-        : orderedRows.filter((skill) => skill.decision === filter),
+        : orderedRows.filter((skill) => filterGroup(skill) === filter),
     [filter, orderedRows],
   );
   const activeCanonicalIds = useMemo(
@@ -1067,45 +1234,60 @@ export function LearningOutcomeReviewPage() {
                     <button
                       type="button"
                       className="button button--secondary button--small button--auto"
-                      onClick={() =>
-                        setOrderIds(sortDraftSkillsForReview(rows).map((skill) => skill.draftSkillId))
+                      onClick={() => {
+                        setOrderIds(priorityOrder);
+                        setActionError(null);
+                        setSuccess('Rows re-sorted: blockers first, then judgment calls.');
+                      }}
+                      disabled={
+                        busyKey != null || skills.loading || rows.length === 0 || !resortWouldMoveRows
                       }
-                      disabled={busyKey != null || skills.loading || rows.length === 0}
-                      title="Unresolved blockers first, then lowest-margin judgment calls, then high-confidence accepts"
+                      title={
+                        resortWouldMoveRows
+                          ? 'Unresolved blockers first, then lowest-margin judgment calls, then high-confidence accepts'
+                          : 'Already in priority order \u2014 decide some rows and this will have work to do'
+                      }
                     >
                       Re-sort by priority
                     </button>
                     <button
                       type="button"
                       className="button button--secondary button--small button--auto"
-                      onClick={() => void refreshReview().catch(setActionError)}
+                      onClick={() =>
+                        void mutate('refresh', 'Draft reloaded from the server.', async () => {})
+                      }
                       disabled={busyKey != null || skills.loading}
                     >
-                      Refresh draft
+                      {busyKey === 'refresh' ? 'Refreshing\u2026' : 'Refresh draft'}
                     </button>
                   </div>
                 </div>
 
                 {rows.length > 0 && (
                   <p className="cell__quiet" role="status">
-                    Priority order: {queueCounts.blocked} blocking publish ·{' '}
-                    {queueCounts.judgment} needing judgment · {queueCounts.quick} quick accepts.
+                    Priority order: {queueCounts.BLOCKED} blocking publish ·{' '}
+                    {queueCounts.JUDGMENT} needing judgment · {queueCounts.QUICK} quick accepts.
                     Duplicate canonical skills are placed next to each other.
                   </p>
                 )}
 
-                <div className="review-filters" role="group" aria-label="Filter skills by decision">
+                <div
+                  className="review-filters"
+                  role="group"
+                  aria-label="Filter skills by review queue"
+                >
                   {FILTERS.map((item) => {
                     const count =
                       item.value === 'ALL'
-                        ? rows.length
-                        : rows.filter((skill) => skill.decision === item.value).length;
+                        ? rows.filter((skill) => skill.decision !== 'REMOVED').length
+                        : queueCounts[item.value];
                     return (
                       <button
                         type="button"
                         key={item.value}
                         className={`review-filter${filter === item.value ? ' review-filter--active' : ''}`}
                         aria-pressed={filter === item.value}
+                        title={item.hint}
                         onClick={() => setFilter(item.value)}
                       >
                         {item.label} <span>{count}</span>
@@ -1131,10 +1313,6 @@ export function LearningOutcomeReviewPage() {
                 {!skills.loading && !skills.failed && filteredRows.length > 0 && (
                   <ul className="draft-skills list-reset">
                     {filteredRows.map((skill) => {
-                      const unavailableReplacementIds = new Set(activeCanonicalIds);
-                      if (skill.canonicalSkillId) {
-                        unavailableReplacementIds.delete(skill.canonicalSkillId);
-                      }
                       return (
                         <SkillDraftCard
                           key={skill.draftSkillId}
@@ -1149,7 +1327,7 @@ export function LearningOutcomeReviewPage() {
                             busyKey != null &&
                             (busyKey.endsWith(`:${skill.draftSkillId}`) || busyKey === 'publish')
                           }
-                          unavailableReplacementIds={unavailableReplacementIds}
+                          activeCanonicalIds={activeCanonicalIds}
                           onSave={saveSkill}
                           onReplace={(draft, replacement) => setReplacing({ skill: draft, replacement })}
                           onDelete={setDeleting}

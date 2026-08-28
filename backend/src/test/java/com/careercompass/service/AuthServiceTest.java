@@ -1,5 +1,6 @@
 package com.careercompass.service;
 
+import com.careercompass.dto.request.ChangePasswordRequest;
 import com.careercompass.dto.request.LoginRequest;
 import com.careercompass.dto.request.RegisterJobSeekerRequest;
 import com.careercompass.dto.response.AuthResponse;
@@ -8,6 +9,7 @@ import com.careercompass.exception.EmailAlreadyExistsException;
 import com.careercompass.exception.InvalidCredentialsException;
 import com.careercompass.repository.EmployerRepository;
 import com.careercompass.repository.JobSeekerRepository;
+import com.careercompass.security.Role;
 import com.careercompass.security.jwt.JwtTokenProvider;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -167,5 +169,49 @@ class AuthServiceTest {
         assertThat(response.getToken()).isEqualTo("fake-jwt-token");
         assertThat(existing.getLastLoginAt()).isNotNull();
         verify(jobSeekerRepository).save(existing);
+    }
+
+    // Purpose: a signed-in account can rotate its own password, and doing so kills the session
+    // that was opened with the old one — otherwise changing a possibly-leaked password would
+    // leave every session it had already unlocked still valid.
+    @Test
+    void changePassword_replacesHashAndRevokesCurrentToken() {
+        JobSeeker jobSeeker = JobSeeker.builder()
+                .jobseekerId(1).email("a@b.local").passwordHash("ENC(old)").build();
+
+        when(jobSeekerRepository.findById(1)).thenReturn(Optional.of(jobSeeker));
+        when(passwordEncoder.matches("oldpass12345", "ENC(old)")).thenReturn(true);
+        when(passwordEncoder.encode("newpass12345")).thenReturn("ENC(new)");
+
+        ChangePasswordRequest request = new ChangePasswordRequest();
+        request.setCurrentPassword("oldpass12345");
+        request.setNewPassword("newpass12345");
+
+        authService.changePassword(1, Role.JOB_SEEKER, "Bearer token-abc", request);
+
+        assertThat(jobSeeker.getPasswordHash()).isEqualTo("ENC(new)");
+        verify(jobSeekerRepository).save(jobSeeker);
+        verify(tokenRevocationService).revoke("token-abc");
+    }
+
+    // Purpose: holding a valid token is not enough to change the password. A stolen session
+    // must not be sufficient to take ownership of the account.
+    @Test
+    void changePassword_rejectsWrongCurrentPassword() {
+        JobSeeker jobSeeker = JobSeeker.builder()
+                .jobseekerId(1).email("a@b.local").passwordHash("ENC(old)").build();
+
+        when(jobSeekerRepository.findById(1)).thenReturn(Optional.of(jobSeeker));
+        when(passwordEncoder.matches("wrongpass123", "ENC(old)")).thenReturn(false);
+
+        ChangePasswordRequest request = new ChangePasswordRequest();
+        request.setCurrentPassword("wrongpass123");
+        request.setNewPassword("newpass12345");
+
+        assertThatThrownBy(() -> authService.changePassword(1, Role.JOB_SEEKER, "Bearer t", request))
+                .isInstanceOf(InvalidCredentialsException.class);
+
+        assertThat(jobSeeker.getPasswordHash()).isEqualTo("ENC(old)");
+        verify(tokenRevocationService, never()).revoke(any());
     }
 }

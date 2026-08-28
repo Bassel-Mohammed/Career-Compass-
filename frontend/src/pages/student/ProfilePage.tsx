@@ -10,6 +10,9 @@ import { useAction, useAsync } from '../../hooks/useAsync';
 import * as jobSeekerApi from '../../api/jobSeeker';
 import { formatDate } from '../../api/format';
 import { fieldErrorsFor, messageFor } from '../../api/errors';
+import { ChangePasswordCard } from '../../components/ChangePasswordCard';
+
+import { toast } from 'sonner';
 
 /** FR-JS-06/07/08, plus the disclosures nothing in the backend makes on its own. */
 export function ProfilePage() {
@@ -34,6 +37,9 @@ export function ProfilePage() {
     if (saved) {
       setDraft({});
       profile.setData(saved);
+      toast.success('Profile updated successfully');
+    } else {
+      toast.error('Failed to update profile');
     }
   }
 
@@ -41,8 +47,12 @@ export function ProfilePage() {
     const done = await remove.run(token);
     if (done !== undefined) {
       // The account is gone, so the token is worthless — drop the session and start over.
+      toast.success('Account deleted permanently');
       await signOut();
       navigate('/login', { replace: true });
+    } else {
+      toast.error('Failed to delete account');
+      setConfirming(false);
     }
   }
 
@@ -162,6 +172,8 @@ export function ProfilePage() {
           onCancel={() => setConfirming(false)}
         />
       )}
+
+      <ChangePasswordCard />
     </AppShell>
   );
 }

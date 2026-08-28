@@ -98,19 +98,25 @@ public class ExpertService {
                 .toList();
     }
 
-    /** FR-EX-05: upcoming scheduled sessions. */
+    /** FR-EX-05: upcoming scheduled sessions — still ahead and not yet concluded. */
     @Transactional(readOnly = true)
     public List<AppointmentResponse> getScheduledSessions(Integer expertId) {
-        return appointmentRepository
-                .findByExpert_ExpertIdAndAppointmentDateAfter(expertId, LocalDateTime.now()).stream()
+        return appointmentRepository.findUpcomingForExpert(expertId, LocalDateTime.now()).stream()
                 .map(this::toAppointmentResponse)
                 .toList();
     }
 
-    /** FR-EX-12: full consultation history. */
+    /**
+     * FR-EX-12: consultation history — sessions whose time has passed, plus anything already
+     * rejected or completed.
+     *
+     * <p>Scoped rather than "every appointment ever": an unfiltered history returned each
+     * pending future request as well, so the sessions screen listed the same appointment under
+     * both Upcoming and Past, and after an accept the two copies disagreed about its status.
+     */
     @Transactional(readOnly = true)
     public List<AppointmentResponse> getConsultationHistory(Integer expertId) {
-        return appointmentRepository.findByExpert_ExpertIdOrderByAppointmentDateDesc(expertId).stream()
+        return appointmentRepository.findHistoryForExpert(expertId, LocalDateTime.now()).stream()
                 .map(this::toAppointmentResponse)
                 .toList();
     }
@@ -138,6 +144,17 @@ public class ExpertService {
         if (request.getFeedback() != null) {
             appointment.setFeedback(request.getFeedback());
         }
+
+        // Recording an outcome is the mentor saying the session happened, so this is where the
+        // lifecycle actually ends. "Completed" was documented on AppointmentStatus from the
+        // start but nothing ever assigned it: sessions stayed "Accepted" forever, so a finished
+        // consultation kept sitting in the mentor's upcoming list with a Record-outcome button
+        // that had already been used.
+        AppointmentStatus completed = appointmentStatusRepository.findByStatusName("Completed")
+                .orElseGet(() -> appointmentStatusRepository.save(
+                        AppointmentStatus.builder().statusName("Completed").build()));
+        appointment.setStatus(completed);
+
         return toAppointmentResponse(appointmentRepository.save(appointment));
     }
 

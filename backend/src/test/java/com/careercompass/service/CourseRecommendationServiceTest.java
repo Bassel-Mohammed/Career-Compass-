@@ -107,6 +107,19 @@ class CourseRecommendationServiceTest {
             entity.setRecommendationId(100);
             return input;
         });
+        // The service now maps saved entities through the mapper on both paths rather than
+        // re-attaching the reasoning by list position, so the mapper has to be stubbed here.
+        when(courseRecommendationMapper.toItem(any(CourseRecommendation.class))).thenAnswer(inv -> {
+            CourseRecommendation e = inv.getArgument(0);
+            return CourseRecommendationItem.builder()
+                    .recommendationId(e.getRecommendationId())
+                    .courseName(e.getCourseName())
+                    .sourceLink(e.getSourceLink())
+                    .targetedSkillName(e.getTargetedSkillName())
+                    .explanation(e.getExplanation())
+                    .recommendedAt(e.getRecommendedAt())
+                    .build();
+        });
 
         List<CourseRecommendationItem> result = courseRecommendationService.generateRecommendations(1);
 
@@ -116,6 +129,16 @@ class CourseRecommendationServiceTest {
         assertThat(item.getCourseName()).isEqualTo("CI/CD with GitHub Actions");
         assertThat(item.getTargetedSkillName()).isEqualTo("DevOps");
         assertThat(item.getExplanation()).isEqualTo("Directly closes your DevOps gap.");
+
+        // The reasoning has to reach the row, not just the response — that is the whole point
+        // of persisting it, and asserting only on the returned item would still pass if the
+        // entity were saved blank.
+        ArgumentCaptor<List<CourseRecommendation>> captor = ArgumentCaptor.forClass(List.class);
+        verify(courseRecommendationRepository).saveAll(captor.capture());
+        assertThat(captor.getValue()).singleElement().satisfies(saved -> {
+            assertThat(saved.getTargetedSkillName()).isEqualTo("DevOps");
+            assertThat(saved.getExplanation()).isEqualTo("Directly closes your DevOps gap.");
+        });
 
         verify(courseRecommendationRepository).deleteByJobSeeker_JobseekerId(1);
     }

@@ -1,0 +1,141 @@
+name: careercompass
+
+services:
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    environment:
+      PUBLIC_HOST: ${PUBLIC_HOST:?set PUBLIC_HOST in .env}
+    ports:
+      - "80:80"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - frontend
+      - backend
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+      args:
+        VITE_API_BASE_URL: ""
+    restart: unless-stopped
+    expose:
+      - "80"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      JAVA_TOOL_OPTIONS: "-Xmx1536m -Xms256m"
+      DB_URL: "jdbc:mysql://mysql:3306/careercompass?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"
+      DB_USERNAME: careercompass
+      DB_PASSWORD: ${MYSQL_PASSWORD:?set MYSQL_PASSWORD in .env}
+      JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET in .env}
+      AI_SERVICE_BASE_URL: http://ai-service:8000
+      AI_SERVICE_TOKEN: ${AI_SERVICE_TOKEN:?set AI_SERVICE_TOKEN in .env}
+      CORS_ALLOWED_ORIGINS: https://${PUBLIC_HOST:?set PUBLIC_HOST in .env}
+      LEARNING_OUTCOMES_DIR: /app/uploads/learning-outcomes
+    volumes:
+      - learning_outcomes:/app/uploads/learning-outcomes
+    expose:
+      - "8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+      ai-service:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8080/actuator/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 90s
+
+  ai-service:
+    build:
+      context: ./ai-service
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      CC_DATA_DIR: /app/data
+      CC_SERVICE_TOKEN: ${AI_SERVICE_TOKEN:?set AI_SERVICE_TOKEN in .env}
+      CC_DB_HOST: postgres
+      CC_DB_PORT: "5432"
+      CC_DB_NAME: careercompass_ai
+      CC_DB_USER: careercompass
+      CC_DB_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      CC_DB_AUTO_MIGRATE: "0"
+      CC_EMBEDDING_BACKEND: lexical
+      CC_RERANKER: lexical
+      CC_MATCH_LLM: ${CC_MATCH_LLM:-1}
+      CC_MATCH_LLM_PROVIDER: openrouter
+      CC_MATCH_MODEL: ${CC_MATCH_MODEL:-openrouter/free}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      CC_OPENROUTER_TIMEOUT: "60"
+      CC_OPENROUTER_SITE_URL: https://${PUBLIC_HOST:?set PUBLIC_HOST in .env}
+      CC_OPENROUTER_DATA_COLLECTION: deny
+      CC_INCLUDE_MOCK_COURSES: ${CC_INCLUDE_MOCK_COURSES:-1}
+    expose:
+      - "8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - >-
+          import urllib.request;
+          urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health/ready', timeout=5).close()
+      interval: 15s
+      timeout: 10s
+      retries: 12
+      start_period: 5m
+
+  mysql:
+    image: mysql:8.4
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?set MYSQL_ROOT_PASSWORD in .env}
+      MYSQL_DATABASE: careercompass
+      MYSQL_USER: careercompass
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?set MYSQL_PASSWORD in .env}
+    command: --innodb-buffer-pool-size=384M
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 60s
+
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: careercompass_ai
+      POSTGRES_USER: careercompass
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U careercompass -d careercompass_ai"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  caddy_data:
+  caddy_config:
+  mysql_data:
+  postgres_data:
+  learning_outcomes:

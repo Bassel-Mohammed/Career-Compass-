@@ -45,36 +45,117 @@
   color-scheme: light dark;
 }
 
+/* The dark palette, stated once.
+   ---------------------------------------------------------------------------
+   These are values, not assignments — nothing reads a `--dark-*` token except
+   the two blocks below. Dark applies for two unrelated reasons (the OS asks
+   for it, or the reader chose it in Settings), and each needs its own selector.
+   Holding the hex codes here means the two blocks stay assignments only, so a
+   colour can never end up correct in one and stale in the other. */
+:root {
+  --dark-bg: #0b1013;
+  --dark-surface: #141b20;
+  --dark-surface-sunken: #101619;
+  --dark-text: #e9eef2;
+  --dark-text-muted: #9dabb7;
+  --dark-text-faint: #7a8894;
+  --dark-border: #232d34;
+  --dark-border-strong: #33404a;
+
+  --dark-brand: #37b3a2;
+  --dark-brand-hover: #45c6b4;
+  --dark-brand-soft: #12302c;
+  --dark-brand-ink: #06201c;
+
+  --dark-danger: #ff9086;
+  --dark-danger-soft: #2c1512;
+  --dark-danger-border: #55241f;
+  --dark-danger-ink: #2c1512;
+
+  --dark-ok: #5ed99b;
+  --dark-ok-soft: #10281c;
+  --dark-ok-border: #1f4a35;
+  --dark-warn: #f0b968;
+  --dark-warn-soft: #2a1f0d;
+  --dark-warn-border: #4d3a18;
+
+  --dark-shadow-card: 0 1px 2px rgb(0 0 0 / 0.4), 0 16px 40px -16px rgb(0 0 0 / 0.7);
+}
+
+/* Repoint every token onto the dark set. Written once as a custom property so the
+   two selectors below share one body. */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0b1013;
-    --surface: #141b20;
-    --surface-sunken: #101619;
-    --text: #e9eef2;
-    --text-muted: #9dabb7;
-    --text-faint: #7a8894;
-    --border: #232d34;
-    --border-strong: #33404a;
+  /* The OS asks for dark — unless the reader explicitly chose light, which must win. */
+  :root:not([data-theme='light']) {
+    --bg: var(--dark-bg);
+    --surface: var(--dark-surface);
+    --surface-sunken: var(--dark-surface-sunken);
+    --text: var(--dark-text);
+    --text-muted: var(--dark-text-muted);
+    --text-faint: var(--dark-text-faint);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
 
-    --brand: #37b3a2;
-    --brand-hover: #45c6b4;
-    --brand-soft: #12302c;
-    --brand-ink: #06201c;
+    --brand: var(--dark-brand);
+    --brand-hover: var(--dark-brand-hover);
+    --brand-soft: var(--dark-brand-soft);
+    --brand-ink: var(--dark-brand-ink);
 
-    --danger: #ff9086;
-    --danger-soft: #2c1512;
-    --danger-border: #55241f;
-    --danger-ink: #2c1512;
+    --danger: var(--dark-danger);
+    --danger-soft: var(--dark-danger-soft);
+    --danger-border: var(--dark-danger-border);
+    --danger-ink: var(--dark-danger-ink);
 
-    --ok: #5ed99b;
-    --ok-soft: #10281c;
-    --ok-border: #1f4a35;
-    --warn: #f0b968;
-    --warn-soft: #2a1f0d;
-    --warn-border: #4d3a18;
+    --ok: var(--dark-ok);
+    --ok-soft: var(--dark-ok-soft);
+    --ok-border: var(--dark-ok-border);
+    --warn: var(--dark-warn);
+    --warn-soft: var(--dark-warn-soft);
+    --warn-border: var(--dark-warn-border);
 
-    --shadow-card: 0 1px 2px rgb(0 0 0 / 0.4), 0 16px 40px -16px rgb(0 0 0 / 0.7);
+    --shadow-card: var(--dark-shadow-card);
+
+    color-scheme: dark;
   }
+}
+
+/* The reader chose dark. Outside the media query on purpose: it must hold on a
+   machine set to light. */
+:root[data-theme='dark'] {
+  --bg: var(--dark-bg);
+  --surface: var(--dark-surface);
+  --surface-sunken: var(--dark-surface-sunken);
+  --text: var(--dark-text);
+  --text-muted: var(--dark-text-muted);
+  --text-faint: var(--dark-text-faint);
+  --border: var(--dark-border);
+  --border-strong: var(--dark-border-strong);
+
+  --brand: var(--dark-brand);
+  --brand-hover: var(--dark-brand-hover);
+  --brand-soft: var(--dark-brand-soft);
+  --brand-ink: var(--dark-brand-ink);
+
+  --danger: var(--dark-danger);
+  --danger-soft: var(--dark-danger-soft);
+  --danger-border: var(--dark-danger-border);
+  --danger-ink: var(--dark-danger-ink);
+
+  --ok: var(--dark-ok);
+  --ok-soft: var(--dark-ok-soft);
+  --ok-border: var(--dark-ok-border);
+  --warn: var(--dark-warn);
+  --warn-soft: var(--dark-warn-soft);
+  --warn-border: var(--dark-warn-border);
+
+  --shadow-card: var(--dark-shadow-card);
+
+  color-scheme: dark;
+}
+
+/* The reader chose light on a machine set to dark. */
+:root[data-theme='light'] {
+  color-scheme: light;
 }
 
 * {
@@ -752,6 +833,11 @@ a:hover {
   align-items: center;
   gap: 12px;
   margin-left: auto;
+  /* Without this the account block keeps its content width and pushes the sticky topbar
+     past the viewport, which scrolls the whole authenticated app sideways on a phone —
+     the login page looked fine only because it has no topbar. `min-width: 0` is what lets
+     the email below actually ellipsis instead of forcing the flex item wider. */
+  min-width: 0;
 }
 
 .topbar__email {
@@ -761,6 +847,15 @@ a:hover {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  min-width: 0;
+}
+
+/* On a narrow screen the email is the least useful thing in the bar — the role badge and
+   the sign-out control both are. Drop it rather than shrink everything to illegibility. */
+@media (max-width: 560px) {
+  .topbar__email {
+    display: none;
+  }
 }
 
 .app__body {
@@ -1817,10 +1912,26 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 10px;
-  padding-top: 10px;
+  padding-top: 9px;
   border-top: 1px solid var(--border);
+}
+
+/* The outstanding review count — the one thing this card exists to convey, so it is the one
+   thing set larger than body copy. Everything else on the card is context for it. */
+.outcome__progress {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.outcome__progress strong {
+  font-size: 1.35rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+  margin-right: 2px;
 }
 
 /* ===========================================================================
@@ -2565,6 +2676,77 @@ a:hover {
   color: var(--text);
 }
 
+/* The signed-in dashboard keeps the decision surface small: one readiness number, one next-step
+   list and one strengths list. The complete market methodology stays available in details. */
+.skill-overview {
+  display: grid;
+  gap: 14px;
+}
+
+.skill-overview__eyebrow {
+  margin: 0;
+  color: var(--text-muted);
+  font-weight: 650;
+}
+
+.skill-overview__score {
+  margin: -4px 0 0;
+  font-size: clamp(2.4rem, 7vw, 4rem);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  color: var(--brand);
+}
+
+.skill-overview__stats {
+  margin-top: 2px;
+}
+
+.skill-source {
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  background: var(--surface-sunken);
+  color: var(--text-muted);
+  font-size: 0.84rem;
+}
+
+.skill-source--empty {
+  margin: 0;
+}
+
+.skill-source__title {
+  margin: 0 0 6px;
+  color: var(--text);
+  font-weight: 650;
+}
+
+.skill-source__courses {
+  display: grid;
+  gap: 5px;
+}
+
+.skill-source__meta {
+  display: inline-block;
+  margin-left: 8px;
+  color: var(--text-faint);
+  font-size: 0.78rem;
+}
+
+.dashboard-details > summary {
+  cursor: pointer;
+  color: var(--brand);
+  font-weight: 700;
+}
+
+.dashboard-details[open] > summary {
+  margin-bottom: 14px;
+}
+
+.dashboard-details__skills {
+  margin-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
 /* --- Charts ---------------------------------------------------------------
 
    Recharts' ResponsiveContainer measures its parent, so the parent must have a
@@ -2669,9 +2851,128 @@ a:hover {
   color: var(--danger);
 }
 
+/* Sits inside .outcome__foot, which already draws the separating rule — a second border here
+   stacked two lines on top of each other once the footer stopped carrying anything else. */
 .outcome__actions {
   display: flex;
-  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+/* A pending row the matcher was confident about, folded to the same shape as a finished one.
+   The full form is one click away; this is a fold, not a removal. */
+.draft-skill--compact .final-skill {
+  margin-top: 2px;
+}
+
+.draft-skill--compact .draft-skill__actions {
+  margin-top: 10px;
+  padding-top: 10px;
   border-top: 1px solid var(--border);
-  padding-top: 0.5rem;
+}
+
+/* --- Settings menu (colour theme) ------------------------------------------ */
+
+.topbar__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  flex: none;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.topbar__icon:hover {
+  color: var(--text);
+  border-color: var(--text-faint);
+}
+
+.topbar__icon:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.topbar__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.theme-menu {
+  position: relative;
+  display: inline-flex;
+}
+
+.theme-menu__panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 40;
+  min-width: 208px;
+  padding: 8px;
+  display: grid;
+  gap: 2px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+}
+
+.theme-menu__title {
+  margin: 2px 8px 6px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.theme-menu__option {
+  display: grid;
+  gap: 1px;
+  padding: 7px 9px;
+  text-align: left;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.theme-menu__option:hover {
+  background: var(--surface-sunken);
+}
+
+/* The active row is outlined as well as ticked — the tick alone would be the only marker,
+   and it sits at the end of a line rather than around the thing it describes. */
+.theme-menu__option--active {
+  border-color: var(--brand);
+  background: var(--brand-soft);
+}
+
+.theme-menu__option:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: -2px;
+}
+
+.theme-menu__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.theme-menu__hint {
+  color: var(--text-muted);
+  font-size: 0.78rem;
 }

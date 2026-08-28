@@ -9,6 +9,7 @@ import {
   YAxis,
 } from 'recharts';
 import type { DemandBand } from '../types';
+import { THEME_CHANGE_EVENT } from '../theme';
 import { BAND_META } from '../pages/student/dashboard';
 
 /**
@@ -107,10 +108,17 @@ function useChartTheme(): ChartTheme {
     ];
     const reread = () => setTheme(readTheme());
     queries.forEach((query) => query.addEventListener('change', reread));
+    // A theme chosen in Settings moves `data-theme` on <html>, which no media query observes.
+    // Without this the charts keep the old palette on a surface that has just changed colour —
+    // the one regression a manual theme toggle can cause here.
+    document.addEventListener(THEME_CHANGE_EVENT, reread);
     // The first paint can land before the stylesheet has applied, which resolves every token to
     // "" and pins the fallback palette for the life of the page.
     reread();
-    return () => queries.forEach((query) => query.removeEventListener('change', reread));
+    return () => {
+      queries.forEach((query) => query.removeEventListener('change', reread));
+      document.removeEventListener(THEME_CHANGE_EVENT, reread);
+    };
   }, []);
 
   return theme;

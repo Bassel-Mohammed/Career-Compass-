@@ -181,7 +181,10 @@ class HttpDataAnalysisClientContractTest {
                      "skill_type": "knowledge", "required_level": "advanced",
                      "required_proficiency": 0.85, "current_level": 0.0, "gap": 0.85,
                      "classification": "weak", "importance": 0.391, "demand_band": "critical",
-                     "posting_count": 72, "priority": 0.3324}
+                     "posting_count": 72, "priority": 0.3324, "evidence": "grades+quizzes",
+                     "course_count": 1,
+                     "courses": [{"course_code": "0412201", "course_name": "Databases",
+                                   "grade": "B", "weight": 0.85, "level": "advanced"}]}
                   ]
                 }
                 """);
@@ -201,6 +204,13 @@ class HttpDataAnalysisClientContractTest {
         assertThat(item.getPostingCount()).isEqualTo(72);
         assertThat(item.getRequiredLevel()).isEqualTo("advanced");
         assertThat(item.getSkillType()).isEqualTo("knowledge");
+        assertThat(item.getEvidenceSource()).isEqualTo("grades+quizzes");
+        assertThat(item.getSourceCourses()).singleElement().satisfies(course -> {
+            assertThat(course.getCourseCode()).isEqualTo("0412201");
+            assertThat(course.getCourseName()).isEqualTo("Databases");
+            assertThat(course.getGrade()).isEqualTo("B");
+            assertThat(course.getLevel()).isEqualTo("advanced");
+        });
 
         // The denominator, without which 39.1% is a number a student has no reason to trust.
         assertThat(response.getSampleSize()).isEqualTo(184);

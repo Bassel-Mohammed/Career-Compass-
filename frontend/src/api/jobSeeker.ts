@@ -1,5 +1,13 @@
 import { request } from './client';
-import type { JobSeekerProfileResponse, UpdateJobSeekerProfileRequest } from '../types';
+import type { JobSeekerProfileResponse, UpdateJobSeekerProfileRequest, JobResponse } from '../types';
+
+export interface Page<T> {
+  content: T[];
+  totalElements: number;
+  totalPages: number;
+  size: number;
+  number: number;
+}
 
 export function getProfile(token: string): Promise<JobSeekerProfileResponse> {
   return request<JobSeekerProfileResponse>('/api/job-seekers/me', { token });
@@ -23,4 +31,8 @@ export function updateProfile(
  */
 export function deleteProfile(token: string): Promise<void> {
   return request<void>('/api/job-seekers/me', { method: 'DELETE', token });
+}
+
+export function listActiveJobs(token: string, page = 0, size = 20): Promise<Page<JobResponse>> {
+  return request<Page<JobResponse>>(`/api/job-seekers/me/jobs?page=${page}&size=${size}`, { token });
 }

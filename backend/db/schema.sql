@@ -147,6 +147,8 @@ CREATE TABLE courses_recommendations (
     jobseeker_id          INT NOT NULL,
     course_name             VARCHAR(200) NOT NULL,
     source_link               VARCHAR(500),
+    targeted_skill_name        VARCHAR(200),
+    explanation                 VARCHAR(1000),
     recommended_at             TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_cr_jobseeker
         FOREIGN KEY (jobseeker_id) REFERENCES job_seekers(jobseeker_id)

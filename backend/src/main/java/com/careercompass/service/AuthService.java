@@ -1,5 +1,6 @@
 package com.careercompass.service;
 
+import com.careercompass.dto.request.ChangePasswordRequest;
 import com.careercompass.dto.request.LoginRequest;
 import com.careercompass.dto.request.RegisterEmployerRequest;
 import com.careercompass.dto.request.RegisterJobSeekerRequest;
@@ -172,6 +173,74 @@ public class AuthService {
     public void logout(String authorizationHeader) {
         String token = extractBearerToken(authorizationHeader);
         tokenRevocationService.revoke(token);
+    }
+
+    /**
+     * Rotate the signed-in account's own password, whatever actor it is.
+     *
+     * <p>Until this existed a password was set once at registration and could never be changed
+     * by anybody — combined with there being no reset flow, a suspected-compromised credential
+     * had no remedy short of an operator editing the database.
+     *
+     * <p>The current token is revoked afterwards. Changing a password because it may be known
+     * to someone else, while leaving the sessions opened with it still valid, would defeat the
+     * point; the caller signs in again with the new one.
+     */
+    @Transactional
+    public void changePassword(Integer userId, Role role, String authorizationHeader,
+                               ChangePasswordRequest request) {
+        String currentHash = currentPasswordHash(userId, role);
+
+        if (!passwordEncoder.matches(request.getCurrentPassword(), currentHash)) {
+            // The same exception a bad sign-in raises, so a wrong current password cannot be
+            // distinguished from any other credential failure.
+            throw new InvalidCredentialsException();
+        }
+
+        String newHash = passwordEncoder.encode(request.getNewPassword());
+        applyPasswordHash(userId, role, newHash);
+
+        tokenRevocationService.revoke(extractBearerToken(authorizationHeader));
+    }
+
+    private String currentPasswordHash(Integer userId, Role role) {
+        return switch (role) {
+            case JOB_SEEKER -> jobSeekerRepository.findById(userId)
+                    .orElseThrow(InvalidCredentialsException::new).getPasswordHash();
+            case EMPLOYER -> employerRepository.findById(userId)
+                    .orElseThrow(InvalidCredentialsException::new).getPasswordHash();
+            case ADMIN -> administratorRepository.findById(userId)
+                    .orElseThrow(InvalidCredentialsException::new).getPasswordHash();
+            case EXPERT -> expertRepository.findById(userId)
+                    .orElseThrow(InvalidCredentialsException::new).getPasswordHash();
+            case CONTENT_MANAGER -> contentManagerRepository.findById(userId)
+                    .orElseThrow(InvalidCredentialsException::new).getPasswordHash();
+        };
+    }
+
+    private void applyPasswordHash(Integer userId, Role role, String hash) {
+        switch (role) {
+            case JOB_SEEKER -> jobSeekerRepository.findById(userId).ifPresent(a -> {
+                a.setPasswordHash(hash);
+                jobSeekerRepository.save(a);
+            });
+            case EMPLOYER -> employerRepository.findById(userId).ifPresent(a -> {
+                a.setPasswordHash(hash);
+                employerRepository.save(a);
+            });
+            case ADMIN -> administratorRepository.findById(userId).ifPresent(a -> {
+                a.setPasswordHash(hash);
+                administratorRepository.save(a);
+            });
+            case EXPERT -> expertRepository.findById(userId).ifPresent(a -> {
+                a.setPasswordHash(hash);
+                expertRepository.save(a);
+            });
+            case CONTENT_MANAGER -> contentManagerRepository.findById(userId).ifPresent(a -> {
+                a.setPasswordHash(hash);
+                contentManagerRepository.save(a);
+            });
+        }
     }
 
     private String extractBearerToken(String authorizationHeader) {

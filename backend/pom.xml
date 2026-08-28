@@ -40,6 +40,16 @@
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
 
+        <!--
+          Health and metrics. The Docker healthcheck previously probed /v3/api-docs, which only
+          proves the servlet container is up — it answers 200 while the database is unreachable,
+          so an orchestrator would keep routing traffic to a broken instance.
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
         <!-- Data access -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -171,6 +181,27 @@
                             <version>${mapstruct.version}</version>
                         </path>
                     </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <systemPropertyVariables>
+                        <!--
+                          application.yml requires JWT_SECRET from the environment (NFR-SEC-07):
+                          it has no fallback, so a deployment that forgets it refuses to start
+                          rather than signing tokens with a key published in this repository.
+
+                          Tests still need a context to load, so supply a fixed, obviously
+                          non-production key here. Declared in the build rather than in
+                          src/test/resources/application.yml because a test-classpath file of
+                          that name SHADOWS the main one entirely, silently dropping every
+                          other setting (storage paths, AI timeouts, Flyway) and failing in
+                          ways that look unrelated.
+                        -->
+                        <JWT_SECRET>test-only-jwt-signing-key-never-used-outside-the-test-suite</JWT_SECRET>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
         </plugins>

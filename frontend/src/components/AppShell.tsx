@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useAuth } from '../auth/useAuth';
 import { ROLES } from '../auth/roles';
 import { NAV } from '../auth/nav';
+import { ThemeMenu } from './ThemeMenu';
 
 interface Props {
   children: ReactNode;
@@ -73,6 +74,7 @@ export function AppShell({ children, careerPath }: Props) {
         <div className="topbar__account">
           <span className="pill">{roleLabel}</span>
           <span className="topbar__email">{session.email}</span>
+          <ThemeMenu />
           <button type="button" className="button button--quiet" onClick={() => void signOut()}>
             Sign out
           </button>

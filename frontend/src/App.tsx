@@ -24,13 +24,17 @@ import { CompanyProfilePage } from './pages/employer/CompanyProfilePage';
 import { ExpertSessionsPage } from './pages/expert/ExpertSessionsPage';
 import { ExpertAvailabilityPage } from './pages/expert/ExpertAvailabilityPage';
 import { ExpertProfilePage } from './pages/expert/ExpertProfilePage';
+import { ExpertMenteeProfilePage } from './pages/expert/ExpertMenteeProfilePage';
+
 
 import { LearningOutcomesPage } from './pages/content/LearningOutcomesPage';
 import { LearningOutcomeReviewPage } from './pages/content/LearningOutcomeReviewPage';
+import { StudyFieldPage } from './pages/content/StudyFieldPage';
 
 import { AdminContentManagersPage } from './pages/admin/AdminContentManagersPage';
 import { AdminMentorsPage } from './pages/admin/AdminMentorsPage';
 import { AdminReferencePage } from './pages/admin/AdminReferencePage';
+import { AdminProfilePage } from './pages/admin/AdminProfilePage';
 
 import type { ReactNode } from 'react';
 
@@ -61,10 +65,24 @@ function RootRedirect() {
   return <Navigate to={session ? homeFor(session.role) : '/login'} replace />;
 }
 
+import { Toaster } from 'sonner';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
+
 export default function App() {
   return (
-    <BrowserRouter>
-      <AuthProvider>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <AuthProvider>
+        <Toaster position="top-right" />
         <Routes>
           <Route path="/" element={<RootRedirect />} />
           <Route path="/login" element={<LoginPage />} />
@@ -89,21 +107,25 @@ export default function App() {
 
           {/* --- Expert (FR-EX-*) -------------------------------------- */}
           <Route path="/expert" element={<Expert><ExpertSessionsPage /></Expert>} />
+          <Route path="/expert/job-seekers/:jobseekerId" element={<Expert><ExpertMenteeProfilePage /></Expert>} />
           <Route path="/expert/availability" element={<Expert><ExpertAvailabilityPage /></Expert>} />
           <Route path="/expert/profile" element={<Expert><ExpertProfilePage /></Expert>} />
 
           {/* --- Content manager (FR-CM-*) ----------------------------- */}
           <Route path="/content" element={<ContentManager><LearningOutcomesPage /></ContentManager>} />
+          <Route path="/content/study-field" element={<ContentManager><StudyFieldPage /></ContentManager>} />
           <Route path="/content/learning-outcomes/:outcomeId/review" element={<ContentManager><LearningOutcomeReviewPage /></ContentManager>} />
 
           {/* --- Admin (FR-SA-*) --------------------------------------- */}
           <Route path="/admin" element={<Admin><AdminContentManagersPage /></Admin>} />
           <Route path="/admin/mentors" element={<Admin><AdminMentorsPage /></Admin>} />
           <Route path="/admin/reference" element={<Admin><AdminReferencePage /></Admin>} />
+          <Route path="/admin/profile" element={<Admin><AdminProfilePage /></Admin>} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>
+    </QueryClientProvider>
   );
 }

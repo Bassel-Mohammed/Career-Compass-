@@ -1,11 +1,13 @@
 package com.careercompass.exception;
 
 import com.careercompass.dto.response.ApiErrorResponse;
+import lombok.extern.slf4j.Slf4j;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -27,6 +29,7 @@ import java.util.List;
  * clear, non-technical error messages the frontend can render directly without special-casing
  * per endpoint).
  */
+@Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -103,6 +106,21 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiErrorResponse> handleStaleResource(StaleResourceException ex,
                                                                  HttpServletRequest request) {
         return build(HttpStatus.CONFLICT, "STALE_RESOURCE", ex.getMessage(), request, null);
+    }
+
+    /**
+     * Two writes raced for the same row and Hibernate's version check rejected the loser.
+     *
+     * <p>This is a conflict, not a fault: nothing is broken, the caller simply lost the race
+     * and the request is safe to retry against fresh data. Left to the catch-all below it
+     * surfaced as a 500 "something went wrong on our end", which is both wrong about whose
+     * problem it is and useless to a client deciding whether to retry.
+     */
+    @ExceptionHandler(ObjectOptimisticLockingFailureException.class)
+    public ResponseEntity<ApiErrorResponse> handleOptimisticLock(ObjectOptimisticLockingFailureException ex,
+                                                                  HttpServletRequest request) {
+        return build(HttpStatus.CONFLICT, "CONCURRENT_MODIFICATION",
+                "Someone else changed this at the same time. Reload and try again.", request, null);
     }
 
     @ExceptionHandler(MaxUploadSizeExceededException.class)
@@ -189,8 +207,8 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiErrorResponse> handleUnexpected(Exception ex, HttpServletRequest request) {
+        log.error("Unhandled exception on {}", request.getRequestURI(), ex);
         // Deliberately generic message to the client (no stack trace / internal detail leaked);
-        // real logging of `ex` happens via the logging framework, not shown here.
         return build(HttpStatus.INTERNAL_SERVER_ERROR, "INTERNAL_ERROR",
                 "Something went wrong on our end. Please try again shortly.", request, null);
     }

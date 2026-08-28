@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import { AppShell } from '../../components/AppShell';
 import { Banner } from '../../components/Banner';
 import { Card, ErrorState, PageHeader, Skeleton } from '../../components/ui';
@@ -6,6 +6,9 @@ import { useAuth } from '../../auth/useAuth';
 import { useAction, useAsync } from '../../hooks/useAsync';
 import * as expertApi from '../../api/expert';
 import { messageFor } from '../../api/errors';
+import { ChangePasswordCard } from '../../components/ChangePasswordCard';
+
+import { toast } from 'sonner';
 
 export function ExpertProfilePage() {
   const { session } = useAuth();
@@ -14,16 +17,15 @@ export function ExpertProfilePage() {
   const profile = useAsync(() => expertApi.getProfile(token), [token]);
   const updateStatus = useAction(expertApi.setActive);
 
-  const [successMsg, setSuccessMsg] = useState('');
-
   const handleToggleStatus = async () => {
     if (!profile.data) return;
     const isActive = profile.data.statusName === 'Active';
     const res = await updateStatus.run(token, !isActive);
     if (res) {
       profile.setData(res);
-      setSuccessMsg(`Profile is now ${res.statusName}.`);
-      setTimeout(() => setSuccessMsg(''), 5000);
+      toast.success(`Profile is now ${res.statusName}`);
+    } else {
+      toast.error('Failed to change status');
     }
   };
 
@@ -48,23 +50,30 @@ export function ExpertProfilePage() {
           <Card as="section">
             <h2 className="section__title">Personal Information</h2>
             <dl className="facts">
-              <dt>Name</dt>
-              <dd>{profile.data.firstName} {profile.data.lastName}</dd>
-              
-              <dt>Email</dt>
-              <dd>{profile.data.email}</dd>
-              
-              <dt>Study Field</dt>
-              <dd>{profile.data.studyFieldName || 'Not specified'}</dd>
-              
-              <dt>Field Starting Year</dt>
-              <dd>{profile.data.fieldStartingYear}</dd>
-
-              <dt>Status</dt>
-              <dd>
-                <span className={`badge badge--${profile.data.statusName === "Active" ? "strong" : "weak"}`}>{profile.data.statusName}</span> 
-                <span style={{ marginLeft: '0.5rem' }}>{profile.data.statusName}</span>
-              </dd>
+              <div>
+                <dt>Name</dt>
+                <dd>{profile.data.firstName} {profile.data.lastName}</dd>
+              </div>
+              <div>
+                <dt>Email</dt>
+                <dd>{profile.data.email}</dd>
+              </div>
+              <div>
+                <dt>Study Field</dt>
+                <dd>{profile.data.studyFieldName || 'Not specified'}</dd>
+              </div>
+              <div>
+                <dt>Field Starting Year</dt>
+                <dd>{profile.data.fieldStartingYear}</dd>
+              </div>
+              <div>
+                <dt>Status</dt>
+                <dd>
+                  <span className={`badge badge--${profile.data.statusName === "Active" ? "strong" : "weak"}`}>
+                    {profile.data.statusName}
+                  </span>
+                </dd>
+              </div>
             </dl>
             <div className="notice notice--info" style={{ marginTop: '1rem' }}>
               Your name, email and study field are set by an administrator and cannot be changed here.
@@ -78,12 +87,6 @@ export function ExpertProfilePage() {
               Only Active mentors appear to students browsing their field.
             </p>
             
-            {successMsg && (
-              <div className="notice notice--ok" style={{ margin: '1rem 0' }}>
-                {successMsg}
-              </div>
-            )}
-
             <div className="actions" style={{ marginTop: '1.5rem' }}>
               <button 
                 className={`button ${profile.data.statusName === 'Active' ? 'button--danger' : 'button--primary'}`}
@@ -96,6 +99,8 @@ export function ExpertProfilePage() {
           </Card>
         </div>
       )}
+
+      <ChangePasswordCard />
     </AppShell>
   );
 }

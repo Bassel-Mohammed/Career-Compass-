@@ -32,7 +32,12 @@ careercompass:
       skill-vector-seconds: 10
       skill-gap-seconds: 10
       recommendations-seconds: 5
-      quiz-seconds: 15
+      # Measured, not guessed: local Qwen3-8B generation of a 4-question quiz took between 25s
+      # and 70s end-to-end. The previous 15s here was below the floor of that range, so every
+      # production quiz would have timed out while the model was still writing. Keep this above
+      # whatever the deployed LLM actually costs; a hosted API may well be faster, but lower it
+      # only against a measurement.
+      quiz-seconds: 90
 
 logging:
   level:

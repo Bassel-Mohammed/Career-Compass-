@@ -237,6 +237,17 @@ export interface SkillLevelResponse {
   skillType?: 'knowledge' | 'skill' | 'tool' | 'soft';
   /** Shortfall weighted by demand. The order the list arrives in. */
   priority?: number;
+  /** How the current score was measured. */
+  evidenceSource?: 'grades' | 'grades+quizzes' | 'quizzes' | 'transfer';
+  /** Confirmed transcript courses whose syllabi support this skill. */
+  sourceCourses?: SkillCourseEvidenceResponse[];
+}
+
+export interface SkillCourseEvidenceResponse {
+  courseCode?: string;
+  courseName?: string;
+  grade?: string;
+  level?: 'beginner' | 'intermediate' | 'advanced';
 }
 
 export interface SkillDashboardResponse {
@@ -417,6 +428,11 @@ export interface MentorSummaryResponse {
   matchScore?: number;
   gapsAddressed?: number;
   matchReason?: string;
+  /**
+   * The mentor's published weekly slots. Booking outside them is rejected, and an empty
+   * list means this mentor has not published a schedule and cannot be booked yet.
+   */
+  availability?: AvailabilitySlotResponse[];
 }
 
 export interface BookAppointmentRequest {
@@ -758,4 +774,13 @@ export interface UpdateCareerPathRequest {
   title?: string;
   description?: string;
   studyFieldIds?: number[];
+}
+
+/**
+ * Changing your own password. The current one is required even though the request already
+ * carries a valid token — a stolen session must not be enough to take over the account.
+ */
+export interface ChangePasswordRequest {
+  currentPassword: string;
+  newPassword: string;
 }

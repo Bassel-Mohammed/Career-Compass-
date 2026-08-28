@@ -1362,17 +1362,18 @@ class CareerCompassSystemTest {
                 .andExpect(jsonPath("$[0].explanation").exists());
     }
 
-    // Purpose: viewing the stored recommendations afterward still returns them, though the
-    // per-course explanation is null on this path (a documented schema limitation - the
-    // courses_recommendations table has no explanation column).
+    // Purpose: re-reading the stored recommendations returns the reasoning too, not just the
+    // course links. V6 added targeted_skill_name and explanation precisely so a student coming
+    // back to the page keeps the "why this course" text instead of being told to regenerate.
     @Test
     @Order(51)
-    void phase5_jobSeekerCanViewStoredRecommendations_explanationIsNullOnReRead() throws Exception {
+    void phase5_jobSeekerCanViewStoredRecommendations_reasoningSurvivesReRead() throws Exception {
         mockMvc.perform(get("/api/job-seekers/me/course-recommendations")
                         .header("Authorization", "Bearer " + jobSeekerToken))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].courseName", is("Operating Systems Fundamentals")))
-                .andExpect(jsonPath("$[0].explanation").doesNotExist());
+                .andExpect(jsonPath("$[0].explanation").exists())
+                .andExpect(jsonPath("$[0].targetedSkillName").exists());
     }
 
     // =====================================================================================
@@ -1482,8 +1483,14 @@ class CareerCompassSystemTest {
     @Test
     @Order(71)
     void phase7_jobSeekerCanBookConsultationSession() throws Exception {
-        String futureDate = LocalDateTime.now().plusDays(3).toString();
-        String body = String.format("{\"expertId\":%d,\"appointmentDate\":\"%s\"}", expertId, futureDate);
+        // Booking is only allowed inside a slot the mentor has published (FR-EX-06 gates
+        // FR-JS-25), so the schedule has to exist before the request — exactly the order a
+        // real mentor and student go through.
+        LocalDateTime slot = LocalDateTime.now().plusDays(3).withHour(10).withMinute(0)
+                .withSecond(0).withNano(0);
+        publishAvailabilityCovering(slot);
+
+        String body = String.format("{\"expertId\":%d,\"appointmentDate\":\"%s\"}", expertId, slot);
 
         MvcResult result = mockMvc.perform(post("/api/job-seekers/me/appointments")
                         .header("Authorization", "Bearer " + jobSeekerToken)
@@ -1569,6 +1576,25 @@ class CareerCompassSystemTest {
                 .andExpect(jsonPath("$[0].appointmentId", is(appointmentId)));
     }
 
+    /**
+     * Publish a mentor schedule wide enough to contain {@code slot}.
+     *
+     * <p>The suite books relative to "now", so the weekday moves with the calendar; the slot's
+     * own day is derived rather than hard-coded, and the window is deliberately generous so
+     * the assertion under test is about booking, not about clock arithmetic. The endpoint
+     * replaces the whole schedule, which is why each caller republishes its own day.
+     */
+    private void publishAvailabilityCovering(LocalDateTime slot) throws Exception {
+        String body = String.format(
+                "{\"slots\":[{\"dayOfWeek\":%d,\"startTime\":\"00:00:00\",\"endTime\":\"23:59:00\"}]}",
+                slot.getDayOfWeek().getValue());
+
+        mockMvc.perform(put("/api/experts/me/availability")
+                        .header("Authorization", "Bearer " + expertToken)
+                        .contentType("application/json").content(body))
+                .andExpect(status().isOk());
+    }
+
     // Purpose: FR-EX-06 - the Expert sets the weekly availability schedule for consultation
     // sessions. The endpoint replaces the whole schedule rather than appending to it, so the
     // test writes two slots, then rewrites with one, and confirms the first set is gone.
@@ -1605,8 +1631,11 @@ class CareerCompassSystemTest {
     @Test
     @Order(79)
     void phase7_expertCanRejectAConsultationRequest() throws Exception {
-        String futureDate = LocalDateTime.now().plusDays(10).toString();
-        String body = String.format("{\"expertId\":%d,\"appointmentDate\":\"%s\"}", expertId, futureDate);
+        LocalDateTime slot = LocalDateTime.now().plusDays(10).withHour(10).withMinute(0)
+                .withSecond(0).withNano(0);
+        publishAvailabilityCovering(slot);
+
+        String body = String.format("{\"expertId\":%d,\"appointmentDate\":\"%s\"}", expertId, slot);
 
         MvcResult booking = mockMvc.perform(post("/api/job-seekers/me/appointments")
                         .header("Authorization", "Bearer " + jobSeekerToken)

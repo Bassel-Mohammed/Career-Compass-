@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState, useId } from 'react';
 
 export interface AsyncState<T> {
   data: T | undefined;
@@ -15,65 +15,48 @@ export interface AsyncState<T> {
   setData: (next: T) => void;
 }
 
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+
 /**
  * Load something once, and again on demand.
- *
- * Deliberately not a cache. Almost every screen here reads a resource the backend
- * recomputes per request — the skill dashboard is rebuilt from scratch on every call —
- * so a stale-while-revalidate layer would mostly add a way to show numbers that are
- * quietly out of date.
- *
- * `deps` behaves like an effect dependency list: change it and the request re-runs.
+ * Refactored to use React Query under the hood for better request lifecycle management,
+ * while maintaining the legacy API signature.
  */
 export function useAsync<T>(
   loader: (signal: AbortSignal) => Promise<T>,
   deps: unknown[] = [],
 ): AsyncState<T> {
-  const [data, setData] = useState<T | undefined>(undefined);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<unknown>(null);
-  const [nonce, setNonce] = useState(0);
+  const queryClient = useQueryClient();
+  const hookId = useId(); // Ensure queries from different useAsync calls don't collide on identical deps
 
-  // Keep the latest loader without making it a dependency: callers pass an inline
-  // arrow function, which is a new value on every render and would loop forever.
-  // Updated in an effect rather than during render, and declared BEFORE the effect that
-  // uses it so it is already current by the time that one runs.
   const loaderRef = useRef(loader);
   useEffect(() => {
     loaderRef.current = loader;
   });
 
-  useEffect(() => {
-    const controller = new AbortController();
-    let live = true;
+  const queryKey = [hookId, ...deps];
 
-    setLoading(true);
-    setError(null);
+  const query = useQuery({
+    queryKey,
+    queryFn: ({ signal }) => loaderRef.current(signal),
+  });
 
-    loaderRef.current(controller.signal)
-      .then((result) => {
-        if (!live) return;
-        setData(result);
-      })
-      .catch((cause: unknown) => {
-        // An abort is this effect cleaning up after itself, not a failure to report.
-        if (!live || controller.signal.aborted) return;
-        setError(cause);
-      })
-      .finally(() => {
-        if (live) setLoading(false);
-      });
+  const reload = useCallback(() => {
+    query.refetch();
+  }, [query]);
 
-    return () => {
-      live = false;
-      controller.abort();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [...deps, nonce]);
+  const setData = useCallback((next: T) => {
+    queryClient.setQueryData(queryKey, next);
+  }, [queryClient, queryKey]);
 
-  const reload = useCallback(() => setNonce((n) => n + 1), []);
-
-  return { data, loading, error, failed: error != null, reload, setData };
+  return {
+    data: query.data,
+    loading: query.isLoading,
+    error: query.error,
+    failed: query.isError,
+    reload,
+    setData
+  };
 }
 
 /**

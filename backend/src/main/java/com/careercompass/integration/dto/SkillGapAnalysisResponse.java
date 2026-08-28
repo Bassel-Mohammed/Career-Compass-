@@ -118,5 +118,20 @@ public class SkillGapAnalysisResponse {
          * shortfall in something almost nobody does.
          */
         private BigDecimal priority;
+        /** "grades", "grades+quizzes", "quizzes" or "transfer". */
+        private String evidenceSource;
+        /** Transcript courses whose extracted syllabi support this skill. */
+        private List<CourseEvidenceDto> sourceCourses;
+    }
+
+    @Getter
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class CourseEvidenceDto {
+        private String courseCode;
+        private String courseName;
+        private String grade;
+        private String level;
     }
 }

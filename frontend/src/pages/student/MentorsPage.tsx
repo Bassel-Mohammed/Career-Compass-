@@ -13,9 +13,13 @@ import {
 import { useAuth } from '../../auth/useAuth';
 import { useAction, useAsync } from '../../hooks/useAsync';
 import * as consultationsApi from '../../api/consultations';
-import { formatDateTime, toLocalDateTime } from '../../api/format';
+import { dayName, formatDateTime, toLocalDateTime } from '../../api/format';
 import { fieldErrorsFor, messageFor, prerequisiteFor } from '../../api/errors';
-import type { AppointmentStatus, MentorSummaryResponse } from '../../types';
+import type {
+  AppointmentStatus,
+  AvailabilitySlotResponse,
+  MentorSummaryResponse,
+} from '../../types';
 
 /** The soonest sensible default: tomorrow at 10:00, in the student's own timezone. */
 function defaultSlot(): string {
@@ -24,6 +28,36 @@ function defaultSlot(): string {
   when.setHours(10, 0, 0, 0);
   // datetime-local wants "YYYY-MM-DDTHH:mm" — the same shape minus the seconds.
   return toLocalDateTime(when).slice(0, 16);
+}
+
+/** "HH:mm:ss" or "HH:mm" as minutes past midnight, for comparing against a picked time. */
+function minutesOfDay(time: string): number {
+  const [h, m] = time.split(':');
+  return Number(h) * 60 + Number(m);
+}
+
+/**
+ * Does `when` fall inside one of the mentor's published slots?
+ *
+ * The server enforces this too — this is only so the student finds out before sending the
+ * request rather than after. End is exclusive, matching the server, so a 09:00–12:00 slot
+ * offers 09:00 through 11:59 but not 12:00 itself.
+ */
+function isWithinAvailability(when: Date, slots: AvailabilitySlotResponse[]): boolean {
+  // JS getDay() is 0=Sunday..6=Saturday; the API uses 1=Monday..7=Sunday.
+  const apiDay = when.getDay() === 0 ? 7 : when.getDay();
+  const minutes = when.getHours() * 60 + when.getMinutes();
+  return slots.some(
+    (slot) =>
+      slot.dayOfWeek === apiDay &&
+      minutes >= minutesOfDay(slot.startTime) &&
+      minutes < minutesOfDay(slot.endTime),
+  );
+}
+
+/** "Mon 09:00–12:00", the shape the mentor entered it in. */
+function describeSlot(slot: AvailabilitySlotResponse): string {
+  return `${dayName(slot.dayOfWeek).slice(0, 3)} ${slot.startTime.slice(0, 5)}–${slot.endTime.slice(0, 5)}`;
 }
 
 const STATUS_TONE: Record<AppointmentStatus, string> = {
@@ -53,6 +87,16 @@ export function MentorsPage() {
 
   const prereq = prerequisiteFor(mentors.error, 'JOB_SEEKER');
   const errors = fieldErrorsFor(book.error);
+
+  /**
+   * Why the picked time would be refused, or undefined when it is fine. Checked here as well
+   * as on the server so the student is told before sending, not after — the datetime-local
+   * field itself cannot express "Mondays 9–12 only".
+   */
+  const outsideAvailability =
+    booking && !isWithinAvailability(new Date(when), booking.availability ?? [])
+      ? 'Outside this mentor’s published times. Pick a slot listed below.'
+      : undefined;
 
   async function handleBook() {
     if (!booking) return;
@@ -107,6 +151,16 @@ export function MentorsPage() {
                     </div>
                   )}
 
+                  {(mentor.availability?.length ?? 0) > 0 ? (
+                    <p className="cell__quiet">
+                      Available: {mentor.availability!.map(describeSlot).join(', ')}
+                    </p>
+                  ) : (
+                    <p className="cell__quiet">
+                      Has not published a schedule yet, so they cannot be booked.
+                    </p>
+                  )}
+
                   <button
                     type="button"
                     className="button button--secondary button--small button--auto"
@@ -114,6 +168,7 @@ export function MentorsPage() {
                       setBooking(mentor);
                       book.clearError();
                     }}
+                    disabled={(mentor.availability?.length ?? 0) === 0}
                   >
                     Request a session
                   </button>
@@ -134,8 +189,8 @@ export function MentorsPage() {
                   type="datetime-local"
                   value={when}
                   onChange={(e) => setWhen(e.target.value)}
-                  error={errors.appointmentDate}
-                  hint="Must be in the future. The mentor still has to accept before it is confirmed."
+                  error={errors.appointmentDate ?? outsideAvailability}
+                  hint={`Their published times: ${(booking.availability ?? []).map(describeSlot).join(', ')}. The mentor still has to accept before it is confirmed.`}
                   disabled={book.running}
                 />
                 <div className="actions">
@@ -143,7 +198,7 @@ export function MentorsPage() {
                     type="button"
                     className="button button--primary button--auto"
                     onClick={() => void handleBook()}
-                    disabled={book.running}
+                    disabled={book.running || outsideAvailability !== undefined}
                   >
                     {book.running ? 'Requesting…' : 'Send request'}
                   </button>

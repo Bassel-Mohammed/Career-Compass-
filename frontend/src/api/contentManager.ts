@@ -220,3 +220,18 @@ export function deleteOutcomeFile(
     token,
   });
 }
+
+/**
+ * Discards the whole upload — the row, its draft skills and the PDF. 204, nothing returned.
+ *
+ * The counterpart to {@link deleteOutcomeFile}, which keeps everything that was extracted.
+ * Rejected with `PREREQUISITE_NOT_MET` once the outcome has been published to a course map:
+ * that map is immutable and lives in the AI service, so deleting this row would not retract it,
+ * only remove the record of where its skills came from.
+ */
+export function deleteOutcome(token: string, outcomeId: number): Promise<void> {
+  return request<void>(`${PATH}/learning-outcomes/${outcomeId}`, {
+    method: 'DELETE',
+    token,
+  });
+}

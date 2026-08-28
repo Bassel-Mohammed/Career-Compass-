@@ -33,7 +33,7 @@ spring.servlet.multipart:
 careercompass:
   jwt:
     # NFR-SEC-07: real secret must come from an environment variable, never hard-coded.
-    secret: ${JWT_SECRET:CHANGE_ME_LOCAL_DEV_ONLY_NOT_FOR_PRODUCTION_1234567890}
+    secret: ${JWT_SECRET}
     expiration-minutes: 30   # FR-JS-04 / FR-CM-03 / FR-EMP-04: 30-minute inactivity session
 
   ai-service:
@@ -58,12 +58,41 @@ careercompass:
       taxonomy-seconds: 10
       publication-seconds: 30
 
+  security:
+    login:
+      # Failed sign-ins tolerated per client IP per actor route before a cooling-off period.
+      # Generous enough that a real user mistyping a password is never affected.
+      max-attempts: 10
+      lockout-minutes: 15
+
+  cors:
+    # Browser origins allowed to call this API. Comma-separated; the default covers a local
+    # Vite dev server and a local CRA-style server. Override with CORS_ALLOWED_ORIGINS in any
+    # deployment where the frontend is served from a real hostname.
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000,http://localhost:5173}
+
   storage:
     # Local filesystem location for uploaded learning-outcome PDFs (FR-CM-04).
     # A local disk is fine for a student-project deployment; swap for cloud object storage
     # (S3-compatible) by replacing FileStorageService's implementation if this ever needs to
     # run across multiple app instances (NFR-SCAL-02 statelessness would otherwise be broken).
     learning-outcomes-dir: ${LEARNING_OUTCOMES_DIR:./uploads/learning-outcomes}
+
+# Health and metrics for orchestrators and operators. Only health/info are exposed over HTTP:
+# the full actuator surface (env, beans, heapdump, mappings) leaks configuration and internals,
+# and none of it is needed by a container probe.
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      # Show which component is failing to an operator reading the endpoint directly, while
+      # keeping the probe itself a simple UP/DOWN for the orchestrator.
+      show-details: when-authorized
+      probes:
+        enabled: true
 
 springdoc:
   swagger-ui:
