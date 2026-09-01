@@ -44,6 +44,8 @@ class HttpDataAnalysisClientContractTest {
     private final Map<String, String> responses = new ConcurrentHashMap<>();
     private final Map<String, Integer> statuses = new ConcurrentHashMap<>();
     private final AtomicReference<String> lastBody = new AtomicReference<>();
+    /** Path plus query string, so a GET's parameters can be asserted the way a POST's body is. */
+    private final AtomicReference<String> lastPath = new AtomicReference<>();
 
     @BeforeEach
     void startServer() throws IOException {
@@ -152,6 +154,117 @@ class HttpDataAnalysisClientContractTest {
         assertThat(response.getSkillGaps().get(0).getTargetScore()).isEqualByComparingTo("85.00");
         // Readiness is derived, not a contract field: 1 of 4 requirements met.
         assertThat(response.getOverallReadinessPercent()).isEqualTo(25);
+    }
+
+    @Test
+    void analyzeSkillGap_carriesTheMarketDemandBehindEachRequirement() {
+        respond("/api/v1/skill-gap", 200, """
+                {
+                  "career_path": "Backend Development",
+                  "summary": {"strong": 0, "moderate": 0, "weak": 1},
+                  "band_summary": {
+                    "critical": {"strong": 0, "moderate": 0, "weak": 1, "total": 1},
+                    "important": {"strong": 0, "moderate": 0, "weak": 0, "total": 0},
+                    "useful": {"strong": 0, "moderate": 0, "weak": 0, "total": 0}
+                  },
+                  "sample_size": 184,
+                  "courses_counted": 3,
+                  "synthetic_counted": 2,
+                  "courses_skipped": [
+                    {"course_code": "0999999", "reason": "no skill map"},
+                    {"course_code": "0888888", "reason": "not passed", "status": "Fail"}
+                  ],
+                  "total_requirements": 1,
+                  "requirements_met": 0,
+                  "skills": [
+                    {"skill_id": "custom:back-end-development", "label": "back-end development",
+                     "skill_type": "knowledge", "required_level": "advanced",
+                     "required_proficiency": 0.85, "current_level": 0.0, "gap": 0.85,
+                     "classification": "weak", "importance": 0.391, "demand_band": "critical",
+                     "posting_count": 72, "priority": 0.3324, "evidence": "grades+quizzes",
+                     "course_count": 1,
+                     "courses": [{"course_code": "0412201", "course_name": "Databases",
+                                   "grade": "B", "weight": 0.85, "level": "advanced"}]}
+                  ]
+                }
+                """);
+
+        SkillGapAnalysisResponse response = client().analyzeSkillGap(SkillGapAnalysisRequest.builder()
+                .careerPathName("Backend Development")
+                .courses(List.of(CourseGradeDto.builder().courseCode("0412201").grade("B").build()))
+                .build());
+
+        SkillGapAnalysisResponse.SkillGapItemDto item = response.getSkillGaps().get(0);
+        // The band is passed straight through. Java must never recompute it: the thresholds live
+        // beside the job-posting data that justifies them, and a second copy here would be the
+        // two disagreeing about what "critical" means the first time either moved.
+        assertThat(item.getDemandBand()).isEqualTo("critical");
+        // 0.391 of postings, on the 0-100 scale ADR-003 fixes for this side of the wire.
+        assertThat(item.getImportancePercent()).isEqualByComparingTo("39.10");
+        assertThat(item.getPostingCount()).isEqualTo(72);
+        assertThat(item.getRequiredLevel()).isEqualTo("advanced");
+        assertThat(item.getSkillType()).isEqualTo("knowledge");
+        assertThat(item.getEvidenceSource()).isEqualTo("grades+quizzes");
+        assertThat(item.getSourceCourses()).singleElement().satisfies(course -> {
+            assertThat(course.getCourseCode()).isEqualTo("0412201");
+            assertThat(course.getCourseName()).isEqualTo("Databases");
+            assertThat(course.getGrade()).isEqualTo("B");
+            assertThat(course.getLevel()).isEqualTo("advanced");
+        });
+
+        // The denominator, without which 39.1% is a number a student has no reason to trust.
+        assertThat(response.getSampleSize()).isEqualTo(184);
+        assertThat(response.getBandSummary().get("critical")).containsEntry("total", 1);
+
+        // "You never studied this" and "we could not read your courses" produce the same empty
+        // bar and mean opposite things. Only these fields let the caller tell them apart.
+        assertThat(response.getCoursesCounted()).isEqualTo(3);
+        assertThat(response.getSyntheticCounted()).isEqualTo(2);
+        assertThat(response.getCoursesSkipped()).hasSize(2);
+        assertThat(response.getCoursesSkipped().get(0).getCourseCode()).isEqualTo("0999999");
+        assertThat(response.getCoursesSkipped().get(0).getReason()).isEqualTo("no skill map");
+        assertThat(response.getCoursesSkipped().get(1).getStatus()).isEqualTo("Fail");
+    }
+
+    @Test
+    void getCareerPathSkills_sendsTheNameAsAQueryParamAndScalesCoverage() {
+        // A query parameter, not a path segment. Two of the nine career-path names contain a
+        // slash, and a slash is legal unencoded inside a query value — which is exactly why it
+        // must not be a path segment, where it would split into two segments instead.
+        respond("/api/v1/career-paths/skills", 200, """
+                {
+                  "career_path": "UI/UX Design",
+                  "sample_size": 269,
+                  "derived_from": "job_postings",
+                  "captured_at": "2026-08-07T22:51:27.318954+00:00",
+                  "total": 1,
+                  "band_totals": {"critical": 8, "important": 9, "useful": 26},
+                  "skills": [
+                    {"skill_id": "custom:figma", "label": "Figma", "skill_type": "tool",
+                     "posting_count": 110, "coverage": 0.4089, "demand_band": "critical",
+                     "required_level": "advanced", "required_score": 40.9,
+                     "sample_terms": ["Figma", "Figma prototypes"]}
+                  ]
+                }
+                """);
+
+        CareerPathSkillsResponse response = client().getCareerPathSkills("UI/UX Design");
+
+        assertThat(lastPath.get()).startsWith("/api/v1/career-paths/skills?");
+        // Spring encodes the space and leaves the slash, which is what the AI service parses
+        // back to "UI/UX Design". Asserted as sent rather than as one might expect it: the
+        // point of the test is that the name survives the round trip intact.
+        assertThat(lastPath.get()).contains("career_path=UI/UX%20Design");
+
+        assertThat(response.getSampleSize()).isEqualTo(269);
+        assertThat(response.getBandTotals()).containsEntry("critical", 8);
+
+        CareerPathSkillsResponse.CareerPathSkillDto skill = response.getSkills().get(0);
+        assertThat(skill.getLabel()).isEqualTo("Figma");
+        assertThat(skill.getDemandBand()).isEqualTo("critical");
+        assertThat(skill.getPostingCount()).isEqualTo(110);
+        assertThat(skill.getCoveragePercent()).isEqualByComparingTo("40.89");
+        assertThat(skill.getSampleTerms()).containsExactly("Figma", "Figma prototypes");
     }
 
     @Test
@@ -350,6 +463,9 @@ class HttpDataAnalysisClientContractTest {
 
     private void handle(HttpExchange exchange) throws IOException {
         lastBody.set(new String(exchange.getRequestBody().readAllBytes(), StandardCharsets.UTF_8));
+
+        String query = exchange.getRequestURI().getRawQuery();
+        lastPath.set(exchange.getRequestURI().getRawPath() + (query == null ? "" : "?" + query));
 
         String path = exchange.getRequestURI().getPath();
         String json = responses.getOrDefault(path, "{}");

@@ -52,5 +52,10 @@ public class AiServiceProperties {
         private long recommendationsSeconds = 5;
         /** Quiz generation budget — an LLM call, so the longest of the JSON operations. */
         private long quizSeconds = 15;
+        /** Syllabus submit performs parsing before returning the asynchronous operation id. */
+        private long syllabusSeconds = 30;
+        /** Taxonomy search and approved map publication are deterministic storage operations. */
+        private long taxonomySeconds = 10;
+        private long publicationSeconds = 30;
     }
 }

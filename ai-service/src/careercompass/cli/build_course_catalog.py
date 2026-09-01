@@ -108,7 +108,7 @@ def main():
     if args.db:
         from careercompass.db.skills import init_catalog_tables, store_catalog_courses
         init_catalog_tables()
-        written = store_catalog_courses(index)
+        written = store_catalog_courses(index, platforms=platforms)
         print(f"\nwrote {written} course-skill rows to PostgreSQL")
 
 

@@ -14,14 +14,14 @@ import logging
 
 import psycopg2
 
-from careercompass.db.connection import get_connection, run_migration
+from careercompass.db.connection import apply_migrations, get_connection
 
 logger = logging.getLogger("careercompass.jobs")
 
 
 def init_job_tables() -> None:
-    """Create the job tables if they do not exist."""
-    run_migration("001_linkedin_jobs.sql")
+    """Bring the complete AI schema to the latest version."""
+    apply_migrations()
 
 
 def get_existing_urls(conn) -> set:
@@ -56,14 +56,25 @@ def insert_jobs(conn, jobs: list[dict]) -> int:
     """
 
     inserted = 0
-    with conn.cursor() as cur:
-        for job in jobs:
-            cur.execute(sql, job)
-            inserted += cur.rowcount
+    try:
+        with conn.cursor() as cur:
+            for job in jobs:
+                cur.execute(sql, job)
+                inserted += cur.rowcount
 
-    conn.commit()
-    logger.info("Inserted %d new jobs (skipped %d duplicates).", inserted, len(jobs) - inserted)
-    return inserted
+        conn.commit()
+        logger.info(
+            "Inserted %d new jobs (skipped %d duplicates).",
+            inserted,
+            len(jobs) - inserted,
+        )
+        return inserted
+    except Exception:
+        # The scraper reuses this connection across career paths. Without a
+        # rollback, one malformed row leaves it in PostgreSQL's aborted state
+        # and every later path fails even when its rows are valid.
+        conn.rollback()
+        raise
 
 
 def get_job_count_by_career_path(conn) -> dict:

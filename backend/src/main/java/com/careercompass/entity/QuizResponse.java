@@ -10,7 +10,8 @@ import java.time.LocalDateTime;
  * A job seeker's answer to a single quiz question (FR-JS-19: evaluate quiz responses).
  */
 @Entity
-@Table(name = "quiz_responses")
+@Table(name = "quiz_responses",
+        uniqueConstraints = @UniqueConstraint(name = "uq_quiz_response_question", columnNames = "question_id"))
 @Getter
 @Setter
 @NoArgsConstructor

@@ -91,45 +91,31 @@ public class CourseRecommendationService {
 
         courseRecommendationRepository.deleteByJobSeeker_JobseekerId(jobseekerId);
 
+        // The targeted skill and explanation are stored alongside the course now. They are the
+        // part a student actually reads — "29% of postings ask for this and your coursework
+        // shows no evidence of it" — and dropping them on save meant the saved view could only
+        // list bare links and suggest regenerating to see the reasoning again.
         List<CourseRecommendation> toSave = recommended.stream()
                 .map(r -> CourseRecommendation.builder()
                         .jobSeeker(jobSeeker)
                         .courseName(r.getCourseName())
                         .sourceLink(r.getSourceLink())
+                        .targetedSkillName(r.getTargetedSkillName())
+                        .explanation(r.getExplanation())
                         .build())
                 .toList();
-        List<CourseRecommendation> saved = courseRecommendationRepository.saveAll(toSave);
 
-        // Re-attach the explanation/targetedSkill (not persisted) to the freshly-saved rows,
-        // matched by position — recommended and saved are built from the same source list in
-        // the same order, so this is safe here without needing an extra correlation key.
-        return zipWithExplanations(saved, recommended);
+        return courseRecommendationRepository.saveAll(toSave).stream()
+                .map(courseRecommendationMapper::toItem)
+                .toList();
     }
 
-    /** FR-JS-15: view previously generated recommendations (explanation/targetedSkill are null — see Javadoc). */
+    /** FR-JS-15: view previously generated recommendations, reasoning included. */
     @Transactional(readOnly = true)
     public List<CourseRecommendationItem> listStoredRecommendations(Integer jobseekerId) {
         return courseRecommendationRepository
                 .findByJobSeeker_JobseekerIdOrderByRecommendedAtDesc(jobseekerId).stream()
                 .map(courseRecommendationMapper::toItem)
                 .toList();
-    }
-
-    private List<CourseRecommendationItem> zipWithExplanations(
-            List<CourseRecommendation> saved, List<RecommendedCourseDto> source) {
-        List<CourseRecommendationItem> items = new java.util.ArrayList<>();
-        for (int i = 0; i < saved.size(); i++) {
-            CourseRecommendation entity = saved.get(i);
-            RecommendedCourseDto sourceDto = source.get(i);
-            items.add(CourseRecommendationItem.builder()
-                    .recommendationId(entity.getRecommendationId())
-                    .courseName(entity.getCourseName())
-                    .sourceLink(entity.getSourceLink())
-                    .targetedSkillName(sourceDto.getTargetedSkillName())
-                    .explanation(sourceDto.getExplanation())
-                    .recommendedAt(entity.getRecommendedAt())
-                    .build());
-        }
-        return items;
     }
 }

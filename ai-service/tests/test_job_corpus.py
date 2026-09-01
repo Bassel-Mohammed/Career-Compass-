@@ -7,7 +7,7 @@ the matched result into per-path requirements.
 
 The arithmetic here is load-bearing and easy to get quietly wrong. A
 requirement is a fraction of a path's postings, not a count, because the
-paths are different sizes; and a level is the mode, not the maximum,
+paths are different sizes; a term's level is the mode, not the maximum,
 because a maximum over 2,238 postings saturates to "advanced" and stops
 meaning anything.
 
@@ -20,7 +20,7 @@ import sys
 from careercompass.skills.job_corpus import (
     _modal_level, _pick_surface, _pool_evidence, build_term_pool, to_skills,
 )
-from careercompass.skills.ontology import build_ontology, path_totals
+from careercompass.skills.ontology import _required_level, build_ontology, path_totals
 from collections import Counter
 
 _failures = []
@@ -234,6 +234,71 @@ def test_path_totals():
     check("totals", dict(path_totals(JOBS)), {"Backend": 3, "DevOps": 1})
 
 
+def test_required_level_is_the_median_not_the_mode():
+    """Where the requirement level comes from, and why the mode was wrong.
+
+    "Advanced" is the largest single bucket corpus-wide, so a mode hands it the plurality for
+    nearly every skill even when most postings asked for less. Measured on the real corpus, a
+    mode produced "advanced" for 83% of requirements against a corpus where 51% of mentions
+    were advanced — a level that no longer distinguished anything.
+    """
+    # A plurality is not a majority: 40 of 100 postings want advanced, 60 want less.
+    check("median.plurality_loses", _required_level(Counter(
+        {"beginner": 25, "intermediate": 35, "advanced": 40})), "intermediate")
+    # A real majority still carries.
+    check("median.majority_wins", _required_level(Counter(
+        {"intermediate": 10, "advanced": 90})), "advanced")
+    # Exactly half satisfied at intermediate is satisfied — the median is inclusive.
+    check("median.exact_half", _required_level(Counter(
+        {"intermediate": 50, "advanced": 50})), "intermediate")
+    check("median.single", _required_level(Counter({"beginner": 7})), "beginner")
+    check("median.empty", _required_level(Counter()), "intermediate")
+
+
+def test_required_level_uses_the_distribution_not_the_collapsed_mode():
+    """The ontology aggregates the level mix, not one level per term.
+
+    Each term arrives already collapsed to a modal `level` for the job_skills row it becomes.
+    Aggregating those modes takes a mode of modes, and the two collapses compound. `levels`
+    carries the real distribution so the second pass sees what the postings actually asked for.
+    """
+    # Ten postings, and the term is mostly asked for at intermediate depth.
+    skills = [{
+        "normalized": "k8s", "term": "Kubernetes",
+        "level": "advanced",  # the collapsed value the DB row keeps
+        "levels": {"intermediate": 7, "advanced": 3},
+        "postings_by_path": {"DevOps": list(range(10))},
+    }]
+    matches = {"k8s": accepted("custom:k8s", "Kubernetes")}
+    rows = build_ontology(skills, matches, {"DevOps": 10})
+    check("distribution.used", rows[0]["required_level"], "intermediate")
+
+    # Without `levels` the old behaviour stands, so an ontology built before the field
+    # existed still produces a level rather than failing.
+    legacy = [{"normalized": "k8s", "term": "Kubernetes", "level": "advanced",
+               "postings_by_path": {"DevOps": list(range(10))}}]
+    rows = build_ontology(legacy, matches, {"DevOps": 10})
+    check("distribution.legacy_fallback", rows[0]["required_level"], "advanced")
+
+
+def test_level_aggregation_weights_by_postings_not_terms():
+    """A skill named by a term in 9 postings outweighs one named in a single posting.
+
+    Several terms resolve to one skill, and they are not equally common. Counting each term's
+    mix once would let a rare synonym in one posting outvote the phrase fifty employers used.
+    """
+    skills = [
+        {"normalized": "common", "term": "Kubernetes", "level": "intermediate",
+         "levels": {"intermediate": 1}, "postings_by_path": {"DevOps": list(range(9))}},
+        {"normalized": "rare", "term": "K8s cluster ops", "level": "advanced",
+         "levels": {"advanced": 1}, "postings_by_path": {"DevOps": [9]}},
+    ]
+    matches = {name: accepted("custom:k8s", "Kubernetes") for name in ("common", "rare")}
+    rows = build_ontology(skills, matches, {"DevOps": 10})
+    check("weighting.posting_count", rows[0]["posting_count"], 10)
+    check("weighting.level", rows[0]["required_level"], "intermediate")
+
+
 def main():
     test_document_frequency_counts_postings()
     test_repeated_mentions_do_not_inflate_frequency()
@@ -249,6 +314,9 @@ def main():
     test_coverage_never_exceeds_one()
     test_rare_skills_are_dropped()
     test_path_totals()
+    test_required_level_is_the_median_not_the_mode()
+    test_required_level_uses_the_distribution_not_the_collapsed_mode()
+    test_level_aggregation_weights_by_postings_not_terms()
 
     print(f"Ran {_checks} checks")
     if _failures:

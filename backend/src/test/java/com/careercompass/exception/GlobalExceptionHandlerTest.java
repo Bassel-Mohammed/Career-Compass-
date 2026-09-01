@@ -6,7 +6,9 @@ import lombok.Getter;
 import lombok.Setter;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
@@ -32,6 +34,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * exception mapping itself, not authentication, is what's under test here.
  */
 @WebMvcTest(controllers = GlobalExceptionHandlerTest.ThrowingTestController.class)
+@AutoConfigureMockMvc(addFilters = false)
 @ContextConfiguration(classes = {
         GlobalExceptionHandlerTest.ThrowingTestController.class,
         GlobalExceptionHandler.class
@@ -97,6 +100,19 @@ class GlobalExceptionHandlerTest {
                 .andExpect(status().isConflict())
                 .andExpect(jsonPath("$.status", is(409)))
                 .andExpect(jsonPath("$.error", is("DUPLICATE_RESOURCE")));
+    }
+
+    // Purpose: A constraint race maps to a controlled 409 without exposing SQL details.
+    @Test
+    @WithMockUser
+    void dataIntegrityViolation_returns409WithoutLeakingConstraintDetails() throws Exception {
+        mockMvc.perform(post("/test/data-conflict"))
+                .andExpect(status().isConflict())
+                .andExpect(jsonPath("$.status", is(409)))
+                .andExpect(jsonPath("$.error", is("DATA_CONFLICT")))
+                .andExpect(jsonPath("$.message", is(
+                        "The requested change conflicts with data that was already saved. "
+                                + "Refresh and try again.")));
     }
 
     // Purpose: PrerequisiteNotMetException maps to 400 BAD_REQUEST (well-formed request, but
@@ -189,6 +205,12 @@ class GlobalExceptionHandlerTest {
         @PostMapping("/test/duplicate")
         void duplicate() {
             throw new DuplicateResourceException("Already exists.");
+        }
+
+        @PostMapping("/test/data-conflict")
+        void dataConflict() {
+            throw new DataIntegrityViolationException(
+                    "Duplicate entry for constraint uq_quiz_response_question");
         }
 
         @PostMapping("/test/prerequisite-not-met")

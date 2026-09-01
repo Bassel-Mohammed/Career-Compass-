@@ -1,13 +1,16 @@
 package com.careercompass.config;
 
 import com.careercompass.dto.response.ApiErrorResponse;
+import com.careercompass.security.LoginRateLimitFilter;
 import com.careercompass.security.jwt.JwtAuthFilter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -46,6 +49,15 @@ import java.util.List;
 public class SecurityConfig {
 
     private final JwtAuthFilter jwtAuthFilter;
+    private final LoginRateLimitFilter loginRateLimitFilter;
+
+    /**
+     * Browser origins permitted to call this API. Set {@code CORS_ALLOWED_ORIGINS} to a
+     * comma-separated list (for example {@code https://careercompass.example}) in any
+     * environment the frontend is not served from localhost.
+     */
+    @Value("${careercompass.cors.allowed-origins}")
+    private List<String> allowedOrigins;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -81,12 +93,29 @@ public class SecurityConfig {
                         // declared BEFORE the permitAll below, because Spring Security applies
                         // the first matching rule (FR-JS-03, FR-CM-02, FR-EMP-03).
                         .requestMatchers("/api/auth/logout").authenticated()
+                        // Same reasoning: changing a password needs to know whose password it
+                        // is. Must also precede the /api/auth/** permitAll below, or this route
+                        // would be reachable with no token at all and @CurrentUser would be null.
+                        .requestMatchers("/api/auth/password").authenticated()
                         // Public: registration/login for every actor
                         .requestMatchers("/api/auth/**").permitAll()
                         // Public: API docs
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
+                        // Public: liveness/readiness. A probe carries no credentials, and a
+                        // health endpoint answering 401 reads as "unhealthy" to an orchestrator,
+                        // which then restarts the container forever. Only health/info are
+                        // exposed at all (see management.endpoints in application.yml).
+                        .requestMatchers("/actuator/health/**", "/actuator/info").permitAll()
                         // Dev-only: H2 console (never enabled in prod profile)
                         .requestMatchers("/h2-console/**").permitAll()
+                        // Shared lookup lists (universities, study fields, career paths). Any
+                        // signed-in actor may read them: a job seeker needs the study field and
+                        // career path ids to satisfy FR-JS-07/09, and a content manager needs the
+                        // study field ids for FR-CM-05, but neither can reach /api/admin/**.
+                        // Declared BEFORE the role rules below because the first match wins —
+                        // moving it after them would leave it unreachable. Read-only; creating
+                        // and editing these rows stays on /api/admin/** (FR-SA-07..10).
+                        .requestMatchers(HttpMethod.GET, "/api/reference/**").authenticated()
                         // Role-scoped areas — refined further at the controller/method level
                         // as those controllers are built in later increments.
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
@@ -98,7 +127,10 @@ public class SecurityConfig {
                 )
                 // Needed for the H2 console's use of frames — dev profile only in practice.
                 .headers(headers -> headers.frameOptions(frame -> frame.sameOrigin()))
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+                // Ahead of the JWT filter: the login routes are permitAll, so nothing else in
+                // the chain would stop an unauthenticated flood of password guesses.
+                .addFilterBefore(loginRateLimitFilter, JwtAuthFilter.class);
 
         return http.build();
     }
@@ -156,8 +188,11 @@ public class SecurityConfig {
 
     private CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        // TODO: replace with the real frontend origin(s) once the frontend is deployed.
-        configuration.setAllowedOrigins(List.of("http://localhost:3000", "http://localhost:5173"));
+        // Driven by CORS_ALLOWED_ORIGINS so a deployment can name its real frontend without a
+        // code change. The default keeps local development working; because credentials are
+        // allowed on this chain, wildcards are deliberately not supported — every origin has
+        // to be named.
+        configuration.setAllowedOrigins(allowedOrigins);
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);

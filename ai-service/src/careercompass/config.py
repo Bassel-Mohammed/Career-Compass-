@@ -42,15 +42,24 @@ SKILLS_DIR = EXTRACTED_DIR / "skills"
 JOBS_DIR = EXTRACTED_DIR / "jobs"
 TEMP_DIR = DATA_DIR / "temp"
 
+# Synthetic course→skill maps, for demonstrating the product against a corpus wider than the
+# syllabi that have actually been extracted. Off unless explicitly asked for, and never merged
+# into SKILLS_DIR: every file in there says "Not a real MEU document", and a system that cannot
+# repeat that claim is one that quietly presents invented coursework as real.
+MOCK_SKILLS_DIR = DATA_DIR / "mock" / "skills"
+INCLUDE_MOCK_COURSES = os.getenv("CC_INCLUDE_MOCK_COURSES", "0") == "1"
+
+# Hand-maintained lookups that are reviewed rather than derived. Kept out of the code so the
+# person who names a study field can correct its mapping without a release.
+MAPPING_DIR = DATA_DIR / "mapping"
+STUDY_FIELD_CAREER_PATHS_PATH = MAPPING_DIR / "study_field_career_paths.json"
+
 # Canonical vocabulary: one source file, three build artifacts
 TAXONOMY_DIR = DATA_DIR / "taxonomy"
 CUSTOM_SKILLS_PATH = TAXONOMY_DIR / "custom_skills.json"
 TAXONOMY_CACHE_DIR = TAXONOMY_DIR / "cache"
 TAXONOMY_PATH = TAXONOMY_DIR / "taxonomy.jsonl"
 VECTOR_INDEX_PATH = TAXONOMY_DIR / "vector_index.npz"
-
-# SQL migrations, applied by careercompass.db
-MIGRATIONS_DIR = PACKAGE_DIR / "db" / "migrations"
 
 # ── PostgreSQL ─────────────────────────────────────────────────
 # Lives here rather than in jobs/config.py, where it used to sit: the
@@ -62,4 +71,6 @@ DB_CONFIG = {
     "dbname": os.getenv("CC_DB_NAME"),
     "user": os.getenv("CC_DB_USER"),
     "password": os.getenv("CC_DB_PASSWORD"),
+    "connect_timeout": max(1, int(os.getenv("CC_DB_CONNECT_TIMEOUT", "5"))),
+    "application_name": "careercompass-ai",
 }

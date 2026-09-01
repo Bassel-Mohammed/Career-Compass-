@@ -109,9 +109,13 @@ Pooled evidence beats any single posting's. `Java` retrieved alone is ambiguous;
 `Java` plus the three most authoritative lines any employer wrote about it is
 not.
 
-The level is the **mode, not the maximum**. Over 2,238 postings almost every
+A term's level is the **mode, not the maximum**. Over 2,238 postings almost every
 term appears in at least one senior listing, so a maximum saturates to
 `advanced` and stops carrying information.
+
+The pool also keeps the full `levels` distribution behind that mode, because the
+mode is the right answer for a `job_skills` row and the wrong input to the
+ontology, which aggregates a second time. See stage 4.
 
 ### 3. Match — `skills/job_matching.py`
 
@@ -134,8 +138,27 @@ For each career path and each **accepted** match:
 ```
 coverage       = |postings asking for the skill| / postings in the path
 required_score = coverage × 100
-required_level = the level most of those postings asked for
+required_level = the depth at least half of those postings asked for
 ```
+
+`required_level` is the **weighted median**, and getting there took two attempts.
+A maximum was rejected before this was written. A mode replaced it and failed the
+same way, more quietly: `advanced` is the largest single bucket corpus-wide, so it
+takes the plurality for nearly every skill even where most postings ask for less.
+Compounding that with the per-term mode above produced this:
+
+| | beginner | intermediate | advanced |
+|---|---|---|---|
+| what postings actually asked | 9% | 40% | 51% |
+| after the per-term mode | 2% | 33% | 65% |
+| after a second mode here | 0.5% | 16% | **83%** |
+| weighted median, on the real distribution | 0.5% | 40% | **59%** |
+
+Five requirements in six reading `advanced` is not a demanding market, it is a
+statistic that has stopped measuring anything — and it lands on the bar the gap
+analysis classifies against, so it made every student look further behind than
+they were. The median asks "what depth satisfies half the market", which is what
+a requirement means.
 
 A requirement is a fraction, never a count, because the paths are different
 sizes — Data Science has 337 postings and AI/ML has 158. Kubernetes in 3 of 3

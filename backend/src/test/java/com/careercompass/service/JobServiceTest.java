@@ -8,10 +8,12 @@ import com.careercompass.exception.ResourceNotFoundException;
 import com.careercompass.exception.UnauthorizedActionException;
 import com.careercompass.mapper.JobMapper;
 import com.careercompass.repository.EmployerRepository;
+import com.careercompass.repository.JobMatchRepository;
 import com.careercompass.repository.JobRepository;
 import com.careercompass.repository.StudyFieldRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InOrder;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -32,6 +34,7 @@ import static org.mockito.Mockito.*;
 class JobServiceTest {
 
     @Mock private JobRepository jobRepository;
+    @Mock private JobMatchRepository jobMatchRepository;
     @Mock private EmployerRepository employerRepository;
     @Mock private StudyFieldRepository studyFieldRepository;
     @Mock private JobMapper jobMapper;
@@ -112,6 +115,22 @@ class JobServiceTest {
                 .isInstanceOf(UnauthorizedActionException.class);
 
         verify(jobRepository, never()).delete(any(Job.class));
+        verifyNoInteractions(jobMatchRepository);
+    }
+
+    // Purpose: Delete Job - removes dependent matches before the posting.
+    @Test
+    void deleteJob_removesStoredMatchesBeforeDeletingPosting() {
+        Employer owner = Employer.builder().employerId(1).build();
+        Job job = Job.builder().jobId(10).employer(owner).build();
+
+        when(jobRepository.findById(10)).thenReturn(Optional.of(job));
+
+        jobService.deleteJob(1, 10);
+
+        InOrder deletion = inOrder(jobMatchRepository, jobRepository);
+        deletion.verify(jobMatchRepository).deleteByJob_JobId(10);
+        deletion.verify(jobRepository).delete(job);
     }
 
     // Purpose: Delete Job - throws Not Found When Job Does Not Exist.
@@ -121,5 +140,7 @@ class JobServiceTest {
 
         assertThatThrownBy(() -> jobService.deleteJob(1, 999))
                 .isInstanceOf(ResourceNotFoundException.class);
+
+        verifyNoInteractions(jobMatchRepository);
     }
 }

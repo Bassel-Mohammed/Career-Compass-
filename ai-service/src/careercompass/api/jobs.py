@@ -166,7 +166,12 @@ class JobStore:
                 return  # nothing evictable
 
 
-def cache_key_for(content_sha256: str) -> str:
+def cache_key_for(
+    content_sha256: str,
+    *,
+    store: bool = True,
+    use_llm: Optional[bool] = None,
+) -> str:
     """
     Idempotency key: document content plus the taxonomy it would match against.
 
@@ -179,7 +184,14 @@ def cache_key_for(content_sha256: str) -> str:
         fingerprint = runtime.require().taxonomy.fingerprint
     except Problem:
         fingerprint = "cold"
-    return f"{content_sha256}:{fingerprint}"
+    # A proposal-only run and a stored run are not interchangeable.  In
+    # particular, serving a cached proposal for a later ``store=true`` request
+    # would return success without ever publishing the course map.  The LLM
+    # override also changes matching decisions, so it is part of the identity
+    # rather than an incidental execution option.
+    llm_mode = "default" if use_llm is None else ("on" if use_llm else "off")
+    storage_mode = "stored" if store else "proposal"
+    return f"{content_sha256}:{fingerprint}:{storage_mode}:llm={llm_mode}"
 
 
 # ── The worker ─────────────────────────────────────────────────
@@ -215,7 +227,6 @@ def _run_job(job: ExtractionJob) -> None:
     matcher.attach(skills, matches)
     summary = matcher.summary(matches)
 
-    job.stage = "storing"
     extra = {
         "taxonomy_version": TAXONOMY_VERSION,
         "match_summary": {
@@ -224,15 +235,15 @@ def _run_job(job: ExtractionJob) -> None:
         },
     }
     course_code = job.course_code
-    output_path = SKILLS_DIR / f"{course_code}.json"
-    save_skills(course_code, skills, str(output_path), extra=extra)
-
     if job.store:
+        job.stage = "storing"
+        output_path = SKILLS_DIR / f"{course_code}.json"
+        save_skills(course_code, skills, str(output_path), extra=extra)
         try:
             from careercompass.db.skills import store_course_skills
             store_course_skills(course_code, skills)
         except Exception as exc:  # noqa: BLE001
-            # The JSON on disk is already written, so a database outage
+            # The accepted JSON artifact is already written, so a database outage
             # degrades the job rather than failing it.
             logger.warning("Database write failed for %s: %s", course_code, exc)
             job.warnings.append(f"Results saved to disk but not to the database: {exc}")

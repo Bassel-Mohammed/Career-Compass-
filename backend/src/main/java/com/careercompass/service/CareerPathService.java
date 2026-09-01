@@ -5,6 +5,7 @@ import com.careercompass.dto.request.UpdateCareerPathRequest;
 import com.careercompass.dto.response.CareerPathResponse;
 import com.careercompass.entity.CareerPath;
 import com.careercompass.entity.StudyField;
+import com.careercompass.exception.DuplicateResourceException;
 import com.careercompass.exception.ResourceNotFoundException;
 import com.careercompass.mapper.CareerPathMapper;
 import com.careercompass.repository.CareerPathRepository;
@@ -16,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * FR-SA-08/09/10 (create/update/delete career path titles, scoped to study field(s)).
@@ -31,9 +33,20 @@ public class CareerPathService {
     @Transactional
     public CareerPathResponse createCareerPath(CreateCareerPathRequest request) {
         Set<StudyField> studyFields = resolveStudyFields(request.getStudyFieldIds());
+        String careerPathCode = request.getCareerPathCode() == null
+                || request.getCareerPathCode().isBlank()
+                ? "cp:" + UUID.randomUUID()
+                : request.getCareerPathCode().trim();
+
+        if (careerPathRepository.findByCareerPathCode(careerPathCode).isPresent()) {
+            throw new DuplicateResourceException(
+                    "A career path with code '" + careerPathCode + "' already exists.");
+        }
 
         CareerPath careerPath = CareerPath.builder()
                 .title(request.getTitle())
+                .careerPathCode(careerPathCode)
+                .ontologyVersion(request.getOntologyVersion())
                 .description(request.getDescription())
                 .studyFields(studyFields)
                 .build();
@@ -52,6 +65,9 @@ public class CareerPathService {
         }
         if (request.getDescription() != null) {
             careerPath.setDescription(request.getDescription());
+        }
+        if (request.getOntologyVersion() != null) {
+            careerPath.setOntologyVersion(request.getOntologyVersion());
         }
         if (request.getStudyFieldIds() != null) {
             careerPath.setStudyFields(resolveStudyFields(request.getStudyFieldIds()));

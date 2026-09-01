@@ -41,6 +41,23 @@ public class FileStorageService {
         }
     }
 
+    /**
+     * Reads a stored file back, or returns {@code null} when it is gone. Extraction retries
+     * need the original bytes; a missing file is the caller's cue to ask for a re-upload
+     * rather than a server error.
+     */
+    public byte[] readIfExists(String filePath) {
+        try {
+            Path path = Paths.get(filePath);
+            if (!Files.exists(path)) {
+                return null;
+            }
+            return Files.readAllBytes(path);
+        } catch (IOException e) {
+            throw new IllegalStateException("Could not read the stored file at " + filePath, e);
+        }
+    }
+
     /** Deletes the file at the given path, if it exists. Safe to call even if already gone. */
     public void deleteIfExists(String filePath) {
         try {

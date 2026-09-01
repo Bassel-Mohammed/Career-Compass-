@@ -1,9 +1,12 @@
 package com.careercompass.controller;
 
+import com.careercompass.dto.request.ChangePasswordRequest;
 import com.careercompass.dto.request.LoginRequest;
 import com.careercompass.dto.request.RegisterEmployerRequest;
 import com.careercompass.dto.request.RegisterJobSeekerRequest;
 import com.careercompass.dto.response.AuthResponse;
+import com.careercompass.security.userdetails.CurrentUser;
+import com.careercompass.security.userdetails.UserPrincipal;
 import com.careercompass.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -79,6 +82,24 @@ public class AuthController {
     @PostMapping("/logout")
     public ResponseEntity<Void> logout(@RequestHeader("Authorization") String authorizationHeader) {
         authService.logout(authorizationHeader);
+        return ResponseEntity.noContent().build();
+    }
+
+    /**
+     * Change the signed-in account's own password. Works for every actor, since all five share
+     * the same bcrypt-hashed credential.
+     *
+     * <p>Returns 204 and revokes the caller's token: the password that opened this session is
+     * no longer the account's password, so the session should not outlive it. The client signs
+     * in again with the new one.
+     */
+    @PostMapping("/password")
+    public ResponseEntity<Void> changePassword(
+            @CurrentUser UserPrincipal principal,
+            @RequestHeader("Authorization") String authorizationHeader,
+            @Valid @RequestBody ChangePasswordRequest request) {
+        authService.changePassword(principal.getUserId(), principal.getRole(),
+                authorizationHeader, request);
         return ResponseEntity.noContent().build();
     }
 }

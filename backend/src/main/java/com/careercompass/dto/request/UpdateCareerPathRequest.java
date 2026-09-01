@@ -19,6 +19,10 @@ public class UpdateCareerPathRequest {
     @Size(max = 4000)
     private String description;
 
+    /** Updates provenance without changing the career path's stable code. */
+    @Size(max = 120)
+    private String ontologyVersion;
+
     /** If provided, replaces the full set of linked study fields. */
     private List<Integer> studyFieldIds;
 }

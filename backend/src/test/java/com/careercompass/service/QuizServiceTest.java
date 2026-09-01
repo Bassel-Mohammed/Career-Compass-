@@ -175,6 +175,32 @@ class QuizServiceTest {
         verify(transcriptService).getSkillDashboard(1); // confirms the single-writer handoff
     }
 
+    @Test
+    void submitQuiz_rejectsDuplicateQuestionIdsBeforeWritingResponses() {
+        JobSeeker jobSeeker = JobSeeker.builder().jobseekerId(1).build();
+        QuizQuestion question = QuizQuestion.builder().questionId(101).correctOption("A").build();
+        Quiz quiz = Quiz.builder().quizId(5).jobSeeker(jobSeeker).courseName("Databases").build();
+        quiz.getQuestions().add(question);
+
+        when(quizRepository.findById(5)).thenReturn(Optional.of(quiz));
+
+        var first = new SubmitQuizRequest.QuizAnswerItem();
+        first.setQuestionId(101);
+        first.setSelectedOption("A");
+        var duplicate = new SubmitQuizRequest.QuizAnswerItem();
+        duplicate.setQuestionId(101);
+        duplicate.setSelectedOption("B");
+        SubmitQuizRequest request = new SubmitQuizRequest();
+        request.setAnswers(List.of(first, duplicate));
+
+        assertThatThrownBy(() -> quizService.submitQuiz(1, 5, request))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("answered more than once");
+
+        verifyNoInteractions(quizResponseRepository, transcriptService);
+        verify(quizRepository, never()).save(any());
+    }
+
     private QuizGenerationResponse.GeneratedQuizQuestionDto validQuestion(String correctOption) {
         return QuizGenerationResponse.GeneratedQuizQuestionDto.builder()
                 .questionText("Valid question")

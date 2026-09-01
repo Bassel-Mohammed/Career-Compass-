@@ -33,6 +33,19 @@ public class CourseRecommendation {
     @Column(name = "source_link", length = 500)
     private String sourceLink;
 
+    /**
+     * The skill this course was chosen to close, and why. Both come from the AI service with
+     * every generated recommendation and are stored so a student revisiting the page keeps the
+     * reasoning instead of being told to regenerate for it.
+     *
+     * <p>Nullable: rows created before these columns existed have no reasoning to show.
+     */
+    @Column(name = "targeted_skill_name", length = 200)
+    private String targetedSkillName;
+
+    @Column(name = "explanation", length = 1000)
+    private String explanation;
+
     @Column(name = "recommended_at")
     private LocalDateTime recommendedAt;
 

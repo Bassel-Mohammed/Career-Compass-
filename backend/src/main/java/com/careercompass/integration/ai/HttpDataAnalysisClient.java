@@ -132,7 +132,10 @@ public class HttpDataAnalysisClient implements DataAnalysisClient {
                     .score(toPercent(item.proficiency(), "skill-vector.proficiency"))
                     .build());
         }
-        return SkillVectorResponse.builder().skills(skills).build();
+        return SkillVectorResponse.builder()
+                .taxonomyVersion(wire == null ? null : wire.taxonomyVersion())
+                .skills(skills)
+                .build();
     }
 
     // ── M3 skill gap ──────────────────────────────────────────────────────
@@ -163,9 +166,19 @@ public class HttpDataAnalysisClient implements DataAnalysisClient {
                     .targetScore(toPercent(item.requiredProficiency(), "skill-gap.required_proficiency"))
                     .classification(toDisplayClassification(item.classification()))
                     .explanation(null) // per-skill prose is not part of the v1 gap contract
+                    .importancePercent(toPercent(item.importance(), "skill-gap.importance"))
+                    // Banded by the AI service beside the ontology that justifies the
+                    // thresholds. Deriving it here would be a second definition of
+                    // "critical", and the two would part company the first time either moved.
+                    .demandBand(item.demandBand())
+                    .postingCount(item.postingCount())
+                    .requiredLevel(item.requiredLevel())
+                    .skillType(item.skillType())
                     .priority(item.priority() == null
                             ? null
                             : BigDecimal.valueOf(item.priority()).setScale(4, RoundingMode.HALF_UP))
+                    .evidenceSource(item.evidence())
+                    .sourceCourses(toCourseEvidence(item.courses()))
                     .build());
         }
 
@@ -173,6 +186,82 @@ public class HttpDataAnalysisClient implements DataAnalysisClient {
                 .skillGaps(gaps)
                 .overallReadinessPercent(readinessPercent(wire))
                 .narrative(wire == null ? null : wire.narrative())
+                .bandSummary(wire == null ? null : wire.bandSummary())
+                .sampleSize(wire == null ? null : wire.sampleSize())
+                .marketCapturedAt(wire == null ? null : wire.capturedAt())
+                .coursesCounted(wire == null ? null : wire.coursesCounted())
+                .syntheticCounted(wire == null ? null : wire.syntheticCounted())
+                .coursesSkipped(toSkippedCourses(wire == null ? null : wire.coursesSkipped()))
+                .build();
+    }
+
+    private static List<SkillGapAnalysisResponse.CourseEvidenceDto> toCourseEvidence(
+            List<AiWire.VectorCourseEvidence> courses) {
+        List<SkillGapAnalysisResponse.CourseEvidenceDto> evidence = new ArrayList<>();
+        for (AiWire.VectorCourseEvidence course : safe(courses)) {
+            evidence.add(SkillGapAnalysisResponse.CourseEvidenceDto.builder()
+                    .courseCode(course.courseCode())
+                    .courseName(course.courseName())
+                    .grade(course.grade())
+                    .level(course.level())
+                    .build());
+        }
+        return evidence;
+    }
+
+    private static List<SkillGapAnalysisResponse.SkippedCourseDto> toSkippedCourses(
+            List<AiWire.SkippedCourse> wire) {
+        List<SkillGapAnalysisResponse.SkippedCourseDto> skipped = new ArrayList<>();
+        for (AiWire.SkippedCourse course : safe(wire)) {
+            skipped.add(SkillGapAnalysisResponse.SkippedCourseDto.builder()
+                    .courseCode(course.courseCode())
+                    .reason(course.reason())
+                    .status(course.status())
+                    .build());
+        }
+        return skipped;
+    }
+
+    /** {@code GET /api/v1/career-paths/skills}. */
+    @Override
+    public CareerPathSkillsResponse getCareerPathSkills(String careerPathName) {
+        String careerPath = requireCareerPath(careerPathName);
+
+        // A query parameter, not a path segment: two of the nine path names contain a slash
+        // ("UI/UX Design"), and encoding that into a segment is normalised or rejected by
+        // enough proxies to be a real bug rather than a theoretical one.
+        AiWire.CareerPathSkillsResponse wire = call(
+                "career-path-skills",
+                aiServiceWebClient.get().uri(builder -> builder
+                        .path("/api/v1/career-paths/skills")
+                        .queryParam("career_path", careerPath)
+                        .build()),
+                AiWire.CareerPathSkillsResponse.class,
+                aiServiceProperties.getTimeouts().getSkillGapSeconds());
+
+        List<CareerPathSkillsResponse.CareerPathSkillDto> skills = new ArrayList<>();
+        for (AiWire.CareerPathSkill item : safe(wire == null ? null : wire.skills())) {
+            skills.add(CareerPathSkillsResponse.CareerPathSkillDto.builder()
+                    .skillId(item.skillId())
+                    .label(item.label())
+                    .skillType(item.skillType())
+                    .postingCount(item.postingCount())
+                    .coveragePercent(toPercent(item.coverage(), "career-path-skills.coverage"))
+                    .demandBand(item.demandBand())
+                    .requiredLevel(item.requiredLevel())
+                    .sampleTerms(item.sampleTerms() == null ? List.of() : item.sampleTerms())
+                    .build());
+        }
+
+        return CareerPathSkillsResponse.builder()
+                .careerPath(wire == null || wire.careerPath() == null ? careerPath : wire.careerPath())
+                .sampleSize(wire == null ? null : wire.sampleSize())
+                .derivedFrom(wire == null ? null : wire.derivedFrom())
+                .capturedAt(wire == null ? null : wire.capturedAt())
+                .taxonomyVersion(wire == null ? null : wire.taxonomyVersion())
+                .total(skills.size())
+                .bandTotals(wire == null || wire.bandTotals() == null ? Map.of() : wire.bandTotals())
+                .skills(skills)
                 .build();
     }
 
@@ -235,8 +324,10 @@ public class HttpDataAnalysisClient implements DataAnalysisClient {
             throw new IllegalArgumentException("A canonical skill id is required to generate a quiz.");
         }
 
+        // Keep quiz generation to one hosted-model round trip. The AI service and this service
+        // still validate every question structurally before it can be persisted or shown.
         AiWire.QuizRequest body = new AiWire.QuizRequest(
-                request.getSkillId(), request.getQuestionCount(), true);
+                request.getSkillId(), request.getQuestionCount(), false);
 
         AiWire.QuizResponse wire = call(
                 "quiz-generate",
@@ -286,6 +377,164 @@ public class HttpDataAnalysisClient implements DataAnalysisClient {
                 .build();
     }
 
+    // ── M8 syllabus extraction and approved course maps ─────────────────
+
+    @Override
+    public SyllabusExtractionResponse submitSyllabusExtraction(SyllabusExtractionRequest request) {
+        if (request == null || request.getFileContent() == null || request.getFileContent().length == 0) {
+            throw new IllegalArgumentException("Syllabus file content is required.");
+        }
+
+        String filename = StringUtils.hasText(request.getOriginalFilename())
+                ? request.getOriginalFilename()
+                : "syllabus.pdf";
+
+        MultipartBodyBuilder multipart = new MultipartBodyBuilder();
+        multipart.part("file", new NamedByteArrayResource(request.getFileContent(), filename))
+                .contentType(resolveContentType(request.getContentType()));
+        multipart.part("use_llm", Boolean.toString(request.isUseLlm()));
+        multipart.part("force", Boolean.toString(request.isForce()));
+        // Content-manager extraction is a proposal. `false` must write neither the production
+        // JSON course map nor PostgreSQL course_skills.
+        multipart.part("store", Boolean.toString(request.isStoreResults()));
+
+        AiWire.SyllabusExtractionResponse wire = call(
+                "syllabus-submit",
+                aiServiceWebClient.post()
+                        .uri("/api/v1/extractions")
+                        .contentType(MediaType.MULTIPART_FORM_DATA)
+                        .body(BodyInserters.fromMultipartData(multipart.build())),
+                AiWire.SyllabusExtractionResponse.class,
+                aiServiceProperties.getTimeouts().getSyllabusSeconds());
+        return toSyllabusExtraction(wire);
+    }
+
+    @Override
+    public SyllabusPreviewResponse previewSyllabusPdf(String filename, String contentType, byte[] content) {
+        if (content == null || content.length == 0) {
+            throw new IllegalArgumentException("Syllabus file content is required.");
+        }
+
+        String safeName = StringUtils.hasText(filename) ? filename : "syllabus.pdf";
+        MultipartBodyBuilder multipart = new MultipartBodyBuilder();
+        multipart.part("file", new NamedByteArrayResource(content, safeName))
+                .contentType(resolveContentType(contentType));
+
+        // The preview runs no model and persists nothing, so the default service
+        // deadline is generous enough; no dedicated timeout knob is warranted.
+        AiWire.PreviewResponse wire = call(
+                "syllabus-preview",
+                aiServiceWebClient.post()
+                        .uri("/api/v1/syllabi/preview")
+                        .contentType(MediaType.MULTIPART_FORM_DATA)
+                        .body(BodyInserters.fromMultipartData(multipart.build())),
+                AiWire.PreviewResponse.class,
+                aiServiceProperties.getTimeoutSeconds());
+        if (wire == null) {
+            throw new AiServiceException(HttpStatus.BAD_GATEWAY, "AI_SERVICE_RESPONSE_INVALID",
+                    "The AI service returned no syllabus preview.");
+        }
+        return SyllabusPreviewResponse.builder()
+                .courseCode(wire.courseCode())
+                .courseTitle(wire.courseTitle())
+                .description(wire.description())
+                .contentSha256(wire.contentSha256())
+                .totalTerms(wire.totalTerms())
+                .warnings(wire.warnings() == null ? List.of() : wire.warnings())
+                .build();
+    }
+
+    @Override
+    public SyllabusExtractionResponse getSyllabusExtraction(String extractionId) {
+        requireExtractionId(extractionId);
+        AiWire.SyllabusExtractionResponse wire = call(
+                "syllabus-poll",
+                aiServiceWebClient.get().uri("/api/v1/extractions/{id}", extractionId),
+                AiWire.SyllabusExtractionResponse.class,
+                aiServiceProperties.getTimeouts().getSyllabusSeconds());
+        return toSyllabusExtraction(wire);
+    }
+
+    @Override
+    public SyllabusExtractionResponse cancelSyllabusExtraction(String extractionId) {
+        requireExtractionId(extractionId);
+        AiWire.SyllabusExtractionResponse wire = call(
+                "syllabus-cancel",
+                aiServiceWebClient.delete().uri("/api/v1/extractions/{id}", extractionId),
+                AiWire.SyllabusExtractionResponse.class,
+                aiServiceProperties.getTimeouts().getSyllabusSeconds());
+        return toSyllabusExtraction(wire);
+    }
+
+    @Override
+    public List<TaxonomySkillSuggestion> searchTaxonomySkills(String query, int limit) {
+        if (!StringUtils.hasText(query)) {
+            return List.of();
+        }
+        int bounded = Math.max(1, Math.min(50, limit));
+        AiWire.TaxonomySearchResponse wire = call(
+                "taxonomy-search",
+                aiServiceWebClient.get().uri(builder -> builder
+                        .path("/api/v1/taxonomy/skills")
+                        .queryParam("q", query.trim())
+                        .queryParam("limit", bounded)
+                        .build()),
+                AiWire.TaxonomySearchResponse.class,
+                aiServiceProperties.getTimeouts().getTaxonomySeconds());
+
+        return safe(wire == null ? null : wire.items()).stream()
+                .map(item -> TaxonomySkillSuggestion.builder()
+                        .skillId(item.skillId())
+                        .label(item.label())
+                        .skillType(item.skillType())
+                        .source(item.source())
+                        .description(item.description())
+                        .taxonomyVersion(item.taxonomyVersion())
+                        .build())
+                .toList();
+    }
+
+    @Override
+    public PublishCourseMapResponse publishCourseMap(PublishCourseMapRequest request) {
+        if (request == null || !StringUtils.hasText(request.getCourseMapVersion())) {
+            throw new IllegalArgumentException("A course map version is required.");
+        }
+
+        List<AiWire.ApprovedCourseSkill> skills = safe(request.getSkills()).stream()
+                .map(skill -> new AiWire.ApprovedCourseSkill(
+                        skill.getSkillId(), skill.getSkillLabel(), skill.getTerm(), skill.getLevel(),
+                        skill.getWeight() == null ? null : skill.getWeight().doubleValue(),
+                        skill.getEvidenceCount(), safe(skill.getSources()), safe(skill.getEvidence())))
+                .toList();
+
+        AiWire.PublishCourseMapRequest body = new AiWire.PublishCourseMapRequest(
+                request.getInstitutionCode(), request.getCatalogVersion(), request.getCourseCode(),
+                request.getSourceOutcomeId(), request.getTaxonomyVersion(), skills);
+
+        AiWire.PublishCourseMapResponse wire = call(
+                "course-map-publish",
+                aiServiceWebClient.put()
+                        .uri("/api/v1/course-maps/{version}", request.getCourseMapVersion())
+                        .bodyValue(body),
+                AiWire.PublishCourseMapResponse.class,
+                aiServiceProperties.getTimeouts().getPublicationSeconds());
+
+        if (wire == null) {
+            throw new AiServiceException(HttpStatus.BAD_GATEWAY, "AI_SERVICE_RESPONSE_INVALID",
+                    "The AI service returned no course-map publication confirmation.");
+        }
+        return PublishCourseMapResponse.builder()
+                .courseMapVersion(wire.courseMapVersion())
+                .courseKey(wire.courseKey())
+                .courseCode(wire.courseCode())
+                .taxonomyVersion(wire.taxonomyVersion())
+                .totalSkills(wire.totalSkills())
+                .contentSha256(wire.contentSha256())
+                .publishedAt(wire.publishedAt())
+                .idempotent(wire.idempotent())
+                .build();
+    }
+
     // ── M6/M7 job matching — deliberately not in v1 ───────────────────────
 
     /**
@@ -301,6 +550,63 @@ public class HttpDataAnalysisClient implements DataAnalysisClient {
         throw new AiServiceException(HttpStatus.NOT_IMPLEMENTED, "AI_CAPABILITY_NOT_IN_SCOPE",
                 "AI job matching is not part of the current release. "
                         + "Run with careercompass.ai-service.use-mock=true to demonstrate this flow.");
+    }
+
+    @Override
+    public MentorMatchResponse matchMentors(MentorMatchRequest request) {
+        AiWire.MentorMatchRequest body = new AiWire.MentorMatchRequest(
+                request.getCareerPathName(),
+                toWireCourses(request.getCourses()),
+                toWireQuizScores(request.getQuizScores()),
+                request.isIncludeSoft(),
+                request.isNarrative(),
+                request.getMentors().stream()
+                        .map(m -> new AiWire.MentorDto(
+                                m.getMentorId(),
+                                m.getStudyField(),
+                                m.getFieldStartingYear(),
+                                m.getExpertiseTerms()))
+                        .toList(),
+                request.getLimit());
+
+        AiWire.MentorMatchResponse wire = call(
+                "mentor-matches",
+                aiServiceWebClient.post().uri("/api/v1/mentor-matches").bodyValue(body),
+                AiWire.MentorMatchResponse.class,
+                aiServiceProperties.getTimeouts().getSkillVectorSeconds());
+
+        if (wire == null) {
+            return MentorMatchResponse.builder().build();
+        }
+
+        List<MentorMatchResponse.MentorMatchItem> items = new ArrayList<>();
+        for (AiWire.MentorMatchItem item : safe(wire.items())) {
+            List<MentorMatchResponse.AlignedSkill> alignedSkills = new ArrayList<>();
+            for (AiWire.AlignedSkill as : safe(item.alignedSkills())) {
+                alignedSkills.add(MentorMatchResponse.AlignedSkill.builder()
+                        .skillId(as.skillId())
+                        .skillLabel(as.skillLabel())
+                        .build());
+            }
+
+            items.add(MentorMatchResponse.MentorMatchItem.builder()
+                    .mentorId(item.mentorId())
+                    .score(toPercent(item.score(), "mentor-match.score"))
+                    .signal(item.signal())
+                    .alignedSkills(alignedSkills)
+                    .gapsAddressed(item.gapsAddressed() != null ? item.gapsAddressed() : 0)
+                    .yearsExperience(item.yearsExperience() != null ? item.yearsExperience() : 0)
+                    .explanation(item.explanation())
+                    .build());
+        }
+
+        return MentorMatchResponse.builder()
+                .careerPath(wire.careerPath())
+                .taxonomyVersion(wire.taxonomyVersion())
+                .total(wire.total() != null ? wire.total() : 0)
+                .gapsConsidered(wire.gapsConsidered() != null ? wire.gapsConsidered() : 0)
+                .items(items)
+                .build();
     }
 
     // ── Transport ─────────────────────────────────────────────────────────
@@ -477,6 +783,100 @@ public class HttpDataAnalysisClient implements DataAnalysisClient {
                     "A career path name is required before the AI service can analyse a skill gap.");
         }
         return careerPathName;
+    }
+
+    private static void requireExtractionId(String extractionId) {
+        if (!StringUtils.hasText(extractionId)) {
+            throw new IllegalArgumentException("An extraction id is required.");
+        }
+    }
+
+    private static SyllabusExtractionResponse toSyllabusExtraction(
+            AiWire.SyllabusExtractionResponse wire) {
+        if (wire == null) {
+            throw new AiServiceException(HttpStatus.BAD_GATEWAY, "AI_SERVICE_RESPONSE_INVALID",
+                    "The AI service returned no syllabus extraction state.");
+        }
+
+        SyllabusExtractionResponse.Progress progress = wire.progress() == null ? null
+                : SyllabusExtractionResponse.Progress.builder()
+                .stage(wire.progress().stage())
+                .termsTotal(wire.progress().termsTotal())
+                .termsResolved(wire.progress().termsResolved())
+                .elapsedSeconds(decimal(wire.progress().elapsedSeconds()))
+                .build();
+
+        SyllabusExtractionResponse.Result result = null;
+        if (wire.result() != null) {
+            List<SyllabusExtractionResponse.ExtractedSkill> skills = safe(wire.result().skills()).stream()
+                    .map(HttpDataAnalysisClient::toExtractedSkill)
+                    .toList();
+            result = SyllabusExtractionResponse.Result.builder()
+                    .courseCode(wire.result().courseCode())
+                    .totalSkills(wire.result().totalSkills())
+                    .taxonomyVersion(wire.result().taxonomyVersion())
+                    .skills(skills)
+                    .build();
+        }
+
+        return SyllabusExtractionResponse.builder()
+                .extractionId(wire.extractionId())
+                .status(wire.status())
+                .courseCode(wire.courseCode())
+                .contentSha256(wire.contentSha256())
+                .degraded(wire.degraded())
+                .progress(progress)
+                .result(result)
+                .warnings(safe(wire.warnings()))
+                .error(wire.error())
+                .createdAt(wire.createdAt())
+                .finishedAt(wire.finishedAt())
+                .build();
+    }
+
+    private static SyllabusExtractionResponse.ExtractedSkill toExtractedSkill(
+            AiWire.ExtractedSkill wire) {
+        SyllabusExtractionResponse.CanonicalSkill canonical = wire.canonical() == null ? null
+                : SyllabusExtractionResponse.CanonicalSkill.builder()
+                .id(wire.canonical().id())
+                .label(wire.canonical().label())
+                .taxonomy(wire.canonical().taxonomy())
+                .build();
+
+        SyllabusExtractionResponse.Match match = wire.match() == null ? null
+                : SyllabusExtractionResponse.Match.builder()
+                .originalTerm(wire.match().originalTerm())
+                .canonicalId(wire.match().canonicalId())
+                .canonicalLabel(wire.match().canonicalLabel())
+                .taxonomy(wire.match().taxonomy())
+                .taxonomyVersion(wire.match().taxonomyVersion())
+                .matchMethod(wire.match().matchMethod())
+                .matchScore(decimal(wire.match().matchScore()))
+                .reviewStatus(wire.match().reviewStatus())
+                .reason(wire.match().reason())
+                .candidates(safe(wire.match().candidates()).stream()
+                        .map(candidate -> SyllabusExtractionResponse.Candidate.builder()
+                                .id(candidate.id())
+                                .label(candidate.label())
+                                .score(decimal(candidate.score()))
+                                .build())
+                        .toList())
+                .build();
+
+        return SyllabusExtractionResponse.ExtractedSkill.builder()
+                .term(wire.term())
+                .canonical(canonical)
+                .level(wire.level())
+                .weight(decimal(wire.weight()))
+                .evidenceCount(wire.evidenceCount())
+                .sources(safe(wire.sources()))
+                .evidence(safe(wire.evidence()))
+                .match(match)
+                .build();
+    }
+
+    private static BigDecimal decimal(Double value) {
+        return value == null ? null : BigDecimal.valueOf(value);
     }
 
     private static <T> List<T> safe(List<T> list) {

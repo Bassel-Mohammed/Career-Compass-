@@ -7,8 +7,11 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.UUID;
 
 /**
  * Stub implementation of {@link DataAnalysisClient} returning realistic-shaped fake data.
@@ -39,10 +42,10 @@ public class MockDataAnalysisClient implements DataAnalysisClient {
         List<TranscriptExtractionResponse.ExtractedCourseDto> courses = List.of(
                 TranscriptExtractionResponse.ExtractedCourseDto.builder()
                         .courseCode("CS101").courseName("Introduction to Programming")
-                        .grade("A").lowConfidence(false).warnings(List.of()).build(),
+                        .grade("A").lowConfidence(false).warnings(java.util.Collections.emptyList()).build(),
                 TranscriptExtractionResponse.ExtractedCourseDto.builder()
                         .courseCode("CS201").courseName("Data Structures")
-                        .grade("A-").lowConfidence(false).warnings(List.of()).build(),
+                        .grade("A-").lowConfidence(false).warnings(java.util.Collections.emptyList()).build(),
                 TranscriptExtractionResponse.ExtractedCourseDto.builder()
                         .courseCode("CS310").courseName("Operating Systems")
                         .grade("B-").lowConfidence(true)
@@ -71,7 +74,10 @@ public class MockDataAnalysisClient implements DataAnalysisClient {
                     .score(score)
                     .build());
         }
-        return SkillVectorResponse.builder().skills(skills).build();
+        return SkillVectorResponse.builder()
+                .taxonomyVersion("mock-v1")
+                .skills(skills)
+                .build();
     }
 
     @Override
@@ -81,22 +87,46 @@ public class MockDataAnalysisClient implements DataAnalysisClient {
                 .quizScores(request.getQuizScores())
                 .build());
 
-        List<SkillGapAnalysisResponse.SkillGapItemDto> gaps = vector.getSkills().stream()
-                .map(skill -> {
-                    BigDecimal target = BigDecimal.valueOf(75);
-                    String classification = classify(skill.getScore(), target);
-                    return SkillGapAnalysisResponse.SkillGapItemDto.builder()
-                            .skillId(skill.getSkillId())
-                            .skillName(skill.getSkillName())
-                            .currentScore(skill.getScore())
-                            .targetScore(target)
-                            .classification(classification)
-                            .explanation("[MOCK] Estimated from related coursework; "
-                                    + classification.toLowerCase(Locale.ROOT) + " relative to the target level.")
-                            .priority(BigDecimal.ZERO)
-                            .build();
-                })
-                .toList();
+        List<SkillGapAnalysisResponse.SkillGapItemDto> gaps = new ArrayList<>();
+        List<SkillScoreDto> held = vector.getSkills();
+        List<CourseGradeDto> sourceCourses = nullSafe(request.getCourses());
+        for (int index = 0; index < held.size(); index++) {
+            SkillScoreDto skill = held.get(index);
+            CourseGradeDto sourceCourse = index < sourceCourses.size() ? sourceCourses.get(index) : null;
+            BigDecimal target = BigDecimal.valueOf(75);
+            String classification = classify(skill.getScore(), target);
+            // Demand descends across the list so all three bands appear. The dashboard groups by
+            // band and would look broken against a mock that only ever produced one of them.
+            BigDecimal importance = mockImportance(index, held.size());
+            gaps.add(SkillGapAnalysisResponse.SkillGapItemDto.builder()
+                    .skillId(skill.getSkillId())
+                    .skillName(skill.getSkillName())
+                    .currentScore(skill.getScore())
+                    .targetScore(target)
+                    .classification(classification)
+                    .explanation("[MOCK] Estimated from related coursework; "
+                            + classification.toLowerCase(Locale.ROOT) + " relative to the target level.")
+                    .importancePercent(importance)
+                    .demandBand(mockBand(importance))
+                    .postingCount(importance
+                            .multiply(BigDecimal.valueOf(MOCK_SAMPLE_SIZE))
+                            .divide(BigDecimal.valueOf(100), 0, RoundingMode.HALF_UP)
+                            .intValue())
+                    .requiredLevel("advanced")
+                    .skillType("knowledge")
+                    .priority(BigDecimal.ZERO)
+                    .evidenceSource(request.getQuizScores() != null
+                            && request.getQuizScores().containsKey(skill.getSkillId())
+                            ? "grades+quizzes" : "grades")
+                    .sourceCourses(sourceCourse == null ? List.of() : List.of(
+                            SkillGapAnalysisResponse.CourseEvidenceDto.builder()
+                                    .courseCode(sourceCourse.getCourseCode())
+                                    .courseName(sourceCourse.getCourseName())
+                                    .grade(sourceCourse.getGrade())
+                                    .level("advanced")
+                                    .build()))
+                    .build());
+        }
 
         int overallReadiness = gaps.isEmpty() ? 0 : (int) gaps.stream()
                 .mapToInt(g -> g.getCurrentScore().intValue())
@@ -109,7 +139,95 @@ public class MockDataAnalysisClient implements DataAnalysisClient {
                 .narrative(request.isIncludeNarrative()
                         ? "[MOCK] A generated summary would appear here."
                         : null)
+                .bandSummary(mockBandSummary(gaps))
+                .sampleSize(MOCK_SAMPLE_SIZE)
+                .coursesCounted(request.getCourses() == null ? 0 : request.getCourses().size())
+                .syntheticCounted(0)
+                .coursesSkipped(java.util.Collections.emptyList())
                 .build();
+    }
+
+    @Override
+    public CareerPathSkillsResponse getCareerPathSkills(String careerPathName) {
+        List<CareerPathSkillsResponse.CareerPathSkillDto> skills = new ArrayList<>();
+        for (int index = 0; index < MOCK_MARKET_SKILLS.size(); index++) {
+            String label = MOCK_MARKET_SKILLS.get(index);
+            BigDecimal coverage = mockImportance(index, MOCK_MARKET_SKILLS.size());
+            skills.add(CareerPathSkillsResponse.CareerPathSkillDto.builder()
+                    .skillId("mock:" + slug(label))
+                    .label(label)
+                    .skillType("knowledge")
+                    .postingCount(coverage
+                            .multiply(BigDecimal.valueOf(MOCK_SAMPLE_SIZE))
+                            .divide(BigDecimal.valueOf(100), 0, RoundingMode.HALF_UP)
+                            .intValue())
+                    .coveragePercent(coverage)
+                    .demandBand(mockBand(coverage))
+                    .requiredLevel("advanced")
+                    .sampleTerms(List.of("[MOCK] " + label))
+                    .build());
+        }
+
+        Map<String, Integer> bandTotals = new LinkedHashMap<>();
+        for (CareerPathSkillsResponse.CareerPathSkillDto skill : skills) {
+            bandTotals.merge(skill.getDemandBand(), 1, Integer::sum);
+        }
+
+        return CareerPathSkillsResponse.builder()
+                .careerPath(careerPathName)
+                .sampleSize(MOCK_SAMPLE_SIZE)
+                .derivedFrom("job_postings")
+                .capturedAt("2026-08-07T22:51:27Z")
+                .taxonomyVersion("mock-1.0")
+                .total(skills.size())
+                .bandTotals(bandTotals)
+                .skills(skills)
+                .build();
+    }
+
+    /** Postings behind the mock market, so its counts read like the real ones. */
+    private static final int MOCK_SAMPLE_SIZE = 184;
+
+    private static final List<String> MOCK_MARKET_SKILLS = List.of(
+            "back-end development", "Python", "REST API development", "Docker",
+            "SQL", "CI/CD pipelines", "Kubernetes", "message queues");
+
+    /**
+     * Demand spread evenly from 40% down to 3% across a list, so a mock profile always spans all
+     * three bands. Not meant to resemble any real career path — only to exercise the grouping.
+     */
+    private static BigDecimal mockImportance(int index, int total) {
+        if (total <= 1) {
+            return BigDecimal.valueOf(40).setScale(2, RoundingMode.HALF_UP);
+        }
+        double fraction = 40.0 - (37.0 * index / (total - 1));
+        return BigDecimal.valueOf(fraction).setScale(2, RoundingMode.HALF_UP);
+    }
+
+    /**
+     * The AI service's bands, restated here only because the mock has no service to ask.
+     * The real client passes {@code demand_band} straight through and never computes it.
+     */
+    private static String mockBand(BigDecimal importancePercent) {
+        if (importancePercent.compareTo(BigDecimal.valueOf(25)) >= 0) {
+            return "critical";
+        }
+        return importancePercent.compareTo(BigDecimal.TEN) >= 0 ? "important" : "useful";
+    }
+
+    private static Map<String, Map<String, Integer>> mockBandSummary(
+            List<SkillGapAnalysisResponse.SkillGapItemDto> gaps) {
+        Map<String, Map<String, Integer>> summary = new LinkedHashMap<>();
+        for (String band : List.of("critical", "important", "useful")) {
+            summary.put(band, new LinkedHashMap<>(Map.of(
+                    "strong", 0, "moderate", 0, "weak", 0, "total", 0)));
+        }
+        for (SkillGapAnalysisResponse.SkillGapItemDto gap : gaps) {
+            Map<String, Integer> bucket = summary.get(gap.getDemandBand());
+            bucket.merge(gap.getClassification().toLowerCase(Locale.ROOT), 1, Integer::sum);
+            bucket.merge("total", 1, Integer::sum);
+        }
+        return summary;
     }
 
     @Override
@@ -135,6 +253,38 @@ public class MockDataAnalysisClient implements DataAnalysisClient {
                         .relevancePercent(BigDecimal.valueOf(80).setScale(2, RoundingMode.HALF_UP))
                         .build())
                 .toList();
+    }
+
+    @Override
+    public MentorMatchResponse matchMentors(MentorMatchRequest request) {
+        if (request.getMentors() == null || request.getMentors().isEmpty()) {
+            return MentorMatchResponse.builder().build();
+        }
+        
+        List<MentorMatchResponse.MentorMatchItem> items = request.getMentors().stream()
+                .limit(request.getLimit())
+                .map(m -> MentorMatchResponse.MentorMatchItem.builder()
+                        .mentorId(m.getMentorId())
+                        .score(new java.math.BigDecimal("85.0"))
+                        .signal("mock")
+                        .alignedSkills(List.of(
+                                MentorMatchResponse.AlignedSkill.builder()
+                                        .skillId("mock:skill:1")
+                                        .skillLabel("Mock Skill 1")
+                                        .build()))
+                        .gapsAddressed(1)
+                        .yearsExperience(5)
+                        .explanation("[MOCK] This mentor covers your mock gaps.")
+                        .build())
+                .toList();
+
+        return MentorMatchResponse.builder()
+                .careerPath(request.getCareerPathName())
+                .taxonomyVersion("mock-v1")
+                .total(items.size())
+                .gapsConsidered(3)
+                .items(items)
+                .build();
     }
 
     @Override
@@ -177,6 +327,140 @@ public class MockDataAnalysisClient implements DataAnalysisClient {
                 .build();
     }
 
+    @Override
+    public SyllabusExtractionResponse submitSyllabusExtraction(SyllabusExtractionRequest request) {
+        if (request == null || request.getFileContent() == null || request.getFileContent().length == 0) {
+            throw new IllegalArgumentException("Syllabus file content is required.");
+        }
+        String extractionId = "mock-extraction-" + UUID.randomUUID();
+        List<SyllabusExtractionResponse.ExtractedSkill> skills = List.of(
+                mockExtractedSkill("Object-oriented programming", "mock:oop",
+                        "Object-oriented programming", "intermediate", 1.0),
+                mockExtractedSkill("Unit testing", "mock:unit-testing",
+                        "Unit testing", "beginner", 0.8));
+
+        return SyllabusExtractionResponse.builder()
+                .extractionId(extractionId)
+                .status("succeeded")
+                .courseCode("MOCK101")
+                .contentSha256("mock-content-sha256")
+                .progress(SyllabusExtractionResponse.Progress.builder()
+                        .stage("done").termsTotal(skills.size()).termsResolved(skills.size())
+                        .elapsedSeconds(BigDecimal.ZERO).build())
+                .result(SyllabusExtractionResponse.Result.builder()
+                        .courseCode("MOCK101")
+                        .totalSkills(skills.size())
+                        .taxonomyVersion("mock-v1")
+                        .skills(skills)
+                        .build())
+                .warnings(List.of("[MOCK] Skills were generated without parsing the uploaded PDF."))
+                .build();
+    }
+
+    @Override
+    public SyllabusPreviewResponse previewSyllabusPdf(String filename, String contentType, byte[] content) {
+        if (content == null || content.length == 0) {
+            throw new IllegalArgumentException("Syllabus file content is required.");
+        }
+        // The mock cannot parse PDFs, so it reports no detected identity and the
+        // upload form stays manual — the honest placeholder behaviour.
+        return SyllabusPreviewResponse.builder()
+                .contentSha256("mock-content-sha256")
+                .totalTerms(0)
+                .warnings(List.of("[MOCK] No PDF was parsed; course details were not detected."))
+                .build();
+    }
+
+    @Override
+    public SyllabusExtractionResponse getSyllabusExtraction(String extractionId) {
+        // Mock submissions complete synchronously; return the same deterministic proposal.
+        SyllabusExtractionResponse response = submitSyllabusExtraction(
+                SyllabusExtractionRequest.builder().fileContent(new byte[]{1}).build());
+        return SyllabusExtractionResponse.builder()
+                .extractionId(extractionId)
+                .status(response.getStatus())
+                .courseCode(response.getCourseCode())
+                .contentSha256(response.getContentSha256())
+                .progress(response.getProgress())
+                .result(response.getResult())
+                .warnings(response.getWarnings())
+                .build();
+    }
+
+    @Override
+    public SyllabusExtractionResponse cancelSyllabusExtraction(String extractionId) {
+        return SyllabusExtractionResponse.builder()
+                .extractionId(extractionId)
+                .status("cancelled")
+                .progress(SyllabusExtractionResponse.Progress.builder().stage("done").build())
+                .warnings(java.util.Collections.emptyList())
+                .build();
+    }
+
+    @Override
+    public List<TaxonomySkillSuggestion> searchTaxonomySkills(String query, int limit) {
+        if (query == null || query.isBlank()) {
+            return java.util.Collections.emptyList();
+        }
+        List<TaxonomySkillSuggestion> catalog = List.of(
+                TaxonomySkillSuggestion.builder().skillId("mock:oop")
+                        .label("Object-oriented programming").skillType("skill")
+                        .source("mock").taxonomyVersion("mock-v1").build(),
+                TaxonomySkillSuggestion.builder().skillId("mock:unit-testing")
+                        .label("Unit testing").skillType("skill")
+                        .source("mock").taxonomyVersion("mock-v1").build(),
+                TaxonomySkillSuggestion.builder().skillId("mock:docker")
+                        .label("Docker").skillType("tool")
+                        .source("mock").taxonomyVersion("mock-v1").build());
+        String needle = query.trim().toLowerCase(Locale.ROOT);
+        return catalog.stream()
+                .filter(item -> item.getLabel().toLowerCase(Locale.ROOT).contains(needle)
+                        || item.getSkillId().toLowerCase(Locale.ROOT).contains(needle))
+                .limit(Math.max(1, limit))
+                .toList();
+    }
+
+    @Override
+    public PublishCourseMapResponse publishCourseMap(PublishCourseMapRequest request) {
+        return PublishCourseMapResponse.builder()
+                .courseMapVersion(request.getCourseMapVersion())
+                .courseKey(String.join("|", request.getInstitutionCode(),
+                        request.getCatalogVersion(), request.getCourseCode()))
+                .courseCode(request.getCourseCode())
+                .taxonomyVersion(request.getTaxonomyVersion())
+                .totalSkills(request.getSkills() == null ? 0 : request.getSkills().size())
+                .contentSha256("mock-published-sha256")
+                .publishedAt(java.time.OffsetDateTime.now().toString())
+                .idempotent(false)
+                .build();
+    }
+
+    private SyllabusExtractionResponse.ExtractedSkill mockExtractedSkill(
+            String term, String skillId, String label, String level, double weight) {
+        return SyllabusExtractionResponse.ExtractedSkill.builder()
+                .term(term)
+                .canonical(SyllabusExtractionResponse.CanonicalSkill.builder()
+                        .id(skillId).label(label).taxonomy("mock").build())
+                .level(level)
+                .weight(BigDecimal.valueOf(weight))
+                .evidenceCount(1)
+                .sources(List.of("clo"))
+                .evidence(List.of(Map.of("source", "clo", "text", "[MOCK] " + term)))
+                .match(SyllabusExtractionResponse.Match.builder()
+                        .originalTerm(term)
+                        .canonicalId(skillId)
+                        .canonicalLabel(label)
+                        .taxonomy("mock")
+                        .taxonomyVersion("mock-v1")
+                        .matchMethod("mock")
+                        .matchScore(BigDecimal.ONE)
+                        .reviewStatus("accepted")
+                        .reason("[MOCK] deterministic proposal")
+                        .candidates(java.util.Collections.emptyList())
+                        .build())
+                .build();
+    }
+
     /**
      * A stable fake canonical id. Derived from the course code where present so that the same
      * course always yields the same id across calls — the quiz write-back joins on this.
@@ -198,7 +482,7 @@ public class MockDataAnalysisClient implements DataAnalysisClient {
     }
 
     private static <T> List<T> nullSafe(List<T> list) {
-        return list == null ? List.of() : list;
+        return list == null ? java.util.Collections.emptyList() : list;
     }
 
     private BigDecimal gradeToScore(String grade) {

@@ -1,0 +1,242 @@
+name: CI
+
+# Runs on every push to main and on every pull request.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# A new push to the same branch makes the previous run irrelevant.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  database-layout:
+    name: Database migration layout
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check ownership, packaging, and version order
+        run: python3 scripts/check_database_migration_layout.py
+
+      - name: Check migration verifier syntax
+        run: bash -n scripts/verify_backend_mysql_migrations.sh scripts/verify_ai_postgres_migrations.sh
+
+  frontend:
+    name: Frontend (React)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Build
+        working-directory: frontend
+        run: npm run build
+
+      - name: Lint
+        working-directory: frontend
+        run: npm run lint
+
+  ai-service:
+    name: AI service (Python)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: ai-service/uv.lock
+
+      - name: Sync dependencies
+        working-directory: ai-service
+        run: uv sync --extra dev
+
+      - name: Run tests
+        working-directory: ai-service
+        # The matcher builds its index in memory from the lexical backend; the semantic
+        # backend needs sentence-transformers, which is a large optional dependency and not
+        # what these tests are checking.
+        env:
+          CC_EMBEDDING_BACKEND: lexical
+          CC_API_WARMUP: "0"
+        run: uv run --extra dev pytest -q
+
+  ai-database:
+    name: AI database migrations (PostgreSQL)
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: careercompass_ci_postgres
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: ai-service/uv.lock
+
+      - name: Install PostgreSQL client
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq postgresql-client
+
+      # Run migrations through a wheel installation. An editable install can
+      # accidentally read SQL from the checkout even when package-data is broken.
+      - name: Build and install the AI wheel
+        working-directory: ai-service
+        run: |
+          uv build --wheel --out-dir "${RUNNER_TEMP}/careercompass-ai-wheel"
+          uv venv "${RUNNER_TEMP}/careercompass-ai-db-venv"
+          uv pip install \
+            --python "${RUNNER_TEMP}/careercompass-ai-db-venv/bin/python" \
+            "${RUNNER_TEMP}"/careercompass-ai-wheel/careercompass-*.whl
+
+      - name: Verify fresh and legacy-upgrade migrations
+        env:
+          CC_AI_PYTHON: ${{ runner.temp }}/careercompass-ai-db-venv/bin/python
+          CC_PG_HOST: 127.0.0.1
+          CC_PG_PORT: "5432"
+          CC_PG_USER: postgres
+          CC_PG_PASSWORD: careercompass_ci_postgres
+          CC_PG_DATABASE_PREFIX: careercompass_ci_ai
+        run: bash scripts/verify_ai_postgres_migrations.sh
+
+  contract:
+    name: AI contract (OpenAPI)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: ai-service/uv.lock
+
+      - name: Sync dependencies
+        working-directory: ai-service
+        run: uv sync --extra dev
+
+      - name: Validate the internal contract
+        working-directory: ai-service
+        run: |
+          uv run --extra dev python -c "
+          from openapi_spec_validator import validate
+          from openapi_spec_validator.readers import read_from_filename
+          spec, _ = read_from_filename('../docs/contracts/careercompass-ai-internal-v1.yaml')
+          validate(spec)
+          print(f'Contract valid: {len(spec[\"paths\"])} paths, {len(spec[\"components\"][\"schemas\"])} schemas')
+          "
+
+  backend-compile:
+    name: Backend compiles (Java)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # 17 because that is what the pom targets, and because Lombok 1.18.34 does not support
+      # the JDK 25 that ships on some developer machines here.
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: "17"
+          distribution: temurin
+          cache: maven
+
+      - name: Compile
+        working-directory: backend
+        run: mvn -B -q clean test-compile
+
+  backend-test:
+    name: Backend tests (Java)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: "17"
+          distribution: temurin
+          cache: maven
+
+      - name: Run tests
+        working-directory: backend
+        run: mvn -B test
+
+      - name: Upload failure reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-reports
+          path: backend/target/surefire-reports/
+          if-no-files-found: ignore
+
+  backend-database:
+    name: Backend database migrations (MySQL)
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_ROOT_PASSWORD: careercompass_ci_mysql
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd "mysqladmin ping -h 127.0.0.1 -uroot -pcareercompass_ci_mysql --silent"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: "17"
+          distribution: temurin
+          cache: maven
+
+      - name: Install MySQL client
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq default-mysql-client
+
+      - name: Build executable backend
+        working-directory: backend
+        run: mvn -B -q -DskipTests package
+
+      - name: Verify fresh and V1-upgrade migrations
+        env:
+          CC_MYSQL_HOST: 127.0.0.1
+          CC_MYSQL_PORT: "3306"
+          CC_MYSQL_USER: root
+          CC_MYSQL_PASSWORD: careercompass_ci_mysql
+          CC_MYSQL_DATABASE_PREFIX: careercompass_ci_backend
+        run: bash scripts/verify_backend_mysql_migrations.sh

@@ -20,8 +20,9 @@ import json
 import sys
 
 from careercompass.skills.gap import (
-    LEVEL_COVERAGE, LEVEL_TARGET, MODERATE_RATIO, build_skill_gap,
-    load_requirements, attach_skill_types, top_gaps,
+    CRITICAL_COVERAGE, IMPORTANT_COVERAGE, LEVEL_COVERAGE, LEVEL_TARGET,
+    MODERATE_RATIO, build_skill_gap, demand_band, load_requirements,
+    attach_skill_types, top_gaps,
 )
 
 _failures = []
@@ -271,6 +272,90 @@ def test_deterministic():
     check("order-independent", json.loads(shuffled)["skills"], json.loads(first)["skills"])
 
 
+def test_demand_bands_are_closed_below():
+    """The boundary belongs to the higher band, in both directions.
+
+    A skill sitting exactly on 0.25 is critical, not important. Getting this
+    backwards moves whole skills between bands on the dashboard for no reason
+    a student could ever see, so it is pinned here rather than left to
+    whichever comparison someone types next.
+    """
+    check("exactly critical", demand_band(CRITICAL_COVERAGE), "critical")
+    check("just under critical", demand_band(CRITICAL_COVERAGE - 1e-9), "important")
+    check("exactly important", demand_band(IMPORTANT_COVERAGE), "important")
+    check("just under important", demand_band(IMPORTANT_COVERAGE - 1e-9), "useful")
+    check("floor", demand_band(0.02), "useful")
+    check("ceiling", demand_band(1.0), "critical")
+    # A requirement row with no coverage at all must land somewhere rather
+    # than raise: the ontology is data on disk and can predate a field.
+    check("missing coverage", demand_band(None), "useful")
+
+
+def test_rows_carry_their_band_and_the_count_behind_it():
+    g = build_skill_gap(vector(("s:a", 0.0)), [
+        requirement("s:a", coverage=0.40) | {"posting_count": 72},
+    ])
+    row = by_id(g)["s:a"]
+    check("band", row["demand_band"], "critical")
+    check("posting count", row["posting_count"], 72)
+    close("importance is the coverage", row["importance"], 0.40)
+
+
+def test_band_summary_partitions_every_row():
+    """Each row lands in exactly one band, and the bands account for all of them.
+
+    The dashboard reads "4 of the 11 things this career insists on" straight
+    off this, so a row counted twice or dropped is a wrong number on screen.
+    """
+    g = build_skill_gap(
+        vector(("s:met", 1.0)),
+        [
+            requirement("s:met", coverage=0.50),   # critical, strong
+            requirement("s:c", coverage=0.30),     # critical, weak
+            requirement("s:i", coverage=0.15),     # important, weak
+            requirement("s:i2", coverage=0.10),    # important, weak (boundary)
+            requirement("s:u", coverage=0.03),     # useful, weak
+        ],
+    )
+    bands = g["band_summary"]
+    check("critical total", bands["critical"]["total"], 2)
+    check("critical strong", bands["critical"]["strong"], 1)
+    check("important total", bands["important"]["total"], 2)
+    check("useful total", bands["useful"]["total"], 1)
+    check("partitions the rows",
+          sum(b["total"] for b in bands.values()), g["total_requirements"])
+    check("strong agrees with summary",
+          sum(b["strong"] for b in bands.values()), g["summary"]["strong"])
+    check("weak agrees with summary",
+          sum(b["weak"] for b in bands.values()), g["summary"]["weak"])
+
+
+def test_band_summary_honours_include_soft():
+    """Dropping soft requirements must drop them from the band counts too.
+
+    Otherwise the header says eleven critical skills and the list under it
+    shows eight, which reads as a bug in the page.
+    """
+    reqs = [
+        requirement("s:tech", coverage=0.40),
+        requirement("s:soft", coverage=0.40, skill_type="soft"),
+    ]
+    with_soft = build_skill_gap(vector(), reqs, include_soft=True)
+    without = build_skill_gap(vector(), reqs, include_soft=False)
+    check("counted with soft", with_soft["band_summary"]["critical"]["total"], 2)
+    check("not counted without", without["band_summary"]["critical"]["total"], 1)
+    check("totals still agree",
+          sum(b["total"] for b in without["band_summary"].values()),
+          without["total_requirements"])
+
+
+def test_sample_size_is_reported_but_never_required():
+    g = build_skill_gap(vector(), [requirement("s:a")], sample_size=184)
+    check("carried through", g["sample_size"], 184)
+    # An ontology written before the header existed still has to produce a gap.
+    check("optional", build_skill_gap(vector(), [requirement("s:a")])["sample_size"], None)
+
+
 def main():
     test_target_comes_from_level_not_score()
     test_classification_boundaries()
@@ -281,6 +366,11 @@ def main():
     test_soft_skills_rank_last()
     test_top_gaps_excludes_met_and_soft()
     test_summary_counts_every_row()
+    test_demand_bands_are_closed_below()
+    test_rows_carry_their_band_and_the_count_behind_it()
+    test_band_summary_partitions_every_row()
+    test_band_summary_honours_include_soft()
+    test_sample_size_is_reported_but_never_required()
     test_no_narrative_is_generated_here()
     test_metadata_carries_through()
     test_missing_skill_type_defaults_to_technical()

@@ -16,6 +16,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Administrator-side Expert account creation (FR-EX-01: "assigned by the system
  * administrator"). Named/scoped the same way as ContentManagerAdminService (Increment 6) —
@@ -61,5 +63,11 @@ public class ExpertAdminService {
                 .build();
 
         return expertMapper.toResponse(expertRepository.save(expert));
+    }
+    @Transactional(readOnly = true)
+    public List<ExpertResponse> listExperts() {
+        return expertRepository.findAll().stream()
+                .map(expertMapper::toResponse)
+                .toList();
     }
 }

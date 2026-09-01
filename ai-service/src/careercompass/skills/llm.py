@@ -6,11 +6,26 @@ generative model. It runs only for ambiguous terms: retrieval and reranking
 have already reduced the taxonomy to a short list, but cannot choose a clear
 winner.
 
-Two providers are supported:
+Four providers are supported:
 
     ollama      local, open-weight models through Ollama; defaults to
                 qwen3:8b and requires no Python SDK or API key
     anthropic   hosted Claude models through the optional anthropic SDK
+    gemini      hosted Google models over the REST API, standard library only,
+                authenticated with GEMINI_API_KEY
+    openrouter  hosted free/paid models through OpenRouter's OpenAI-compatible
+                REST API, authenticated with OPENROUTER_API_KEY
+
+`gemini` exists for deployments with no GPU and too little CPU to run a local
+model inside a request budget — a small free VM being the usual case. It uses
+Gemini's JSON Schema response mode and `decide` still re-validates the returned
+id against the shortlist before the result can reach the matcher.
+
+`openrouter` serves the same constrained and prose operations without an SDK.
+The default `openrouter/free` router chooses only zero-price models. Structured
+calls require providers to honor JSON Schema, and every request denies provider
+data collection by default. These privacy and routing constraints fail closed
+when no compatible free endpoint is available.
 
 The model never writes an unrestricted identifier. It receives a JSON schema
 whose canonical_id is an enum containing only the retrieved IDs plus
@@ -32,10 +47,20 @@ logger = logging.getLogger("careercompass.llm")
 DEFAULT_PROVIDER = "ollama"
 DEFAULT_OLLAMA_MODEL = "qwen3:8b"
 DEFAULT_ANTHROPIC_MODEL = "claude-opus-5"
+DEFAULT_GEMINI_MODEL = "gemini-3.5-flash-lite"
+DEFAULT_OPENROUTER_MODEL = "openrouter/free"
 DEFAULT_OLLAMA_URL = "http://127.0.0.1:11434"
 DEFAULT_OLLAMA_TIMEOUT = 300.0
 
-VALID_PROVIDERS = ("ollama", "anthropic")
+GEMINI_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models"
+# Hosted call over the public internet, so this is a network timeout rather than
+# an inference budget. Kept well under the backend's 90s quiz deadline so a slow
+# response fails here with a logged reason instead of timing out upstream.
+DEFAULT_GEMINI_TIMEOUT = 60.0
+OPENROUTER_ENDPOINT = "https://openrouter.ai/api/v1/chat/completions"
+DEFAULT_OPENROUTER_TIMEOUT = 60.0
+
+VALID_PROVIDERS = ("ollama", "anthropic", "gemini", "openrouter")
 NO_MATCH = "no_match"
 
 # How long Ollama should hold the model in memory between calls.
@@ -93,12 +118,12 @@ def _enabled(value) -> bool:
     return str(value or "").lower() in ("1", "true", "yes", "on")
 
 
-def _timeout(value) -> float:
-    """Parse the Ollama timeout without letting a bad env value break startup."""
+def _timeout(value, default: float = DEFAULT_OLLAMA_TIMEOUT) -> float:
+    """Parse a provider timeout without letting a bad env value break startup."""
     try:
         return max(1.0, float(value))
     except (TypeError, ValueError):
-        return DEFAULT_OLLAMA_TIMEOUT
+        return default
 
 
 def _candidate_block(candidates: list) -> str:
@@ -116,18 +141,18 @@ def _candidate_block(candidates: list) -> str:
 
 
 class LLMDecider:
-    """Selects one retrieved taxonomy ID through Ollama or Anthropic."""
+    """Selects one retrieved taxonomy ID through a configured LLM provider."""
 
     def __init__(self, model: str = "", provider: str = "", enabled=None,
                  ollama_url: str = "", client=None, domain: str = DEFAULT_DOMAIN):
         self.provider = (
             provider or os.getenv("CC_MATCH_LLM_PROVIDER", DEFAULT_PROVIDER)
         ).strip().lower()
-        default_model = (
-            DEFAULT_ANTHROPIC_MODEL
-            if self.provider == "anthropic"
-            else DEFAULT_OLLAMA_MODEL
-        )
+        default_model = {
+            "anthropic": DEFAULT_ANTHROPIC_MODEL,
+            "gemini": DEFAULT_GEMINI_MODEL,
+            "openrouter": DEFAULT_OPENROUTER_MODEL,
+        }.get(self.provider, DEFAULT_OLLAMA_MODEL)
         self.model = model or os.getenv("CC_MATCH_MODEL", default_model)
         self.ollama_url = (
             ollama_url or os.getenv("CC_OLLAMA_URL", DEFAULT_OLLAMA_URL)
@@ -136,12 +161,34 @@ class LLMDecider:
             os.getenv("CC_OLLAMA_TIMEOUT", DEFAULT_OLLAMA_TIMEOUT)
         )
         self.keep_alive = os.getenv("CC_OLLAMA_KEEP_ALIVE", DEFAULT_KEEP_ALIVE)
+        # GOOGLE_API_KEY is accepted too: it is what Google's own tooling sets,
+        # and a deployment that already exports it should not need a second copy
+        # under a different name.
+        self.gemini_api_key = (
+            os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY") or ""
+        ).strip()
+        self.gemini_timeout = _timeout(
+            os.getenv("CC_GEMINI_TIMEOUT", DEFAULT_GEMINI_TIMEOUT),
+            DEFAULT_GEMINI_TIMEOUT,
+        )
+        self.openrouter_api_key = os.getenv("OPENROUTER_API_KEY", "").strip()
+        self.openrouter_timeout = _timeout(
+            os.getenv("CC_OPENROUTER_TIMEOUT", DEFAULT_OPENROUTER_TIMEOUT),
+            DEFAULT_OPENROUTER_TIMEOUT,
+        )
+        self.openrouter_site_url = os.getenv("CC_OPENROUTER_SITE_URL", "").strip()
+        data_collection = os.getenv("CC_OPENROUTER_DATA_COLLECTION", "deny").strip().lower()
+        self.openrouter_data_collection = (
+            data_collection if data_collection in ("allow", "deny") else "deny"
+        )
         self.domain = domain if domain in DOMAINS else DEFAULT_DOMAIN
         self.system_prompt = system_prompt(self.domain)
         self.enabled = _enabled(os.getenv("CC_MATCH_LLM")) if enabled is None else bool(enabled)
         self.reason_unavailable = ""
         self._client = client
         self._ollama_ready = False
+        self._gemini_ready = False
+        self._openrouter_ready = False
 
         if not self.enabled:
             self.reason_unavailable = "LLM stage disabled (set CC_MATCH_LLM=1 or pass --llm)"
@@ -149,12 +196,17 @@ class LLMDecider:
 
         if self.provider not in VALID_PROVIDERS:
             self.reason_unavailable = (
-                f"unknown LLM provider {self.provider!r}; choose ollama or anthropic"
+                f"unknown LLM provider {self.provider!r}; "
+                f"choose one of {', '.join(VALID_PROVIDERS)}"
             )
             return
 
         if self.provider == "ollama":
             self._configure_ollama()
+        elif self.provider == "gemini":
+            self._configure_gemini()
+        elif self.provider == "openrouter":
+            self._configure_openrouter()
         else:
             self._configure_anthropic()
 
@@ -165,6 +217,10 @@ class LLMDecider:
             return False
         if self.provider == "ollama":
             return self._ollama_ready
+        if self.provider == "gemini":
+            return self._gemini_ready
+        if self.provider == "openrouter":
+            return self._openrouter_ready
         return self._client is not None
 
     @property
@@ -194,6 +250,31 @@ class LLMDecider:
             )
             return
         self._ollama_ready = True
+
+    def _configure_gemini(self) -> None:
+        """
+        Check that a key is present. Deliberately no network call.
+
+        A reachability probe here would add latency to every process start and
+        turn a transient Google outage into a service that reports itself
+        permanently unavailable. A bad key instead surfaces on first use, is
+        logged with Google's own message, and sends that one term to review.
+        """
+        if not self.gemini_api_key:
+            self.reason_unavailable = (
+                "no Gemini credentials: set GEMINI_API_KEY (or GOOGLE_API_KEY)"
+            )
+            return
+        self._gemini_ready = True
+
+    def _configure_openrouter(self) -> None:
+        """Mark OpenRouter ready when a bearer key is configured."""
+        if not self.openrouter_api_key:
+            self.reason_unavailable = (
+                "no OpenRouter credentials: set OPENROUTER_API_KEY"
+            )
+            return
+        self._openrouter_ready = True
 
     def _configure_anthropic(self) -> None:
         """Create the optional Anthropic client."""
@@ -281,6 +362,10 @@ class LLMDecider:
             return ""
         if self.provider == "ollama":
             return self._ollama_text(prompt, schema)
+        if self.provider == "gemini":
+            return self._gemini_text(prompt, schema)
+        if self.provider == "openrouter":
+            return self._openrouter_text(prompt, schema)
         return self._anthropic_text(prompt, schema)
 
     def complete(self, prompt: str, max_tokens: int = 400) -> str:
@@ -316,6 +401,17 @@ class LLMDecider:
                 return ""
             return str((response.get("message") or {}).get("content") or "").strip()
 
+        if self.provider == "gemini":
+            # Warmer than `decide`, for the same reason the Ollama branch is.
+            return self._gemini_text(
+                prompt, schema=None, max_tokens=max_tokens, temperature=0.4
+            )
+
+        if self.provider == "openrouter":
+            return self._openrouter_text(
+                prompt, schema=None, max_tokens=max_tokens, temperature=0.4
+            )
+
         try:
             message = self.client.messages.create(
                 model=self.model,
@@ -329,6 +425,183 @@ class LLMDecider:
         except Exception as exc:  # noqa: BLE001 - pragma: no cover
             logger.warning("Anthropic completion failed: %s", exc)
             return ""
+
+    def _gemini_text(self, prompt: str, schema: dict = None,
+                     max_tokens: int = 0, temperature: float | None = None) -> str:
+        """
+        One Gemini REST call, standard library only — no SDK, so the image stays
+        the same size and the deployment gains no new dependency.
+
+        The schemas generated by this code use only the JSON Schema keywords
+        supported by Gemini. The model is constrained in transport and the
+        caller validates security-sensitive values again after parsing.
+        """
+        instructions = self.system_prompt
+        # These tasks need instruction following, not deep reasoning. Minimal
+        # thinking reduces free-tier token use and keeps quiz requests inside
+        # the backend's deadline. Temperature is retained only for prose calls.
+        config = {"thinkingConfig": {"thinkingLevel": "minimal"}}
+        if temperature is not None:
+            config["temperature"] = temperature
+        if max_tokens:
+            config["maxOutputTokens"] = max_tokens
+        if schema is not None:
+            config["responseMimeType"] = "application/json"
+            config["responseJsonSchema"] = schema
+            # Structured calls can otherwise inherit the model's very large
+            # default output limit. This matches the Anthropic provider.
+            config.setdefault("maxOutputTokens", 4096)
+            instructions += "\n\nReturn only the JSON value required by the response schema."
+
+        body = json.dumps({
+            "systemInstruction": {"parts": [{"text": instructions}]},
+            "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+            "generationConfig": config,
+        }).encode("utf-8")
+
+        # The key travels in a header, not the query string: a URL carrying a
+        # credential ends up in proxy logs and crash reports.
+        request = Request(
+            f"{GEMINI_ENDPOINT}/{self.model}:generateContent",
+            data=body,
+            headers={
+                "Content-Type": "application/json",
+                "x-goog-api-key": self.gemini_api_key,
+            },
+            method="POST",
+        )
+
+        try:
+            with urlopen(request, timeout=self.gemini_timeout) as response:
+                payload = json.loads(response.read().decode("utf-8"))
+        except HTTPError as exc:
+            detail = exc.read().decode("utf-8", errors="replace")[:300]
+            # 429 is the free tier's rate limit and is expected under load, so it
+            # is named rather than buried in a generic failure.
+            if exc.code == 429:
+                logger.warning("Gemini rate limit reached: %s", detail)
+            else:
+                logger.warning("Gemini request failed (%s): %s", exc.code, detail)
+            return ""
+        except (URLError, OSError, ValueError) as exc:
+            logger.warning("Gemini request failed: %s", exc)
+            return ""
+
+        candidates = payload.get("candidates") or []
+        if not candidates:
+            # A blocked prompt returns no candidates and explains itself here.
+            logger.warning("Gemini returned no candidates: %s",
+                           str(payload.get("promptFeedback") or payload)[:200])
+            return ""
+
+        candidate = candidates[0]
+        finish_reason = candidate.get("finishReason", "")
+        if finish_reason and finish_reason != "STOP":
+            logger.warning(
+                "Gemini response ended with %s; ignoring incomplete output",
+                finish_reason,
+            )
+            return ""
+
+        parts = (candidate.get("content") or {}).get("parts") or []
+        text = "".join(part.get("text", "") for part in parts).strip()
+        if not text:
+            logger.warning("Gemini returned a candidate with no text")
+            return ""
+
+        # Models still fence JSON occasionally despite responseMimeType.
+        if text.startswith("```"):
+            text = text.split("\n", 1)[-1]
+            if text.endswith("```"):
+                text = text[: text.rfind("```")]
+        return text.strip()
+
+    def _openrouter_text(self, prompt: str, schema: dict = None,
+                         max_tokens: int = 0, temperature: float = 0.0) -> str:
+        """Call OpenRouter's OpenAI-compatible chat-completions endpoint."""
+        body = {
+            "model": self.model,
+            "stream": False,
+            "messages": [
+                {"role": "system", "content": self.system_prompt},
+                {"role": "user", "content": prompt},
+            ],
+            # Deny providers that store/train on requests by default. This can
+            # reduce free-model availability, which is preferable to silently
+            # weakening the privacy policy.
+            "provider": {
+                "data_collection": self.openrouter_data_collection,
+                "require_parameters": schema is not None,
+            },
+            "temperature": temperature,
+            "max_tokens": max_tokens or (4096 if schema is not None else 400),
+        }
+        if schema is not None:
+            body["response_format"] = {
+                "type": "json_schema",
+                "json_schema": {
+                    "name": "careercompass_response",
+                    "strict": True,
+                    "schema": schema,
+                },
+            }
+
+        headers = {
+            "Authorization": f"Bearer {self.openrouter_api_key}",
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "X-Title": "CareerCompass",
+        }
+        if self.openrouter_site_url:
+            headers["HTTP-Referer"] = self.openrouter_site_url
+
+        request = Request(
+            OPENROUTER_ENDPOINT,
+            data=json.dumps(body).encode("utf-8"),
+            headers=headers,
+            method="POST",
+        )
+        try:
+            with urlopen(request, timeout=self.openrouter_timeout) as response:
+                payload = json.loads(response.read().decode("utf-8"))
+        except HTTPError as exc:
+            detail = exc.read().decode("utf-8", errors="replace")[:300]
+            if exc.code == 429:
+                logger.warning("OpenRouter free-model rate limit reached: %s", detail)
+            else:
+                logger.warning("OpenRouter request failed (%s): %s", exc.code, detail)
+            return ""
+        except (URLError, OSError, ValueError) as exc:
+            logger.warning("OpenRouter request failed: %s", exc)
+            return ""
+
+        if payload.get("error"):
+            logger.warning("OpenRouter returned an error: %s", str(payload["error"])[:300])
+            return ""
+        choices = payload.get("choices") or []
+        if not choices:
+            logger.warning("OpenRouter returned no completion choices")
+            return ""
+
+        choice = choices[0]
+        finish_reason = choice.get("finish_reason", "")
+        if finish_reason and finish_reason != "stop":
+            logger.warning(
+                "OpenRouter response ended with %s; ignoring incomplete output",
+                finish_reason,
+            )
+            return ""
+
+        content = (choice.get("message") or {}).get("content")
+        if isinstance(content, list):
+            content = "".join(
+                part.get("text", "") for part in content if isinstance(part, dict)
+            )
+        text = content.strip() if isinstance(content, str) else ""
+        if not text:
+            logger.warning("OpenRouter returned a completion with no text")
+            return ""
+        return text
 
     def _anthropic_text(self, prompt: str, schema: dict) -> str:
         """Generate one schema-constrained Anthropic response."""
@@ -400,6 +673,10 @@ class LLMDecider:
         text = (
             self._ollama_text(prompt, schema, max_tokens=DECISION_MAX_TOKENS)
             if self.provider == "ollama"
+            else self._gemini_text(prompt, schema, max_tokens=DECISION_MAX_TOKENS)
+            if self.provider == "gemini"
+            else self._openrouter_text(prompt, schema, max_tokens=DECISION_MAX_TOKENS)
+            if self.provider == "openrouter"
             else self._anthropic_text(prompt, schema)
         )
         try:

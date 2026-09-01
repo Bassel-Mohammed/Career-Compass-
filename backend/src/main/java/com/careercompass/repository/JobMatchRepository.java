@@ -16,5 +16,8 @@ public interface JobMatchRepository extends JpaRepository<JobMatch, JobMatchId> 
 
     List<JobMatch> findByJob_JobIdOrderByMatchScoreDesc(Integer jobId);
 
+    /** Remove persisted candidate matches before deleting their posting. */
+    void deleteByJob_JobId(Integer jobId);
+
     void deleteByJobSeeker_JobseekerId(Integer jobseekerId);
 }

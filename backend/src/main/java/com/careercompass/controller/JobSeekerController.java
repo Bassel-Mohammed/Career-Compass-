@@ -2,11 +2,16 @@ package com.careercompass.controller;
 
 import com.careercompass.dto.request.UpdateJobSeekerProfileRequest;
 import com.careercompass.dto.response.JobSeekerProfileResponse;
+import com.careercompass.dto.response.JobResponse;
 import com.careercompass.security.userdetails.CurrentUser;
 import com.careercompass.security.userdetails.UserPrincipal;
 import com.careercompass.service.JobSeekerService;
+import com.careercompass.service.JobService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +28,14 @@ import org.springframework.web.bind.annotation.*;
 public class JobSeekerController {
 
     private final JobSeekerService jobSeekerService;
+    private final JobService jobService;
+
+    @GetMapping("/me/jobs")
+    public ResponseEntity<Page<JobResponse>> listActiveJobs(
+            @CurrentUser UserPrincipal principal,
+            @PageableDefault(size = 20) Pageable pageable) {
+        return ResponseEntity.ok(jobService.listActiveJobs(pageable));
+    }
 
     @GetMapping("/me")
     public ResponseEntity<JobSeekerProfileResponse> getMyProfile(@CurrentUser UserPrincipal principal) {

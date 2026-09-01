@@ -15,6 +15,8 @@ import java.util.List;
 public class CareerPathResponse {
     private Integer careerPathId;
     private String title;
+    private String careerPathCode;
+    private String ontologyVersion;
     private String description;
     private List<StudyFieldResponse> studyFields;
     private LocalDateTime createdAt;

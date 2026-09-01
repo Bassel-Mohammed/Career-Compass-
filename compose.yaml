@@ -1,0 +1,146 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${AI_POSTGRES_DB:-careercompass_ai}
+      POSTGRES_USER: ${AI_POSTGRES_USER:-careercompass}
+      POSTGRES_PASSWORD: ${AI_POSTGRES_PASSWORD:-careercompass-local-dev-only}
+    ports:
+      # 5432 is commonly taken by a developer's local PostgreSQL; expose the
+      # container DB on 5433 instead. The ai-service reaches it over the
+      # internal network either way.
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - ai_postgres:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U ${AI_POSTGRES_USER:-careercompass} -d ${AI_POSTGRES_DB:-careercompass_ai}
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+  ai-service:
+    build:
+      context: ./ai-service
+      dockerfile: Dockerfile
+    network_mode: host
+    environment:
+      CC_DATA_DIR: /app/data
+      CC_SERVICE_TOKEN: ${AI_SERVICE_TOKEN:-careercompass-local-dev-token}
+      # Load the 96 synthetic course maps in data/mock/skills alongside the 20 real extracted
+      # ones. Without them a student can reach at most ~40% of any career path's requirements,
+      # and the dashboard reads as "you are missing everything" when it means "we could not read
+      # your courses". Every counted synthetic course is reported and labelled on screen.
+      # Set to 0 for a build that must only ever touch real extracted syllabi.
+      CC_INCLUDE_MOCK_COURSES: ${AI_INCLUDE_MOCK_COURSES:-1}
+      # Keep the development image deterministic and offline-capable. The
+      # optional BGE/cross-encoder/LLM dependencies are intentionally omitted.
+      CC_EMBEDDING_BACKEND: lexical
+      CC_RERANKER: lexical
+      CC_MATCH_LLM: "1"
+      # Use host's Ollama (already running with qwen3:8b model)
+      # With network_mode: host, localhost:11434 is the host's Ollama
+      CC_OLLAMA_URL: http://localhost:11434
+      # Course-map publication persistence (skills review workflow). The schema
+      # is created by the packaged migrations on startup.
+      # With network_mode: host, connect to Postgres via host-mapped port
+      CC_DB_HOST: localhost
+      CC_DB_PORT: "5433"
+      CC_DB_NAME: ${AI_POSTGRES_DB:-careercompass_ai}
+      CC_DB_USER: ${AI_POSTGRES_USER:-careercompass}
+      CC_DB_PASSWORD: ${AI_POSTGRES_PASSWORD:-careercompass-local-dev-only}
+      CC_DB_AUTO_MIGRATE: "1"
+    ports:
+      - "127.0.0.1:8000:8000"
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - >-
+          import urllib.request;
+          urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health/ready', timeout=3).close()
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      # A clean machine may need several minutes to assemble the matcher.
+      # Readiness (unlike liveness) ensures the real client is usable before
+      # Spring starts, while this grace period avoids failing during warm-up.
+      start_period: 5m
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      SPRING_DATASOURCE_URL: "jdbc:h2:file:/app/data/careercompass;MODE=MySQL;DB_CLOSE_ON_EXIT=FALSE"
+      JWT_SECRET: ${JWT_SECRET:-ROTATED_LOCAL_DOCKER_ONLY_SECRET_A9F8B7C6D5E4F3G2H1I0J9K8L7M6N5O4P3Q2R1S0}
+      # ai-service uses network_mode: host, reachable via Docker gateway
+      AI_SERVICE_BASE_URL: http://172.18.0.1:8000
+      AI_SERVICE_TOKEN: ${AI_SERVICE_TOKEN:-careercompass-local-dev-token}
+      # Spring relaxed binding maps this environment name to
+      # careercompass.ai-service.use-mock. Set BACKEND_USE_AI_MOCK=true only
+      # when demonstrating the explicitly labelled placeholder job scores.
+      CAREERCOMPASS_AI_SERVICE_USE_MOCK: ${BACKEND_USE_AI_MOCK:-false}
+      LEARNING_OUTCOMES_DIR: /app/uploads/learning-outcomes
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - backend_h2:/app/data
+      - learning_outcomes:/app/uploads/learning-outcomes
+    depends_on:
+      ai-service:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - curl
+        - --fail
+        - --silent
+        - --show-error
+        - http://127.0.0.1:8080/v3/api-docs
+      interval: 10s
+      timeout: 5s
+      retries: 18
+      start_period: 30s
+
+  adminer:
+    image: adminer:latest
+    ports:
+      - "127.0.0.1:8081:8080"
+    depends_on:
+      - postgres
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    environment:
+      # This value is compiled/served to the browser, so it must be a host URL,
+      # not the backend service name from Docker's private network.
+      VITE_API_BASE_URL: http://localhost:8080
+    ports:
+      - "127.0.0.1:5173:5173"
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - >-
+          fetch('http://127.0.0.1:5173')
+          .then(response => { if (!response.ok) process.exit(1) })
+          .catch(() => process.exit(1))
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+
+volumes:
+  backend_h2:
+  learning_outcomes:
+  ai_postgres:

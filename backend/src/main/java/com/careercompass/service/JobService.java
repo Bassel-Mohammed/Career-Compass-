@@ -9,6 +9,7 @@ import com.careercompass.exception.ResourceNotFoundException;
 import com.careercompass.exception.UnauthorizedActionException;
 import com.careercompass.mapper.JobMapper;
 import com.careercompass.repository.EmployerRepository;
+import com.careercompass.repository.JobMatchRepository;
 import com.careercompass.repository.JobRepository;
 import com.careercompass.repository.StudyFieldRepository;
 import lombok.RequiredArgsConstructor;
@@ -33,6 +34,7 @@ import java.util.List;
 public class JobService {
 
     private final JobRepository jobRepository;
+    private final JobMatchRepository jobMatchRepository;
     private final EmployerRepository employerRepository;
     private final StudyFieldRepository studyFieldRepository;
     private final JobMapper jobMapper;
@@ -72,6 +74,11 @@ public class JobService {
     @Transactional
     public void deleteJob(Integer employerId, Integer jobId) {
         Job job = getOwnedJobOrThrow(employerId, jobId);
+
+        // MySQL's reference schema cascades this relationship, but the H2 development
+        // schema is generated from JPA and does not. Delete explicitly so the endpoint
+        // behaves the same after candidates have been scored in every environment.
+        jobMatchRepository.deleteByJob_JobId(jobId);
         jobRepository.delete(job);
     }
 

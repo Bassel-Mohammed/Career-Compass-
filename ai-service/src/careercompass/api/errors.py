@@ -125,6 +125,17 @@ class Problem(Exception):
         )
 
     @classmethod
+    def course_code_ambiguous(cls, course_code: str, course_keys: list[str]):
+        return cls(
+            409,
+            "course-code-ambiguous",
+            "Course code is not globally unique",
+            f"Course code {course_code!r} has more than one published map. "
+            "Use a qualified course_key instead.",
+            course_keys=sorted(course_keys),
+        )
+
+    @classmethod
     def career_path_not_found(cls, career_path: str, known: list = None):
         known = ", ".join(sorted(known or []))
         return cls(
@@ -155,6 +166,33 @@ class Problem(Exception):
             f"{skill_id!r} is not in the taxonomy.",
         )
 
+    @classmethod
+    def invalid_course_map(cls, detail: str):
+        return cls(
+            422, "invalid-course-map", "Course map cannot be published", detail,
+        )
+
+    @classmethod
+    def taxonomy_version_conflict(cls, requested: str, current: str):
+        return cls(
+            409,
+            "taxonomy-version-conflict",
+            "Taxonomy version is stale",
+            f"The map targets taxonomy {requested!r}, but this service currently "
+            f"serves {current!r}. Refresh the proposals before publishing.",
+            current_taxonomy_version=current,
+        )
+
+    @classmethod
+    def course_map_version_conflict(cls, course_map_version: str):
+        return cls(
+            409,
+            "course-map-version-conflict",
+            "Course-map version is already in use",
+            f"Version {course_map_version!r} was already published with different "
+            "content. Create a new version for the revised map.",
+        )
+
     # ── Dependencies ───────────────────────────────────────────
     @classmethod
     def matcher_unavailable(cls, detail: str):
@@ -182,6 +220,21 @@ class Problem(Exception):
         return cls(
             503, "database-unavailable", "Database is unreachable", detail,
             headers={"Retry-After": "30"},
+        )
+
+    # ── Service authentication ─────────────────────────────────
+    @classmethod
+    def not_authenticated(cls, detail: str):
+        """
+        The caller did not present a valid service token.
+
+        This authenticates the *calling service*, not a student — no end-user identity
+        crosses this boundary. `WWW-Authenticate` is required on a 401 by RFC 9110 and tells
+        the caller which scheme to retry with.
+        """
+        return cls(
+            401, "not-authenticated", "Service authentication required", detail,
+            headers={"WWW-Authenticate": "Bearer"},
         )
 
 

@@ -69,7 +69,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @SpringBootTest
 @AutoConfigureMockMvc
-@ActiveProfiles("dev")
+@ActiveProfiles({"dev", "test"})
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class CareerCompassSystemTest {
@@ -109,6 +109,10 @@ class CareerCompassSystemTest {
 
     private static String contentManagerToken;
     private static Integer contentManagerId;
+    private static Integer contentManagerOutcomeId;
+    private static Long contentManagerDraftSkillId;
+    private static Long contentManagerDraftRowVersion;
+    private static Long contentManagerDraftRevision;
 
     private static String expertToken;
     private static Integer expertId;
@@ -266,6 +270,118 @@ class CareerCompassSystemTest {
                         .matchScore(BigDecimal.valueOf(82.0))
                         .explanation("Strong overlap in required skills.")
                         .build());
+
+        // Module 8: proposal-only syllabus extraction for the content-manager review
+        // workflow. The submission completes synchronously with two matched skills, so the
+        // upload lands in READY_FOR_REVIEW immediately and the review phases below can drive
+        // accept → publish against deterministic ids.
+        when(dataAnalysisClient.submitSyllabusExtraction(any(SyllabusExtractionRequest.class)))
+                .thenAnswer(inv -> SyllabusExtractionResponse.builder()
+                        .extractionId("ext-sys-test-1")
+                        .status("succeeded")
+                        .contentSha256("a".repeat(64))
+                        .warnings(java.util.Collections.emptyList())
+                        .result(SyllabusExtractionResponse.Result.builder()
+                                .courseCode("CS201")
+                                .totalSkills(2)
+                                .taxonomyVersion("taxonomy-2026.08")
+                                .skills(List.of(
+                                        extractedSyllabusSkill("object-oriented programming",
+                                                "skill:oop", "Object-oriented programming",
+                                                "intermediate", "0.9000"),
+                                        extractedSyllabusSkill("unit testing",
+                                                "skill:unit-testing", "Unit testing",
+                                                "beginner", "0.7000")))
+                                .build())
+                        .build());
+        when(dataAnalysisClient.getSyllabusExtraction(any()))
+                .thenAnswer(inv -> SyllabusExtractionResponse.builder()
+                        .extractionId(inv.getArgument(0))
+                        .status("succeeded")
+                        .warnings(java.util.Collections.emptyList())
+                        .build());
+        when(dataAnalysisClient.cancelSyllabusExtraction(any()))
+                .thenAnswer(inv -> SyllabusExtractionResponse.builder()
+                        .extractionId(inv.getArgument(0))
+                        .status("cancelled")
+                        .warnings(java.util.Collections.emptyList())
+                        .build());
+        when(dataAnalysisClient.searchTaxonomySkills(any(), any(int.class)))
+                .thenReturn(List.of(
+                        TaxonomySkillSuggestion.builder()
+                                .skillId("skill:docker").label("Docker").skillType("tool")
+                                .source("taxonomy-2026.08").taxonomyVersion("taxonomy-2026.08")
+                                .build(),
+                        TaxonomySkillSuggestion.builder()
+                                .skillId("skill:oop").label("Object-oriented programming")
+                                .skillType("skill").source("taxonomy-2026.08")
+                                .taxonomyVersion("taxonomy-2026.08")
+                                .build()));
+        when(dataAnalysisClient.publishCourseMap(any(PublishCourseMapRequest.class)))
+                .thenAnswer(inv -> {
+                    PublishCourseMapRequest req = inv.getArgument(0);
+                    return PublishCourseMapResponse.builder()
+                            .courseMapVersion(req.getCourseMapVersion())
+                            .courseKey(req.getInstitutionCode() + "|" + req.getCatalogVersion()
+                                    + "|" + req.getCourseCode())
+                            .courseCode(req.getCourseCode())
+                            .taxonomyVersion(req.getTaxonomyVersion())
+                            .totalSkills(req.getSkills() == null ? 0 : req.getSkills().size())
+                            .contentSha256("b".repeat(64))
+                            .publishedAt("2026-08-25T00:00:00Z")
+                            .idempotent(false)
+                            .build();
+                });
+
+        // Mentor matching stub
+        when(dataAnalysisClient.matchMentors(any(MentorMatchRequest.class)))
+                .thenAnswer(inv -> {
+                    MentorMatchRequest req = inv.getArgument(0);
+                    if (req.getMentors() == null || req.getMentors().isEmpty()) {
+                        return MentorMatchResponse.builder().build();
+                    }
+                    List<MentorMatchResponse.MentorMatchItem> items = req.getMentors().stream()
+                            .limit(req.getLimit())
+                            .map(m -> MentorMatchResponse.MentorMatchItem.builder()
+                                    .mentorId(m.getMentorId())
+                                    .score(new java.math.BigDecimal("85.0"))
+                                    .gapsAddressed(2)
+                                    .explanation("Mock explanation")
+                                    .build())
+                            .toList();
+                    return MentorMatchResponse.builder()
+                            .careerPath(req.getCareerPathName())
+                            .taxonomyVersion("mock-v1")
+                            .total(items.size())
+                            .gapsConsidered(3)
+                            .items(items)
+                            .build();
+                });
+    }
+
+    /** One matched skill inside the Module 8 stub proposal above. */
+    private static SyllabusExtractionResponse.ExtractedSkill extractedSyllabusSkill(
+            String term, String skillId, String label, String level, String weight) {
+        return SyllabusExtractionResponse.ExtractedSkill.builder()
+                .term(term)
+                .canonical(SyllabusExtractionResponse.CanonicalSkill.builder()
+                        .id(skillId).label(label).taxonomy("taxonomy-2026.08").build())
+                .level(level)
+                .weight(new BigDecimal(weight))
+                .evidenceCount(2)
+                .sources(List.of("clo"))
+                .evidence(List.of(java.util.Map.of("source", "clo", "text", "Students can " + term)))
+                .match(SyllabusExtractionResponse.Match.builder()
+                        .originalTerm(term)
+                        .canonicalId(skillId)
+                        .canonicalLabel(label)
+                        .matchMethod("lexical")
+                        .matchScore(new BigDecimal("0.9500"))
+                        .reviewStatus("accepted")
+                        .reason("Exact alias match")
+                        .candidates(java.util.Collections.emptyList())
+                        .build())
+                .build();
     }
 
     // =====================================================================================
@@ -426,7 +542,7 @@ class CareerCompassSystemTest {
     @Test
     @Order(10)
     void phase1_jobSeekerCanRegisterThemselves() throws Exception {
-        String body = "{\"firstName\":\"Sara\",\"lastName\":\"Ahmad\",\"email\":\"sara@example.com\",\"password\":\"password123\"}";
+        String body = "{\"firstName\":\"Sara\",\"lastName\":\"Ahmad\",\"email\":\"sara@example.com\",\"password\":\"Password!123\"}";
 
         MvcResult result = mockMvc.perform(post("/api/auth/job-seekers/register")
                         .contentType("application/json").content(body))
@@ -447,7 +563,7 @@ class CareerCompassSystemTest {
     @Test
     @Order(11)
     void phase1_jobSeekerRegistration_rejectsDuplicateEmail() throws Exception {
-        String body = "{\"firstName\":\"Sara\",\"lastName\":\"Ahmad\",\"email\":\"sara@example.com\",\"password\":\"password123\"}";
+        String body = "{\"firstName\":\"Sara\",\"lastName\":\"Ahmad\",\"email\":\"sara@example.com\",\"password\":\"Password!123\"}";
 
         mockMvc.perform(post("/api/auth/job-seekers/register")
                         .contentType("application/json").content(body))
@@ -459,7 +575,7 @@ class CareerCompassSystemTest {
     @Test
     @Order(12)
     void phase1_jobSeekerCanLogin() throws Exception {
-        String body = "{\"email\":\"sara@example.com\",\"password\":\"password123\"}";
+        String body = "{\"email\":\"sara@example.com\",\"password\":\"Password!123\"}";
 
         mockMvc.perform(post("/api/auth/job-seekers/login")
                         .contentType("application/json").content(body))
@@ -560,7 +676,7 @@ class CareerCompassSystemTest {
     @Order(20)
     void phase2_employerCanRegisterThemselves() throws Exception {
         String body = "{\"companyName\":\"Atlas Systems\",\"industry\":\"Software\",\"email\":\"hr@atlas.example.com\"," +
-                "\"password\":\"password123\",\"companyDescription\":\"We build distributed systems.\"}";
+                "\"password\":\"Password!123\",\"companyDescription\":\"We build distributed systems.\"}";
 
         MvcResult result = mockMvc.perform(post("/api/auth/employers/register")
                         .contentType("application/json").content(body))
@@ -579,7 +695,7 @@ class CareerCompassSystemTest {
     @Order(21)
     void phase2_secondEmployerCanRegister_forOwnershipTestsLater() throws Exception {
         String body = "{\"companyName\":\"Northwind Labs\",\"industry\":\"Software\",\"email\":\"hr@northwind.example.com\"," +
-                "\"password\":\"password123\"}";
+                "\"password\":\"Password!123\"}";
 
         MvcResult result = mockMvc.perform(post("/api/auth/employers/register")
                         .contentType("application/json").content(body))
@@ -653,7 +769,7 @@ class CareerCompassSystemTest {
     @Test
     @Order(26)
     void phase2_employerCanLoginThroughTheDedicatedEndpoint() throws Exception {
-        String body = "{\"email\":\"hr@atlas.example.com\",\"password\":\"password123\"}";
+        String body = "{\"email\":\"hr@atlas.example.com\",\"password\":\"Password!123\"}";
 
         MvcResult result = mockMvc.perform(post("/api/auth/employers/login")
                         .contentType("application/json").content(body))
@@ -749,7 +865,7 @@ class CareerCompassSystemTest {
     void phase3_adminCreatesContentManager() throws Exception {
         String body = String.format(
                 "{\"firstName\":\"Nour\",\"lastName\":\"Khaled\",\"email\":\"nour@meu.edu.jo\"," +
-                "\"initialPassword\":\"cmPassword123\",\"universityId\":%d,\"studyFieldId\":%d}",
+                "\"initialPassword\":\"CmPassword!123\",\"universityId\":%d,\"studyFieldId\":%d}",
                 universityId, studyFieldId);
 
         MvcResult result = mockMvc.perform(post("/api/admin/content-managers")
@@ -767,7 +883,7 @@ class CareerCompassSystemTest {
     @Test
     @Order(33)
     void phase3_contentManagerCanLoginAfterAdminCreatesAccount() throws Exception {
-        String body = "{\"email\":\"nour@meu.edu.jo\",\"password\":\"cmPassword123\"}";
+        String body = "{\"email\":\"nour@meu.edu.jo\",\"password\":\"CmPassword!123\"}";
 
         MvcResult result = mockMvc.perform(post("/api/auth/content-managers/login")
                         .contentType("application/json").content(body))
@@ -785,7 +901,7 @@ class CareerCompassSystemTest {
     void phase3_adminCreatesExpert() throws Exception {
         String body = String.format(
                 "{\"firstName\":\"David\",\"lastName\":\"Okafor\",\"email\":\"david@example.com\"," +
-                "\"initialPassword\":\"expertPass123\",\"studyFieldId\":%d,\"fieldStartingYear\":2010}",
+                "\"initialPassword\":\"ExpertPass!123\",\"studyFieldId\":%d,\"fieldStartingYear\":2010}",
                 studyFieldId);
 
         MvcResult result = mockMvc.perform(post("/api/admin/experts")
@@ -803,7 +919,7 @@ class CareerCompassSystemTest {
     @Order(35)
     void phase3_secondExpertCreated_forAccessControlTestLater() throws Exception {
         String body = "{\"firstName\":\"Priya\",\"lastName\":\"Nair\",\"email\":\"priya@example.com\"," +
-                "\"initialPassword\":\"expertPass123\",\"fieldStartingYear\":2015}";
+                "\"initialPassword\":\"ExpertPass!123\",\"fieldStartingYear\":2015}";
 
         mockMvc.perform(post("/api/admin/experts")
                         .header("Authorization", "Bearer " + adminToken)
@@ -812,7 +928,7 @@ class CareerCompassSystemTest {
 
         MvcResult loginResult = mockMvc.perform(post("/api/auth/experts/login")
                         .contentType("application/json")
-                        .content("{\"email\":\"priya@example.com\",\"password\":\"expertPass123\"}"))
+                        .content("{\"email\":\"priya@example.com\",\"password\":\"ExpertPass!123\"}"))
                 .andExpect(status().isOk())
                 .andReturn();
 
@@ -826,7 +942,7 @@ class CareerCompassSystemTest {
     void phase3_expertCanLoginAndActivateForConsulting() throws Exception {
         MvcResult loginResult = mockMvc.perform(post("/api/auth/experts/login")
                         .contentType("application/json")
-                        .content("{\"email\":\"david@example.com\",\"password\":\"expertPass123\"}"))
+                        .content("{\"email\":\"david@example.com\",\"password\":\"ExpertPass!123\"}"))
                 .andExpect(status().isOk())
                 .andReturn();
 
@@ -850,20 +966,193 @@ class CareerCompassSystemTest {
                 .andExpect(status().isOk());
     }
 
-    // Purpose: FR-CM-04 - the Content Manager uploads a course learning-outcome PDF.
+    // Purpose: FR-CM-04 - the content manager uploads a syllabus PDF with its qualified course
+    // identity; the (mocked) extraction completes synchronously, so the row is immediately
+    // READY_FOR_REVIEW and never visible to students until published.
     @Test
     @Order(38)
     void phase3_contentManagerCanUploadLearningOutcomePdf() throws Exception {
         MockMultipartFile file = new MockMultipartFile(
                 "file", "cs201-outcomes.pdf", "application/pdf", "fake pdf content".getBytes());
 
-        mockMvc.perform(multipart("/api/content-managers/me/learning-outcomes")
+        MvcResult result = mockMvc.perform(multipart("/api/content-managers/me/learning-outcomes")
                         .file(file)
+                        .param("courseCode", "CS201")
+                        .param("catalogVersion", "2025-2026")
                         .param("courseName", "Data Structures")
                         .param("description", "Covers arrays, lists, trees, graphs.")
                         .header("Authorization", "Bearer " + contentManagerToken))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.courseName", is("Data Structures")));
+                .andExpect(jsonPath("$.courseName", is("Data Structures")))
+                .andExpect(jsonPath("$.courseCode", is("CS201")))
+                .andExpect(jsonPath("$.catalogVersion", is("2025-2026")))
+                .andExpect(jsonPath("$.extractionStatus", is("READY_FOR_REVIEW")))
+                .andExpect(jsonPath("$.draftRevision", is(0)))
+                .andReturn();
+
+        contentManagerOutcomeId = objectMapper.readTree(result.getResponse().getContentAsString())
+                .get("outcomeId").asInt();
+    }
+
+    // Purpose: FR-CM-04 review - the extraction proposal is pollable and reports the draft
+    // revision the content manager must echo back on every mutation (optimistic locking).
+    @Test
+    @Order(381)
+    void phase3_extractionStatusReportsReadyForReviewWithDraftRevision() throws Exception {
+        mockMvc.perform(get("/api/content-managers/me/learning-outcomes/"
+                        + contentManagerOutcomeId + "/extraction")
+                        .header("Authorization", "Bearer " + contentManagerToken))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.extractionStatus", is("READY_FOR_REVIEW")))
+                .andExpect(jsonPath("$.totalSkills", is(2)))
+                .andExpect(jsonPath("$.pendingSkills", is(2)))
+                .andExpect(jsonPath("$.taxonomyVersion", is("taxonomy-2026.08")));
+    }
+
+    // Purpose: FR-CM-04 review - every extracted term is listed with its canonical match,
+    // evidence, and PENDING decision; nothing has been approved by anyone yet.
+    @Test
+    @Order(382)
+    void phase3_draftSkillsListShowsPendingProposalWithEvidence() throws Exception {
+        MvcResult result = mockMvc.perform(get("/api/content-managers/me/learning-outcomes/"
+                        + contentManagerOutcomeId + "/skills")
+                        .header("Authorization", "Bearer " + contentManagerToken))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(2)))
+                .andExpect(jsonPath("$[0].term", is("object-oriented programming")))
+                .andExpect(jsonPath("$[0].canonicalSkillId", is("skill:oop")))
+                .andExpect(jsonPath("$[0].decision", is("PENDING")))
+                .andExpect(jsonPath("$[0].matchScore", is(0.95)))
+                .andExpect(jsonPath("$[0].evidence", hasSize(1)))
+                .andReturn();
+
+        JsonNode skills = objectMapper.readTree(result.getResponse().getContentAsString());
+        contentManagerDraftSkillId = skills.get(0).get("draftSkillId").asLong();
+        contentManagerDraftRowVersion = skills.get(0).get("rowVersion").asLong();
+    }
+
+    // Purpose: review concurrency - a mutation carrying a stale draft revision is rejected
+    // with 409 STALE_RESOURCE before anything is modified, so two browsers on the same review
+    // can never silently overwrite each other.
+    @Test
+    @Order(383)
+    void phase3_staleDraftRevisionIsRejectedWithConflict() throws Exception {
+        mockMvc.perform(patch("/api/content-managers/me/learning-outcomes/"
+                        + contentManagerOutcomeId + "/skills/" + contentManagerDraftSkillId)
+                        .header("Authorization", "Bearer " + contentManagerToken)
+                        .contentType("application/json")
+                        .content(objectMapper.writeValueAsString(java.util.Map.of(
+                                "expectedRowVersion", contentManagerDraftRowVersion,
+                                "expectedDraftRevision", 999)))
+                )
+                .andExpect(status().isConflict())
+                .andExpect(jsonPath("$.error", is("STALE_RESOURCE")));
+    }
+
+    // Purpose: FR-CM-04 review - accepting a proposal advances the aggregate revision, and a
+    // second mutation must then use the new revision value (the CAS really rotates).
+    @Test
+    @Order(384)
+    void phase3_contentManagerAcceptsExtractedSkill() throws Exception {
+        contentManagerDraftRevision = readCurrentDraftRevision();
+
+        MvcResult result = mockMvc.perform(patch("/api/content-managers/me/learning-outcomes/"
+                        + contentManagerOutcomeId + "/skills/" + contentManagerDraftSkillId)
+                        .header("Authorization", "Bearer " + contentManagerToken)
+                        .contentType("application/json")
+                        .content(objectMapper.writeValueAsString(java.util.Map.of(
+                                "decision", "ACCEPTED",
+                                "expectedRowVersion", contentManagerDraftRowVersion,
+                                "expectedDraftRevision", contentManagerDraftRevision)))
+                )
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.decision", is("ACCEPTED")))
+                .andExpect(jsonPath("$.rowVersion", is((int) (contentManagerDraftRowVersion + 1))))
+                .andReturn();
+
+        contentManagerDraftRowVersion = objectMapper.readTree(
+                result.getResponse().getContentAsString()).get("rowVersion").asLong();
+
+        mockMvc.perform(get("/api/content-managers/me/learning-outcomes/" + contentManagerOutcomeId)
+                        .header("Authorization", "Bearer " + contentManagerToken))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.pendingSkills", is(1)));
+    }
+
+    // Purpose: FR-CM-04 publication - with every skill resolved, the approved map is copied
+    // into an immutable version 1, confirmed by the AI service, and only then becomes
+    // PUBLISHED; the row's course_map_version records exactly which snapshot students see.
+    @Test
+    @Order(385)
+    void phase3_contentManagerPublishesApprovedCourseMap() throws Exception {
+        // Accept the remaining pending skill first.
+        MvcResult skills = mockMvc.perform(get("/api/content-managers/me/learning-outcomes/"
+                        + contentManagerOutcomeId + "/skills")
+                        .header("Authorization", "Bearer " + contentManagerToken))
+                .andExpect(status().isOk())
+                .andReturn();
+        JsonNode rows = objectMapper.readTree(skills.getResponse().getContentAsString());
+        Long pendingId = null;
+        Long pendingRowVersion = null;
+        for (JsonNode row : rows) {
+            if ("PENDING".equals(row.get("decision").asText())) {
+                pendingId = row.get("draftSkillId").asLong();
+                pendingRowVersion = row.get("rowVersion").asLong();
+            }
+        }
+        assertThat(pendingId).isNotNull();
+        contentManagerDraftRevision = readCurrentDraftRevision();
+        mockMvc.perform(patch("/api/content-managers/me/learning-outcomes/"
+                        + contentManagerOutcomeId + "/skills/" + pendingId)
+                        .header("Authorization", "Bearer " + contentManagerToken)
+                        .contentType("application/json")
+                        .content(objectMapper.writeValueAsString(java.util.Map.of(
+                                "decision", "ACCEPTED",
+                                "expectedRowVersion", pendingRowVersion,
+                                "expectedDraftRevision", contentManagerDraftRevision)))
+                )
+                .andExpect(status().isOk());
+
+        contentManagerDraftRevision = readCurrentDraftRevision();
+        mockMvc.perform(post("/api/content-managers/me/learning-outcomes/"
+                        + contentManagerOutcomeId + "/publish")
+                        .header("Authorization", "Bearer " + contentManagerToken)
+                        .contentType("application/json")
+                        .content(objectMapper.writeValueAsString(java.util.Map.of(
+                                "expectedDraftRevision", contentManagerDraftRevision)))
+                )
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.extractionStatus", is("PUBLISHED")))
+                .andExpect(jsonPath("$.courseMapVersion", is(1)))
+                .andExpect(jsonPath("$.publishedAt", notNullValue()));
+    }
+
+    // Purpose: publication guardrails - after PUBLISHED the review is closed, so a further
+    // edit is a 400 (not a silent mutation of a map students already see), and re-uploading
+    // the same course identity is a 409 pointing at the existing review.
+    @Test
+    @Order(386)
+    void phase3_publishedOutcomeIsImmutableAndDuplicateUploadRejected() throws Exception {
+        mockMvc.perform(patch("/api/content-managers/me/learning-outcomes/"
+                        + contentManagerOutcomeId + "/skills/" + contentManagerDraftSkillId)
+                        .header("Authorization", "Bearer " + contentManagerToken)
+                        .contentType("application/json")
+                        .content(objectMapper.writeValueAsString(java.util.Map.of(
+                                "expectedRowVersion", contentManagerDraftRowVersion,
+                                "expectedDraftRevision", contentManagerDraftRevision)))
+                )
+                .andExpect(status().isBadRequest());
+
+        MockMultipartFile file = new MockMultipartFile(
+                "file", "cs201-again.pdf", "application/pdf", "fake pdf content".getBytes());
+        mockMvc.perform(multipart("/api/content-managers/me/learning-outcomes")
+                        .file(file)
+                        .param("courseCode", "CS201")
+                        .param("catalogVersion", "2025-2026")
+                        .param("courseName", "Data Structures")
+                        .header("Authorization", "Bearer " + contentManagerToken))
+                .andExpect(status().isConflict())
+                .andExpect(jsonPath("$.error", is("DUPLICATE_RESOURCE")));
     }
 
     // Purpose: FR-CM-04 - a non-PDF upload is rejected with 400, never silently accepted.
@@ -966,16 +1255,16 @@ class CareerCompassSystemTest {
 
         List<ActorSession> actors = List.of(
                 new ActorSession("/api/auth/job-seekers/login",
-                        "{\"email\":\"sara@example.com\",\"password\":\"password123\"}",
+                        "{\"email\":\"sara@example.com\",\"password\":\"Password!123\"}",
                         "/api/job-seekers/me"),
                 new ActorSession("/api/auth/employers/login",
-                        "{\"email\":\"hr@atlas.example.com\",\"password\":\"password123\"}",
+                        "{\"email\":\"hr@atlas.example.com\",\"password\":\"Password!123\"}",
                         "/api/employers/me"),
                 new ActorSession("/api/auth/content-managers/login",
-                        "{\"email\":\"nour@meu.edu.jo\",\"password\":\"cmPassword123\"}",
+                        "{\"email\":\"nour@meu.edu.jo\",\"password\":\"CmPassword!123\"}",
                         "/api/content-managers/me/learning-outcomes"),
                 new ActorSession("/api/auth/experts/login",
-                        "{\"email\":\"david@example.com\",\"password\":\"expertPass123\"}",
+                        "{\"email\":\"david@example.com\",\"password\":\"ExpertPass!123\"}",
                         "/api/experts/me"),
                 new ActorSession("/api/auth/admins/login",
                         "{\"email\":\"admin@careercompass.local\",\"password\":\"adminPass123\"}",
@@ -1039,7 +1328,7 @@ class CareerCompassSystemTest {
     void phase4b_aRevokedTokenCannotBeUsedToLogOutAgain() throws Exception {
         MvcResult login = mockMvc.perform(post("/api/auth/job-seekers/login")
                         .contentType("application/json")
-                        .content("{\"email\":\"sara@example.com\",\"password\":\"password123\"}"))
+                        .content("{\"email\":\"sara@example.com\",\"password\":\"Password!123\"}"))
                 .andExpect(status().isOk())
                 .andReturn();
 
@@ -1073,17 +1362,18 @@ class CareerCompassSystemTest {
                 .andExpect(jsonPath("$[0].explanation").exists());
     }
 
-    // Purpose: viewing the stored recommendations afterward still returns them, though the
-    // per-course explanation is null on this path (a documented schema limitation - the
-    // courses_recommendations table has no explanation column).
+    // Purpose: re-reading the stored recommendations returns the reasoning too, not just the
+    // course links. V6 added targeted_skill_name and explanation precisely so a student coming
+    // back to the page keeps the "why this course" text instead of being told to regenerate.
     @Test
     @Order(51)
-    void phase5_jobSeekerCanViewStoredRecommendations_explanationIsNullOnReRead() throws Exception {
+    void phase5_jobSeekerCanViewStoredRecommendations_reasoningSurvivesReRead() throws Exception {
         mockMvc.perform(get("/api/job-seekers/me/course-recommendations")
                         .header("Authorization", "Bearer " + jobSeekerToken))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].courseName", is("Operating Systems Fundamentals")))
-                .andExpect(jsonPath("$[0].explanation").doesNotExist());
+                .andExpect(jsonPath("$[0].explanation").exists())
+                .andExpect(jsonPath("$[0].targetedSkillName").exists());
     }
 
     // =====================================================================================
@@ -1193,8 +1483,14 @@ class CareerCompassSystemTest {
     @Test
     @Order(71)
     void phase7_jobSeekerCanBookConsultationSession() throws Exception {
-        String futureDate = LocalDateTime.now().plusDays(3).toString();
-        String body = String.format("{\"expertId\":%d,\"appointmentDate\":\"%s\"}", expertId, futureDate);
+        // Booking is only allowed inside a slot the mentor has published (FR-EX-06 gates
+        // FR-JS-25), so the schedule has to exist before the request — exactly the order a
+        // real mentor and student go through.
+        LocalDateTime slot = LocalDateTime.now().plusDays(3).withHour(10).withMinute(0)
+                .withSecond(0).withNano(0);
+        publishAvailabilityCovering(slot);
+
+        String body = String.format("{\"expertId\":%d,\"appointmentDate\":\"%s\"}", expertId, slot);
 
         MvcResult result = mockMvc.perform(post("/api/job-seekers/me/appointments")
                         .header("Authorization", "Bearer " + jobSeekerToken)
@@ -1280,6 +1576,25 @@ class CareerCompassSystemTest {
                 .andExpect(jsonPath("$[0].appointmentId", is(appointmentId)));
     }
 
+    /**
+     * Publish a mentor schedule wide enough to contain {@code slot}.
+     *
+     * <p>The suite books relative to "now", so the weekday moves with the calendar; the slot's
+     * own day is derived rather than hard-coded, and the window is deliberately generous so
+     * the assertion under test is about booking, not about clock arithmetic. The endpoint
+     * replaces the whole schedule, which is why each caller republishes its own day.
+     */
+    private void publishAvailabilityCovering(LocalDateTime slot) throws Exception {
+        String body = String.format(
+                "{\"slots\":[{\"dayOfWeek\":%d,\"startTime\":\"00:00:00\",\"endTime\":\"23:59:00\"}]}",
+                slot.getDayOfWeek().getValue());
+
+        mockMvc.perform(put("/api/experts/me/availability")
+                        .header("Authorization", "Bearer " + expertToken)
+                        .contentType("application/json").content(body))
+                .andExpect(status().isOk());
+    }
+
     // Purpose: FR-EX-06 - the Expert sets the weekly availability schedule for consultation
     // sessions. The endpoint replaces the whole schedule rather than appending to it, so the
     // test writes two slots, then rewrites with one, and confirms the first set is gone.
@@ -1316,8 +1631,11 @@ class CareerCompassSystemTest {
     @Test
     @Order(79)
     void phase7_expertCanRejectAConsultationRequest() throws Exception {
-        String futureDate = LocalDateTime.now().plusDays(10).toString();
-        String body = String.format("{\"expertId\":%d,\"appointmentDate\":\"%s\"}", expertId, futureDate);
+        LocalDateTime slot = LocalDateTime.now().plusDays(10).withHour(10).withMinute(0)
+                .withSecond(0).withNano(0);
+        publishAvailabilityCovering(slot);
+
+        String body = String.format("{\"expertId\":%d,\"appointmentDate\":\"%s\"}", expertId, slot);
 
         MvcResult booking = mockMvc.perform(post("/api/job-seekers/me/appointments")
                         .header("Authorization", "Bearer " + jobSeekerToken)
@@ -1422,7 +1740,7 @@ class CareerCompassSystemTest {
     @Test
     @Order(91)
     void phase9_deactivatedContentManagerCannotLogin() throws Exception {
-        String body = "{\"email\":\"nour@meu.edu.jo\",\"password\":\"cmPassword123\"}";
+        String body = "{\"email\":\"nour@meu.edu.jo\",\"password\":\"CmPassword!123\"}";
 
         mockMvc.perform(post("/api/auth/content-managers/login")
                         .contentType("application/json").content(body))
@@ -1476,7 +1794,7 @@ class CareerCompassSystemTest {
     @Test
     @Order(95)
     void phase9_reactivatedContentManagerCanLogInAgain() throws Exception {
-        String body = "{\"email\":\"nour@meu.edu.jo\",\"password\":\"cmPassword123\"}";
+        String body = "{\"email\":\"nour@meu.edu.jo\",\"password\":\"CmPassword!123\"}";
 
         mockMvc.perform(post("/api/auth/content-managers/login")
                         .contentType("application/json").content(body))
@@ -1500,6 +1818,20 @@ class CareerCompassSystemTest {
 
     private String readToken(MvcResult result) throws Exception {
         return objectMapper.readTree(result.getResponse().getContentAsString()).get("token").asText();
+    }
+
+    /**
+     * Reads the aggregate's current draft revision straight from the API, mirroring what a
+     * real second browser would do after receiving 409 STALE_RESOURCE.
+     */
+    private long readCurrentDraftRevision() throws Exception {
+        MvcResult result = mockMvc.perform(get("/api/content-managers/me/learning-outcomes/"
+                        + contentManagerOutcomeId)
+                        .header("Authorization", "Bearer " + contentManagerToken))
+                .andExpect(status().isOk())
+                .andReturn();
+        return objectMapper.readTree(result.getResponse().getContentAsString())
+                .get("draftRevision").asLong();
     }
 
     /**

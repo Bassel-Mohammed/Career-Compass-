@@ -195,7 +195,8 @@ def to_skills(pool: dict, min_df: int = DEFAULT_MIN_DF) -> list:
     Returns:
         Skill dictionaries, most widely required first, each carrying the
         same keys the syllabus extractor produces so the matcher needs no
-        knowledge of where they came from.
+        knowledge of where they came from, plus ``levels`` — the full level
+        distribution behind ``level`` — for the ontology to aggregate.
     """
     skills = []
     for key, record in pool.items():
@@ -205,6 +206,16 @@ def to_skills(pool: dict, min_df: int = DEFAULT_MIN_DF) -> list:
             "term": record["term"],
             "canonical": None,
             "level": record["level"],
+            # The distribution `level` was collapsed from, carried alongside it.
+            #
+            # A single modal level is the right shape for the `job_skills` row this becomes —
+            # one posting asked for one depth — but it is the wrong input to the ontology, which
+            # aggregates across postings a second time. Collapsing to a mode here and taking a
+            # mode of those modes there compounds: measured over this corpus, a per-posting
+            # spread of 9/40/51 (beginner/intermediate/advanced) became 2/33/65 after the first
+            # collapse and 0.5/17/82 after the second, so five requirements in six read
+            # "advanced" and the level stopped distinguishing anything.
+            "levels": dict(record["levels"]),
             "weight": record["weight"],
             "evidence_count": record["document_frequency"],
             "sources": record["sources"],

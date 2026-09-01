@@ -38,6 +38,9 @@ Thumbs.db
 # Logs
 *.log
 
+# Local database backups: may contain sensitive production/development data
+backups/
+
 # Personal academic records: never commit
 ai-service/data/plans/*.pdf
 ai-service/data/transcripts/
@@ -47,12 +50,14 @@ ai-service/data/transcripts/
 *transcript*.json
 !ai-service/tests/**/*transcript*.json
 
-# Rebuildable AI-service artifacts
+# Rebuildable AI-service intermediates. The compact runtime outputs
+# (`extracted/skills/*.json`, the career-path ontology, and taxonomy.jsonl)
+# are intentionally tracked so a fresh clone and its Docker image behave like
+# the tested workspace; large extraction checkpoints and vector caches are not.
 ai-service/data/extracted/syllabi/
-ai-service/data/extracted/skills/
-ai-service/data/extracted/jobs/
+ai-service/data/extracted/jobs/*
+!ai-service/data/extracted/jobs/career_path_skills.json
 ai-service/data/taxonomy/cache/
-ai-service/data/taxonomy/taxonomy.jsonl
 ai-service/data/taxonomy/vector_index.npz
 ai-service/data/temp/
 ai-service/data/raw/catalog/
@@ -62,3 +67,10 @@ backend/uploads/learning-outcomes/*
 
 # Local planning notes
 SKILL_EXTRACTION_PLAN.md
+ACCOUNTS.txt
+
+# Local graduation-report drafts: contain student identity and review material
+CareerCompass_Graduation_Project_Report_*.docx
+
+__pycache__/
+*.py[cod]

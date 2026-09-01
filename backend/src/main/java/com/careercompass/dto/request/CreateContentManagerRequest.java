@@ -1,8 +1,10 @@
 package com.careercompass.dto.request;
 
+import com.careercompass.validation.PasswordPolicy;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,6 +34,7 @@ public class CreateContentManagerRequest {
 
     @NotBlank
     @Size(min = 8, max = 100, message = "Password must be at least 8 characters")
+    @Pattern(regexp = PasswordPolicy.PATTERN, message = PasswordPolicy.MESSAGE)
     private String initialPassword;
 
     @NotNull(message = "University is required")

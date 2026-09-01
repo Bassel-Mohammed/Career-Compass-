@@ -33,6 +33,15 @@ public interface DataAnalysisClient {
     /** Module 3 — Skill-Gap Analysis and Dashboard (Section 5.3.3). */
     SkillGapAnalysisResponse analyzeSkillGap(SkillGapAnalysisRequest request);
 
+    /**
+     * What a career path demands, independent of any student.
+     *
+     * <p>Keyed on the path <em>name</em>, like every other cross-service call (ADR-002). Exists so
+     * a dashboard has something true to show before a transcript is uploaded — every other call
+     * here needs the student's courses first.
+     */
+    CareerPathSkillsResponse getCareerPathSkills(String careerPathName);
+
     /** Module 4 — Course Recommendation (Section 5.3.3). */
     java.util.List<RecommendedCourseDto> recommendCourses(CourseRecommendationRequest request);
 
@@ -41,4 +50,28 @@ public interface DataAnalysisClient {
 
     /** Module 6 — Job Matching, scored against a single job (Section 5.3.3). */
     JobMatchResponse scoreJobMatch(JobMatchRequest request);
+
+    /** M6 — Mentor Matching against student gaps. */
+    MentorMatchResponse matchMentors(MentorMatchRequest request);
+
+    /** M8 — queue a syllabus extraction proposal. This must not publish a course map. */
+    SyllabusExtractionResponse submitSyllabusExtraction(SyllabusExtractionRequest request);
+
+    /** M8 — read current progress or the completed extraction proposal. */
+    SyllabusExtractionResponse getSyllabusExtraction(String extractionId);
+
+    /** M8 — cancel an extraction which has not reached a terminal state. */
+    SyllabusExtractionResponse cancelSyllabusExtraction(String extractionId);
+
+    /** Search the AI-owned canonical taxonomy for manual additions and replacements. */
+    java.util.List<TaxonomySkillSuggestion> searchTaxonomySkills(String query, int limit);
+
+    /** Publish one complete, content-manager-approved course map idempotently. */
+    PublishCourseMapResponse publishCourseMap(PublishCourseMapRequest request);
+
+    /**
+     * Fast read-only scan of a syllabus PDF (no matching, no persistence) used to
+     * pre-fill the upload form's course identity fields.
+     */
+    SyllabusPreviewResponse previewSyllabusPdf(String filename, String contentType, byte[] content);
 }

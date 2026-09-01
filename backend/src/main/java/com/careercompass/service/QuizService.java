@@ -27,6 +27,8 @@ import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Business Layer for FR-JS-17/18/19 (generate, attempt, evaluate quizzes).
@@ -125,6 +127,14 @@ public class QuizService {
 
         Map<Integer, QuizQuestion> questionsById = quiz.getQuestions().stream()
                 .collect(java.util.stream.Collectors.toMap(QuizQuestion::getQuestionId, q -> q));
+
+        Set<Integer> submittedQuestionIds = new HashSet<>();
+        for (SubmitQuizRequest.QuizAnswerItem answer : request.getAnswers()) {
+            if (!submittedQuestionIds.add(answer.getQuestionId())) {
+                throw new IllegalArgumentException(
+                        "Question " + answer.getQuestionId() + " was answered more than once.");
+            }
+        }
 
         int correctCount = 0;
         List<QuizResultResponse.QuestionResult> results = new java.util.ArrayList<>();

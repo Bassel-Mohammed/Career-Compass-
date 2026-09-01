@@ -13,6 +13,7 @@ import com.careercompass.service.EmployerService;
 import com.careercompass.service.JobMatchService;
 import com.careercompass.service.JobSeekerService;
 import com.careercompass.service.JobService;
+import com.careercompass.service.TokenRevocationService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -69,6 +70,13 @@ class SecurityIntegrationTest {
 
     @MockBean
     private JobMatchService jobMatchService;
+
+    // JwtAuthFilter is @Import-ed above as a REAL bean, and its constructor now requires
+    // TokenRevocationService (added for logout). Without this @MockBean, Spring cannot
+    // construct JwtAuthFilter in this slice, and every test in this class fails at context
+    // startup rather than at any assertion.
+    @MockBean
+    private TokenRevocationService tokenRevocationService;
 
     private String jobSeekerToken;
     private String employerToken;
