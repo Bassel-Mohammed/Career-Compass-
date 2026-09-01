@@ -224,8 +224,7 @@ class ApprovedCourseSkill(BaseModel):
 
 class CourseMapPublicationRequest(BaseModel):
     # The backend derives institution codes as ``uni:<id>`` (colon included), so the
-    # pattern must accept it — see docs/contracts/careercompass-ai-internal-v1.yaml,
-    # which deliberately declares no character restriction beyond length here.
+    # pattern must accept it. The generated OpenAPI schema exposes this restriction.
     institution_code: str = Field(min_length=1, max_length=120,
                                   pattern=r"^[A-Za-z0-9][A-Za-z0-9._:-]*$")
     catalog_version: str = Field(min_length=1, max_length=80,

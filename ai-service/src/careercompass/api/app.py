@@ -1,8 +1,8 @@
 """
 CareerCompass — FastAPI Backend Service
 
-HTTP interface over the syllabus skill pipeline, specified in
-docs/SKILL_EXTRACTION_API.md.
+HTTP interface over the syllabus skill pipeline. The current interface is
+published by FastAPI at /openapi.json and /docs.
 
 The route layout follows one measurement: parsing and extraction take
 about a second, but matching a syllabus takes about ninety. So the fast
@@ -105,7 +105,7 @@ app = FastAPI(
     title="CareerCompass API",
     description=(
         "Parses course syllabi into candidate skills and resolves them onto "
-        "the canonical taxonomy. See docs/SKILL_EXTRACTION_API.md."
+        "the canonical taxonomy."
     ),
     version="1.0.0",
     lifespan=lifespan,

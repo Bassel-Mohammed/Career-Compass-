@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * The Python service's wire shapes, exactly as `docs/contracts/careercompass-ai-internal-v1.yaml`
+ * The Python service's wire shapes, exactly as the generated FastAPI OpenAPI schema
  * defines them.
  *
  * <p>These types exist so that snake_case field names, {@code 0.0..1.0} scales, lower-case enums

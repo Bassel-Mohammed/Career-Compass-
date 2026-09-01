@@ -27,7 +27,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
  * HTTP-level contract tests for the JSON operations in
- * {@code docs/contracts/careercompass-ai-internal-v1.yaml}.
+ * the FastAPI-generated internal OpenAPI schema.
  *
  * <p>A real JDK HTTP server is used rather than a mocked {@code WebClient} so that these tests
  * observe the bytes actually sent and parse the bytes actually received. That is the whole point:

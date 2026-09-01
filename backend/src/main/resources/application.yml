@@ -40,7 +40,7 @@ careercompass:
     # Base URL of the Python/FastAPI Data Analyses service (Integration Layer target).
     base-url: ${AI_SERVICE_BASE_URL:http://localhost:8000}
     # Local-development default only. The `integration` and `prod` profiles both pin this to
-    # false; see docs/contracts/careercompass-ai-internal-v1.yaml for what the real client speaks.
+    # false; the FastAPI /openapi.json schema describes what the real client speaks.
     use-mock: true   # true = MockDataAnalysisClient, false = real HTTP client
     # Bearer service token (ADR-008). Blank is tolerated on loopback; prod requires it.
     token: ${AI_SERVICE_TOKEN:}

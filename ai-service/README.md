@@ -96,8 +96,8 @@ Useful URLs:
 
 The major endpoint groups cover transcript parsing, syllabus preview and extraction, extraction
 review, courses and career paths, skill vectors and gaps, recommendations, quizzes, mentor
-matching, taxonomy matching, and the review queue. The versioned Spring/FastAPI contract is
-`../docs/contracts/careercompass-ai-internal-v1.yaml`.
+matching, taxonomy matching, and the review queue. FastAPI generates the current OpenAPI schema at
+`/openapi.json` and renders it interactively at `/docs`.
 
 ## Command-line tools
 
@@ -118,10 +118,10 @@ Run the deterministic lexical suite used by CI:
 CC_EMBEDDING_BACKEND=lexical CC_API_WARMUP=0 uv run --extra dev pytest -q
 ```
 
-To validate the shared OpenAPI contract:
+To validate the generated OpenAPI schema:
 
 ```bash
-uv run --extra dev python -c "from openapi_spec_validator import validate; from openapi_spec_validator.readers import read_from_filename; spec, _ = read_from_filename('../docs/contracts/careercompass-ai-internal-v1.yaml'); validate(spec)"
+CC_API_WARMUP=0 uv run --extra dev python -c "from openapi_spec_validator import validate; from careercompass.api.app import app; validate(app.openapi())"
 ```
 
 ## Docker

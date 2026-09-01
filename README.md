@@ -47,7 +47,6 @@ career_compass/
 ├── frontend/       React application and browser tests
 ├── backend/        Spring Boot public API and MySQL/H2 migrations
 ├── ai-service/     FastAPI AI service and PostgreSQL migrations
-├── docs/           Versioned ADRs and the internal OpenAPI contract
 ├── scripts/        Database and integration verification scripts
 ├── compose.yaml    Local development stack
 └── docker-compose.prod.yml
@@ -128,8 +127,8 @@ Run the same main checks used by CI:
 python3 scripts/check_database_migration_layout.py
 ```
 
-CI additionally verifies MySQL and PostgreSQL migration paths and validates the shared internal
-OpenAPI contract at `docs/contracts/careercompass-ai-internal-v1.yaml`.
+CI additionally verifies MySQL and PostgreSQL migration paths and validates the OpenAPI schema
+generated directly by the FastAPI application.
 
 ## Production
 

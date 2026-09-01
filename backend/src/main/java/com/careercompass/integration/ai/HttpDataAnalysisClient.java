@@ -30,7 +30,7 @@ import java.util.function.Supplier;
 
 /**
  * The real HTTP implementation of {@link DataAnalysisClient}, speaking
- * {@code docs/contracts/careercompass-ai-internal-v1.yaml}.
+ * the FastAPI-generated internal OpenAPI schema.
  *
  * <p>This class is the anti-corruption boundary. Everything the Python service does differently
  * from the Java domain is translated here and only here:

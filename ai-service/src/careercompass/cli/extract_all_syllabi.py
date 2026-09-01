@@ -16,7 +16,6 @@ collected syllabi can be added without redoing the rest.
 
 The CUDA_VISIBLE_DEVICES="" is not optional on a card that also hosts Ollama:
 without it the LLM stage dies with a CUDA OOM that the run reports as success.
-See docs/ENGINEERING_NOTES.md §4 and §8.
 """
 import argparse
 import json

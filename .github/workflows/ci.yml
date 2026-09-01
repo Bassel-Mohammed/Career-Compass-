@@ -145,11 +145,13 @@ jobs:
 
       - name: Validate the internal contract
         working-directory: ai-service
+        env:
+          CC_API_WARMUP: "0"
         run: |
           uv run --extra dev python -c "
           from openapi_spec_validator import validate
-          from openapi_spec_validator.readers import read_from_filename
-          spec, _ = read_from_filename('../docs/contracts/careercompass-ai-internal-v1.yaml')
+          from careercompass.api.app import app
+          spec = app.openapi()
           validate(spec)
           print(f'Contract valid: {len(spec[\"paths\"])} paths, {len(spec[\"components\"][\"schemas\"])} schemas')
           "
